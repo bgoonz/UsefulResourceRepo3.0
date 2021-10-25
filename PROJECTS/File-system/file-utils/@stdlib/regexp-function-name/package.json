@@ -1,0 +1,109 @@
+{
+  "_from": "@stdlib/regexp-function-name@^0.0.x",
+  "_id": "@stdlib/regexp-function-name@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-T/WdLsJ1ghhg0km+2JF0OZ9ntkPqCWlk9AaD2zITkpVNN6w4072+MpUl2XwTM6dGwHgxzQldCGK4Ti/J0/bftw==",
+  "_location": "/@stdlib/regexp-function-name",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/regexp-function-name@^0.0.x",
+    "name": "@stdlib/regexp-function-name",
+    "escapedName": "@stdlib%2fregexp-function-name",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/utils-constructor-name"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/regexp-function-name/-/regexp-function-name-0.0.6.tgz",
+  "_shasum": "ee4ecd08b1c367a8f20cd8915c6d6df2bab4dbb9",
+  "_spec": "@stdlib/regexp-function-name@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/utils-constructor-name",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Return a regular expression to capture a function name.",
+  "devDependencies": {
+    "@stdlib/array-int8": "^0.0.x",
+    "@stdlib/assert-is-regexp": "^0.0.x",
+    "@stdlib/assert-is-string": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/string-from-code-point": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "regex",
+    "regexp",
+    "re",
+    "function",
+    "name",
+    "regular",
+    "expression",
+    "capture",
+    "match"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/regexp-function-name",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/regexp-function-name.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

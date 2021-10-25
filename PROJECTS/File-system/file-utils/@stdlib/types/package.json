@@ -1,0 +1,105 @@
+{
+  "__stdlib__": {
+    "envs": {
+      "browser": false
+    }
+  },
+  "_from": "@stdlib/types@^0.0.x",
+  "_id": "@stdlib/types@0.0.13",
+  "_inBundle": false,
+  "_integrity": "sha512-8aPkDtaJM/XZENqhoj7BYuwENLGyxz1xfLIcf2zct7kLZMi0rODzks3n65LEMIR9Rh3rFDXlwc35XvzEkTpmZQ==",
+  "_location": "/@stdlib/types",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/types@^0.0.x",
+    "name": "@stdlib/types",
+    "escapedName": "@stdlib%2ftypes",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/utils-define-nonenumerable-read-only-property",
+    "/@stdlib/utils-define-property"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/types/-/types-0.0.13.tgz",
+  "_shasum": "4cf4666286294a48c589a37c2b0b48c9076128f9",
+  "_spec": "@stdlib/types@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/utils-define-nonenumerable-read-only-property",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "browser": "./lib/browser.js",
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "stdlib TypeScript type declarations.",
+  "devDependencies": {
+    "@stdlib/assert": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "standard",
+    "library",
+    "types",
+    "typescript",
+    "ts",
+    "declarations",
+    "definitions"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/types",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/types.git"
+  },
+  "scripts": {
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": ".",
+  "version": "0.0.13"
+}

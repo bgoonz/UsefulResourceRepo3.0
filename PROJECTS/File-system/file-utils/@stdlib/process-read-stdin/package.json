@@ -1,0 +1,115 @@
+{
+  "_from": "@stdlib/process-read-stdin@^0.0.x",
+  "_id": "@stdlib/process-read-stdin@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-8PSXMK4XMfhyjTSzxoeKqRRGvOLB8WjkxzzBNf27GI8jgw51oKs3yHbQFLOlpNSsTNN66NIDLn1PEhOK68RgvA==",
+  "_location": "/@stdlib/process-read-stdin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/process-read-stdin@^0.0.x",
+    "name": "@stdlib/process-read-stdin",
+    "escapedName": "@stdlib%2fprocess-read-stdin",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/fs-write-file"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/process-read-stdin/-/process-read-stdin-0.0.6.tgz",
+  "_shasum": "d350a48be313fca6e7be3a26f75f59265ba58a25",
+  "_spec": "@stdlib/process-read-stdin@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/fs-write-file",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "browser": "./lib/browser.js",
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-is-function": "^0.0.x",
+    "@stdlib/assert-is-string": "^0.0.x",
+    "@stdlib/buffer-ctor": "^0.0.x",
+    "@stdlib/buffer-from-string": "^0.0.x",
+    "@stdlib/streams-node-stdin": "^0.0.x",
+    "@stdlib/utils-next-tick": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Read data from stdin.",
+  "devDependencies": {
+    "@stdlib/assert-is-browser": "^0.0.x",
+    "@stdlib/assert-is-buffer": "^0.0.x",
+    "@stdlib/utils-noop": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "proxyquire": "^2.0.0",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdutils",
+    "stdutil",
+    "utils",
+    "util",
+    "utilities",
+    "utility",
+    "process",
+    "stdin",
+    "tty",
+    "input",
+    "data",
+    "stream"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/process-read-stdin",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/process-read-stdin.git"
+  },
+  "scripts": {
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

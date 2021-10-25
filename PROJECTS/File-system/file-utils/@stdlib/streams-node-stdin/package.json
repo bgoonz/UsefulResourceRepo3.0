@@ -1,0 +1,100 @@
+{
+  "_from": "@stdlib/streams-node-stdin@^0.0.x",
+  "_id": "@stdlib/streams-node-stdin@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-WBxrBpFewya5PD09nyPHM9x0HMFrCKEgVaea7OHD6ZrLjU+zzXDTGIgU6p7+lF0WxFxU/K/PUeFhs+iWnvNg0Q==",
+  "_location": "/@stdlib/streams-node-stdin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/streams-node-stdin@^0.0.x",
+    "name": "@stdlib/streams-node-stdin",
+    "escapedName": "@stdlib%2fstreams-node-stdin",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/process-read-stdin"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/streams-node-stdin/-/streams-node-stdin-0.0.6.tgz",
+  "_shasum": "a0176b240fdcef42a53585701dd98d78a5a3dd5d",
+  "_spec": "@stdlib/streams-node-stdin@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/process-read-stdin",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "browser": {
+    "process": "process/"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Standard input.",
+  "devDependencies": {
+    "@stdlib/streams-node-stdout": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdstreams",
+    "stream",
+    "stdin",
+    "standard",
+    "input"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/streams-node-stdin",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/streams-node-stdin.git"
+  },
+  "scripts": {
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

@@ -1,0 +1,361 @@
+
+## Backtracking
+
+- [AllCombinationsOfSizeK](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/AllCombinationsOfSizeK.js)
+- [GeneratePermutations](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/GeneratePermutations.js)
+- [KnightTour](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/KnightTour.js)
+- [NQueen](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/NQueen.js)
+- [RatInAMaze](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/RatInAMaze.js)
+- [Sudoku](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/Sudoku.js)
+- [SumOfSubset](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/SumOfSubset.js)
+
+## Bit-Manipulation
+
+- [BinaryCountSetBits](https://github.com/TheAlgorithms/Javascript/blob/master/Bit-Manipulation/BinaryCountSetBits.js)
+- [IsPowerOfTwo](https://github.com/TheAlgorithms/Javascript/blob/master/Bit-Manipulation/IsPowerOfTwo.js)
+- [NextPowerOfTwo](https://github.com/TheAlgorithms/Javascript/blob/master/Bit-Manipulation/NextPowerOfTwo.js)
+- [SetBit](https://github.com/TheAlgorithms/Javascript/blob/master/Bit-Manipulation/SetBit.js)
+
+## Cache
+
+- [LFUCache](https://github.com/TheAlgorithms/Javascript/blob/master/Cache/LFUCache.js)
+- [LRUCache](https://github.com/TheAlgorithms/Javascript/blob/master/Cache/LRUCache.js)
+- [Memoize](https://github.com/TheAlgorithms/Javascript/blob/master/Cache/Memoize.js)
+
+## Cellular-Automata
+
+- [ConwaysGameOfLife](https://github.com/TheAlgorithms/Javascript/blob/master/Cellular-Automata/ConwaysGameOfLife.js)
+
+## Ciphers
+
+- [Atbash](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/Atbash.js)
+- [CaesarsCipher](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/CaesarsCipher.js)
+- [KeyFinder](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/KeyFinder.js)
+- [KeywordShiftedAlphabet](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/KeywordShiftedAlphabet.js)
+- [ROT13](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/ROT13.js)
+- [VigenereCipher](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/VigenereCipher.js)
+- [XORCipher](https://github.com/TheAlgorithms/Javascript/blob/master/Ciphers/XORCipher.js)
+
+## Conversions
+
+- [ArbitraryBase](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/ArbitraryBase.js)
+- [ArrayBufferToBase64](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/ArrayBufferToBase64.js)
+- [Base64ToArrayBuffer](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/Base64ToArrayBuffer.js)
+- [BinaryToDecimal](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/BinaryToDecimal.js)
+- [BinaryToHex](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/BinaryToHex.js)
+- [DateDayDifference](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DateDayDifference.js)
+- [DateToDay](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DateToDay.js)
+- [DecimalToBinary](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DecimalToBinary.js)
+- [DecimalToHex](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DecimalToHex.js)
+- [DecimalToOctal](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DecimalToOctal.js)
+- [DecimalToRoman](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DecimalToRoman.js)
+- [HexToDecimal](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/HexToDecimal.js)
+- [HexToRGB](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/HexToRGB.js)
+- [LowerCaseConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/LowerCaseConversion.js)
+- [MeterToFeetConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/MeterToFeetConversion.js)
+- [OctToDecimal](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/OctToDecimal.js)
+- [RailwayTimeConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/RailwayTimeConversion.js)
+- [RgbHsvConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/RgbHsvConversion.js)
+- [RGBToHex](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/RGBToHex.js)
+- [RomanToDecimal](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/RomanToDecimal.js)
+- [TemperatureConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/TemperatureConversion.js)
+- [TitleCaseConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/TitleCaseConversion.js)
+- [UpperCaseConversion](https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/UpperCaseConversion.js)
+
+## Data-Structures
+
+- Array
+  - [QuickSelect](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Array/QuickSelect.js)
+- Graph
+  - [Graph](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Graph/Graph.js)
+  - [Graph2](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Graph/Graph2.js)
+- Heap
+  - [MaxHeap](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Heap/MaxHeap.js)
+  - [MinPriorityQueue](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Heap/MinPriorityQueue.js)
+- Linked-List
+  - [CycleDetection](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Linked-List/CycleDetection.js)
+  - [DoublyLinkedList](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Linked-List/DoublyLinkedList.js)
+  - [RotateListRight](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Linked-List/RotateListRight.js)
+  - [SingleCircularLinkedList](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Linked-List/SingleCircularLinkedList.js.js)
+  - [SinglyLinkList](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Linked-List/SinglyLinkList.js)
+- Queue
+  - [CircularQueue](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Queue/CircularQueue.js)
+  - [Queue](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Queue/Queue.js)
+  - [QueueUsing2Stacks](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Queue/QueueUsing2Stacks.js)
+- Stack
+  - [Stack](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Stack/Stack.js)
+  - [StackES6](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Stack/StackES6.js)
+- Tree
+  - [AVLTree](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Tree/AVLTree.js)
+  - [BinarySearchTree](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Tree/BinarySearchTree.js)
+  - [Trie](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Tree/Trie.js)
+- Vectors
+  - [Vector2](https://github.com/TheAlgorithms/Javascript/blob/master/Data-Structures/Vectors/Vector2.js)
+
+## Dynamic-Programming
+
+- [ClimbingStairs](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/ClimbingStairs.js)
+- [CoinChange](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/CoinChange.js)
+- [EditDistance](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/EditDistance.js)
+- [FibonacciNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/FibonacciNumber.js)
+- [FindMonthCalendar](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/FindMonthCalendar.js)
+- [KadaneAlgo](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/KadaneAlgo.js)
+- [LevenshteinDistance](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/LevenshteinDistance.js)
+- [LongestCommonSubsequence](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/LongestCommonSubsequence.js)
+- [LongestIncreasingSubsequence](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/LongestIncreasingSubsequence.js)
+- [LongestPalindromicSubsequence](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/LongestPalindromicSubsequence.js)
+- [LongestValidParentheses](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/LongestValidParentheses.js)
+- [MaxNonAdjacentSum](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/MaxNonAdjacentSum.js)
+- [MaxProductOfThree](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/MaxProductOfThree.js)
+- [MinimumCostPath](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/MinimumCostPath.js)
+- [NumberOfSubsetEqualToGivenSum](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/NumberOfSubsetEqualToGivenSum.js)
+- [RodCutting](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/RodCutting.js)
+- [Shuf](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/Shuf.js)
+- [SieveOfEratosthenes](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/SieveOfEratosthenes.js)
+- [SudokuSolver](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/SudokuSolver.js)
+- [TrappingRainWater](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/TrappingRainWater.js)
+- [ZeroOneKnapsack](https://github.com/TheAlgorithms/Javascript/blob/master/Dynamic-Programming/ZeroOneKnapsack.js)
+
+## Geometry
+
+- [ConvexHullGraham](https://github.com/TheAlgorithms/Javascript/blob/master/Geometry/ConvexHullGraham.js)
+
+## Graphs
+
+- [BellmanFord](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/BellmanFord.js)
+- [BreadthFirstSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/BreadthFirstSearch.js)
+- [BreadthFirstShortestPath](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/BreadthFirstShortestPath.js)
+- [ConnectedComponents](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/ConnectedComponents.js)
+- [Density](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/Density.js)
+- [DepthFirstSearchIterative](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/DepthFirstSearchIterative.js)
+- [DepthFirstSearchRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/DepthFirstSearchRecursive.js)
+- [Dijkstra](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/Dijkstra.js)
+- [DijkstraSmallestPath](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/DijkstraSmallestPath.js)
+- [FloydWarshall](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/FloydWarshall.js)
+- [KruskalMST](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/KruskalMST.js)
+- [NodeNeighbors](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/NodeNeighbors.js)
+- [NumberOfIslands](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/NumberOfIslands.js)
+- [PrimMST](https://github.com/TheAlgorithms/Javascript/blob/master/Graphs/PrimMST.js)
+
+## Hashes
+
+- [SHA1](https://github.com/TheAlgorithms/Javascript/blob/master/Hashes/SHA1.js)
+- [SHA256](https://github.com/TheAlgorithms/Javascript/blob/master/Hashes/SHA256.js)
+
+## Linear-Algebra
+
+- src
+  - [la_lib](https://github.com/TheAlgorithms/Javascript/blob/master/Linear-Algebra/src/la_lib.js)
+- test
+  - [test](https://github.com/TheAlgorithms/Javascript/blob/master/Linear-Algebra/test/test.js)
+
+## Maths
+
+- [Abs](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Abs.js)
+- [Area](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Area.js)
+- [ArmstrongNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/ArmstrongNumber.js)
+- [AverageMean](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/AverageMean.js)
+- [AverageMedian](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/AverageMedian.js)
+- [BinaryConvert](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/BinaryConvert.js)
+- [BinaryExponentiationIterative](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/BinaryExponentiationIterative.js)
+- [BinaryExponentiationRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/BinaryExponentiationRecursive.js)
+- [CheckKishnamurthyNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/CheckKishnamurthyNumber.js)
+- [Coordinate](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Coordinate.js)
+- [CoPrimeCheck](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/CoPrimeCheck.js)
+- [decimalIsolate](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/decimalIsolate.js)
+- [DegreeToRadian](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/DegreeToRadian.js)
+- [DigitSum](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/DigitSum.js)
+- [EulerMethod](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/EulerMethod.js)
+- [EulersTotient](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/EulersTotient.js)
+- [EulersTotientFunction](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/EulersTotientFunction.js)
+- [ExtendedEuclideanGCD](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/ExtendedEuclideanGCD.js)
+- [Factorial](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Factorial.js)
+- [Factors](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Factors.js)
+- [FareyApproximation](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/FareyApproximation.js)
+- [FermatPrimalityTest](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/FermatPrimalityTest.js)
+- [Fibonacci](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Fibonacci.js)
+- [FigurateNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/FigurateNumber.js)
+- [FindHcf](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/FindHcf.js)
+- [FindLcm](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/FindLcm.js)
+- [GetEuclidGCD](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/GetEuclidGCD.js)
+- [GridGet](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/GridGet.js)
+- [IsDivisible](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/IsDivisible.js)
+- [IsEven](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/IsEven.js)
+- [isOdd](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/isOdd.js)
+- [LeapYear](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/LeapYear.js)
+- [Mandelbrot](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Mandelbrot.js)
+- [MatrixExponentiationRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/MatrixExponentiationRecursive.js)
+- [MatrixMultiplication](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/MatrixMultiplication.js)
+- [MeanSquareError](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/MeanSquareError.js)
+- [ModularBinaryExponentiationRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/ModularBinaryExponentiationRecursive.js)
+- [NumberOfDigits](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/NumberOfDigits.js)
+- [Palindrome](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Palindrome.js)
+- [PascalTriangle](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PascalTriangle.js)
+- [PerfectCube](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PerfectCube.js)
+- [PerfectNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PerfectNumber.js)
+- [PerfectSquare](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PerfectSquare.js)
+- [PermutationAndCombination](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PermutationAndCombination.js)
+- [PiApproximationMonteCarlo](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PiApproximationMonteCarlo.js)
+- [Polynomial](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Polynomial.js)
+- [Pow](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Pow.js)
+- [PrimeCheck](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PrimeCheck.js)
+- [PrimeFactors](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/PrimeFactors.js)
+- [RadianToDegree](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/RadianToDegree.js)
+- [ReverseNumber](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/ReverseNumber.js)
+- [ReversePolishNotation](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/ReversePolishNotation.js)
+- [SieveOfEratosthenes](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/SieveOfEratosthenes.js)
+- [Softmax](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Softmax.js)
+- [SquareRoot](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/SquareRoot.js)
+- [SumOfDigits](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/SumOfDigits.js)
+- [Volume](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/Volume.js)
+- [WhileLoopFactorial](https://github.com/TheAlgorithms/Javascript/blob/master/Maths/WhileLoopFactorial.js)
+
+## Navigation
+
+- [Haversine](https://github.com/TheAlgorithms/Javascript/blob/master/Navigation/Haversine.js)
+
+## Project-Euler
+
+- [Problem001](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem001.js)
+- [Problem002](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem002.js)
+- [Problem003](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem003.js)
+- [Problem004](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem004.js)
+- [Problem005](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem005.js)
+- [Problem006](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem006.js)
+- [Problem007](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem007.js)
+- [Problem008](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem008.js)
+- [Problem009](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem009.js)
+- [Problem010](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem010.js)
+- [Problem014](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem014.js)
+- [Problem015](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem015.js)
+- [Problem016](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem016.js)
+- [Problem018](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem018.js)
+- [Problem020](https://github.com/TheAlgorithms/Javascript/blob/master/Project-Euler/Problem020.js)
+
+## Recursive
+
+- [BinaryEquivalent](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/BinaryEquivalent.js)
+- [BinarySearch](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/BinarySearch.js)
+- [EucledianGCD](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/EucledianGCD.js)
+- [factorial](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/factorial.js)
+- [FibonacciNumberRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/FibonacciNumberRecursive.js)
+- [FloodFill](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/FloodFill.js)
+- [KochSnowflake](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/KochSnowflake.js)
+- [Palindrome](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/Palindrome.js)
+- [SubsequenceRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/SubsequenceRecursive.js)
+- [TowerOfHanoi](https://github.com/TheAlgorithms/Javascript/blob/master/Recursive/TowerOfHanoi.js)
+
+## Search
+
+- [BinarySearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/BinarySearch.js)
+- [ExponentialSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/ExponentialSearch.js)
+- [FibonacciSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/FibonacciSearch.js)
+- [InterpolationSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/InterpolationSearch.js)
+- [JumpSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/JumpSearch.js)
+- [LinearSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/LinearSearch.js)
+- [QuickSelectSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/QuickSelectSearch.js)
+- [SlidingWindow](https://github.com/TheAlgorithms/Javascript/blob/master/Search/SlidingWindow.js)
+- [StringSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/StringSearch.js)
+- [TernarySearch](https://github.com/TheAlgorithms/Javascript/blob/master/Search/TernarySearch.js)
+
+## Sorts
+
+- [BeadSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/BeadSort.js)
+- [BogoSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/BogoSort.js)
+- [BubbleSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/BubbleSort.js)
+- [BucketSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/BucketSort.js)
+- [CocktailShakerSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/CocktailShakerSort.js)
+- [CombSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/CombSort.js)
+- [CountingSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/CountingSort.js)
+- [CycleSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/CycleSort.js)
+- [FindSecondLargestElement](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/FindSecondLargestElement.js)
+- [FisherYatesShuffle](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/FisherYatesShuffle.js)
+- [FlashSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/FlashSort.js)
+- [GnomeSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/GnomeSort.js)
+- [HeapSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/HeapSort.js)
+- [HeapSortV2](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/HeapSortV2.js)
+- [InsertionSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/InsertionSort.js)
+- [IntroSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/IntroSort.js)
+- [MergeSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/MergeSort.js)
+- [OddEvenSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/OddEvenSort.js)
+- [PancakeSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/PancakeSort.js)
+- [PigeonHoleSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/PigeonHoleSort.js)
+- [QuickSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/QuickSort.js)
+- [QuickSortRecursive](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/QuickSortRecursive.js)
+- [RadixSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/RadixSort.js)
+- [SelectionSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/SelectionSort.js)
+- [ShellSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/ShellSort.js)
+- [TimSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/TimSort.js)
+- [TopologicalSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/TopologicalSort.js)
+- [WiggleSort](https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/WiggleSort.js)
+
+## String
+
+- [AlphaNumericPalindrome](https://github.com/TheAlgorithms/Javascript/blob/master/String/AlphaNumericPalindrome.js)
+- [AlternativeStringArrange](https://github.com/TheAlgorithms/Javascript/blob/master/String/AlternativeStringArrange.js)
+- [CheckAnagram](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckAnagram.js)
+- [CheckCamelCase](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckCamelCase.js)
+- [CheckFlatCase](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckFlatCase.js)
+- [CheckKebabCase](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckKebabCase.js)
+- [CheckPalindrome](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckPalindrome.js)
+- [CheckPangram](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckPangram.js)
+- [CheckPascalCase](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckPascalCase.js)
+- [CheckRearrangePalindrome](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckRearrangePalindrome.js)
+- [CheckSnakeCase](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckSnakeCase.js)
+- [CheckVowels](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckVowels.js)
+- [CheckWordOccurrence](https://github.com/TheAlgorithms/Javascript/blob/master/String/CheckWordOccurrence.js)
+- [CreatePermutations](https://github.com/TheAlgorithms/Javascript/blob/master/String/CreatePermutations.js)
+- [DiceCoefficient](https://github.com/TheAlgorithms/Javascript/blob/master/String/DiceCoefficient.js)
+- [FormatPhoneNumber](https://github.com/TheAlgorithms/Javascript/blob/master/String/FormatPhoneNumber.js)
+- [GenerateGUID](https://github.com/TheAlgorithms/Javascript/blob/master/String/GenerateGUID.js)
+- [HammingDistance](https://github.com/TheAlgorithms/Javascript/blob/master/String/HammingDistance.js)
+- [KMPPatternSearching](https://github.com/TheAlgorithms/Javascript/blob/master/String/KMPPatternSearching.js)
+- [LevenshteinDistance](https://github.com/TheAlgorithms/Javascript/blob/master/String/LevenshteinDistance.js)
+- [MaxCharacter](https://github.com/TheAlgorithms/Javascript/blob/master/String/MaxCharacter.js)
+- [MaxWord](https://github.com/TheAlgorithms/Javascript/blob/master/String/MaxWord.js)
+- [PatternMatching](https://github.com/TheAlgorithms/Javascript/blob/master/String/PatternMatching.js)
+- [PermutateString](https://github.com/TheAlgorithms/Javascript/blob/master/String/PermutateString.js)
+- [ReverseString](https://github.com/TheAlgorithms/Javascript/blob/master/String/ReverseString.js)
+- [ReverseWords](https://github.com/TheAlgorithms/Javascript/blob/master/String/ReverseWords.js)
+- [ScrambleStrings](https://github.com/TheAlgorithms/Javascript/blob/master/String/ScrambleStrings.js)
+- [ValidateEmail](https://github.com/TheAlgorithms/Javascript/blob/master/String/ValidateEmail.js)
+
+## Timing-Functions
+
+- [GetMonthDays](https://github.com/TheAlgorithms/Javascript/blob/master/Timing-Functions/GetMonthDays.js)
+- [IntervalTimer](https://github.com/TheAlgorithms/Javascript/blob/master/Timing-Functions/IntervalTimer.js)
+
+## Trees
+
+- [BreadthFirstTreeTraversal](https://github.com/TheAlgorithms/Javascript/blob/master/Trees/BreadthFirstTreeTraversal.js)
+- [DepthFirstSearch](https://github.com/TheAlgorithms/Javascript/blob/master/Trees/DepthFirstSearch.js)
+
+# The Algorithms - JavaScript
+
+[![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square)](CONTRIBUTING.md)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/TheAlgorithms/Javascript.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/TheAlgorithms/Javascript/context:javascript)
+![Node CI](https://github.com/TheAlgorithms/Javascript/workflows/Node%20CI/badge.svg)
+![update_directory_md](https://github.com/TheAlgorithms/Javascript/workflows/update_directory_md/badge.svg)
+[![Discord chat](https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=7289DA&style=flat-square)](https://discord.gg/c7MnfGFGa6)
+![](https://img.shields.io/github/repo-size/TheAlgorithms/Javascript.svg?label=Repo%20size&style=flat-square)
+[![standard.js](https://img.shields.io/badge/code%20style-standardjs-%23f3df49)](https://standardjs.com/)
+
+## All algorithms implemented in JavaScript (for educational purposes only)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TheAlgorithms/Javascript)
+
+These are for demonstration purposes only. There are many implementations of sorts in the JavaScript standard library
+that are much better for performance reasons.
+
+## Contribution Guidelines
+
+Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
+
+## List of Algorithms
+
+See our [directory](DIRECTORY.md).
+
+## Algorithm Explanation
+
+See our [wiki](https://github.com/TheAlgorithms/Javascript/wiki).
+
