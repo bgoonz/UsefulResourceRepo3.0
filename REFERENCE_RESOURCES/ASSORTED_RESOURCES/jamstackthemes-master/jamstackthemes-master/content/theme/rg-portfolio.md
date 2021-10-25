@@ -15,8 +15,8 @@ archetype:
 services:
   - Formstack
 description: >-
-  Kick-off your Portfolio website with RG-Portfolio gatsby starter. We have used
-  Gatsby + Contenful.
+  Kick-off your Portfolio website with RG-Portfolio gatsby starter. We have used Gatsby + Contenful.
+
 stale: false
 ---
 
@@ -26,14 +26,13 @@ In this starter, you can easily manage your content from contentful CMS. you can
 
 Manage all site infromations, Header menu and Home page section in Contentful. see the screenshot of settings.
 
-
 ## Features
 
-* Blogs listing with each blog post.
-* Contact form with Email notification using formspree.io. 
-* Photos and Blogs page listing.
-* Different types of sections like About, Service, Blogs, Work, Testimonials, Photos, and contact.
-* _Super_ lightweight front-end  
-* All settings manage from Contentful for example Header Menu, Homepage sections, blogs, and photos, etc.
-* Social share in blog details pages with comment ( Disqus ).
-* PWA
+- Blogs listing with each blog post.
+- Contact form with Email notification using formspree.io.
+- Photos and Blogs page listing.
+- Different types of sections like About, Service, Blogs, Work, Testimonials, Photos, and contact.
+- _Super_ lightweight front-end
+- All settings manage from Contentful for example Header Menu, Homepage sections, blogs, and photos, etc.
+- Social share in blog details pages with comment ( Disqus ).
+- PWA

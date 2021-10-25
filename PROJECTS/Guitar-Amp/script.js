@@ -1,25 +1,25 @@
-const volume = document.getElementById("volume");
-const bass = document.getElementById("bass");
-const mid = document.getElementById("mid");
-const treble = document.getElementById("treble");
-const visualizer = document.getElementById("visualizer");
+const volume = document.getElementById('volume');
+const bass = document.getElementById('bass');
+const mid = document.getElementById('mid');
+const treble = document.getElementById('treble');
+const visualizer = document.getElementById('visualizer');
 
 const context = new AudioContext();
 const analyserNode = new AnalyserNode(context, { fftSize: 256 });
 const gainNode = new GainNode(context, { gain: volume.value });
 const bassEQ = new BiquadFilterNode(context, {
-  type: "lowshelf",
+  type: 'lowshelf',
   frequency: 500,
   gain: bass.value,
 });
 const midEQ = new BiquadFilterNode(context, {
-  type: "peaking",
+  type: 'peaking',
   Q: Math.SQRT1_2,
   frequency: 1500,
   gain: mid.value,
 });
 const trebleEQ = new BiquadFilterNode(context, {
-  type: "highshelf",
+  type: 'highshelf',
   frequency: 3000,
   gain: treble.value,
 });
@@ -30,24 +30,24 @@ resize();
 drawVisualizer();
 
 function setupEventListeners() {
-  window.addEventListener("resize", resize);
+  window.addEventListener('resize', resize);
 
-  volume.addEventListener("input", (e) => {
+  volume.addEventListener('input', (e) => {
     const value = parseFloat(e.target.value);
     gainNode.gain.setTargetAtTime(value, context.currentTime, 0.01);
   });
 
-  bass.addEventListener("input", (e) => {
+  bass.addEventListener('input', (e) => {
     const value = parseInt(e.target.value);
     bassEQ.gain.setTargetAtTime(value, context.currentTime, 0.01);
   });
 
-  mid.addEventListener("input", (e) => {
+  mid.addEventListener('input', (e) => {
     const value = parseInt(e.target.value);
     midEQ.gain.setTargetAtTime(value, context.currentTime, 0.01);
   });
 
-  treble.addEventListener("input", (e) => {
+  treble.addEventListener('input', (e) => {
     const value = parseInt(e.target.value);
     trebleEQ.gain.setTargetAtTime(value, context.currentTime, 0.01);
   });
@@ -55,7 +55,7 @@ function setupEventListeners() {
 
 async function setupContext() {
   const guitar = await getGuitar();
-  if (context.state === "suspended") {
+  if (context.state === 'suspended') {
     await context.resume();
   }
   const source = context.createMediaStreamSource(guitar);
@@ -89,7 +89,7 @@ function drawVisualizer() {
   const height = visualizer.height;
   const barWidth = width / bufferLength;
 
-  const canvasContext = visualizer.getContext("2d");
+  const canvasContext = visualizer.getContext('2d');
   canvasContext.clearRect(0, 0, width, height);
 
   dataArray.forEach((item, index) => {

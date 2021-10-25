@@ -12,8 +12,8 @@ css: null
 archetype:
   - Blog
 description: >-
-  A simple NextJS blog powered by Lyket to support like, clap and like/dislike
-  buttons!
+  A simple NextJS blog powered by Lyket to support like, clap and like/dislike buttons!
+
 stale: false
 ---
 

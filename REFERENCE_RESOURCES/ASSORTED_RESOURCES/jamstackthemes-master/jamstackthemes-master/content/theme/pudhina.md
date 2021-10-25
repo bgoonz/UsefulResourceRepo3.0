@@ -17,9 +17,9 @@ A simple, minimal Jekyll theme for a personal web page and blog, focusing on whi
 
 ## Features
 
-* Simple, minimal and clean
-* Blog posts categorised
-* Responsive
-* Syntax Highlighter (using highlight.js).
-* Font-Awesome Icons.
-* Glitchy 404 page
+- Simple, minimal and clean
+- Blog posts categorised
+- Responsive
+- Syntax Highlighter (using highlight.js).
+- Font-Awesome Icons.
+- Glitchy 404 page

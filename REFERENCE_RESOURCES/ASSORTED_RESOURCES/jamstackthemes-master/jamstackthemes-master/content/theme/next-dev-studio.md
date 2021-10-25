@@ -14,8 +14,8 @@ archetype:
   - Business
   - Website
 description: >-
-  A small business website template based on Nextjs and the original idea of
-  one-click-hugo-cms from netlify.
+  A small business website template based on Nextjs and the original idea of one-click-hugo-cms from netlify.
+
 stale: false
 ---
 
@@ -25,7 +25,7 @@ Two years ago I built my studio [website](https://github.com/lwz7512/one-click-h
 
 ## Features
 
-* No code website
-* Define website in Markdown content
-* Easy style customization
-* Minimum CSS inclusion with purgecss
+- No code website
+- Define website in Markdown content
+- Easy style customization
+- Minimum CSS inclusion with purgecss

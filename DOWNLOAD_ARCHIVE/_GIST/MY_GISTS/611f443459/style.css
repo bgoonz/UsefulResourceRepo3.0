@@ -1,0 +1,21 @@
+#main {
+  max-width: 512px;
+}
+
+#wrapper {
+  height: 260px;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #000;
+}
+
+#options {
+  text-align: center;
+  font-style: italic;
+}
+
+img,
+canvas {
+  width: 100%;
+  height: 100%;
+}

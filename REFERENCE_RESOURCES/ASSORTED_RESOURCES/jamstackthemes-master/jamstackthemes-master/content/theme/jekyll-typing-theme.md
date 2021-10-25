@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2017-04-20T17:36:16.000Z
 description: >-
-  :syringe: Typing, is a template for Jekyll built especially for those who want
-  to have a blog and pages quickly and lightly.
+  :syringe: Typing, is a template for Jekyll built especially for those who want to have a blog and pages quickly and lightly.
+
 stale: false
 ---

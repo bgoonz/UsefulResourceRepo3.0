@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2015-02-20T21:51:52.000Z
 description: >-
-  Minimal Jekyll blog styled to resemble the look and layout of Edward Tufte's
-  books
+  Minimal Jekyll blog styled to resemble the look and layout of Edward Tufte's books
+
 stale: false
 ---

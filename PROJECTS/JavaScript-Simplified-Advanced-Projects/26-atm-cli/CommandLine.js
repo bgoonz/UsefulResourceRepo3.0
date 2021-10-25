@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 module.exports = class CommandLine {
   static ask(question) {

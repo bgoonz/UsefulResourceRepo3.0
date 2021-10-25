@@ -1,10 +1,10 @@
 // Logic
 
 export const TILE_STATUSES = {
-  HIDDEN: "hidden",
-  MINE: "mine",
-  NUMBER: "number",
-  MARKED: "marked",
+  HIDDEN: 'hidden',
+  MINE: 'mine',
+  NUMBER: 'number',
+  MARKED: 'marked',
 };
 
 export function createBoard(boardSize, numberOfMines) {
@@ -14,7 +14,7 @@ export function createBoard(boardSize, numberOfMines) {
   for (let x = 0; x < boardSize; x++) {
     const row = [];
     for (let y = 0; y < boardSize; y++) {
-      const element = document.createElement("div");
+      const element = document.createElement('div');
       element.dataset.status = TILE_STATUSES.HIDDEN;
 
       const tile = {

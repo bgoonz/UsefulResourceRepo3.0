@@ -1,0 +1,109 @@
+$lightGrey: hsla(340, 2%, 90%, 1);
+$darkGrey: hsla(340, 2%, 20%, 1);
+$pink: hsla(340, 85%, 60%, 1);
+
+body {
+  width: 90%;
+  max-width: 840px;
+  margin: 0px auto;
+  padding: 2em;
+  box-sizing: border-box;
+  background: $lightGrey;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  line-height: 1.3;
+  h2,
+  p {
+    padding: 0.5em 0;
+  }
+  h2 {
+    border-bottom: 2px solid $pink;
+  }
+}
+
+#midi-container {
+}
+
+#midi-controller {
+  padding: 1%;
+  background: #333 no-repeat top left;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px 0px $darkGrey;
+
+  section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+.pad,
+.dial {
+  width: 25%;
+  min-width: 50px;
+  box-sizing: border-box;
+}
+
+.pad {
+  padding: 1%;
+  p {
+    font-size: 0.6em;
+    color: $lightGrey;
+  }
+  button {
+    display: block;
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    background: lighten($darkGrey, 10%);
+    border: 3px solid $lightGrey;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px 0px black;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      border-color: $pink;
+    }
+  }
+}
+
+#midi-data {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background: transparentize(white, 0.1);
+  border: 10px solid transparentize($pink, 0.3);
+  ul {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 1em;
+    li {
+      padding: 0.2em 0.2em 0.2em 1em;
+      font-size: 1.2em;
+      font-family: monospace;
+      &:last-child,
+      &:nth-last-child(2) {
+        font-weight: bold;
+        animation: flash 1s;
+        &:before {
+          content: "> ";
+          margin-left: -1em;
+        }
+      }
+    }
+  }
+}
+@keyframes flash {
+  0% {
+    color: $pink;
+  }
+  100% {
+    color: black;
+  }
+}

@@ -14,6 +14,6 @@ description: Platframe's default (responsive) starter template.
 stale: false
 ---
 
-Platframe's default (responsive) starter template takes the form of a landing page that can be personalized in a jiffy, or be extensively adapted to suit variable project scopes.  
+Platframe's default (responsive) starter template takes the form of a landing page that can be personalized in a jiffy, or be extensively adapted to suit variable project scopes.
 
 Multipage sites are well-supported with a growth-proof, scalable architecture. The template allows for granular control, and is powered by an extensible, feature-rich build-system.

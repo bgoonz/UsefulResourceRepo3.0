@@ -16,8 +16,8 @@ archetype:
   - Multi Purpose
 date: 2020-10-28T17:02:32.000Z
 description: >-
-  A statically generated blog built on the React framework Next.js. Uses
-  Tailwind CSS on the frontend, powered by the Cosmic headless CMS.
+  A statically generated blog built on the React framework Next.js. Uses Tailwind CSS on the frontend, powered by the Cosmic headless CMS.
+
 stale: false
 disabled: false
 disabled_reason: ''
@@ -27,6 +27,6 @@ disabled_reason: ''
 
 A statically generated blog built on the React framework Next.js. Uses Tailwind CSS on the frontend, powered by the Cosmic headless CMS.
 
-# Includes: 
-Content preview functionality
-Automatic image optimizations
+# Includes:
+
+Content preview functionality Automatic image optimizations

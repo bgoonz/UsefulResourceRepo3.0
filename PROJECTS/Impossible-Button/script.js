@@ -1,12 +1,12 @@
-const evilButton = document.getElementById("evil-button");
+const evilButton = document.getElementById('evil-button');
 const OFFSET = 100;
 
-evilButton.addEventListener("click", () => {
-  alert("Nice Try");
+evilButton.addEventListener('click', () => {
+  alert('Nice Try');
   window.close();
 });
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener('mousemove', (e) => {
   const x = e.pageX;
   const y = e.pageY;
   const buttonBox = evilButton.getBoundingClientRect();

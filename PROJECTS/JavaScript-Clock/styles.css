@@ -85,7 +85,7 @@ body {
 }
 
 .clock::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: black;
   z-index: 11;

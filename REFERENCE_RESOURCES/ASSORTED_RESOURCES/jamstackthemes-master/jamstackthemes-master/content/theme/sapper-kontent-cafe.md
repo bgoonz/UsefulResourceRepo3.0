@@ -20,6 +20,6 @@ Website showcase for fictional café with Svelte, Sapper, and Kentico Kontent.
 
 ## Features
 
-* Menu content from Kontent headless CMS.
-* UI Testing prepared for Cypress
-* Svelte single-file components
+- Menu content from Kontent headless CMS.
+- UI Testing prepared for Cypress
+- Svelte single-file components

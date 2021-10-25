@@ -13,8 +13,8 @@ css:
 archetype:
   - Blog
 description: >-
-  A JAMstack Theme of Basic Blog Site with dark/light theme toggle support built
-  using Nextjs, Tailwindcss and Markdown.
+  A JAMstack Theme of Basic Blog Site with dark/light theme toggle support built using Nextjs, Tailwindcss and Markdown.
+
 stale: true
 ---
 
@@ -24,7 +24,7 @@ This theme is a lightweight starter kit. It also gives you a well organised star
 
 ## Features
 
-* dark/light theme support
-* SEO metadata and Open Graph tags
-* Easy to add posts/blogs
-* Easy to customize
+- dark/light theme support
+- SEO metadata and Open Graph tags
+- Easy to add posts/blogs
+- Easy to customize

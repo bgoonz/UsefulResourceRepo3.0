@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2016-06-11T09:31:31.000Z
 description: >-
-  Just another minimalist Jekyll theme which designed for technical writing
-  blog.
+  Just another minimalist Jekyll theme which designed for technical writing blog.
+
 stale: false
 ---

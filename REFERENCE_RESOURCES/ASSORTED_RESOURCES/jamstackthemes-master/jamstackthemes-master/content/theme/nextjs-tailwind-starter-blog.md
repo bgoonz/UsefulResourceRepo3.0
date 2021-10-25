@@ -14,9 +14,8 @@ archetype:
   - Blog
   - Portfolio
 description: >-
-  Next.js blogging template with Tailwind CSS. Comes out of the box configured
-  with the latest technologies to make technical writing a breeze. Easily
-  configurable and customizable.
+  Next.js blogging template with Tailwind CSS. Comes out of the box configured with the latest technologies to make technical writing a breeze. Easily configurable and customizable.
+
 stale: false
 ---
 

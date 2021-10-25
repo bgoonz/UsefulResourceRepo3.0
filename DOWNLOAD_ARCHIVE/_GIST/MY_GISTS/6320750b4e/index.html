@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Emulated MIDI Controller</h2>
+  <p>
+    The difficulty is every MIDI controller is different, so this is a stripped
+    down AKAI LPD8, for demo purposes.
+  </p>
+  <p>
+    Notice how the pads generate two values, one for on press and one for on
+    release.
+  </p>
+
+  <div id="midi-container">
+    <div id="midi-controller">
+      <section id="pads">
+        <div class="pad" data-midi="37">
+          <p>PAD 1</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="38">
+          <p>PAD 2</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="39">
+          <p>PAD 3</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="40">
+          <p>PAD 4</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="41">
+          <p>PAD 5</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="42">
+          <p>PAD 6</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="43">
+          <p>PAD 7</p>
+          <button></button>
+        </div>
+        <div class="pad" data-midi="44">
+          <p>PAD 8</p>
+          <button></button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section id="midi-data">
+    <ul></ul>
+  </section>
+
+  <p>
+    Eventually I'd like to expand this out as a polyfill to 'appear' if you have
+    no MIDI controller plugged in.
+  </p>
+</div>

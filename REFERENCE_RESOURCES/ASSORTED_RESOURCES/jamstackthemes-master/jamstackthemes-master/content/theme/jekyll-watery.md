@@ -11,9 +11,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  A minimalist, bare-bones theme for Jekyll only using the Water.css framework
-  while still following the best practices for accessibility and search-engine
-  optimization.
+  A minimalist, bare-bones theme for Jekyll only using the Water.css framework while still following the best practices for accessibility and search-engine optimization.
+
 stale: false
 ---
 

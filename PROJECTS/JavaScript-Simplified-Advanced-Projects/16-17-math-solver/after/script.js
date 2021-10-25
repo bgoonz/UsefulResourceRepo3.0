@@ -1,6 +1,6 @@
-const inputElement = document.getElementById("equation");
-const outputElement = document.getElementById("results");
-const form = document.getElementById("equation-form");
+const inputElement = document.getElementById('equation');
+const outputElement = document.getElementById('results');
+const form = document.getElementById('equation-form');
 
 const PARENTHESIS_REGEX = /\((?<equation>[^\(\)]*)\)/;
 const MULTIPLY_DIVIDE_REGEX =
@@ -9,7 +9,7 @@ const EXPONENT_REGEX = /(?<operand1>\S+)\s*(?<operation>\^)\s*(?<operand2>\S+)/;
 const ADD_SUBTRACT_REGEX =
   /(?<operand1>\S+)\s*(?<operation>(?<!e)[\-\+])\s*(?<operand2>\S+)/;
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const result = parse(inputElement.value);
@@ -44,15 +44,15 @@ function handleMath({ operand1, operand2, operation }) {
   const number2 = parseFloat(operand2);
 
   switch (operation) {
-    case "*":
+    case '*':
       return number1 * number2;
-    case "/":
+    case '/':
       return number1 / number2;
-    case "+":
+    case '+':
       return number1 + number2;
-    case "-":
+    case '-':
       return number1 - number2;
-    case "^":
+    case '^':
       return number1 ** number2;
   }
 }

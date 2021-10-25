@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2013-05-24T14:13:30.000Z
 description: >-
-  :triangular_ruler: Jekyll theme for building a personal site, blog, project
-  documentation, or portfolio.
+  :triangular_ruler: Jekyll theme for building a personal site, blog, project documentation, or portfolio.
+
 stale: false
 ---

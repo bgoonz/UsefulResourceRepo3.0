@@ -19,7 +19,7 @@ disabled: true
 disabled_reason: demo url not found
 ---
 
-Pole is *a one-column minimal responsive Jekyll blog theme*.
+Pole is _a one-column minimal responsive Jekyll blog theme_.
 
 One of the purposes of Pole is to be an alternative option to the default theme of Jekyll -- [Minima](https://github.com/jekyll/minima). Pole is still keeping minimal, but meanwhile, more beautiful and mellow, and doesn't lose some useful basic features, such as archive.
 
