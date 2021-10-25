@@ -1,0 +1,15 @@
+## Google API Discovery Service
+
+Use the Google API Discovery Service to build client libraries, IDE plugins, and other tools that interact with Google APIs. The Discovery API provides a list of Google APIs and a machine-readable "Discovery Document" for each API. Features of the Discovery API:
+
+-   A **directory** of supported APIs schemas based on [JSON Schema](https://json-schema.org/).
+-   A machine-readable **"Discovery Document"** for each of the supported APIs. Each document contains:
+    -   A list of API methods and available parameters for each method.
+    -   A list of available OAuth 2.0 scopes.
+    -   Inline documentation of methods, parameters, and available parameter values.
+
+<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/lQbT1NrxpUo?origin=https%3A%2F%2Fdevelopers.google.com&amp;autohide=1&amp;showinfo=0&amp;video-id=lQbT1NrxpUo&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>
+
+## Who is using it?
+
+### Google has built several tools using the service:
