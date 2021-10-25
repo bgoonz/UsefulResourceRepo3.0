@@ -1,11 +1,7 @@
+const fs = require('fs');
 
-const fs = require( 'fs' );
-
-const readFileLines = filename =>
-  fs
-  .readFileSync( filename )
-    .toString( 'UTF8' )
-    .split( '\n' );
+const readFileLines = (filename) =>
+  fs.readFileSync(filename).toString('UTF8').split('\n');
 
 /*
 contents of test.txt :
@@ -14,5 +10,5 @@ contents of test.txt :
   line3
   ___________________________
 */
-let arr = readFileLines( 'test.txt' );
-console.log( arr ); // ['line1', 'line2', 'line3']
+let arr = readFileLines('test.txt');
+console.log(arr); // ['line1', 'line2', 'line3']

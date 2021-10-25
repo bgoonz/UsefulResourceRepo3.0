@@ -20,12 +20,12 @@ Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs.
 
 ## Features
 
-* Fully responsive
-* SEO metadata and Open Graph tags
-* Maximize lighthouse score
-* Cache busting
-* 404 page
-* RSS feed for posts
-* Tags support
-* Pagination support
-* Syntax highlighting with PrismJS
+- Fully responsive
+- SEO metadata and Open Graph tags
+- Maximize lighthouse score
+- Cache busting
+- 404 page
+- RSS feed for posts
+- Tags support
+- Pagination support
+- Syntax highlighting with PrismJS

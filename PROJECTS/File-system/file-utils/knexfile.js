@@ -9,13 +9,12 @@ const PluginConfig = require('./lib/plugins/schwifty').plugins.options;
 // but specify the plugin's migrations directory
 
 module.exports = Hoek.applyToDefaults(
-    {
-        migrations: {
-            directory: Path.relative(process.cwd(), PluginConfig.migrationsDir)
-        }
+  {
+    migrations: {
+      directory: Path.relative(process.cwd(), PluginConfig.migrationsDir),
     },
-    Manifest
-        .get('/register/plugins', process.env)
-        .find(({ plugin }) => plugin === 'schwifty')
-        .options.knex
+  },
+  Manifest.get('/register/plugins', process.env).find(
+    ({ plugin }) => plugin === 'schwifty'
+  ).options.knex
 );

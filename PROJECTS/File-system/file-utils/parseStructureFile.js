@@ -11,39 +11,36 @@ var lookupStructureFile = require('./lookupStructureFile');
     @return {Promise<Array<String, List|Map>>}
 */
 function parseFile(fs, file, type) {
-    var filepath = file.getPath();
-    var parser = file.getParser();
+  var filepath = file.getPath();
+  var parser = file.getParser();
 
-    if (!parser) {
-        return Promise.reject(
-            error.FileNotParsableError({
-                filename: filepath
-            })
-        );
-    }
+  if (!parser) {
+    return Promise.reject(
+      error.FileNotParsableError({
+        filename: filepath,
+      })
+    );
+  }
 
-    return fs.readAsString(filepath)
-    .then(function(content) {
-        if (type === 'readme') {
-            return parser.parseReadme(content);
-        } else if (type === 'glossary') {
-            return parser.parseGlossary(content);
-        } else if (type === 'summary') {
-            return parser.parseSummary(content);
-        } else if (type === 'langs') {
-            return parser.parseLanguages(content);
-        } else {
-            throw new Error('Parsing invalid type "' + type + '"');
-        }
+  return fs
+    .readAsString(filepath)
+    .then(function (content) {
+      if (type === 'readme') {
+        return parser.parseReadme(content);
+      } else if (type === 'glossary') {
+        return parser.parseGlossary(content);
+      } else if (type === 'summary') {
+        return parser.parseSummary(content);
+      } else if (type === 'langs') {
+        return parser.parseLanguages(content);
+      } else {
+        throw new Error('Parsing invalid type "' + type + '"');
+      }
     })
-    .then(function(result) {
-        return [
-            file,
-            result
-        ];
+    .then(function (result) {
+      return [file, result];
     });
 }
-
 
 /**
     Parse a structure file (ex: SUMMARY.md, GLOSSARY.md).
@@ -54,14 +51,13 @@ function parseFile(fs, file, type) {
     @return {Promise<List|Map>}
 */
 function parseStructureFile(book, type) {
-    var fs = book.getContentFS();
+  var fs = book.getContentFS();
 
-    return lookupStructureFile(book, type)
-    .then(function(file) {
-        if (!file) return [undefined, undefined];
+  return lookupStructureFile(book, type).then(function (file) {
+    if (!file) return [undefined, undefined];
 
-        return parseFile(fs, file, type);
-    });
+    return parseFile(fs, file, type);
+  });
 }
 
 module.exports = parseStructureFile;

@@ -14,6 +14,6 @@
    limitations under the License.
  */
 
- const logger = require('makoto-logger');
+const logger = require('makoto-logger');
 
- logger.info('Hello!');
+logger.info('Hello!');

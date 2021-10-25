@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2018-12-19T08:58:58.000Z
 description: >-
-  👌 A starter for GatsbyJS with a preconfigured MDX, Storybook and ESLint
-  environment
+  👌 A starter for GatsbyJS with a preconfigured MDX, Storybook and ESLint environment
+
 stale: true
 ---

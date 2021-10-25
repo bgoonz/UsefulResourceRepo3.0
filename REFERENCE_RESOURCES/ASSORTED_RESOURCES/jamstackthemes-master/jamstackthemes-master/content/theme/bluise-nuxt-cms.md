@@ -11,8 +11,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  Start with Typescript, TailwindCSS, Nuxt, Netlify Forms & Netlify CMS,
-  includes pagination, seo & pwa ready.
+  Start with Typescript, TailwindCSS, Nuxt, Netlify Forms & Netlify CMS, includes pagination, seo & pwa ready.
+
 stale: false
 ---
 

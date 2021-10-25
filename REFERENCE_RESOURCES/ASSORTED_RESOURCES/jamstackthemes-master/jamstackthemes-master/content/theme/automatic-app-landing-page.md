@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-01-05T10:20:11.000Z
 description: >-
-  A Jekyll theme for automatically generating and deploying landing page sites
-  for mobile apps.
+  A Jekyll theme for automatically generating and deploying landing page sites for mobile apps.
+
 stale: false
 ---

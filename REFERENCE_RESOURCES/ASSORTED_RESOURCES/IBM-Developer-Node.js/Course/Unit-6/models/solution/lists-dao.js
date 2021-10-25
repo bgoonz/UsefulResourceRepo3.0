@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 
 /**
  * This is the DAO interface for the application.
@@ -30,14 +30,14 @@ const listsDaoImpl = require('./lists-dao-sqlite3');
  * Create a shopping list with the specified description
  */
 function create(description) {
-    return listsDaoImpl.create(description);
+  return listsDaoImpl.create(description);
 }
 
 /**
  * Find the shopping list with the specified id
  */
 function findById(id) {
-    return listsDaoImpl.findById(id);
+  return listsDaoImpl.findById(id);
 }
 
 /**
@@ -45,7 +45,7 @@ function findById(id) {
  * and return all items associated with it
  */
 function findByIdWithAllItems(id) {
-    return listsDaoImpl.findByIdWithAllItems(id);
+  return listsDaoImpl.findByIdWithAllItems(id);
 }
 
 /**
@@ -53,7 +53,7 @@ function findByIdWithAllItems(id) {
  * with new field values
  */
 function update(id, description) {
-    return listsDaoImpl.update(id, description);
+  return listsDaoImpl.update(id, description);
 }
 
 /**
@@ -61,7 +61,7 @@ function update(id, description) {
  * list, along with values for the relationship
  */
 function addItem(listId, itemId, quantity) {
-    return listsDaoImpl.addItem(listId, itemId, quantity);
+  return listsDaoImpl.addItem(listId, itemId, quantity);
 }
 
 /**
@@ -69,7 +69,7 @@ function addItem(listId, itemId, quantity) {
  * list, along with values for the relationship
  */
 function updateItem(listId, itemId, quantity, pickedUp) {
-    return listsDaoImpl.updateItem(listId, itemId, quantity, pickedUp);
+  return listsDaoImpl.updateItem(listId, itemId, quantity, pickedUp);
 }
 
 /**
@@ -77,7 +77,7 @@ function updateItem(listId, itemId, quantity, pickedUp) {
  * list
  */
 function removeItem(listId, itemId) {
-    return listsDaoImpl.removeItem(listId, itemId);
+  return listsDaoImpl.removeItem(listId, itemId);
 }
 
 module.exports.create = create;

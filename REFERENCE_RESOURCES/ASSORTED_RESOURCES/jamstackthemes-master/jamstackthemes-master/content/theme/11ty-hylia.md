@@ -11,8 +11,8 @@ date: 2019-06-11T20:15:02.000Z
 github_branch: master
 featured: true
 description: >-
-  Hylia is a lightweight Eleventy starter kit to help you to create your own
-  blog or personal website.
+  Hylia is a lightweight Eleventy starter kit to help you to create your own blog or personal website.
+
 stale: true
 ---
 
@@ -45,4 +45,4 @@ Hylia version 0.5.1 features:
 📄 Documentation site  
 💅 Proper Sass documentation  
 ✍️ Proper CMS documentation  
-🖼 A facility for you to be able to add your logo / branding  
+🖼 A facility for you to be able to add your logo / branding

@@ -1,10 +1,10 @@
 Dexter = function () {
-  "use strict";
+  'use strict';
 
-  this.Cheerio = Npm.require("cheerio");
-  this.Request = Npm.require("request");
-  this.Future = Npm.require("fibers/future");
-  this.service = "dexter";
+  this.Cheerio = Npm.require('cheerio');
+  this.Request = Npm.require('request');
+  this.Future = Npm.require('fibers/future');
+  this.service = 'dexter';
   this.jar;
   this.url;
 };
@@ -36,14 +36,14 @@ Dexter.prototype.login = function (loginData) {
     loginData.username = user.services[this.service].username;
     loginData.password = new Buffer(
       user.services[this.service].password,
-      "base64"
-    ).toString("utf8");
+      'base64'
+    ).toString('utf8');
     loginData.school = user.profile.school;
   }
 
   // Check that all necessary data exists
   if (!loginData.username || !loginData.password || !loginData.school) {
-    loginAttempt.error = new Meteor.Error(500, "Missing login data");
+    loginAttempt.error = new Meteor.Error(500, 'Missing login data');
     return loginAttempt;
   }
 
@@ -69,29 +69,29 @@ Dexter.prototype.login = function (loginData) {
 
   // Check that the url is found
   if (!this.url) {
-    loginAttempt.error = new Meteor.Error(500, "Service not configured");
+    loginAttempt.error = new Meteor.Error(500, 'Service not configured');
     return loginAttempt;
   }
 
   // Start of login
   // --------------
   var form = {
-    loginMethod: "Dexter",
+    loginMethod: 'Dexter',
     username: loginData.username,
     password: loginData.password,
   };
   this.jar = this.Request.jar();
   this.jar.setCookie(
-    this.Request.cookie("JSESSIONID=nyancat.jolasveinn; Path=/; Secure"),
+    this.Request.cookie('JSESSIONID=nyancat.jolasveinn; Path=/; Secure'),
     this.url
   ); // Magic. Do not touch
   var fut = new this.Future();
 
   this.Request(
     {
-      url: this.url + "/login.asp",
+      url: this.url + '/login.asp',
       form: form,
-      method: "POST",
+      method: 'POST',
       jar: this.jar,
       followAllRedirects: true,
     },
@@ -100,11 +100,11 @@ Dexter.prototype.login = function (loginData) {
       if (
         r.request.redirects[1] &&
         r.request.redirects[1].redirectUri ===
-          that.url + "default.asp?page=auth/common/startpage"
+          that.url + 'default.asp?page=auth/common/startpage'
       ) {
         var id = that.id();
         if (!id) {
-          loginAttempt.error = new Meteor.Error(500, "Failed to fetch id");
+          loginAttempt.error = new Meteor.Error(500, 'Failed to fetch id');
           return loginAttempt;
         }
 
@@ -116,13 +116,13 @@ Dexter.prototype.login = function (loginData) {
             expires: expires,
           },
           username: loginData.username,
-          password: new Buffer(loginData.password).toString("base64"),
+          password: new Buffer(loginData.password).toString('base64'),
         };
         loginAttempt.success = true;
-        fut["return"](loginAttempt);
+        fut['return'](loginAttempt);
       } else {
-        loginAttempt.error = new Meteor.Error(403, "Error 403: Unauthorized");
-        fut["return"](loginAttempt);
+        loginAttempt.error = new Meteor.Error(403, 'Error 403: Unauthorized');
+        fut['return'](loginAttempt);
       }
     })
   );
@@ -135,15 +135,15 @@ Dexter.prototype.id = function () {
   var fut = new this.Future();
   this.Request(
     {
-      url: this.url + "/Default.asp?page=gy/bas/schedule_3step$student.xml",
-      method: "GET",
+      url: this.url + '/Default.asp?page=gy/bas/schedule_3step$student.xml',
+      method: 'GET',
       jar: this.jar,
       followAllRedirects: true,
     },
     function (e, r, body) {
       var $ = that.Cheerio.load(body);
-      var id = $(".clsMainContent a").attr("href").split("StudentId=")[1];
-      fut["return"](id);
+      var id = $('.clsMainContent a').attr('href').split('StudentId=')[1];
+      fut['return'](id);
     }
   );
 
@@ -155,14 +155,14 @@ Dexter.prototype.userInfo = function () {
   var fut = new this.Future();
   this.Request(
     {
-      url: this.url + "/Default.asp?page=gy/bas/studentcard",
-      method: "GET",
+      url: this.url + '/Default.asp?page=gy/bas/studentcard',
+      method: 'GET',
       jar: this.jar,
       followAllRedirects: true,
     },
     function (e, r, body) {
       var $ = that.Cheerio.load(body);
-      var p = $("td[width=200]");
+      var p = $('td[width=200]');
       var info = {
         fullName: p.eq(0).text(),
         birthDate: p.eq(1).text(),
@@ -174,7 +174,7 @@ Dexter.prototype.userInfo = function () {
         email: p.eq(7).text(),
       };
 
-      fut["return"](info);
+      fut['return'](info);
     }
   );
 
@@ -184,17 +184,17 @@ Dexter.prototype.userInfo = function () {
 Dexter.prototype.userSchedule = function (time) {
   var that = this;
   var fut = new this.Future();
-  var lessonTime = moment(time).startOf("week");
-  var monday = lessonTime.format("L");
-  var sunday = moment(time).endOf("week").format("L");
+  var lessonTime = moment(time).startOf('week');
+  var monday = lessonTime.format('L');
+  var sunday = moment(time).endOf('week').format('L');
   var form = {
-    dates$$: "weekselection=yes&startdate=" + monday + "&enddate=" + sunday,
+    dates$$: 'weekselection=yes&startdate=' + monday + '&enddate=' + sunday,
   };
 
   this.Request(
     {
-      url: this.url + "/Default.asp?page=gy/bas/schedule_3step$student.xml",
-      method: "POST",
+      url: this.url + '/Default.asp?page=gy/bas/schedule_3step$student.xml',
+      method: 'POST',
       form: form,
       jar: this.jar,
       followAllRedirects: true,
@@ -207,18 +207,18 @@ Dexter.prototype.userSchedule = function (time) {
       var scheduleArray = [];
       var dayArray = [];
 
-      $("table.clsDayTable").each(function (i, e) {
+      $('table.clsDayTable').each(function (i, e) {
         // Each day
         dayArray = [];
         $(e)
-          .find("td div.clsScheduleInfo nobr")
+          .find('td div.clsScheduleInfo nobr')
           .each(function (i, e) {
             // Each lesson
 
-            var lines = $(e).text().split("\n");
+            var lines = $(e).text().split('\n');
 
-            var timeStart = lines[0].slice(0, 5).split(":");
-            var timeEnd = lines[0].slice(8, 13).split(":");
+            var timeStart = lines[0].slice(0, 5).split(':');
+            var timeEnd = lines[0].slice(8, 13).split(':');
             var courseInfo = lines[1].split(String.fromCharCode(160));
 
             var todayData = {
@@ -233,13 +233,13 @@ Dexter.prototype.userSchedule = function (time) {
                 name: lines[4]
                   .split(String.fromCharCode(160))
                   .slice(1)
-                  .join(" ")
+                  .join(' ')
                   .trim(),
               },
               location: lines[2].split(String.fromCharCode(160))[1].trim(),
               code: courseInfo[2].trim(),
               group: lines[5].split(String.fromCharCode(160))[1].trim(),
-              type: "lesson",
+              type: 'lesson',
             };
             dayArray.push(todayData);
           });
@@ -248,7 +248,7 @@ Dexter.prototype.userSchedule = function (time) {
         lessonTime.weekday(day);
       });
 
-      fut["return"](scheduleArray);
+      fut['return'](scheduleArray);
     }
   );
 
@@ -265,8 +265,8 @@ Dexter.prototype.courses = function (time) {
 
   this.Request(
     {
-      url: this.url + "/Default.asp?page=gy/bas/studyplan",
-      method: "POST",
+      url: this.url + '/Default.asp?page=gy/bas/studyplan',
+      method: 'POST',
       form: form,
       jar: this.jar,
       followAllRedirects: true,
@@ -276,17 +276,17 @@ Dexter.prototype.courses = function (time) {
 
       var courseArray = [];
 
-      $("table.clsText[width=780]").each(function (i, e) {
-        var tables = $(e).find("tr");
+      $('table.clsText[width=780]').each(function (i, e) {
+        var tables = $(e).find('tr');
         tables.each(function (i, e) {
           row = $(e);
 
           if (
-            !row.hasClass("clsListHead") &&
-            !row.find("span").length &&
+            !row.hasClass('clsListHead') &&
+            !row.find('span').length &&
             i < tables.length - 2
           ) {
-            columns = row.find("td");
+            columns = row.find('td');
 
             courseInfo = {
               code: columns.eq(0).text().trim(),
@@ -307,8 +307,8 @@ Dexter.prototype.courses = function (time) {
       form.ShowStudyplan = 4;
       that.Request(
         {
-          url: that.url + "/Default.asp?page=gy/bas/studyplan",
-          method: "POST",
+          url: that.url + '/Default.asp?page=gy/bas/studyplan',
+          method: 'POST',
           form: form,
           jar: that.jar,
           followAllRedirects: true,
@@ -317,17 +317,17 @@ Dexter.prototype.courses = function (time) {
           var $ = that.Cheerio.load(body);
 
           var index = 0;
-          $("table.clsText[width=780]").each(function (i, e) {
-            var tables = $(e).find("tr");
+          $('table.clsText[width=780]').each(function (i, e) {
+            var tables = $(e).find('tr');
             tables.each(function (i, e) {
               row = $(e);
 
               if (
-                !row.hasClass("clsListHead") &&
-                !row.find("span").length &&
+                !row.hasClass('clsListHead') &&
+                !row.find('span').length &&
                 i < tables.length - 2
               ) {
-                columns = row.find("td");
+                columns = row.find('td');
 
                 courseArray[index].group = columns.eq(1).text().trim();
                 index++;
@@ -335,7 +335,7 @@ Dexter.prototype.courses = function (time) {
             });
           });
 
-          fut["return"](courseArray);
+          fut['return'](courseArray);
         }
       );
     }

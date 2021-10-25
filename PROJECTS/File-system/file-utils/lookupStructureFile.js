@@ -10,11 +10,11 @@ var findParsableFile = require('./findParsableFile');
     to the book content root.
 */
 function lookupStructureFile(book, type) {
-    var config = book.getConfig();
+  var config = book.getConfig();
 
-    var fileToSearch = config.getValue(['structure', type]);
+  var fileToSearch = config.getValue(['structure', type]);
 
-    return findParsableFile(book, fileToSearch);
+  return findParsableFile(book, fileToSearch);
 }
 
 module.exports = lookupStructureFile;

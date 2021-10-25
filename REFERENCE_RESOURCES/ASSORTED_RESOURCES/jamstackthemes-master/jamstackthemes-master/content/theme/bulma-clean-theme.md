@@ -15,22 +15,22 @@ archetype:
   - Portfolio
   - Documentation
 description: >-
-  A clean and simple Jekyll theme built with the Bulma CSS framework providing a
-  variety of page layouts anb blog pages.
+  A clean and simple Jekyll theme built with the Bulma CSS framework providing a variety of page layouts anb blog pages.
+
 stale: false
 ---
 
 Bulma clean theme works with GitHub Pages and has a wide range of page layout available to use.
 
-* Landing Page With Callouts
-* Sponsors Page
-* Image Gallery
-* Blog
-* Post
-* Page With Sidebar
-* Page Without Sidebar
-* Page With Menubar
-* Page With Tabs
-* Page Without Footer
-* Page Without Hero
-* Page With Contents
+- Landing Page With Callouts
+- Sponsors Page
+- Image Gallery
+- Blog
+- Post
+- Page With Sidebar
+- Page Without Sidebar
+- Page With Menubar
+- Page With Tabs
+- Page Without Footer
+- Page Without Hero
+- Page With Contents

@@ -30,63 +30,62 @@ import filter from 'gulp-filter';
 import tagVersion from 'gulp-tag-version';
 import 'babel-register';
 
-const SOURCE = [
-    '*.js'
-];
+const SOURCE = ['*.js'];
 
 let ESLINT_OPTION = {
-    parser: 'babel-eslint',
-    parserOptions: {
-        'sourceType': 'module'
-    },
-    rules: {
-        'quotes': 0,
-        'eqeqeq': 0,
-        'no-use-before-define': 0,
-        'no-shadow': 0,
-        'no-new': 0,
-        'no-underscore-dangle': 0,
-        'no-multi-spaces': 0,
-        'no-native-reassign': 0,
-        'no-loop-func': 0
-    },
-    env: {
-        'node': true
-    }
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module',
+  },
+  rules: {
+    quotes: 0,
+    eqeqeq: 0,
+    'no-use-before-define': 0,
+    'no-shadow': 0,
+    'no-new': 0,
+    'no-underscore-dangle': 0,
+    'no-multi-spaces': 0,
+    'no-native-reassign': 0,
+    'no-loop-func': 0,
+  },
+  env: {
+    node: true,
+  },
 };
 
-gulp.task('test', function() {
-    let options = minimist(process.argv.slice(2), {
-        string: 'test',
-        default: {
-            test: 'test/*.js'
-        }
-    }
-    );
-    return gulp.src(options.test).pipe(mocha({reporter: 'spec'}));
+gulp.task('test', function () {
+  let options = minimist(process.argv.slice(2), {
+    string: 'test',
+    default: {
+      test: 'test/*.js',
+    },
+  });
+  return gulp.src(options.test).pipe(mocha({ reporter: 'spec' }));
 });
 
 gulp.task('lint', () =>
-    gulp.src(SOURCE)
+  gulp
+    .src(SOURCE)
     .pipe(eslint(ESLINT_OPTION))
     .pipe(eslint.formatEach('stylish', process.stderr))
     .pipe(eslint.failOnError())
 );
 
-let inc = importance =>
-    gulp.src(['./package.json'])
-        .pipe(bump({type: importance}))
-        .pipe(gulp.dest('./'))
-        .pipe(git.commit('Bumps package version'))
-        .pipe(filter('package.json'))
-        .pipe(tagVersion({
-            prefix: ''
-        }))
-;
+let inc = (importance) =>
+  gulp
+    .src(['./package.json'])
+    .pipe(bump({ type: importance }))
+    .pipe(gulp.dest('./'))
+    .pipe(git.commit('Bumps package version'))
+    .pipe(filter('package.json'))
+    .pipe(
+      tagVersion({
+        prefix: '',
+      })
+    );
+gulp.task('travis', ['lint', 'test']);
+gulp.task('default', ['travis']);
 
-gulp.task('travis', [ 'lint', 'test' ]);
-gulp.task('default', [ 'travis' ]);
-
-gulp.task('patch', [ ], () => inc('patch'));
-gulp.task('minor', [ ], () => inc('minor'));
-gulp.task('major', [ ], () => inc('major'));
+gulp.task('patch', [], () => inc('patch'));
+gulp.task('minor', [], () => inc('minor'));
+gulp.task('major', [], () => inc('major'));

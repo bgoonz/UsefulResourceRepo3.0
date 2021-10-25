@@ -9,7 +9,7 @@ const utils = require('./utils');
  * with the expected properties.
  */
 
-module.exports = function(file) {
+module.exports = function (file) {
   if (typeOf(file) !== 'object') {
     file = { content: file };
   }
@@ -28,7 +28,7 @@ module.exports = function(file) {
   utils.define(file, 'orig', utils.toBuffer(file.content));
   utils.define(file, 'language', file.language || '');
   utils.define(file, 'matter', file.matter || '');
-  utils.define(file, 'stringify', function(data, options) {
+  utils.define(file, 'stringify', function (data, options) {
     if (options && options.language) {
       file.language = options.language;
     }

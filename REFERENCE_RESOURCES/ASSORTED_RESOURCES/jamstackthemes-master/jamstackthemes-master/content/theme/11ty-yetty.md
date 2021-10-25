@@ -12,8 +12,8 @@ archetype:
   - Blog
   - Portfolio
 description: >-
-  Yetty is yet another [Eleventy](https://11ty.io) starter kit for my (& your)
-  new projects. Built with accessibility and performance in mind.
+  Yetty is yet another [Eleventy](https://11ty.io) starter kit for my (& your) new projects. Built with accessibility and performance in mind.
+
 stale: false
 ---
 

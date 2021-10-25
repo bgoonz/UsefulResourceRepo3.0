@@ -36,13 +36,13 @@
 //* Setting the LogLevel to Level.OFF turns off logging.    *
 //* *********************************************************
 const Level = {
-  TRACE: {priority: 0, outputString: 'TRACE'},
-  DEBUG: {priority: 100, outputString: 'DEBUG'},
-  INFO: {priority: 200, outputString: 'INFO'},
-  WARN: {priority: 300, outputString: 'WARN'},
-  ERROR: {priority: 400, outputString: 'ERROR'},
-  FATAL: {priority: 500, outputString: 'FATAL'},
-  OFF: {priority: 1000, outputString: 'OFF'},
+  TRACE: { priority: 0, outputString: 'TRACE' },
+  DEBUG: { priority: 100, outputString: 'DEBUG' },
+  INFO: { priority: 200, outputString: 'INFO' },
+  WARN: { priority: 300, outputString: 'WARN' },
+  ERROR: { priority: 400, outputString: 'ERROR' },
+  FATAL: { priority: 500, outputString: 'FATAL' },
+  OFF: { priority: 1000, outputString: 'OFF' },
 };
 // The default log level
 const DEFAULT_LOG_LEVEL = Level.INFO;
@@ -84,12 +84,12 @@ function log(messageLogLevel, message, source, logFunction) {
     // / or not the startTime was present
     let now = Date.now();
     let outputString = now.toString() + ':' + messageLogLevel.outputString;
-    computedMessage = outputString + ': ' + ((source) ? source + ': ' : '') +
-      message;
+    computedMessage =
+      outputString + ': ' + (source ? source + ': ' : '') + message;
     // Now log the computed message
     // If the caller passed in a logging function to use, use that, otherwise
     // / use this module's default, which is logMessage()
-    (logFunction) ? logFunction(computedMessage) : logMessage(computedMessage);
+    logFunction ? logFunction(computedMessage) : logMessage(computedMessage);
   }
   return computedMessage;
 }

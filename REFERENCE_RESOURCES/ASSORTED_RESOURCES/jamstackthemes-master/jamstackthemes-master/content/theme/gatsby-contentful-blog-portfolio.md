@@ -68,11 +68,11 @@ stale: true
     Your site is now running at `https://localhost:8000`!
 
     Feel free to change everything you want!
-    
+
 6.  **Test the application with Cypress**
 
-    There are some cypress tests defined in the 'cypress' folder.
-    You only need to use
-     ```sh
+    There are some cypress tests defined in the 'cypress' folder. You only need to use
+
+    ```sh
     npm run test:open:e2e
     ```

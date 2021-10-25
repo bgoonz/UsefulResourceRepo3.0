@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-03-31T12:27:43.000Z
 description: >-
-  Official Gatsby.js Clean portfolio starter! Get a clean looking portfolio up
-  and running in no time using gatsby.js starters.  
+  Official Gatsby.js Clean portfolio starter! Get a clean looking portfolio up and running in no time using gatsby.js starters.  
+
 stale: false
 ---

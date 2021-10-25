@@ -27,11 +27,11 @@ stale: false
 
 ## Features
 
-* Fast dev output for local development 
-* Clean prod output for going live (incl. PurgeCSS) 
-* Build-in template to overwrite Bootstrap 5 variables  
-* Basic Blog included
-* Netlify config included. 
-* Local server and tweaked browser sync. Will update your browser on .scss changes, too.  
-* Sample integration of Inter UI font
-* Free and open source
+- Fast dev output for local development
+- Clean prod output for going live (incl. PurgeCSS)
+- Build-in template to overwrite Bootstrap 5 variables
+- Basic Blog included
+- Netlify config included.
+- Local server and tweaked browser sync. Will update your browser on .scss changes, too.
+- Sample integration of Inter UI font
+- Free and open source

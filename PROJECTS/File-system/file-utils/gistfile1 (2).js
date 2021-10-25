@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-var fs = require("fs"),
-  path = require("path"),
+var fs = require('fs'),
+  path = require('path'),
   yui_module = process.argv[2]
     ? path.join(process.cwd(), process.argv[2])
-    : "yui",
+    : 'yui',
   output = process.argv[3],
   EXCLUDE_FILTERS = [
     /^cookie/,
@@ -67,7 +67,7 @@ data = JSON.stringify({
 });
 
 if (output) {
-  fs.writeFileSync(output, data + "\n", "utf8");
+  fs.writeFileSync(output, data + '\n', 'utf8');
 } else {
   console.log(data);
 }

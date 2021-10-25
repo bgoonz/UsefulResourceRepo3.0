@@ -41,7 +41,7 @@ const Level = {
   WARN: { priority: 300, outputString: 'WARN' },
   ERROR: { priority: 400, outputString: 'ERROR' },
   FATAL: { priority: 500, outputString: 'FATAL' },
-  OFF: { priority: 1000, outputString: 'OFF'},
+  OFF: { priority: 1000, outputString: 'OFF' },
 };
 // The current Log level
 var logLevel = Level.INFO;
@@ -74,7 +74,8 @@ function log(messageLogLevel, message, source) {
       // / or not the startTime was present
       let now = Date.now();
       let outputString = now.toString() + ':' + messageLogLevel.outputString;
-      computedMessage = outputString + ': ' + ((source) ? source + ': ' : '') + message;
+      computedMessage =
+        outputString + ': ' + (source ? source + ': ' : '') + message;
       // Now log the computed message
     }
     console.log(computedMessage);
@@ -140,7 +141,7 @@ function fatal(message, source) {
 // Setup the exports - these are the fixtures that are to be made
 // / available to other modules.
 module.exports.Level = Level;
-module.exports.setLogLevel = setLogLevel;// Lets the dependent modules set the log level
+module.exports.setLogLevel = setLogLevel; // Lets the dependent modules set the log level
 module.exports.setDecorateOutputMessage = setDecorateOutputMessage;
 //
 module.exports.trace = trace;

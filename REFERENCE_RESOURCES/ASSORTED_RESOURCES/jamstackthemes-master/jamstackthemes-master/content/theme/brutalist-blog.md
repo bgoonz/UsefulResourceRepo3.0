@@ -14,8 +14,8 @@ archetype:
   - Blog
   - Portfolio
 description: >-
-  brutalist-blog is a no frills, fully-responsive, hyper-minimalistic dark/light
-  theme
+  brutalist-blog is a no frills, fully-responsive, hyper-minimalistic dark/light theme
+
 stale: false
 ---
 

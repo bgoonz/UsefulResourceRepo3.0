@@ -13,8 +13,8 @@ css:
 archetype:
   - Ecommerce
 description: >-
-  A commerce storefront example built using Next.js and Commerce.js with
-  production-ready deployment to Netlify.
+  A commerce storefront example built using Next.js and Commerce.js with production-ready deployment to Netlify.
+
 stale: false
 ---
 

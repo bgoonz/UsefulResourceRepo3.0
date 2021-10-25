@@ -20,9 +20,9 @@ stale: true
 
 Learn what API-first, decoupled CMS are and how to build a web app with:
 
-+ Dynamic content managed in Directus, an open source headless CMS
-+ Site generation with Metalsmith & a Vue.js component
-+ Products & checkout with Snipcart
+- Dynamic content managed in Directus, an open source headless CMS
+- Site generation with Metalsmith & a Vue.js component
+- Products & checkout with Snipcart
 
 > [Read full tutorial](https://snipcart.com/blog/intro-api-first-headless-cms-directus)
 

@@ -23,11 +23,11 @@ This theme is a lightweight starter kit. It also gives you a well organised star
 
 ## Features
 
-* Customisable design tokens to make it your own  
-* Customisable global data and navigation  
-* Tags and tag archives  
-* Progressively enhanced, semantic and accessible  
-* _Super_ lightweight front-end  
-* Sass powered CSS system with utility class generator  
-* Service worker that caches pages so people can read your articles offline  
-* An RSS feed for your posts
+- Customisable design tokens to make it your own
+- Customisable global data and navigation
+- Tags and tag archives
+- Progressively enhanced, semantic and accessible
+- _Super_ lightweight front-end
+- Sass powered CSS system with utility class generator
+- Service worker that caches pages so people can read your articles offline
+- An RSS feed for your posts

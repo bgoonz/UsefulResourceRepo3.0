@@ -11,8 +11,8 @@ archetype:
   - Blog
 date: 2017-07-18T20:18:32.000Z
 description: >-
-  A high performance skeleton starter for GatsbyJS that focuses on SEO/Social
-  features/development environment.
+  A high performance skeleton starter for GatsbyJS that focuses on SEO/Social features/development environment.
+
 stale: false
 disabled_reason: demo url not found
 ---

@@ -13,20 +13,20 @@ var OUTPUT_EXTENSION = '.html';
  * @return {String}
  */
 function fileToOutput(output, filePath) {
-    var book = output.getBook();
-    var readme = book.getReadme();
-    var fileReadme = readme.getFile();
+  var book = output.getBook();
+  var readme = book.getReadme();
+  var fileReadme = readme.getFile();
 
-    if (
-        path.basename(filePath, path.extname(filePath)) == 'README' ||
-        (fileReadme.exists() && filePath == fileReadme.getPath())
-    ) {
-        filePath = path.join(path.dirname(filePath), 'index' + OUTPUT_EXTENSION);
-    } else {
-        filePath = PathUtils.setExtension(filePath, OUTPUT_EXTENSION);
-    }
+  if (
+    path.basename(filePath, path.extname(filePath)) == 'README' ||
+    (fileReadme.exists() && filePath == fileReadme.getPath())
+  ) {
+    filePath = path.join(path.dirname(filePath), 'index' + OUTPUT_EXTENSION);
+  } else {
+    filePath = PathUtils.setExtension(filePath, OUTPUT_EXTENSION);
+  }
 
-    return LocationUtils.normalize(filePath);
+  return LocationUtils.normalize(filePath);
 }
 
 module.exports = fileToOutput;

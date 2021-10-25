@@ -11,31 +11,30 @@ var render = require('./render');
  * @return {Promise<TemplateOutput>}
  */
 function renderTemplateFile(engine, filePath, context) {
-    var loader = engine.getLoader();
+  var loader = engine.getLoader();
 
-    // Resolve the filePath
-    var resolvedFilePath = loader.resolve(null, filePath);
+  // Resolve the filePath
+  var resolvedFilePath = loader.resolve(null, filePath);
 
-    return Promise()
-    .then(function() {
-        if (!loader.async) {
-            return loader.getSource(resolvedFilePath);
-        }
+  return Promise()
+    .then(function () {
+      if (!loader.async) {
+        return loader.getSource(resolvedFilePath);
+      }
 
-        var deferred = Promise.defer();
-        loader.getSource(resolvedFilePath, deferred.makeNodeResolver());
-        return deferred.promise;
+      var deferred = Promise.defer();
+      loader.getSource(resolvedFilePath, deferred.makeNodeResolver());
+      return deferred.promise;
     })
-    .then(function(result) {
-        if (!result) {
-            throw error.TemplateError(new Error('Not found'), {
-                filename: filePath
-            });
-        }
+    .then(function (result) {
+      if (!result) {
+        throw error.TemplateError(new Error('Not found'), {
+          filename: filePath,
+        });
+      }
 
-        return render(engine, result.path, result.src, context);
+      return render(engine, result.path, result.src, context);
     });
-
 }
 
 module.exports = renderTemplateFile;

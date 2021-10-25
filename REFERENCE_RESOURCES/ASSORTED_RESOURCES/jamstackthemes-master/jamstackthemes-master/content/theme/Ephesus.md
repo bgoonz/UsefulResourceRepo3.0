@@ -1,5 +1,5 @@
 ---
-title: "Ephesus"
+title: 'Ephesus'
 github: https://github.com/onepase/Ephesus
 demo: https://pardin.us/ephesus
 author: Hakan Torun

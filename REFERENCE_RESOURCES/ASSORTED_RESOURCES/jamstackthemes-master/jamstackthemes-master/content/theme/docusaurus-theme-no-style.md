@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2020-05-17T18:24:48.000Z
 description: >-
-  This theme is a trim down from @docusaurus/theme-classic of Docusaurus 2 to
-  contain only opinionated minimum styles
+  This theme is a trim down from @docusaurus/theme-classic of Docusaurus 2 to contain only opinionated minimum styles
+
 stale: true
 ---

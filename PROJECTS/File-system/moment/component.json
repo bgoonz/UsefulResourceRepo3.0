@@ -74,7 +74,5 @@
     "lang/zh-cn.js",
     "lang/zh-tw.js"
   ],
-  "scripts": [
-    "moment.js"
-  ]
+  "scripts": ["moment.js"]
 }

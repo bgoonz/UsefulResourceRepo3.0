@@ -25,15 +25,25 @@
     "sinon": "^6.1.4"
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "google"],
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
     "env": {
-      "node" : true
+      "node": true
     },
     "parserOptions": {
       "ecmaVersion": 6
     },
-    "rules" : {
-      "max-len": [2, 120, 4, {"ignoreUrls": true}],
+    "rules": {
+      "max-len": [
+        2,
+        120,
+        4,
+        {
+          "ignoreUrls": true
+        }
+      ],
       "no-console": 0
     }
   },

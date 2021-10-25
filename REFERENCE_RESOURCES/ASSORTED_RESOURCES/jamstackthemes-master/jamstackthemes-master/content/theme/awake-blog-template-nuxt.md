@@ -11,8 +11,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  Awake is a Nuxt.js template for generating a beautifully robust static site
-  with blog
+  Awake is a Nuxt.js template for generating a beautifully robust static site with blog
+
 stale: false
 ---
 

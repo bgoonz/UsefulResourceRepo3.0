@@ -16,16 +16,16 @@ var fileToOutput = require('./fileToOutput');
     @return {String}
 */
 function fileToURL(output, filePath) {
-    var options = output.getOptions();
-    var directoryIndex = options.get('directoryIndex');
+  var options = output.getOptions();
+  var directoryIndex = options.get('directoryIndex');
 
-    filePath = fileToOutput(output, filePath);
+  filePath = fileToOutput(output, filePath);
 
-    if (directoryIndex && path.basename(filePath) == 'index.html') {
-        filePath = path.dirname(filePath) + '/';
-    }
+  if (directoryIndex && path.basename(filePath) == 'index.html') {
+    filePath = path.dirname(filePath) + '/';
+  }
 
-    return LocationUtils.normalize(filePath);
+  return LocationUtils.normalize(filePath);
 }
 
 module.exports = fileToURL;

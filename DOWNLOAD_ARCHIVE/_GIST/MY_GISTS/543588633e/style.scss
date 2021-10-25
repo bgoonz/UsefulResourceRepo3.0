@@ -1,0 +1,143 @@
+:root {
+  --space: 1rem;
+  --border: 4px;
+  --page-width: 80ch;
+  --font-family: "Helvetica", sans-serif;
+  --color-link: black;
+  --color-active: royalblue;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration: 350ms;
+  --section-offset: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --scroll-behavior: smooth;
+  scroll-behavior: var(--scroll-behavior);
+
+  @media (prefers-reduced-motion: reduce) {
+    --scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+ul:not(.menu) {
+  list-style-type: disc;
+  margin-left: var(--space);
+
+  > li + li {
+    margin-top: var(--space);
+  }
+}
+
+.nav-sections {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: inset lightgray 0 -1px 0, rgba(black, 0.15) 0 3px 10px 0;
+  z-index: 100;
+
+  .menu {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    overscroll-behavior: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin: 0 auto;
+    max-width: var(--page-width);
+    transform: translateZ(0);
+    transition: transform var(--ease) var(--duration);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .menu-item-link {
+    display: block;
+    padding: calc(var(--space) * 1.5) var(--space);
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--color-link);
+    transition: color var(--ease) var(--duration);
+
+    &.active {
+      color: var(--color-active);
+    }
+  }
+}
+
+.active-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--color-active);
+  transition: width var(--ease) var(--duration),
+    transform var(--ease) var(--duration);
+}
+
+.placeholder-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50vh;
+  background-color: lightgray;
+}
+
+.page-sections {
+  margin: 0 auto;
+  max-width: var(--page-width);
+}
+
+.page-section {
+  margin: calc(var(--space) * 2) 0;
+  padding: calc(var(--space) * 2) var(--space);
+
+  > * + * {
+    margin-top: calc(var(--space) * 1.5);
+  }
+}
+
+.section-title {
+  outline: none;
+
+  &:before {
+    content: "";
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
+    margin-top: calc(var(--section-offset) * -1px);
+    height: calc(var(--section-offset) * 1px);
+  }
+}

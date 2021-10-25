@@ -19,8 +19,8 @@ services:
   - Snipcart
   - Formspree
 description: >-
-  A Jekyll Theme built for Developers and Software Engineers, Dark Mode
-  Supported
+  A Jekyll Theme built for Developers and Software Engineers, Dark Mode Supported
+
 stale: false
 ---
 
@@ -30,17 +30,17 @@ Devlopr is a modern Jekyll Theme built for Developers focused on speed performan
 
 ### Features
 
-* Latest Jekyll 4 and Bundler Support
-* Supports Dark Mode Switching
-* Responsive and speed performance optimized
-* Gallery for High Resolution Pics
-* Real Time Search
-* Super Fast Minfification for Fast Client Side Rendering
-* SEO friendly
-* Code Syntax Highlighter
-* [Wakatime](https://wakatime.com) Integrated
-* Form submissions with **[Formspree.io](https://formspree.io/) contact form integration**
-* Comments using Disqus and [Hyvor](https://hyvor.com)
+- Latest Jekyll 4 and Bundler Support
+- Supports Dark Mode Switching
+- Responsive and speed performance optimized
+- Gallery for High Resolution Pics
+- Real Time Search
+- Super Fast Minfification for Fast Client Side Rendering
+- SEO friendly
+- Code Syntax Highlighter
+- [Wakatime](https://wakatime.com) Integrated
+- Form submissions with **[Formspree.io](https://formspree.io/) contact form integration**
+- Comments using Disqus and [Hyvor](https://hyvor.com)
 
 ### Latest Updates - [Logs](https://opencollective.com/devlopr-jekyll#section-updates)
 

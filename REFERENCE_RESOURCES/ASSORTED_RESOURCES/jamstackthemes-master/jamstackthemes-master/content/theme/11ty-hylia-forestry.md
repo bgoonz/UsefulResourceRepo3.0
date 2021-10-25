@@ -9,8 +9,8 @@ cms:
   - Forestry
 date: 2019-08-11T00:00:00.000Z
 description: >-
-  Hylia is a lightweight Eleventy starter kit to help you to create your own
-  blog or personal website.
+  Hylia is a lightweight Eleventy starter kit to help you to create your own blog or personal website.
+
 stale: false
 ---
 
