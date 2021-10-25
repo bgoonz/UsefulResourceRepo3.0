@@ -1,10 +1,10 @@
-import _ from "lodash";
-import React from "react";
-import { htmlToReact } from "../utils";
-import ActionLink from "./ActionLink";
-import addScript from "./../hooks/addScript";
+import _ from 'lodash';
+import React from 'react';
+import { htmlToReact } from '../utils';
+import ActionLink from './ActionLink';
+import addScript from './../hooks/addScript';
 const Script = (props) => {
-  importScript("./../hooks/addScript.js");
+  importScript('./../hooks/addScript.js');
 };
 export default class Footer extends React.Component {
   render() {
@@ -17,8 +17,8 @@ export default class Footer extends React.Component {
               <link
                 rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
-              />{" "}
-              {Script}{" "}
+              />{' '}
+              {Script}{' '}
             </div>
             <br />
             <table cellPadding={0} cellSpacing={0} border={0}>
@@ -26,8 +26,8 @@ export default class Footer extends React.Component {
                 <tr>
                   <td
                     style={{
-                      fontFamily: "Arial, Helvetica, sans-serif",
-                      fontSize: "7.5pt",
+                      fontFamily: 'Arial, Helvetica, sans-serif',
+                      fontSize: '7.5pt',
                     }}
                   >
                     <center>
@@ -37,16 +37,16 @@ export default class Footer extends React.Component {
                         cellSpacing={0}
                         border={0}
                         style={{
-                          fontFamily: "Arial, Helvetica, sans-serif",
-                          fontSize: "7.5pt",
+                          fontFamily: 'Arial, Helvetica, sans-serif',
+                          fontSize: '7.5pt',
                         }}
                       >
                         <tbody>
                           <tr>
                             <td
                               style={{
-                                fontFamily: "Arial, Helvetica, sans-serif",
-                                fontSize: "7.5pt",
+                                fontFamily: 'Arial, Helvetica, sans-serif',
+                                fontSize: '7.5pt',
                               }}
                               align="left"
                             >
@@ -59,8 +59,8 @@ export default class Footer extends React.Component {
                             </td>
                             <td
                               style={{
-                                fontFamily: "Arial, Helvetica, sans-serif",
-                                fontSize: "7.5pt",
+                                fontFamily: 'Arial, Helvetica, sans-serif',
+                                fontSize: '7.5pt',
                               }}
                               align="center"
                             >
@@ -73,8 +73,8 @@ export default class Footer extends React.Component {
                             </td>
                             <td
                               style={{
-                                fontFamily: "Arial, Helvetica, sans-serif",
-                                fontSize: "7.5pt",
+                                fontFamily: 'Arial, Helvetica, sans-serif',
+                                fontSize: '7.5pt',
                               }}
                               align="right"
                             >
@@ -92,8 +92,8 @@ export default class Footer extends React.Component {
 
                     <form
                       style={{
-                        margin: "0px",
-                        marginTop: "2px",
+                        margin: '0px',
+                        marginTop: '2px',
                       }}
                       action="https://search.freefind.com/find.html"
                       method="get"
@@ -113,16 +113,16 @@ export default class Footer extends React.Component {
                 <tr>
                   <td
                     style={{
-                      textAlign: "center",
-                      fontFamily: "Arial, Helvetica, sans-serif",
-                      fontSize: "7.5pt",
-                      paddingTop: "4px",
+                      textAlign: 'center',
+                      fontFamily: 'Arial, Helvetica, sans-serif',
+                      fontSize: '7.5pt',
+                      paddingTop: '4px',
                     }}
                   >
                     <a
                       style={{
-                        textDecoration: "none",
-                        color: "transparent",
+                        textDecoration: 'none',
+                        color: 'transparent',
                       }}
                       href="https://www.freefind.com"
                       rel="nofollow"
@@ -131,14 +131,14 @@ export default class Footer extends React.Component {
                     </a>
                     <a
                       style={{
-                        textDecoration: "none",
-                        color: "transparent",
+                        textDecoration: 'none',
+                        color: 'transparent',
                       }}
                       href="https://www.freefind.com"
                       rel="nofollow"
                     >
                       by
-                      <span style={{ color: "transparent" }}>freefind</span>
+                      <span style={{ color: 'transparent' }}>freefind</span>
                     </a>
                   </td>
                 </tr>
@@ -153,14 +153,14 @@ export default class Footer extends React.Component {
             <p className="site-info">
               {_.get(
                 this.props,
-                "pageContext.site.siteMetadata.footer.content",
+                'pageContext.site.siteMetadata.footer.content',
                 null
               ) && (
                 <span className="copyright">
                   {htmlToReact(
                     _.get(
                       this.props,
-                      "pageContext.site.siteMetadata.footer.content",
+                      'pageContext.site.siteMetadata.footer.content',
                       null
                     )
                   )}
@@ -169,7 +169,7 @@ export default class Footer extends React.Component {
               {_.map(
                 _.get(
                   this.props,
-                  "pageContext.site.siteMetadata.footer.links",
+                  'pageContext.site.siteMetadata.footer.links',
                   null
                 ),
                 (action, action_idx) => (
@@ -179,18 +179,18 @@ export default class Footer extends React.Component {
                     action={action}
                   />
                 )
-              )}{" "}
+              )}{' '}
             </p>
             {_.get(
               this.props,
-              "pageContext.site.siteMetadata.footer.has_social",
+              'pageContext.site.siteMetadata.footer.has_social',
               null
             ) && (
               <div className="social-links">
                 {_.map(
                   _.get(
                     this.props,
-                    "pageContext.site.siteMetadata.footer.social_links",
+                    'pageContext.site.siteMetadata.footer.social_links',
                     null
                   ),
                   (action, action_idx) => (
@@ -200,9 +200,9 @@ export default class Footer extends React.Component {
                       action={action}
                     />
                   )
-                )}{" "}
+                )}{' '}
               </div>
-            )}{" "}
+            )}{' '}
           </div>
         </div>
       </footer>

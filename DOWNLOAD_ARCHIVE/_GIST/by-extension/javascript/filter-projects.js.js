@@ -2,7 +2,7 @@
 // Filter projects by id  //
 ////////////////////////////
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
   const languages = {
     javascript: false,
     node: false,
@@ -16,31 +16,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
   };
 
   const scroller = true;
-  const projectContainer = document.querySelector(".project-container");
-  const projectScroller = document.querySelector(".project-scroller");
+  const projectContainer = document.querySelector('.project-container');
+  const projectScroller = document.querySelector('.project-scroller');
 
   projectData.forEach((project) => {
-    const liNode = document.createElement("li");
-    liNode.insertAdjacentHTML("afterbegin", project.getInnerHtml());
+    const liNode = document.createElement('li');
+    liNode.insertAdjacentHTML('afterbegin', project.getInnerHtml());
     if (scroller) {
       projectScroller.appendChild(liNode.firstElementChild);
-      projectContainer.style.display = "none";
+      projectContainer.style.display = 'none';
     } else {
       projectContainer.appendChild(liNode.firstElementChild);
-      projectScroller.style.display = "none";
+      projectScroller.style.display = 'none';
     }
   });
 
-  const projects = document.querySelectorAll(".project");
+  const projects = document.querySelectorAll('.project');
 
   projects.forEach((div) => {
-    div.addEventListener("click", (e) => {
-      e.currentTarget.classList.toggle("hover");
+    div.addEventListener('click', (e) => {
+      e.currentTarget.classList.toggle('hover');
     });
   });
 
   Object.keys(languages).forEach((key) => {
-    document.querySelector(`#${key}`).addEventListener("click", (e) => {
+    document.querySelector(`#${key}`).addEventListener('click', (e) => {
       setProjectFilter(e);
       updateProjectsSelection();
     });
@@ -49,10 +49,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function setProjectFilter(e) {
     const id = e.currentTarget.id;
     if (languages[id]) {
-      e.currentTarget.classList.remove("selected");
+      e.currentTarget.classList.remove('selected');
       languages[id] = false;
     } else {
-      e.currentTarget.classList.add("selected");
+      e.currentTarget.classList.add('selected');
       languages[id] = true;
     }
   }
@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function updateProjectsSelection() {
     projects.forEach((project) => {
       const data = getProjectById(project.id);
-      console.log("category: ", data.category, ", id: ", data.id);
+      console.log('category: ', data.category, ', id: ', data.id);
       const exists = projectLanguagesExist(data.languages);
-      if (exists || (allFalse() && project.style.display !== "block"))
-        project.style.display = "block";
-      if (!exists && !allFalse() && project.style.display !== "none")
-        project.style.display = "none";
+      if (exists || (allFalse() && project.style.display !== 'block'))
+        project.style.display = 'block';
+      if (!exists && !allFalse() && project.style.display !== 'none')
+        project.style.display = 'none';
     });
   }
 

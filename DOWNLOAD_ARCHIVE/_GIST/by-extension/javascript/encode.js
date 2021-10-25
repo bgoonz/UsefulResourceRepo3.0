@@ -4,8 +4,8 @@ javascript: (function () {
       var c = a.length,
         e = Math.ceil(Math.sqrt(c / 3)),
         f = e,
-        g = document.createElement("canvas"),
-        h = g.getContext("2d");
+        g = document.createElement('canvas'),
+        h = g.getContext('2d');
       (g.width = e), (g.height = f);
       var j = h.getImageData(0, 0, e, f),
         k = j.data,
@@ -26,7 +26,7 @@ javascript: (function () {
     }
   }
   var ord = function ord(a) {
-      var c = a + "",
+      var c = a + '',
         e = c.charCodeAt(0);
       if (55296 <= e && 56319 >= e) {
         if (1 === c.length) return e;
@@ -38,7 +38,7 @@ javascript: (function () {
     d = document,
     b = d.body,
     img = new Image();
-  (img.src = encode(d.querySelector("table").innerText)),
-    (b.innerHTML = ""),
+  (img.src = encode(d.querySelector('table').innerText)),
+    (b.innerHTML = ''),
     b.appendChild(img);
 })();

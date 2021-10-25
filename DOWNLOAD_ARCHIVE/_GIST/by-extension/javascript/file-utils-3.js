@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 
@@ -10,7 +10,7 @@ var _createClass = (function () {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
+      if ('value' in descriptor) descriptor.writable = true;
       Object.defineProperty(target, descriptor.key, descriptor);
     }
   }
@@ -21,31 +21,31 @@ var _createClass = (function () {
   };
 })();
 
-var _cmdShim = require("cmd-shim");
+var _cmdShim = require('cmd-shim');
 
 var _cmdShim2 = _interopRequireDefault(_cmdShim);
 
-var _fsExtra = require("fs-extra");
+var _fsExtra = require('fs-extra');
 
 var _fsExtra2 = _interopRequireDefault(_fsExtra);
 
-var _npmlog = require("npmlog");
+var _npmlog = require('npmlog');
 
 var _npmlog2 = _interopRequireDefault(_npmlog);
 
-var _path = require("path");
+var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var _pathExists = require("path-exists");
+var _pathExists = require('path-exists');
 
 var _pathExists2 = _interopRequireDefault(_pathExists);
 
-var _readCmdShim = require("read-cmd-shim");
+var _readCmdShim = require('read-cmd-shim');
 
 var _readCmdShim2 = _interopRequireDefault(_readCmdShim);
 
-var _ChildProcessUtilities = require("./ChildProcessUtilities");
+var _ChildProcessUtilities = require('./ChildProcessUtilities');
 
 var _ChildProcessUtilities2 = _interopRequireDefault(_ChildProcessUtilities);
 
@@ -55,7 +55,7 @@ function _interopRequireDefault(obj) {
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+    throw new TypeError('Cannot call a class as a function');
   }
 }
 
@@ -66,7 +66,7 @@ function ensureEndsWithNewLine(string) {
 }
 
 // NOTE: if rimraf moves the location of its executable, this will need to be updated
-var RIMRAF_CLI = require.resolve("rimraf/bin");
+var RIMRAF_CLI = require.resolve('rimraf/bin');
 
 // globs only return directories with a trailing slash
 function trailingSlash(filePath) {
@@ -80,51 +80,51 @@ var FileSystemUtilities = (function () {
 
   _createClass(FileSystemUtilities, null, [
     {
-      key: "chmod",
+      key: 'chmod',
       value: function chmod(filePath, mode, cb) {
-        _npmlog2.default.silly("chmod", filePath, mode);
+        _npmlog2.default.silly('chmod', filePath, mode);
         _fsExtra2.default.chmod(filePath, mode, cb);
       },
     },
     {
-      key: "chmodSync",
+      key: 'chmodSync',
       value: function chmodSync(filePath, mode) {
-        _npmlog2.default.silly("chmodSync", filePath, mode);
+        _npmlog2.default.silly('chmodSync', filePath, mode);
         _fsExtra2.default.chmodSync(filePath, mode);
       },
     },
     {
-      key: "mkdirp",
+      key: 'mkdirp',
       value: function mkdirp(filePath, callback) {
-        _npmlog2.default.silly("mkdirp", filePath);
+        _npmlog2.default.silly('mkdirp', filePath);
         _fsExtra2.default.ensureDir(filePath, callback);
       },
     },
     {
-      key: "mkdirpSync",
+      key: 'mkdirpSync',
       value: function mkdirpSync(filePath) {
-        _npmlog2.default.silly("mkdirpSync", filePath);
+        _npmlog2.default.silly('mkdirpSync', filePath);
         _fsExtra2.default.ensureDirSync(filePath);
       },
     },
     {
-      key: "readdirSync",
+      key: 'readdirSync',
       value: function readdirSync(filePath) {
-        _npmlog2.default.silly("readdirSync", filePath);
+        _npmlog2.default.silly('readdirSync', filePath);
         return _fsExtra2.default.readdirSync(filePath);
       },
     },
     {
-      key: "existsSync",
+      key: 'existsSync',
       value: function existsSync(filePath) {
-        _npmlog2.default.silly("existsSync", filePath);
+        _npmlog2.default.silly('existsSync', filePath);
         return _pathExists2.default.sync(filePath);
       },
     },
     {
-      key: "writeFile",
+      key: 'writeFile',
       value: function writeFile(filePath, fileContents, callback) {
-        _npmlog2.default.silly("writeFile", [filePath, fileContents]);
+        _npmlog2.default.silly('writeFile', [filePath, fileContents]);
         _fsExtra2.default.writeFile(
           filePath,
           ensureEndsWithNewLine(fileContents),
@@ -133,23 +133,23 @@ var FileSystemUtilities = (function () {
       },
     },
     {
-      key: "rename",
+      key: 'rename',
       value: function rename(from, to, callback) {
-        _npmlog2.default.silly("rename", [from, to]);
+        _npmlog2.default.silly('rename', [from, to]);
         _fsExtra2.default.rename(from, to, callback);
       },
     },
     {
-      key: "renameSync",
+      key: 'renameSync',
       value: function renameSync(from, to) {
-        _npmlog2.default.silly("renameSync", [from, to]);
+        _npmlog2.default.silly('renameSync', [from, to]);
         _fsExtra2.default.renameSync(from, to);
       },
     },
     {
-      key: "writeFileSync",
+      key: 'writeFileSync',
       value: function writeFileSync(filePath, fileContents) {
-        _npmlog2.default.silly("writeFileSync", [filePath, fileContents]);
+        _npmlog2.default.silly('writeFileSync', [filePath, fileContents]);
         _fsExtra2.default.writeFileSync(
           filePath,
           ensureEndsWithNewLine(fileContents)
@@ -157,23 +157,23 @@ var FileSystemUtilities = (function () {
       },
     },
     {
-      key: "readFileSync",
+      key: 'readFileSync',
       value: function readFileSync(filePath) {
-        _npmlog2.default.silly("readFileSync", filePath);
-        return _fsExtra2.default.readFileSync(filePath, "utf8").trim();
+        _npmlog2.default.silly('readFileSync', filePath);
+        return _fsExtra2.default.readFileSync(filePath, 'utf8').trim();
       },
     },
     {
-      key: "statSync",
+      key: 'statSync',
       value: function statSync(filePath) {
-        _npmlog2.default.silly("statSync", filePath);
+        _npmlog2.default.silly('statSync', filePath);
         return _fsExtra2.default.statSync(filePath);
       },
     },
     {
-      key: "rimraf",
+      key: 'rimraf',
       value: function rimraf(dirPath, callback) {
-        _npmlog2.default.silly("rimraf", dirPath);
+        _npmlog2.default.silly('rimraf', dirPath);
         // Shelling out to a child process for a noop is expensive.
         // Checking if `dirPath` exists to be removed is cheap.
         // This lets us short-circuit if we don't have anything to do.
@@ -183,7 +183,7 @@ var FileSystemUtilities = (function () {
             return callback();
           }
 
-          var args = [RIMRAF_CLI, "--no-glob", trailingSlash(dirPath)];
+          var args = [RIMRAF_CLI, '--no-glob', trailingSlash(dirPath)];
 
           // We call this resolved CLI path in the "path/to/node path/to/cli <..args>"
           // pattern to avoid Windows hangups with shebangs (e.g., WSH can't handle it)
@@ -192,7 +192,7 @@ var FileSystemUtilities = (function () {
             args,
             {},
             function (err) {
-              _npmlog2.default.verbose("rimraf", "removed", dirPath);
+              _npmlog2.default.verbose('rimraf', 'removed', dirPath);
               callback(err);
             }
           );
@@ -200,10 +200,10 @@ var FileSystemUtilities = (function () {
       },
     },
     {
-      key: "symlink",
+      key: 'symlink',
       value: function symlink(src, dest, type, callback) {
-        _npmlog2.default.silly("symlink", [src, dest, type]);
-        if (process.platform === "win32") {
+        _npmlog2.default.silly('symlink', [src, dest, type]);
+        if (process.platform === 'win32') {
           createWindowsSymlink(src, dest, type, callback);
         } else {
           createPosixSymlink(src, dest, type, callback);
@@ -211,25 +211,25 @@ var FileSystemUtilities = (function () {
       },
     },
     {
-      key: "unlinkSync",
+      key: 'unlinkSync',
       value: function unlinkSync(filePath) {
-        _npmlog2.default.silly("unlinkSync", filePath);
+        _npmlog2.default.silly('unlinkSync', filePath);
         _fsExtra2.default.unlinkSync(filePath);
       },
     },
     {
-      key: "isSymlink",
+      key: 'isSymlink',
       value: function isSymlink(filePath) {
-        _npmlog2.default.silly("isSymlink", filePath);
+        _npmlog2.default.silly('isSymlink', filePath);
         var result = void 0;
 
-        if (process.platform === "win32") {
+        if (process.platform === 'win32') {
           result = resolveWindowsSymlink(filePath);
         } else {
           result = resolvePosixSymlink(filePath);
         }
 
-        _npmlog2.default.verbose("isSymlink", [filePath, result]);
+        _npmlog2.default.verbose('isSymlink', [filePath, result]);
         return result;
       },
     },
@@ -241,7 +241,7 @@ var FileSystemUtilities = (function () {
 exports.default = FileSystemUtilities;
 
 function createSymbolicLink(src, dest, type, callback) {
-  _npmlog2.default.silly("createSymbolicLink", [src, dest, type]);
+  _npmlog2.default.silly('createSymbolicLink', [src, dest, type]);
   _fsExtra2.default.lstat(dest, function (err) {
     if (!err) {
       // Something exists at `dest`.  Need to remove it first.
@@ -255,13 +255,13 @@ function createSymbolicLink(src, dest, type, callback) {
 }
 
 function createPosixSymlink(origin, dest, _type, callback) {
-  var type = _type === "exec" ? "file" : _type;
+  var type = _type === 'exec' ? 'file' : _type;
   var src = _path2.default.relative(_path2.default.dirname(dest), origin);
   createSymbolicLink(src, dest, type, callback);
 }
 
 function createWindowsSymlink(src, dest, type, callback) {
-  if (type === "exec") {
+  if (type === 'exec') {
     (0, _cmdShim2.default)(src, dest, callback);
   } else {
     createSymbolicLink(src, dest, type, callback);
@@ -308,4 +308,4 @@ function resolveWindowsSymlink(filePath) {
 
   return isSymlink && _path2.default.resolve(isSymlink);
 }
-module.exports = exports["default"];
+module.exports = exports['default'];

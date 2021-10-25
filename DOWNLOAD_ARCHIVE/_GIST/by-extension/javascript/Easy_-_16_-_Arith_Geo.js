@@ -33,9 +33,9 @@ function ArithGeo(arr) {
 
   // Finally, we return "Arithmetic" if the ariFlag is set to true, "Geometric" if the geoFlag is set to true, and -1 if neither are set to true.
   if (ariFlag) {
-    return "Arithmetic";
+    return 'Arithmetic';
   } else if (geoFlag) {
-    return "Geometric";
+    return 'Geometric';
   } else {
     return -1;
   }
@@ -62,9 +62,9 @@ function ArithGeo(arr) {
   }
 
   if (ariFlag) {
-    return "Arithmetic";
+    return 'Arithmetic';
   } else if (geoFlag) {
-    return "Geometric";
+    return 'Geometric';
   } else {
     return -1;
   }

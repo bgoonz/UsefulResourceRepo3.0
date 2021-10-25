@@ -1,10 +1,10 @@
-import React from "react";
-import _ from "lodash";
-import moment from "moment-strftime";
-import { graphql } from "gatsby";
+import React from 'react';
+import _ from 'lodash';
+import moment from 'moment-strftime';
+import { graphql } from 'gatsby';
 
-import { Layout } from "../components/index";
-import { toStyleObj, withPrefix, getPages, Link } from "../utils";
+import { Layout } from '../components/index';
+import { toStyleObj, withPrefix, getPages, Link } from '../utils';
 
 // this minimal GraphQL query ensures that when 'gatsby develop' is running,
 // any changes to content files are reflected in browser
@@ -19,20 +19,20 @@ export const query = graphql`
 export default class Blog extends React.Component {
   render() {
     let display_posts = _.orderBy(
-      getPages(this.props.pageContext.pages, "/blog"),
-      "frontmatter.date",
-      "desc"
+      getPages(this.props.pageContext.pages, '/blog'),
+      'frontmatter.date',
+      'desc'
     );
     return (
       <Layout {...this.props}>
         <header className="page-header has-gradient outer">
-          {_.get(this.props, "pageContext.frontmatter.image", null) && (
+          {_.get(this.props, 'pageContext.frontmatter.image', null) && (
             <div
               className="bg-img"
               style={toStyleObj(
                 "background-image: url('" +
                   withPrefix(
-                    _.get(this.props, "pageContext.frontmatter.image", null)
+                    _.get(this.props, 'pageContext.frontmatter.image', null)
                   ) +
                   "')"
               )}
@@ -40,11 +40,11 @@ export default class Blog extends React.Component {
           )}
           <div className="inner-sm">
             <h1 className="page-title">
-              {_.get(this.props, "pageContext.frontmatter.title", null)}
+              {_.get(this.props, 'pageContext.frontmatter.title', null)}
             </h1>
-            {_.get(this.props, "pageContext.frontmatter.subtitle", null) && (
+            {_.get(this.props, 'pageContext.frontmatter.subtitle', null) && (
               <p className="page-subtitle">
-                {_.get(this.props, "pageContext.frontmatter.subtitle", null)}
+                {_.get(this.props, 'pageContext.frontmatter.subtitle', null)}
               </p>
             )}
           </div>
@@ -53,18 +53,18 @@ export default class Blog extends React.Component {
           <div className="post-feed">
             {_.map(display_posts, (post, post_idx) => (
               <article key={post_idx} className="post">
-                {_.get(post, "frontmatter.thumb_image", null) && (
+                {_.get(post, 'frontmatter.thumb_image', null) && (
                   <Link
                     className="post-thumbnail"
-                    to={withPrefix(_.get(post, "url", null))}
+                    to={withPrefix(_.get(post, 'url', null))}
                   >
                     <img
                       src={withPrefix(
-                        _.get(post, "frontmatter.thumb_image", null)
+                        _.get(post, 'frontmatter.thumb_image', null)
                       )}
                       alt={_.get(
                         this.props,
-                        "pageContext.frontmatter.thumb_image_alt",
+                        'pageContext.frontmatter.thumb_image_alt',
                         null
                       )}
                     />
@@ -75,46 +75,46 @@ export default class Blog extends React.Component {
                     <time
                       className="published"
                       dateTime={moment(
-                        _.get(post, "frontmatter.date", null)
-                      ).strftime("%Y-%m-%d %H:%M")}
+                        _.get(post, 'frontmatter.date', null)
+                      ).strftime('%Y-%m-%d %H:%M')}
                     >
-                      {moment(_.get(post, "frontmatter.date", null)).strftime(
-                        "%B %d, %Y"
+                      {moment(_.get(post, 'frontmatter.date', null)).strftime(
+                        '%B %d, %Y'
                       )}
                     </time>
                   </div>
                   <h2 className="post-title line-left">
                     <Link
-                      to={withPrefix(_.get(post, "url", null))}
+                      to={withPrefix(_.get(post, 'url', null))}
                       rel="bookmark"
                     >
-                      {_.get(post, "frontmatter.title", null)}
+                      {_.get(post, 'frontmatter.title', null)}
                     </Link>
                   </h2>
                 </header>
-                {_.get(post, "frontmatter.excerpt", null) && (
+                {_.get(post, 'frontmatter.excerpt', null) && (
                   <React.Fragment>
                     <p className="post-excerpt">
-                      {_.get(post, "frontmatter.excerpt", null)}
+                      {_.get(post, 'frontmatter.excerpt', null)}
                     </p>
                     {_.get(
                       this.props,
-                      "pageContext.frontmatter.has_more_link",
+                      'pageContext.frontmatter.has_more_link',
                       null
                     ) === true &&
                       _.get(
                         this.props,
-                        "pageContext.frontmatter.more_link_text",
+                        'pageContext.frontmatter.more_link_text',
                         null
                       ) && (
                         <p className="read-more">
                           <Link
                             className="read-more-link"
-                            to={withPrefix(_.get(post, "url", null))}
+                            to={withPrefix(_.get(post, 'url', null))}
                           >
                             {_.get(
                               this.props,
-                              "pageContext.frontmatter.more_link_text",
+                              'pageContext.frontmatter.more_link_text',
                               null
                             )}
                           </Link>

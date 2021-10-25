@@ -193,7 +193,7 @@ log complexity algo's will typically display 'halving' the size of the input ??
 // O(log(n))
 function logarithmic1(n) {
   if (n <= 1) {
-    return "base case";
+    return 'base case';
   } else {
     return logarithmic1(n / 2); //*Recursive call on **half** the input
   }

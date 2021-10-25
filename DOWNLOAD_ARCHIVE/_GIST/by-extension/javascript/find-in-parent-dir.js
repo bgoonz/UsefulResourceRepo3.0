@@ -1,22 +1,22 @@
-"use strict";
-const path = require("path");
-const locatePath = require("locate-path");
-const pathExists = require("path-exists");
+'use strict';
+const path = require('path');
+const locatePath = require('locate-path');
+const pathExists = require('path-exists');
 
-const stop = Symbol("findUp.stop");
+const stop = Symbol('findUp.stop');
 
 module.exports = async (name, options = {}) => {
-  let directory = path.resolve(options.cwd || "");
+  let directory = path.resolve(options.cwd || '');
   const { root } = path.parse(directory);
   const paths = [].concat(name);
 
   const runMatcher = async (locateOptions) => {
-    if (typeof name !== "function") {
+    if (typeof name !== 'function') {
       return locatePath(paths, locateOptions);
     }
 
     const foundPath = await name(locateOptions.cwd);
-    if (typeof foundPath === "string") {
+    if (typeof foundPath === 'string') {
       return locatePath([foundPath], locateOptions);
     }
 
@@ -45,17 +45,17 @@ module.exports = async (name, options = {}) => {
 };
 
 module.exports.sync = (name, options = {}) => {
-  let directory = path.resolve(options.cwd || "");
+  let directory = path.resolve(options.cwd || '');
   const { root } = path.parse(directory);
   const paths = [].concat(name);
 
   const runMatcher = (locateOptions) => {
-    if (typeof name !== "function") {
+    if (typeof name !== 'function') {
       return locatePath.sync(paths, locateOptions);
     }
 
     const foundPath = name(locateOptions.cwd);
-    if (typeof foundPath === "string") {
+    if (typeof foundPath === 'string') {
       return locatePath.sync([foundPath], locateOptions);
     }
 

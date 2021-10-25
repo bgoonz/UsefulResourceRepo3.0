@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import React from "react";
-import Fieldset from "part:@sanity/components/fieldsets/default";
-import { setIfMissing } from "part:@sanity/form-builder/patch-event";
+import PropTypes from 'prop-types';
+import React from 'react';
+import Fieldset from 'part:@sanity/components/fieldsets/default';
+import { setIfMissing } from 'part:@sanity/form-builder/patch-event';
 // FormBuilderInput automatically generates fields from a schema
-import { FormBuilderInput } from "part:@sanity/form-builder";
+import { FormBuilderInput } from 'part:@sanity/form-builder';
 // a Higher Order Component that passes document values as props
-import { withDocument } from "part:@sanity/form-builder";
+import { withDocument } from 'part:@sanity/form-builder';
 
 class CustomObjectInput extends React.PureComponent {
   static propTypes = {
@@ -86,7 +86,7 @@ class CustomObjectInput extends React.PureComponent {
              *   }
              *  Here the field 'b' will show only if the 'condition' boolean is set to true
              */
-            .filter((field) => (field.name === "b" ? condition : true))
+            .filter((field) => (field.name === 'b' ? condition : true))
             .map((field, i) => (
               // Delegate to the generic FormBuilderInput. It will resolve and insert the actual input component
               // for the given field type

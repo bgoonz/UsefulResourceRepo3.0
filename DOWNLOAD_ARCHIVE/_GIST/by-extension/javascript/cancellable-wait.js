@@ -5,7 +5,7 @@ const wait = (time, cancel = Promise.reject()) =>
 
     cancel.then(() => {
       clearTimeout(timer);
-      reject(new Error("Cancelled"));
+      reject(new Error('Cancelled'));
     }, noop);
   });
 
@@ -13,6 +13,6 @@ const shouldCancel = Promise.resolve(); // Yes, cancel
 // const shouldCancel = Promise.reject(); // No cancel
 
 wait(2000, shouldCancel).then(
-  () => console.log("Hello!"),
+  () => console.log('Hello!'),
   (e) => console.log(e) // [Error: Cancelled]
 );

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-import JSNetworkXError from "../exceptions/JSNetworkXError";
+import JSNetworkXError from '../exceptions/JSNetworkXError';
 
-import { fillArray, isMap, isPlainObject, sprintf } from "../_internals";
+import { fillArray, isMap, isPlainObject, sprintf } from '../_internals';
 
 /**
  * Return a copy of the graph nodes in a list.
@@ -258,13 +258,13 @@ export function createEmptyCopy(G, optWithNodes = true) {
  * @return {string} Info
  */
 export function info(G, optN) {
-  var result = "";
+  var result = '';
   if (optN == null) {
     var template =
-      "Name: %s\n" +
-      "Type: %s\n" +
-      "Number of nodes: %s\n" +
-      "Number of edges: %s\n";
+      'Name: %s\n' +
+      'Type: %s\n' +
+      'Number of nodes: %s\n' +
+      'Number of edges: %s\n';
     var nnodes = G.numberOfNodes();
     result = sprintf(
       template,
@@ -285,7 +285,7 @@ export function info(G, optN) {
         }
 
         result += sprintf(
-          "Average in degree: %s\nAverage out degree: %s",
+          'Average in degree: %s\nAverage out degree: %s',
           (inDegree / nnodes).toFixed(4),
           (outDegree / nnodes).toFixed(4)
         );
@@ -294,20 +294,20 @@ export function info(G, optN) {
         for (let v of G.degree().values()) {
           sum += v;
         }
-        result += sprintf("Average degree: %s", (sum / nnodes).toFixed(4));
+        result += sprintf('Average degree: %s', (sum / nnodes).toFixed(4));
       }
     }
   } else {
     if (!G.hasNode(optN)) {
-      throw new JSNetworkXError(sprintf("Node %j not in graph.", optN));
+      throw new JSNetworkXError(sprintf('Node %j not in graph.', optN));
     }
     result = sprintf(
-      "Node %j has the following properties:\nDegree: %s\nNeighbors: %s",
+      'Node %j has the following properties:\nDegree: %s\nNeighbors: %s',
       optN,
       G.degree(optN),
       G.neighbors(optN)
         .map((n) => JSON.stringify(n))
-        .join(" ")
+        .join(' ')
     );
   }
   return result;
@@ -329,7 +329,7 @@ export function setNodeAttributes(G, name, attributes) {
       G.node.get(node)[name] = attributes[node];
     }
   } else {
-    throw new TypeError("Attributes must be a Map or a plain object");
+    throw new TypeError('Attributes must be a Map or a plain object');
   }
 }
 

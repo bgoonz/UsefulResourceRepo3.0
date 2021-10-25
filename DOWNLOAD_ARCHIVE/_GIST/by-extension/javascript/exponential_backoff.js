@@ -16,17 +16,17 @@ function retryCheck(
   max_wait_time,
   i
 ) {
-  max_retries = typeof max_retries === "undefined" ? 20 : max_retries;
-  max_wait_time = typeof max_wait_time === "undefined" ? 30000 : max_wait_time;
-  i = typeof i === "undefined" ? 0 : i;
+  max_retries = typeof max_retries === 'undefined' ? 20 : max_retries;
+  max_wait_time = typeof max_wait_time === 'undefined' ? 30000 : max_wait_time;
+  i = typeof i === 'undefined' ? 0 : i;
   console.log(
-    "  retryCheck max_retries = %s, max_wait_time = %s, i = %s",
+    '  retryCheck max_retries = %s, max_wait_time = %s, i = %s',
     max_retries,
     max_wait_time,
     i
   );
   if (max_retries <= 0 || max_wait_time <= 0) {
-    console.log("retryCheck not found, doing nothing");
+    console.log('retryCheck not found, doing nothing');
     failedCallback();
   } else {
     if (!test()) {
@@ -51,6 +51,6 @@ function retryCheck(
 
 retryCheck(
   () => Math.random() < 0.1,
-  () => console.log("success"),
-  () => console.log("failure")
+  () => console.log('success'),
+  () => console.log('failure')
 );

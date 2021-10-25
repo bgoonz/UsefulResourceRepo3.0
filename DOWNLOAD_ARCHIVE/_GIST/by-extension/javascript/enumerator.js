@@ -34,22 +34,22 @@ const numbersEnumeration = asEnumeration({
 const createGetSequence = (type) => (limit) =>
   numbersEnumeration.from(type).getSequence(limit);
 
-const getOddNumberSequence = createGetSequence("odd");
-const getEvenNumberSequence = createGetSequence("even");
+const getOddNumberSequence = createGetSequence('odd');
+const getEvenNumberSequence = createGetSequence('even');
 
 const getTranslationInSpanish = (word) => {
-  return "hola";
+  return 'hola';
 };
 
 const getTranslationInGerman = (word) => {
-  return "hallo";
+  return 'hallo';
 };
 
 const languageEnumeration = asEnumeration({
-  "es-es": {
+  'es-es': {
     getTranslation: getTranslationInSpanish,
   },
-  "en-de": {
+  'en-de': {
     getTranslation: getTranslationInGerman,
   },
 });
@@ -57,8 +57,8 @@ const languageEnumeration = asEnumeration({
 const createTranslator = (type) => (word) =>
   languageEnumeration.from(type).getTranslation(word);
 
-const getSpanishWord = createTranslator("es-es");
-const getGermanWord = createTranslator("en-de");
+const getSpanishWord = createTranslator('es-es');
+const getGermanWord = createTranslator('en-de');
 
-console.log(getSpanishWord("hello"));
-console.log(getGermanWord("hello"));
+console.log(getSpanishWord('hello'));
+console.log(getGermanWord('hello'));

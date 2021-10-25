@@ -8,7 +8,7 @@ function SimpleSymbols(str) {
     // ... and use the our previously declared regex expression and the .test method to see if the character is a letter
     if (alphaTest.test(str[i])) {
       // If our test returns true, we check if either of the adjacent characters are not +'s
-      if (str[i + 1] != "+" || str[i - 1] != "+") {
+      if (str[i + 1] != '+' || str[i - 1] != '+') {
         // If one of them isn't, we return false.
         return false;
       }
@@ -23,7 +23,7 @@ function SimpleSymbols(str) {
 function SimpleSymbols(str) {
   for (var i = 0, x = str.length; i < x; i++) {
     if (/[a-zA-Z]/.test(str[i])) {
-      if (str[i + 1] != "+" || str[i - 1] != "+") {
+      if (str[i + 1] != '+' || str[i - 1] != '+') {
         return false;
       }
     }

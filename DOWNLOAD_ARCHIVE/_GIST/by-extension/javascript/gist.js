@@ -1,35 +1,35 @@
 #!/usr/bin/env node
 var args = process.argv.slice(2);
-var path = require("path");
-var fs = require("fs");
+var path = require('path');
+var fs = require('fs');
 var private = false;
-var description = "";
-var opener = require("opener");
-var copy = process.platform === "darwin";
+var description = '';
+var opener = require('opener');
+var copy = process.platform === 'darwin';
 var open = true;
 var stdin = true;
 var anon = false;
-var type = "txt";
+var type = 'txt';
 var files = [];
 var doMain = true;
-var ini = require("ini");
-var child_process = require("child_process");
+var ini = require('ini');
+var child_process = require('child_process');
 var execFile = child_process.execFile;
 var spawn = child_process.spawn;
-var home = require("osenv").home();
-var authFile = home + "/.gist-login";
-var https = require("https");
-var read = require("read");
-var userAgent = "node/gist-cli@" + require("./package.json").version;
+var home = require('osenv').home();
+var authFile = home + '/.gist-login';
+var https = require('https');
+var read = require('read');
+var userAgent = 'node/gist-cli@' + require('./package.json').version;
 var argUN = null;
 var argPW = null;
 
 var debug;
 if (process.env.NODE_DEBUG && /\bgist\b/.exec(process.env.NODE_DEBUG)) {
-  var util = require("util");
+  var util = require('util');
   debug = function () {
     var m = util.format.apply(util, arguments);
-    console.error("GIST", m);
+    console.error('GIST', m);
   };
 } else {
   debug = function () {};
@@ -37,58 +37,58 @@ if (process.env.NODE_DEBUG && /\bgist\b/.exec(process.env.NODE_DEBUG)) {
 
 for (var a = 0; a < args.length; a++) {
   switch (args[a]) {
-    case "-u":
-    case "--user":
-    case "--username":
+    case '-u':
+    case '--user':
+    case '--username':
       argUN = args[++a];
       break;
-    case "-P":
-    case "--pass":
-    case "--password":
+    case '-P':
+    case '--pass':
+    case '--password':
       argPW = args[++a];
       break;
-    case "-c":
-    case "--copy":
-      copy = process.platform === "darwin";
+    case '-c':
+    case '--copy':
+      copy = process.platform === 'darwin';
       break;
-    case "--no-copy":
+    case '--no-copy':
       copy = false;
       break;
-    case "-p":
-    case "--private":
+    case '-p':
+    case '--private':
       private = true;
       break;
-    case "--no-private":
+    case '--no-private':
       private = false;
       break;
-    case "-t":
-    case "--type":
+    case '-t':
+    case '--type':
       type = args[++a];
       break;
-    case "-d":
-    case "--description":
+    case '-d':
+    case '--description':
       description = args[++a];
       break;
-    case "-o":
-    case "--open":
+    case '-o':
+    case '--open':
       open = true;
       break;
-    case "--no-open":
+    case '--no-open':
       open = false;
       break;
-    case "-v":
-    case "--version":
+    case '-v':
+    case '--version':
       version();
       doMain = false;
       break;
-    case "-h":
-    case "--help":
+    case '-h':
+    case '--help':
       help();
       doMain = false;
       break;
-    case "-a":
-    case "--anon":
-    case "--anonymous":
+    case '-a':
+    case '--anon':
+    case '--anonymous':
       anon = true;
       break;
     default:
@@ -97,43 +97,43 @@ for (var a = 0; a < args.length; a++) {
   }
 }
 
-if (files.length !== 0 && files.indexOf("-") === -1) stdin = false;
+if (files.length !== 0 && files.indexOf('-') === -1) stdin = false;
 
 if (doMain) main();
 
 function help() {
   console.log(
     [
-      "Usage: gist [options] [filename, ...]",
+      'Usage: gist [options] [filename, ...]',
       "Filename '-' forces gist to read from stdin.",
-      "gist will read from stdin by default if no files specified",
-      "    -p, --[no-]private               Make the gist private",
-      "    -t, --type [EXTENSION]           Set syntax highlighting of the Gist by file extension",
-      "                                     (Only applies to stdin data, filenames use extension)",
-      "    -d, --description DESCRIPTION    Set description of the new gist",
-      "    -o, --[no-]open                  Open gist in browser",
-      "    -c, --[no-]copy                  Save url to clipboard (osx only)",
-      "    -v, --version                    Print version",
-      "    -h, --help                       Display this screen",
-    ].join("\n")
+      'gist will read from stdin by default if no files specified',
+      '    -p, --[no-]private               Make the gist private',
+      '    -t, --type [EXTENSION]           Set syntax highlighting of the Gist by file extension',
+      '                                     (Only applies to stdin data, filenames use extension)',
+      '    -d, --description DESCRIPTION    Set description of the new gist',
+      '    -o, --[no-]open                  Open gist in browser',
+      '    -c, --[no-]copy                  Save url to clipboard (osx only)',
+      '    -v, --version                    Print version',
+      '    -h, --help                       Display this screen',
+    ].join('\n')
   );
 }
 
 function version() {
-  console.log(require("./package.json").version);
+  console.log(require('./package.json').version);
 }
 
 function main() {
-  debug("main start");
+  debug('main start');
   if (anon && private) {
-    console.error("Cannot create private anonymous gists");
+    console.error('Cannot create private anonymous gists');
     process.exit(1);
   }
 
   if (anon) getData(files, onData.bind(null, null));
   else
     getAuth(function (er, auth) {
-      debug("auth", er, auth);
+      debug('auth', er, auth);
       if (er) throw er;
       getData(files, onData.bind(null, auth));
     });
@@ -149,40 +149,40 @@ function onData(auth, er, data) {
       files: data,
     })
   );
-  debug("body", body.toString());
+  debug('body', body.toString());
 
   var opt = {
-    method: "POST",
-    host: "api.github.com",
+    method: 'POST',
+    host: 'api.github.com',
     port: 443,
-    path: "/gists",
+    path: '/gists',
     headers: {
-      host: "api.github.com",
-      "user-agent": userAgent,
-      "content-length": body.length,
-      "content-type": "application/json",
+      host: 'api.github.com',
+      'user-agent': userAgent,
+      'content-length': body.length,
+      'content-type': 'application/json',
     },
   };
 
-  if (!anon) opt.headers.authorization = "token " + auth.token;
+  if (!anon) opt.headers.authorization = 'token ' + auth.token;
 
-  debug("making request", opt);
+  debug('making request', opt);
   var req = https.request(opt);
-  req.on("response", function (res) {
-    var result = "";
-    res.setEncoding("utf8");
-    res.on("data", function (c) {
+  req.on('response', function (res) {
+    var result = '';
+    res.setEncoding('utf8');
+    res.on('data', function (c) {
       result += c;
     });
-    res.on("end", function () {
+    res.on('end', function () {
       result = JSON.parse(result);
-      debug("result", result);
+      debug('result', result);
       var id = result.id;
-      var user = (auth && auth.user) || "anonymous";
-      var url = "https://gist.github.com/" + user + "/" + id;
+      var user = (auth && auth.user) || 'anonymous';
+      var url = 'https://gist.github.com/' + user + '/' + id;
       if (open) opener(url);
       if (copy) copyUrl(url);
-      process.on("exit", function () {
+      process.on('exit', function () {
         console.log(url);
       });
     });
@@ -197,7 +197,7 @@ function onData(auth, er, data) {
 }
 
 function copyUrl(url) {
-  spawn("pbcopy", []).stdin.end(url);
+  spawn('pbcopy', []).stdin.end(url);
 }
 
 function getAuth(cb) {
@@ -205,26 +205,26 @@ function getAuth(cb) {
   var pass = argPW;
   var argAuth = { user: argUN, pass: argPW };
   if (user && pass) {
-    debug("auth on argv");
+    debug('auth on argv');
     return tokenize({ user: argUN, pass: argPW }, cb);
   }
 
   if (user && !pass) {
-    debug("user on argv, password required");
+    debug('user on argv, password required');
     return getPassFromCli(argAuth, function (er, auth) {
-      debug("getPassFromCli", er, auth);
+      debug('getPassFromCli', er, auth);
       done(er, auth);
     });
   }
 
   getAuthFromFile(authFile, function (er, auth) {
-    debug("getAuthFromFile", er, auth);
+    debug('getAuthFromFile', er, auth);
     if (er)
       getAuthFromGit(function (er, auth) {
-        debug("getAuthFromGit", er, auth);
+        debug('getAuthFromGit', er, auth);
         if (er)
           getAuthFromCli(function (er, auth) {
-            debug("getAuthFromCli", er, auth);
+            debug('getAuthFromCli', er, auth);
             done(er, auth);
           });
         else done(er, auth);
@@ -247,13 +247,13 @@ function getAuth(cb) {
 
 function getAuthFromCli(cb) {
   // can't read a file from stdin if we're reading login!
-  if (files.indexOf("-") !== -1 || stdin) {
-    debug("error: gisting stdin and also reading auth on stdin");
+  if (files.indexOf('-') !== -1 || stdin) {
+    debug('error: gisting stdin and also reading auth on stdin');
     process.exit(1);
   }
 
   var data = {};
-  read({ prompt: "github.com username: " }, function (er, user) {
+  read({ prompt: 'github.com username: ' }, function (er, user) {
     if (er) return cb(er);
     data.user = user.trim();
     getPassFromCli(data, cb);
@@ -262,7 +262,7 @@ function getAuthFromCli(cb) {
 
 function getPassFromCli(data, cb) {
   read(
-    { prompt: "github.com password: ", silent: true },
+    { prompt: 'github.com password: ', silent: true },
     function (er, password) {
       if (er) return cb(er);
       password = password.trim();
@@ -271,38 +271,38 @@ function getPassFromCli(data, cb) {
       //   https://api.github.com/authorizations
       var body = new Buffer(
         JSON.stringify({
-          scopes: ["gist"],
-          note: "gist cli access",
+          scopes: ['gist'],
+          note: 'gist cli access',
         })
       );
       var req = https.request({
-        method: "POST",
-        host: "api.github.com",
+        method: 'POST',
+        host: 'api.github.com',
         headers: {
-          "content-type": "application/json",
-          "content-length": body.length,
-          "user-agent": userAgent,
+          'content-type': 'application/json',
+          'content-length': body.length,
+          'user-agent': userAgent,
           authorization:
-            "Basic " +
-            new Buffer(data.user + ":" + password).toString("base64"),
+            'Basic ' +
+            new Buffer(data.user + ':' + password).toString('base64'),
         },
-        path: "/authorizations",
+        path: '/authorizations',
       });
-      var result = "";
-      req.on("response", function (res) {
-        res.on("error", cb);
-        res.setEncoding("utf8");
-        res.on("data", function (c) {
+      var result = '';
+      req.on('response', function (res) {
+        res.on('error', cb);
+        res.setEncoding('utf8');
+        res.on('data', function (c) {
           result += c;
         });
-        res.on("end", function () {
+        res.on('end', function () {
           result = JSON.parse(result);
           if (res.statusCode >= 400) {
-            debug("failed", res.statusCode, result);
+            debug('failed', res.statusCode, result);
             var message = result.message || JSON.stringify(result);
             return cb(new Error(message));
           }
-          debug("ok", res.statusCode, result);
+          debug('ok', res.statusCode, result);
           data.token = result.token;
           // just to make sure we don't waste this...
           if (files.length === 0)
@@ -312,7 +312,7 @@ function getPassFromCli(data, cb) {
           else cb(null, data);
         });
       });
-      req.on("error", cb);
+      req.on('error', cb);
       req.write(body);
       req.end();
     }
@@ -321,21 +321,21 @@ function getPassFromCli(data, cb) {
 
 function getAuthFromFile(authFile, cb) {
   // try to load from our file
-  fs.readFile(authFile, "utf8", function (er, data) {
+  fs.readFile(authFile, 'utf8', function (er, data) {
     if (er) return cb(er);
     data = ini.parse(data);
     if (!data.gist || !data.gist.user || !data.gist.token)
-      return cb(new Error("no login data in " + authFile));
+      return cb(new Error('no login data in ' + authFile));
     return cb(null, data.gist);
   });
 }
 
 function getAuthFromGit(cb) {
   var data = {};
-  getConfFromGit("gist.user", function (er, user) {
+  getConfFromGit('gist.user', function (er, user) {
     if (er) return cb(er);
     data.user = user;
-    getConfFromGit("gist.token", function (er, token) {
+    getConfFromGit('gist.token', function (er, token) {
       if (er) return cb(er);
       data.token = token;
       cb(null, data);
@@ -344,10 +344,10 @@ function getAuthFromGit(cb) {
 }
 
 function getConfFromGit(key, cb) {
-  debug("getConfFromGit", "git", ["config", "--get", key].join(" "));
+  debug('getConfFromGit', 'git', ['config', '--get', key].join(' '));
   var env = { env: process.env };
-  execFile("git", ["config", "--get", key], env, function (er, stdout, stderr) {
-    debug("back from git config", er, stdout, stderr);
+  execFile('git', ['config', '--get', key], env, function (er, stdout, stderr) {
+    debug('back from git config', er, stdout, stderr);
     if (er || !stdout) debug(stderr);
     return cb(er, stdout);
   });
@@ -365,33 +365,33 @@ function saveAuth(data, cb) {
 
 function getData(files, cb) {
   var data = {};
-  if (stdin && files.indexOf("-") === -1) files.push("-");
+  if (stdin && files.indexOf('-') === -1) files.push('-');
 
   var c = files.length;
   var errState = null;
   var didStdin = false;
   files.forEach(function (f) {
-    if (f === "-") {
+    if (f === '-') {
       if (!didStdin) {
         didStdin = true;
-        var stdinData = "";
-        process.stdin.setEncoding("utf8");
-        process.stdin.on("data", function (chunk) {
+        var stdinData = '';
+        process.stdin.setEncoding('utf8');
+        process.stdin.on('data', function (chunk) {
           stdinData += chunk;
         });
-        process.stdin.on("error", function (er) {
+        process.stdin.on('error', function (er) {
           next(er);
         });
-        process.stdin.on("end", function () {
-          data["gistfile." + type] = { content: stdinData };
+        process.stdin.on('end', function () {
+          data['gistfile.' + type] = { content: stdinData };
           next();
         });
       }
     } else {
-      fs.readFile(f, "utf8", function (er, fileData) {
+      fs.readFile(f, 'utf8', function (er, fileData) {
         if (er) next(er);
         else {
-          data[f.replace(/\\|\//g, "-")] = { content: fileData };
+          data[f.replace(/\\|\//g, '-')] = { content: fileData };
           next();
         }
       });

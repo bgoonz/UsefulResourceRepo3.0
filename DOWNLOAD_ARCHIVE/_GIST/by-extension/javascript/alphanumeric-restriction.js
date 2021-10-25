@@ -7,24 +7,24 @@ function csAlphanumericRestriction(input_str) {
 }
 csAlphanumericRestriction(111111110);
 console.log(
-  "🚀 ~ file: alphanumeric-restriction.js ~ line 9 ~ csAlphanumericRestriction( 111111110 )",
+  '🚀 ~ file: alphanumeric-restriction.js ~ line 9 ~ csAlphanumericRestriction( 111111110 )',
   csAlphanumericRestriction(111111110)
 );
-csAlphanumericRestriction("abcdefghijklmnopqrstuvwxyz");
+csAlphanumericRestriction('abcdefghijklmnopqrstuvwxyz');
 console.log(
   "🚀 ~ file: alphanumeric-restriction.js ~ line 11 ~ csAlphanumericRestriction( 'abcdefghijklmnopqrstuvwxyz' )",
-  csAlphanumericRestriction("abcdefghijklmnopqrstuvwxyz")
+  csAlphanumericRestriction('abcdefghijklmnopqrstuvwxyz')
 );
 
 console.log(
   "🚀 ~ file: alphanumeric-restriction.js ~ line 11 ~ csAlphanumericRestriction( 'abcdefghijklmnopqrstuvwxyz' )",
-  csAlphanumericRestriction("a565tuvwxyz")
+  csAlphanumericRestriction('a565tuvwxyz')
 );
 console.log(
   "🚀 ~ file: alphanumeric-restriction.js ~ line 11 ~ csAlphanumericRestriction( 'abcdefghijklmnopqrstuvwxyz' )",
-  csAlphanumericRestriction("a!2wxyz")
+  csAlphanumericRestriction('a!2wxyz')
 );
 console.log(
   "🚀 ~ file: alphanumeric-restriction.js ~ line 11 ~ csAlphanumericRestriction( 'abcdefghijklmnopqrstuvwxyz' )",
-  csAlphanumericRestriction("abcdef!ghijklmnopqrstuvwxyz")
+  csAlphanumericRestriction('abcdef!ghijklmnopqrstuvwxyz')
 );

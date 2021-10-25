@@ -12,12 +12,12 @@
   const { forEach } = Array.prototype;
 
   const $ = (str) => {
-    return document.querySelectorAll("." + str);
+    return document.querySelectorAll('.' + str);
   };
 
   const cx = {
-    blur: "blurred-row",
-    upsell: "new-upsell-wrapper",
+    blur: 'blurred-row',
+    upsell: 'new-upsell-wrapper',
   };
 
   const rows = $(cx.blur);

@@ -1,18 +1,18 @@
-const fs = require("fs");
-const path = require("path");
-const Collection = require("../lib/collection");
+const fs = require('fs');
+const path = require('path');
+const Collection = require('../lib/collection');
 const collection = new Collection();
 
 collection.use(loader());
 
-const filter = (file) => file.extname === ".txt";
+const filter = (file) => file.extname === '.txt';
 const contents = (file) => fs.readFileSync(file.path);
 
 // collection.load(path.join(__dirname, 'fixtures'));
 // collection.load(path.join(__dirname, 'fixtures'), { read: true });
 // collection.load(path.join(__dirname, 'fixtures'), { recurse: true, read: true });
 // collection.load(path.join(__dirname, 'fixtures'), { recurse: true, extname: '.hbs' });
-collection.load(path.join(__dirname, "fixtures"), { recurse: true, contents });
+collection.load(path.join(__dirname, 'fixtures'), { recurse: true, contents });
 console.log(collection);
 
 /**
@@ -36,7 +36,7 @@ console.log(collection);
 
 function loader() {
   return function (app) {
-    Reflect.defineProperty(app, "load", {
+    Reflect.defineProperty(app, 'load', {
       value: function (cwd, options = {}) {
         const { extname, filter, contents, recurse, read } = options;
 
@@ -62,7 +62,7 @@ function loader() {
 
             if (read === true) {
               view.contents = fs.readFileSync(view.path);
-            } else if (typeof contents === "function") {
+            } else if (typeof contents === 'function') {
               view.contents = contents(view);
             }
 

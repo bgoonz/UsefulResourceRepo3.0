@@ -13,12 +13,12 @@
 
 function multiples(x) {
   if (x % 49 == 0 && x % 3 == 0) {
-    return "Fang";
+    return 'Fang';
   } else if (x % 7 == 0) {
-    return "Fizz";
+    return 'Fizz';
   } else if (x % 15 == 0) {
-    return "Foo";
+    return 'Foo';
   } else {
-    return "Far";
+    return 'Far';
   }
 }

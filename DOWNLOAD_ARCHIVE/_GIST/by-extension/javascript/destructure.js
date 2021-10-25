@@ -7,11 +7,11 @@ console.log(firstEl); // => 35console.log(secondEl); // => 9// can also destruct
 //     rule of thumb- only destructure values from objects that are two levels deep ``
 
 let obj = {
-  name: "Wilfred",
-  appearance: ["short", "mustache"],
+  name: 'Wilfred',
+  appearance: ['short', 'mustache'],
   favorites: {
-    color: "mauve",
-    food: "spaghetti squash",
+    color: 'mauve',
+    food: 'spaghetti squash',
     number: 3,
   },
 };
@@ -23,7 +23,7 @@ let { name: myName, appearance: myAppearance } = obj;
 console.log(myName); // "Wilfred"
 console.log(myAppearance); // ["short", "mustache"]// in a function call
 let sayHello = function ({ name }) {
-  console.log("Hello, " + name); // "Hello Wilfred"
+  console.log('Hello, ' + name); // "Hello Wilfred"
 }; // nested objects + aliasing
 let {
   favorites: { color, food: vegetable },

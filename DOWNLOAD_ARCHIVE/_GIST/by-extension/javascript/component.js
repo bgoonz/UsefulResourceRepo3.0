@@ -1,4 +1,4 @@
-import Ember from "ember";
+import Ember from 'ember';
 
 let flakes = [];
 
@@ -38,10 +38,10 @@ function render(ctx, width, height, [min, max]) {
 }
 
 export default Ember.Component.extend({
-  classNames: ["x-snow"],
+  classNames: ['x-snow'],
 
-  tagName: "canvas",
-  template: "",
+  tagName: 'canvas',
+  template: '',
 
   count: null,
   width: null,
@@ -50,17 +50,17 @@ export default Ember.Component.extend({
 
   willInsertElement() {
     const canvas = this.element;
-    const fullscreen = this.get("fullscreen");
-    const count = this.get("count");
+    const fullscreen = this.get('fullscreen');
+    const count = this.get('count');
 
     const w = (canvas.width = fullscreen
       ? window.innerWidth
-      : this.get("width"));
+      : this.get('width'));
     const h = (canvas.height = fullscreen
       ? window.innerHeight
-      : this.get("height"));
+      : this.get('height'));
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
 
     this._seed(count || Math.round(w / 20), w, h, [3, 22], [-2, 2], [2, 4]);
 

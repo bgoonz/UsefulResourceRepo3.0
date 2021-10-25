@@ -1,21 +1,21 @@
 // An array of articles with their tags.
 var articles = [
   {
-    title: "Introduction to Javascript Scope",
-    tags: ["Javascript", "Variables", "Scope"],
+    title: 'Introduction to Javascript Scope',
+    tags: ['Javascript', 'Variables', 'Scope'],
   },
   {
-    title: "Javascript Closures",
-    tags: ["Javascript", "Variables", "Closures"],
+    title: 'Javascript Closures',
+    tags: ['Javascript', 'Variables', 'Closures'],
   },
-  { title: "A Guide to PWAs", tags: ["Javascript", "PWA"] },
+  { title: 'A Guide to PWAs', tags: ['Javascript', 'PWA'] },
   {
-    title: "Javascript Functional Programming Examples",
-    tags: ["Javascript", "Functional", "Function"],
+    title: 'Javascript Functional Programming Examples',
+    tags: ['Javascript', 'Functional', 'Function'],
   },
   {
-    title: "Why Javascript Closures are Important",
-    tags: ["Javascript", "Variables", "Closures"],
+    title: 'Why Javascript Closures are Important',
+    tags: ['Javascript', 'Variables', 'Closures'],
   },
 ];
 

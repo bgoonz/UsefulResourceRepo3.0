@@ -1,12 +1,12 @@
 // Arrays of expenses.
 var oldExpenses = [
-  { company: "BigCompany Co.", value: 1200.1 },
-  { company: "Pineapple Inc.", value: 3107.02 },
-  { company: "Office Supplies Inc.", value: 266.97 },
+  { company: 'BigCompany Co.', value: 1200.1 },
+  { company: 'Pineapple Inc.', value: 3107.02 },
+  { company: 'Office Supplies Inc.', value: 266.97 },
 ];
 var newExpenses = [
-  { company: "Office Supplies Inc.", value: 108.11 },
-  { company: "Megasoft Co.", value: 1208.99 },
+  { company: 'Office Supplies Inc.', value: 108.11 },
+  { company: 'Megasoft Co.', value: 1208.99 },
 ];
 
 // Simple summation function

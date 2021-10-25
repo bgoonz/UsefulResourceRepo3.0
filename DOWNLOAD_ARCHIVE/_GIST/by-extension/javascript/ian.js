@@ -1,9 +1,9 @@
 let me = {
-  name: "Ian",
-  instruments: ["bass", "synth", "guitar"],
+  name: 'Ian',
+  instruments: ['bass', 'synth', 'guitar'],
   siblings: {
-    brothers: ["Alistair"],
-    sisters: ["Meghan"],
+    brothers: ['Alistair'],
+    sisters: ['Meghan'],
   },
 };
 let {

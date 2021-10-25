@@ -1,5 +1,5 @@
 const table = process.env.USERS_TABLE;
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 /**
@@ -12,12 +12,12 @@ const resetPassword = async (req, res) => {
   try {
     // compare the two passwords - error if don't match
     if (req.body.password1 !== req.body.password2) {
-      throw new Error("Passwords do not match");
+      throw new Error('Passwords do not match');
     }
     // check pw validity
     if (!validatePassword(req.body.password1)) {
       throw new Error(
-        "Password should have 8+ characters with one lowercase, uppercase, and number"
+        'Password should have 8+ characters with one lowercase, uppercase, and number'
       );
     }
     // find the token entry in DynamoDB - returns error if no token or expired
@@ -36,14 +36,14 @@ const resetPassword = async (req, res) => {
       Key: {
         email: req.body.email,
       },
-      UpdateExpression: "set password=:v",
-      ExpressionAttributeValues: { ":v": password },
+      UpdateExpression: 'set password=:v',
+      ExpressionAttributeValues: { ':v': password },
     };
 
     // use DynamoDB.DocumentClient to update
     await dynamodb.update(params).promise();
 
-    res.status(200).json({ message: "Password Reset Successful" });
+    res.status(200).json({ message: 'Password Reset Successful' });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

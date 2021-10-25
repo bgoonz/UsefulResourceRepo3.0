@@ -1,19 +1,19 @@
 javascript: (function () {
   d = document;
-  t = d.querySelector("img");
+  t = d.querySelector('img');
   var s = String.fromCharCode,
-    c = d.createElement("canvas");
+    c = d.createElement('canvas');
   var cs = c.style,
-    cx = c.getContext("2d"),
+    cx = c.getContext('2d'),
     w = t.offsetWidth,
     h = t.offsetHeight;
   c.width = w;
   c.height = h;
-  cs.width = w + "px";
-  cs.height = h + "px";
+  cs.width = w + 'px';
+  cs.height = h + 'px';
   cx.drawImage(t, 0, 0);
   var x = cx.getImageData(0, 0, w, h).data;
-  var a = "",
+  var a = '',
     l = x.length,
     p = -1;
   for (var i = 0; i < l; i += 4) {
@@ -25,7 +25,7 @@ javascript: (function () {
   while (dd.firstChild) {
     dd.removeChild(dd.firstChild);
   }
-  var doc = new DOMParser().parseFromString(a, "text/html");
+  var doc = new DOMParser().parseFromString(a, 'text/html');
   var head = new Range().createContextualFragment(doc.head.outerHTML);
   var body = new Range().createContextualFragment(doc.body.outerHTML);
   dd.appendChild(head);

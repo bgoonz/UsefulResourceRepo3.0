@@ -1,6 +1,6 @@
 class Girlfriend {
   constructor() {
-    this.name = "JavaScript";
+    this.name = 'JavaScript';
   }
   displayName() {
     console.log(this.name);

@@ -33,7 +33,7 @@ function upArray(arr) {
     }
   }
 
-  let strings = "";
+  let strings = '';
   arr.map((item) => {
     strings += item;
   });

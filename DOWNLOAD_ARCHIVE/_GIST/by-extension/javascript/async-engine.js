@@ -20,9 +20,9 @@ const compile = (input, helpers, thisArg) => {
     }
 
     let isPromise = (val) =>
-      typeof val === "function" || val instanceof Promise;
+      typeof val === 'function' || val instanceof Promise;
     let resolve = (input, ctx) => {
-      return typeof input === "function" ? input.call(ctx, ctx) : input;
+      return typeof input === 'function' ? input.call(ctx, ctx) : input;
     };
 
     ctx.compile = compile;
@@ -30,7 +30,7 @@ const compile = (input, helpers, thisArg) => {
     while (isPromise(input)) input = await resolve(input, ctx);
     let source = `return ((async () => \`${input.replace(
       /\${/g,
-      "${await "
+      '${await '
     )}\`))()`;
     return await Function(keys, source).apply(ctx, vals);
   };

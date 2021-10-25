@@ -1,6 +1,6 @@
 // Best practice dictates specifying constants
 // for the different types of actions in an application
-export const SEARCH_POST = "SEARCH_POST";
+export const SEARCH_POST = 'SEARCH_POST';
 
 // This is an action creator
 export const searchPost = (query) => {

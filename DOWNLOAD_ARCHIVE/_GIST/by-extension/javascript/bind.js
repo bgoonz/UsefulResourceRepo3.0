@@ -1,6 +1,6 @@
 let cat = {
   purr: function () {
-    console.log("meow");
+    console.log('meow');
   },
   purrMore: function () {
     this.purr();

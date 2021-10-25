@@ -11,7 +11,7 @@ function CheckNums(num1, num2) {
     // If neither of the above conditions are true, we know that the numbers are equal...
   } else {
     // ...and so we return the string -1.
-    return "-1";
+    return '-1';
   }
 }
 
@@ -22,6 +22,6 @@ function CheckNums(num1, num2) {
   } else if (num1 > num2) {
     return false;
   } else {
-    return "-1";
+    return '-1';
   }
 }

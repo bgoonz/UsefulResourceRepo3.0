@@ -1,8 +1,8 @@
-import { readdirSync, readFileSync } from "fs";
-import { join, parse } from "path";
-import ts from "typescript";
+import { readdirSync, readFileSync } from 'fs';
+import { join, parse } from 'path';
+import ts from 'typescript';
 
-const fileToParse = join(__dirname, "../", "src", "index.ts");
+const fileToParse = join(__dirname, '../', 'src', 'index.ts');
 let program = ts.createProgram([fileToParse], {});
 program.getTypeChecker({});
 
@@ -13,14 +13,14 @@ let mainExport;
 ts.forEachChild(sourceFile, (node) => {
   if (
     node.kind === ts.SyntaxKind.InterfaceDeclaration &&
-    node.symbol.escapedName === "ExampleOptions"
+    node.symbol.escapedName === 'ExampleOptions'
   ) {
     optionsInterface = node;
   }
 
   if (
     node.kind === ts.SyntaxKind.FunctionDeclaration &&
-    node.symbol.escapedName === "twoslasher"
+    node.symbol.escapedName === 'twoslasher'
   ) {
     mainExport = node;
     mainExport.body = null;

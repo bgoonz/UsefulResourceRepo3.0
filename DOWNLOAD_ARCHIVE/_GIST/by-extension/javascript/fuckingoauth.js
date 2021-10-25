@@ -1,7 +1,7 @@
 // TODO: Not sure if this check goes here or in pipePhotoToTwiter() in twitter.js plugin
 if (!req.session.twitter.oauth) {
-  res.type("text/plain");
-  return res.status(403).send("You are not authenticated with Facebook.");
+  res.type('text/plain');
+  return res.status(403).send('You are not authenticated with Facebook.');
 }
 
 // TODO: EVENTUALLY WE WILL NEED TO CHECK THE
@@ -9,7 +9,7 @@ if (!req.session.twitter.oauth) {
 // RESPONSE THAT CONTAINS SHORT URL CHARS AND MAX MEDIA UPLOADS
 // SEE https://dev.twitter.com/docs/api/1/get/help/configuration
 
-var url = "https://upload.twitter.com/1/statuses/update_with_media.json?";
+var url = 'https://upload.twitter.com/1/statuses/update_with_media.json?';
 // , params =
 //   { status: echo.caption
 //   , media: [echo.fullPhotoPath]
@@ -21,10 +21,10 @@ var url = "https://upload.twitter.com/1/statuses/update_with_media.json?";
 
 /*****************************************/
 
-fs.readFile(echo.fullPhotoPath, "binary", function (err, filedata) {
+fs.readFile(echo.fullPhotoPath, 'binary', function (err, filedata) {
   if (err) {
     console.error(err);
-    return res.status(500).status("Readfile fail.");
+    return res.status(500).status('Readfile fail.');
   }
 
   console.dir(filedata);
@@ -71,18 +71,18 @@ Request.prototype.multipart = function (multipart) {
 */
 
   var postOptions = {
-    method: "POST",
+    method: 'POST',
     url: url,
     oauth: req.session.twitter.oauth,
     multipart: [
       {
-        "Content-Type": "multipart/form-data",
+        'Content-Type': 'multipart/form-data',
         body: filedata,
-        name: "media[]",
+        name: 'media[]',
       },
       {
-        body: "Test from PhotoPipe",
-        name: "status",
+        body: 'Test from PhotoPipe',
+        name: 'status',
       },
     ],
   }; // end postOptions

@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-import Worker from "./Worker";
-import WorkerSettings from "../WorkerSettings";
-import delegateSync from "./delegateSync";
-import { serializeAll, deserialize } from "./message";
+import Worker from './Worker';
+import WorkerSettings from '../WorkerSettings';
+import delegateSync from './delegateSync';
+import { serializeAll, deserialize } from './message';
 
 let delegateImplementation;
-if (typeof Worker === "function") {
+if (typeof Worker === 'function') {
   // Workers are supported
   delegateImplementation = (method, args) => {
     const { serializable, serializedValues } = serializeAll(args);
@@ -22,11 +22,11 @@ if (typeof Worker === "function") {
     return new Promise((resolve, reject) => {
       const worker = new Worker(WorkerSettings.workerPath);
       worker.addEventListener(
-        "message",
+        'message',
         ({ data }) => resolve(deserialize(data)),
         false
       );
-      worker.addEventListener("error", reject, false);
+      worker.addEventListener('error', reject, false);
       worker.postMessage({ method, args: serializedValues });
     });
   };

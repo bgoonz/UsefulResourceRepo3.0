@@ -1,4 +1,4 @@
-require("cheatcode");
+require('cheatcode');
 var x = 2;
 specialX = function (t) {
   if (t > 12 * x) x += 2;

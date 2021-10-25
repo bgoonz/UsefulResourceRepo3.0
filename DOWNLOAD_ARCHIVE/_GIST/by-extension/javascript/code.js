@@ -1,12 +1,12 @@
-var args = require("minimist")(process.argv.slice(2));
-var parse = require("mynosql-query");
-var pull = require("pull-stream");
-var level = require("level");
-var sublevel = require("level-sublevel");
-var _db = sublevel(level("./data", { encoding: "json" }));
-var db = require("mynosql")(_db);
+var args = require('minimist')(process.argv.slice(2));
+var parse = require('mynosql-query');
+var pull = require('pull-stream');
+var level = require('level');
+var sublevel = require('level-sublevel');
+var _db = sublevel(level('./data', { encoding: 'json' }));
+var db = require('mynosql')(_db);
 
-db.createIndex([["first"]], function () {});
+db.createIndex([['first']], function () {});
 
 if (args.p) {
   var data = {};
@@ -14,7 +14,7 @@ if (args.p) {
   data.last = args.l;
   data.phone = args.n;
   data.email = args.e;
-  data.id = "abc" + Date.now();
+  data.id = 'abc' + Date.now();
 
   // the top level is now called "data"
   //  data = {"data":data}

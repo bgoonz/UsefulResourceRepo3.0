@@ -24,7 +24,7 @@ class BinaryTree {
       let branch;
       while (node) {
         // nodes on the left must less than nodes on the right
-        branch = value <= node.value ? "left" : "right";
+        branch = value <= node.value ? 'left' : 'right';
         if (node[branch] === null) {
           break;
         }

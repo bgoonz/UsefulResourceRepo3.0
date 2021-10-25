@@ -8,6 +8,6 @@ function glob(strings, ...values) {
   return new Glob(s);
 }
 
-let root = "/tmp";
+let root = '/tmp';
 let filePattern = glob`${root}/*.html`; // A RegExp alternative
-"/tmp/test.html".match(filePattern)[1]; // => "test"
+'/tmp/test.html'.match(filePattern)[1]; // => "test"

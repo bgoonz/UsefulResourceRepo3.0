@@ -1,9 +1,9 @@
-fetch("/api/users/current") // Make an HTTP (or HTTPS) GET request.
+fetch('/api/users/current') // Make an HTTP (or HTTPS) GET request.
   .then((response) => {
     // When we get a response, first check it
     if (
       response.ok && // for a success code and the expected type.
-      response.headers.get("Content-Type") === "application/json"
+      response.headers.get('Content-Type') === 'application/json'
     ) {
       return response.json(); // Return a Promise for the body.
     } else {
@@ -20,5 +20,5 @@ fetch("/api/users/current") // Make an HTTP (or HTTPS) GET request.
     // Or if anything went wrong, just log the error.
     // If the user's browser is offline, fetch() itself will reject.
     // If the server returns a bad response then we throw an error above.
-    console.log("Error while fetching current user:", error);
+    console.log('Error while fetching current user:', error);
   });

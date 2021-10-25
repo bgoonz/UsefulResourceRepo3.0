@@ -1,6 +1,6 @@
 const replace = async (input, regex, replacer) => {
   // we need to remove the 'g' flag, if defined, so that all replacements can be made
-  let flags = (regex.flags || "").replace("g", "");
+  let flags = (regex.flags || '').replace('g', '');
   let re = new RegExp(regex.source || regex, flags);
   let index = 0;
   let match;

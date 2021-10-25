@@ -2,7 +2,7 @@
 function FirstReverse(str) {
   // First, we need to use .split to change the string into an array so it can be further manipulated.
   // Passing "" (an empty string) into the method splits the string at every character.
-  str = str.split("");
+  str = str.split('');
 
   // Next, we use the reverse method to reverse the order of the elements in our newly formed array.
   // Note that only arrays have the .reverse method, which is why we had to use .split.
@@ -10,7 +10,7 @@ function FirstReverse(str) {
 
   // After that, we use the .join method to reassemble our array back into a string.
   // Passing an empty string here means that nothing gets inserted between each array element.
-  str = str.join("");
+  str = str.join('');
 
   // Finally, we return the modified string
   return str;
@@ -18,13 +18,13 @@ function FirstReverse(str) {
 
 // Using chaining
 function FirstReverse(str) {
-  return str.split("").reverse().join("");
+  return str.split('').reverse().join('');
 }
 
 // Without using native array methods
 function FirstReverse(str) {
   // First, we declare a variable to hold our result and initialize it to an empty string.
-  var result = "";
+  var result = '';
 
   // Next, we iterate over the input string in reverse, starting from the back (i = str.length - 1)...
   for (var i = str.length - 1; i >= 0; i--) {
@@ -41,7 +41,7 @@ function FirstReverse(str, result) {
   // First, we use short-circuit evaluation to set up our result string.
   // If result is undefined (or any false-y value), this line will set it equal to an empty string.
   // Otherwise, it will remain unchanged (result = result).
-  result = result || "";
+  result = result || '';
 
   // Next, we set up our only base case – when our input string has no letters left, we know it's time to return our result.
   if (str.length === 0) {

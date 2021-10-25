@@ -1,5 +1,5 @@
 class User {
-  constructor({ name = "Anonymous" }) {
+  constructor({ name = 'Anonymous' }) {
     this.name = name;
   }
   login() {
@@ -19,7 +19,7 @@ class Student extends User {
 }
 
 const echo = new Student({
-  name: "Echo",
+  name: 'Echo',
 });
 
 echo.login(); // "Echo logged in."

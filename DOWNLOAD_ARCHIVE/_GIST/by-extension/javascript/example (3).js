@@ -3,7 +3,7 @@ f(a, async (promise) => await promise);
 
 class A {
   a() {
-    this.button.on("click", async () => {
+    this.button.on('click', async () => {
       let data = await this.getDataAsync();
       this.showData(data);
     });

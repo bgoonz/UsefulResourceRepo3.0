@@ -1,13 +1,13 @@
-import Ember from "ember";
+import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  appName: "Ember Twiddle",
+  appName: 'Ember Twiddle',
 
   value: null,
 
   actions: {
     showResult(result) {
-      this.set("value", result);
+      this.set('value', result);
     },
   },
 });

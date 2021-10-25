@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Subapp from "./subapp/Root";
+import React, { Component } from 'react';
+import Subapp from './subapp/Root';
 
 class BigApp extends Component {
   render() {

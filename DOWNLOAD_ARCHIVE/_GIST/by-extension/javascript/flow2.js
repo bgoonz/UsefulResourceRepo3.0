@@ -7,7 +7,7 @@ class Element {
       children = [];
     } else {
       if (newElement._parentElement) {
-        throw new Error("Remove element before adding again");
+        throw new Error('Remove element before adding again');
       }
       children = [];
     }

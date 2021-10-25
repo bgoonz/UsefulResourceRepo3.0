@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require('http');
 
 function getJSON(url) {
   // Create and return a new Promise
@@ -12,17 +12,17 @@ function getJSON(url) {
         response.resume(); // so we don't leak memory
       }
       // And reject if the response headers are wrong
-      else if (response.headers["content-type"] !== "application/json") {
-        reject(new Error("Invalid content-type"));
+      else if (response.headers['content-type'] !== 'application/json') {
+        reject(new Error('Invalid content-type'));
         response.resume(); // don't leak memory
       } else {
         // Otherwise, register events to read the body of the response
-        let body = "";
-        response.setEncoding("utf-8");
-        response.on("data", (chunk) => {
+        let body = '';
+        response.setEncoding('utf-8');
+        response.on('data', (chunk) => {
           body += chunk;
         });
-        response.on("end", () => {
+        response.on('end', () => {
           // When the response body is complete, try to parse it
           try {
             let parsed = JSON.parse(body);
@@ -37,7 +37,7 @@ function getJSON(url) {
     });
     // We also reject the Promise if the request fails before we
     // even get a response (such as when the network is down)
-    request.on("error", (error) => {
+    request.on('error', (error) => {
       reject(error);
     });
   });

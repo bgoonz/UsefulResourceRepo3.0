@@ -1,7 +1,7 @@
 let dog = {
-  name: "Bowser",
+  name: 'Bowser',
   changeName: function () {
-    this.name = "Layla";
+    this.name = 'Layla';
   },
 };
 // note this is **not invoked** - we are assigning the function itself

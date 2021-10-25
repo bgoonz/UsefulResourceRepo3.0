@@ -5,21 +5,21 @@
  * how to configure structure builder.
  */
 
-import S from "@sanity/base/structure-builder";
-import userStore from "part:@sanity/base/user";
+import S from '@sanity/base/structure-builder';
+import userStore from 'part:@sanity/base/user';
 // remember to add rxjs/operators to your dependencies with npm or yarn
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 export default () =>
   userStore.currentUser.pipe(
     map(({ user }) => {
       const { role } = user;
 
-      if (role === "administrator") {
-        return S.list().title("Admin structure");
+      if (role === 'administrator') {
+        return S.list().title('Admin structure');
         // add more structure
       }
-      return S.list().title("Editor structure");
+      return S.list().title('Editor structure');
       // add more structure
     })
   );

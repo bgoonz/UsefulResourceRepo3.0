@@ -18,12 +18,12 @@ class AnimalShelter {
 
   enqueue(type) {
     if (!type) {
-      return "Please specify type of animal";
+      return 'Please specify type of animal';
     }
 
-    if (type === "dog") {
+    if (type === 'dog') {
       this._dogs.push(this._id);
-    } else if (type === "cat") {
+    } else if (type === 'cat') {
       this._cats.push(this._id);
     }
     this._id++;

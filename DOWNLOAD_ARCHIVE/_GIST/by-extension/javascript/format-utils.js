@@ -1,15 +1,15 @@
 !(function (t) {
-  if ("object" == typeof exports && "undefined" != typeof module)
+  if ('object' == typeof exports && 'undefined' != typeof module)
     module.exports = t();
-  else if ("function" == typeof define && define.amd) define([], t);
+  else if ('function' == typeof define && define.amd) define([], t);
   else {
     var e;
     (e =
-      "undefined" != typeof window
+      'undefined' != typeof window
         ? window
-        : "undefined" != typeof global
+        : 'undefined' != typeof global
         ? global
-        : "undefined" != typeof self
+        : 'undefined' != typeof self
         ? self
         : this),
       (e.Clipboard = t());
@@ -22,11 +22,11 @@
     function i(c, a) {
       if (!n[c]) {
         if (!e[c]) {
-          var s = "function" == typeof require && require;
+          var s = 'function' == typeof require && require;
           if (!a && s) return s(c, !0);
           if (r) return r(c, !0);
           var l = new Error("Cannot find module '" + c + "'");
-          throw ((l.code = "MODULE_NOT_FOUND"), l);
+          throw ((l.code = 'MODULE_NOT_FOUND'), l);
         }
         var u = (n[c] = {
           exports: {},
@@ -48,7 +48,7 @@
       return n[c].exports;
     }
     for (
-      var r = "function" == typeof require && require, c = 0;
+      var r = 'function' == typeof require && require, c = 0;
       c < o.length;
       c++
     )
@@ -58,7 +58,7 @@
     {
       1: [
         (t, e, n) => {
-          var o = t("matches-selector");
+          var o = t('matches-selector');
           e.exports = (t, e, n) => {
             for (var i = n ? t : t.parentNode; i && i !== document; ) {
               if (o(i, e)) return i;
@@ -67,7 +67,7 @@
           };
         },
         {
-          "matches-selector": 5,
+          'matches-selector': 5,
         },
       ],
       2: [
@@ -90,7 +90,7 @@
                 n.delegateTarget && o.call(t, n);
             };
           }
-          var r = t("closest");
+          var r = t('closest');
           e.exports = o;
         },
         {
@@ -105,16 +105,16 @@
               var e = Object.prototype.toString.call(t);
               return (
                 void 0 !== t &&
-                ("[object NodeList]" === e ||
-                  "[object HTMLCollection]" === e) &&
-                "length" in t &&
+                ('[object NodeList]' === e ||
+                  '[object HTMLCollection]' === e) &&
+                'length' in t &&
                 (0 === t.length || n.node(t[0]))
               );
             }),
-            (n.string = (t) => "string" == typeof t || t instanceof String),
+            (n.string = (t) => 'string' == typeof t || t instanceof String),
             (n.fn = (t) => {
               var e = Object.prototype.toString.call(t);
-              return "[object Function]" === e;
+              return '[object Function]' === e;
             });
         },
         {},
@@ -122,16 +122,16 @@
       4: [
         (t, e, n) => {
           function o(t, e, n) {
-            if (!t && !e && !n) throw new Error("Missing required arguments");
+            if (!t && !e && !n) throw new Error('Missing required arguments');
             if (!a.string(e))
-              throw new TypeError("Second argument must be a String");
+              throw new TypeError('Second argument must be a String');
             if (!a.fn(n))
-              throw new TypeError("Third argument must be a Function");
+              throw new TypeError('Third argument must be a Function');
             if (a.node(t)) return i(t, e, n);
             if (a.nodeList(t)) return r(t, e, n);
             if (a.string(t)) return c(t, e, n);
             throw new TypeError(
-              "First argument must be a String, HTMLElement, HTMLCollection, or NodeList"
+              'First argument must be a String, HTMLElement, HTMLCollection, or NodeList'
             );
           }
 
@@ -164,12 +164,12 @@
           function c(t, e, n) {
             return s(document.body, t, e, n);
           }
-          var a = t("./is");
-          var s = t("delegate");
+          var a = t('./is');
+          var s = t('delegate');
           e.exports = o;
         },
         {
-          "./is": 3,
+          './is': 3,
           delegate: 2,
         },
       ],
@@ -200,10 +200,10 @@
         (t, e, n) => {
           function o(t) {
             var e;
-            if ("INPUT" === t.nodeName || "TEXTAREA" === t.nodeName)
+            if ('INPUT' === t.nodeName || 'TEXTAREA' === t.nodeName)
               t.focus(), t.setSelectionRange(0, t.value.length), (e = t.value);
             else {
-              t.hasAttribute("contenteditable") && t.focus();
+              t.hasAttribute('contenteditable') && t.focus();
               var n = window.getSelection();
               var o = document.createRange();
               o.selectNodeContents(t),
@@ -263,8 +263,8 @@
       8: [
         function (e, n, o) {
           !((i, r) => {
-            if ("function" == typeof t && t.amd) t(["module", "select"], r);
-            else if ("undefined" != typeof o) r(n, e("select"));
+            if ('function' == typeof t && t.amd) t(['module', 'select'], r);
+            else if ('undefined' != typeof o) r(n, e('select'));
             else {
               var c = {
                 exports: {},
@@ -272,7 +272,7 @@
               r(c, i.select), (i.clipboardAction = c.exports);
             }
           })(this, (t, e) => {
-            "use strict";
+            'use strict';
 
             function n(t) {
               return t && t.__esModule
@@ -284,15 +284,15 @@
 
             function o(t, e) {
               if (!(t instanceof e))
-                throw new TypeError("Cannot call a class as a function");
+                throw new TypeError('Cannot call a class as a function');
             }
             var i = n(e);
             var r =
-              "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
                 ? (t) => typeof t
                 : (t) =>
-                    t && "function" == typeof Symbol && t.constructor === Symbol
-                      ? "symbol"
+                    t && 'function' == typeof Symbol && t.constructor === Symbol
+                      ? 'symbol'
                       : typeof t;
 
             var c = (() => {
@@ -301,7 +301,7 @@
                   var o = e[n];
                   (o.enumerable = o.enumerable || !1),
                     (o.configurable = !0),
-                    "value" in o && (o.writable = !0),
+                    'value' in o && (o.writable = !0),
                     Object.defineProperty(t, o.key, o);
                 }
               }
@@ -323,7 +323,7 @@
                     (this.target = e.target),
                     (this.text = e.text),
                     (this.trigger = e.trigger),
-                    (this.selectedText = "");
+                    (this.selectedText = '');
                 }),
                 (t.prototype.initSelection = function t() {
                   this.text
@@ -332,23 +332,23 @@
                 }),
                 (t.prototype.selectFake = function t() {
                   var e = this,
-                    n = "rtl" == document.documentElement.getAttribute("dir");
+                    n = 'rtl' == document.documentElement.getAttribute('dir');
                   this.removeFake(),
                     (this.fakeHandler = document.body.addEventListener(
-                      "click",
+                      'click',
                       () => e.removeFake()
                     )),
-                    (this.fakeElem = document.createElement("textarea")),
-                    (this.fakeElem.style.fontSize = "12pt"),
-                    (this.fakeElem.style.border = "0"),
-                    (this.fakeElem.style.padding = "0"),
-                    (this.fakeElem.style.margin = "0"),
-                    (this.fakeElem.style.position = "fixed"),
-                    (this.fakeElem.style[n ? "right" : "left"] = "-9999px"),
+                    (this.fakeElem = document.createElement('textarea')),
+                    (this.fakeElem.style.fontSize = '12pt'),
+                    (this.fakeElem.style.border = '0'),
+                    (this.fakeElem.style.padding = '0'),
+                    (this.fakeElem.style.margin = '0'),
+                    (this.fakeElem.style.position = 'fixed'),
+                    (this.fakeElem.style[n ? 'right' : 'left'] = '-9999px'),
                     (this.fakeElem.style.top =
                       (window.pageYOffset ||
-                        document.documentElement.scrollTop) + "px"),
-                    this.fakeElem.setAttribute("readonly", ""),
+                        document.documentElement.scrollTop) + 'px'),
+                    this.fakeElem.setAttribute('readonly', ''),
                     (this.fakeElem.value = this.text),
                     document.body.appendChild(this.fakeElem),
                     (this.selectedText = (0, i.default)(this.fakeElem)),
@@ -356,7 +356,7 @@
                 }),
                 (t.prototype.removeFake = function t() {
                   this.fakeHandler &&
-                    (document.body.removeEventListener("click"),
+                    (document.body.removeEventListener('click'),
                     (this.fakeHandler = null)),
                     this.fakeElem &&
                       (document.body.removeChild(this.fakeElem),
@@ -377,13 +377,13 @@
                 }),
                 (t.prototype.handleResult = function t(e) {
                   e
-                    ? this.emitter.emit("success", {
+                    ? this.emitter.emit('success', {
                         action: this.action,
                         text: this.selectedText,
                         trigger: this.trigger,
                         clearSelection: this.clearSelection.bind(this),
                       })
-                    : this.emitter.emit("error", {
+                    : this.emitter.emit('error', {
                         action: this.action,
                         trigger: this.trigger,
                         clearSelection: this.clearSelection.bind(this),
@@ -398,15 +398,15 @@
                 }),
                 c(t, [
                   {
-                    key: "action",
+                    key: 'action',
                     set: function t() {
                       var e =
                         arguments.length <= 0 || void 0 === arguments[0]
-                          ? "copy"
+                          ? 'copy'
                           : arguments[0];
                       if (
                         ((this._action = e),
-                        "copy" !== this._action && "cut" !== this._action)
+                        'copy' !== this._action && 'cut' !== this._action)
                       )
                         throw new Error(
                           'Invalid "action" value, use either "copy" or "cut"'
@@ -417,29 +417,29 @@
                     },
                   },
                   {
-                    key: "target",
+                    key: 'target',
                     set: function t(e) {
                       if (void 0 !== e) {
                         if (
                           !e ||
-                          "object" !==
-                            ("undefined" == typeof e ? "undefined" : r(e)) ||
+                          'object' !==
+                            ('undefined' == typeof e ? 'undefined' : r(e)) ||
                           1 !== e.nodeType
                         )
                           throw new Error(
                             'Invalid "target" value, use a valid Element'
                           );
                         if (
-                          "copy" === this.action &&
-                          e.hasAttribute("disabled")
+                          'copy' === this.action &&
+                          e.hasAttribute('disabled')
                         )
                           throw new Error(
                             'Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute'
                           );
                         if (
-                          "cut" === this.action &&
-                          (e.hasAttribute("readonly") ||
-                            e.hasAttribute("disabled"))
+                          'cut' === this.action &&
+                          (e.hasAttribute('readonly') ||
+                            e.hasAttribute('disabled'))
                         )
                           throw new Error(
                             'Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes'
@@ -466,22 +466,22 @@
       9: [
         function (e, n, o) {
           !((i, r) => {
-            if ("function" == typeof t && t.amd)
+            if ('function' == typeof t && t.amd)
               t(
                 [
-                  "module",
-                  "./clipboard-action",
-                  "tiny-emitter",
-                  "good-listener",
+                  'module',
+                  './clipboard-action',
+                  'tiny-emitter',
+                  'good-listener',
                 ],
                 r
               );
-            else if ("undefined" != typeof o)
+            else if ('undefined' != typeof o)
               r(
                 n,
-                e("./clipboard-action"),
-                e("tiny-emitter"),
-                e("good-listener")
+                e('./clipboard-action'),
+                e('tiny-emitter'),
+                e('good-listener')
               );
             else {
               var c = {
@@ -491,7 +491,7 @@
                 (i.clipboard = c.exports);
             }
           })(this, (t, e, n, o) => {
-            "use strict";
+            'use strict';
 
             function i(t) {
               return t && t.__esModule
@@ -503,7 +503,7 @@
 
             function r(t, e) {
               if (!(t instanceof e))
-                throw new TypeError("Cannot call a class as a function");
+                throw new TypeError('Cannot call a class as a function');
             }
 
             function c(t, e) {
@@ -511,15 +511,15 @@
                 throw new ReferenceError(
                   "this hasn't been initialised - super() hasn't been called"
                 );
-              return !e || ("object" != typeof e && "function" != typeof e)
+              return !e || ('object' != typeof e && 'function' != typeof e)
                 ? t
                 : e;
             }
 
             function a(t, e) {
-              if ("function" != typeof e && null !== e)
+              if ('function' != typeof e && null !== e)
                 throw new TypeError(
-                  "Super expression must either be null or a function, not " +
+                  'Super expression must either be null or a function, not ' +
                     typeof e
                 );
               (t.prototype = Object.create(e && e.prototype, {
@@ -537,7 +537,7 @@
             }
 
             function s(t, e) {
-              var n = "data-clipboard-" + t;
+              var n = 'data-clipboard-' + t;
               if (e.hasAttribute(n)) return e.getAttribute(n);
             }
             var l = i(e);
@@ -558,19 +558,19 @@
                       ? {}
                       : arguments[0];
                   (this.action =
-                    "function" == typeof e.action
+                    'function' == typeof e.action
                       ? e.action
                       : this.defaultAction),
                     (this.target =
-                      "function" == typeof e.target
+                      'function' == typeof e.target
                         ? e.target
                         : this.defaultTarget),
                     (this.text =
-                      "function" == typeof e.text ? e.text : this.defaultText);
+                      'function' == typeof e.text ? e.text : this.defaultText);
                 }),
                 (e.prototype.listenClick = function t(e) {
                   var n = this;
-                  this.listener = (0, f.default)(e, "click", (t) =>
+                  this.listener = (0, f.default)(e, 'click', (t) =>
                     n.onClick(t)
                   );
                 }),
@@ -586,14 +586,14 @@
                     }));
                 }),
                 (e.prototype.defaultAction = function t(e) {
-                  return s("action", e);
+                  return s('action', e);
                 }),
                 (e.prototype.defaultTarget = function t(e) {
-                  var n = s("target", e);
+                  var n = s('target', e);
                   return n ? document.querySelector(n) : void 0;
                 }),
                 (e.prototype.defaultText = function t(e) {
-                  return s("text", e);
+                  return s('text', e);
                 }),
                 (e.prototype.destroy = function t() {
                   this.listener.destroy(),
@@ -609,9 +609,9 @@
           });
         },
         {
-          "./clipboard-action": 8,
-          "good-listener": 4,
-          "tiny-emitter": 7,
+          './clipboard-action': 8,
+          'good-listener': 4,
+          'tiny-emitter': 7,
         },
       ],
     },
@@ -623,26 +623,26 @@
 jQuery.extend({
   __stringPrototype: {
     JSONFilter: /^\/\*-secure-([\s\S]*)\*\/\s*$/,
-    ScriptFragment: "<script[^>]*>([\\S\\s]*?)</script>",
+    ScriptFragment: '<script[^>]*>([\\S\\s]*?)</script>',
     specialChar: {
-      "\b": "\\b",
-      "\t": "\\t",
-      "\n": "\\n",
-      "\f": "\\f",
-      "\r": "\\r",
-      "\\": "\\\\",
+      '\b': '\\b',
+      '\t': '\\t',
+      '\n': '\\n',
+      '\f': '\\f',
+      '\r': '\\r',
+      '\\': '\\\\',
     },
     blank(s) {
-      return /^\s*$/.test(this.s(s) || " ");
+      return /^\s*$/.test(this.s(s) || ' ');
     },
     camelize(s) {
-      var a = this.s(s).split("-");
+      var a = this.s(s).split('-');
       var i;
       s = [a[0]];
       for (i = 1; i < a.length; i++) {
         s.push(a[i].charAt(0).toUpperCase() + a[i].substring(1));
       }
-      s = s.join("");
+      s = s.join('');
       return this.r(arguments, 0, s);
     },
     capitalize(s) {
@@ -651,11 +651,11 @@ jQuery.extend({
       return this.r(arguments, 0, s);
     },
     dasherize(s) {
-      s = this.s(s).split("_").join("-");
+      s = this.s(s).split('_').join('-');
       return this.r(arguments, 0, s);
     },
     empty(s) {
-      return this.s(s) === "";
+      return this.s(s) === '';
     },
     endsWith(pattern, s) {
       s = this.s(s);
@@ -663,7 +663,7 @@ jQuery.extend({
       return d >= 0 && s.lastIndexOf(pattern) === d;
     },
     escapeHTML(s) {
-      s = this.s(s).replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+      s = this.s(s).replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
       return this.r(arguments, 0, s);
     },
     evalJSON(sanitize, s) {
@@ -671,10 +671,10 @@ jQuery.extend({
       var json = this.unfilterJSON(false, s);
       try {
         if (!sanitize || this.isJSON(json)) {
-          return eval("(" + json + ")");
+          return eval('(' + json + ')');
         }
       } catch (e) {}
-      throw new SyntaxError("Badly formed JSON string: " + s);
+      throw new SyntaxError('Badly formed JSON string: ' + s);
     },
     evalScripts(s) {
       var scriptTags = this.extractScripts(this.s(s));
@@ -687,13 +687,13 @@ jQuery.extend({
       return results;
     },
     extractScripts(s) {
-      var matchAll = new RegExp(this.ScriptFragment, "img");
-      var matchOne = new RegExp(this.ScriptFragment, "im");
+      var matchAll = new RegExp(this.ScriptFragment, 'img');
+      var matchOne = new RegExp(this.ScriptFragment, 'im');
       var scriptMatches = this.s(s).match(matchAll) || [];
       var scriptTags = [];
       if (scriptMatches.length > 0) {
         for (var i = 0; i < scriptMatches.length; i++) {
-          scriptTags.push(scriptMatches[i].match(matchOne)[1] || "");
+          scriptTags.push(scriptMatches[i].match(matchOne)[1] || '');
         }
       }
       return scriptTags;
@@ -720,7 +720,7 @@ jQuery.extend({
             var character = jQuery.__stringPrototype.specialChar[match[0]];
             return character
               ? character
-              : "\\u00" + match[0].charCodeAt().toPaddedString(2, 16);
+              : '\\u00' + match[0].charCodeAt().toPaddedString(2, 16);
           },
           -1,
           s
@@ -738,7 +738,7 @@ jQuery.extend({
       if (!pattern) {
         pattern = /(\#\{\s*(\w+)\s*\})/;
       }
-      var gpattern = new RegExp(pattern.source, "g");
+      var gpattern = new RegExp(pattern.source, 'g');
       var matches = s.match(gpattern);
       var i;
       for (i = 0; i < matches.length; i++) {
@@ -751,7 +751,7 @@ jQuery.extend({
       if (this.blank(s)) {
         return false;
       }
-      s = s.replace(/\\./g, "@").replace(/"[^"\\\n\r]*"/g, "");
+      s = s.replace(/\\./g, '@').replace(/"[^"\\\n\r]*"/g, '');
       return /^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/.test(s);
     },
     scan(pattern, replacement, s) {
@@ -767,29 +767,29 @@ jQuery.extend({
       return this.r(arguments, 0, s);
     },
     stripScripts(s) {
-      s = this.s(s).replace(new RegExp(this.ScriptFragment, "img"), "");
+      s = this.s(s).replace(new RegExp(this.ScriptFragment, 'img'), '');
       return this.r(arguments, 0, s);
     },
     stripTags(s) {
-      s = this.s(s).replace(/<\/?[^>]+>/gi, "");
+      s = this.s(s).replace(/<\/?[^>]+>/gi, '');
       return this.r(arguments, 0, s);
     },
     sub(pattern, replacement, count, s) {
       s = this.s(s);
       if (pattern.source && !pattern.global) {
-        var patternMods = pattern.ignoreCase ? "ig" : "g";
-        patternMods += pattern.multiline ? "m" : "";
+        var patternMods = pattern.ignoreCase ? 'ig' : 'g';
+        patternMods += pattern.multiline ? 'm' : '';
         pattern = new RegExp(pattern.source, patternMods);
       }
       var sarray = s.split(pattern);
       var matches = s.match(pattern);
       if (jQuery.browser.msie) {
-        if (s.indexOf(matches[0]) == 0) sarray.unshift("");
+        if (s.indexOf(matches[0]) == 0) sarray.unshift('');
         if (
           s.lastIndexOf(matches[matches.length - 1]) ==
           s.length - matches[matches.length - 1].length
         )
-          sarray.push("");
+          sarray.push('');
       }
       count = count < 0 ? sarray.length - 1 : count || 1;
       s = sarray[0];
@@ -815,7 +815,7 @@ jQuery.extend({
     },
     times(count, s) {
       s = this.s(s);
-      var newS = "";
+      var newS = '';
       for (var i = 0; i < count; i++) {
         newS += s;
       }
@@ -827,20 +827,20 @@ jQuery.extend({
     toQueryParams(separator, s) {
       s = this.s(s);
       var paramsList = s
-        .substring(s.indexOf("?") + 1)
-        .split("#")[0]
-        .split(separator || "&");
+        .substring(s.indexOf('?') + 1)
+        .split('#')[0]
+        .split(separator || '&');
       var params = {};
       var i;
       var key;
       var value;
       var pair;
       for (i = 0; i < paramsList.length; i++) {
-        pair = paramsList[i].split("=");
+        pair = paramsList[i].split('=');
         key = decodeURIComponent(pair[0]);
         value = pair[1] ? decodeURIComponent(pair[1]) : undefined;
         if (params[key]) {
-          if (typeof params[key] == "string") {
+          if (typeof params[key] == 'string') {
             params[key] = [params[key]];
           }
           params[key].push(value);
@@ -853,7 +853,7 @@ jQuery.extend({
     truncate(length, truncation, s) {
       s = this.s(s);
       length = length || 30;
-      truncation = !truncation ? "..." : truncation;
+      truncation = !truncation ? '...' : truncation;
       s =
         s.length > length
           ? s.slice(0, length - truncation.length) + truncation
@@ -861,15 +861,15 @@ jQuery.extend({
       return this.r(arguments, 2, s);
     },
     underscore(s) {
-      s = this.sub(/[A-Z]/, (c) => "_" + c.toLowerCase(), -1, this.s(s));
-      if (s.charAt(0) == "_") s = s.substring(1);
+      s = this.sub(/[A-Z]/, (c) => '_' + c.toLowerCase(), -1, this.s(s));
+      if (s.charAt(0) == '_') s = s.substring(1);
       return this.r(arguments, 0, s);
     },
     unescapeHTML(s) {
       s = this.stripTags(this.s(s))
-        .replace(/&/g, "&")
-        .replace(/</g, "<")
-        .replace(/>/g, ">");
+        .replace(/&/g, '&')
+        .replace(/</g, '<')
+        .replace(/>/g, '>');
       return this.r(arguments, 0, s);
     },
     unfilterJSON(filter, s) {
@@ -883,15 +883,15 @@ jQuery.extend({
       if (args.length > size || this.str === undefined) {
         return s;
       } else {
-        this.str = "" + s;
+        this.str = '' + s;
         return this;
       }
     },
     s(s) {
-      if (s === "" || s) {
+      if (s === '' || s) {
         return s;
       }
-      if (this.str === "" || this.str) {
+      if (this.str === '' || this.str) {
         return this.str;
       }
       return this;
@@ -923,7 +923,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
         r &&
           r.warn &&
           !e.migrateMute &&
-          (r.warn("JQMIGRATE: " + n), e.migrateTrace && r.trace && r.trace()));
+          (r.warn('JQMIGRATE: ' + n), e.migrateTrace && r.trace && r.trace()));
     }
 
     function a(t, a, i, o) {
@@ -950,18 +950,18 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       !e.migrateMute &&
         t.console &&
         t.console.log &&
-        t.console.log("JQMIGRATE: Logging is active"),
+        t.console.log('JQMIGRATE: Logging is active'),
       e.migrateTrace === n && (e.migrateTrace = !0),
       (e.migrateReset = () => {
         (i = {}), (e.migrateWarnings.length = 0);
       }),
-      "BackCompat" === document.compatMode &&
-        r("jQuery is not compatible with Quirks Mode");
+      'BackCompat' === document.compatMode &&
+        r('jQuery is not compatible with Quirks Mode');
 
     var o =
-      e("<input/>", {
+      e('<input/>', {
         size: 1,
-      }).attr("size") && e.attrFn;
+      }).attr('size') && e.attrFn;
 
     var s = e.attr;
     var u = (e.attrHooks.value && e.attrHooks.value.get) || (() => null);
@@ -971,15 +971,15 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
     var p =
       /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i;
     var f = /^(?:checked|selected)$/i;
-    a(e, "attrFn", o || {}, "jQuery.attrFn is deprecated"),
+    a(e, 'attrFn', o || {}, 'jQuery.attrFn is deprecated'),
       (e.attr = (t, a, i, u) => {
         var c = a.toLowerCase();
         var g = t && t.nodeType;
         return u &&
-          (4 > s.length && r("jQuery.fn.attr( props, pass ) is deprecated"),
+          (4 > s.length && r('jQuery.fn.attr( props, pass ) is deprecated'),
           t && !d.test(g) && (o ? a in o : e.isFunction(e.fn[a])))
           ? e(t)[a](i)
-          : ("type" === a &&
+          : ('type' === a &&
               i !== n &&
               l.test(t.nodeName) &&
               t.parentNode &&
@@ -991,7 +991,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
                   var a;
                   var i = e.prop(t, r);
                   return i === !0 ||
-                    ("boolean" != typeof i &&
+                    ('boolean' != typeof i &&
                       (a = t.getAttributeNode(r)) &&
                       a.nodeValue !== !1)
                     ? r.toLowerCase()
@@ -1019,20 +1019,20 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       }),
       (e.attrHooks.value = {
         get(e, t) {
-          var n = (e.nodeName || "").toLowerCase();
-          return "button" === n
+          var n = (e.nodeName || '').toLowerCase();
+          return 'button' === n
             ? u.apply(this, arguments)
-            : ("input" !== n &&
-                "option" !== n &&
+            : ('input' !== n &&
+                'option' !== n &&
                 r("jQuery.fn.attr('value') no longer gets properties"),
               t in e ? e.value : null);
         },
         set(e, t) {
-          var a = (e.nodeName || "").toLowerCase();
-          return "button" === a
+          var a = (e.nodeName || '').toLowerCase();
+          return 'button' === a
             ? c.apply(this, arguments)
-            : ("input" !== a &&
-                "option" !== a &&
+            : ('input' !== a &&
+                'option' !== a &&
                 r("jQuery.fn.attr('value', val) no longer sets properties"),
               (e.value = t),
               n);
@@ -1046,16 +1046,16 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
     (e.fn.init = function (t, n, a) {
       var i;
       return t &&
-        "string" == typeof t &&
+        'string' == typeof t &&
         !e.isPlainObject(n) &&
         (i = y.exec(e.trim(t))) &&
         i[0] &&
-        ("<" !== t.charAt(0) &&
+        ('<' !== t.charAt(0) &&
           r("$(html) HTML strings must start with '<' character"),
-        i[3] && r("$(html) HTML text after last tag is ignored"),
-        "#" === i[0].charAt(0) &&
+        i[3] && r('$(html) HTML text after last tag is ignored'),
+        '#' === i[0].charAt(0) &&
           (r("HTML string cannot start with a '#' character"),
-          e.error("JQMIGRATE: Invalid selector string (XSS)")),
+          e.error('JQMIGRATE: Invalid selector string (XSS)')),
         n && n.context && (n = n.context),
         e.parseHTML)
         ? v.call(this, e.parseHTML(i[2], n, !0), n, a)
@@ -1065,7 +1065,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       (e.parseJSON = function (e) {
         return e || null === e
           ? m.apply(this, arguments)
-          : (r("jQuery.parseJSON requires a valid JSON string"), null);
+          : (r('jQuery.parseJSON requires a valid JSON string'), null);
       }),
       (e.uaMatch = (e) => {
         e = e.toLowerCase();
@@ -1074,12 +1074,12 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
           /(webkit)[ \/]([\w.]+)/.exec(e) ||
           /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(e) ||
           /(msie) ([\w.]+)/.exec(e) ||
-          (0 > e.indexOf("compatible") &&
+          (0 > e.indexOf('compatible') &&
             /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(e)) ||
           [];
         return {
-          browser: t[1] || "",
-          version: t[2] || "0",
+          browser: t[1] || '',
+          version: t[2] || '0',
         };
       }),
       e.browser ||
@@ -1088,7 +1088,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
         g.browser && ((h[g.browser] = !0), (h.version = g.version)),
         h.chrome ? (h.webkit = !0) : h.webkit && (h.safari = !0),
         (e.browser = h)),
-      a(e, "browser", e.browser, "jQuery.browser is deprecated"),
+      a(e, 'browser', e.browser, 'jQuery.browser is deprecated'),
       (e.sub = function () {
         function t(e, n) {
           return new t.fn.init(e, n);
@@ -1106,11 +1106,11 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
           }),
           (t.fn.init.prototype = t.fn);
         var n = t(document);
-        return r("jQuery.sub() is deprecated"), t;
+        return r('jQuery.sub() is deprecated'), t;
       }),
       e.ajaxSetup({
         converters: {
-          "text json": e.parseJSON,
+          'text json': e.parseJSON,
         },
       });
     var b = e.fn.data;
@@ -1119,7 +1119,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       var i;
       var o = this[0];
       return !o ||
-        "events" !== t ||
+        'events' !== t ||
         1 !== arguments.length ||
         ((a = e.data(o, t)),
         (i = e._data(o, t)),
@@ -1131,7 +1131,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
     var w = e.fn.andSelf || e.fn.addBack;
     (e.fn.andSelf = function (...args) {
       return (
-        r("jQuery.fn.andSelf() replaced by jQuery.fn.addBack()"),
+        r('jQuery.fn.andSelf() replaced by jQuery.fn.addBack()'),
         w.apply(this, args)
       );
     }),
@@ -1140,7 +1140,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
           (a = a || document),
             (a = (!a.nodeType && a[0]) || a),
             (a = a.ownerDocument || a),
-            r("jQuery.clean() is deprecated");
+            r('jQuery.clean() is deprecated');
           var s;
           var u;
           var c;
@@ -1158,11 +1158,11 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
               null != (u = d[s]);
               s++
             )
-              (e.nodeName(u, "script") && c(u)) ||
+              (e.nodeName(u, 'script') && c(u)) ||
                 (i.appendChild(u),
                 u.getElementsByTagName !== n &&
                   ((l = e.grep(
-                    e.merge([], u.getElementsByTagName("script")),
+                    e.merge([], u.getElementsByTagName('script')),
                     c
                   )),
                   d.splice(...[s + 1, 0].concat(l)),
@@ -1175,61 +1175,61 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
     var N = e.fn.toggle;
     var T = e.fn.live;
     var M = e.fn.die;
-    var S = "ajaxStart|ajaxStop|ajaxSend|ajaxComplete|ajaxError|ajaxSuccess";
-    var C = RegExp("\\b(?:" + S + ")\\b");
+    var S = 'ajaxStart|ajaxStop|ajaxSend|ajaxComplete|ajaxError|ajaxSuccess';
+    var C = RegExp('\\b(?:' + S + ')\\b');
     var H = /(?:^|\s)hover(\.\S+|)\b/;
     var A = (t) =>
-      "string" != typeof t || e.event.special.hover
+      'string' != typeof t || e.event.special.hover
         ? t
         : (H.test(t) &&
             r(
               "'hover' pseudo-event is deprecated, use 'mouseenter mouseleave'"
             ),
-          t && t.replace(H, "mouseenter$1 mouseleave$1"));
+          t && t.replace(H, 'mouseenter$1 mouseleave$1'));
     e.event.props &&
-      "attrChange" !== e.event.props[0] &&
+      'attrChange' !== e.event.props[0] &&
       e.event.props.unshift(
-        "attrChange",
-        "attrName",
-        "relatedNode",
-        "srcElement"
+        'attrChange',
+        'attrName',
+        'relatedNode',
+        'srcElement'
       ),
       e.event.dispatch &&
         a(
           e.event,
-          "handle",
+          'handle',
           e.event.dispatch,
-          "jQuery.event.handle is undocumented and deprecated"
+          'jQuery.event.handle is undocumented and deprecated'
         ),
       (e.event.add = function (e, t, n, a, i) {
         e !== document &&
           C.test(t) &&
-          r("AJAX events should be attached to document: " + t),
-          Q.call(this, e, A(t || ""), n, a, i);
+          r('AJAX events should be attached to document: ' + t),
+          Q.call(this, e, A(t || ''), n, a, i);
       }),
       (e.event.remove = function (e, t, n, r, a) {
-        x.call(this, e, A(t) || "", n, r, a);
+        x.call(this, e, A(t) || '', n, r, a);
       }),
       (e.fn.error = function (...args) {
         var e = Array.prototype.slice.call(args, 0);
         return (
-          r("jQuery.fn.error() is deprecated"),
-          e.splice(0, 0, "error"),
+          r('jQuery.fn.error() is deprecated'),
+          e.splice(0, 0, 'error'),
           args.length ? this.bind(...e) : (this.triggerHandler(...e), this)
         );
       }),
       (e.fn.toggle = function (t, n) {
         if (!e.isFunction(t) || !e.isFunction(n))
           return N.apply(this, arguments);
-        r("jQuery.fn.toggle(handler, handler...) is deprecated");
+        r('jQuery.fn.toggle(handler, handler...) is deprecated');
         var a = arguments;
         var i = t.guid || e.guid++;
         var o = 0;
 
         var s = function (n) {
-          var r = (e._data(this, "lastToggle" + t.guid) || 0) % o;
+          var r = (e._data(this, 'lastToggle' + t.guid) || 0) % o;
           return (
-            e._data(this, "lastToggle" + t.guid, r + 1),
+            e._data(this, 'lastToggle' + t.guid, r + 1),
             n.preventDefault(),
             a[r].apply(this, arguments) || !1
           );
@@ -1240,7 +1240,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       }),
       (e.fn.live = function (t, n, a) {
         return (
-          r("jQuery.fn.live() is deprecated"),
+          r('jQuery.fn.live() is deprecated'),
           T
             ? T.apply(this, arguments)
             : (e(this.context).on(t, this.selector, n, a), this)
@@ -1248,25 +1248,25 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
       }),
       (e.fn.die = function (t, n) {
         return (
-          r("jQuery.fn.die() is deprecated"),
+          r('jQuery.fn.die() is deprecated'),
           M
             ? M.apply(this, arguments)
-            : (e(this.context).off(t, this.selector || "**", n), this)
+            : (e(this.context).off(t, this.selector || '**', n), this)
         );
       }),
       (e.event.trigger = function (e, t, n, a) {
         return (
-          n || C.test(e) || r("Global events are undocumented and deprecated"),
+          n || C.test(e) || r('Global events are undocumented and deprecated'),
           k.call(this, e, t, n || document, a)
         );
       }),
-      e.each(S.split("|"), (t, n) => {
+      e.each(S.split('|'), (t, n) => {
         e.event.special[n] = {
           setup() {
             var t = this;
             return (
               t !== document &&
-                (e.event.add(document, n + "." + e.guid, () => {
+                (e.event.add(document, n + '.' + e.guid, () => {
                   e.event.trigger(n, null, t, !0);
                 }),
                 e._data(this, n, e.guid++)),
@@ -1276,7 +1276,7 @@ jQuery.migrateMute === void 0 && (jQuery.migrateMute = !0),
           teardown() {
             return (
               this !== document &&
-                e.event.remove(document, n + "." + e._data(this, n)),
+                e.event.remove(document, n + '.' + e._data(this, n)),
               !1
             );
           },
@@ -1295,17 +1295,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var b = a.charAt(1);
       return (f = r[b])
         ? f
-        : "0" <= b && b <= "7"
+        : '0' <= b && b <= '7'
         ? parseInt(a.substring(1), 8)
-        : b === "u" || b === "x"
+        : b === 'u' || b === 'x'
         ? parseInt(a.substring(2), 16)
         : a.charCodeAt(1);
     }
 
     function e(a) {
-      if (a < 32) return (a < 16 ? "\\x0" : "\\x") + a.toString(16);
+      if (a < 32) return (a < 16 ? '\\x0' : '\\x') + a.toString(16);
       a = String.fromCharCode(a);
-      if (a === "\\" || a === "-" || a === "[" || a === "]") a = "\\" + a;
+      if (a === '\\' || a === '-' || a === '[' || a === ']') a = '\\' + a;
       return a;
     }
 
@@ -1318,7 +1318,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             ),
           a = [],
           b = [],
-          o = f[0] === "^",
+          o = f[0] === '^',
           c = o ? 1 : 0,
           i = f.length;
         c < i;
@@ -1329,7 +1329,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         else {
           var j = m(j);
           var d;
-          c + 2 < i && "-" === f[c + 1]
+          c + 2 < i && '-' === f[c + 1]
             ? ((d = m(f[c + 2])), (c += 2))
             : (d = j);
           b.push([j, d]);
@@ -1349,15 +1349,15 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       for (c = 0; c < b.length; ++c)
         (i = b[c]),
           i[0] <= j[1] + 1 ? (j[1] = Math.max(j[1], i[1])) : f.push((j = i));
-      b = ["["];
-      o && b.push("^");
+      b = ['['];
+      o && b.push('^');
       b.push(...a);
       for (c = 0; c < f.length; ++c)
         (i = f[c]),
           b.push(e(i[0])),
-          i[1] > i[0] && (i[1] + 1 > i[0] && b.push("-"), b.push(e(i[1])));
-      b.push("]");
-      return b.join("");
+          i[1] > i[0] && (i[1] + 1 > i[0] && b.push('-'), b.push(e(i[1])));
+      b.push(']');
+      return b.join('');
     }
 
     function y(a) {
@@ -1373,9 +1373,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         ++c
       ) {
         var j = f[c];
-        j === "("
+        j === '('
           ? ++i
-          : "\\" === j.charAt(0) &&
+          : '\\' === j.charAt(0) &&
             (j = +j.substring(1)) &&
             j <= i &&
             (d[j] = -1);
@@ -1383,33 +1383,33 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       for (c = 1; c < d.length; ++c) -1 === d[c] && (d[c] = ++t);
       for (i = c = 0; c < b; ++c)
         (j = f[c]),
-          j === "("
-            ? (++i, d[i] === void 0 && (f[c] = "(?:"))
-            : "\\" === j.charAt(0) &&
+          j === '('
+            ? (++i, d[i] === void 0 && (f[c] = '(?:'))
+            : '\\' === j.charAt(0) &&
               (j = +j.substring(1)) &&
               j <= i &&
-              (f[c] = "\\" + d[i]);
+              (f[c] = '\\' + d[i]);
       for (i = c = 0; c < b; ++c)
-        "^" === f[c] && "^" !== f[c + 1] && (f[c] = "");
+        '^' === f[c] && '^' !== f[c + 1] && (f[c] = '');
       if (a.ignoreCase && s)
         for (c = 0; c < b; ++c)
           (j = f[c]),
             (a = j.charAt(0)),
-            j.length >= 2 && a === "["
+            j.length >= 2 && a === '['
               ? (f[c] = h(j))
-              : a !== "\\" &&
+              : a !== '\\' &&
                 (f[c] = j.replace(/[A-Za-z]/g, (a) => {
                   a = a.charCodeAt(0);
-                  return "[" + String.fromCharCode(a & -33, a | 32) + "]";
+                  return '[' + String.fromCharCode(a & -33, a | 32) + ']';
                 }));
-      return f.join("");
+      return f.join('');
     }
     for (var t = 0, s = !1, l = !1, p = 0, d = a.length; p < d; ++p) {
       var g = a[p];
       if (g.ignoreCase) l = !0;
       else if (
         /[a-z]/i.test(
-          g.source.replace(/\\u[\da-f]{4}|\\x[\da-f]{2}|\\[^UXux]/gi, "")
+          g.source.replace(/\\u[\da-f]{4}|\\x[\da-f]{2}|\\[^UXux]/gi, '')
         )
       ) {
         s = !0;
@@ -1433,10 +1433,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       ++p
     ) {
       g = a[p];
-      if (g.global || g.multiline) throw Error("" + g);
-      n.push("(?:" + y(g) + ")");
+      if (g.global || g.multiline) throw Error('' + g);
+      n.push('(?:' + y(g) + ')');
     }
-    return RegExp(n.join("|"), l ? "gi" : "g");
+    return RegExp(n.join('|'), l ? 'gi' : 'g');
   }
 
   function M(a) {
@@ -1446,16 +1446,16 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           if (e.test(a.className)) break;
           for (var g = a.firstChild; g; g = g.nextSibling) m(g);
           g = a.nodeName;
-          if ("BR" === g || "LI" === g)
-            (h[s] = "\n"), (t[s << 1] = y++), (t[(s++ << 1) | 1] = a);
+          if ('BR' === g || 'LI' === g)
+            (h[s] = '\n'), (t[s << 1] = y++), (t[(s++ << 1) | 1] = a);
           break;
         case 3:
         case 4:
           (g = a.nodeValue),
             g.length &&
               ((g = p
-                ? g.replace(/\r\n?/g, "\n")
-                : g.replace(/[\t\n\r ]+/g, " ")),
+                ? g.replace(/\r\n?/g, '\n')
+                : g.replace(/[\t\n\r ]+/g, ' ')),
               (h[s] = g),
               (t[s << 1] = y),
               (y += g.length),
@@ -1473,11 +1473,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       : window.getComputedStyle &&
         (l = document.defaultView
           .getComputedStyle(a, q)
-          .getPropertyValue("white-space"));
-    var p = l && "pre" === l.substring(0, 3);
+          .getPropertyValue('white-space'));
+    var p = l && 'pre' === l.substring(0, 3);
     m(a);
     return {
-      a: h.join("").replace(/\n$/, ""),
+      a: h.join('').replace(/\n$/, ''),
       c: t,
     };
   }
@@ -1496,7 +1496,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     function e(a) {
       for (
         var l = a.d,
-          p = [l, "pln"],
+          p = [l, 'pln'],
           d = 0,
           g = a.a.match(y) || [],
           r = {},
@@ -1509,7 +1509,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         var b = r[f];
         var o = void 0;
         var c;
-        if (typeof b === "string") c = !1;
+        if (typeof b === 'string') c = !1;
         else {
           var i = h[f.charAt(0)];
           if (i) (o = f.match(i[1])), (b = i[0]);
@@ -1519,13 +1519,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                 b = i[0];
                 break;
               }
-            o || (b = "pln");
+            o || (b = 'pln');
           }
           if (
-            (c = b.length >= 5 && "lang-" === b.substring(0, 5)) &&
-            !(o && typeof o[1] === "string")
+            (c = b.length >= 5 && 'lang-' === b.substring(0, 5)) &&
+            !(o && typeof o[1] === 'string')
           )
-            (c = !1), (b = "src");
+            (c = !1), (b = 'src');
           c || (r[f] = b);
         }
         i = d;
@@ -1555,7 +1555,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         var n = r[3];
         if (n) for (var k = n.length; --k >= 0; ) h[n.charAt(k)] = r;
         r = r[1];
-        n = "" + r;
+        n = '' + r;
         p.hasOwnProperty(n) || (l.push(r), (p[n] = q));
       }
       l.push(/[\S\s]/);
@@ -1570,67 +1570,67 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     var e = [];
     a.tripleQuotedStrings
       ? m.push([
-          "str",
+          'str',
           /^(?:'''(?:[^'\\]|\\[\S\s]|''?(?=[^']))*(?:'''|$)|"""(?:[^"\\]|\\[\S\s]|""?(?=[^"]))*(?:"""|$)|'(?:[^'\\]|\\[\S\s])*(?:'|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$))/,
           q,
-          "'\"",
+          '\'"',
         ])
       : a.multiLineStrings
       ? m.push([
-          "str",
+          'str',
           /^(?:'(?:[^'\\]|\\[\S\s])*(?:'|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$)|`(?:[^\\`]|\\[\S\s])*(?:`|$))/,
           q,
-          "'\"`",
+          '\'"`',
         ])
       : m.push([
-          "str",
+          'str',
           /^(?:'(?:[^\n\r'\\]|\\.)*(?:'|$)|"(?:[^\n\r"\\]|\\.)*(?:"|$))/,
           q,
-          "\"'",
+          '"\'',
         ]);
-    a.verbatimStrings && e.push(["str", /^@"(?:[^"]|"")*(?:"|$)/, q]);
+    a.verbatimStrings && e.push(['str', /^@"(?:[^"]|"")*(?:"|$)/, q]);
     var h = a.hashComments;
     h &&
       (a.cStyleComments
         ? (h > 1
-            ? m.push(["com", /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, q, "#"])
+            ? m.push(['com', /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, q, '#'])
             : m.push([
-                "com",
+                'com',
                 /^#(?:(?:define|elif|else|endif|error|ifdef|include|ifndef|line|pragma|undef|warning)\b|[^\n\r]*)/,
                 q,
-                "#",
+                '#',
               ]),
           e.push([
-            "str",
+            'str',
             /^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h|[a-z]\w*)>/,
             q,
           ]))
-        : m.push(["com", /^#[^\n\r]*/, q, "#"]));
+        : m.push(['com', /^#[^\n\r]*/, q, '#']));
     a.cStyleComments &&
-      (e.push(["com", /^\/\/[^\n\r]*/, q]),
-      e.push(["com", /^\/\*[\S\s]*?(?:\*\/|$)/, q]));
+      (e.push(['com', /^\/\/[^\n\r]*/, q]),
+      e.push(['com', /^\/\*[\S\s]*?(?:\*\/|$)/, q]));
     a.regexLiterals &&
       e.push([
-        "lang-regex",
+        'lang-regex',
         /^(?:^^\.?|[!+-]|!=|!==|#|%|%=|&|&&|&&=|&=|\(|\*|\*=|\+=|,|-=|->|\/|\/=|:|::|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|[?@[^]|\^=|\^\^|\^\^=|{|\||\|=|\|\||\|\|=|~|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\s*(\/(?=[^*/])(?:[^/[\\]|\\[\S\s]|\[(?:[^\\\]]|\\[\S\s])*(?:]|$))+\/)/,
       ]);
-    (h = a.types) && e.push(["typ", h]);
-    a = ("" + a.keywords).replace(/^ | $/g, "");
+    (h = a.types) && e.push(['typ', h]);
+    a = ('' + a.keywords).replace(/^ | $/g, '');
     a.length &&
-      e.push(["kwd", RegExp("^(?:" + a.replace(/[\s,]+/g, "|") + ")\\b"), q]);
-    m.push(["pln", /^\s+/, q, " \r\n\t\xa0"]);
+      e.push(['kwd', RegExp('^(?:' + a.replace(/[\s,]+/g, '|') + ')\\b'), q]);
+    m.push(['pln', /^\s+/, q, ' \r\n\t\xa0']);
     e.push(
-      ["lit", /^@[$_a-z][\w$@]*/i, q],
-      ["typ", /^(?:[@_]?[A-Z]+[a-z][\w$@]*|\w+_t\b)/, q],
-      ["pln", /^[$_a-z][\w$@]*/i, q],
+      ['lit', /^@[$_a-z][\w$@]*/i, q],
+      ['typ', /^(?:[@_]?[A-Z]+[a-z][\w$@]*|\w+_t\b)/, q],
+      ['pln', /^[$_a-z][\w$@]*/i, q],
       [
-        "lit",
+        'lit',
         /^(?:0x[\da-f]+|(?:\d(?:_\d+)*\d*(?:\.\d*)?|\.\d\+)(?:e[+-]?\d+)?)[a-z]*/i,
         q,
-        "0123456789",
+        '0123456789',
       ],
-      ["pln", /^\\[\S\s]?/, q],
-      ["pun", /^.[^\s\w"-$'./@\\`]*/, q]
+      ['pln', /^\\[\S\s]?/, q],
+      ['pun', /^.[^\s\w"-$'./@\\`]*/, q]
     );
     return x(m, e);
   }
@@ -1640,7 +1640,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       switch (a.nodeType) {
         case 1:
           if (k.test(a.className)) break;
-          if ("BR" === a.nodeName)
+          if ('BR' === a.nodeName)
             h(a), a.parentNode && a.parentNode.removeChild(a);
           else for (a = a.firstChild; a; a = a.nextSibling) e(a);
           break;
@@ -1691,17 +1691,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       : window.getComputedStyle &&
         (l = s.defaultView
           .getComputedStyle(a, q)
-          .getPropertyValue("white-space"));
-    var p = l && "pre" === l.substring(0, 3);
-    for (l = s.createElement("LI"); a.firstChild; ) l.appendChild(a.firstChild);
+          .getPropertyValue('white-space'));
+    var p = l && 'pre' === l.substring(0, 3);
+    for (l = s.createElement('LI'); a.firstChild; ) l.appendChild(a.firstChild);
     for (var d = [l], g = 0; g < d.length; ++g) e(d[g]);
-    m === (m | 0) && d[0].setAttribute("value", m);
-    var r = s.createElement("OL");
-    r.className = "linenums";
+    m === (m | 0) && d[0].setAttribute('value', m);
+    var r = s.createElement('OL');
+    r.className = 'linenums';
     for (var n = Math.max(0, (m - 1) | 0) || 0, g = 0, z = d.length; g < z; ++g)
       (l = d[g]),
-        (l.className = "L" + ((g + n) % 10)),
-        l.firstChild || l.appendChild(s.createTextNode("\xa0")),
+        (l.className = 'L' + ((g + n) % 10)),
+        l.firstChild || l.appendChild(s.createTextNode('\xa0')),
         r.appendChild(l);
     a.appendChild(r);
   }
@@ -1711,14 +1711,14 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var h = m[e];
       A.hasOwnProperty(h)
         ? window.console &&
-          console.warn("cannot override language handler %s", h)
+          console.warn('cannot override language handler %s', h)
         : (A[h] = a);
     }
   }
 
   function C(a, m) {
     if (!a || !A.hasOwnProperty(a))
-      a = /^\s*</.test(m) ? "default-markup" : "default-code";
+      a = /^\s*</.test(m) ? 'default-markup' : 'default-code';
     return A[a];
   }
 
@@ -1766,10 +1766,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         var i = l[h + 1];
         var j;
         if (i.nodeType !== 1 && (j = t.substring(e, b))) {
-          k && (j = j.replace(m, "\r"));
+          k && (j = j.replace(m, '\r'));
           i.nodeValue = j;
           var u = i.ownerDocument;
-          var v = u.createElement("SPAN");
+          var v = u.createElement('SPAN');
           v.className = d[a + 1];
           var x = i.parentNode;
           x.replaceChild(v, i);
@@ -1783,44 +1783,44 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         e >= c && (a += 2);
       }
     } catch (w) {
-      "console" in window && console.log(w && w.stack ? w.stack : w);
+      'console' in window && console.log(w && w.stack ? w.stack : w);
     }
   }
-  var v = ["break,continue,do,else,for,if,return,while"];
+  var v = ['break,continue,do,else,for,if,return,while'];
 
   var w = [
     [
       v,
-      "auto,case,char,const,default,double,enum,extern,float,goto,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile",
+      'auto,case,char,const,default,double,enum,extern,float,goto,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile',
     ],
-    "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof",
+    'catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof',
   ];
 
   var F = [
     w,
-    "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,dynamic_cast,explicit,export,friend,inline,late_check,mutable,namespace,nullptr,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where",
+    'alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,dynamic_cast,explicit,export,friend,inline,late_check,mutable,namespace,nullptr,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where',
   ];
   var G = [
     w,
-    "abstract,boolean,byte,extends,final,finally,implements,import,instanceof,null,native,package,strictfp,super,synchronized,throws,transient",
+    'abstract,boolean,byte,extends,final,finally,implements,import,instanceof,null,native,package,strictfp,super,synchronized,throws,transient',
   ];
   var H = [
     G,
-    "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,interface,internal,into,is,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var",
+    'as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,interface,internal,into,is,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var',
   ];
   var w = [
     w,
-    "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN",
+    'debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN',
   ];
   var I = [
     v,
-    "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None",
+    'and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None',
   ];
   var J = [
     v,
-    "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END",
+    'alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END',
   ];
-  var v = [v, "case,done,elif,esac,eval,fi,function,in,local,set,then,until"];
+  var v = [v, 'case,done,elif,esac,eval,fi,function,in,local,set,then,until'];
   var K =
     /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)/;
   var N = /\S/;
@@ -1830,7 +1830,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       F,
       H,
       w,
-      "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END" +
+      'caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END' +
         I,
       J,
       v,
@@ -1842,47 +1842,47 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   });
 
   var A = {};
-  k(O, ["default-code"]);
+  k(O, ['default-code']);
   k(
     x(
       [],
       [
-        ["pln", /^[^<?]+/],
-        ["dec", /^<!\w[^>]*(?:>|$)/],
-        ["com", /^<\!--[\S\s]*?(?:--\>|$)/],
-        ["lang-", /^<\?([\S\s]+?)(?:\?>|$)/],
-        ["lang-", /^<%([\S\s]+?)(?:%>|$)/],
-        ["pun", /^(?:<[%?]|[%?]>)/],
-        ["lang-", /^<xmp\b[^>]*>([\S\s]+?)<\/xmp\b[^>]*>/i],
-        ["lang-js", /^<script\b[^>]*>([\S\s]*?)(<\/script\b[^>]*>)/i],
-        ["lang-css", /^<style\b[^>]*>([\S\s]*?)(<\/style\b[^>]*>)/i],
-        ["lang-in.tag", /^(<\/?[a-z][^<>]*>)/i],
+        ['pln', /^[^<?]+/],
+        ['dec', /^<!\w[^>]*(?:>|$)/],
+        ['com', /^<\!--[\S\s]*?(?:--\>|$)/],
+        ['lang-', /^<\?([\S\s]+?)(?:\?>|$)/],
+        ['lang-', /^<%([\S\s]+?)(?:%>|$)/],
+        ['pun', /^(?:<[%?]|[%?]>)/],
+        ['lang-', /^<xmp\b[^>]*>([\S\s]+?)<\/xmp\b[^>]*>/i],
+        ['lang-js', /^<script\b[^>]*>([\S\s]*?)(<\/script\b[^>]*>)/i],
+        ['lang-css', /^<style\b[^>]*>([\S\s]*?)(<\/style\b[^>]*>)/i],
+        ['lang-in.tag', /^(<\/?[a-z][^<>]*>)/i],
       ]
     ),
-    ["default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"]
+    ['default-markup', 'htm', 'html', 'mxml', 'xhtml', 'xml', 'xsl']
   );
   k(
     x(
       [
-        ["pln", /^\s+/, q, " \t\r\n"],
-        ["atv", /^(?:"[^"]*"?|'[^']*'?)/, q, "\"'"],
+        ['pln', /^\s+/, q, ' \t\r\n'],
+        ['atv', /^(?:"[^"]*"?|'[^']*'?)/, q, '"\''],
       ],
       [
-        ["tag", /^^<\/?[a-z](?:[\w-.:]*\w)?|\/?>$/i],
-        ["atn", /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],
-        ["lang-uq.val", /^=\s*([^\s"'>]*(?:[^\s"'/>]|\/(?=\s)))/],
-        ["pun", /^[/<->]+/],
-        ["lang-js", /^on\w+\s*=\s*"([^"]+)"/i],
-        ["lang-js", /^on\w+\s*=\s*'([^']+)'/i],
-        ["lang-js", /^on\w+\s*=\s*([^\s"'>]+)/i],
-        ["lang-css", /^style\s*=\s*"([^"]+)"/i],
-        ["lang-css", /^style\s*=\s*'([^']+)'/i],
-        ["lang-css", /^style\s*=\s*([^\s"'>]+)/i],
+        ['tag', /^^<\/?[a-z](?:[\w-.:]*\w)?|\/?>$/i],
+        ['atn', /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],
+        ['lang-uq.val', /^=\s*([^\s"'>]*(?:[^\s"'/>]|\/(?=\s)))/],
+        ['pun', /^[/<->]+/],
+        ['lang-js', /^on\w+\s*=\s*"([^"]+)"/i],
+        ['lang-js', /^on\w+\s*=\s*'([^']+)'/i],
+        ['lang-js', /^on\w+\s*=\s*([^\s"'>]+)/i],
+        ['lang-css', /^style\s*=\s*"([^"]+)"/i],
+        ['lang-css', /^style\s*=\s*'([^']+)'/i],
+        ['lang-css', /^style\s*=\s*([^\s"'>]+)/i],
       ]
     ),
-    ["in.tag"]
+    ['in.tag']
   );
-  k(x([], [["atv", /^[\S\s]+/]]), ["uq.val"]);
+  k(x([], [['atv', /^[\S\s]+/]]), ['uq.val']);
   k(
     u({
       keywords: F,
@@ -1890,13 +1890,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       cStyleComments: !0,
       types: K,
     }),
-    ["c", "cc", "cpp", "cxx", "cyc", "m"]
+    ['c', 'cc', 'cpp', 'cxx', 'cyc', 'm']
   );
   k(
     u({
-      keywords: "null,true,false",
+      keywords: 'null,true,false',
     }),
-    ["json"]
+    ['json']
   );
   k(
     u({
@@ -1906,14 +1906,14 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       verbatimStrings: !0,
       types: K,
     }),
-    ["cs"]
+    ['cs']
   );
   k(
     u({
       keywords: G,
       cStyleComments: !0,
     }),
-    ["java"]
+    ['java']
   );
   k(
     u({
@@ -1921,7 +1921,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       hashComments: !0,
       multiLineStrings: !0,
     }),
-    ["bsh", "csh", "sh"]
+    ['bsh', 'csh', 'sh']
   );
   k(
     u({
@@ -1930,17 +1930,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       multiLineStrings: !0,
       tripleQuotedStrings: !0,
     }),
-    ["cv", "py"]
+    ['cv', 'py']
   );
   k(
     u({
       keywords:
-        "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END",
+        'caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END',
       hashComments: !0,
       multiLineStrings: !0,
       regexLiterals: !0,
     }),
-    ["perl", "pl", "pm"]
+    ['perl', 'pl', 'pm']
   );
   k(
     u({
@@ -1949,7 +1949,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       multiLineStrings: !0,
       regexLiterals: !0,
     }),
-    ["rb"]
+    ['rb']
   );
   k(
     u({
@@ -1957,23 +1957,23 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       cStyleComments: !0,
       regexLiterals: !0,
     }),
-    ["js"]
+    ['js']
   );
   k(
     u({
       keywords:
-        "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,true,try,unless,until,when,while,yes",
+        'all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,true,try,unless,until,when,while,yes',
       hashComments: 3,
       cStyleComments: !0,
       multilineStrings: !0,
       tripleQuotedStrings: !0,
       regexLiterals: !0,
     }),
-    ["coffee"]
+    ['coffee']
   );
-  k(x([], [["str", /^[\S\s]+/]]), ["regex"]);
+  k(x([], [['str', /^[\S\s]+/]]), ['regex']);
   window.prettyPrintOne = (a, m, e) => {
-    var h = document.createElement("PRE");
+    var h = document.createElement('PRE');
     h.innerHTML = a;
     e && D(h, e);
     E({
@@ -1992,7 +1992,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       ) {
         var n = h[p];
         var k = n.className;
-        if (k.indexOf("prettyprint") >= 0) {
+        if (k.indexOf('prettyprint') >= 0) {
           var k = k.match(g);
           var f;
           var b;
@@ -2010,18 +2010,18 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                       ? b
                       : o
                     : o;
-            b = (f = o === b ? void 0 : o) && "CODE" === f.tagName;
+            b = (f = o === b ? void 0 : o) && 'CODE' === f.tagName;
           }
           b && (k = f.className.match(g));
           k && (k = k[1]);
           b = !1;
           for (o = n.parentNode; o; o = o.parentNode)
             if (
-              (o.tagName === "pre" ||
-                o.tagName === "code" ||
-                o.tagName === "xmp") &&
+              (o.tagName === 'pre' ||
+                o.tagName === 'code' ||
+                o.tagName === 'xmp') &&
               o.className &&
-              o.className.indexOf("prettyprint") >= 0
+              o.className.indexOf('prettyprint') >= 0
             ) {
               b = !0;
               break;
@@ -2044,9 +2044,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     }
     for (
       var e = [
-          document.getElementsByTagName("pre"),
-          document.getElementsByTagName("code"),
-          document.getElementsByTagName("xmp"),
+          document.getElementsByTagName('pre'),
+          document.getElementsByTagName('code'),
+          document.getElementsByTagName('xmp'),
         ],
         h = [],
         k = 0;
@@ -2071,19 +2071,19 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     createSimpleLexer: x,
     registerLangHandler: k,
     sourceDecorator: u,
-    PR_ATTRIB_NAME: "atn",
-    PR_ATTRIB_VALUE: "atv",
-    PR_COMMENT: "com",
-    PR_DECLARATION: "dec",
-    PR_KEYWORD: "kwd",
-    PR_LITERAL: "lit",
-    PR_NOCODE: "nocode",
-    PR_PLAIN: "pln",
-    PR_PUNCTUATION: "pun",
-    PR_SOURCE: "src",
-    PR_STRING: "str",
-    PR_TAG: "tag",
-    PR_TYPE: "typ",
+    PR_ATTRIB_NAME: 'atn',
+    PR_ATTRIB_VALUE: 'atv',
+    PR_COMMENT: 'com',
+    PR_DECLARATION: 'dec',
+    PR_KEYWORD: 'kwd',
+    PR_LITERAL: 'lit',
+    PR_NOCODE: 'nocode',
+    PR_PLAIN: 'pln',
+    PR_PUNCTUATION: 'pun',
+    PR_SOURCE: 'src',
+    PR_STRING: 'str',
+    PR_TAG: 'tag',
+    PR_TYPE: 'typ',
   };
 })();
 
@@ -2094,42 +2094,42 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var parsers = [];
       var widgets = [];
       this.defaults = {
-        cssHeader: "header",
-        cssAsc: "headerSortUp",
-        cssDesc: "headerSortDown",
-        cssChildRow: "expand-child",
-        sortInitialOrder: "asc",
-        sortMultiSortKey: "shiftKey",
+        cssHeader: 'header',
+        cssAsc: 'headerSortUp',
+        cssDesc: 'headerSortDown',
+        cssChildRow: 'expand-child',
+        sortInitialOrder: 'asc',
+        sortMultiSortKey: 'shiftKey',
         sortForce: null,
         sortAppend: null,
         sortLocaleCompare: true,
-        textExtraction: "simple",
+        textExtraction: 'simple',
         parsers: {},
         widgets: [],
         widgetZebra: {
-          css: ["even", "odd"],
+          css: ['even', 'odd'],
         },
         headers: {},
         widthFixed: false,
         cancelSelection: true,
         sortList: [],
         headerList: [],
-        dateFormat: "us",
-        decimal: "/.|,/g",
+        dateFormat: 'us',
+        decimal: '/.|,/g',
         onRenderHeader: null,
-        selectorHeaders: "thead th",
+        selectorHeaders: 'thead th',
         debug: false,
       };
 
       function benchmark(s, d) {
-        log(s + "," + (new Date().getTime() - d.getTime()) + "ms");
+        log(s + ',' + (new Date().getTime() - d.getTime()) + 'ms');
       }
       this.benchmark = benchmark;
 
       function log(s) {
         if (
-          typeof console != "undefined" &&
-          typeof console.debug != "undefined"
+          typeof console != 'undefined' &&
+          typeof console.debug != 'undefined'
         ) {
           console.log(s);
         } else {
@@ -2139,7 +2139,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
 
       function buildParserCache(table, $headers) {
         if (table.config.debug) {
-          var parsersDebug = "";
+          var parsersDebug = '';
         }
         if (table.tBodies.length == 0) return;
         var rows = table.tBodies[0].rows;
@@ -2165,7 +2165,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
               p = detectParserForColumn(table, rows, -1, i);
             }
             if (table.config.debug) {
-              parsersDebug += "column:" + i + " parser:" + p.id + "\n";
+              parsersDebug += 'column:' + i + ' parser:' + p.id + '\n';
             }
             list.push(p);
           }
@@ -2181,13 +2181,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         var node = false;
         var nodeValue = false;
         var keepLooking = true;
-        while (nodeValue == "" && keepLooking) {
+        while (nodeValue == '' && keepLooking) {
           rowIndex++;
           if (rows[rowIndex]) {
             node = getNodeFromRowAndCellIndex(rows, rowIndex, cellIndex);
             nodeValue = trimAndGetNodeText(table.config, node);
             if (table.config.debug) {
-              log("Checking if value was empty on row:" + rowIndex);
+              log('Checking if value was empty on row:' + rowIndex);
             }
           } else {
             keepLooking = false;
@@ -2257,17 +2257,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           cols = null;
         }
         if (table.config.debug) {
-          benchmark("Building cache for " + totalRows + " rows:", cacheTime);
+          benchmark('Building cache for ' + totalRows + ' rows:', cacheTime);
         }
         return cache;
       }
 
       function getElementText(config, node) {
-        var text = "";
-        if (!node) return "";
+        var text = '';
+        if (!node) return '';
         if (!config.supportsTextContent)
           config.supportsTextContent = node.textContent || false;
-        if (config.textExtraction == "simple") {
+        if (config.textExtraction == 'simple') {
           if (config.supportsTextContent) {
             text = node.textContent;
           } else {
@@ -2278,7 +2278,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             }
           }
         } else {
-          if (typeof config.textExtraction == "function") {
+          if (typeof config.textExtraction == 'function') {
             text = config.textExtraction(node);
           } else {
             text = $(node).text();
@@ -2313,11 +2313,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         }
         rows = null;
         if (table.config.debug) {
-          benchmark("Rebuilt table:", appendTime);
+          benchmark('Rebuilt table:', appendTime);
         }
         applyWidget(table);
         setTimeout(() => {
-          $(table).trigger("sortEnd");
+          $(table).trigger('sortEnd');
         }, 0);
       }
 
@@ -2331,7 +2331,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           index
         ) {
           this.column =
-            header_index[this.parentNode.rowIndex + "-" + this.cellIndex];
+            header_index[this.parentNode.rowIndex + '-' + this.cellIndex];
           this.order = formatSortingOrder(table.config.sortInitialOrder);
           this.count = this.order;
           if (checkHeaderMetadata(this) || checkHeaderOptions(table, index))
@@ -2349,7 +2349,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           table.config.headerList[index] = this;
         });
         if (table.config.debug) {
-          benchmark("Built headers:", time);
+          benchmark('Built headers:', time);
           log($tableHeaders);
         }
         return $tableHeaders;
@@ -2358,34 +2358,34 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       function computeTableHeaderCellIndexes(t) {
         var matrix = [];
         var lookup = {};
-        var thead = t.getElementsByTagName("THEAD")[0];
-        var trs = thead.getElementsByTagName("TR");
+        var thead = t.getElementsByTagName('THEAD')[0];
+        var trs = thead.getElementsByTagName('TR');
         for (var i = 0; i < trs.length; i++) {
           var cells = trs[i].cells;
           for (var j = 0; j < cells.length; j++) {
             var c = cells[j];
             var rowIndex = c.parentNode.rowIndex;
-            var cellId = rowIndex + "-" + c.cellIndex;
+            var cellId = rowIndex + '-' + c.cellIndex;
             var rowSpan = c.rowSpan || 1;
             var colSpan = c.colSpan || 1;
             var firstAvailCol;
-            if (typeof matrix[rowIndex] == "undefined") {
+            if (typeof matrix[rowIndex] == 'undefined') {
               matrix[rowIndex] = [];
             }
             for (var k = 0; k < matrix[rowIndex].length + 1; k++) {
-              if (typeof matrix[rowIndex][k] == "undefined") {
+              if (typeof matrix[rowIndex][k] == 'undefined') {
                 firstAvailCol = k;
                 break;
               }
             }
             lookup[cellId] = firstAvailCol;
             for (var k = rowIndex; k < rowIndex + rowSpan; k++) {
-              if (typeof matrix[k] == "undefined") {
+              if (typeof matrix[k] == 'undefined') {
                 matrix[k] = [];
               }
               var matrixrow = matrix[k];
               for (var l = firstAvailCol; l < firstAvailCol + colSpan; l++) {
-                matrixrow[l] = "x";
+                matrixrow[l] = 'x';
               }
             }
           }
@@ -2451,8 +2451,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
 
       function formatSortingOrder(v) {
-        if (typeof v != "Number") {
-          return v.toLowerCase() == "desc" ? 1 : 0;
+        if (typeof v != 'Number') {
+          return v.toLowerCase() == 'desc' ? 1 : 0;
         } else {
           return v == 1 ? 1 : 0;
         }
@@ -2485,9 +2485,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       function fixColumnWidth(table, $headers) {
         var c = table.config;
         if (c.widthFixed) {
-          var colgroup = $("<colgroup>");
-          $("tr:first td", table.tBodies[0]).each(function () {
-            colgroup.append($("<col>").css("width", $(this).width()));
+          var colgroup = $('<colgroup>');
+          $('tr:first td', table.tBodies[0]).each(function () {
+            colgroup.append($('<col>').css('width', $(this).width()));
           });
           $(table).prepend(colgroup);
         }
@@ -2508,43 +2508,43 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         if (table.config.debug) {
           var sortTime = new Date();
         }
-        var dynamicExp = "var sortWrapper = function(a,b) {";
+        var dynamicExp = 'var sortWrapper = function(a,b) {';
         var l = sortList.length;
         for (var i = 0; i < l; i++) {
           var c = sortList[i][0];
           var order = sortList[i][1];
           var s =
-            table.config.parsers[c].type == "text"
+            table.config.parsers[c].type == 'text'
               ? order == 0
-                ? makeSortFunction("text", "asc", c)
-                : makeSortFunction("text", "desc", c)
+                ? makeSortFunction('text', 'asc', c)
+                : makeSortFunction('text', 'desc', c)
               : order == 0
-              ? makeSortFunction("numeric", "asc", c)
-              : makeSortFunction("numeric", "desc", c);
-          var e = "e" + i;
-          dynamicExp += "var " + e + " = " + s;
-          dynamicExp += "if(" + e + ") { return " + e + "; } ";
-          dynamicExp += "else { ";
+              ? makeSortFunction('numeric', 'asc', c)
+              : makeSortFunction('numeric', 'desc', c);
+          var e = 'e' + i;
+          dynamicExp += 'var ' + e + ' = ' + s;
+          dynamicExp += 'if(' + e + ') { return ' + e + '; } ';
+          dynamicExp += 'else { ';
         }
         var orgOrderCol = cache.normalized[0].length - 1;
-        dynamicExp += "return a[" + orgOrderCol + "]-b[" + orgOrderCol + "];";
+        dynamicExp += 'return a[' + orgOrderCol + ']-b[' + orgOrderCol + '];';
         for (var i = 0; i < l; i++) {
-          dynamicExp += "}; ";
+          dynamicExp += '}; ';
         }
-        dynamicExp += "return 0; ";
-        dynamicExp += "}; ";
+        dynamicExp += 'return 0; ';
+        dynamicExp += '}; ';
         if (table.config.debug) {
-          benchmark("Evaling expression:" + dynamicExp, new Date());
+          benchmark('Evaling expression:' + dynamicExp, new Date());
         }
         eval(dynamicExp);
         cache.normalized.sort(sortWrapper);
         if (table.config.debug) {
           benchmark(
-            "Sorting on " +
+            'Sorting on ' +
               sortList.toString() +
-              " and dir " +
+              ' and dir ' +
               order +
-              " time:",
+              ' time:',
             sortTime
           );
         }
@@ -2552,109 +2552,109 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
 
       function makeSortFunction(type, direction, index) {
-        var a = "a[" + index + "]";
-        var b = "b[" + index + "]";
-        if (type == "text" && direction == "asc") {
+        var a = 'a[' + index + ']';
+        var b = 'b[' + index + ']';
+        if (type == 'text' && direction == 'asc') {
           return (
-            "(" +
+            '(' +
             a +
-            " == " +
+            ' == ' +
             b +
-            " ? 0 : (" +
+            ' ? 0 : (' +
             a +
-            " === null ? Number.POSITIVE_INFINITY : (" +
+            ' === null ? Number.POSITIVE_INFINITY : (' +
             b +
-            " === null ? Number.NEGATIVE_INFINITY : (" +
+            ' === null ? Number.NEGATIVE_INFINITY : (' +
             a +
-            " < " +
+            ' < ' +
             b +
-            ") ? -1 : 1 )));"
+            ') ? -1 : 1 )));'
           );
-        } else if (type == "text" && direction == "desc") {
+        } else if (type == 'text' && direction == 'desc') {
           return (
-            "(" +
+            '(' +
             a +
-            " == " +
+            ' == ' +
             b +
-            " ? 0 : (" +
+            ' ? 0 : (' +
             a +
-            " === null ? Number.POSITIVE_INFINITY : (" +
+            ' === null ? Number.POSITIVE_INFINITY : (' +
             b +
-            " === null ? Number.NEGATIVE_INFINITY : (" +
+            ' === null ? Number.NEGATIVE_INFINITY : (' +
             b +
-            " < " +
+            ' < ' +
             a +
-            ") ? -1 : 1 )));"
+            ') ? -1 : 1 )));'
           );
-        } else if (type == "numeric" && direction == "asc") {
+        } else if (type == 'numeric' && direction == 'asc') {
           return (
-            "(" +
+            '(' +
             a +
-            " === null && " +
+            ' === null && ' +
             b +
-            " === null) ? 0 :(" +
+            ' === null) ? 0 :(' +
             a +
-            " === null ? Number.POSITIVE_INFINITY : (" +
+            ' === null ? Number.POSITIVE_INFINITY : (' +
             b +
-            " === null ? Number.NEGATIVE_INFINITY : " +
+            ' === null ? Number.NEGATIVE_INFINITY : ' +
             a +
-            " - " +
+            ' - ' +
             b +
-            "));"
+            '));'
           );
-        } else if (type == "numeric" && direction == "desc") {
+        } else if (type == 'numeric' && direction == 'desc') {
           return (
-            "(" +
+            '(' +
             a +
-            " === null && " +
+            ' === null && ' +
             b +
-            " === null) ? 0 :(" +
+            ' === null) ? 0 :(' +
             a +
-            " === null ? Number.POSITIVE_INFINITY : (" +
+            ' === null ? Number.POSITIVE_INFINITY : (' +
             b +
-            " === null ? Number.NEGATIVE_INFINITY : " +
+            ' === null ? Number.NEGATIVE_INFINITY : ' +
             b +
-            " - " +
+            ' - ' +
             a +
-            "));"
+            '));'
           );
         }
       }
 
       function makeSortText(i) {
         return (
-          "((a[" +
+          '((a[' +
           i +
-          "] < b[" +
+          '] < b[' +
           i +
-          "]) ? -1 : ((a[" +
+          ']) ? -1 : ((a[' +
           i +
-          "] > b[" +
+          '] > b[' +
           i +
-          "]) ? 1 : 0));"
+          ']) ? 1 : 0));'
         );
       }
 
       function makeSortTextDesc(i) {
         return (
-          "((b[" +
+          '((b[' +
           i +
-          "] < a[" +
+          '] < a[' +
           i +
-          "]) ? -1 : ((b[" +
+          ']) ? -1 : ((b[' +
           i +
-          "] > a[" +
+          '] > a[' +
           i +
-          "]) ? 1 : 0));"
+          ']) ? 1 : 0));'
         );
       }
 
       function makeSortNumeric(i) {
-        return "a[" + i + "]-b[" + i + "];";
+        return 'a[' + i + ']-b[' + i + '];';
       }
 
       function makeSortNumericDesc(i) {
-        return "b[" + i + "]-a[" + i + "];";
+        return 'b[' + i + ']-a[' + i + '];';
       }
 
       function sortText(a, b) {
@@ -2691,7 +2691,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           this.config = {};
           config = $.extend(this.config, $.tablesorter.defaults, settings);
           $this = $(this);
-          $.data(this, "tablesorter", config);
+          $.data(this, 'tablesorter', config);
           $headers = buildHeaders(this);
           this.config.parsers = buildParserCache(this, $headers);
           cache = buildCache(this);
@@ -2702,7 +2702,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
               var totalRows =
                 ($this[0].tBodies[0] && $this[0].tBodies[0].rows.length) || 0;
               if (!this.sortDisabled && totalRows > 0) {
-                $this.trigger("sortStart");
+                $this.trigger('sortStart');
                 var $cell = $(this);
                 var i = this.column;
                 this.order = this.count++ % 2;
@@ -2750,14 +2750,14 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
               }
             });
           $this
-            .bind("update", function () {
+            .bind('update', function () {
               var me = this;
               setTimeout(() => {
                 me.config.parsers = buildParserCache(me, $headers);
                 cache = buildCache(me);
               }, 1);
             })
-            .bind("updateCell", function (e, cell) {
+            .bind('updateCell', function (e, cell) {
               var config = this.config;
               var pos = [cell.parentNode.rowIndex - 1, cell.cellIndex];
               cache.normalized[pos[0]][pos[1]] = config.parsers[pos[1]].format(
@@ -2765,28 +2765,28 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                 cell
               );
             })
-            .bind("sorton", function (e, list) {
-              $(this).trigger("sortStart");
+            .bind('sorton', function (e, list) {
+              $(this).trigger('sortStart');
               config.sortList = list;
               var sortList = config.sortList;
               updateHeaderSortCount(this, sortList);
               setHeadersCss(this, $headers, sortList, sortCSS);
               appendToTable(this, multisort(this, sortList, cache));
             })
-            .bind("appendCache", function () {
+            .bind('appendCache', function () {
               appendToTable(this, cache);
             })
-            .bind("applyWidgetId", function (e, id) {
+            .bind('applyWidgetId', function (e, id) {
               getWidgetById(id).format(this);
             })
-            .bind("applyWidgets", function () {
+            .bind('applyWidgets', function () {
               applyWidget(this);
             });
           if ($.metadata && $(this).metadata() && $(this).metadata().sortlist) {
             config.sortList = $(this).metadata().sortlist;
           }
           if (config.sortList.length > 0) {
-            $this.trigger("sorton", [config.sortList]);
+            $this.trigger('sorton', [config.sortList]);
           }
           applyWidget(this);
         });
@@ -2815,7 +2815,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         return isNaN(i) ? 0 : i;
       };
       this.isDigit = (s, config) =>
-        /^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g, "")));
+        /^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g, '')));
       this.clearTableBody = (table) => {
         if ($.browser.msie) {
           function empty() {
@@ -2823,7 +2823,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           }
           empty.apply(table.tBodies[0]);
         } else {
-          table.tBodies[0].innerHTML = "";
+          table.tBodies[0].innerHTML = '';
         }
       };
     })(),
@@ -2833,17 +2833,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   });
   var ts = $.tablesorter;
   ts.addParser({
-    id: "text",
+    id: 'text',
     is(s) {
       return true;
     },
     format(s) {
       return $.trim(s.toLocaleLowerCase());
     },
-    type: "text",
+    type: 'text',
   });
   ts.addParser({
-    id: "digit",
+    id: 'digit',
     is(s, table) {
       var c = table.config;
       return $.tablesorter.isDigit(s, c);
@@ -2851,73 +2851,73 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     format(s) {
       return $.tablesorter.formatFloat(s);
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "currency",
+    id: 'currency',
     is(s) {
       return /^[£$€?.]/.test(s);
     },
     format(s) {
-      return $.tablesorter.formatFloat(s.replace(new RegExp(/[£$€]/g), ""));
+      return $.tablesorter.formatFloat(s.replace(new RegExp(/[£$€]/g), ''));
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "ipAddress",
+    id: 'ipAddress',
     is(s) {
       return /^\d{2,3}[\.]\d{2,3}[\.]\d{2,3}[\.]\d{2,3}$/.test(s);
     },
     format(s) {
-      var a = s.split(".");
-      var r = "";
+      var a = s.split('.');
+      var r = '';
       var l = a.length;
       for (var i = 0; i < l; i++) {
         var item = a[i];
         if (item.length == 2) {
-          r += "0" + item;
+          r += '0' + item;
         } else {
           r += item;
         }
       }
       return $.tablesorter.formatFloat(r);
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "url",
+    id: 'url',
     is(s) {
       return /^(https?|ftp|file):\/\/$/.test(s);
     },
     format(s) {
-      return jQuery.trim(s.replace(new RegExp(/(https?|ftp|file):\/\//), ""));
+      return jQuery.trim(s.replace(new RegExp(/(https?|ftp|file):\/\//), ''));
     },
-    type: "text",
+    type: 'text',
   });
   ts.addParser({
-    id: "isoDate",
+    id: 'isoDate',
     is(s) {
       return /^\d{4}[\/-]\d{1,2}[\/-]\d{1,2}$/.test(s);
     },
     format(s) {
       return $.tablesorter.formatFloat(
-        s != "" ? new Date(s.replace(new RegExp(/-/g), "/")).getTime() : "0"
+        s != '' ? new Date(s.replace(new RegExp(/-/g), '/')).getTime() : '0'
       );
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "percent",
+    id: 'percent',
     is(s) {
       return /\%$/.test($.trim(s));
     },
     format(s) {
-      return $.tablesorter.formatFloat(s.replace(new RegExp(/%/g), ""));
+      return $.tablesorter.formatFloat(s.replace(new RegExp(/%/g), ''));
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "usLongDate",
+    id: 'usLongDate',
     is(s) {
       return s.match(
         new RegExp(
@@ -2928,53 +2928,53 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     format(s) {
       return $.tablesorter.formatFloat(new Date(s).getTime());
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "shortDate",
+    id: 'shortDate',
     is(s) {
       return /\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/.test(s);
     },
     format(s, table) {
       var c = table.config;
-      s = s.replace(/\-/g, "/");
-      if (c.dateFormat == "us") {
-        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/, "$3/$1/$2");
-      } else if (c.dateFormat == "uk") {
-        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/, "$3/$2/$1");
-      } else if (c.dateFormat == "dd/mm/yy" || c.dateFormat == "dd-mm-yy") {
-        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, "$1/$2/$3");
+      s = s.replace(/\-/g, '/');
+      if (c.dateFormat == 'us') {
+        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/, '$3/$1/$2');
+      } else if (c.dateFormat == 'uk') {
+        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/, '$3/$2/$1');
+      } else if (c.dateFormat == 'dd/mm/yy' || c.dateFormat == 'dd-mm-yy') {
+        s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3');
       }
       return $.tablesorter.formatFloat(new Date(s).getTime());
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "time",
+    id: 'time',
     is(s) {
       return /^(([0-2]?[0-9]:[0-5][0-9])|([0-1]?[0-9]:[0-5][0-9]\s(am|pm)))$/.test(
         s
       );
     },
     format(s) {
-      return $.tablesorter.formatFloat(new Date("2000/01/01 " + s).getTime());
+      return $.tablesorter.formatFloat(new Date('2000/01/01 ' + s).getTime());
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addParser({
-    id: "metadata",
+    id: 'metadata',
     is(s) {
       return false;
     },
     format(s, table, cell) {
       var c = table.config;
-      var p = !c.parserMetadataName ? "sortValue" : c.parserMetadataName;
+      var p = !c.parserMetadataName ? 'sortValue' : c.parserMetadataName;
       return $(cell).metadata()[p];
     },
-    type: "numeric",
+    type: 'numeric',
   });
   ts.addWidget({
-    id: "zebra",
+    id: 'zebra',
     format(table) {
       if (table.config.debug) {
         var time = new Date();
@@ -2982,7 +2982,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var $tr;
       var row = -1;
       var odd;
-      $("tr:visible", table.tBodies[0]).each(function (i) {
+      $('tr:visible', table.tBodies[0]).each(function (i) {
         $tr = $(this);
         if (!$tr.hasClass(table.config.cssChildRow)) row++;
         odd = row % 2 == 0;
@@ -2991,14 +2991,14 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           .addClass(table.config.widgetZebra.css[odd ? 1 : 0]);
       });
       if (table.config.debug) {
-        $.tablesorter.benchmark("Applying Zebra widget", time);
+        $.tablesorter.benchmark('Applying Zebra widget', time);
       }
     },
   });
 })(jQuery);
 
 (($) => {
-  $.isBlank = (obj) => !obj || $.trim(obj) === "";
+  $.isBlank = (obj) => !obj || $.trim(obj) === '';
 })(jQuery);
 
 // Time picker
@@ -3009,26 +3009,26 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   }
   $.extend($.ui, {
     timepicker: {
-      version: "1.1.1",
+      version: '1.1.1',
     },
   });
 
   function Timepicker() {
     this.regional = [];
-    this.regional[""] = {
-      currentText: "Now",
-      closeText: "Done",
-      amNames: ["AM", "A"],
-      pmNames: ["PM", "P"],
-      timeFormat: "HH:mm",
-      timeSuffix: "",
-      timeOnlyTitle: "Choose Time",
-      timeText: "Time",
-      hourText: "Hour",
-      minuteText: "Minute",
-      secondText: "Second",
-      millisecText: "Millisecond",
-      timezoneText: "Time Zone",
+    this.regional[''] = {
+      currentText: 'Now',
+      closeText: 'Done',
+      amNames: ['AM', 'A'],
+      pmNames: ['PM', 'P'],
+      timeFormat: 'HH:mm',
+      timeSuffix: '',
+      timeOnlyTitle: 'Choose Time',
+      timeText: 'Time',
+      hourText: 'Hour',
+      minuteText: 'Minute',
+      secondText: 'Second',
+      millisecText: 'Millisecond',
+      timezoneText: 'Time Zone',
       isRTL: false,
     };
     this._defaults = {
@@ -3050,7 +3050,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       millisec: 0,
       timezone: null,
       useLocalTimezone: false,
-      defaultTimezone: "+0000",
+      defaultTimezone: '+0000',
       hourMin: 0,
       minuteMin: 0,
       secondMin: 0,
@@ -3067,7 +3067,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       secondGrid: 0,
       millisecGrid: 0,
       alwaysSetTime: true,
-      separator: " ",
+      separator: ' ',
       altFieldTimeOnly: true,
       altTimeFormat: null,
       altSeparator: null,
@@ -3079,11 +3079,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       timezoneList: null,
       addSliderAccess: false,
       sliderAccessArgs: null,
-      controlType: "slider",
+      controlType: 'slider',
       defaultValue: null,
-      parse: "strict",
+      parse: 'strict',
     };
-    $.extend(this._defaults, this.regional[""]);
+    $.extend(this._defaults, this.regional['']);
   }
   $.extend(Timepicker.prototype, {
     $input: null,
@@ -3100,7 +3100,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     second: 0,
     millisec: 0,
     timezone: null,
-    defaultTimezone: "+0000",
+    defaultTimezone: '+0000',
     hourMinOriginal: null,
     minuteMinOriginal: null,
     secondMinOriginal: null,
@@ -3109,12 +3109,12 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     minuteMaxOriginal: null,
     secondMaxOriginal: null,
     millisecMaxOriginal: null,
-    ampm: "",
-    formattedDate: "",
-    formattedTime: "",
-    formattedDateTime: "",
+    ampm: '',
+    formattedDate: '',
+    formattedTime: '',
+    formattedDateTime: '',
     timezoneList: null,
-    units: ["hour", "minute", "second", "millisec"],
+    units: ['hour', 'minute', 'second', 'millisec'],
     control: null,
     setDefaults(settings) {
       extendRemove(this._defaults, settings || {});
@@ -3128,7 +3128,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var i;
       for (var attrName in this._defaults) {
         if (this._defaults.hasOwnProperty(attrName)) {
-          var attrValue = $input.attr("time:" + attrName);
+          var attrValue = $input.attr('time:' + attrName);
           if (attrValue) {
             try {
               inlineSettings[attrName] = eval(attrValue);
@@ -3162,7 +3162,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           }
         },
         onClose(dateText, dp_inst) {
-          if (tp_inst.timeDefined === true && $input.val() !== "") {
+          if (tp_inst.timeDefined === true && $input.val() !== '') {
             tp_inst._updateDateTime(dp_inst);
           }
           if ($.isFunction(tp_inst._defaults.evnts.onClose)) {
@@ -3197,9 +3197,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       tp_inst.pmNames = $.map(tp_inst._defaults.pmNames, (val) =>
         val.toUpperCase()
       );
-      if (typeof tp_inst._defaults.controlType === "string") {
+      if (typeof tp_inst._defaults.controlType === 'string') {
         if ($.fn[tp_inst._defaults.controlType] === undefined) {
-          tp_inst._defaults.controlType = "select";
+          tp_inst._defaults.controlType = 'select';
         }
         tp_inst.control = tp_inst._controls[tp_inst._defaults.controlType];
       } else {
@@ -3207,50 +3207,50 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
       if (tp_inst._defaults.timezoneList === null) {
         var timezoneList = [
-          "-1200",
-          "-1100",
-          "-1000",
-          "-0930",
-          "-0900",
-          "-0800",
-          "-0700",
-          "-0600",
-          "-0500",
-          "-0430",
-          "-0400",
-          "-0330",
-          "-0300",
-          "-0200",
-          "-0100",
-          "+0000",
-          "+0100",
-          "+0200",
-          "+0300",
-          "+0330",
-          "+0400",
-          "+0430",
-          "+0500",
-          "+0530",
-          "+0545",
-          "+0600",
-          "+0630",
-          "+0700",
-          "+0800",
-          "+0845",
-          "+0900",
-          "+0930",
-          "+1000",
-          "+1030",
-          "+1100",
-          "+1130",
-          "+1200",
-          "+1245",
-          "+1300",
-          "+1400",
+          '-1200',
+          '-1100',
+          '-1000',
+          '-0930',
+          '-0900',
+          '-0800',
+          '-0700',
+          '-0600',
+          '-0500',
+          '-0430',
+          '-0400',
+          '-0330',
+          '-0300',
+          '-0200',
+          '-0100',
+          '+0000',
+          '+0100',
+          '+0200',
+          '+0300',
+          '+0330',
+          '+0400',
+          '+0430',
+          '+0500',
+          '+0530',
+          '+0545',
+          '+0600',
+          '+0630',
+          '+0700',
+          '+0800',
+          '+0845',
+          '+0900',
+          '+0930',
+          '+1000',
+          '+1030',
+          '+1100',
+          '+1130',
+          '+1200',
+          '+1245',
+          '+1300',
+          '+1400',
         ];
         if (tp_inst._defaults.timezoneIso8601) {
           timezoneList = $.map(timezoneList, (val) =>
-            val == "+0000" ? "Z" : val.substring(0, 3) + ":" + val.substring(3)
+            val == '+0000' ? 'Z' : val.substring(0, 3) + ':' + val.substring(3)
           );
         }
         tp_inst._defaults.timezoneList = timezoneList;
@@ -3260,15 +3260,15 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       tp_inst.minute = tp_inst._defaults.minute;
       tp_inst.second = tp_inst._defaults.second;
       tp_inst.millisec = tp_inst._defaults.millisec;
-      tp_inst.ampm = "";
+      tp_inst.ampm = '';
       tp_inst.$input = $input;
       if (o.altField) {
         tp_inst.$altInput = $(o.altField)
           .css({
-            cursor: "pointer",
+            cursor: 'pointer',
           })
           .focus(() => {
-            $input.trigger("focus");
+            $input.trigger('focus');
           });
       }
       if (
@@ -3315,7 +3315,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           tp_inst._defaults.maxDateTime.getTime()
         );
       }
-      tp_inst.$input.bind("focus", () => {
+      tp_inst.$input.bind('focus', () => {
         tp_inst._onFocus();
       });
       return tp_inst;
@@ -3323,7 +3323,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     _addTimePicker(dp_inst) {
       var currDT =
         this.$altInput && this._defaults.altFieldTimeOnly
-          ? this.$input.val() + " " + this.$altInput.val()
+          ? this.$input.val() + ' ' + this.$altInput.val()
           : this.$input.val();
       this.timeDefined = this._parseTime(currDT);
       this._limitMinMaxDateTime(dp_inst, false);
@@ -3334,7 +3334,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         this.inst = $.datepicker._getInst(this.$input[0]);
       }
       if (withDate || !this._defaults.timeOnly) {
-        var dp_dateFormat = $.datepicker._get(this.inst, "dateFormat");
+        var dp_dateFormat = $.datepicker._get(this.inst, 'dateFormat');
         try {
           var parseRes = parseDateTimeInternal(
             dp_dateFormat,
@@ -3349,13 +3349,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           $.extend(this, parseRes.timeObj);
         } catch (err) {
           $.datepicker.log(
-            "Error parsing the date/time string: " +
+            'Error parsing the date/time string: ' +
               err +
-              "\ndate/time string = " +
+              '\ndate/time string = ' +
               timeString +
-              "\ntimeFormat = " +
+              '\ntimeFormat = ' +
               this._defaults.timeFormat +
-              "\ndateFormat = " +
+              '\ndateFormat = ' +
               dp_dateFormat
           );
           return false;
@@ -3378,29 +3378,29 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var $dp = this.inst.dpDiv;
       var o = this.inst.settings;
       var tp_inst = this;
-      var litem = "";
-      var uitem = "";
+      var litem = '';
+      var uitem = '';
       var max = {};
       var gridSize = {};
       var size = null;
-      if ($dp.find("div.ui-timepicker-div").length === 0 && o.showTimepicker) {
+      if ($dp.find('div.ui-timepicker-div').length === 0 && o.showTimepicker) {
         var noDisplay = ' style="display:none;"';
         var html =
           '<div class="ui-timepicker-div' +
-          (o.isRTL ? " ui-timepicker-rtl" : "") +
+          (o.isRTL ? ' ui-timepicker-rtl' : '') +
           '"><dl><dt class="ui_tpicker_time_label"' +
-          (o.showTime ? "" : noDisplay) +
-          ">" +
+          (o.showTime ? '' : noDisplay) +
+          '>' +
           o.timeText +
           '</dt><dd class="ui_tpicker_time"' +
-          (o.showTime ? "" : noDisplay) +
-          "></dd>";
+          (o.showTime ? '' : noDisplay) +
+          '></dd>';
         for (var i = 0, l = this.units.length; i < l; i++) {
           litem = this.units[i];
           uitem = litem.substr(0, 1).toUpperCase() + litem.substr(1);
           max[litem] = parseInt(
-            o[litem + "Max"] -
-              ((o[litem + "Max"] - o[litem + "Min"]) % o["step" + uitem]),
+            o[litem + 'Max'] -
+              ((o[litem + 'Max'] - o[litem + 'Min']) % o['step' + uitem]),
             10
           );
           gridSize[litem] = 0;
@@ -3408,120 +3408,120 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             '<dt class="ui_tpicker_' +
             litem +
             '_label"' +
-            (o["show" + uitem] ? "" : noDisplay) +
-            ">" +
-            o[litem + "Text"] +
+            (o['show' + uitem] ? '' : noDisplay) +
+            '>' +
+            o[litem + 'Text'] +
             '</dt><dd class="ui_tpicker_' +
             litem +
             '"><div class="ui_tpicker_' +
             litem +
             '_slider"' +
-            (o["show" + uitem] ? "" : noDisplay) +
-            "></div>";
-          if (o["show" + uitem] && o[litem + "Grid"] > 0) {
+            (o['show' + uitem] ? '' : noDisplay) +
+            '></div>';
+          if (o['show' + uitem] && o[litem + 'Grid'] > 0) {
             html +=
               '<div style="padding-left: 1px"><table class="ui-tpicker-grid-label"><tr>';
-            if (litem == "hour") {
+            if (litem == 'hour') {
               for (
-                var h = o[litem + "Min"];
+                var h = o[litem + 'Min'];
                 h <= max[litem];
-                h += parseInt(o[litem + "Grid"], 10)
+                h += parseInt(o[litem + 'Grid'], 10)
               ) {
                 gridSize[litem]++;
                 var tmph = $.datepicker.formatTime(
-                  useAmpm(o.pickerTimeFormat || o.timeFormat) ? "hht" : "HH",
+                  useAmpm(o.pickerTimeFormat || o.timeFormat) ? 'hht' : 'HH',
                   {
                     hour: h,
                   },
                   o
                 );
-                html += '<td data-for="' + litem + '">' + tmph + "</td>";
+                html += '<td data-for="' + litem + '">' + tmph + '</td>';
               }
             } else {
               for (
-                var m = o[litem + "Min"];
+                var m = o[litem + 'Min'];
                 m <= max[litem];
-                m += parseInt(o[litem + "Grid"], 10)
+                m += parseInt(o[litem + 'Grid'], 10)
               ) {
                 gridSize[litem]++;
                 html +=
                   '<td data-for="' +
                   litem +
                   '">' +
-                  (m < 10 ? "0" : "") +
+                  (m < 10 ? '0' : '') +
                   m +
-                  "</td>";
+                  '</td>';
               }
             }
-            html += "</tr></table></div>";
+            html += '</tr></table></div>';
           }
-          html += "</dd>";
+          html += '</dd>';
         }
         html +=
           '<dt class="ui_tpicker_timezone_label"' +
-          (o.showTimezone ? "" : noDisplay) +
-          ">" +
+          (o.showTimezone ? '' : noDisplay) +
+          '>' +
           o.timezoneText +
-          "</dt>";
+          '</dt>';
         html +=
           '<dd class="ui_tpicker_timezone" ' +
-          (o.showTimezone ? "" : noDisplay) +
-          "></dd>";
-        html += "</dl></div>";
+          (o.showTimezone ? '' : noDisplay) +
+          '></dd>';
+        html += '</dl></div>';
         var $tp = $(html);
         if (o.timeOnly === true) {
           $tp.prepend(
             '<div class="ui-widget-header ui-helper-clearfix ui-corner-all"><div class="ui-datepicker-title">' +
               o.timeOnlyTitle +
-              "</div></div>"
+              '</div></div>'
           );
-          $dp.find(".ui-datepicker-header, .ui-datepicker-calendar").hide();
+          $dp.find('.ui-datepicker-header, .ui-datepicker-calendar').hide();
         }
         for (var i = 0, l = tp_inst.units.length; i < l; i++) {
           litem = tp_inst.units[i];
           uitem = litem.substr(0, 1).toUpperCase() + litem.substr(1);
-          tp_inst[litem + "_slider"] = tp_inst.control.create(
+          tp_inst[litem + '_slider'] = tp_inst.control.create(
             tp_inst,
-            $tp.find(".ui_tpicker_" + litem + "_slider"),
+            $tp.find('.ui_tpicker_' + litem + '_slider'),
             litem,
             tp_inst[litem],
-            o[litem + "Min"],
+            o[litem + 'Min'],
             max[litem],
-            o["step" + uitem]
+            o['step' + uitem]
           );
-          if (o["show" + uitem] && o[litem + "Grid"] > 0) {
+          if (o['show' + uitem] && o[litem + 'Grid'] > 0) {
             size =
-              (100 * gridSize[litem] * o[litem + "Grid"]) /
-              (max[litem] - o[litem + "Min"]);
+              (100 * gridSize[litem] * o[litem + 'Grid']) /
+              (max[litem] - o[litem + 'Min']);
             $tp
-              .find(".ui_tpicker_" + litem + " table")
+              .find('.ui_tpicker_' + litem + ' table')
               .css({
-                width: size + "%",
-                marginLeft: o.isRTL ? "0" : size / (-2 * gridSize[litem]) + "%",
+                width: size + '%',
+                marginLeft: o.isRTL ? '0' : size / (-2 * gridSize[litem]) + '%',
                 marginRight: o.isRTL
-                  ? size / (-2 * gridSize[litem]) + "%"
-                  : "0",
-                borderCollapse: "collapse",
+                  ? size / (-2 * gridSize[litem]) + '%'
+                  : '0',
+                borderCollapse: 'collapse',
               })
-              .find("td")
+              .find('td')
               .click(function (e) {
                 var $t = $(this);
                 var h = $t.html();
                 var n = parseInt(h.replace(/[^0-9]/g), 10);
                 var ap = h.replace(/[^apm]/gi);
-                var f = $t.data("for");
-                if (f == "hour") {
-                  if (ap.indexOf("p") !== -1 && n < 12) {
+                var f = $t.data('for');
+                if (f == 'hour') {
+                  if (ap.indexOf('p') !== -1 && n < 12) {
                     n += 12;
                   } else {
-                    if (ap.indexOf("a") !== -1 && n === 12) {
+                    if (ap.indexOf('a') !== -1 && n === 12) {
                       n = 0;
                     }
                   }
                 }
                 tp_inst.control.value(
                   tp_inst,
-                  tp_inst[f + "_slider"],
+                  tp_inst[f + '_slider'],
                   litem,
                   n
                 );
@@ -3529,29 +3529,29 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                 tp_inst._onSelectHandler();
               })
               .css({
-                cursor: "pointer",
-                width: 100 / gridSize[litem] + "%",
-                textAlign: "center",
-                overflow: "hidden",
+                cursor: 'pointer',
+                width: 100 / gridSize[litem] + '%',
+                textAlign: 'center',
+                overflow: 'hidden',
               });
           }
         }
         this.timezone_select = $tp
-          .find(".ui_tpicker_timezone")
-          .append("<select></select>")
-          .find("select");
+          .find('.ui_tpicker_timezone')
+          .append('<select></select>')
+          .find('select');
         $.fn.append.apply(
           this.timezone_select,
           $.map(o.timezoneList, (val, idx) =>
-            $("<option />")
-              .val(typeof val == "object" ? val.value : val)
-              .text(typeof val == "object" ? val.label : val)
+            $('<option />')
+              .val(typeof val == 'object' ? val.value : val)
+              .text(typeof val == 'object' ? val.label : val)
           )
         );
         if (
-          typeof this.timezone != "undefined" &&
+          typeof this.timezone != 'undefined' &&
           this.timezone !== null &&
-          this.timezone !== ""
+          this.timezone !== ''
         ) {
           var local_date = new Date(
             this.inst.selectedYear,
@@ -3567,9 +3567,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           }
         } else {
           if (
-            typeof this.hour != "undefined" &&
+            typeof this.hour != 'undefined' &&
             this.hour !== null &&
-            this.hour !== ""
+            this.hour !== ''
           ) {
             this.timezone_select.val(o.defaultTimezone);
           } else {
@@ -3580,13 +3580,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           tp_inst._defaults.useLocalTimezone = false;
           tp_inst._onTimeChange();
         });
-        var $buttonPanel = $dp.find(".ui-datepicker-buttonpane");
+        var $buttonPanel = $dp.find('.ui-datepicker-buttonpane');
         if ($buttonPanel.length) {
           $buttonPanel.before($tp);
         } else {
           $dp.append($tp);
         }
-        this.$timeObj = $tp.find(".ui_tpicker_time");
+        this.$timeObj = $tp.find('.ui_tpicker_time');
         if (this.inst !== null) {
           var timeDefined = this.timeDefined;
           this._onTimeChange();
@@ -3597,22 +3597,22 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           var rtl = this._defaults.isRTL;
           sliderAccessArgs.isRTL = rtl;
           setTimeout(() => {
-            if ($tp.find(".ui-slider-access").length === 0) {
-              $tp.find(".ui-slider:visible").sliderAccess(sliderAccessArgs);
+            if ($tp.find('.ui-slider-access').length === 0) {
+              $tp.find('.ui-slider:visible').sliderAccess(sliderAccessArgs);
               var sliderAccessWidth = $tp
-                .find(".ui-slider-access:eq(0)")
+                .find('.ui-slider-access:eq(0)')
                 .outerWidth(true);
               if (sliderAccessWidth) {
-                $tp.find("table:visible").each(function () {
+                $tp.find('table:visible').each(function () {
                   var $g = $(this);
                   var oldWidth = $g.outerWidth();
                   var oldMarginLeft = $g
-                    .css(rtl ? "marginRight" : "marginLeft")
+                    .css(rtl ? 'marginRight' : 'marginLeft')
                     .toString()
-                    .replace("%", "");
+                    .replace('%', '');
                   var newWidth = oldWidth - sliderAccessWidth;
                   var newMarginLeft =
-                    (oldMarginLeft * newWidth) / oldWidth + "%";
+                    (oldMarginLeft * newWidth) / oldWidth + '%';
 
                   var css = {
                     width: newWidth,
@@ -3620,7 +3620,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                     marginLeft: 0,
                   };
 
-                  css[rtl ? "marginRight" : "marginLeft"] = newMarginLeft;
+                  css[rtl ? 'marginRight' : 'marginLeft'] = newMarginLeft;
                   $g.css(css);
                 });
               }
@@ -3640,11 +3640,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         return;
       }
       if (
-        $.datepicker._get(dp_inst, "minDateTime") !== null &&
-        $.datepicker._get(dp_inst, "minDateTime") !== undefined &&
+        $.datepicker._get(dp_inst, 'minDateTime') !== null &&
+        $.datepicker._get(dp_inst, 'minDateTime') !== undefined &&
         dp_date
       ) {
-        var minDateTime = $.datepicker._get(dp_inst, "minDateTime");
+        var minDateTime = $.datepicker._get(dp_inst, 'minDateTime');
         var minDateTimeDate = new Date(
           minDateTime.getFullYear(),
           minDateTime.getMonth(),
@@ -3702,11 +3702,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         }
       }
       if (
-        $.datepicker._get(dp_inst, "maxDateTime") !== null &&
-        $.datepicker._get(dp_inst, "maxDateTime") !== undefined &&
+        $.datepicker._get(dp_inst, 'maxDateTime') !== null &&
+        $.datepicker._get(dp_inst, 'maxDateTime') !== undefined &&
         dp_date
       ) {
-        var maxDateTime = $.datepicker._get(dp_inst, "maxDateTime");
+        var maxDateTime = $.datepicker._get(dp_inst, 'maxDateTime');
         var maxDateTimeDate = new Date(
           maxDateTime.getFullYear(),
           maxDateTime.getMonth(),
@@ -3786,35 +3786,35 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           10
         );
         if (this.hour_slider) {
-          this.control.options(this, this.hour_slider, "hour", {
+          this.control.options(this, this.hour_slider, 'hour', {
             min: this._defaults.hourMin,
             max: hourMax,
           });
-          this.control.value(this, this.hour_slider, "hour", this.hour);
+          this.control.value(this, this.hour_slider, 'hour', this.hour);
         }
         if (this.minute_slider) {
-          this.control.options(this, this.minute_slider, "minute", {
+          this.control.options(this, this.minute_slider, 'minute', {
             min: this._defaults.minuteMin,
             max: minMax,
           });
-          this.control.value(this, this.minute_slider, "minute", this.minute);
+          this.control.value(this, this.minute_slider, 'minute', this.minute);
         }
         if (this.second_slider) {
-          this.control.options(this, this.second_slider, "second", {
+          this.control.options(this, this.second_slider, 'second', {
             min: this._defaults.secondMin,
             max: secMax,
           });
-          this.control.value(this, this.second_slider, "second", this.second);
+          this.control.value(this, this.second_slider, 'second', this.second);
         }
         if (this.millisec_slider) {
-          this.control.options(this, this.millisec_slider, "millisec", {
+          this.control.options(this, this.millisec_slider, 'millisec', {
             min: this._defaults.millisecMin,
             max: millisecMax,
           });
           this.control.value(
             this,
             this.millisec_slider,
-            "millisec",
+            'millisec',
             this.millisec
           );
         }
@@ -3822,34 +3822,34 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     },
     _onTimeChange() {
       var hour = this.hour_slider
-        ? this.control.value(this, this.hour_slider, "hour")
+        ? this.control.value(this, this.hour_slider, 'hour')
         : false;
       var minute = this.minute_slider
-        ? this.control.value(this, this.minute_slider, "minute")
+        ? this.control.value(this, this.minute_slider, 'minute')
         : false;
       var second = this.second_slider
-        ? this.control.value(this, this.second_slider, "second")
+        ? this.control.value(this, this.second_slider, 'second')
         : false;
       var millisec = this.millisec_slider
-        ? this.control.value(this, this.millisec_slider, "millisec")
+        ? this.control.value(this, this.millisec_slider, 'millisec')
         : false;
       var timezone = this.timezone_select ? this.timezone_select.val() : false;
       var o = this._defaults;
       var pickerTimeFormat = o.pickerTimeFormat || o.timeFormat;
       var pickerTimeSuffix = o.pickerTimeSuffix || o.timeSuffix;
-      if (typeof hour == "object") {
+      if (typeof hour == 'object') {
         hour = false;
       }
-      if (typeof minute == "object") {
+      if (typeof minute == 'object') {
         minute = false;
       }
-      if (typeof second == "object") {
+      if (typeof second == 'object') {
         second = false;
       }
-      if (typeof millisec == "object") {
+      if (typeof millisec == 'object') {
         millisec = false;
       }
-      if (typeof timezone == "object") {
+      if (typeof timezone == 'object') {
         timezone = false;
       }
       if (hour !== false) {
@@ -3864,7 +3864,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       if (millisec !== false) {
         millisec = parseInt(millisec, 10);
       }
-      var ampm = o[hour < 12 ? "amNames" : "pmNames"][0];
+      var ampm = o[hour < 12 ? 'amNames' : 'pmNames'][0];
       var hasChanged =
         hour != this.hour ||
         minute != this.minute ||
@@ -3931,7 +3931,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           dp_inst.selectedDay
         )
       );
-      var dateFmt = $.datepicker._get(dp_inst, "dateFormat");
+      var dateFmt = $.datepicker._get(dp_inst, 'dateFormat');
       var formatCfg = $.datepicker._getFormatConfig(dp_inst);
       var timeAvailable = dt !== null && this.timeDefined;
       this.formattedDate = $.datepicker.formatDate(
@@ -3963,7 +3963,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         } else {
           if (this.$altInput) {
             this.$input.val(formattedDateTime);
-            var altFormattedDateTime = "";
+            var altFormattedDateTime = '';
             var altSeparator = this._defaults.altSeparator
               ? this._defaults.altSeparator
               : this._defaults.separator;
@@ -3998,13 +3998,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           }
         }
       }
-      this.$input.trigger("change");
+      this.$input.trigger('change');
     },
     _onFocus() {
       if (!this.$input.val() && this._defaults.defaultValue) {
         this.$input.val(this._defaults.defaultValue);
         var inst = $.datepicker._getInst(this.$input.get(0));
-        var tp_inst = $.datepicker._get(inst, "timepicker");
+        var tp_inst = $.datepicker._get(inst, 'timepicker');
         if (tp_inst) {
           if (tp_inst._defaults.timeOnly && inst.input.val() != inst.lastVal) {
             try {
@@ -4020,8 +4020,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       slider: {
         create(tp_inst, obj, unit, val, min, max, step) {
           var rtl = tp_inst._defaults.isRTL;
-          return obj.prop("slide", null).slider({
-            orientation: "horizontal",
+          return obj.prop('slide', null).slider({
+            orientation: 'horizontal',
             value: rtl ? val * -1 : val,
             min: rtl ? max * -1 : min,
             max: rtl ? min * -1 : max,
@@ -4042,8 +4042,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         },
         options(tp_inst, obj, unit, opts, val) {
           if (tp_inst._defaults.isRTL) {
-            if (typeof opts == "string") {
-              if (opts == "min" || opts == "max") {
+            if (typeof opts == 'string') {
+              if (opts == 'min' || opts == 'max') {
                 if (val !== undefined) {
                   return obj.slider(opts, val * -1);
                 }
@@ -4062,7 +4062,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             }
             return obj.slider(opts);
           }
-          if (typeof opts == "string" && val !== undefined) {
+          if (typeof opts == 'string' && val !== undefined) {
             return obj.slider(opts, val);
           }
           return obj.slider(opts);
@@ -4070,14 +4070,14 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         value(tp_inst, obj, unit, val) {
           if (tp_inst._defaults.isRTL) {
             if (val !== undefined) {
-              return obj.slider("value", val * -1);
+              return obj.slider('value', val * -1);
             }
-            return Math.abs(obj.slider("value"));
+            return Math.abs(obj.slider('value'));
           }
           if (val !== undefined) {
-            return obj.slider("value", val);
+            return obj.slider('value', val);
           }
-          return obj.slider("value");
+          return obj.slider('value');
         },
       },
       select: {
@@ -4093,38 +4093,38 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             step +
             '">';
           var ul =
-            tp_inst._defaults.timeFormat.indexOf("t") !== -1
-              ? "toLowerCase"
-              : "toUpperCase";
+            tp_inst._defaults.timeFormat.indexOf('t') !== -1
+              ? 'toLowerCase'
+              : 'toUpperCase';
           var m = 0;
           for (var i = min; i <= max; i += step) {
             sel +=
-              '<option value="' + i + '"' + (i == val ? " selected" : "") + ">";
+              '<option value="' + i + '"' + (i == val ? ' selected' : '') + '>';
             if (
-              unit == "hour" &&
+              unit == 'hour' &&
               useAmpm(
                 tp_inst._defaults.pickerTimeFormat ||
                   tp_inst._defaults.timeFormat
               )
             ) {
               sel += $.datepicker.formatTime(
-                "hh TT",
+                'hh TT',
                 {
                   hour: i,
                 },
                 tp_inst._defaults
               );
             } else {
-              if (unit == "millisec" || i >= 10) {
+              if (unit == 'millisec' || i >= 10) {
                 sel += i;
               } else {
-                sel += "0" + i.toString();
+                sel += '0' + i.toString();
               }
             }
-            sel += "</option>";
+            sel += '</option>';
           }
-          sel += "</select>";
-          obj.children("select").remove();
+          sel += '</select>';
+          obj.children('select').remove();
           $(sel)
             .appendTo(obj)
             .change((e) => {
@@ -4135,8 +4135,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         },
         options(tp_inst, obj, unit, opts, val) {
           var o = {};
-          var $t = obj.children("select");
-          if (typeof opts == "string") {
+          var $t = obj.children('select');
+          if (typeof opts == 'string') {
             if (val === undefined) {
               return $t.data(opts);
             }
@@ -4147,15 +4147,15 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           return tp_inst.control.create(
             tp_inst,
             obj,
-            $t.data("unit"),
+            $t.data('unit'),
             $t.val(),
-            o.min || $t.data("min"),
-            o.max || $t.data("max"),
-            o.step || $t.data("step")
+            o.min || $t.data('min'),
+            o.max || $t.data('max'),
+            o.step || $t.data('step')
           );
         },
         value(tp_inst, obj, unit, val) {
-          var $t = obj.children("select");
+          var $t = obj.children('select');
           if (val !== undefined) {
             return $t.val(val);
           }
@@ -4168,7 +4168,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     timepicker(o) {
       o = o || {};
       var tmp_args = Array.prototype.slice.call(arguments);
-      if (typeof o == "object") {
+      if (typeof o == 'object') {
         tmp_args[0] = $.extend(o, {
           timeOnly: true,
         });
@@ -4180,8 +4180,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     datetimepicker(o) {
       o = o || {};
       var tmp_args = arguments;
-      if (typeof o == "string") {
-        if (o == "getDate") {
+      if (typeof o == 'string') {
+        if (o == 'getDate') {
           return $.fn.datepicker.apply($(this[0]), tmp_args);
         } else {
           return this.each(function () {
@@ -4232,9 +4232,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           $.merge(markers, pmNames);
         }
         markers = $.map(markers, (val) =>
-          val.replace(/[.*+?|()\[\]{}\\]/g, "\\$&")
+          val.replace(/[.*+?|()\[\]{}\\]/g, '\\$&')
         );
-        return "(" + markers.join("|") + ")?";
+        return '(' + markers.join('|') + ')?';
       };
       var getFormatPositions = (timeFormat) => {
         var finds = timeFormat
@@ -4261,44 +4261,44 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       };
 
       var regstr =
-        "^" +
+        '^' +
         f
           .toString()
           .replace(/([hH]{1,2}|mm?|ss?|[tT]{1,2}|[lz]|'.*?')/g, (match) => {
             switch (match.charAt(0).toLowerCase()) {
-              case "h":
-                return "(\\d?\\d)";
-              case "m":
-                return "(\\d?\\d)";
-              case "s":
-                return "(\\d?\\d)";
-              case "l":
-                return "(\\d?\\d?\\d)";
-              case "z":
-                return "(z|[-+]\\d\\d:?\\d\\d|\\S+)?";
-              case "t":
+              case 'h':
+                return '(\\d?\\d)';
+              case 'm':
+                return '(\\d?\\d)';
+              case 's':
+                return '(\\d?\\d)';
+              case 'l':
+                return '(\\d?\\d?\\d)';
+              case 'z':
+                return '(z|[-+]\\d\\d:?\\d\\d|\\S+)?';
+              case 't':
                 return getPatternAmpm(o.amNames, o.pmNames);
               default:
                 return (
-                  "(" +
+                  '(' +
                   match
-                    .replace(/\'/g, "")
+                    .replace(/\'/g, '')
                     .replace(
                       /(\.|\$|\^|\\|\/|\(|\)|\[|\]|\?|\+|\*)/g,
-                      (m) => "\\" + m
+                      (m) => '\\' + m
                     ) +
-                  ")?"
+                  ')?'
                 );
             }
           })
-          .replace(/\s/g, "\\s?") +
+          .replace(/\s/g, '\\s?') +
         o.timeSuffix +
-        "$";
+        '$';
 
       var order = getFormatPositions(f);
-      var ampm = "";
+      var ampm = '';
       var treg;
-      treg = s.match(new RegExp(regstr, "i"));
+      treg = s.match(new RegExp(regstr, 'i'));
       var resTime = {
         hour: 0,
         minute: 0,
@@ -4308,21 +4308,21 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       if (treg) {
         if (order.t !== -1) {
           if (treg[order.t] === undefined || treg[order.t].length === 0) {
-            ampm = "";
-            resTime.ampm = "";
+            ampm = '';
+            resTime.ampm = '';
           } else {
             ampm =
               $.inArray(treg[order.t].toUpperCase(), o.amNames) !== -1
-                ? "AM"
-                : "PM";
-            resTime.ampm = o[ampm == "AM" ? "amNames" : "pmNames"][0];
+                ? 'AM'
+                : 'PM';
+            resTime.ampm = o[ampm == 'AM' ? 'amNames' : 'pmNames'][0];
           }
         }
         if (order.h !== -1) {
-          if (ampm == "AM" && treg[order.h] == "12") {
+          if (ampm == 'AM' && treg[order.h] == '12') {
             resTime.hour = 0;
           } else {
-            if (ampm == "PM" && treg[order.h] != "12") {
+            if (ampm == 'PM' && treg[order.h] != '12') {
               resTime.hour = parseInt(treg[order.h], 10) + 12;
             } else {
               resTime.hour = Number(treg[order.h]);
@@ -4342,25 +4342,25 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           var tz = treg[order.z].toUpperCase();
           switch (tz.length) {
             case 1:
-              tz = o.timezoneIso8601 ? "Z" : "+0000";
+              tz = o.timezoneIso8601 ? 'Z' : '+0000';
               break;
             case 5:
               if (o.timezoneIso8601) {
                 tz =
-                  tz.substring(1) == "0000"
-                    ? "Z"
-                    : tz.substring(0, 3) + ":" + tz.substring(3);
+                  tz.substring(1) == '0000'
+                    ? 'Z'
+                    : tz.substring(0, 3) + ':' + tz.substring(3);
               }
               break;
             case 6:
               if (!o.timezoneIso8601) {
                 tz =
-                  tz == "Z" || tz.substring(1) == "00:00"
-                    ? "+0000"
-                    : tz.replace(/:/, "");
+                  tz == 'Z' || tz.substring(1) == '00:00'
+                    ? '+0000'
+                    : tz.replace(/:/, '');
               } else {
-                if (tz.substring(1) == "00:00") {
-                  tz = "Z";
+                if (tz.substring(1) == '00:00') {
+                  tz = 'Z';
                 }
               }
               break;
@@ -4373,7 +4373,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     };
     var looseParse = (f, s, o) => {
       try {
-        var d = new Date("2012-01-01 " + s);
+        var d = new Date('2012-01-01 ' + s);
         return {
           hour: d.getHours(),
           minutes: d.getMinutes(),
@@ -4386,16 +4386,16 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           return strictParse(f, s, o);
         } catch (err2) {
           $.datepicker.log(
-            "Unable to parse \ntimeString: " + s + "\ntimeFormat: " + f
+            'Unable to parse \ntimeString: ' + s + '\ntimeFormat: ' + f
           );
         }
       }
       return false;
     };
-    if (typeof o.parse === "function") {
+    if (typeof o.parse === 'function') {
       return o.parse(timeFormat, timeString, o);
     }
-    if (o.parse === "loose") {
+    if (o.parse === 'loose') {
       return looseParse(timeFormat, timeString, o);
     }
     return strictParse(timeFormat, timeString, o);
@@ -4409,7 +4409,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         minute: 0,
         second: 0,
         millisec: 0,
-        timezone: "+0000",
+        timezone: '+0000',
       },
       time
     );
@@ -4423,38 +4423,38 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       /(?:HH?|hh?|mm?|ss?|[tT]{1,2}|[lz]|('.*?'|".*?"))/g,
       (match) => {
         switch (match) {
-          case "HH":
-            return ("0" + hour).slice(-2);
-          case "H":
+          case 'HH':
+            return ('0' + hour).slice(-2);
+          case 'H':
             return hour;
-          case "hh":
-            return ("0" + convert24to12(hour)).slice(-2);
-          case "h":
+          case 'hh':
+            return ('0' + convert24to12(hour)).slice(-2);
+          case 'h':
             return convert24to12(hour);
-          case "mm":
-            return ("0" + time.minute).slice(-2);
-          case "m":
+          case 'mm':
+            return ('0' + time.minute).slice(-2);
+          case 'm':
             return time.minute;
-          case "ss":
-            return ("0" + time.second).slice(-2);
-          case "s":
+          case 'ss':
+            return ('0' + time.second).slice(-2);
+          case 's':
             return time.second;
-          case "l":
-            return ("00" + time.millisec).slice(-3);
-          case "z":
+          case 'l':
+            return ('00' + time.millisec).slice(-3);
+          case 'z':
             return time.timezone === null
               ? options.defaultTimezone
               : time.timezone;
-          case "T":
+          case 'T':
             return ampmName.charAt(0).toUpperCase();
-          case "TT":
+          case 'TT':
             return ampmName.toUpperCase();
-          case "t":
+          case 't':
             return ampmName.charAt(0).toLowerCase();
-          case "tt":
+          case 'tt':
             return ampmName.toLowerCase();
           default:
-            return match.replace(/\'/g, "") || "'";
+            return match.replace(/\'/g, '') || "'";
         }
       }
     );
@@ -4464,7 +4464,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   $.datepicker._base_selectDate = $.datepicker._selectDate;
   $.datepicker._selectDate = function (id, dateStr) {
     var inst = this._getInst($(id)[0]);
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       tp_inst._limitMinMaxDateTime(inst, true);
       inst.inline = inst.stay_open = true;
@@ -4487,9 +4487,9 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     ) {
       return;
     }
-    if (typeof inst.stay_open !== "boolean" || inst.stay_open === false) {
+    if (typeof inst.stay_open !== 'boolean' || inst.stay_open === false) {
       this._base_updateDatepicker(inst);
-      var tp_inst = this._get(inst, "timepicker");
+      var tp_inst = this._get(inst, 'timepicker');
       if (tp_inst) {
         tp_inst._addTimePicker(inst);
         if (tp_inst._defaults.useLocalTimezone) {
@@ -4508,38 +4508,38 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   $.datepicker._base_doKeyPress = $.datepicker._doKeyPress;
   $.datepicker._doKeyPress = (event) => {
     var inst = $.datepicker._getInst(event.target);
-    var tp_inst = $.datepicker._get(inst, "timepicker");
+    var tp_inst = $.datepicker._get(inst, 'timepicker');
     if (tp_inst) {
-      if ($.datepicker._get(inst, "constrainInput")) {
+      if ($.datepicker._get(inst, 'constrainInput')) {
         var ampm = useAmpm(tp_inst._defaults.timeFormat);
         var dateChars = $.datepicker._possibleChars(
-          $.datepicker._get(inst, "dateFormat")
+          $.datepicker._get(inst, 'dateFormat')
         );
         var datetimeChars =
           tp_inst._defaults.timeFormat
             .toString()
-            .replace(/[hms]/g, "")
-            .replace(/TT/g, ampm ? "APM" : "")
-            .replace(/Tt/g, ampm ? "AaPpMm" : "")
-            .replace(/tT/g, ampm ? "AaPpMm" : "")
-            .replace(/T/g, ampm ? "AP" : "")
-            .replace(/tt/g, ampm ? "apm" : "")
-            .replace(/t/g, ampm ? "ap" : "") +
-          " " +
+            .replace(/[hms]/g, '')
+            .replace(/TT/g, ampm ? 'APM' : '')
+            .replace(/Tt/g, ampm ? 'AaPpMm' : '')
+            .replace(/tT/g, ampm ? 'AaPpMm' : '')
+            .replace(/T/g, ampm ? 'AP' : '')
+            .replace(/tt/g, ampm ? 'apm' : '')
+            .replace(/t/g, ampm ? 'ap' : '') +
+          ' ' +
           tp_inst._defaults.separator +
           tp_inst._defaults.timeSuffix +
           (tp_inst._defaults.showTimezone
-            ? tp_inst._defaults.timezoneList.join("")
-            : "") +
-          tp_inst._defaults.amNames.join("") +
-          tp_inst._defaults.pmNames.join("") +
+            ? tp_inst._defaults.timezoneList.join('')
+            : '') +
+          tp_inst._defaults.amNames.join('') +
+          tp_inst._defaults.pmNames.join('') +
           dateChars;
         var chr = String.fromCharCode(
           event.charCode === undefined ? event.keyCode : event.charCode
         );
         return (
           event.ctrlKey ||
-          chr < " " ||
+          chr < ' ' ||
           !dateChars ||
           datetimeChars.indexOf(chr) > -1
         );
@@ -4549,7 +4549,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   };
   $.datepicker._base_updateAlternate = $.datepicker._updateAlternate;
   $.datepicker._updateAlternate = function (inst) {
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       var altField = tp_inst._defaults.altField;
       if (altField) {
@@ -4557,7 +4557,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           tp_inst._defaults.altFormat || tp_inst._defaults.dateFormat;
         var date = this._getDate(inst);
         var formatCfg = $.datepicker._getFormatConfig(inst);
-        var altFormattedDateTime = "";
+        var altFormattedDateTime = '';
         var altSeparator = tp_inst._defaults.altSeparator
           ? tp_inst._defaults.altSeparator
           : tp_inst._defaults.separator;
@@ -4598,7 +4598,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   $.datepicker._base_doKeyUp = $.datepicker._doKeyUp;
   $.datepicker._doKeyUp = (event) => {
     var inst = $.datepicker._getInst(event.target);
-    var tp_inst = $.datepicker._get(inst, "timepicker");
+    var tp_inst = $.datepicker._get(inst, 'timepicker');
     if (tp_inst) {
       if (tp_inst._defaults.timeOnly && inst.input.val() != inst.lastVal) {
         try {
@@ -4615,19 +4615,19 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     var inst = this._getInst($(id)[0]);
     var $dp = inst.dpDiv;
     this._base_gotoToday(id);
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     selectLocalTimeZone(tp_inst);
     var now = new Date();
     this._setTime(inst, now);
-    $(".ui-datepicker-today", $dp).click();
+    $('.ui-datepicker-today', $dp).click();
   };
   $.datepicker._disableTimepickerDatepicker = function (target) {
     var inst = this._getInst(target);
     if (!inst) {
       return;
     }
-    var tp_inst = this._get(inst, "timepicker");
-    $(target).datepicker("getDate");
+    var tp_inst = this._get(inst, 'timepicker');
+    $(target).datepicker('getDate');
     if (tp_inst) {
       tp_inst._defaults.showTimepicker = false;
       tp_inst._updateDateTime(inst);
@@ -4638,8 +4638,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     if (!inst) {
       return;
     }
-    var tp_inst = this._get(inst, "timepicker");
-    $(target).datepicker("getDate");
+    var tp_inst = this._get(inst, 'timepicker');
+    $(target).datepicker('getDate');
     if (tp_inst) {
       tp_inst._defaults.showTimepicker = true;
       tp_inst._addTimePicker(inst);
@@ -4647,7 +4647,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     }
   };
   $.datepicker._setTime = function (inst, date) {
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       var defaults = tp_inst._defaults;
       tp_inst.hour = date ? date.getHours() : defaults.hour;
@@ -4664,12 +4664,12 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     if (!inst) {
       return;
     }
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       this._setDateFromField(inst);
       var tp_date;
       if (date) {
-        if (typeof date == "string") {
+        if (typeof date == 'string') {
           tp_inst._parseTime(date, withDate);
           tp_date = new Date();
           tp_date.setHours(
@@ -4681,7 +4681,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         } else {
           tp_date = new Date(date.getTime());
         }
-        if (tp_date.toString() == "Invalid Date") {
+        if (tp_date.toString() == 'Invalid Date') {
           tp_date = undefined;
         }
         this._setTime(inst, tp_date);
@@ -4705,7 +4705,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     if (!inst) {
       return;
     }
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       if (inst.lastVal === undefined) {
         this._setDateFromField(inst, noDefault);
@@ -4731,15 +4731,15 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     } catch (err) {
       date = this._base_parseDate(
         format,
-        value.substring(0, value.length - (err.length - err.indexOf(":") - 2)),
+        value.substring(0, value.length - (err.length - err.indexOf(':') - 2)),
         settings
       );
       $.datepicker.log(
-        "Error parsing the date string: " +
+        'Error parsing the date string: ' +
           err +
-          "\ndate string = " +
+          '\ndate string = ' +
           value +
-          "\ndate format = " +
+          '\ndate format = ' +
           format
       );
     }
@@ -4747,7 +4747,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   };
   $.datepicker._base_formatDate = $.datepicker._formatDate;
   $.datepicker._formatDate = function (inst, day, month, year) {
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       tp_inst._updateDateTime(inst);
       return tp_inst.$input.val();
@@ -4761,7 +4761,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     if (!inst) {
       return null;
     }
-    var tp_inst = this._get(inst, "timepicker");
+    var tp_inst = this._get(inst, 'timepicker');
     if (tp_inst) {
       var min = null;
       var max = null;
@@ -4769,18 +4769,18 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       var overrides = tp_inst._defaults.evnts;
       var fns = {};
       var prop;
-      if (typeof name == "string") {
-        if (name === "minDate" || name === "minDateTime") {
+      if (typeof name == 'string') {
+        if (name === 'minDate' || name === 'minDateTime') {
           min = value;
         } else {
-          if (name === "maxDate" || name === "maxDateTime") {
+          if (name === 'maxDate' || name === 'maxDateTime') {
             max = value;
           } else {
-            if (name === "onSelect") {
+            if (name === 'onSelect') {
               onselect = value;
             } else {
               if (overrides.hasOwnProperty(name)) {
-                if (typeof value === "undefined") {
+                if (typeof value === 'undefined') {
                   return overrides[name];
                 }
                 fns[name] = value;
@@ -4790,7 +4790,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           }
         }
       } else {
-        if (typeof name == "object") {
+        if (typeof name == 'object') {
           if (name.minDate) {
             min = name.minDate;
           } else {
@@ -4878,7 +4878,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     return target;
   };
   var useAmpm = (timeFormat) =>
-    timeFormat.indexOf("t") !== -1 && timeFormat.indexOf("h") !== -1;
+    timeFormat.indexOf('t') !== -1 && timeFormat.indexOf('h') !== -1;
   var convert24to12 = (hour) => {
     if (hour > 12) {
       hour = hour - 12;
@@ -4915,20 +4915,20 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
     } catch (err) {
       $.datepicker.log(
-        "Could not split the date from the time. Please check the following datetimepicker options\nthrown error: " +
+        'Could not split the date from the time. Please check the following datetimepicker options\nthrown error: ' +
           err +
-          "\ndateTimeString" +
+          '\ndateTimeString' +
           dateTimeString +
-          "\ndateFormat = " +
+          '\ndateFormat = ' +
           dateFormat +
-          "\nseparator = " +
+          '\nseparator = ' +
           timeSettings.separator +
-          "\ntimeFormat = " +
+          '\ntimeFormat = ' +
           timeSettings.timeFormat
       );
-      if (err.indexOf(":") >= 0) {
+      if (err.indexOf(':') >= 0) {
         var dateStringLength =
-          dateTimeString.length - (err.length - err.indexOf(":") - 2);
+          dateTimeString.length - (err.length - err.indexOf(':') - 2);
         var timeString = dateTimeString.substring(dateStringLength);
         return [
           $.trim(dateTimeString.substring(0, dateStringLength)),
@@ -4938,7 +4938,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         throw err;
       }
     }
-    return [dateTimeString, ""];
+    return [dateTimeString, ''];
   };
   var parseDateTimeInternal = (
     dateFormat,
@@ -4955,7 +4955,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       timeSettings
     );
     date = $.datepicker._base_parseDate(dateFormat, splitRes[0], dateSettings);
-    if (splitRes[1] !== "") {
+    if (splitRes[1] !== '') {
       var timeString = splitRes[1];
       var parsedTime = $.datepicker.parseTime(
         timeFormat,
@@ -4963,7 +4963,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         timeSettings
       );
       if (parsedTime === null) {
-        throw "Wrong time format";
+        throw 'Wrong time format';
       }
       return {
         date,
@@ -4978,10 +4978,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   var selectLocalTimeZone = (tp_inst, date) => {
     if (tp_inst && tp_inst.timezone_select) {
       tp_inst._defaults.useLocalTimezone = true;
-      var now = typeof date !== "undefined" ? date : new Date();
+      var now = typeof date !== 'undefined' ? date : new Date();
       var tzoffset = $.timepicker.timeZoneOffsetString(now);
       if (tp_inst._defaults.timezoneIso8601) {
-        tzoffset = tzoffset.substring(0, 3) + ":" + tzoffset.substring(3);
+        tzoffset = tzoffset.substring(0, 3) + ':' + tzoffset.substring(3);
       }
       tp_inst.timezone_select.val(tzoffset);
     }
@@ -4992,18 +4992,18 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     var minutes = off % 60;
     var hours = (off - minutes) / 60;
     return (
-      (off >= 0 ? "+" : "-") +
-      ("0" + (hours * 101).toString()).substr(-2) +
-      ("0" + (minutes * 101).toString()).substr(-2)
+      (off >= 0 ? '+' : '-') +
+      ('0' + (hours * 101).toString()).substr(-2) +
+      ('0' + (minutes * 101).toString()).substr(-2)
     );
   };
   $.timepicker.timeRange = (startTime, endTime, options) =>
-    $.timepicker.handleRange("timepicker", startTime, endTime, options);
+    $.timepicker.handleRange('timepicker', startTime, endTime, options);
   $.timepicker.dateTimeRange = (startTime, endTime, options) => {
-    $.timepicker.dateRange(startTime, endTime, options, "datetimepicker");
+    $.timepicker.dateRange(startTime, endTime, options, 'datetimepicker');
   };
   $.timepicker.dateRange = (startTime, endTime, options, method) => {
-    method = method || "datepicker";
+    method = method || 'datepicker';
     $.timepicker.handleRange(method, startTime, endTime, options);
   };
   $.timepicker.handleRange = (method, startTime, endTime, options) => {
@@ -5015,7 +5015,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             checkDates(this, endTime, dateText);
           },
           onSelect(selectedDateTime) {
-            selected(this, endTime, "minDate");
+            selected(this, endTime, 'minDate');
           },
         },
         options,
@@ -5030,16 +5030,16 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             checkDates(this, startTime, dateText);
           },
           onSelect(selectedDateTime) {
-            selected(this, startTime, "maxDate");
+            selected(this, startTime, 'maxDate');
           },
         },
         options,
         options.end
       )
     );
-    if (method != "timepicker" && options.reformat) {
+    if (method != 'timepicker' && options.reformat) {
       $([startTime, endTime]).each(function () {
-        var format = $(this)[method].call($(this), "option", "dateFormat");
+        var format = $(this)[method].call($(this), 'option', 'dateFormat');
         var date = new Date($(this).val());
         if ($(this).val() && date) {
           $(this).val($.datepicker.formatDate(format, date));
@@ -5053,21 +5053,21 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         other.val(dateText);
       }
     }
-    selected(startTime, endTime, "minDate");
-    selected(endTime, startTime, "maxDate");
+    selected(startTime, endTime, 'minDate');
+    selected(endTime, startTime, 'maxDate');
 
     function selected(changed, other, option) {
       if (!$(changed).val()) {
         return;
       }
-      var date = $(changed)[method].call($(changed), "getDate");
+      var date = $(changed)[method].call($(changed), 'getDate');
       if (date.getTime) {
-        $(other)[method].call($(other), "option", option, date);
+        $(other)[method].call($(other), 'option', option, date);
       }
     }
     return $([startTime.get(0), endTime.get(0)]);
   };
-  $.timepicker.version = "1.1.1";
+  $.timepicker.version = '1.1.1';
 })(jQuery);
 
 // Scrolling
@@ -5079,24 +5079,24 @@ jQuery.fn.scrollMinimal = function (smooth) {
 
   if (cTop < windowTop) {
     if (smooth) {
-      $("body").animate(
+      $('body').animate(
         {
           scrollTop: cTop,
         },
-        "slow",
-        "swing"
+        'slow',
+        'swing'
       );
     } else {
       $(window).scrollTop(cTop);
     }
   } else if (cTop + cHeight > windowTop + visibleHeight) {
     if (smooth) {
-      $("body").animate(
+      $('body').animate(
         {
           scrollTop: cTop - visibleHeight + cHeight,
         },
-        "slow",
-        "swing"
+        'slow',
+        'swing'
       );
     } else {
       $(window).scrollTop(cTop - visibleHeight + cHeight);
@@ -5107,14 +5107,14 @@ jQuery.fn.scrollMinimal = function (smooth) {
 $(() => {
   var pathname = document.location.pathname;
   $('div.sidebar a[href$="' + pathname + '"]')
-    .parent("li")
-    .addClass("current");
+    .parent('li')
+    .addClass('current');
 
-  $("#notifications").on("click", ".close", function () {
-    $(this).parent(".alert-message").remove();
+  $('#notifications').on('click', '.close', function () {
+    $(this).parent('.alert-message').remove();
   });
 
-  $(".table-sort").tablesorter({
+  $('.table-sort').tablesorter({
     sortList: [[0, 0]],
   });
 });
@@ -5125,17 +5125,17 @@ var _notifications = (message, level) => {
     level +
     '"><a href="#" class="close">Close</a><p>' +
     message +
-    "</div>";
-  $("#notifications").html(html);
-  $("#notifications").prev().scrollMinimal();
+    '</div>';
+  $('#notifications').html(html);
+  $('#notifications').prev().scrollMinimal();
 };
 
 var _assertFileSize = (selector) => {
   var $upload = $(selector);
-  if ($upload.length && $upload.prop("files") && $upload.prop("files").length) {
-    var file = $upload.prop("files")[0];
+  if ($upload.length && $upload.prop('files') && $upload.prop('files').length) {
+    var file = $upload.prop('files')[0];
     if (file.size > 2 * 1024 * 1024) {
-      _notifications("Selected file is over 2 megabytes", "error");
+      _notifications('Selected file is over 2 megabytes', 'error');
       return false;
     }
   }
@@ -5174,11 +5174,11 @@ var _assertFileSize = (selector) => {
   }
 
   var o = {
-    placeholder: "Select options",
+    placeholder: 'Select options',
     columns: 1,
     search: !1,
     searchOptions: {
-      default: "Search",
+      default: 'Search',
       showOptGroups: !1,
       onSearch(t) {},
     },
@@ -5201,24 +5201,24 @@ var _assertFileSize = (selector) => {
   (e.prototype = {
     load() {
       var e = this;
-      if ("SELECT" != e.element.nodeName || t(e.element).hasClass("jqmsLoaded"))
+      if ('SELECT' != e.element.nodeName || t(e.element).hasClass('jqmsLoaded'))
         return !0;
-      t(e.element).addClass("jqmsLoaded"),
+      t(e.element).addClass('jqmsLoaded'),
         t(e.element).after(
           '<div class="ms-options-wrap"><button>None Selected</button><div class="ms-options"><ul></ul></div></div>'
         );
       var o = t(e.element)
-        .next(".ms-options-wrap")
-        .find("> button:first-child");
-      var i = t(e.element).next(".ms-options-wrap").find("> .ms-options");
-      var s = i.find("> ul");
-      var n = t(e.element).find("optgroup").length ? !0 : !1;
+        .next('.ms-options-wrap')
+        .find('> button:first-child');
+      var i = t(e.element).next('.ms-options-wrap').find('> .ms-options');
+      var s = i.find('> ul');
+      var n = t(e.element).find('optgroup').length ? !0 : !1;
       var l = null;
-      "number" == typeof e.options.width
-        ? (i.parent().css("position", "relative"), (l = e.options.width))
-        : "string" == typeof e.options.width
-        ? (t(e.options.width).css("position", "relative"), (l = "100%"))
-        : i.parent().css("position", "relative");
+      'number' == typeof e.options.width
+        ? (i.parent().css('position', 'relative'), (l = e.options.width))
+        : 'string' == typeof e.options.width
+        ? (t(e.options.width).css('position', 'relative'), (l = '100%'))
+        : i.parent().css('position', 'relative');
       var a = t(window).height() - i.offset().top - 20;
       if (
         (e.options.maxHeight &&
@@ -5230,10 +5230,10 @@ var _assertFileSize = (selector) => {
             maxWidth: l,
             minHeight: e.options.minHeight,
             maxHeight: a,
-            overflow: "auto",
+            overflow: 'auto',
           })
           .hide(),
-        i.bind("touchmove mousewheel DOMMouseScroll", function (e) {
+        i.bind('touchmove mousewheel DOMMouseScroll', function (e) {
           if (t(this).outerHeight() < t(this)[0].scrollHeight) {
             var o = e.originalEvent;
             var i = o.wheelDelta || -o.detail;
@@ -5243,30 +5243,30 @@ var _assertFileSize = (selector) => {
           }
         }),
         t(document)
-          .off("click.ms-hideopts")
-          .on("click.ms-hideopts", (e) => {
-            t(e.target).closest(".ms-options-wrap").length ||
-              t(".ms-options-wrap > .ms-options:visible").hide();
+          .off('click.ms-hideopts')
+          .on('click.ms-hideopts', (e) => {
+            t(e.target).closest('.ms-options-wrap').length ||
+              t('.ms-options-wrap > .ms-options:visible').hide();
           }),
         o
-          .bind("mousedown", (o) => {
+          .bind('mousedown', (o) => {
             if (1 != o.which) return !0;
             if (
-              (t(".ms-options-wrap > .ms-options:visible").each(function () {
+              (t('.ms-options-wrap > .ms-options:visible').each(function () {
                 t(this).parent().prev()[0] != i.parent().prev()[0] &&
                   t(this).hide();
               }),
               i.toggle(),
-              i.is(":visible"))
+              i.is(':visible'))
             ) {
-              i.css("maxHeight", "");
+              i.css('maxHeight', '');
               var s = t(window).height() - i.offset().top - 20;
               e.options.maxHeight &&
                 ((s = t(window).height() - i.offset().top - 20),
                 (s =
                   s < e.options.minHeight ? e.options.minHeight : maxheight)),
                 (s = s < e.options.minHeight ? e.options.minHeight : s),
-                i.css("maxHeight", s);
+                i.css('maxHeight', s);
             }
           })
           .click((t) => {
@@ -5277,227 +5277,227 @@ var _assertFileSize = (selector) => {
       ) {
         s.before(
           '<div class="ms-search"><input type="text" value="" placeholder="' +
-            e.options.searchOptions["default"] +
+            e.options.searchOptions['default'] +
             '" /></div>'
         );
-        var p = i.find(".ms-search input");
-        p.on("keyup", function () {
-          return t(this).data("lastsearch") == t(this).val()
+        var p = i.find('.ms-search input');
+        p.on('keyup', function () {
+          return t(this).data('lastsearch') == t(this).val()
             ? !0
-            : (t(this).data("lastsearch", t(this).val()),
-              "function" == typeof e.options.searchOptions.onSearch &&
+            : (t(this).data('lastsearch', t(this).val()),
+              'function' == typeof e.options.searchOptions.onSearch &&
                 e.options.searchOptions.onSearch(e.element),
-              void s.find("li:not(.optgroup)").each(function () {
+              void s.find('li:not(.optgroup)').each(function () {
                 var o = t(this).text();
                 o.toLowerCase().indexOf(p.val().toLowerCase()) > -1
                   ? t(this).show()
-                  : t(this).hasClass("selected") || t(this).hide(),
+                  : t(this).hasClass('selected') || t(this).hide(),
                   !e.options.searchOptions.showOptGroups &&
-                    t(this).closest("li.optgroup") &&
-                    (t(this).closest("li.optgroup").show(),
-                    t(this).closest("li.optgroup").find("li:visible").length
-                      ? t(this).closest("li.optgroup").show()
-                      : t(this).closest("li.optgroup").hide());
+                    t(this).closest('li.optgroup') &&
+                    (t(this).closest('li.optgroup').show(),
+                    t(this).closest('li.optgroup').find('li:visible').length
+                      ? t(this).closest('li.optgroup').show()
+                      : t(this).closest('li.optgroup').hide());
               }));
         });
       }
       e.options.selectAll &&
         s.before('<a href="#" class="ms-selectall global">Select all</a>'),
-        i.on("click", ".ms-selectall", function (e) {
-          if ((e.preventDefault(), t(this).hasClass("global")))
-            s.find("li:not(.optgroup)").filter(":not(.selected)").length
+        i.on('click', '.ms-selectall', function (e) {
+          if ((e.preventDefault(), t(this).hasClass('global')))
+            s.find('li:not(.optgroup)').filter(':not(.selected)').length
               ? s
-                  .find("li:not(.optgroup)")
-                  .filter(":not(.selected)")
+                  .find('li:not(.optgroup)')
+                  .filter(':not(.selected)')
                   .find('input[type="checkbox"]')
-                  .trigger("click")
+                  .trigger('click')
               : s
                   .find('li:not(.optgroup).selected input[type="checkbox"]')
-                  .trigger("click");
-          else if (t(this).closest("li").hasClass("optgroup")) {
-            var o = t(this).closest("li.optgroup");
-            o.find("li:not(.selected)").length
+                  .trigger('click');
+          else if (t(this).closest('li').hasClass('optgroup')) {
+            var o = t(this).closest('li.optgroup');
+            o.find('li:not(.selected)').length
               ? o
                   .find('li:not(.selected) input[type="checkbox"]')
-                  .trigger("click")
-              : o.find('li.selected input[type="checkbox"]').trigger("click");
+                  .trigger('click')
+              : o.find('li.selected input[type="checkbox"]').trigger('click');
           }
         });
       var c = [];
       t(e.element)
         .children()
         .each(function () {
-          if ("OPTGROUP" == this.nodeName) {
+          if ('OPTGROUP' == this.nodeName) {
             var e = [];
             t(this)
-              .children("option")
+              .children('option')
               .each(function () {
                 e[t(this).val()] = {
                   name: t(this).text(),
                   value: t(this).val(),
-                  checked: t(this).prop("selected"),
+                  checked: t(this).prop('selected'),
                 };
               }),
               c.push({
-                label: t(this).attr("label"),
+                label: t(this).attr('label'),
                 options: e,
               });
           } else {
-            if ("OPTION" != this.nodeName) return !0;
+            if ('OPTION' != this.nodeName) return !0;
             c.push({
               name: t(this).text(),
               value: t(this).val(),
-              checked: t(this).prop("selected"),
+              checked: t(this).prop('selected'),
             });
           }
         }),
         e.loadOptions(c),
         n
-          ? (s.find("> li:not(.optgroup)").css({
-              float: "left",
-              width: 100 / e.options.columns + "%",
+          ? (s.find('> li:not(.optgroup)').css({
+              float: 'left',
+              width: 100 / e.options.columns + '%',
             }),
             s
-              .find("li.optgroup")
+              .find('li.optgroup')
               .css({
-                clear: "both",
+                clear: 'both',
               })
-              .find("> ul")
+              .find('> ul')
               .css({
-                "column-count": e.options.columns,
-                "column-gap": 0,
-                "-webkit-column-count": e.options.columns,
-                "-webkit-column-gap": 0,
-                "-moz-column-count": e.options.columns,
-                "-moz-column-gap": 0,
+                'column-count': e.options.columns,
+                'column-gap': 0,
+                '-webkit-column-count': e.options.columns,
+                '-webkit-column-gap': 0,
+                '-moz-column-count': e.options.columns,
+                '-moz-column-gap': 0,
               }),
             this._ieVersion() &&
               this._ieVersion() < 10 &&
-              s.find("li.optgroup > ul > li").css({
-                float: "left",
-                width: 100 / e.options.columns + "%",
+              s.find('li.optgroup > ul > li').css({
+                float: 'left',
+                width: 100 / e.options.columns + '%',
               }))
           : (s.css({
-              "column-count": e.options.columns,
-              "column-gap": 0,
-              "-webkit-column-count": e.options.columns,
-              "-webkit-column-gap": 0,
-              "-moz-column-count": e.options.columns,
-              "-moz-column-gap": 0,
+              'column-count': e.options.columns,
+              'column-gap': 0,
+              '-webkit-column-count': e.options.columns,
+              '-webkit-column-gap': 0,
+              '-moz-column-count': e.options.columns,
+              '-moz-column-gap': 0,
             }),
             this._ieVersion() &&
               this._ieVersion() < 10 &&
-              s.find("> li").css({
-                float: "left",
-                width: 100 / e.options.columns + "%",
+              s.find('> li').css({
+                float: 'left',
+                width: 100 / e.options.columns + '%',
               })),
-        i.on("click", 'input[type="checkbox"]', function () {
-          t(this).closest("li").toggleClass("selected");
+        i.on('click', 'input[type="checkbox"]', function () {
+          t(this).closest('li').toggleClass('selected');
           var o = i.parent().prev();
           o
             .find('option[value="' + t(this).val() + '"]')
-            .prop("selected", t(this).is(":checked"))
-            .closest("select")
-            .trigger("change"),
-            "function" == typeof e.options.onOptionClick &&
+            .prop('selected', t(this).is(':checked'))
+            .closest('select')
+            .trigger('change'),
+            'function' == typeof e.options.onOptionClick &&
               e.options.onOptionClick(),
             e._updatePlaceholderText();
         }),
-        "function" == typeof e.options.onLoad
+        'function' == typeof e.options.onLoad
           ? e.options.onLoad(e.element)
           : t(e.element).hide();
     },
     loadOptions(e, o) {
-      o = "boolean" == typeof o ? o : !0;
+      o = 'boolean' == typeof o ? o : !0;
       var i = this;
-      var s = t(i.element).next(".ms-options-wrap").find("> .ms-options > ul");
-      o && s.find("> li").remove();
+      var s = t(i.element).next('.ms-options-wrap').find('> .ms-options > ul');
+      o && s.find('> li').remove();
       for (var n in e) {
         var l = e[n];
-        var a = t("<li></li>");
-        if (l.hasOwnProperty("options")) {
-          a.addClass("optgroup"),
-            a.append('<span class="label">' + l.label + "</span>"),
-            a.find("> .label").css({
-              clear: "both",
+        var a = t('<li></li>');
+        if (l.hasOwnProperty('options')) {
+          a.addClass('optgroup'),
+            a.append('<span class="label">' + l.label + '</span>'),
+            a.find('> .label').css({
+              clear: 'both',
             }),
             i.options.selectGroup &&
               a.append('<a href="#" class="ms-selectall">Select all</a>'),
-            a.append("<ul></ul>");
+            a.append('<ul></ul>');
           for (var p in l.options) {
             var c = l.options[p];
-            var h = t("<li></li>").addClass("ms-reflow");
-            i._addOption(h, c), a.find("> ul").append(h);
+            var h = t('<li></li>').addClass('ms-reflow');
+            i._addOption(h, c), a.find('> ul').append(h);
           }
         } else
-          l.hasOwnProperty("value") &&
-            (a.addClass("ms-reflow"), i._addOption(a, l));
+          l.hasOwnProperty('value') &&
+            (a.addClass('ms-reflow'), i._addOption(a, l));
         s.append(a);
       }
       s.find('.ms-reflow input[type="checkbox"]').each(function (e) {
         if (
           t(this)
-            .css("display")
+            .css('display')
             .match(/block$/)
         ) {
           var o = t(this).outerWidth();
           (o = o ? o : 15),
             t(this)
-              .closest("label")
+              .closest('label')
               .css(
-                "padding-left",
-                2 * parseInt(t(this).closest("label").css("padding-left")) + o
+                'padding-left',
+                2 * parseInt(t(this).closest('label').css('padding-left')) + o
               ),
-            t(this).closest(".ms-reflow").removeClass("ms-reflow");
+            t(this).closest('.ms-reflow').removeClass('ms-reflow');
         }
       }),
         i._updatePlaceholderText();
     },
     unload() {
-      t(this.element).next(".ms-options-wrap").remove(),
+      t(this.element).next('.ms-options-wrap').remove(),
         t(this.element).show(function () {
-          t(this).css("display", "").removeClass("jqmsLoaded");
+          t(this).css('display', '').removeClass('jqmsLoaded');
         });
     },
     reload() {
-      t(this.element).next(".ms-options-wrap").remove(),
-        t(this.element).removeClass("jqmsLoaded"),
+      t(this.element).next('.ms-options-wrap').remove(),
+        t(this.element).removeClass('jqmsLoaded'),
         this.load();
     },
     _updatePlaceholderText() {
       var e = this;
       var o = t(e.element)
-        .next(".ms-options-wrap")
-        .find("> button:first-child");
-      var i = t(e.element).next(".ms-options-wrap").find("> .ms-options");
+        .next('.ms-options-wrap')
+        .find('> button:first-child');
+      var i = t(e.element).next('.ms-options-wrap').find('> .ms-options');
       var s = i.parent().prev();
       var n = [];
-      s.find("option:selected").each(function () {
+      s.find('option:selected').each(function () {
         n.push(t(this).text());
       }),
-        o.text(n.join(", "));
+        o.text(n.join(', '));
 
       var l = o
         .clone()
         .css({
-          display: "inline",
-          width: "auto",
-          visibility: "hidden",
+          display: 'inline',
+          width: 'auto',
+          visibility: 'hidden',
         })
         .appendTo(i.parent());
 
       var a =
-        "undefined" != typeof t.fn.actual
-          ? l.actual("width", e.options.jqActualOpts)
+        'undefined' != typeof t.fn.actual
+          ? l.actual('width', e.options.jqActualOpts)
           : l.width();
       var p =
-        "undefined" != typeof t.fn.actual
-          ? o.actual("width", e.options.jqActualOpts)
+        'undefined' != typeof t.fn.actual
+          ? o.actual('width', e.options.jqActualOpts)
           : o.width();
       a > p
-        ? o.text(n.length + " selected")
+        ? o.text(n.length + ' selected')
         : n.length
-        ? o.text(n.join(", "))
+        ? o.text(n.join(', '))
         : o.text(e.options.placeholder),
         l.remove();
     },
@@ -5506,14 +5506,14 @@ var _assertFileSize = (selector) => {
         e.prepend(
           t('<input type="checkbox" value="" title="" />')
             .val(o.value)
-            .attr("title", o.name)
-            .attr("id", "ms-opt-" + i)
+            .attr('title', o.name)
+            .attr('id', 'ms-opt-' + i)
         ),
         o.checked &&
-          (e.addClass("default"),
-          e.addClass("selected"),
-          e.find('input[type="checkbox"]').prop("checked", !0));
-      var s = t("<label></label>").attr("for", "ms-opt-" + i);
+          (e.addClass('default'),
+          e.addClass('selected'),
+          e.find('input[type="checkbox"]').prop('checked', !0));
+      var s = t('<label></label>').attr('for', 'ms-opt-' + i);
       e.wrapInner(s),
         this.options.showCheckbox ||
           e.find('input[id="ms-opt-' + i + '"]').hide(),
@@ -5521,24 +5521,24 @@ var _assertFileSize = (selector) => {
     },
     _ieVersion() {
       var t = navigator.userAgent.toLowerCase();
-      return -1 != t.indexOf("msie") ? parseInt(t.split("msie")[1]) : !1;
+      return -1 != t.indexOf('msie') ? parseInt(t.split('msie')[1]) : !1;
     },
   }),
     (t.fn.multiselect = function (o) {
       var i;
       var s = arguments;
-      return void 0 === o || "object" == typeof o
+      return void 0 === o || 'object' == typeof o
         ? this.each(function () {
-            t.data(this, "plugin_multiselect") ||
-              t.data(this, "plugin_multiselect", new e(this, o));
+            t.data(this, 'plugin_multiselect') ||
+              t.data(this, 'plugin_multiselect', new e(this, o));
           })
-        : "string" == typeof o && "_" !== o[0] && "init" !== o
+        : 'string' == typeof o && '_' !== o[0] && 'init' !== o
         ? (this.each(function () {
-            var n = t.data(this, "plugin_multiselect");
+            var n = t.data(this, 'plugin_multiselect');
             n instanceof e &&
-              "function" == typeof n[o] &&
+              'function' == typeof n[o] &&
               (i = n[o](...Array.prototype.slice.call(s, 1))),
-              "unload" === o && t.data(this, "plugin_multiselect", null);
+              'unload' === o && t.data(this, 'plugin_multiselect', null);
           }),
           i)
         : void 0;
@@ -5546,18 +5546,18 @@ var _assertFileSize = (selector) => {
 })(jQuery);
 
 $(() => {
-  var $search = $(".search-tools");
-  $search.on("input", () => {
+  var $search = $('.search-tools');
+  $search.on('input', () => {
     var searchText = $search.val().toUpperCase();
-    $(".sidebar a").each(function () {
+    $('.sidebar a').each(function () {
       var textValue = this.innerText.toUpperCase();
       if (
-        searchText === "" ||
+        searchText === '' ||
         textValue.toUpperCase().indexOf(searchText) > -1
       ) {
-        $(this).removeClass("hide");
+        $(this).removeClass('hide');
       } else {
-        $(this).addClass("hide");
+        $(this).addClass('hide');
       }
     });
   });

@@ -46,13 +46,13 @@ class Stack {
     if (this._count < this._capacity) {
       this._storage[this._count++] = element;
     } else {
-      return "Capacity is full.";
+      return 'Capacity is full.';
     }
   }
 
   pop() {
     if (this._count === 0) {
-      return "Stack is empty.";
+      return 'Stack is empty.';
     }
     let top = this._storage[this._count - 1];
     delete this._storage[this._count - 1];
@@ -78,9 +78,9 @@ class Stack {
   }
 
   print() {
-    let stack = "";
+    let stack = '';
     for (let key in this._storage) {
-      stack += " " + this._storage[key];
+      stack += ' ' + this._storage[key];
     }
     console.log(stack);
   }
@@ -93,9 +93,9 @@ input.push(31);
 input.push(98);
 input.push(92);
 input.push(23);
-console.log("original");
+console.log('original');
 input.print();
-console.log("=======");
+console.log('=======');
 input.sort();
-console.log("=======");
+console.log('=======');
 input.print();

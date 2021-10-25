@@ -24,7 +24,7 @@ function parentFunction(argumentVariable) {
     // it does contain its own definition of
     // anotherVariable and has no access to parentFunction's
     // anotherVariable.
-    console.log("Child function: ");
+    console.log('Child function: ');
     console.log(functionVariable);
     console.log(childVariable);
     console.log(anotherVariable);
@@ -34,7 +34,7 @@ function parentFunction(argumentVariable) {
   // defined in childFunction, thus it cannot access
   // childVariable and it can only see its definition
   // of anotherVariable.
-  console.log("Parent function: ");
+  console.log('Parent function: ');
   console.log(functionVariable);
   console.log(anotherVariable);
 

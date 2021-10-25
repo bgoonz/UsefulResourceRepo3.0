@@ -1,18 +1,18 @@
-var progress = require("request-progress");
-var request = require("request");
-var Q = require("q");
-var mout = require("mout");
-var retry = require("retry");
-var createError = require("./createError");
-var createWriteStream = require("fs-write-stream-atomic");
-var destroy = require("destroy");
+var progress = require('request-progress');
+var request = require('request');
+var Q = require('q');
+var mout = require('mout');
+var retry = require('retry');
+var createError = require('./createError');
+var createWriteStream = require('fs-write-stream-atomic');
+var destroy = require('destroy');
 
 var errorCodes = [
-  "EADDRINFO",
-  "ETIMEDOUT",
-  "ECONNRESET",
-  "ESOCKETTIMEDOUT",
-  "ENOTFOUND",
+  'EADDRINFO',
+  'ETIMEDOUT',
+  'ECONNRESET',
+  'ESOCKETTIMEDOUT',
+  'ENOTFOUND',
 ];
 
 function download(url, file, options) {
@@ -85,14 +85,14 @@ function fetch(url, file, options) {
   var req = progress(request(url, options), {
     delay: options.progressDelay,
   })
-    .on("response", function (response) {
-      contentLength = Number(response.headers["content-length"]);
+    .on('response', function (response) {
+      contentLength = Number(response.headers['content-length']);
 
       var status = response.statusCode;
 
       if (status < 200 || status >= 300) {
         return deferred.reject(
-          createError("Status code of " + status, "EHTTP")
+          createError('Status code of ' + status, 'EHTTP')
         );
       }
 
@@ -100,8 +100,8 @@ function fetch(url, file, options) {
       var errored = false;
 
       // Change error listener so it cleans up writeStream before exiting
-      req.removeListener("error", reject);
-      req.on("error", function (error) {
+      req.removeListener('error', reject);
+      req.on('error', function (error) {
         errored = true;
         destroy(req);
         destroy(writeStream);
@@ -113,7 +113,7 @@ function fetch(url, file, options) {
         }, 50);
       });
 
-      writeStream.on("finish", function () {
+      writeStream.on('finish', function () {
         if (!errored) {
           destroy(req);
           deferred.resolve(response);
@@ -122,26 +122,26 @@ function fetch(url, file, options) {
 
       req.pipe(writeStream);
     })
-    .on("data", function (data) {
+    .on('data', function (data) {
       bytesDownloaded += data.length;
     })
-    .on("progress", function (state) {
+    .on('progress', function (state) {
       deferred.notify(state);
     })
-    .on("error", reject)
-    .on("end", function () {
+    .on('error', reject)
+    .on('end', function () {
       // Check if the whole file was downloaded
       // In some unstable connections the ACK/FIN packet might be sent in the
       // middle of the download
       // See: https://github.com/joyent/node/issues/6143
       if (contentLength && bytesDownloaded < contentLength) {
         req.emit(
-          "error",
+          'error',
           createError(
-            "Transfer closed with " +
+            'Transfer closed with ' +
               (contentLength - bytesDownloaded) +
-              " bytes remaining to read",
-            "EINCOMPLETE"
+              ' bytes remaining to read',
+            'EINCOMPLETE'
           )
         );
       }

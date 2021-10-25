@@ -7,8 +7,8 @@
 // O (log n) logarithmic
 
 let harmlessRansomNote = (noteText, magazineText) => {
-  let noteArr = noteText.split(" ");
-  let magazineArr = magazineText.split(" ");
+  let noteArr = noteText.split(' ');
+  let magazineArr = magazineText.split(' ');
   let magazineObj = {};
 
   magazineArr.forEach((word) => {
@@ -29,14 +29,14 @@ let harmlessRansomNote = (noteText, magazineText) => {
 
 console.log(
   harmlessRansomNote(
-    "all text",
-    "this is all the text magazine in all the magazine"
+    'all text',
+    'this is all the text magazine in all the magazine'
   )
 );
 
 console.log(
   harmlessRansomNote(
-    "all text secret",
-    "this is all the text magazine in all the magazine"
+    'all text secret',
+    'this is all the text magazine in all the magazine'
   )
 );

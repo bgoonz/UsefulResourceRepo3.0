@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const download = require("download");
+const download = require('download');
 
 /**
  * Download all ballots
@@ -29,10 +29,10 @@ const dl = async (baseurl, dest) => {
  */
 
 // define the desination directory
-const dest = "replace_with_absolute_path_to_dest_directory";
+const dest = 'replace_with_absolute_path_to_dest_directory';
 
-dl("https://apps.alleghenycounty.us/website/PDF_GEN/GEN%20(%n).pdf", dest).then(
+dl('https://apps.alleghenycounty.us/website/PDF_GEN/GEN%20(%n).pdf', dest).then(
   () => {
-    console.log("\nDone!");
+    console.log('\nDone!');
   }
 );

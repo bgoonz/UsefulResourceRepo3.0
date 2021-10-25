@@ -17,7 +17,7 @@
  * Object.defineProperty() so that the new function can be created as
  * a non-enumerable property like Object.assign().
  */
-Object.defineProperty(Object, "assignDescriptors", {
+Object.defineProperty(Object, 'assignDescriptors', {
   // Match the attributes of Object.assign()
   writable: true,
   enumerable: false,

@@ -1,6 +1,6 @@
 const isInteger =
   Number.isInteger ||
-  ((v) => typeof v === "number" && isFinite(v) && Math.floor(v) === v);
+  ((v) => typeof v === 'number' && isFinite(v) && Math.floor(v) === v);
 
 function mostSignificantBit(value) {
   let result = value;
@@ -63,10 +63,10 @@ class BinaryIndexedTree {
 
   _checkIndex(index) {
     if (!isInteger(index)) {
-      throw new Error("Invalid index");
+      throw new Error('Invalid index');
     }
     if (index < 0 || index >= this._maxVal) {
-      throw new Error("Index out of range");
+      throw new Error('Index out of range');
     }
   }
 
@@ -181,7 +181,7 @@ class BinaryIndexedTree {
    */
   read(count) {
     if (!isInteger(count)) {
-      throw new Error("Invalid count");
+      throw new Error('Invalid count');
     }
     return this._read(Math.max(Math.min(count, this._maxVal), 0));
   }
@@ -194,7 +194,7 @@ class BinaryIndexedTree {
    */
   lowerBound(sum) {
     if (this._countNeg > 0) {
-      throw new Error("Sequence is not non-descending");
+      throw new Error('Sequence is not non-descending');
     }
     return this._find(sum, (x, y) => x < y);
   }
@@ -207,7 +207,7 @@ class BinaryIndexedTree {
    */
   upperBound(sum) {
     if (this._countNeg > 0) {
-      throw new Error("Sequence is not non-descending");
+      throw new Error('Sequence is not non-descending');
     }
     return this._find(sum, (x, y) => x <= y);
   }

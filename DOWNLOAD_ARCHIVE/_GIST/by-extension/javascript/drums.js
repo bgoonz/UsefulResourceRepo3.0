@@ -31,7 +31,7 @@ t0 = timer.beat(
     o.m = Math.PI * 2;
     o.i = 11;
     o.f = b % 2 === 0 ? 55 : 111; // / 4: 444 / 8
-    o.wave = "triangle";
+    o.wave = 'triangle';
     var buzz = $.meffisto(o);
     var synth = function (t, s, i) {
       //    var tt = t

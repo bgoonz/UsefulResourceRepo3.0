@@ -3,16 +3,16 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
-const Audit = require("../audit.js");
+const Audit = require('../audit.js');
 const linearInterpolation =
-  require("../../lib/statistics.js").linearInterpolation;
-const Interactive = require("../../computed/metrics/lantern-interactive.js");
-const i18n = require("../../lib/i18n/i18n.js");
-const NetworkRecords = require("../../computed/network-records.js");
-const LoadSimulator = require("../../computed/load-simulator.js");
-const PageDependencyGraph = require("../../computed/page-dependency-graph.js");
+  require('../../lib/statistics.js').linearInterpolation;
+const Interactive = require('../../computed/metrics/lantern-interactive.js');
+const i18n = require('../../lib/i18n/i18n.js');
+const NetworkRecords = require('../../computed/network-records.js');
+const LoadSimulator = require('../../computed/load-simulator.js');
+const PageDependencyGraph = require('../../computed/page-dependency-graph.js');
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, {});
 
@@ -87,11 +87,11 @@ class UnusedBytes extends Audit {
       // See https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer for specific CSS/Script examples
       // See https://discuss.httparchive.org/t/file-size-and-compression-savings/145 for fallback multipliers
       switch (resourceType) {
-        case "Stylesheet":
+        case 'Stylesheet':
           // Stylesheets tend to compress extremely well.
           return Math.round(totalBytes * 0.2);
-        case "Script":
-        case "Document":
+        case 'Script':
+        case 'Document':
           // Scripts and HTML compress fairly well too.
           return Math.round(totalBytes * 0.33);
         default:
@@ -137,7 +137,7 @@ class UnusedBytes extends Audit {
     // Requesting load simulator requires non-empty network records.
     // Timespans are not guaranteed to have any network activity.
     // There are no bytes to be saved if no bytes were downloaded, so mark N/A if empty.
-    if (!hasContentfulRecords && gatherContext.gatherMode === "timespan") {
+    if (!hasContentfulRecords && gatherContext.gatherMode === 'timespan') {
       return {
         score: 1,
         notApplicable: true,
@@ -147,7 +147,7 @@ class UnusedBytes extends Audit {
     const [result, graph, simulator] = await Promise.all([
       this.audit_(artifacts, networkRecords, context),
       // Page dependency graph is only used in navigation mode.
-      gatherContext.gatherMode === "navigation"
+      gatherContext.gatherMode === 'navigation'
         ? PageDependencyGraph.request({ trace, devtoolsLog }, context)
         : null,
       LoadSimulator.request(simulatorOptions, context),
@@ -194,7 +194,7 @@ class UnusedBytes extends Audit {
     /** @type {Map<string, number>} */
     const originalTransferSizes = new Map();
     graph.traverse((node) => {
-      if (node.type !== "network") return;
+      if (node.type !== 'network') return;
       const wastedBytes = wastedBytesByUrl.get(node.record.url);
       if (!wastedBytes) return;
 
@@ -210,7 +210,7 @@ class UnusedBytes extends Audit {
 
     // Restore the original transfer size after we've done our simulation
     graph.traverse((node) => {
-      if (node.type !== "network") return;
+      if (node.type !== 'network') return;
       const originalTransferSize = originalTransferSizes.get(
         node.record.requestId
       );
@@ -260,10 +260,10 @@ class UnusedBytes extends Audit {
     );
 
     let wastedMs;
-    if (gatherContext.gatherMode === "navigation") {
+    if (gatherContext.gatherMode === 'navigation') {
       if (!graph)
         throw Error(
-          "Page dependency graph should always be computed in navigation mode"
+          'Page dependency graph should always be computed in navigation mode'
         );
       wastedMs = this.computeWasteWithTTIGraph(results, graph, simulator, {
         providedWastedBytesByUrl: result.wastedBytesByUrl,
@@ -272,8 +272,8 @@ class UnusedBytes extends Audit {
       wastedMs = this.computeWastedMsWithThroughput(wastedBytes, simulator);
     }
 
-    let displayValue = result.displayValue || "";
-    if (typeof result.displayValue === "undefined" && wastedBytes) {
+    let displayValue = result.displayValue || '';
+    if (typeof result.displayValue === 'undefined' && wastedBytes) {
       displayValue = str_(i18n.UIStrings.displayValueByteSavings, {
         wastedBytes,
       });
@@ -291,7 +291,7 @@ class UnusedBytes extends Audit {
       warnings: result.warnings,
       displayValue,
       numericValue: wastedMs,
-      numericUnit: "millisecond",
+      numericUnit: 'millisecond',
       score: UnusedBytes.scoreForWastedMs(wastedMs),
       details,
     };
@@ -306,7 +306,7 @@ class UnusedBytes extends Audit {
    * @return {ByteEfficiencyProduct|Promise<ByteEfficiencyProduct>}
    */
   static audit_(artifacts, networkRecords, context) {
-    throw new Error("audit_ unimplemented");
+    throw new Error('audit_ unimplemented');
   }
 
   /* eslint-enable no-unused-vars */

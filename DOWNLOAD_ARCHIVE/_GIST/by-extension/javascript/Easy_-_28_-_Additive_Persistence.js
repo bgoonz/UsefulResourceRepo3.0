@@ -2,7 +2,7 @@ function AdditivePersistence(num) {
   var addPer = 0;
 
   function splitArray(intN) {
-    intN = intN.toString().split("");
+    intN = intN.toString().split('');
     var answerArr = [];
     for (var i = 0; i < intN.length; i++) {
       answerArr.push(parseInt(intN[i]));

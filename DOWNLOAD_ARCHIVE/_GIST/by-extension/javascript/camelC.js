@@ -7,7 +7,7 @@ function preserveCamelCase(string) {
     const c = string[i];
 
     if (isLastCharLower && /[a-zA-Z]/.test(c) && c.toUpperCase() === c) {
-      string = string.substr(0, i) + "-" + string.substr(i);
+      string = string.substr(0, i) + '-' + string.substr(i);
       isLastCharLower = false;
       isLastLastCharUpper = isLastCharUpper;
       isLastCharUpper = true;
@@ -18,7 +18,7 @@ function preserveCamelCase(string) {
       /[a-zA-Z]/.test(c) &&
       c.toLowerCase() === c
     ) {
-      string = string.substr(0, i - 1) + "-" + string.substr(i - 1);
+      string = string.substr(0, i - 1) + '-' + string.substr(i - 1);
       isLastLastCharUpper = isLastCharUpper;
       isLastCharUpper = false;
       isLastCharLower = true;
@@ -37,13 +37,13 @@ module.exports = function (string) {
     string = Array.from(arguments)
       .map((x) => x.trim())
       .filter((x) => x.length)
-      .join("-");
+      .join('-');
   } else {
     string = string.trim();
   }
 
   if (string.length === 0) {
-    return "";
+    return '';
   }
 
   if (string.length === 1) {
@@ -61,7 +61,7 @@ module.exports = function (string) {
   }
 
   return string
-    .replace(/^[_.\- ]+/, "")
+    .replace(/^[_.\- ]+/, '')
     .toLowerCase()
     .replace(/[_.\- ]+(\w|$)/g, (m, p1) => p1.toUpperCase());
 };

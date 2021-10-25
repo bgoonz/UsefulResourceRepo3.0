@@ -1,4 +1,4 @@
-var createGame = require("voxel-engine");
+var createGame = require('voxel-engine');
 
 function sphereWorld(x, y, z) {
   // return the index of the material you want to show up
@@ -11,11 +11,11 @@ var game = createGame({
   generate: sphereWorld,
   startingPosition: [0, 1000, 0], // x, y, z
   materials: [
-    ["grass", "dirt", "grass_dirt"],
-    "brick",
-    "dirt",
-    "obsidian",
-    "bedrock",
+    ['grass', 'dirt', 'grass_dirt'],
+    'brick',
+    'dirt',
+    'obsidian',
+    'bedrock',
   ],
 });
 

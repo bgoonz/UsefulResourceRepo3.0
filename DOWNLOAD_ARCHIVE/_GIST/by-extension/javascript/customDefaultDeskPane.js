@@ -7,9 +7,9 @@
     }
 */
 
-import React, { useEffect, useState } from "react";
-import DefaultPane from "@sanity/components/lib/panes/DefaultPane"; // The component we are replacing (wrapping, actually)
-import client from "part:@sanity/base/client";
+import React, { useEffect, useState } from 'react';
+import DefaultPane from '@sanity/components/lib/panes/DefaultPane'; // The component we are replacing (wrapping, actually)
+import client from 'part:@sanity/base/client';
 
 const CustomPane = (props) => {
   const [groups, setGroups] = useState([]);
@@ -39,7 +39,7 @@ const CustomPane = (props) => {
   if (groups.length) {
     // In this example, we check if the user is a member of a
     // specific group with _id '_.groups.administrator'.
-    if (groups.includes("_.groups.administrator")) {
+    if (groups.includes('_.groups.administrator')) {
       // Since the user is a part of this group, use the standard menuItems,
       // which will include "Create new…"
       menuItems = props.menuItems;
@@ -49,7 +49,7 @@ const CustomPane = (props) => {
       // action (item with intent.type === 'create'), but could also be initial
       // value template actions etc. Inspect and adjust the code as needed.
       menuItems = props.menuItems.filter((item) => {
-        if (item.intent) return item.intent.type !== "create";
+        if (item.intent) return item.intent.type !== 'create';
         return true;
       });
     }

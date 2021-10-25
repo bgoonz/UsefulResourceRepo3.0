@@ -35,12 +35,12 @@ const fizzBuzz = (min, max) => {
     .map((_, index) => index)
     .slice(min);
   const rules = new Map([
-    [15, "FizzBuzz"],
-    [5, "Buzz"],
-    [3, "Fizz"],
+    [15, 'FizzBuzz'],
+    [5, 'Buzz'],
+    [3, 'Fizz'],
   ]);
   return numbers.map((number) => resultFor(number).using(rules));
 };
 
 const results = fizzBuzz(1, 100);
-console.log(results.join("\n"));
+console.log(results.join('\n'));

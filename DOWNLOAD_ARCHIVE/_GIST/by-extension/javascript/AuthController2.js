@@ -1,5 +1,5 @@
 const table = process.env.USERS_TABLE;
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 /**
@@ -14,7 +14,7 @@ const updatePassword = async (req, res) => {
     // User not found
     if (!user)
       throw new Error(
-        "User with provided email not found. Could not reset password."
+        'User with provided email not found. Could not reset password.'
       );
 
     // Validate current password
@@ -22,17 +22,17 @@ const updatePassword = async (req, res) => {
       !req.body.currentPassword ||
       !comparePassword(req.body.currentPassword, user.password)
     ) {
-      throw new Error("Current Password Incorrect. Could not update password.");
+      throw new Error('Current Password Incorrect. Could not update password.');
     }
 
     // compare the two new passwords - error if don't match
     if (req.body.password1 !== req.body.password2) {
-      throw new Error("New passwords do not match. Could not update password.");
+      throw new Error('New passwords do not match. Could not update password.');
     }
     // check pw validity
     if (!validatePassword(req.body.password1)) {
       throw new Error(
-        "Password should have 8+ characters with one lowercase, uppercase, and number"
+        'Password should have 8+ characters with one lowercase, uppercase, and number'
       );
     }
 
@@ -45,15 +45,15 @@ const updatePassword = async (req, res) => {
       Key: {
         email: email,
       },
-      UpdateExpression: "set password=:v",
-      ExpressionAttributeValues: { ":v": password },
-      ReturnValues: "ALL_NEW",
+      UpdateExpression: 'set password=:v',
+      ExpressionAttributeValues: { ':v': password },
+      ReturnValues: 'ALL_NEW',
     };
 
     // use DynamoDB.DocumentClient to update
     await dynamodb.update(params).promise();
 
-    res.status(200).json({ message: "Password Update Successful" });
+    res.status(200).json({ message: 'Password Update Successful' });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

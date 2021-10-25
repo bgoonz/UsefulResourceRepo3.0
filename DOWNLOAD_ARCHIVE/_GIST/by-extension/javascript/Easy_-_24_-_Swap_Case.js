@@ -1,5 +1,5 @@
 function SwapCase(str) {
-  var answer = "";
+  var answer = '';
 
   for (var i = 0; i < str.length; i++) {
     if (str[i] === str[i].toUpperCase()) {

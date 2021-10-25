@@ -1,13 +1,13 @@
 // Actions.
-import { createAppActions } from "../reducers/actions";
+import { createAppActions } from '../reducers/actions';
 
 // State.
-import { getDefaultAppState } from "../reducers/state";
+import { getDefaultAppState } from '../reducers/state';
 
 // Fixtures.
-import { getMockAppActions, getMockAppState } from "./";
+import { getMockAppActions, getMockAppState } from './';
 
-describe("fixtures/index.js", () => {
+describe('fixtures/index.js', () => {
   // ==========================
   // Recursive helper function.
   // ==========================
@@ -20,7 +20,7 @@ describe("fixtures/index.js", () => {
     expect(mockKeys).toEqual(realKeys);
 
     // Loop through.
-    mockKeys.forEach((key = "") => {
+    mockKeys.forEach((key = '') => {
       const mockItem = mock[key];
       const realItem = real[key];
 
@@ -35,7 +35,7 @@ describe("fixtures/index.js", () => {
       expect(mockItemIsArray).toBe(realItemIsArray);
 
       // Drill into objects?
-      if (mockType && mockType === "object" && !mockItemIsArray) {
+      if (mockType && mockType === 'object' && !mockItemIsArray) {
         compareMockToReal(mockItem, realItem);
       }
     });
@@ -45,7 +45,7 @@ describe("fixtures/index.js", () => {
   // Test for actions.
   // =================
 
-  test("mocks complete app actions", () => {
+  test('mocks complete app actions', () => {
     const mock = getMockAppActions();
     const real = createAppActions();
 
@@ -56,7 +56,7 @@ describe("fixtures/index.js", () => {
   // Test for state.
   // ===============
 
-  test("mocks complete app state", () => {
+  test('mocks complete app state', () => {
     const mock = getMockAppState();
     const real = getDefaultAppState();
 

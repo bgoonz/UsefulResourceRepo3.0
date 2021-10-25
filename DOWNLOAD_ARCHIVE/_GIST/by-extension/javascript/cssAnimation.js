@@ -12,8 +12,8 @@
 // Constants.
 // ==========
 
-const event = "DOMContentLoaded";
-const attr = "data-has-css-animation";
+const event = 'DOMContentLoaded';
+const attr = 'data-has-css-animation';
 const d = document.documentElement;
 const w = window;
 

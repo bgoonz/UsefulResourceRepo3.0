@@ -20,7 +20,7 @@ class AsyncQueue {
 
   enqueue(value) {
     if (this.closed) {
-      throw new Error("AsyncQueue closed");
+      throw new Error('AsyncQueue closed');
     }
     if (this.resolvers.length > 0) {
       // If this value has already been promised, resolve that Promise
@@ -78,7 +78,7 @@ class AsyncQueue {
 }
 
 // A sentinel value returned by dequeue() to mark "end of stream" when closed
-AsyncQueue.EOS = Symbol("end-of-stream");
+AsyncQueue.EOS = Symbol('end-of-stream');
 
 // Push events of the specified type on the specified document element
 // onto an AsyncQueue object, and return the queue for use as an event stream
@@ -90,7 +90,7 @@ function eventStream(elt, type) {
 
 async function handleKeys() {
   // Get a stream of keypress events and loop once for each one
-  for await (const event of eventStream(document, "keypress")) {
+  for await (const event of eventStream(document, 'keypress')) {
     console.log(event.key);
   }
 }

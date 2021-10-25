@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Doubly-linked list
  */
@@ -7,7 +7,7 @@ class LinkedList {
     this._length = 0;
     this.head = null;
     this.tail = null;
-    Object.defineProperty(this, "length", {
+    Object.defineProperty(this, 'length', {
       get: () => {
         return this._length;
       },
@@ -29,7 +29,7 @@ class LinkedList {
    */
   add(n, index) {
     if (index > this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
     const node = new Node(n);
     if (index !== undefined && index < this.length) {
@@ -73,7 +73,7 @@ class LinkedList {
    */
   getNode(index) {
     if (index >= this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
     let node = this.head;
     for (let i = 1; i <= index; i++) {
@@ -88,7 +88,7 @@ class LinkedList {
    */
   del(index) {
     if (index >= this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
     this.delNode(this.getNode(index));
   }
@@ -128,12 +128,12 @@ class HashTable {
   constructor(initialCapacity) {
     this._table = new Array(initialCapacity || 64);
     this._items = 0;
-    Object.defineProperty(this, "capacity", {
+    Object.defineProperty(this, 'capacity', {
       get() {
         return this._table.length;
       },
     });
-    Object.defineProperty(this, "size", {
+    Object.defineProperty(this, 'size', {
       get() {
         return this._items;
       },
@@ -148,7 +148,7 @@ class HashTable {
    * (The hash value of the empty string is zero.)
    */
   hash(s) {
-    if (typeof s !== "string") s = JSON.stringify(s);
+    if (typeof s !== 'string') s = JSON.stringify(s);
     let hash = 0;
     for (let i = 0; i < s.length; i++) {
       hash = (hash << 5) - hash + s.charCodeAt(i);
@@ -230,7 +230,7 @@ class HashSet {
   constructor(...args) {
     this._elements = new HashTable(args.length);
     this.add(...args);
-    Object.defineProperty(this, "size", {
+    Object.defineProperty(this, 'size', {
       get() {
         return this._elements.size;
       },

@@ -2,19 +2,19 @@
  * @fileoverview Utilities for working with globs and the filesystem.
  * @author Ian VanSchooten
  */
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const fs = require("fs"),
-  path = require("path"),
-  GlobSync = require("./glob"),
-  pathUtil = require("./path-util"),
-  IgnoredPaths = require("../ignored-paths");
+const fs = require('fs'),
+  path = require('path'),
+  GlobSync = require('./glob'),
+  pathUtil = require('./path-util'),
+  IgnoredPaths = require('../ignored-paths');
 
-const debug = require("debug")("eslint:glob-util");
+const debug = require('debug')('eslint:glob-util');
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -39,16 +39,16 @@ const debug = require("debug")("eslint:glob-util");
  */
 function processPath(options) {
   const cwd = (options && options.cwd) || process.cwd();
-  let extensions = (options && options.extensions) || [".js"];
+  let extensions = (options && options.extensions) || ['.js'];
 
-  extensions = extensions.map((ext) => ext.replace(/^\./, ""));
+  extensions = extensions.map((ext) => ext.replace(/^\./, ''));
 
-  let suffix = "/**";
+  let suffix = '/**';
 
   if (extensions.length === 1) {
     suffix += `/*.${extensions[0]}`;
   } else {
-    suffix += `/*.{${extensions.join(",")}}`;
+    suffix += `/*.{${extensions.join(',')}}`;
   }
 
   /**
@@ -66,7 +66,7 @@ function processPath(options) {
       fs.existsSync(resolvedPath) &&
       fs.statSync(resolvedPath).isDirectory()
     ) {
-      newPath = pathname.replace(/[/\\]$/, "") + suffix;
+      newPath = pathname.replace(/[/\\]$/, '') + suffix;
     }
 
     return pathUtil.convertPathToPosix(newPath);
@@ -121,13 +121,13 @@ function listFilesToProcess(globPatterns, options) {
     let ignored = false;
     let isSilentlyIgnored;
 
-    if (ignoredPaths.contains(filename, "default")) {
+    if (ignoredPaths.contains(filename, 'default')) {
       ignored = options.ignore !== false && shouldWarnIgnored;
       isSilentlyIgnored = !shouldWarnIgnored;
     }
 
     if (options.ignore !== false) {
-      if (ignoredPaths.contains(filename, "custom")) {
+      if (ignoredPaths.contains(filename, 'custom')) {
         if (shouldWarnIgnored) {
           ignored = true;
         } else {
@@ -147,7 +147,7 @@ function listFilesToProcess(globPatterns, options) {
     added[filename] = true;
   }
 
-  debug("Creating list of files to process.");
+  debug('Creating list of files to process.');
   globPatterns.forEach((pattern) => {
     const file = path.resolve(cwd, pattern);
 

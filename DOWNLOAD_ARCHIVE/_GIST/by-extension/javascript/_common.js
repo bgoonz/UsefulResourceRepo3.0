@@ -22,28 +22,28 @@ export default common = {
   typeOf(item) {
     let _ref;
     if (item === null) {
-      return "null";
+      return 'null';
     }
-    if (typeof item !== "object") {
+    if (typeof item !== 'object') {
       return typeof item;
     }
     if (Array.isArray(item)) {
-      return "array";
+      return 'array';
     }
     if (item.nodeName) {
       if (item.nodeType === 1) {
-        return "element";
+        return 'element';
       }
       if (item.nodeType === 3) {
         return (_ref = /\S/.test(item.nodeValue)) != null
           ? _ref
           : {
-              textnode: "whitespace",
+              textnode: 'whitespace',
             };
       }
-    } else if (typeof item.length === "number") {
+    } else if (typeof item.length === 'number') {
       if (item.callee) {
-        return "arguments";
+        return 'arguments';
       }
     }
     return typeof item;
@@ -53,9 +53,9 @@ export default common = {
       includePrototype = false;
     }
     switch (common.typeOf(item)) {
-      case "array":
+      case 'array':
         return common._cloneArray(item, includePrototype);
-      case "object":
+      case 'object':
         return common._cloneObject(item, includePrototype);
       default:
         return item;

@@ -14,7 +14,7 @@ export default function ({ Plugin, types: t }) {
     }
   }
 
-  return new Plugin("add-curly", {
+  return new Plugin('add-curly', {
     visitor: {
       IfStatement({ test, consequent, alternate }) {
         consequent = addCurly(consequent);

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import range from "./range";
+import range from './range';
 
 /**
  * Implements Python's itertools.permutations

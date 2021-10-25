@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 /* eslint no-invalid-this: 1 */
 
-const ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
+const ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
 const slice = Array.prototype.slice;
 const toStr = Object.prototype.toString;
-const funcType = "[object Function]";
+const funcType = '[object Function]';
 
 export default function bind(that) {
   const target = this;
-  if (typeof target !== "function" || toStr.call(target) !== funcType) {
+  if (typeof target !== 'function' || toStr.call(target) !== funcType) {
     throw new TypeError(ERROR_MESSAGE + target);
   }
   const args = slice.call(arguments, 1);
@@ -34,9 +34,9 @@ export default function bind(that) {
   }
 
   bound = Function(
-    "binder",
+    'binder',
     `return function (${boundArgs.join(
-      ","
+      ','
     )}){ return binder.apply(this,arguments); }`
   )(binder);
 

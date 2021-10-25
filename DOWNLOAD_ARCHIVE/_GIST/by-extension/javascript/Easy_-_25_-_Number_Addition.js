@@ -8,7 +8,7 @@ function NumberAddition(str) {
   // After that, we iterate over each element in our modified array...
   for (var i = 0; i < str.length; i++) {
     // ...and if it isn't an empty string...
-    if (str[i] != "") {
+    if (str[i] != '') {
       // ...we parse its value with parseInt and add it to our answer.
       sum += parseInt(str[i]);
     }
@@ -23,7 +23,7 @@ function NumberAddition(str) {
   var sum = 0;
 
   for (var i = 0; i < str.length; i++) {
-    if (str[i] != "") {
+    if (str[i] != '') {
       sum += parseInt(str[i]);
     }
   }

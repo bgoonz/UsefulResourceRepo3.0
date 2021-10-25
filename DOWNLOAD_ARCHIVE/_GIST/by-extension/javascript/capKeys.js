@@ -4,7 +4,7 @@ function capitalizeKeys(obj, mapper) {
     return arr.map((item) => capitalizeKeys(item, mapper));
   }
 
-  if (Object.prototype.toString.apply(obj) !== "[object Object]") {
+  if (Object.prototype.toString.apply(obj) !== '[object Object]') {
     return obj;
   }
 

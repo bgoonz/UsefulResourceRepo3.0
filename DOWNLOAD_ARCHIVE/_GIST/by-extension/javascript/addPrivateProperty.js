@@ -35,11 +35,11 @@ let o = {}; // Here is an empty object
 
 // Add property accessor methods getName and setName()
 // Ensure that only string values are allowed
-addPrivateProperty(o, "Name", (x) => typeof x === "string");
+addPrivateProperty(o, 'Name', (x) => typeof x === 'string');
 
-o.setName("Frank"); // Set the property value
+o.setName('Frank'); // Set the property value
 o.getName(); // => "Frank"
-console.log("o.getName(): ", o.getName());
+console.log('o.getName(): ', o.getName());
 // o.setName(0); // !TypeError: try to set a value of the wrong type
 
 /*

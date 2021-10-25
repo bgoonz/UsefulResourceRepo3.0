@@ -3,20 +3,20 @@ export function createFocusTrap(el, opt = {}) {
   let isActive = false;
 
   const focusableElementSelectors = [
-    "a[href]",
-    "area[href]",
-    "input:not([disabled])",
-    "select:not([disabled])",
-    "textarea:not([disabled])",
-    "button:not([disabled])",
-    "iframe",
-    "object",
-    "embed",
-    "[contenteditable]",
+    'a[href]',
+    'area[href]',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    'button:not([disabled])',
+    'iframe',
+    'object',
+    'embed',
+    '[contenteditable]',
     '[tabindex]:not([tabindex^="-"])',
   ];
   const focusableElements = el.querySelectorAll(
-    focusableElementSelectors.join(", ")
+    focusableElementSelectors.join(', ')
   );
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
@@ -58,11 +58,11 @@ export function createFocusTrap(el, opt = {}) {
 
   function activate() {
     isActive = true;
-    el.addEventListener("keydown", handleKeyPress);
+    el.addEventListener('keydown', handleKeyPress);
   }
   function deactivate() {
     isActive = false;
-    el.removeEventListener("keydown", handleKeyPress);
+    el.removeEventListener('keydown', handleKeyPress);
   }
 
   return {

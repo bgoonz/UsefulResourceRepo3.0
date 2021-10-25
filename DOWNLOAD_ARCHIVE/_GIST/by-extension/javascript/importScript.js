@@ -2,7 +2,7 @@
 // Returns a Promise that resolves when the script has loaded.
 function importScript(url) {
   return new Promise((resolve, reject) => {
-    let s = document.createElement("script"); // Create a <script> element
+    let s = document.createElement('script'); // Create a <script> element
     s.onload = () => {
       resolve();
     }; // Resolve promise when loaded

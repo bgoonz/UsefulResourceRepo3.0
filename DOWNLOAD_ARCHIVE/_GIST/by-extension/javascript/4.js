@@ -11,7 +11,7 @@ var prop = (k) => (o) => isEmpty(o[k]) ? Nothing() : Maybe.of(o[k]);
 
 var myObj = { something: { other: { and: 42 } } };
 Maybe.of(myObj)
-  .chain(prop("something"))
-  .chain(prop("other"))
-  .chain(prop("and"))
+  .chain(prop('something'))
+  .chain(prop('other'))
+  .chain(prop('and'))
   .chain(identity); // 42

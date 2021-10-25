@@ -16,7 +16,7 @@ const compose =
     }, target);
   };
 
-console.log("output", compose(add10, add200, add200)(0)); // 410
+console.log('output', compose(add10, add200, add200)(0)); // 410
 
 const addProps = (props) => (obj) => {
   return Object.assign({}, obj, props);
@@ -31,7 +31,7 @@ const deleteProps = (props) => (obj) => {
 };
 
 console.log(
-  "output",
+  'output',
   compose(
     addProps({
       qux: true,
@@ -39,7 +39,7 @@ console.log(
     addProps({
       baz: true,
     }),
-    deleteProps(["foo", "bit"]),
+    deleteProps(['foo', 'bit']),
     addProps({
       bar: true,
     }),

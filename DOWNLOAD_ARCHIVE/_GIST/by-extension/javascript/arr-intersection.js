@@ -17,8 +17,8 @@ function intersection(firstArr) {
     return common;
   };
 }
-let abc = intersection(["a", "b", "c"]); // returns a function
-console.log(abc(["b", "d", "c"])); // returns [ 'b', 'c' ]
+let abc = intersection(['a', 'b', 'c']); // returns a function
+console.log(abc(['b', 'd', 'c'])); // returns [ 'b', 'c' ]
 
-let fame = intersection(["f", "a", "m", "e"]); // returns a function
-console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
+let fame = intersection(['f', 'a', 'm', 'e']); // returns a function
+console.log(fame(['a', 'f', 'z', 'b'])); // returns [ 'f', 'a' ]

@@ -6,12 +6,12 @@ class TreeNode {
   }
 }
 
-let a = new TreeNode("a");
-let b = new TreeNode("b");
-let c = new TreeNode("c");
-let d = new TreeNode("d");
-let e = new TreeNode("e");
-let f = new TreeNode("f");
+let a = new TreeNode('a');
+let b = new TreeNode('b');
+let c = new TreeNode('c');
+let d = new TreeNode('d');
+let e = new TreeNode('e');
+let f = new TreeNode('f');
 
 a.left = b;
 a.right = c;
@@ -50,12 +50,12 @@ class GraphNode {
   }
 }
 
-let a = new GraphNode("a");
-let b = new GraphNode("b");
-let c = new GraphNode("c");
-let d = new GraphNode("d");
-let e = new GraphNode("e");
-let f = new GraphNode("f");
+let a = new GraphNode('a');
+let b = new GraphNode('b');
+let c = new GraphNode('c');
+let d = new GraphNode('d');
+let e = new GraphNode('e');
+let f = new GraphNode('f');
 a.neighbors = [b, c, e];
 c.neighbors = [b, d];
 e.neighbors = [a];
@@ -72,12 +72,12 @@ let matrix = [
 ];
 
 let graph = {
-  a: ["b", "c", "e"],
+  a: ['b', 'c', 'e'],
   b: [],
-  c: ["b", "d"],
+  c: ['b', 'd'],
   d: [],
-  e: ["a"],
-  f: ["e"],
+  e: ['a'],
+  f: ['e'],
 };
 
 class GraphNode {
@@ -87,12 +87,12 @@ class GraphNode {
   }
 }
 
-let a = new GraphNode("a");
-let b = new GraphNode("b");
-let c = new GraphNode("c");
-let d = new GraphNode("d");
-let e = new GraphNode("e");
-let f = new GraphNode("f");
+let a = new GraphNode('a');
+let b = new GraphNode('b');
+let c = new GraphNode('c');
+let d = new GraphNode('d');
+let e = new GraphNode('e');
+let f = new GraphNode('f');
 a.neighbors = [e, c, b];
 c.neighbors = [b, d];
 e.neighbors = [a];
@@ -151,12 +151,12 @@ function depthFirstIter(node) {
 depthFirstIter(f);
 
 let graph = {
-  a: ["b", "c", "e"],
+  a: ['b', 'c', 'e'],
   b: [],
-  c: ["b", "d"],
+  c: ['b', 'd'],
   d: [],
-  e: ["a"],
-  f: ["e"],
+  e: ['a'],
+  f: ['e'],
 };
 
 // using Adjacency List representation
@@ -172,7 +172,7 @@ function depthFirstRecur(node, graph, visited = new Set()) {
   });
 }
 
-depthFirstRecur("f", graph);
+depthFirstRecur('f', graph);
 
 function depthFirst(graph) {
   let visited = new Set();
@@ -196,11 +196,11 @@ function _depthFirstRecur(node, graph, visited) {
 depthFirst(graph);
 
 let graph = {
-  h: ["i", "j"],
+  h: ['i', 'j'],
   i: [],
-  j: ["k"],
+  j: ['k'],
   k: [],
-  l: ["m"],
+  l: ['m'],
   m: [],
 };
 
@@ -210,5 +210,5 @@ depthFirst(graph);
 Number(42).toString(16); // 2a
 Number(42).toString(2); // 101010
 
-parseInt("101010", 2); // 42
-parseInt("2A", 16); // 42
+parseInt('101010', 2); // 42
+parseInt('2A', 16); // 42

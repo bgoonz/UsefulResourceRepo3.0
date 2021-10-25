@@ -6,7 +6,7 @@ classof(null); // => "Null"
 classof(undefined); // => "Undefined"
 classof(1); // => "Number"
 classof(10n ** 100n); // => "BigInt"
-classof(""); // => "String"
+classof(''); // => "String"
 classof(false); // => "Boolean"
 classof(Symbol()); // => "Symbol"
 classof({}); // => "Object"
@@ -19,7 +19,7 @@ classof(new Date()); // => "Date"
 
 class Range {
   get [Symbol.toStringTag]() {
-    return "Range";
+    return 'Range';
   }
   // the rest of this class is omitted here
 }

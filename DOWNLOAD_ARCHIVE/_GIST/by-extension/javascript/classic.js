@@ -71,16 +71,16 @@ classic.mix = function () {
   for (_j = 0, _len = mixins.length; _j < _len; _j++) {
     mixin = mixins[_j];
     if (!(mixin.constructor instanceof Function)) {
-      throw Error("Mixin should be a function");
+      throw Error('Mixin should be a function');
     }
     for (member in mixin.prototype) {
-      if (member.substr(0, 11) === "__initMixin") {
+      if (member.substr(0, 11) === '__initMixin') {
         classReference.__mixinInitializers.push(mixin.prototype[member]);
         continue;
-      } else if (member.substr(0, 11) === "__clonerFor") {
+      } else if (member.substr(0, 11) === '__clonerFor') {
         classReference.__mixinCloners.push(mixin.prototype[member]);
         continue;
-      } else if (member.substr(0, 12) === "__quitterFor") {
+      } else if (member.substr(0, 12) === '__quitterFor') {
         classReference.__mixinQuitters.push(mixin.prototype[member]);
         continue;
       }

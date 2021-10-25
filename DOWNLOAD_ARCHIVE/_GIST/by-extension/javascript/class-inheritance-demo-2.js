@@ -11,10 +11,10 @@ class Teacher extends User {
 }
 
 const jafar = new Teacher({
-  name: "Jafar",
+  name: 'Jafar',
 });
 
 jafar.login(); // "Jafar logged in."
 jafar.createLesson({
-  name: "LearnRX",
+  name: 'LearnRX',
 }); // "Jafar created lesson: LearnRX"

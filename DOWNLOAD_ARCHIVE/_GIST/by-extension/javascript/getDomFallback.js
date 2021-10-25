@@ -6,18 +6,18 @@ const getDomFallback = () => {
   return {
     // Props.
     children: [],
-    className: "",
+    className: '',
     classList: {
       contains: () => false,
     },
-    id: "",
-    innerHTML: "",
-    name: "",
+    id: '',
+    innerHTML: '',
+    name: '',
     nextSibling: null,
     previousSibling: null,
-    outerHTML: "",
-    tagName: "",
-    textContent: "",
+    outerHTML: '',
+    tagName: '',
+    textContent: '',
 
     // Methods.
     addEventListener: () => undefined,

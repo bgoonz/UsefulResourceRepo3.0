@@ -4,10 +4,10 @@ function rads(x) {
 }
 
 // Get the context object of the document's canvas element
-let c = document.querySelector("canvas").getContext("2d");
+let c = document.querySelector('canvas').getContext('2d');
 
 // Define some graphics attributes and draw the curves
-c.fillStyle = "#aaa"; // Gray fills
+c.fillStyle = '#aaa'; // Gray fills
 c.lineWidth = 2; // 2-pixel black (by default) lines
 
 // Draw a circle.

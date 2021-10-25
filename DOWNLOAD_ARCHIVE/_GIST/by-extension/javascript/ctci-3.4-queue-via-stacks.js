@@ -12,7 +12,7 @@ class MyQueue {
       this._enqueue.push(element);
       return;
     }
-    return "Queue capacity is full.";
+    return 'Queue capacity is full.';
   }
 
   dequeue() {
@@ -30,7 +30,7 @@ class MyQueue {
       if (this._enqueue.length > 0) {
         return this._enqueue[0];
       }
-      return "Queue is empty";
+      return 'Queue is empty';
     }
 
     return this._dequeue[0];

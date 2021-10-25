@@ -1,7 +1,7 @@
-var fstream = require("fstream");
-var fstreamIgnore = require("fstream-ignore");
-var fs = require("./fs");
-var Q = require("q");
+var fstream = require('fstream');
+var fstreamIgnore = require('fstream-ignore');
+var fs = require('./fs');
+var Q = require('q');
 
 function copy(reader, writer) {
   var deferred;
@@ -15,7 +15,7 @@ function copy(reader, writer) {
   reader.filter = filterSymlinks;
   reader.follow = false;
 
-  if (reader.type === "Directory" && reader.ignore) {
+  if (reader.type === 'Directory' && reader.ignore) {
     ignore = reader.ignore;
     reader = fstreamIgnore(reader);
     reader.addIgnoreRules(ignore);
@@ -26,11 +26,11 @@ function copy(reader, writer) {
   deferred = Q.defer();
 
   reader
-    .on("error", deferred.reject)
+    .on('error', deferred.reject)
     // Pipe to writer
     .pipe(fstream.Writer(writer))
-    .on("error", deferred.reject)
-    .on("close", deferred.resolve);
+    .on('error', deferred.reject)
+    .on('close', deferred.resolve);
 
   return deferred.promise;
 }
@@ -42,7 +42,7 @@ function copyMode(src, dst) {
 }
 
 function filterSymlinks(entry) {
-  return entry.type !== "SymbolicLink";
+  return entry.type !== 'SymbolicLink';
 }
 
 function parseOptions(opts) {
@@ -70,12 +70,12 @@ function copyFile(src, dst, opts) {
   promise = copy(
     {
       path: src,
-      type: "File",
+      type: 'File',
     },
     {
       path: dst,
       mode: opts.mode,
-      type: "File",
+      type: 'File',
     }
   );
 
@@ -98,13 +98,13 @@ function copyDir(src, dst, opts) {
   promise = copy(
     {
       path: src,
-      type: "Directory",
+      type: 'Directory',
       ignore: opts.ignore,
     },
     {
       path: dst,
       mode: opts.mode,
-      type: "Directory",
+      type: 'Directory',
     }
   );
 

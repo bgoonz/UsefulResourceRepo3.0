@@ -14,12 +14,12 @@ const result = Array.from({ length: 100 })
   .map((_, index) => {
     const number = index + 1;
     return (
-      maybe("FizzBuzz").if(number).divisibleBy(15) ||
-      maybe("Buzz").if(number).divisibleBy(5) ||
-      maybe("Fizz").if(number).divisibleBy(3) ||
+      maybe('FizzBuzz').if(number).divisibleBy(15) ||
+      maybe('Buzz').if(number).divisibleBy(5) ||
+      maybe('Fizz').if(number).divisibleBy(3) ||
       number
     );
   })
-  .join("\n");
+  .join('\n');
 
 console.log(result);

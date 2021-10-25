@@ -3,7 +3,7 @@ let convert = (number, base = 2) => {
 
   let baseValues = [];
   let original = number;
-  let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+  let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
   while (number > 0) {
     baseValues.push(nums[number % base]);
@@ -11,14 +11,14 @@ let convert = (number, base = 2) => {
     // console.log(number);
   }
 
-  let baseVal = baseValues.reverse().join("");
+  let baseVal = baseValues.reverse().join('');
   return `Base 10: ${original}\nBase ${
     base === 2
-      ? "2 (binary)"
+      ? '2 (binary)'
       : base === 8
-      ? "8 (octal)"
+      ? '8 (octal)'
       : base === 16
-      ? "16 (hexadecimal)"
+      ? '16 (hexadecimal)'
       : base
   }: ${baseVal}\n`;
 };

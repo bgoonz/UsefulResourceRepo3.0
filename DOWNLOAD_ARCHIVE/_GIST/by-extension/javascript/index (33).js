@@ -1,11 +1,11 @@
-"use strict";
-const path = require("path");
-const eslint = require("eslint");
-const globby = require("globby");
-const isEqual = require("lodash.isequal");
-const multimatch = require("multimatch");
-const arrify = require("arrify");
-const optionsManager = require("./lib/options-manager");
+'use strict';
+const path = require('path');
+const eslint = require('eslint');
+const globby = require('globby');
+const isEqual = require('lodash.isequal');
+const multimatch = require('multimatch');
+const arrify = require('arrify');
+const optionsManager = require('./lib/options-manager');
 
 const mergeReports = (reports) => {
   // Merge multiple reports into a single report
@@ -66,10 +66,10 @@ module.exports.lintText = (str, opts) => {
   if (
     opts.ignores &&
     !isEqual(defaultIgnores, opts.ignores) &&
-    typeof opts.filename !== "string"
+    typeof opts.filename !== 'string'
   ) {
     throw new Error(
-      "The `ignores` option requires the `filename` option to be defined."
+      'The `ignores` option requires the `filename` option to be defined.'
     );
   }
 
@@ -107,13 +107,13 @@ module.exports.lintFiles = (patterns, opts) => {
   opts = optionsManager.preprocess(opts);
 
   if (opts.ignoresPrefix) {
-    patterns = patterns.map((pattern) => opts.ignoresPrefix + "/" + pattern);
+    patterns = patterns.map((pattern) => opts.ignoresPrefix + '/' + pattern);
     opts.cwd = opts.ignoresRoot;
   }
   console.log(opts.ignoresPrefix, opts.ignoresRoot, patterns);
 
   const isEmptyPatterns = patterns.length === 0;
-  const defaultPattern = `**/*.{${opts.extensions.join(",")}}`;
+  const defaultPattern = `**/*.{${opts.extensions.join(',')}}`;
 
   return globby(isEmptyPatterns ? [defaultPattern] : arrify(patterns), {
     ignore: opts.ignores,
@@ -124,7 +124,7 @@ module.exports.lintFiles = (patterns, opts) => {
     // For silly users that don't specify an extension in the glob pattern
     if (!isEmptyPatterns) {
       paths = paths.filter((filePath) => {
-        const ext = path.extname(filePath).replace(".", "");
+        const ext = path.extname(filePath).replace('.', '');
         return opts.extensions.includes(ext);
       });
     }

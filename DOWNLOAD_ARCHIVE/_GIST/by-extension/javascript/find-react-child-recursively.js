@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export function findReactChildRecursively(children, findFunction) {
   const found = React.Children.toArray(children).find(findFunction);

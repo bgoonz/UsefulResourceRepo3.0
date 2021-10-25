@@ -16,12 +16,12 @@ function SecondGreatLow(arr) {
 
   if (arr.length > 2) {
     // If our array is longer than two items, we return the 2nd and 2nd to last item in the array.
-    return arr[1] + " " + arr[arr.length - 2];
+    return arr[1] + ' ' + arr[arr.length - 2];
   } else if (arr.length == 2) {
     // If our array is exactly two items long, we return the 2nd and the first item
-    return arr[1] + " " + arr[0];
+    return arr[1] + ' ' + arr[0];
   } else {
     // If our array is only one item, we return the only element twice.
-    return arr[0] + " " + arr[0];
+    return arr[0] + ' ' + arr[0];
   }
 }

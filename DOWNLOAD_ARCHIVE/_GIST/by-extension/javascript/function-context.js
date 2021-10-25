@@ -8,11 +8,11 @@ function User(name, age) {
     return function () {
       // Inner function context
       console.log(this.constructor.name); // Window
-      console.log("I'm " + this.name + ", " + this.age + " yrs old");
+      console.log("I'm " + this.name + ', ' + this.age + ' yrs old');
     };
   };
 }
 
-var user = new User("John", 25);
+var user = new User('John', 25);
 var profile = user.getProfile();
 profile(); //I'm undefined, undefined yrs old

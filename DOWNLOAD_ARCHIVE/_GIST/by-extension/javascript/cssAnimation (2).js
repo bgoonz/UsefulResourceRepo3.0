@@ -12,10 +12,10 @@
 // Constants.
 // ==========
 
-const ATTR = "data-has-css-animation";
-const EVENT = "DOMContentLoaded";
-const FUNCTION = "function";
-const NO_PREFERENCE = "(prefers-reduced-motion: no-preference)";
+const ATTR = 'data-has-css-animation';
+const EVENT = 'DOMContentLoaded';
+const FUNCTION = 'function';
+const NO_PREFERENCE = '(prefers-reduced-motion: no-preference)';
 
 const d = document.documentElement;
 const w = window;

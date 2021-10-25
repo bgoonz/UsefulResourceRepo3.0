@@ -1,9 +1,9 @@
-const staticModule = require("static-module");
-const quote = require("quote-stream");
-const through = require("through2");
-const fs = require("fs");
-const path = require("path");
-const resolve = require("resolve");
+const staticModule = require('static-module');
+const quote = require('quote-stream');
+const through = require('through2');
+const fs = require('fs');
+const path = require('path');
+const resolve = require('resolve');
 
 module.exports = (file, opts) => {
   if (/\.json$/.test(file)) return through();
@@ -42,26 +42,26 @@ module.exports = (file, opts) => {
   return sm;
 
   function readFile(file, enc, cb) {
-    if (typeof enc === "function") {
+    if (typeof enc === 'function') {
       cb = enc;
       enc = null;
     }
-    if (enc && typeof enc === "object" && enc.encoding) {
+    if (enc && typeof enc === 'object' && enc.encoding) {
       enc = enc.encoding;
     }
     let isBuffer = false;
     if (enc === null || enc === undefined) {
       isBuffer = true;
-      enc = "base64";
+      enc = 'base64';
     }
 
     const stream = through(write, end);
     stream.push(`process.nextTick(function(){(${cb})(null,`);
-    if (isBuffer) stream.push("Buffer(");
+    if (isBuffer) stream.push('Buffer(');
 
     const s = fs.createReadStream(file, { encoding: enc });
-    s.on("error", (err) => {
-      sm.emit("error", err);
+    s.on('error', (err) => {
+      sm.emit('error', err);
     });
     return s.pipe(quote()).pipe(stream);
 
@@ -71,9 +71,9 @@ module.exports = (file, opts) => {
     }
     function end(next) {
       if (isBuffer) this.push(',"base64")');
-      this.push(")})");
+      this.push(')})');
       this.push(null);
-      sm.emit("file", file);
+      sm.emit('file', file);
       next();
     }
   }
@@ -82,20 +82,20 @@ module.exports = (file, opts) => {
     let isBuffer = false;
     if (enc === null || enc === undefined) {
       isBuffer = true;
-      enc = "base64";
+      enc = 'base64';
     }
-    if (enc && typeof enc === "object" && enc.encoding) {
+    if (enc && typeof enc === 'object' && enc.encoding) {
       enc = enc.encoding;
     }
     const stream = fs
       .createReadStream(file, { encoding: enc })
-      .on("error", (err) => {
-        sm.emit("error", err);
+      .on('error', (err) => {
+        sm.emit('error', err);
       })
       .pipe(quote())
       .pipe(through(write, end));
     if (isBuffer) {
-      stream.push("Buffer(");
+      stream.push('Buffer(');
     }
     return stream;
 
@@ -106,7 +106,7 @@ module.exports = (file, opts) => {
     function end(next) {
       if (isBuffer) this.push(',"base64")');
       this.push(null);
-      sm.emit("file", file);
+      sm.emit('file', file);
       next();
     }
   }
@@ -117,11 +117,11 @@ module.exports = (file, opts) => {
     stream.push(`process.nextTick(function(){(${cb})(null,`);
     fs.readdir(path, (err, src) => {
       if (err) {
-        stream.emit("error", err);
+        stream.emit('error', err);
         return;
       }
       stream.push(JSON.stringify(src));
-      stream.end(")})");
+      stream.end(')})');
     });
     return stream;
 
@@ -139,7 +139,7 @@ module.exports = (file, opts) => {
     const stream = through(write, end);
     fs.readdir(path, (err, src) => {
       if (err) {
-        stream.emit("error", err);
+        stream.emit('error', err);
         return;
       }
       stream.end(JSON.stringify(src));

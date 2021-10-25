@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const markdownRegex = /\.md$/;
 
@@ -10,7 +10,7 @@ const markdownRegex = /\.md$/;
  * @returns {Array<{ filename: string, pathname: string }>}
  */
 function findPagesMarkdown(
-  directory = path.resolve(__dirname, "../../../src/pages"),
+  directory = path.resolve(__dirname, '../../../src/pages'),
   pagesMarkdown = []
 ) {
   const items = fs.readdirSync(directory);
@@ -28,12 +28,12 @@ function findPagesMarkdown(
     }
 
     let pathname = itemPath
-      .replace(new RegExp(`\\${path.sep}`, "g"), "/")
-      .replace(/^.*\/pages/, "")
-      .replace(".md", "");
+      .replace(new RegExp(`\\${path.sep}`, 'g'), '/')
+      .replace(/^.*\/pages/, '')
+      .replace('.md', '');
 
     // Remove the last pathname segment.
-    pathname = pathname.split("/").slice(0, 3).join("/");
+    pathname = pathname.split('/').slice(0, 3).join('/');
 
     pagesMarkdown.push({
       // Relative location in the path (URL) system.
@@ -77,7 +77,7 @@ function findComponents(directory, components = []) {
 }
 
 const pageRegex = /(\.js|\.tsx)$/;
-const blackList = ["/.eslintrc", "/_document", "/_app"];
+const blackList = ['/.eslintrc', '/_document', '/_app'];
 
 /**
  * @typedef {object} NextJSPage
@@ -96,27 +96,27 @@ const blackList = ["/.eslintrc", "/_document", "/_app"];
  */
 function findPages(
   options = {},
-  directory = path.resolve(__dirname, "../../../pages"),
+  directory = path.resolve(__dirname, '../../../pages'),
   pages = []
 ) {
   fs.readdirSync(directory).forEach((item) => {
     const itemPath = path.resolve(directory, item);
     const pathname = itemPath
-      .replace(new RegExp(`\\${path.sep}`, "g"), "/")
-      .replace(/^.*\/pages/, "")
-      .replace(".js", "")
-      .replace(".tsx", "")
-      .replace(/^\/index$/, "/") // Replace `index` by `/`.
-      .replace(/\/index$/, "");
+      .replace(new RegExp(`\\${path.sep}`, 'g'), '/')
+      .replace(/^.*\/pages/, '')
+      .replace('.js', '')
+      .replace('.tsx', '')
+      .replace(/^\/index$/, '/') // Replace `index` by `/`.
+      .replace(/\/index$/, '');
 
-    if (pathname.indexOf(".eslintrc") !== -1) {
+    if (pathname.indexOf('.eslintrc') !== -1) {
       return;
     }
 
     if (
       options.front &&
-      pathname.indexOf("/components") === -1 &&
-      pathname.indexOf("/api-docs") === -1
+      pathname.indexOf('/components') === -1 &&
+      pathname.indexOf('/api-docs') === -1
     ) {
       return;
     }
@@ -142,8 +142,8 @@ function findPages(
 
   // sort by pathnames without '-' so that e.g. card comes before card-action
   pages.sort((a, b) => {
-    const pathnameA = a.pathname.replace(/-/g, "");
-    const pathnameB = b.pathname.replace(/-/g, "");
+    const pathnameA = a.pathname.replace(/-/g, '');
+    const pathnameB = b.pathname.replace(/-/g, '');
     if (pathnameA < pathnameB) return -1;
     if (pathnameA > pathnameB) return 1;
     return 0;

@@ -21,9 +21,9 @@
   z
 ) {
   for (
-    a = (a + "").split("").reverse(), // reverse decimal number and make it iterable
+    a = (a + '').split('').reverse(), // reverse decimal number and make it iterable
       i = -1, // decimal number digit pointer
-      r = ""; // result
+      r = ''; // result
     a[++i]; // while digits do...
 
   )

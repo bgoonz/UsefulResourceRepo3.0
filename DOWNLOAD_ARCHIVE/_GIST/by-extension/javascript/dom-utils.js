@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 var canUseDOM = (exports.canUseDOM = !!(
-  typeof window !== "undefined" &&
+  typeof window !== 'undefined' &&
   window.document &&
   window.document.createElement
 ));
@@ -14,14 +14,14 @@ var addEventListener = (exports.addEventListener = function addEventListener(
 ) {
   return node.addEventListener
     ? node.addEventListener(event, listener, false)
-    : node.attachEvent("on" + event, listener);
+    : node.attachEvent('on' + event, listener);
 });
 
 var removeEventListener = (exports.removeEventListener =
   function removeEventListener(node, event, listener) {
     return node.removeEventListener
       ? node.removeEventListener(event, listener, false)
-      : node.detachEvent("on" + event, listener);
+      : node.detachEvent('on' + event, listener);
   });
 
 var getConfirmation = (exports.getConfirmation = function getConfirmation(
@@ -42,14 +42,14 @@ var supportsHistory = (exports.supportsHistory = function supportsHistory() {
   var ua = window.navigator.userAgent;
 
   if (
-    (ua.indexOf("Android 2.") !== -1 || ua.indexOf("Android 4.0") !== -1) &&
-    ua.indexOf("Mobile Safari") !== -1 &&
-    ua.indexOf("Chrome") === -1 &&
-    ua.indexOf("Windows Phone") === -1
+    (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
+    ua.indexOf('Mobile Safari') !== -1 &&
+    ua.indexOf('Chrome') === -1 &&
+    ua.indexOf('Windows Phone') === -1
   )
     return false;
 
-  return window.history && "pushState" in window.history;
+  return window.history && 'pushState' in window.history;
 });
 
 /**
@@ -58,7 +58,7 @@ var supportsHistory = (exports.supportsHistory = function supportsHistory() {
  */
 var supportsPopStateOnHashChange = (exports.supportsPopStateOnHashChange =
   function supportsPopStateOnHashChange() {
-    return window.navigator.userAgent.indexOf("Trident") === -1;
+    return window.navigator.userAgent.indexOf('Trident') === -1;
   });
 
 /**
@@ -67,7 +67,7 @@ var supportsPopStateOnHashChange = (exports.supportsPopStateOnHashChange =
 var supportsGoWithoutReloadUsingHash =
   (exports.supportsGoWithoutReloadUsingHash =
     function supportsGoWithoutReloadUsingHash() {
-      return window.navigator.userAgent.indexOf("Firefox") === -1;
+      return window.navigator.userAgent.indexOf('Firefox') === -1;
     });
 
 /**
@@ -78,6 +78,6 @@ var supportsGoWithoutReloadUsingHash =
 var isExtraneousPopstateEvent = (exports.isExtraneousPopstateEvent =
   function isExtraneousPopstateEvent(event) {
     return (
-      event.state === undefined && navigator.userAgent.indexOf("CriOS") === -1
+      event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1
     );
   });

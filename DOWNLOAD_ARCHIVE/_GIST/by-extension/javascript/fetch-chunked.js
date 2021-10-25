@@ -1,11 +1,11 @@
-var chunkedUrl = "https://jigsaw.w3.org/HTTP/ChunkedScript";
+var chunkedUrl = 'https://jigsaw.w3.org/HTTP/ChunkedScript';
 fetch(chunkedUrl)
   .then(processChunkedResponse)
   .then(onChunkedResponseComplete)
   .catch(onChunkedResponseError);
 
 function onChunkedResponseComplete(result) {
-  console.log("all done!", result);
+  console.log('all done!', result);
 }
 
 function onChunkedResponseError(err) {
@@ -13,7 +13,7 @@ function onChunkedResponseError(err) {
 }
 
 function processChunkedResponse(response) {
-  var text = "";
+  var text = '';
   var reader = response.body.getReader();
   var decoder = new TextDecoder();
 
@@ -27,14 +27,14 @@ function processChunkedResponse(response) {
     var chunk = decoder.decode(result.value || new Uint8Array(), {
       stream: !result.done,
     });
-    console.log("got chunk of", chunk.length, "bytes");
+    console.log('got chunk of', chunk.length, 'bytes');
     text += chunk;
-    console.log("text so far is", text.length, "bytes\n");
+    console.log('text so far is', text.length, 'bytes\n');
     if (result.done) {
-      console.log("returning");
+      console.log('returning');
       return text;
     } else {
-      console.log("recursing");
+      console.log('recursing');
       return readChunk();
     }
   }

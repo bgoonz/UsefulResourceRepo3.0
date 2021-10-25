@@ -1,23 +1,23 @@
-"use strict";
+'use strict';
 
-import fs from "fs";
-import union from "union";
-import ecstatic from "ecstatic";
-import auth from "basic-auth";
-import httpProxy from "http-proxy";
-import corser from "corser";
-import path from "path";
-import secureCompare from "secure-compare";
+import fs from 'fs';
+import union from 'union';
+import ecstatic from 'ecstatic';
+import auth from 'basic-auth';
+import httpProxy from 'http-proxy';
+import corser from 'corser';
+import path from 'path';
+import secureCompare from 'secure-compare';
 
 // a hacky and direct workaround to fix https://github.com/http-party/http-server/issues/525
 function getCaller() {
   try {
     const stack = new Error().stack;
-    const stackLines = stack.split("\n");
+    const stackLines = stack.split('\n');
     const callerStack = stackLines[3];
     return callerStack.match(/at (.+) \(/)[1];
   } catch (error) {
-    return "";
+    return '';
   }
 }
 
@@ -26,8 +26,8 @@ path.normalize = (p) => {
   const caller = getCaller();
   let result = _pathNormalize(p);
   // https://github.com/jfhbrook/node-ecstatic/blob/master/lib/ecstatic.js#L20
-  if (caller === "decodePathname") {
-    result = result.replace(/\\/g, "/");
+  if (caller === 'decodePathname') {
+    result = result.replace(/\\/g, '/');
   }
   return result;
 };
@@ -59,10 +59,10 @@ class HttpServer {
       this.root = options.root;
     } else {
       try {
-        fs.lstatSync("./public");
-        this.root = "./public";
+        fs.lstatSync('./public');
+        this.root = './public';
       } catch (err) {
-        this.root = "./";
+        this.root = './';
       }
     }
 
@@ -74,27 +74,27 @@ class HttpServer {
         : // -1 is a special case to turn off caching.
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Preventing_caching
         options.cache === -1
-        ? "no-cache, no-store, must-revalidate"
+        ? 'no-cache, no-store, must-revalidate'
         : options.cache; // in seconds.
-    this.showDir = options.showDir !== "false";
-    this.autoIndex = options.autoIndex !== "false";
+    this.showDir = options.showDir !== 'false';
+    this.autoIndex = options.autoIndex !== 'false';
     this.showDotfiles = options.showDotfiles;
     this.gzip = options.gzip === true;
     this.brotli = options.brotli === true;
     if (options.ext) {
-      this.ext = options.ext === true ? "html" : options.ext;
+      this.ext = options.ext === true ? 'html' : options.ext;
     }
     this.contentType =
-      options.contentType || this.ext === "html"
-        ? "text/html"
-        : "application/octet-stream";
+      options.contentType || this.ext === 'html'
+        ? 'text/html'
+        : 'application/octet-stream';
 
     const before = options.before ? options.before.slice() : [];
 
     if (options.logFn) {
       before.push((req, res) => {
         options.logFn(req, res);
-        res.emit("next");
+        res.emit('next');
       });
     }
 
@@ -117,23 +117,23 @@ class HttpServer {
             credentials.pass
           );
           if (usernameEqual && passwordEqual) {
-            return res.emit("next");
+            return res.emit('next');
           }
         }
 
         res.statusCode = 401;
-        res.setHeader("WWW-Authenticate", 'Basic realm=""');
-        res.end("Access denied");
+        res.setHeader('WWW-Authenticate', 'Basic realm=""');
+        res.end('Access denied');
       });
     }
 
     if (options.cors) {
-      this.headers["Access-Control-Allow-Origin"] = "*";
-      this.headers["Access-Control-Allow-Headers"] =
-        "Origin, X-Requested-With, Content-Type, Accept, Range";
+      this.headers['Access-Control-Allow-Origin'] = '*';
+      this.headers['Access-Control-Allow-Headers'] =
+        'Origin, X-Requested-With, Content-Type, Accept, Range';
       if (options.corsHeaders) {
         options.corsHeaders.split(/\s*,\s*/).forEach(function (h) {
-          this.headers["Access-Control-Allow-Headers"] += ", " + h;
+          this.headers['Access-Control-Allow-Headers'] += ', ' + h;
         }, this);
       }
       before.push(
@@ -141,7 +141,7 @@ class HttpServer {
           options.corsHeaders
             ? {
                 requestHeaders:
-                  this.headers["Access-Control-Allow-Headers"].split(/\s*,\s*/),
+                  this.headers['Access-Control-Allow-Headers'].split(/\s*,\s*/),
               }
             : null
         )
@@ -150,17 +150,17 @@ class HttpServer {
 
     if (options.robots) {
       before.push((req, res) => {
-        if (req.url === "/robots.txt") {
-          res.setHeader("Content-Type", "text/plain");
+        if (req.url === '/robots.txt') {
+          res.setHeader('Content-Type', 'text/plain');
           const robots =
             options.robots === true
-              ? "User-agent: *\nDisallow: /"
-              : options.robots.replace(/\\n/, "\n");
+              ? 'User-agent: *\nDisallow: /'
+              : options.robots.replace(/\\n/, '\n');
 
           return res.end(robots);
         }
 
-        res.emit("next");
+        res.emit('next');
       });
     }
 
@@ -175,11 +175,11 @@ class HttpServer {
         gzip: this.gzip,
         brotli: this.brotli,
         contentType: this.contentType,
-        handleError: typeof options.proxy !== "string",
+        handleError: typeof options.proxy !== 'string',
       })
     );
 
-    if (typeof options.proxy === "string") {
+    if (typeof options.proxy === 'string') {
       const proxy = httpProxy.createProxyServer({});
       before.push((req, res) => {
         proxy.web(
@@ -196,7 +196,7 @@ class HttpServer {
                 status: res.statusCode,
               });
             }
-            res.emit("next");
+            res.emit('next');
           }
         );
       });

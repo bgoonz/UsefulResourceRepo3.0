@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-import isIterable from "./isIterable";
-import isIterator from "./isIterator";
+import isIterable from './isIterable';
+import isIterator from './isIterator';
 
 /**
  * Helper to iterate over sequence types (arrays, array-like objects,
@@ -45,7 +45,7 @@ export default function forEach(seq, callback, optThisObj) {
         callback(v, i);
       }
     }
-  } else if (seq && typeof seq === "object") {
+  } else if (seq && typeof seq === 'object') {
     if (optThisObj) {
       for (let prop in seq) {
         callback.call(optThisObj, seq[prop], prop);

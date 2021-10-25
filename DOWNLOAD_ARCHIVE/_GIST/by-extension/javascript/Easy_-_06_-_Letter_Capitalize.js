@@ -2,7 +2,7 @@
 function LetterCapitalize(str) {
   // First, we use the split method to divide the input string into an array of individual words
   // Note that we pass a string consisting of a single space into the method to "split" the string at each space
-  str = str.split(" ");
+  str = str.split(' ');
 
   // Next, we loop through each item in our new array...
   for (i = 0; i < str.length; i++) {
@@ -11,7 +11,7 @@ function LetterCapitalize(str) {
     str[i] = str[i][0].toUpperCase() + str[i].substr(1);
   }
   // Finally, we join our array back together...
-  str = str.join(" ");
+  str = str.join(' ');
 
   // ...and return our answer.
   return str;
@@ -19,11 +19,11 @@ function LetterCapitalize(str) {
 
 // Best Practices
 function LetterCapitalize(str) {
-  str = str.split(" ");
+  str = str.split(' ');
 
   for (var i = 0, x = str.length; i < x; i++) {
     str[i] = str[i][0].toUpperCase() + str[i].substr(1);
   }
 
-  return str.join(" ");
+  return str.join(' ');
 }

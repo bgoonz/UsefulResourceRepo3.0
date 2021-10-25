@@ -1,5 +1,5 @@
 module.exports = function flatten(list, depth) {
-  depth = typeof depth == "number" ? depth : Infinity;
+  depth = typeof depth == 'number' ? depth : Infinity;
 
   if (!depth) {
     if (Array.isArray(list)) {

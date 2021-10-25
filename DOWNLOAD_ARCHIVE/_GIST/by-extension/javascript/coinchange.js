@@ -42,15 +42,15 @@ function main() {
   const amount = 12;
   const coins = [2, 4, 5];
   console.log(
-    "Number of combinations of getting change for " +
+    'Number of combinations of getting change for ' +
       amount +
-      " is: " +
+      ' is: ' +
       change(coins, amount)
   );
   console.log(
-    "Minimum number of coins required for amount :" +
+    'Minimum number of coins required for amount :' +
       amount +
-      " is: " +
+      ' is: ' +
       minimumCoins(coins, amount)
   );
 }

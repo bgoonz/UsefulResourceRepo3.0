@@ -2,8 +2,8 @@
 
 function asyncGenerator(gen) {
   var awaiteds = new WeakSet();
-  var unset = Symbol("unset");
-  var returned = Symbol("returned");
+  var unset = Symbol('unset');
+  var returned = Symbol('returned');
 
   return function wrapped(...args) {
     var def = deferred();
@@ -73,7 +73,7 @@ function asyncGenerator(gen) {
   }
 
   function isPromise(pr) {
-    return pr && typeof pr == "object" && typeof pr.then == "function";
+    return pr && typeof pr == 'object' && typeof pr.then == 'function';
   }
 
   function deferred() {

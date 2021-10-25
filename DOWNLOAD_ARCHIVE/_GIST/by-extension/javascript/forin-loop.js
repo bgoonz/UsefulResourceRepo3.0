@@ -1,5 +1,5 @@
 let obj = {
-  name: "Rose",
+  name: 'Rose',
   cats: 2,
 };
 for (let currentKey in obj) {

@@ -1,18 +1,18 @@
 /*jslint node:true, forin:true */
 
 module.exports = function (grunt) {
-  var path = require("path"),
+  var path = require('path'),
     isArray = Array.isArray,
     template =
       'ddc.utils.namespace("ddc.crm.modules.crm", <%= JSON.stringify(modules) %>);';
 
   grunt.registerMultiTask(
-    "build-config",
-    "Build the YUI config files",
+    'build-config',
+    'Build the YUI config files',
     function () {
       var data = this.data,
         envs = data.envs,
-        suffix = "/**/meta/*.json",
+        suffix = '/**/meta/*.json',
         srcs = isArray(data.src)
           ? data.src.map(function (it) {
               return it + suffix;
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         var property, submodule;
 
         for (property in data) {
-          if (property === "submodules") {
+          if (property === 'submodules') {
             for (submodule in data[property]) {
               parseData(json, submodule, data.submodules[submodule], true);
             }

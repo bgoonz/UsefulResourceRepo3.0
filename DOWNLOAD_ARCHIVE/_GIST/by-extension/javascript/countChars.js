@@ -1,5 +1,5 @@
 function charCount(inputString) {
-  let res = inputString.split("").reduce(function (accum, el) {
+  let res = inputString.split('').reduce(function (accum, el) {
     if (el in accum) {
       accum[el] = accum[el] + 1;
     } else {
@@ -9,4 +9,4 @@ function charCount(inputString) {
   }, {});
   return res;
 }
-console.log(charCount("aaabbbeebbcdkjfalksdfjlkasdfasdfiiidkkdingds"));
+console.log(charCount('aaabbbeebbcdkjfalksdfjlkasdfasdfiiidkkdingds'));

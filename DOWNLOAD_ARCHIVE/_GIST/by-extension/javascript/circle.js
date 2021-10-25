@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const Circle = () => (
   <svg height="{100}" width="{100}">

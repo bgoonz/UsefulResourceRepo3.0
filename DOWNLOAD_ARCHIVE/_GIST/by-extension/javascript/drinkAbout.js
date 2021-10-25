@@ -24,12 +24,12 @@ peopleWithAgeDrink(30); // => drink whisky
 
 const peopleWithAgeDrink = (old) => {
   return old < 14
-    ? "drink toddy"
+    ? 'drink toddy'
     : old < 18
-    ? "drink coke"
+    ? 'drink coke'
     : old < 21
-    ? "drink beer"
+    ? 'drink beer'
     : old > 21
-    ? "drink whisky"
-    : "drink whisky";
+    ? 'drink whisky'
+    : 'drink whisky';
 };

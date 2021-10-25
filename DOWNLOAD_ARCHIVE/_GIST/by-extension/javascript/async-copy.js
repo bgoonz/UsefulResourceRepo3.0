@@ -21,8 +21,8 @@
  *
  */
 
-const babel = require("babel-core");
-const path = require("path");
+const babel = require('babel-core');
+const path = require('path');
 
 const t = babel.types;
 const Transformer = babel.Transformer;
@@ -83,11 +83,11 @@ function createAsyncCopy(node, scope) {
   return exportDeclaration;
 }
 
-var delegateName = "delegate";
-const delegatePath = "./src/_internals";
+var delegateName = 'delegate';
+const delegatePath = './src/_internals';
 let insertAsync = false;
 
-module.exports = new Transformer("async-to-sync", {
+module.exports = new Transformer('async-to-sync', {
   Program: {
     enter() {
       insertAsync = false;

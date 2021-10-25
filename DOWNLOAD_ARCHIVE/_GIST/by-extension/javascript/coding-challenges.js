@@ -19,7 +19,7 @@ function removeRotten(bagOfFruits) {
   }
 
   bagOfFruits.map(function (item) {
-    newBagOfFruits.push(item.replace(/rotten/i, "").toLowerCase());
+    newBagOfFruits.push(item.replace(/rotten/i, '').toLowerCase());
   });
 
   return newBagOfFruits;
@@ -75,14 +75,14 @@ peopleWithAgeDrink(30); // => drink whisky
 
 var peopleWithAgeDrink = function (old) {
   return old < 14
-    ? "drink toddy"
+    ? 'drink toddy'
     : old < 18
-    ? "drink coke"
+    ? 'drink coke'
     : old < 21
-    ? "drink beer"
+    ? 'drink beer'
     : old > 21
-    ? "drink whisky"
-    : "drink whisky";
+    ? 'drink whisky'
+    : 'drink whisky';
 };
 /* ---------
  * Challenge
@@ -127,13 +127,13 @@ function factorial(num) {
 
 function multiples(x) {
   if (x % 49 == 0 && x % 3 == 0) {
-    return "Fang";
+    return 'Fang';
   } else if (x % 7 == 0) {
-    return "Fizz";
+    return 'Fizz';
   } else if (x % 15 == 0) {
-    return "Foo";
+    return 'Foo';
   } else {
-    return "Far";
+    return 'Far';
   }
 }
 /* Challenge 
@@ -194,7 +194,7 @@ function greetingForAllFriends(friends) {
   } else {
     var messages = [];
     friends.map(function (friend) {
-      messages.push("Hello, " + friend + "!");
+      messages.push('Hello, ' + friend + '!');
     });
     return messages;
   }
@@ -239,11 +239,11 @@ function PrimeTest(a) {
 function getNumber(number) {
   //your code here
   if (number % 5 == 0 && number % 3 == 0) {
-    return "BOTH";
+    return 'BOTH';
   } else if (number % 3 == 0) {
-    return "THREE";
+    return 'THREE';
   } else if (number % 5 == 0) {
-    return "FIVE";
+    return 'FIVE';
   } else {
     return number;
   }
@@ -388,16 +388,16 @@ function tug_o_war(teams) {
   var team2 = teams[1].reduce((a, b) => a + b);
 
   if (team1 > team2) {
-    return "Team 1 wins!";
+    return 'Team 1 wins!';
   } else if (team1 < team2) {
-    return "Team 2 wins!";
+    return 'Team 2 wins!';
   } else {
     var max1 = Math.max(teams[0]);
     var max2 = Math.max(teams[1]);
     if (max1 < max2) {
-      return "Team 2 wins!";
+      return 'Team 2 wins!';
     } else if (max2 < max1) {
-      return "Team 1 wins!";
+      return 'Team 1 wins!';
     } else {
       return "It's a tie!";
     }
@@ -453,7 +453,7 @@ function upArray(arr) {
     }
   }
 
-  var strings = "";
+  var strings = '';
   arr.map(function (item) {
     strings += item;
   });

@@ -1,6 +1,6 @@
 const hyphenateText = (text, breakpoint) => {
   if (text.length > breakpoint) {
-    const words = text.split(" ");
+    const words = text.split(' ');
     return words
       .map((word) => {
         if (word.length > breakpoint) {
@@ -10,7 +10,7 @@ const hyphenateText = (text, breakpoint) => {
         }
         return word;
       })
-      .join(" ");
+      .join(' ');
   }
 
   return text;

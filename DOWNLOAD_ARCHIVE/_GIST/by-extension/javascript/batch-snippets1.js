@@ -55,7 +55,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -77,7 +77,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -111,11 +111,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -193,7 +193,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -222,18 +222,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -243,7 +243,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -268,7 +268,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -280,7 +280,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -311,8 +311,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -320,7 +320,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -368,7 +368,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -410,11 +410,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -442,7 +442,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -453,7 +453,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -462,13 +462,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -489,7 +489,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -509,12 +509,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -534,12 +534,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -647,16 +647,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 

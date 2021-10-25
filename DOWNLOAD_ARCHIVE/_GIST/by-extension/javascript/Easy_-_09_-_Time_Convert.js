@@ -9,10 +9,10 @@ function TimeConvert(num) {
   var minutes = num % 60;
 
   // Finally, we return our answer as a string with ":" inserted between the hours and minutes.
-  return hours + ":" + minutes;
+  return hours + ':' + minutes;
 }
 
 // Without comments
 function TimeConvert(num) {
-  return Math.floor(num / 60) + ":" + (num % 60);
+  return Math.floor(num / 60) + ':' + (num % 60);
 }

@@ -11,7 +11,7 @@
   // slow down performance.now so the dino game is Slooooooooww
   performance.now = (...args) => perfnow.call(performance) / 2.5;
 
-  window.outascii = window.outascii || document.createElement("textarea");
+  window.outascii = window.outascii || document.createElement('textarea');
   outascii.style.cssText = `
 position: absolute;
 top: 0px;
@@ -26,16 +26,16 @@ right: 0;
 `;
   document.body.append(outascii);
 
-  let prevFrame = "";
-  const sourceCanvas = document.querySelector("canvas");
-  const backingCanvas = document.createElement("canvas");
-  const backcontext = backingCanvas.getContext("2d");
+  let prevFrame = '';
+  const sourceCanvas = document.querySelector('canvas');
+  const backingCanvas = document.createElement('canvas');
+  const backcontext = backingCanvas.getContext('2d');
 
   const scalingFactor = 6; // bigger is smaller.
   const refreshRateInMs = 175;
 
   // string length of 13 is expected below.
-  const ascii = "@GLftli;:,.  ".split().reverse().join("");
+  const ascii = '@GLftli;:,.  '.split().reverse().join('');
 
   // might want to defer the first call to DCL or something..
   render(
@@ -47,14 +47,14 @@ right: 0;
 
   function render(sourceCanvas, backcontext, w, h) {
     // Draw source canvas onto the smaller backing canvas
-    backcontext.fillStyle = "white";
+    backcontext.fillStyle = 'white';
     backcontext.fillRect(0, 0, w, h);
     backcontext.drawImage(sourceCanvas, 0, 0, w, h);
 
     // Grab the pixel data from the backing canvas
     var data = backcontext.getImageData(0, 0, w, h).data;
 
-    var chars = "",
+    var chars = '',
       px = 0,
       pxlen = w * h * 4;
 
@@ -67,7 +67,7 @@ right: 0;
           ascii[(62 * data[px++] + 123 * data[px++] + 23 * data[px++]) >>> 12];
         px++; // don't need alpha
       }
-      chars += "\n";
+      chars += '\n';
     }
 
     frame = `/*

@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 /* eslint
   import/no-extraneous-dependencies: off,
   node/no-extraneous-require: off,
 */
-const npa = require("npm-package-arg");
-const fetch = require("npm-registry-fetch");
-const RegistryConfig = require("npm-registry-fetch/config");
+const npa = require('npm-package-arg');
+const fetch = require('npm-registry-fetch');
+const RegistryConfig = require('npm-registry-fetch/config');
 
 module.exports.add = add;
 function add(spec, tag, opts) {
   // tag is not in the pudding spec, handle separately
-  const cleanTag = (tag || opts.get("tag")).trim();
+  const cleanTag = (tag || opts.get('tag')).trim();
 
   // eslint-disable-next-line no-param-reassign
   opts = RegistryConfig(opts, {
@@ -20,22 +20,22 @@ function add(spec, tag, opts) {
 
   const { name, rawSpec: version } = opts.spec;
 
-  opts.log.verbose("dist-tag add", cleanTag, "to", `${name}@${version}`);
+  opts.log.verbose('dist-tag add', cleanTag, 'to', `${name}@${version}`);
 
   return fetchTags(opts).then((tags) => {
     if (tags[cleanTag] === version) {
-      opts.log.warn("dist-tag add", cleanTag, "already set to", version);
+      opts.log.warn('dist-tag add', cleanTag, 'already set to', version);
       return;
     }
 
     const uri = `-/package/${opts.spec.escapedName}/dist-tags/${cleanTag}`;
     const payload = opts.concat({
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(version),
       headers: {
         // cannot use fetch.json() due to HTTP 204 response,
         // so we manually set the required content-type
-        "content-type": "application/json",
+        'content-type': 'application/json',
       },
     });
 
@@ -56,16 +56,16 @@ function remove(spec, tag, opts) {
     spec: npa(spec),
   });
 
-  opts.log.verbose("dist-tag del", tag, "from", opts.spec.name);
+  opts.log.verbose('dist-tag del', tag, 'from', opts.spec.name);
 
   return fetchTags(opts).then((tags) => {
     const version = tags[tag];
 
     if (!version) {
       opts.log.info(
-        "dist-tag del",
+        'dist-tag del',
         tag,
-        "is not a dist-tag on",
+        'is not a dist-tag on',
         opts.spec.name
       );
       return;
@@ -73,7 +73,7 @@ function remove(spec, tag, opts) {
 
     const uri = `-/package/${opts.spec.escapedName}/dist-tags/${tag}`;
     const payload = opts.concat({
-      method: "DELETE",
+      method: 'DELETE',
     });
 
     // the delete properly returns a 204, so no json to parse
@@ -100,7 +100,7 @@ function list(spec, opts) {
         Object.keys(tags)
           .map((k) => `${k}: ${tags[k]}`)
           .sort()
-          .join("\n")
+          .join('\n')
       );
     })
     .catch(handleError);

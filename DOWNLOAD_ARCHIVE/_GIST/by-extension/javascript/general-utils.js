@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
  * Copyright 2020 Palantir Technologies, Inc. All rights reserved.
  *
@@ -14,18 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.countDecimalPlaces =
   exports.clamp =
   exports.approxEqual =
   exports.arrayLengthCompare =
   exports.isNodeEnv =
     void 0;
-var errors_1 = require("../errors");
+var errors_1 = require('../errors');
 /** Returns whether `process.env.NODE_ENV` exists and equals `env`. */
 function isNodeEnv(env) {
   return (
-    typeof process !== "undefined" &&
+    typeof process !== 'undefined' &&
     process.env &&
     process.env.NODE_ENV === env
   );

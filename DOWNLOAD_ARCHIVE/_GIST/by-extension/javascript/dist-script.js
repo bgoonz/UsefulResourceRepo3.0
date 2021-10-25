@@ -6,7 +6,7 @@ $(document).ready(function () {
     var scrollPercent = scrollTop / (docHeight - winHeight);
     var scrollPercentRounded = Math.round(scrollPercent * 100);
 
-    $("#scrollPercentLabel>span").html(scrollPercentRounded);
+    $('#scrollPercentLabel>span').html(scrollPercentRounded);
     repositionLabel();
   });
 
@@ -15,12 +15,12 @@ $(document).ready(function () {
   });
 
   function repositionLabel() {
-    $("#scrollPercentLabel").css({
-      position: "fixed",
-      left: ($(window).width() - $("#scrollPercentLabel").outerWidth()) / 2,
+    $('#scrollPercentLabel').css({
+      position: 'fixed',
+      left: ($(window).width() - $('#scrollPercentLabel').outerWidth()) / 2,
       top:
-        ($(window).height() - $("#scrollPercentLabel").outerHeight()) / 2 -
-        $("#scrollPercentLabel").height(),
+        ($(window).height() - $('#scrollPercentLabel').outerHeight()) / 2 -
+        $('#scrollPercentLabel').height(),
     });
   }
 

@@ -6,4 +6,4 @@ let elementCounts = function (array) {
   });
   return obj;
 };
-console.log(elementCounts(["e", "f", "g", "f"])); // => Object {e: 1, f: 2, g: 1}
+console.log(elementCounts(['e', 'f', 'g', 'f'])); // => Object {e: 1, f: 2, g: 1}

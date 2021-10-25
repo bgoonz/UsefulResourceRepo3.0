@@ -13,5 +13,5 @@ const allRequests = await Promise.allSettled([
   getPossums(),
 ]);
 const [dogs, cats, possums] = allRequests.map((result) =>
-  result.status === "fulfilled" ? result.value : undefined
+  result.status === 'fulfilled' ? result.value : undefined
 );

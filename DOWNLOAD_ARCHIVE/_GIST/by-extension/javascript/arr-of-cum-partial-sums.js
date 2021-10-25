@@ -29,12 +29,12 @@ function rPartSumsArr(arr, partSum = [], start = 0, end = arr.length - 1) {
 }
 
 console.log(
-  "------------------------------------------------rPartSumArr------------------------------------------------"
+  '------------------------------------------------rPartSumArr------------------------------------------------'
 );
-console.log("rPartSumsArr(arr)=[ 1, 1, 5, 2, 6, 10 ]: ", rPartSumsArr(arr));
-console.log("rPartSumsArr(arr1)=[ 1, 7, 12, 6, 5, 10 ]: ", rPartSumsArr(arr1));
+console.log('rPartSumsArr(arr)=[ 1, 1, 5, 2, 6, 10 ]: ', rPartSumsArr(arr));
+console.log('rPartSumsArr(arr1)=[ 1, 7, 12, 6, 5, 10 ]: ', rPartSumsArr(arr1));
 console.log(
-  "------------------------------------------------rPartSumArr------------------------------------------------"
+  '------------------------------------------------rPartSumArr------------------------------------------------'
 );
 /*
 ------------------------------------------------rPartSumArr------------------------------------------------

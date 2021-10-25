@@ -14,9 +14,9 @@ function user(username, password) {
   };
 }
 
-var myUser = user("Me", 1234);
+var myUser = user('Me', 1234);
 console.log(myUser.getUsername()); // Me
-myUser.setUsername("NotMe");
+myUser.setUsername('NotMe');
 console.log(myUser.getUsername()); // NotMe
 console.log(myUser.checkPassword(1000)); // false
 console.log(myUser.checkPassword(1234)); // true

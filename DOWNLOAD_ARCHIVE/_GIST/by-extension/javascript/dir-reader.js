@@ -1,7 +1,7 @@
-const { lstatSync, readdirSync } = require("fs");
-const { basename, join, resolve } = require("path");
+const { lstatSync, readdirSync } = require('fs');
+const { basename, join, resolve } = require('path');
 
-const denyList = ["images"];
+const denyList = ['images'];
 
 const isDirectory = (source) => lstatSync(source).isDirectory();
 const getDirectories = (source) =>
@@ -11,8 +11,8 @@ const getDirectories = (source) =>
 
 function readScreenshotDirectory(
   components = [],
-  path = resolve(__dirname, "../test/screenshot"),
-  parentDirectory = ""
+  path = resolve(__dirname, '../test/screenshot'),
+  parentDirectory = ''
 ) {
   const directories = getDirectories(path);
   directories.forEach((directory) => {
@@ -29,7 +29,7 @@ function readScreenshotDirectory(
       );
     }
     components.push(
-      `${parentDirectory ? parentDirectory + "/" : ""}${packageName}`
+      `${parentDirectory ? parentDirectory + '/' : ''}${packageName}`
     );
   });
 

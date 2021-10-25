@@ -11,13 +11,13 @@ function someFunction() {
     // the scope of the someFunction.
     var functionVariable = 30;
     // Inside the block, both variables are accessible.
-    console.log("Block scope: ");
+    console.log('Block scope: ');
     console.log(blockVariable);
     console.log(functionVariable);
   }
   // Outside the block, only the variable defined using
   // the keyword 'var' is accessible.
-  console.log("Function scope: ");
+  console.log('Function scope: ');
   try {
     console.log(blockVariable);
   } catch (e) {

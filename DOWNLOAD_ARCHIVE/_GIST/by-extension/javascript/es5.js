@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Shape class.
@@ -67,10 +67,10 @@ Circle.prototype.constructor = Circle;
  * @return {String}
  */
 Circle.prototype.toString = function () {
-  return "Circle > " + Shape.prototype.toString.call(this);
+  return 'Circle > ' + Shape.prototype.toString.call(this);
 };
 
 // test the classes
-var myCircle = new Circle("mycircleid", 100, 200, 50); // create new instance
+var myCircle = new Circle('mycircleid', 100, 200, 50); // create new instance
 console.log(myCircle.toString()); // Circle > Shape("mycircleid")
 console.log(myCircle.getLocation()); // { x: 100, y: 200 }

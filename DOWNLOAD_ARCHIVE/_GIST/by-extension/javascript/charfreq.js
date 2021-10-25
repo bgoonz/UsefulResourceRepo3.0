@@ -35,7 +35,7 @@ class Histogram {
   // This function updates the histogram with the letters of text.
   add(text) {
     // Remove whitespace from the text, and convert to upper case
-    text = text.replace(/\s/g, "").toUpperCase();
+    text = text.replace(/\s/g, '').toUpperCase();
 
     // Now loop through the characters of the text
     for (let character of text) {
@@ -72,11 +72,11 @@ class Histogram {
 
     // Now convert each entry to a line of text
     let lines = entries.map(
-      ([l, n]) => `${l}: ${"#".repeat(Math.round(n))} ${n.toFixed(2)}%`
+      ([l, n]) => `${l}: ${'#'.repeat(Math.round(n))} ${n.toFixed(2)}%`
     );
 
     // And return the concatenated lines, separated by newline characters.
-    return lines.join("\n");
+    return lines.join('\n');
   }
 }
 
@@ -84,7 +84,7 @@ class Histogram {
 // asynchronously reads chunks of text from standard input, and adds those chunks to
 // the histogram. When it reaches the end of the stream, it returns this histogram
 async function histogramFromStdin() {
-  process.stdin.setEncoding("utf-8"); // Read Unicode strings, not bytes
+  process.stdin.setEncoding('utf-8'); // Read Unicode strings, not bytes
   let histogram = new Histogram();
   for await (let chunk of process.stdin) {
     histogram.add(chunk);

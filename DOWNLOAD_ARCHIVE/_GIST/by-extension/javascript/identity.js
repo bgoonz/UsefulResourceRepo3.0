@@ -13,7 +13,7 @@ let identity = new Proxy(
     },
     // There are too many properties to enumerate, so we just throw
     ownKeys(o) {
-      throw new RangeError("Infinite number of properties");
+      throw new RangeError('Infinite number of properties');
     },
     // All properties exist and are not writable, configurable or enumerable.
     getOwnPropertyDescriptor(o, name) {

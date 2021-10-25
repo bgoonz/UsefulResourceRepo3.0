@@ -1,27 +1,27 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const today = new Date();
 let dd = today.getDate();
 let mm = today.getMonth() + 1;
 const yyyy = today.getFullYear();
 if (dd < 10) {
-  dd = "0" + dd;
+  dd = '0' + dd;
 }
 if (mm < 10) {
-  mm = "0" + mm;
+  mm = '0' + mm;
 }
-const datestamp = yyyy + "-" + mm + "-" + dd;
+const datestamp = yyyy + '-' + mm + '-' + dd;
 
 // get the meaningful arguments
 process.argv.splice(0, 2);
 
-if (process.argv[0] == "link") {
-  const template = require("./templates/link.js");
+if (process.argv[0] == 'link') {
+  const template = require('./templates/link.js');
   process.argv.splice(0, 1);
 
   let props = {
-    filename: process.argv.join("-").toLowerCase(),
-    title: process.argv.join(" "),
+    filename: process.argv.join('-').toLowerCase(),
+    title: process.argv.join(' '),
     date: datestamp,
   };
 
@@ -36,5 +36,5 @@ if (process.argv[0] == "link") {
     }
   });
 } else {
-  console.log("Unknown file template");
+  console.log('Unknown file template');
 }

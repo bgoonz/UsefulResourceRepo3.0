@@ -21,5 +21,5 @@ function OffLineMinimum(strArr) {
     }
   }
 
-  return answerArr.join(",");
+  return answerArr.join(',');
 }

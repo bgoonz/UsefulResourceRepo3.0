@@ -4,7 +4,7 @@ let arrowFunction = (param1, param2) => {
 };
 // with 1 param you can remove parens around parameters
 let arrowFunction = (param) => {
-  return "not implicit";
+  return 'not implicit';
 };
 // if your return statement is one line, you can use implied return
 let ImplicitArrowFunction = (param) => param + 1;

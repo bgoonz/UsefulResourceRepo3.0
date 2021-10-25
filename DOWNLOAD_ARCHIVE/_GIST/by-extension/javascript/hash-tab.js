@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 {
   const MAX_PROBES = 256; // if chains or open addressing rehashes are longer than this, something is wrong
 
@@ -11,7 +11,7 @@
       desiredCollisionProbability: desiredCollisionProbability = NaN,
       ensurePowerOfTwo: ensurePowerOfTwo = false,
       growthRate: growthRate = 2.0, // how much to multiple the number of slots by at rehashing
-      probeStrategy: probeStrategy = "OPEN_ADDRESSING", // or 'CHAINING'
+      probeStrategy: probeStrategy = 'OPEN_ADDRESSING', // or 'CHAINING'
     } = {}) {
       let numKeys = 0;
       const spec = {
@@ -26,7 +26,7 @@
       };
       Object.assign(this, spec);
       this.growAndRehashAllEntries({ pairsList, growthRate: 1.0 });
-      console.log("Created HashTable to spec", spec);
+      console.log('Created HashTable to spec', spec);
     }
 
     // rehash and grow
@@ -62,7 +62,7 @@
     }
     insert(key, value) {
       let hash = this.hashValueToTableSize(this.hashFunction(key));
-      if (this.probeStrategy == "CHAINING") {
+      if (this.probeStrategy == 'CHAINING') {
         let probe = 0;
         let link = this.slots[hash];
         while (
@@ -128,7 +128,7 @@
     }
     retrieve(key) {
       let hash = this.hashValueToTableSize(this.hashFunction(key));
-      if (this.probeStrategy == "CHAINING") {
+      if (this.probeStrategy == 'CHAINING') {
         let probe = 0;
         let link = this.slots[hash];
         while (
@@ -179,7 +179,7 @@
     }
     contains(key) {
       let hash = this.hashValueToTableSize(this.hashFunction(key));
-      if (this.probeStrategy == "CHAINING") {
+      if (this.probeStrategy == 'CHAINING') {
         let probe = 0;
         let link = this.slots[hash];
         if (!!link) {
@@ -230,7 +230,7 @@
     }
     remove(key) {
       let hash = this.hashValueToTableSize(this.hashFunction(key));
-      if (this.probeStrategy == "CHAINING") {
+      if (this.probeStrategy == 'CHAINING') {
         let probe = 0;
         let link = this.slots[hash];
         if (!!link) {
@@ -282,7 +282,7 @@
     // iterate table to get all pairs
     allPairs() {
       const pairs = [];
-      if (this.probeStrategy == "CHAINING") {
+      if (this.probeStrategy == 'CHAINING') {
         for (let hash = 0; hash < this.slots.length; hash++) {
           let probe = 0;
           let link = this.slots[hash];
@@ -390,7 +390,7 @@
       // This code is take from my tifuhash https://github.com/dosyago-coder-0/tifuhash
       const keyString = HashTable.anythingToString(key);
       let n = Array.from(keyString);
-      let m = seed + "";
+      let m = seed + '';
       if (n.length == 0) {
         // seed only
         n = [m];
@@ -401,7 +401,7 @@
       if (isFloat) {
         m = m.map((x) => parseFloat(x));
       } else {
-        m = HashTable.stringToUTF8Bytes(m.join(""));
+        m = HashTable.stringToUTF8Bytes(m.join(''));
       }
       let a = new Float64Array(4);
       a[0] = 1;
@@ -430,15 +430,15 @@
 
     static anythingToString(a) {
       const type = Object.prototype.toString.call(a);
-      let json = "[json:circular]";
+      let json = '[json:circular]';
       try {
         json = HashTable.orderedStringify(a);
       } catch (e) {
         console.warn(e);
       }
-      const str = a + "";
-      const numStr = a + 0 + "";
-      const numStrStrict = a * 1 + "";
+      const str = a + '';
+      const numStr = a + 0 + '';
+      const numStrStrict = a * 1 + '';
       const rep = `${type}:${json}:${str}:${numStr}:${numStrStrict}`;
       return rep;
     }
@@ -457,13 +457,13 @@
 
   function test() {
     const x = new HashTable();
-    x.insert("a", 1);
-    x.insert("b", 2);
+    x.insert('a', 1);
+    x.insert('b', 2);
     x.insert({ c: 3 }, 3);
     Object.assign(self, { x });
-    const y = new HashTable({ probeStrategy: "CHAINING" });
-    y.insert("a", 1);
-    y.insert("b", 2);
+    const y = new HashTable({ probeStrategy: 'CHAINING' });
+    y.insert('a', 1);
+    y.insert('b', 2);
     y.insert({ c: 3 }, 3);
     Object.assign(self, { y });
   }

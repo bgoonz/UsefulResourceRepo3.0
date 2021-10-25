@@ -19,7 +19,7 @@ function removeRotten(bagOfFruits) {
   }
 
   bagOfFruits.map((item) => {
-    newBagOfFruits.push(item.replace(/rotten/i, "").toLowerCase());
+    newBagOfFruits.push(item.replace(/rotten/i, '').toLowerCase());
   });
 
   return newBagOfFruits;

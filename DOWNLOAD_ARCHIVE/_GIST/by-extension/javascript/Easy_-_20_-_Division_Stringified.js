@@ -7,7 +7,7 @@ function DivisionStringified(num1, num2) {
 
   // Next, we use the .split method to convert our result variable into an array so it can be further manipulated.
   // Note that we pass in an empty string ("") into the .split method to split the result variable at every character.
-  var resultArr = result.split("");
+  var resultArr = result.split('');
 
   // Next, we check if our result is greater than 1000.
   if (result >= 1000) {
@@ -20,24 +20,24 @@ function DivisionStringified(num1, num2) {
       // Note that the first arguement of the .splice is where the method inserts things into the array (i),
       // ...the second controls how many array items are removed (0),
       // ...and the third controls what is inserted (",").
-      resultArr.splice(i, 0, ",");
+      resultArr.splice(i, 0, ',');
     }
   }
 
   // Finally, we return our result array with the .join method to covert it into a string.
-  return resultArr.join("");
+  return resultArr.join('');
 }
 
 // Best Practices
 function DivisionStringified(num1, num2) {
   var result = Math.round(num1 / num2).toString(),
-    resultArr = result.split("");
+    resultArr = result.split('');
 
   if (result >= 1000) {
     for (var i = result.length - 3; i > 0; i -= 3) {
-      resultArr.splice(i, 0, ",");
+      resultArr.splice(i, 0, ',');
     }
   }
 
-  return resultArr.join("");
+  return resultArr.join('');
 }

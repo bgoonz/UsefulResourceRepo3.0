@@ -14,8 +14,8 @@ let isAlphaNumeric = (char) => {
   return true;
 };
 
-console.log(isAlphaNumeric("A")); //true
+console.log(isAlphaNumeric('A')); //true
 console.log(isAlphaNumeric(2)); //true
-console.log(isAlphaNumeric("z")); //true
-console.log(isAlphaNumeric(" ")); //false
-console.log(isAlphaNumeric("!")); //false
+console.log(isAlphaNumeric('z')); //true
+console.log(isAlphaNumeric(' ')); //false
+console.log(isAlphaNumeric('!')); //false

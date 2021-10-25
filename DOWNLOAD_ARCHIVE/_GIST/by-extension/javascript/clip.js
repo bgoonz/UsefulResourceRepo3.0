@@ -6,14 +6,14 @@ const copyToClipboard = (target) => {
   // copy the selection
   var succeed;
   try {
-    succeed = document.execCommand("copy");
+    succeed = document.execCommand('copy');
     console.log(succeed);
   } catch (e) {
     succeed = false;
     console.log(e);
   }
   // restore original focus
-  if (currentFocus && typeof currentFocus.focus === "function") {
+  if (currentFocus && typeof currentFocus.focus === 'function') {
     currentFocus.focus();
   }
 

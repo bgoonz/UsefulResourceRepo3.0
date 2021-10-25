@@ -1,11 +1,11 @@
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -31,7 +31,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -70,13 +70,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -136,7 +136,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -146,8 +146,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -159,7 +159,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -170,18 +170,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -204,7 +204,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -220,7 +220,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -231,7 +231,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -301,7 +301,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -317,7 +317,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -352,7 +352,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -371,11 +371,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -386,7 +386,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -414,7 +414,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -428,7 +428,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -454,7 +454,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -462,22 +462,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -529,7 +529,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(

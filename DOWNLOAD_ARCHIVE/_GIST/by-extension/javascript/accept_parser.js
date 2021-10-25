@@ -12,12 +12,12 @@
  *    // ["text/html", "application/xhtml+xml", "application/xml", "*\/*"]
  */
 function acceptLanguageParser(string) {
-  var langs = string.split(","),
+  var langs = string.split(','),
     i,
     c;
 
   for (i = 0, c = langs.length; i < c; i++) {
-    langs[i] = langs[i].split(";q=");
+    langs[i] = langs[i].split(';q=');
     langs[i][1] = +langs[i][1] || 1;
   }
 
@@ -26,7 +26,7 @@ function acceptLanguageParser(string) {
   });
 
   for (i = 0, c = langs.length; i < c; i++) {
-    langs[i] = langs[i][0].replace(/^\s+|\s+$/, "");
+    langs[i] = langs[i][0].replace(/^\s+|\s+$/, '');
   }
 
   return langs;

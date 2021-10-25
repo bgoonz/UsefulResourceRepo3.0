@@ -1,12 +1,12 @@
-import React from "react";
-import _ from "lodash";
+import React from 'react';
+import _ from 'lodash';
 
-import { Link, withPrefix, classNames } from "../utils";
-import ActionLink from "./ActionLink";
-import Submenu from "./Submenu";
-import addScript from "./../hooks/addScript";
+import { Link, withPrefix, classNames } from '../utils';
+import ActionLink from './ActionLink';
+import Submenu from './Submenu';
+import addScript from './../hooks/addScript';
 const Script = (props) => {
-  importScript("./../hooks/addScript.js");
+  importScript('./../hooks/addScript.js');
 };
 export default class Header extends React.Component {
   render() {
@@ -23,7 +23,7 @@ export default class Header extends React.Component {
             <div className="site-branding">
               {_.get(
                 this.props,
-                "pageContext.site.siteMetadata.header.logo_img",
+                'pageContext.site.siteMetadata.header.logo_img',
                 null
               ) ? (
                 <p className="site-logo">
@@ -31,22 +31,22 @@ export default class Header extends React.Component {
                     to={withPrefix(
                       _.get(
                         this.props,
-                        "pageContext.site.siteMetadata.header.url",
+                        'pageContext.site.siteMetadata.header.url',
                         null
-                      ) || "/"
+                      ) || '/'
                     )}
                   >
                     <img
                       src={withPrefix(
                         _.get(
                           this.props,
-                          "pageContext.site.siteMetadata.header.logo_img",
+                          'pageContext.site.siteMetadata.header.logo_img',
                           null
                         )
                       )}
                       alt={_.get(
                         this.props,
-                        "pageContext.site.siteMetadata.header.logo_img_alt",
+                        'pageContext.site.siteMetadata.header.logo_img_alt',
                         null
                       )}
                     />
@@ -54,20 +54,20 @@ export default class Header extends React.Component {
                 </p>
               ) : (
                 <p className="site-title">
-                  {" "}
+                  {' '}
                   WebDevHub
                   <Link
                     to={withPrefix(
                       _.get(
                         this.props,
-                        "pageContext.site.siteMetadata.header.url",
+                        'pageContext.site.siteMetadata.header.url',
                         null
-                      ) || "/"
+                      ) || '/'
                     )}
                   >
                     {_.get(
                       this.props,
-                      "pageContext.site.siteMetadata.header.title",
+                      'pageContext.site.siteMetadata.header.title',
                       null
                     )}
                   </Link>
@@ -77,7 +77,7 @@ export default class Header extends React.Component {
             <div id="search" className="inner"></div>
             {_.get(
               this.props,
-              "pageContext.site.siteMetadata.header.has_nav",
+              'pageContext.site.siteMetadata.header.has_nav',
               null
             ) && (
               <React.Fragment>
@@ -95,33 +95,33 @@ export default class Header extends React.Component {
                       {_.map(
                         _.get(
                           this.props,
-                          "pageContext.site.siteMetadata.header.nav_links",
+                          'pageContext.site.siteMetadata.header.nav_links',
                           null
                         ),
                         (action, action_idx) => {
                           let page_url = _.trim(
-                            _.get(this.props, "pageContext.url", null),
-                            "/"
+                            _.get(this.props, 'pageContext.url', null),
+                            '/'
                           );
                           let action_url = _.trim(
-                            _.get(action, "url", null),
-                            "/"
+                            _.get(action, 'url', null),
+                            '/'
                           );
                           return (
                             <li
                               key={action_idx}
-                              className={classNames("menu-item", {
-                                "has-children":
-                                  _.get(action, "has_subnav", null) &&
-                                  _.get(action, "subnav_links", null),
+                              className={classNames('menu-item', {
+                                'has-children':
+                                  _.get(action, 'has_subnav', null) &&
+                                  _.get(action, 'subnav_links', null),
                                 current: page_url === action_url,
-                                "menu-button":
-                                  _.get(action, "style", null) !== "link",
+                                'menu-button':
+                                  _.get(action, 'style', null) !== 'link',
                               })}
                             >
                               <ActionLink {...this.props} action={action} />
-                              {_.get(action, "has_subnav", null) &&
-                                _.get(action, "subnav_links", null) && (
+                              {_.get(action, 'has_subnav', null) &&
+                                _.get(action, 'subnav_links', null) && (
                                   <React.Fragment>
                                     <button className="submenu-toggle">
                                       <span
@@ -136,10 +136,10 @@ export default class Header extends React.Component {
                                       {...this.props}
                                       submenu={_.get(
                                         action,
-                                        "subnav_links",
+                                        'subnav_links',
                                         null
                                       )}
-                                      menu_class={"submenu"}
+                                      menu_class={'submenu'}
                                       page={this.props.pageContext}
                                     />
                                   </React.Fragment>
@@ -173,13 +173,13 @@ export default class Header extends React.Component {
               viewBox="0 0 250 250"
               style={{
                 zIndex: 100000,
-                fill: "black",
-                color: "#fff",
-                position: "fixed",
-                top: "0px",
+                fill: 'black',
+                color: '#fff',
+                position: 'fixed',
+                top: '0px',
                 border: 0,
-                left: "0px",
-                transform: "scale(-1.5, 1.5)",
+                left: '0px',
+                transform: 'scale(-1.5, 1.5)',
               }}
             >
               <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -187,7 +187,7 @@ export default class Header extends React.Component {
                 className="octo-arm"
                 d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
                 fill="currentColor"
-                style={{ transformOrigin: "130px 106px" }}
+                style={{ transformOrigin: '130px 106px' }}
               ></path>
               <path
                 className="octo-body"

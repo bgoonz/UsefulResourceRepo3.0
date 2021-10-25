@@ -8,12 +8,12 @@
   let hourangle = hour * 30; // 30 degrees per hour
 
   // Get SVG elements for the hands of the clock
-  let minhand = document.querySelector("#clock .minutehand");
-  let hourhand = document.querySelector("#clock .hourhand");
+  let minhand = document.querySelector('#clock .minutehand');
+  let hourhand = document.querySelector('#clock .hourhand');
 
   // Set an SVG attribute on them to move them around the clock face
-  minhand.setAttribute("transform", `rotate(${minangle},50,50)`);
-  hourhand.setAttribute("transform", `rotate(${hourangle},50,50)`);
+  minhand.setAttribute('transform', `rotate(${minangle},50,50)`);
+  hourhand.setAttribute('transform', `rotate(${hourangle},50,50)`);
 
   // Run this function again in 10 seconds
   setTimeout(updateClock, 10000);

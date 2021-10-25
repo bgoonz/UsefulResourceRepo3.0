@@ -21,7 +21,7 @@ class EQT {
       for (const entry of entryList.getEntries())
         eqt.taskDurations.push(entry.duration);
     });
-    eqt.longTaskObserver.observe({ entryTypes: ["longtask"] });
+    eqt.longTaskObserver.observe({ entryTypes: ['longtask'] });
     return eqt;
   }
 

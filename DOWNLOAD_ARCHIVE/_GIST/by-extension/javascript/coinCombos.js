@@ -6,7 +6,7 @@ function numWaysRecursive(coinValues, totalCoins, amount) {
   if (amount < 0) return 0; // No solution exists for negative amount
   if (totalCoins < 0 && amount > 0) return 0; // We don't have coins left!
   console.log(
-    "checking ways to make " + amount + " with " + coinValues.slice(totalCoins)
+    'checking ways to make ' + amount + ' with ' + coinValues.slice(totalCoins)
   );
   return (
     numWaysRecursive(coinValues, totalCoins, amount - coinValues[totalCoins]) +

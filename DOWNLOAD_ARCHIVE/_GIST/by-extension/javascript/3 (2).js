@@ -20,7 +20,7 @@ var prop = (k) => (o) => o[k];
 
 var myObj = { something: { other: { and: 42 } } };
 Maybe(myObj)
-  .map(prop("something"))
-  .map(prop("other"))
-  .map(prop("and"))
+  .map(prop('something'))
+  .map(prop('other'))
+  .map(prop('and'))
   .chain(identity); // 42

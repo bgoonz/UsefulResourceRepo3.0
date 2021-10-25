@@ -1,8 +1,8 @@
-const axios = require("axios");
+const axios = require('axios');
 
 // Make a request for a user with a given ID
 axios
-  .get("/user?ID=12345")
+  .get('/user?ID=12345')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -17,7 +17,7 @@ axios
 
 // Optionally the request above could also be done as
 axios
-  .get("/user", {
+  .get('/user', {
     params: {
       ID: 12345,
     },
@@ -35,7 +35,7 @@ axios
 // Want to use async/await? Add the `async` keyword to your outer function/method.
 async function getUser() {
   try {
-    const response = await axios.get("/user?ID=12345");
+    const response = await axios.get('/user?ID=12345');
     console.log(response);
   } catch (error) {
     console.error(error);

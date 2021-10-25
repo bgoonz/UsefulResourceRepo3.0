@@ -1,9 +1,9 @@
-const Promise = require("bluebird");
-const fs = Promise.promisifyAll(require("fs"));
-const crypto = require("crypto");
-const path = require("path");
-const pathA = ".";
-const pathB = "./../..";
+const Promise = require('bluebird');
+const fs = Promise.promisifyAll(require('fs'));
+const crypto = require('crypto');
+const path = require('path');
+const pathA = '.';
+const pathB = './../..';
 let hashes = [];
 
 function hashDirIn(folder) {
@@ -20,14 +20,14 @@ function hashDirIn(folder) {
           }
 
           function process(stream) {
-            const hash = crypto.createHash("md5");
+            const hash = crypto.createHash('md5');
             return new Promise((resolve, reject) => {
-              stream.on("data", function updateProcess(chunk) {
-                hash.update(chunk, "utf8");
+              stream.on('data', function updateProcess(chunk) {
+                hash.update(chunk, 'utf8');
               });
-              stream.on("end", resolve);
+              stream.on('end', resolve);
             }).then(function publish() {
-              const digest = hash.digest("hex");
+              const digest = hash.digest('hex');
               hashes.push({
                 digest,
                 path: workPath,
@@ -55,7 +55,7 @@ function hashDirIn(folder) {
             if (obj.digest == hashes[index - 1].digest) {
               console.log(`Dupe ${dupe} found:`);
               console.log(obj.path);
-              console.log("Equal to:");
+              console.log('Equal to:');
               console.log(`${hashes[index - 1].path}\n`);
               dupe++;
             }

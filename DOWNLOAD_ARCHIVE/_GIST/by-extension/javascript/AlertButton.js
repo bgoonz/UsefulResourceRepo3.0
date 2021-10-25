@@ -1,8 +1,8 @@
 // ./src/AlertButton.js
-import React from "react";
+import React from 'react';
 class AlertButton extends React.Component {
   showAlert = () => {
-    window.alert("Button clicked!");
+    window.alert('Button clicked!');
     console.log(this);
   };
   render() {

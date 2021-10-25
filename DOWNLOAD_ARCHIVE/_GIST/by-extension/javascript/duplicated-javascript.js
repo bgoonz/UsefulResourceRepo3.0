@@ -3,24 +3,24 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
 /** @typedef {import('./byte-efficiency-audit.js').ByteEfficiencyProduct} ByteEfficiencyProduct */
 /** @typedef {LH.Audit.ByteEfficiencyItem & {source: string, subItems: {type: 'subitems', items: SubItem[]}}} Item */
 /** @typedef {{url: string, sourceTransferBytes?: number}} SubItem */
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const ModuleDuplication = require("../../computed/module-duplication.js");
-const NetworkAnalyzer = require("../../lib/dependency-graph/simulator/network-analyzer.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const ModuleDuplication = require('../../computed/module-duplication.js');
+const NetworkAnalyzer = require('../../lib/dependency-graph/simulator/network-analyzer.js');
+const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to remove duplicate JavaScript from their code. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Remove duplicate modules in JavaScript bundles",
+  title: 'Remove duplicate modules in JavaScript bundles',
   /** Description of a Lighthouse audit that tells the user *why* they should remove duplicate JavaScript from their scripts. This is displayed after a user expands the section to see more. No word length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Remove large, duplicate JavaScript modules from bundles " +
-    "to reduce unnecessary bytes consumed by network activity. ", // +
+    'Remove large, duplicate JavaScript modules from bundles ' +
+    'to reduce unnecessary bytes consumed by network activity. ', // +
   // TODO: we need docs.
   // '[Learn more](https://web.dev/duplicated-javascript/).',
 };
@@ -45,17 +45,17 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "duplicated-javascript",
+      id: 'duplicated-javascript',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: [
-        "devtoolsLogs",
-        "traces",
-        "SourceMaps",
-        "ScriptElements",
-        "GatherContext",
-        "URL",
+        'devtoolsLogs',
+        'traces',
+        'SourceMaps',
+        'ScriptElements',
+        'GatherContext',
+        'URL',
       ],
     };
   }
@@ -64,12 +64,12 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
    * @param {string} source
    */
   static _getNodeModuleName(source) {
-    const sourceSplit = source.split("node_modules/");
+    const sourceSplit = source.split('node_modules/');
     source = sourceSplit[sourceSplit.length - 1];
 
-    const indexFirstSlash = indexOfOrEnd(source, "/");
-    if (source[0] === "@") {
-      return source.slice(0, indexOfOrEnd(source, "/", indexFirstSlash + 1));
+    const indexFirstSlash = indexOfOrEnd(source, '/');
+    if (source[0] === '@') {
+      return source.slice(0, indexOfOrEnd(source, '/', indexFirstSlash + 1));
     }
 
     return source.slice(0, indexFirstSlash);
@@ -85,13 +85,13 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
     /** @type {typeof duplication} */
     const groupedDuplication = new Map();
     for (const [source, sourceDatas] of duplication.entries()) {
-      if (!source.includes("node_modules")) {
+      if (!source.includes('node_modules')) {
         groupedDuplication.set(source, sourceDatas);
         continue;
       }
 
       const normalizedSource =
-        "node_modules/" + DuplicatedJavascript._getNodeModuleName(source);
+        'node_modules/' + DuplicatedJavascript._getNodeModuleName(source);
       const aggregatedSourceDatas =
         groupedDuplication.get(normalizedSource) || [];
       for (const { scriptUrl, resourceSize } of sourceDatas) {
@@ -123,7 +123,7 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
     const transferSize = ByteEfficiencyAudit.estimateTransferSize(
       networkRecord,
       contentLength,
-      "Script"
+      'Script'
     );
     return transferSize / contentLength;
   }
@@ -236,11 +236,11 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
         source,
         wastedBytes: wastedBytesTotal,
         // Not needed, but keeps typescript happy.
-        url: "",
+        url: '',
         // Not needed, but keeps typescript happy.
         totalBytes: 0,
         subItems: {
-          type: "subitems",
+          type: 'subitems',
           items: subItems,
         },
       });
@@ -248,12 +248,12 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
 
     if (overflowWastedBytes > ignoreThresholdInBytes) {
       items.push({
-        source: "Other",
+        source: 'Other',
         wastedBytes: overflowWastedBytes,
-        url: "",
+        url: '',
         totalBytes: 0,
         subItems: {
-          type: "subitems",
+          type: 'subitems',
           items: Array.from(overflowUrls).map((url) => ({ url })),
         },
       });
@@ -263,21 +263,21 @@ class DuplicatedJavascript extends ByteEfficiencyAudit {
     const headings = [
       /* eslint-disable max-len */
       {
-        key: "source",
-        valueType: "code",
-        subItemsHeading: { key: "url", valueType: "url" },
+        key: 'source',
+        valueType: 'code',
+        subItemsHeading: { key: 'url', valueType: 'url' },
         label: str_(i18n.UIStrings.columnSource),
       },
       {
         key: null,
-        valueType: "bytes",
-        subItemsHeading: { key: "sourceTransferBytes" },
+        valueType: 'bytes',
+        subItemsHeading: { key: 'sourceTransferBytes' },
         granularity: 0.05,
         label: str_(i18n.UIStrings.columnTransferSize),
       },
       {
-        key: "wastedBytes",
-        valueType: "bytes",
+        key: 'wastedBytes',
+        valueType: 'bytes',
         granularity: 0.05,
         label: str_(i18n.UIStrings.columnWastedBytes),
       },

@@ -1,7 +1,7 @@
 YUI.add(
-  "extension-view-parent",
+  'extension-view-parent',
   function (Y) {
-    "use strict";
+    'use strict';
 
     var ViewParent = function () {};
 
@@ -12,19 +12,19 @@ YUI.add(
     ViewParent.prototype = {
       initializer: function () {
         this._viewParentHandles = [
-          this.on("childrenChange", this._childrenChange, this),
+          this.on('childrenChange', this._childrenChange, this),
 
-          Y.Do.after(this.renderChildren, this, "render", this),
+          Y.Do.after(this.renderChildren, this, 'render', this),
         ];
 
         // start off with initial state
         this._childrenChange({
-          newVal: this.get("children"),
+          newVal: this.get('children'),
         });
       },
 
       destructor: function () {
-        Y.Object.each(this.get("children"), function (view) {
+        Y.Object.each(this.get('children'), function (view) {
           view.destroy();
         });
 
@@ -34,7 +34,7 @@ YUI.add(
       },
 
       renderChild: function (name, view) {
-        var node = this.get("container").one('[data-child="' + name + '"]');
+        var node = this.get('container').one('[data-child="' + name + '"]');
 
         if (!node) {
           return;
@@ -44,20 +44,20 @@ YUI.add(
 
         node.replace(
           view
-            .get("container")
-            .addClass("child " + name + " " + node.get("className"))
+            .get('container')
+            .addClass('child ' + name + ' ' + node.get('className'))
         );
       },
 
       renderChildren: function () {
-        var children = this.get("children"),
+        var children = this.get('children'),
           child;
 
         if (!children) {
           return;
         }
 
-        this.get("container").addClass("parent");
+        this.get('container').addClass('parent');
 
         for (child in children) {
           this.renderChild(child, children[child]);
@@ -69,26 +69,26 @@ YUI.add(
 
         Y.Object.each(e.newVal, function (child) {
           // already stamped, bail
-          if ("_viewparentchild" in child) {
+          if ('_viewparentchild' in child) {
             return;
           }
 
           child._viewparentchild = true;
 
-          child.set("parent", self);
+          child.set('parent', self);
           child.addTarget(self);
         });
       },
     };
 
-    Y.namespace("Extensions").ViewParent = ViewParent;
+    Y.namespace('Extensions').ViewParent = ViewParent;
   },
-  "@VERSION@",
+  '@VERSION@',
   {
     requires: [
       // YUI
-      "view",
-      "event-custom",
+      'view',
+      'event-custom',
     ],
   }
 );

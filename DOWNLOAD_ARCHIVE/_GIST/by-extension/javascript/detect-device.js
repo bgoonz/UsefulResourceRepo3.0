@@ -1,10 +1,10 @@
 // Device Checks
 function isIE() {
-  return !+"\v1";
+  return !+'\v1';
 }
 
 function isFF() {
-  return !!_V_.ua.match("Firefox");
+  return !!_V_.ua.match('Firefox');
 }
 
 function isIPad() {

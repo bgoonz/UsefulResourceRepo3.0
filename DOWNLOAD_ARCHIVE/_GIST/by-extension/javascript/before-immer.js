@@ -2,13 +2,13 @@ const like = (item) => ({
   type: like.type,
   payload: item,
 });
-like.type = "user/like";
+like.type = 'user/like';
 
 const initialState = {
-  name: "Anonymous",
-  avatar: "Anonymous",
-  email: "",
-  walletAddress: "",
+  name: 'Anonymous',
+  avatar: 'Anonymous',
+  email: '',
+  walletAddress: '',
   likes: {},
 };
 

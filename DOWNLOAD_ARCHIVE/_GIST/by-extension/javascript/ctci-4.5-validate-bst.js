@@ -1,5 +1,5 @@
 // 4.5. Validate BST: Implement a function to check if a binary tree is a BST.
-import { BinaryTree } from "../helpers/tree.js";
+import { BinaryTree } from '../helpers/tree.js';
 
 const isValidBST = (root) => {
   if (!root) return true;

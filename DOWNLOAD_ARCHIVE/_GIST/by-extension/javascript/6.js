@@ -1,5 +1,5 @@
 var x = function () {
-  x = "";
+  x = '';
 };
 
 typeof new x() < typeof x;

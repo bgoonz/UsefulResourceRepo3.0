@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-const chromeLauncher = require("chrome-launcher");
-const CDP = require("chrome-remote-interface");
+const chromeLauncher = require('chrome-launcher');
+const CDP = require('chrome-remote-interface');
 
 const launchChrome = () =>
   chromeLauncher.launch({
-    chromeFlags: ["--disable-gpu", "--headless"],
+    chromeFlags: ['--disable-gpu', '--headless'],
   });
 
 launchChrome()
@@ -18,7 +18,7 @@ launchChrome()
 
       await Profiler.startPreciseCoverage();
 
-      Page.navigate({ url: "https://paulirish.com/" });
+      Page.navigate({ url: 'https://paulirish.com/' });
       await Page.loadEventFired();
 
       const res = await Profiler.takePreciseCoverage();
@@ -42,7 +42,7 @@ launchChrome()
 // see _processJSCoverage()
 function calculateCoverage(res) {
   const src =
-    "https://www.youtube.com/yts/jsbin/www-embed-player-vflOvovMJ/www-embed-player.js";
+    'https://www.youtube.com/yts/jsbin/www-embed-player-vflOvovMJ/www-embed-player.js';
   const scriptCoverage = res.result.find((script) => script.url === src);
 
   if (!scriptCoverage) {
@@ -93,5 +93,5 @@ function calculateCoverage(res) {
       percentUnused: coverageData.unused / coverageData.total,
     });
   }
-  return Error("unexpected");
+  return Error('unexpected');
 }

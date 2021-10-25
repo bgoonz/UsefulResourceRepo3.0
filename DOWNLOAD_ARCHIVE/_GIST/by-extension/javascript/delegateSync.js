@@ -1,6 +1,6 @@
-"use strict";
-import WorkerSettings from "../WorkerSettings";
-import isIterator from "./isIterator";
+'use strict';
+import WorkerSettings from '../WorkerSettings';
+import isIterator from './isIterator';
 
 /**
  * DON'T CALL THIS FUNCTION EXPLICITLY. It's inserted by a transform.

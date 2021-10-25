@@ -12,17 +12,17 @@
  * If everything succeeds, don't print anything.
  */
 
-const fs = require("fs");
+const fs = require('fs');
 
 const [_, __, from, to] = process.argv;
 
 if (!from || !to) {
-  console.log("USAGE: ./cp.js «from» «to»");
+  console.log('USAGE: ./cp.js «from» «to»');
   process.exit();
 }
 
 fs.stat(from, (err, stats) => {
-  if (err && err.code === "ENOENT") {
+  if (err && err.code === 'ENOENT') {
     console.error(`The path ${from} does not exist.`);
     process.exit(9);
   }

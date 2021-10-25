@@ -1,4 +1,4 @@
-require("cheatcode");
+require('cheatcode');
 var x = 2;
 ttt = false;
 specialX = function (t) {

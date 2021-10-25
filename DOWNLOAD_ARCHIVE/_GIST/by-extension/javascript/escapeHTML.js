@@ -1,16 +1,16 @@
 var escapeHTML = function (s) {
   return s.replace(/([<>&""''])/g, function (m, c) {
     switch (c) {
-      case "<":
-        return "&lt;";
-      case ">":
-        return "&gt;";
-      case "&":
-        return "&amp;";
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '&':
+        return '&amp;';
       case '"':
-        return "&quot;";
+        return '&quot;';
       case "'":
-        return "&apos;";
+        return '&apos;';
     }
     return c;
   });

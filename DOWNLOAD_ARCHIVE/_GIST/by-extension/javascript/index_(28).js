@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 
@@ -127,7 +127,7 @@ exports.default = function (_ref) {
 
     return [
       restProperty.argument,
-      t.callExpression(file.addHelper("objectWithoutProperties"), [
+      t.callExpression(file.addHelper('objectWithoutProperties'), [
         objRef,
         t.arrayExpression(keys),
       ]),
@@ -137,27 +137,27 @@ exports.default = function (_ref) {
   function replaceRestProperty(paramsPath, i, numParams) {
     if (paramsPath.isObjectPattern() && hasRestProperty(paramsPath.node)) {
       var parentPath = paramsPath.parentPath;
-      var uid = parentPath.scope.generateUidIdentifier("ref");
+      var uid = parentPath.scope.generateUidIdentifier('ref');
 
-      var declar = t.variableDeclaration("let", [
+      var declar = t.variableDeclaration('let', [
         t.variableDeclarator(paramsPath.node, uid),
       ]);
       declar._blockHoist = i ? numParams - i : 1;
 
       parentPath.ensureBlock();
-      parentPath.get("body").unshiftContainer("body", declar);
+      parentPath.get('body').unshiftContainer('body', declar);
       paramsPath.replaceWith(uid);
     }
   }
 
   return {
-    inherits: require("babel-plugin-syntax-object-rest-spread"),
+    inherits: require('babel-plugin-syntax-object-rest-spread'),
 
     visitor: {
       // taken from transform-es2015-parameters/src/destructuring.js
       // function a({ b, ...c }) {}
       Function: function Function(path) {
-        var params = path.get("params");
+        var params = path.get('params');
         for (var i = 0; i < params.length; i++) {
           replaceRestProperty(params[i], i, params.length);
         }
@@ -166,7 +166,7 @@ exports.default = function (_ref) {
       // adapted from transform-es2015-destructuring/src/index.js#pushObjectRest
       // const { a, ...b } = c;
       VariableDeclarator: function VariableDeclarator(path, file) {
-        if (!path.get("id").isObjectPattern()) {
+        if (!path.get('id').isObjectPattern()) {
           return;
         }
         var kind = path.parentPath.node.kind;
@@ -224,7 +224,7 @@ exports.default = function (_ref) {
       // taken from transform-es2015-destructuring/src/index.js#visitor
       // export var { a, ...b } = c;
       ExportNamedDeclaration: function ExportNamedDeclaration(path) {
-        var declaration = path.get("declaration");
+        var declaration = path.get('declaration');
         if (!declaration.isVariableDeclaration()) return;
         if (!variableDeclarationHasRestProperty(declaration.node)) return;
 
@@ -244,12 +244,12 @@ exports.default = function (_ref) {
 
       // try {} catch ({a, ...b}) {}
       CatchClause: function CatchClause(path) {
-        replaceRestProperty(path.get("param"));
+        replaceRestProperty(path.get('param'));
       },
 
       // ({a, ...b} = c);
       AssignmentExpression: function AssignmentExpression(path, file) {
-        var leftPath = path.get("left");
+        var leftPath = path.get('left');
         if (leftPath.isObjectPattern() && hasRestProperty(leftPath.node)) {
           var nodes = [];
 
@@ -260,11 +260,11 @@ exports.default = function (_ref) {
           ) {
             ref = path.scope.generateUidIdentifierBasedOnNode(
               path.node.right,
-              "ref"
+              'ref'
             );
 
             nodes.push(
-              t.variableDeclaration("var", [
+              t.variableDeclaration('var', [
                 t.variableDeclarator(ref, path.node.right),
               ])
             );
@@ -281,7 +281,7 @@ exports.default = function (_ref) {
           var nodeWithoutSpread = t.clone(path.node);
           nodeWithoutSpread.right = ref;
           nodes.push(t.expressionStatement(nodeWithoutSpread));
-          nodes.push(t.assignmentExpression("=", argument, callExpression));
+          nodes.push(t.assignmentExpression('=', argument, callExpression));
 
           if (ref) {
             nodes.push(t.expressionStatement(ref));
@@ -300,16 +300,16 @@ exports.default = function (_ref) {
 
         // for ({a, ...b} of []) {}
         if (t.isObjectPattern(left) && hasRestProperty(left)) {
-          var temp = scope.generateUidIdentifier("ref");
+          var temp = scope.generateUidIdentifier('ref');
 
-          node.left = t.variableDeclaration("var", [
+          node.left = t.variableDeclaration('var', [
             t.variableDeclarator(temp),
           ]);
 
           path.ensureBlock();
 
           node.body.body.unshift(
-            t.variableDeclaration("var", [t.variableDeclarator(left, temp)])
+            t.variableDeclaration('var', [t.variableDeclarator(left, temp)])
           );
 
           return;
@@ -320,7 +320,7 @@ exports.default = function (_ref) {
         var pattern = left.declarations[0].id;
         if (!t.isObjectPattern(pattern)) return;
 
-        var key = scope.generateUidIdentifier("ref");
+        var key = scope.generateUidIdentifier('ref');
         node.left = t.variableDeclaration(left.kind, [
           t.variableDeclarator(key, null),
         ]);
@@ -339,9 +339,9 @@ exports.default = function (_ref) {
         if (!hasSpread(path.node)) return;
 
         var useBuiltIns = file.opts.useBuiltIns || false;
-        if (typeof useBuiltIns !== "boolean") {
+        if (typeof useBuiltIns !== 'boolean') {
           throw new Error(
-            "transform-object-rest-spread currently only accepts a boolean option for useBuiltIns (defaults to false)"
+            'transform-object-rest-spread currently only accepts a boolean option for useBuiltIns (defaults to false)'
           );
         }
 
@@ -390,8 +390,8 @@ exports.default = function (_ref) {
         }
 
         var helper = useBuiltIns
-          ? t.memberExpression(t.identifier("Object"), t.identifier("assign"))
-          : file.addHelper("extends");
+          ? t.memberExpression(t.identifier('Object'), t.identifier('assign'))
+          : file.addHelper('extends');
 
         path.replaceWith(t.callExpression(helper, args));
       },

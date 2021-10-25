@@ -5,5 +5,5 @@ function Vehicle(model, color, year, country) {
   this.country = country;
 }
 
-var car = Vehicle("Honda", "white", "2010", "UK");
+var car = Vehicle('Honda', 'white', '2010', 'UK');
 console.log(car);

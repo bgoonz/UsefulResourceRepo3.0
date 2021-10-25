@@ -1,9 +1,9 @@
 #!/usr/local/bin/mocha
-let expect = require("chai").expect;
-let color = require("./color.js");
+let expect = require('chai').expect;
+let color = require('./color.js');
 
-describe("color", function () {
-  it("hsl", function () {
+describe('color', function () {
+  it('hsl', function () {
     let r = 11,
       g = 48,
       b = 192;
@@ -12,7 +12,7 @@ describe("color", function () {
     expect(rgb).to.equal([r, g, b]);
   });
 
-  it("hsv", function () {
+  it('hsv', function () {
     let r = 11,
       g = 48,
       b = 192;

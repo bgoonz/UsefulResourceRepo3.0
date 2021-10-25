@@ -1,15 +1,15 @@
-var path = require("path");
-var fs = require("./fs");
-var zlib = require("zlib");
-var DecompressZip = require("decompress-zip");
-var tar = require("tar-fs");
-var Q = require("q");
-var mout = require("mout");
-var junk = require("junk");
-var createError = require("./createError");
-var createWriteStream = require("fs-write-stream-atomic");
-var destroy = require("destroy");
-var tmp = require("tmp");
+var path = require('path');
+var fs = require('./fs');
+var zlib = require('zlib');
+var DecompressZip = require('decompress-zip');
+var tar = require('tar-fs');
+var Q = require('q');
+var mout = require('mout');
+var junk = require('junk');
+var createError = require('./createError');
+var createWriteStream = require('fs-write-stream-atomic');
+var destroy = require('destroy');
+var tmp = require('tmp');
 
 // This forces the default chunk size to something small in an attempt
 // to avoid issue #314
@@ -19,17 +19,17 @@ var extractors;
 var extractorTypes;
 
 extractors = {
-  ".zip": extractZip,
-  ".tar": extractTar,
-  ".tar.gz": extractTarGz,
-  ".tgz": extractTarGz,
-  ".gz": extractGz,
-  "application/zip": extractZip,
-  "application/x-zip": extractZip,
-  "application/x-zip-compressed": extractZip,
-  "application/x-tar": extractTar,
-  "application/x-tgz": extractTarGz,
-  "application/x-gzip": extractGz,
+  '.zip': extractZip,
+  '.tar': extractTar,
+  '.tar.gz': extractTarGz,
+  '.tgz': extractTarGz,
+  '.gz': extractGz,
+  'application/zip': extractZip,
+  'application/x-zip': extractZip,
+  'application/x-zip-compressed': extractZip,
+  'application/x-tar': extractTar,
+  'application/x-tgz': extractTarGz,
+  'application/x-gzip': extractGz,
 };
 
 extractorTypes = Object.keys(extractors);
@@ -38,8 +38,8 @@ function extractZip(archive, dst) {
   var deferred = Q.defer();
 
   new DecompressZip(archive)
-    .on("error", deferred.reject)
-    .on("extract", deferred.resolve.bind(deferred, dst))
+    .on('error', deferred.reject)
+    .on('extract', deferred.resolve.bind(deferred, dst))
     .extract({
       path: dst,
       follow: false, // Do not follow symlinks (#699)
@@ -60,7 +60,7 @@ function extractTar(archive, dst) {
   };
 
   stream
-    .on("error", reject)
+    .on('error', reject)
     .pipe(
       tar.extract(dst, {
         ignore: isSymlink, // Filter symlink files
@@ -68,8 +68,8 @@ function extractTar(archive, dst) {
         fmode: 0444, // Ensure files are readable
       })
     )
-    .on("error", reject)
-    .on("finish", function (result) {
+    .on('error', reject)
+    .on('finish', function (result) {
       destroy(stream);
       deferred.resolve(dst);
     });
@@ -88,9 +88,9 @@ function extractTarGz(archive, dst) {
   };
 
   stream
-    .on("error", reject)
+    .on('error', reject)
     .pipe(zlib.createGunzip())
-    .on("error", reject)
+    .on('error', reject)
     .pipe(
       tar.extract(dst, {
         ignore: isSymlink, // Filter symlink files
@@ -98,8 +98,8 @@ function extractTarGz(archive, dst) {
         fmode: 0444, // Ensure files are readable
       })
     )
-    .on("error", reject)
-    .on("finish", function (result) {
+    .on('error', reject)
+    .on('finish', function (result) {
       destroy(stream);
       deferred.resolve(dst);
     });
@@ -117,12 +117,12 @@ function extractGz(archive, dst) {
     deferred.reject(error);
   };
   stream
-    .on("error", reject)
+    .on('error', reject)
     .pipe(zlib.createGunzip())
-    .on("error", reject)
+    .on('error', reject)
     .pipe(createWriteStream(dst))
-    .on("error", reject)
-    .on("finish", function (result) {
+    .on('error', reject)
+    .on('finish', function (result) {
       destroy(stream);
       deferred.resolve(dst);
     });
@@ -131,11 +131,11 @@ function extractGz(archive, dst) {
 }
 
 function isSymlink(_, entry) {
-  return entry.type === "symlink";
+  return entry.type === 'symlink';
 }
 
 function filterSymlinks(entry) {
-  return entry.type !== "SymbolicLink";
+  return entry.type !== 'SymbolicLink';
 }
 
 function getExtractor(archive) {
@@ -190,7 +190,7 @@ function moveDirectory(srcDir, destDir) {
 // -----------------------------
 
 function canExtract(src, mimeType) {
-  if (mimeType && mimeType !== "application/octet-stream") {
+  if (mimeType && mimeType !== 'application/octet-stream') {
     return !!getExtractor(mimeType);
   }
 
@@ -215,13 +215,13 @@ function extract(src, dst, opts) {
   // If extractor is null, then the archive type is unknown
   if (!extractor) {
     return Q.reject(
-      createError("File " + src + " is not a known archive", "ENOTARCHIVE")
+      createError('File ' + src + ' is not a known archive', 'ENOTARCHIVE')
     );
   }
 
   // Extract to a temporary directory in case of file name clashes
   return Q.nfcall(tmp.dir, {
-    template: dst + "-XXXXXX",
+    template: dst + '-XXXXXX',
     mode: 0777 & ~process.umask(),
   })
     .then(function (tempDir) {
@@ -233,8 +233,8 @@ function extract(src, dst, opts) {
       promise = Q.nfcall(fs.stat, src).then(function (stat) {
         if (stat.size <= 8) {
           throw createError(
-            "File " + src + " is an invalid archive",
-            "ENOTARCHIVE"
+            'File ' + src + ' is an invalid archive',
+            'ENOTARCHIVE'
           );
         }
 

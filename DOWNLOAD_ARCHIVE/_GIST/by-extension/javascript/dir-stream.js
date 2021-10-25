@@ -1,8 +1,8 @@
-const fs = require("fs");
+const fs = require('fs');
 
 // The async `opendir` method creates a stream from the directory
 // passed as its first argument. The stream is present in the callback
-fs.opendir("./", (err, dir) => {
+fs.opendir('./', (err, dir) => {
   if (err) {
     // log and return if theres any error
     console.error(err);
@@ -29,7 +29,7 @@ fs.opendir("./", (err, dir) => {
 
       // If the file exists, log the name, along with
       // the icon for its type
-      const type = file.isDirectory() ? "📂" : "📄";
+      const type = file.isDirectory() ? '📂' : '📄';
       console.log(type, file.name);
       // Recursively call `readNext` for the next directory entry
       readNext(dir);

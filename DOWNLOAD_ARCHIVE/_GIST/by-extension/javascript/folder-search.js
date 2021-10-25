@@ -1,23 +1,23 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
-const ObjectID = require("bson-objectid");
-const { parseMDSync } = require("../challenge-parser/parser");
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+const ObjectID = require('bson-objectid');
+const { parseMDSync } = require('../challenge-parser/parser');
 
 const padWithLeadingZeros = (originalNum) => {
   /* always want file step numbers 3 digits */
-  return ("" + originalNum).padStart(3, "0");
+  return ('' + originalNum).padStart(3, '0');
 };
 
 const insertErms = (seedCode, erms) => {
-  const lines = seedCode.split("\n");
+  const lines = seedCode.split('\n');
   if (Number.isInteger(erms[0])) {
-    lines.splice(erms[0], 0, "--fcc-editable-region--");
+    lines.splice(erms[0], 0, '--fcc-editable-region--');
   }
   if (Number.isInteger(erms[1])) {
-    lines.splice(erms[1], 0, "--fcc-editable-region--");
+    lines.splice(erms[1], 0, '--fcc-editable-region--');
   }
-  return lines.join("\n");
+  return lines.join('\n');
 };
 
 const createStepFile = ({
@@ -42,7 +42,7 @@ ${fullContents}
 ${head}
 \`\`\``
     )
-    .join("\n");
+    .join('\n');
 
   const seedTails = Object.values(challengeSeeds)
     .filter(({ tail }) => tail)
@@ -51,18 +51,18 @@ ${head}
 ${tail}
 \`\`\``
     )
-    .join("\n");
+    .join('\n');
 
   const descStepNum = stepBetween ? stepNum + 1 : stepNum;
   const stepDescription = `${
-    stepBetween ? "new" : ""
+    stepBetween ? 'new' : ''
   } step ${descStepNum} instructions`;
   const challengeSeedSection = `
 # --seed--
 
 ## --seed-contents--
 
-${seedTexts.join("\n")}`;
+${seedTexts.join('\n')}`;
 
   const seedHeadSection = seedHeads
     ? `
@@ -70,7 +70,7 @@ ${seedTexts.join("\n")}`;
 ## --before-user-code--
 
 ${seedHeads}`
-    : "";
+    : '';
 
   const seedTailSection = seedTails
     ? `
@@ -78,7 +78,7 @@ ${seedHeads}`
 ## --after-user-code--
 
 ${seedTails}`
-    : "";
+    : '';
 
   const template =
     `---
@@ -104,7 +104,7 @@ Test 1
     seedTailSection;
 
   let finalStepNum = padWithLeadingZeros(stepNum);
-  finalStepNum += stepBetween ? "a" : "";
+  finalStepNum += stepBetween ? 'a' : '';
   fs.writeFileSync(`${projectPath}part-${finalStepNum}.md`, template);
 };
 
@@ -116,15 +116,15 @@ const reorderSteps = () => {
     : process.cwd().split(path.sep).slice(-1).toString();
 
   const curriculumPath = process.env.CALLING_DIR
-    ? ""
-    : path.join(__dirname, "../");
+    ? ''
+    : path.join(__dirname, '../');
 
   const projectMetaPath = path.resolve(
     curriculumPath,
-    "challenges",
-    "_meta",
+    'challenges',
+    '_meta',
     projectName,
-    "meta.json"
+    'meta.json'
   );
 
   let metaData;
@@ -137,8 +137,8 @@ const reorderSteps = () => {
   let foundFinal = false;
   const filesArr = [];
   fs.readdirSync(projectPath).forEach((fileName) => {
-    if (path.extname(fileName).toLowerCase() === ".md") {
-      if (!fileName.endsWith("final.md")) {
+    if (path.extname(fileName).toLowerCase() === '.md') {
+      if (!fileName.endsWith('final.md')) {
         filesArr.push(fileName);
       } else {
         foundFinal = true;
@@ -147,15 +147,15 @@ const reorderSteps = () => {
   });
 
   if (foundFinal) {
-    filesArr.push("final.md");
+    filesArr.push('final.md');
   }
 
   const filesToReorder = filesArr.map((fileName, i) => {
     const newStepNum = i + 1;
     const newFileName =
-      fileName !== "final.md"
+      fileName !== 'final.md'
         ? `part-${padWithLeadingZeros(newStepNum)}.md`
-        : "final.md";
+        : 'final.md';
     return {
       oldFileName: fileName,
       newFileName,
@@ -175,8 +175,8 @@ const reorderSteps = () => {
     const frontMatter = matter.read(filePath);
     const challengeID = frontMatter.data.id || ObjectID.generate();
     const title =
-      newFileName === "final.md" ? "Final Prototype" : `Part ${newStepNum}`;
-    challengeOrder.push(["" + challengeID, title]);
+      newFileName === 'final.md' ? 'Final Prototype' : `Part ${newStepNum}`;
+    challengeOrder.push(['' + challengeID, title]);
     const newData = {
       ...frontMatter.data,
       id: challengeID,
@@ -194,7 +194,7 @@ const reorderSteps = () => {
 
   const newMeta = { ...parsedData, challengeOrder };
   fs.writeFileSync(projectMetaPath, JSON.stringify(newMeta, null, 2));
-  console.log("Reordered steps");
+  console.log('Reordered steps');
 };
 
 const getChallengeSeeds = (challengeFilePath) => {
@@ -204,14 +204,14 @@ const getChallengeSeeds = (challengeFilePath) => {
 const getExistingStepNums = (projectPath) => {
   return fs.readdirSync(projectPath).reduce((stepNums, fileName) => {
     if (
-      path.extname(fileName).toLowerCase() === ".md" &&
-      !fileName.endsWith("final.md")
+      path.extname(fileName).toLowerCase() === '.md' &&
+      !fileName.endsWith('final.md')
     ) {
-      let stepNum = fileName.split(".")[0].split("-")[1];
+      let stepNum = fileName.split('.')[0].split('-')[1];
       if (!/^\d{3}$/.test(stepNum)) {
         throw (
           `Step not created. File ${fileName} has a step number containing non-digits.` +
-          " Please run reorder-steps script first."
+          ' Please run reorder-steps script first.'
         );
       }
       stepNum = parseInt(stepNum, 10);
@@ -226,7 +226,7 @@ const getProjectPath = () =>
 
 const getArgValues = (argv) => {
   return argv.slice(2).reduce((argsObj, arg) => {
-    const [argument, value] = arg.replace(/\s/g, "").split("=");
+    const [argument, value] = arg.replace(/\s/g, '').split('=');
     if (!argument || !value) {
       throw `Invalid argument/value specified: ${arg}`;
     }

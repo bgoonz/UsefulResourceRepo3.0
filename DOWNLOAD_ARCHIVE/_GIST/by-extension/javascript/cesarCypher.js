@@ -7,11 +7,11 @@
 let caesarCipher = (str, num) => {
   num = num % 26; //IMP to convert numbr > or < 26
   let lowercaseString = str.toLowerCase();
-  let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-  let newString = "";
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  let newString = '';
   for (let i = 0; i < lowercaseString.length; i++) {
     let currentLetter = lowercaseString[i];
-    if (currentLetter == " ") {
+    if (currentLetter == ' ') {
       newString += currentLetter;
       continue;
     }
@@ -26,6 +26,6 @@ let caesarCipher = (str, num) => {
   return newString;
 };
 
-console.log(caesarCipher("amazing algo", -700));
-console.log(caesarCipher("i love javascript", -15));
-console.log(caesarCipher("Zoo Keeper", 2)); //Bqq Mggrgt
+console.log(caesarCipher('amazing algo', -700));
+console.log(caesarCipher('i love javascript', -15));
+console.log(caesarCipher('Zoo Keeper', 2)); //Bqq Mggrgt

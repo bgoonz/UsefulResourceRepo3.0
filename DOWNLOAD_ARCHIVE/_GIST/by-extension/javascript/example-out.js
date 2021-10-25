@@ -13,7 +13,7 @@ class A {
   a() {
     var _this = this;
 
-    this.button.on("click", async function () {
+    this.button.on('click', async function () {
       let data = await _this.getDataAsync();
       _this.showData(data);
     });

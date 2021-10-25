@@ -12,8 +12,8 @@ A method to derive Maven/Nexus-compatible versions from git tags.
 
 module.exports = promisedVersion;
 
-var Promise = require("bluebird");
-var execSync = Promise.promisify(require("child_process").exec);
+var Promise = require('bluebird');
+var execSync = Promise.promisify(require('child_process').exec);
 
 // Utilities ----------------------------------------------------------------
 
@@ -26,14 +26,14 @@ function getOutput(command) {
 }
 
 function cleanBranchName(stdout) {
-  return stdout.replace(/\//g, "_");
+  return stdout.replace(/\//g, '_');
 }
 
 function parseLongDescribe(stdout) {
   var meta = {};
 
   // v1.0-6608-g09e4ce6
-  var splat = stdout.split("-");
+  var splat = stdout.split('-');
 
   var commit = splat.pop().substr(1); // removes 'g' prefix
 
@@ -44,7 +44,7 @@ function parseLongDescribe(stdout) {
   var tagged = splat
     .pop()
     .substr(1) // removes 'v' prefix
-    .split(".");
+    .split('.');
 
   meta.major = tagged[0];
   meta.minor = tagged[1];
@@ -56,15 +56,15 @@ function parseLongDescribe(stdout) {
 // Promises -----------------------------------------------------------------
 
 function getBranchName() {
-  return getOutput("git symbolic-ref --short HEAD").then(cleanBranchName);
+  return getOutput('git symbolic-ref --short HEAD').then(cleanBranchName);
 }
 
 function getVersionMeta() {
-  return getOutput("git describe --long --match v*").then(parseLongDescribe);
+  return getOutput('git describe --long --match v*').then(parseLongDescribe);
 }
 
 function getRevCount() {
-  return getOutput("git rev-list --count HEAD");
+  return getOutput('git rev-list --count HEAD');
 }
 
 function finish(branchName, versionMeta, revCount) {
@@ -72,15 +72,15 @@ function finish(branchName, versionMeta, revCount) {
     major = 0,
     minor = 0,
     micro = revCount,
-    qualifier = [branchName, versionMeta.commit].join(".");
+    qualifier = [branchName, versionMeta.commit].join('.');
 
   if (/(master|release|hotfix)/i.test(branchName)) {
     major = versionMeta.major;
     minor = versionMeta.minor;
   }
 
-  version = [major, minor, micro].join(".");
-  version += "-" + qualifier;
+  version = [major, minor, micro].join('.');
+  version += '-' + qualifier;
 
   return version;
 }
