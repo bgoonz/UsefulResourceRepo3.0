@@ -72,13 +72,8 @@ class Dashboard extends Component<Props, LocalState> {
   }
 
   componentDidMount() {
-    const {
-      games,
-      curGame,
-      subscribe,
-      onGameKeepAlive,
-      closeGame,
-    } = this.props;
+    const { games, curGame, subscribe, onGameKeepAlive, closeGame } =
+      this.props;
 
     subscribe('global');
 
@@ -126,15 +121,14 @@ class Dashboard extends Component<Props, LocalState> {
     this.cancelInactiveTimeouts();
   }
 
-  createTransClearScheduler = (clearHandler: (gameId: GameId) => void) => (
-    gameId: GameId
-  ) => {
-    const timeoutId = setTimeout(() => {
-      clearHandler(gameId);
-      this.transitionTimeouts = without(this.transitionTimeouts, timeoutId);
-    }, TRANSITION_TIMEOUT);
-    this.transitionTimeouts = [...this.transitionTimeouts, timeoutId];
-  };
+  createTransClearScheduler =
+    (clearHandler: (gameId: GameId) => void) => (gameId: GameId) => {
+      const timeoutId = setTimeout(() => {
+        clearHandler(gameId);
+        this.transitionTimeouts = without(this.transitionTimeouts, timeoutId);
+      }, TRANSITION_TIMEOUT);
+      this.transitionTimeouts = [...this.transitionTimeouts, timeoutId];
+    };
 
   scheduleClearAdded = this.createTransClearScheduler((gameId: GameId) => {
     this.setState({

@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter } from "react-router-dom";
-import rootReducer from "./app/reducers";
-import persistMiddleware from "./app/middleware/persistMiddleware";
-import App from "./app/components/App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { BrowserRouter } from 'react-router-dom';
+import rootReducer from './app/reducers';
+import persistMiddleware from './app/middleware/persistMiddleware';
+import App from './app/components/App';
 
 // Extract initial redux state received from the server
 const preloadedState = window.PRELOADED_STATE;
@@ -24,5 +24,5 @@ ReactDOM.hydrate(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById("app")
+  document.getElementById('app')
 );

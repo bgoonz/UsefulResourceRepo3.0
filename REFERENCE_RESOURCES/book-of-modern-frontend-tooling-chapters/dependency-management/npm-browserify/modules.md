@@ -4,7 +4,6 @@ The biggest attraction of browserify over similar tools would have to be the inc
 
 The most immediately obvious core modules that are useful on the client-side are querystring, `url` and `path`. By requiring these core modules, we can easily parse and resolves urls, query strings and paths in a client script. On top of that, the `process`, `Buffer`, `__dirname`, `__filename` and `global` variables are all populated with Browserify. That means we can use process.nextTick to easily invoke a function on the next event loop (with full cross-browser support). A special `process.browser` flag is also set in browserify builds, so we can do a quick check to see if the script is running in a browser environment (as opposed to node.js for all the cross-environment module developers).
 
-
 ## Writting Modules
 
 ....

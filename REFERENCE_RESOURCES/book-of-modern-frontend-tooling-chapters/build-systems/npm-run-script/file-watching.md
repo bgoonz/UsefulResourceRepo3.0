@@ -26,4 +26,3 @@ As configured below; when a JavaScript or JSON file changes, `nodemon` will invo
 ## start the development file watcher
 
     % npm start:dev
-

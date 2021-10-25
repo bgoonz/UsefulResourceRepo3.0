@@ -1,10 +1,6 @@
 {
-  "globalImports": [
-    "./global.css"
-  ],
+  "globalImports": ["./global.css"],
   "publicUrl": "/static/",
   "staticPath": "static",
-  "watchDirs": [
-    "web/!__image_snapshots__"
-  ]
+  "watchDirs": ["web/!__image_snapshots__"]
 }

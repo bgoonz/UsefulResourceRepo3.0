@@ -2,12 +2,10 @@
 
 A couple of projects to get familiar with the React framework.
 
-![Giphy](https://media.giphy.com/media/l0HUhhAtb86vYAHkY/giphy.gif)
-![Giphy](https://media.giphy.com/media/26gN147Cy7zF1Mv7y/giphy.gif)
-![Giphy](https://media.giphy.com/media/26DNeo2xDmfj3plbW/giphy.gif)
-
+![Giphy](https://media.giphy.com/media/l0HUhhAtb86vYAHkY/giphy.gif) ![Giphy](https://media.giphy.com/media/26gN147Cy7zF1Mv7y/giphy.gif) ![Giphy](https://media.giphy.com/media/26DNeo2xDmfj3plbW/giphy.gif)
 
 ## Projects
+
 1. **todo**: Basic todo app to get started.
 2. **tictactoe**: A tic-tac-toe game uses states and props.
 3. **markdown-editor**: A real-time markdown editor SPA. [(Live Demo)](https://react-markdown-editor.firebaseapp.com)
@@ -20,7 +18,6 @@ A couple of projects to get familiar with the React framework.
 10. **gatsbyjs-markdown-blog**: GatsbyJS blog which fetches markdown blog posts, lists them and displays each post wrapped up as a static site. Based on the tutorials in the official docs, uses GraphQL, Typography.js, Remark plugin, Glamor.
 11. **reddit-clone**: react-redux-thunk project that calls the RedditAPI to fetch posts from selected subreddits. [(Live Demo)](https://github.com/ajayns/frontend-dev-talk)
 
-
 ## Development
 
 Projects such as _create-react-app_, _nwb_ and _react-slingshot_ have been used to setup development envs.
@@ -32,7 +29,6 @@ Install all the required packages/dependencies using yarn
 Serve the app to browser
 
 ### `yarn start`
-
 
 ## Tutorials/References
 

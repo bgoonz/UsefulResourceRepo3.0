@@ -11,8 +11,8 @@ const store = configureStore();
 
 // Provider to use redux store in app
 render(
-    <Provider store={store}>
-        <ItemList />
-    </Provider>,
-    document.getElementById('app')
+  <Provider store={store}>
+    <ItemList />
+  </Provider>,
+  document.getElementById('app')
 );

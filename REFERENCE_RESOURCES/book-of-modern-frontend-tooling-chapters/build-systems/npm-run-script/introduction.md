@@ -1,6 +1,6 @@
 # npm run task automation
 
-###### Using `npm run` for task automation is a simple low-overhead compromise between the simplicity of `make` and fancier tools such as `grunt` or `gulp`.  `npm` allows [scripts](https://www.npmjs.org/doc/misc/npm-scripts.html) to be defined which can be invoked via the command `npm run $SCRIPT_NAME` where `$SCRIPT_NAME` is a key within the `scripts` object in the [package.json](https://www.npmjs.org/doc/files/package.json.html) file.
+###### Using `npm run` for task automation is a simple low-overhead compromise between the simplicity of `make` and fancier tools such as `grunt` or `gulp`. `npm` allows [scripts](https://www.npmjs.org/doc/misc/npm-scripts.html) to be defined which can be invoked via the command `npm run $SCRIPT_NAME` where `$SCRIPT_NAME` is a key within the `scripts` object in the [package.json](https://www.npmjs.org/doc/files/package.json.html) file.
 
 ## Benefits
 
@@ -31,4 +31,3 @@ To add lint checking to a project the following is all that is necessary to get 
 ###### run the lint script
 
     $ npm run lint
-

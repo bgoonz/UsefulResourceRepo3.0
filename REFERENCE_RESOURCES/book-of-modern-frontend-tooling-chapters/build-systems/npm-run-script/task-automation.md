@@ -71,4 +71,3 @@ tape is a simple test library without a superfluous API. It allows you to run te
 > `test` is a special script so it can be run as `npm test`.
 
     % npm test
-

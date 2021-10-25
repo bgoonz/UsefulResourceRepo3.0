@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="workflows-browsability.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,12 +119,12 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="workflows-browsability" class="section level1">
 <h1>
-<span class="header-section-number">33</span> Make a GitHub repo browsable<a class="anchor" aria-label="anchor" href="#workflows-browsability"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33</span> Make a GitHub repo browsable<a class="anchor" aria-label="anchor" href="workflows-browsability.html#workflows-browsability"><i class="fas fa-link"></i></a>
 </h1>
 <p><strong>The unreasonable effectiveness of GitHub browsability</strong>. One of my favorite aspects of GitHub is the ability to inspect a repository’s files in a browser. Certain practices make browsing more rewarding and can postpone the day when you must create a proper website for a project. Perhaps indefinitely.</p>
 <div id="be-savvy-about-your-files" class="section level2">
 <h2>
-<span class="header-section-number">33.1</span> Be savvy about your files<a class="anchor" aria-label="anchor" href="#be-savvy-about-your-files"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.1</span> Be savvy about your files<a class="anchor" aria-label="anchor" href="workflows-browsability.html#be-savvy-about-your-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>Keep files in the plainest, web-friendliest form that is compatible with your main goals. Plain text is the very best. GitHub offers special handling for certain types of files:</p>
 <ul>
@@ -139,7 +139,7 @@
 </div>
 <div id="get-over-your-hang-ups-re-committing-derived-products" class="section level2">
 <h2>
-<span class="header-section-number">33.2</span> Get over your hang ups re: committing derived products<a class="anchor" aria-label="anchor" href="#get-over-your-hang-ups-re-committing-derived-products"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.2</span> Get over your hang ups re: committing derived products<a class="anchor" aria-label="anchor" href="workflows-browsability.html#get-over-your-hang-ups-re-committing-derived-products"><i class="fas fa-link"></i></a>
 </h2>
 <p>Let’s acknowledge the discomfort some people feel about putting derived products under version control. Specifically, if you’ve got an R Markdown document <code>foo.Rmd</code>, it can be <code>knit()</code> to produce the intermediate product <code>foo.md</code>, which can be converted to the ultimate output <code>foo.html</code>. Which of those files are you “allowed” to put under version control? Source-is-real hardliners will say only <code>foo.Rmd</code> but pragmatists know this can be a serious bummer in real life. Just because I <em>can</em> rebuild everything from scratch, it doesn’t mean I <em>want</em> to.</p>
 <p>The taboo of keeping derived products under version control originates from compilation of binary executables from source. Software built on a Mac would not work on Windows and so it made sense to keep these binaries out of the holy source code repository. Also, you could assume the people with access to the repository have the full development stack and relish opportunities to use it. None of these arguments really apply to the <code>foo.Rmd --&gt; foo.md --&gt; foo.html</code> workflow. We don’t have to blindly follow traditions from the compilation domain!</p>
@@ -148,14 +148,14 @@
 </div>
 <div id="markdown" class="section level2">
 <h2>
-<span class="header-section-number">33.3</span> Markdown<a class="anchor" aria-label="anchor" href="#markdown"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.3</span> Markdown<a class="anchor" aria-label="anchor" href="workflows-browsability.html#markdown"><i class="fas fa-link"></i></a>
 </h2>
 <p>You will quickly discover that GitHub renders Markdown files very nicely. By clicking on <code>foo.md</code>, you’ll get a decent preview of <code>foo.html</code>. Yay! You should read <a href="https://guides.github.com/features/mastering-markdown/">GitHub’s own guide</a> on how to leverage automatic Markdown rendering.</p>
 <p>Exploit this aggressively. Make Markdown your default format for narrative text files and use them liberally to embed notes to yourself and others in a repository hosted on Github. It’s an easy way to get pseudo-webpages inside a project “for free”. You may never even compile these files to HTML explicitly; in many cases, the HTML preview offered by GitHub is all you ever need.</p>
 </div>
 <div id="r-markdown" class="section level2">
 <h2>
-<span class="header-section-number">33.4</span> R Markdown<a class="anchor" aria-label="anchor" href="#r-markdown"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.4</span> R Markdown<a class="anchor" aria-label="anchor" href="workflows-browsability.html#r-markdown"><i class="fas fa-link"></i></a>
 </h2>
 <p>What does this mean for R Markdown files? <strong>Keep intermediate Markdown. Or only render to Markdown.</strong> Commit both <code>foo.Rmd</code> and <code>foo.md</code>, even if you choose to <code>.gitignore</code> the final product, e.g. <code>foo.html</code> or <code>foo.pdf</code> or <code>foo.docx</code>. From <a href="https://github.com/github/markup/pull/343">September 2014</a>, GitHub renders R Markdown files nicely, like Markdown, and with proper syntax highlighting, which is great. But, of course, the code blocks just sit there un-executed, so my advice about keeping Markdown still holds.</p>
 <p>If your target output format is not Markdown, you want <a href="https://gist.github.com/jennybc/402761e30b9be8023af9">YAML frontmatter</a> that looks something like this for <code>.Rmd</code>:</p>
@@ -189,7 +189,7 @@
 </div>
 <div id="readme.md" class="section level2">
 <h2>
-<span class="header-section-number">33.5</span> <code>README.md</code><a class="anchor" aria-label="anchor" href="#readme.md"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.5</span> <code>README.md</code><a class="anchor" aria-label="anchor" href="workflows-browsability.html#readme.md"><i class="fas fa-link"></i></a>
 </h2>
 <p>You probably already know that GitHub renders <code>README.md</code> at the top-level of your repo as the <em>de facto</em> landing page. This is analogous to what happens when you point a web browser at a directory instead of a specific web page: if there is a file named <code>index.html</code>, that’s what the server will show you by default. On GitHub, files named <code>README.md</code> play exactly this role for directories in your repo.</p>
 <p>Implication: for any logical group of files or mini project-within-your-project, create a sub-directory in your repository. And then create a <code>README.md</code> file to annotate these files, collect relevant links, etc. Now when you navigate to the sub-directory on GitHub the nicely rendered <code>README.md</code> will simply appear. The GitHub repo that backs the <a href="https://cran.r-project.org/package=gapminder">gapminder</a> data package has a <a href="https://github.com/jennybc/gapminder/tree/master/data-raw#readme">README in the <code>data-raw</code> subdirectory</a> that explains exactly how the package data is created. In fact, it is generated programmatically from <a href="https://github.com/jennybc/gapminder/blob/master/data-raw/README.Rmd"><code>README.Rmd</code></a>.</p>
@@ -199,7 +199,7 @@
 </div>
 <div id="finding-stuff" class="section level2">
 <h2>
-<span class="header-section-number">33.6</span> Finding stuff<a class="anchor" aria-label="anchor" href="#finding-stuff"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.6</span> Finding stuff<a class="anchor" aria-label="anchor" href="workflows-browsability.html#finding-stuff"><i class="fas fa-link"></i></a>
 </h2>
 <p>OK these are pure GitHub tips but if you’ve made it this far, you’re obviously a keener.</p>
 <ul>
@@ -209,7 +209,7 @@
 </div>
 <div id="html" class="section level2">
 <h2>
-<span class="header-section-number">33.7</span> HTML<a class="anchor" aria-label="anchor" href="#html"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.7</span> HTML<a class="anchor" aria-label="anchor" href="workflows-browsability.html#html"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you have an HTML file in a GitHub repository, simply visiting the file shows the raw HTML. Here’s a nice ugly example:</p>
 <ul>
@@ -241,14 +241,14 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div>
 <div id="source-code" class="section level2">
 <h2>
-<span class="header-section-number">33.8</span> Source code<a class="anchor" aria-label="anchor" href="#source-code"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.8</span> Source code<a class="anchor" aria-label="anchor" href="workflows-browsability.html#source-code"><i class="fas fa-link"></i></a>
 </h2>
 <p>You will notice that GitHub does automatic syntax highlighting for source code. For example, notice the coloring of this <a href="https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-ggplot2-stripplot.r">R script</a>. The file’s extension is the primary determinant for if/how syntax highlighting will be applied. You can see information on recognized languages, the default extensions and more at <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">github/linguist</a>. You should be doing it anyway, but let this be another reason to follow convention in your use of file extensions.</p>
 <p>Note you can click on “Raw” in this context as well, to get just the plain text and nothing but the plain text.</p>
 </div>
 <div id="delimited-files" class="section level2">
 <h2>
-<span class="header-section-number">33.9</span> Delimited files<a class="anchor" aria-label="anchor" href="#delimited-files"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.9</span> Delimited files<a class="anchor" aria-label="anchor" href="workflows-browsability.html#delimited-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>GitHub will nicely render tabular data in the form of <code>.csv</code> (comma-separated) and <code>.tsv</code> (tab-separated) files. You can read more in the <a href="https://github.com/blog/1601-see-your-csvs">blog post</a> announcing this feature in August 2013 or in <a href="https://help.github.com/articles/rendering-csv-and-tsv-data">this GitHub help page</a>.</p>
 <p>Advice: take advantage of this! If something in your repo can be naturally stored as delimited data, by all means, do so. Make the comma or tab your default delimiter and use the file suffixes GitHub is expecting. I have noticed that GitHub is more easily confused than R about things like quoting, so always inspect the GitHub-rendered <code>.csv</code> or <code>.tsv</code> file in the browser. You may need to do light cleaning to get the automagic rendering to work properly. Think of it as yet another way to learn about imperfections in your data.</p>
@@ -257,7 +257,7 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div>
 <div id="pngs" class="section level2">
 <h2>
-<span class="header-section-number">33.10</span> PNGs<a class="anchor" aria-label="anchor" href="#pngs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.10</span> PNGs<a class="anchor" aria-label="anchor" href="workflows-browsability.html#pngs"><i class="fas fa-link"></i></a>
 </h2>
 <p>PNG is the “no brainer” format in which to store figures for the web. But many of us like a vector-based format, such as PDF, for general purpose figures. Bottom line: PNGs will drive you less crazy than PDFs on GitHub. To reduce the aggravation around viewing figures in the browser, make sure to have a PNG version in the repo.</p>
 <p>Examples:</p>
@@ -271,7 +271,7 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div>
 <div id="other-document-formats" class="section level2">
 <h2>
-<span class="header-section-number">33.11</span> Other document formats<a class="anchor" aria-label="anchor" href="#other-document-formats"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.11</span> Other document formats<a class="anchor" aria-label="anchor" href="workflows-browsability.html#other-document-formats"><i class="fas fa-link"></i></a>
 </h2>
 <p>You may also have a document you want others to be able to browse and interact with, but it is not in the markdown format. Fortunately, the open-source Pandoc program, written by John MacFarlane, allows you to convert a range of formats into markdown, including the widely used <code>.docx</code> format.</p>
 <p>When you click the Knit button in RStudio it is actually Pandoc which performs the final conversion to HTML or Microsoft Word (<code>.docx</code>) formats. If you are willing to use the command-line, you can perform the opposite conversion (eg <code>.docx</code> to <code>.md</code>), commonly retaining features such as headings, tables, equations and even figures.</p>
@@ -280,11 +280,11 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb191-1"><a href="workflows-browsability.html#cb191-1"></a><span class="pp">---</span></span>
 <span id="cb191-2"><a href="workflows-browsability.html#cb191-2"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span>
 <span id="cb191-3"><a href="workflows-browsability.html#cb191-3"></a><span class="pp">---</span></span></code></pre></div>
-<p>You can then click on “Knit” then “Knit to github document” to perform the conversion. See <a href="##%20Output%20format">Output format</a> for more details of controlling output formats with the YAML frontmatter.</p>
+<p>You can then click on “Knit” then “Knit to github document” to perform the conversion. See <a href="workflows-browsability.html##%20Output%20format">Output format</a> for more details of controlling output formats with the YAML frontmatter.</p>
 </div>
 <div id="linking-to-a-zip-archive-of-your-repo" class="section level2">
 <h2>
-<span class="header-section-number">33.12</span> Linking to a ZIP archive of your repo<a class="anchor" aria-label="anchor" href="#linking-to-a-zip-archive-of-your-repo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.12</span> Linking to a ZIP archive of your repo<a class="anchor" aria-label="anchor" href="workflows-browsability.html#linking-to-a-zip-archive-of-your-repo"><i class="fas fa-link"></i></a>
 </h2>
 <p>The browsability of GitHub makes your work accessible to people who care about your content but who don’t (yet) use Git themselves. What if such a person wants all the files? Yes, there is a clickable “Download ZIP” button offered by GitHub. But what if you want a link to include in an email or other document? If you add <code>/archive/master.zip</code> <em>to the end</em> of the URL for your repo, you construct a link that will download a ZIP archive of your repository. Click here to try this out on a very small repo:</p>
 <p><a href="https://github.com/jennybc/lotr/archive/master.zip" class="uri">https://github.com/jennybc/lotr/archive/master.zip</a></p>
@@ -292,7 +292,7 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div>
 <div id="links-and-embedded-figures" class="section level2">
 <h2>
-<span class="header-section-number">33.13</span> Links and embedded figures<a class="anchor" aria-label="anchor" href="#links-and-embedded-figures"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.13</span> Links and embedded figures<a class="anchor" aria-label="anchor" href="workflows-browsability.html#links-and-embedded-figures"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li><p>To link to another page in your repo, just use a relative link: <code>[admin](courseAdmin/)</code> will link to the <code>courseAdmin/</code> directory inside the current directory. <code>[admin](/courseAdmin/)</code> will link to the top-level <code>courseAdmin/</code> directory from any where in the repo</p></li>
@@ -301,7 +301,7 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div>
 <div id="let-people-correct-you-on-the-internet" class="section level2">
 <h2>
-<span class="header-section-number">33.14</span> Let people correct you on the internet<a class="anchor" aria-label="anchor" href="#let-people-correct-you-on-the-internet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.14</span> Let people correct you on the internet<a class="anchor" aria-label="anchor" href="workflows-browsability.html#let-people-correct-you-on-the-internet"><i class="fas fa-link"></i></a>
 </h2>
 <p>They love that!</p>
 <p>You can create a link that takes people directly to an editing interface in the browser. Behind the scenes, assuming the click-er is signed into GitHub but is not you, this will create a fork in their account and send you a pull request. When I click the link below, I am able to actually commit directly to <code>master</code> for this repo.</p>
@@ -323,21 +323,21 @@ to keep intermediate markdown files for HTML, as described above.)</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#workflows-browsability"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
-<li><a class="nav-link" href="#be-savvy-about-your-files"><span class="header-section-number">33.1</span> Be savvy about your files</a></li>
-<li><a class="nav-link" href="#get-over-your-hang-ups-re-committing-derived-products"><span class="header-section-number">33.2</span> Get over your hang ups re: committing derived products</a></li>
-<li><a class="nav-link" href="#markdown"><span class="header-section-number">33.3</span> Markdown</a></li>
-<li><a class="nav-link" href="#r-markdown"><span class="header-section-number">33.4</span> R Markdown</a></li>
-<li><a class="nav-link" href="#readme.md"><span class="header-section-number">33.5</span> README.md</a></li>
-<li><a class="nav-link" href="#finding-stuff"><span class="header-section-number">33.6</span> Finding stuff</a></li>
-<li><a class="nav-link" href="#html"><span class="header-section-number">33.7</span> HTML</a></li>
-<li><a class="nav-link" href="#source-code"><span class="header-section-number">33.8</span> Source code</a></li>
-<li><a class="nav-link" href="#delimited-files"><span class="header-section-number">33.9</span> Delimited files</a></li>
-<li><a class="nav-link" href="#pngs"><span class="header-section-number">33.10</span> PNGs</a></li>
-<li><a class="nav-link" href="#other-document-formats"><span class="header-section-number">33.11</span> Other document formats</a></li>
-<li><a class="nav-link" href="#linking-to-a-zip-archive-of-your-repo"><span class="header-section-number">33.12</span> Linking to a ZIP archive of your repo</a></li>
-<li><a class="nav-link" href="#links-and-embedded-figures"><span class="header-section-number">33.13</span> Links and embedded figures</a></li>
-<li><a class="nav-link" href="#let-people-correct-you-on-the-internet"><span class="header-section-number">33.14</span> Let people correct you on the internet</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#workflows-browsability"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#be-savvy-about-your-files"><span class="header-section-number">33.1</span> Be savvy about your files</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#get-over-your-hang-ups-re-committing-derived-products"><span class="header-section-number">33.2</span> Get over your hang ups re: committing derived products</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#markdown"><span class="header-section-number">33.3</span> Markdown</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#r-markdown"><span class="header-section-number">33.4</span> R Markdown</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#readme.md"><span class="header-section-number">33.5</span> README.md</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#finding-stuff"><span class="header-section-number">33.6</span> Finding stuff</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#html"><span class="header-section-number">33.7</span> HTML</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#source-code"><span class="header-section-number">33.8</span> Source code</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#delimited-files"><span class="header-section-number">33.9</span> Delimited files</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#pngs"><span class="header-section-number">33.10</span> PNGs</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#other-document-formats"><span class="header-section-number">33.11</span> Other document formats</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#linking-to-a-zip-archive-of-your-repo"><span class="header-section-number">33.12</span> Linking to a ZIP archive of your repo</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#links-and-embedded-figures"><span class="header-section-number">33.13</span> Links and embedded figures</a></li>
+<li><a class="nav-link" href="workflows-browsability.html#let-people-correct-you-on-the-internet"><span class="header-section-number">33.14</span> Let people correct you on the internet</a></li>
 </ul>
 
       <div class="book-extra">

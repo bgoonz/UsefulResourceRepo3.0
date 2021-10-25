@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="pull-tricky.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pull-tricky" class="section level1">
 <h1>
-<span class="header-section-number">28</span> Pull, but you have local work<a class="anchor" aria-label="anchor" href="#pull-tricky"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28</span> Pull, but you have local work<a class="anchor" aria-label="anchor" href="pull-tricky.html#pull-tricky"><i class="fas fa-link"></i></a>
 </h1>
 <p>Problem: You want to pull changes from upstream, but you have done some new work locally since the last time you pulled. This often comes up because <a href="push-rejected.html#push-rejected">what you actually want to do is <em>push</em></a>, but Git won’t let you until you first incorporate the upstream changes.</p>
 <p>For the sake of simplicity, assume we’re dealing with the <code>master</code> branch and the remote is called <code>origin</code>.</p>
@@ -138,13 +138,13 @@
 <p>We prioritize simple approaches that are good for early Git use, but mention nicer long-term alternatives.</p>
 <div id="local-work-is-uncommitted" class="section level2">
 <h2>
-<span class="header-section-number">28.1</span> Local work is uncommitted<a class="anchor" aria-label="anchor" href="#local-work-is-uncommitted"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.1</span> Local work is uncommitted<a class="anchor" aria-label="anchor" href="pull-tricky.html#local-work-is-uncommitted"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remote state is <code>A--B--C</code>.<br>
 Local state is <code>A--B--(uncommitted changes)</code>.</p>
 <div id="happy-simple-cases" class="section level3">
 <h3>
-<span class="header-section-number">28.1.1</span> Happy simple cases<a class="anchor" aria-label="anchor" href="#happy-simple-cases"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.1.1</span> Happy simple cases<a class="anchor" aria-label="anchor" href="pull-tricky.html#happy-simple-cases"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are two happy scenarios, in which <code>git pull</code> will “just work”:</p>
 <ul>
@@ -160,7 +160,7 @@ Local state is <code>A--B--(uncommitted changes)</code>.</p>
 </div>
 <div id="git-stash-works-sometimes" class="section level3">
 <h3>
-<span class="header-section-number">28.1.2</span> <code>git stash</code> works, sometimes<a class="anchor" aria-label="anchor" href="#git-stash-works-sometimes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.1.2</span> <code>git stash</code> works, sometimes<a class="anchor" aria-label="anchor" href="pull-tricky.html#git-stash-works-sometimes"><i class="fas fa-link"></i></a>
 </h3>
 <p>If your changes affect a file (<code>foo.R</code> in the example below) that has also been changed in commit <code>C</code>, you cannot <code>git pull</code>. It doesn’t hurt to try, but you will fail and it will look something like this:</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb152-1"><a href="pull-tricky.html#cb152-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
@@ -221,7 +221,7 @@ Local state is <code>A--B--(uncommitted changes)</code>.</p>
 </div>
 <div id="git-stash-with-conflicts" class="section level3">
 <h3>
-<span class="header-section-number">28.1.3</span> <code>git stash</code> with conflicts<a class="anchor" aria-label="anchor" href="#git-stash-with-conflicts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.1.3</span> <code>git stash</code> with conflicts<a class="anchor" aria-label="anchor" href="pull-tricky.html#git-stash-with-conflicts"><i class="fas fa-link"></i></a>
 </h3>
 <p>If your local changes have some overlap with changes you are pulling, you will, instead get a merge conflict from <code>git stash pop</code>. Now you have some remedial work to do. In this case, you have gained nothing by using <code>git stash</code> in the first place, which explains my general lack of enthusiasm for <code>git stash</code>.</p>
 <p>Here’s how to execute the <code>git stash</code> workflow in our example, in the face of conflicts (based on <a href="https://stackoverflow.com/a/27382210/2825349">this Stack Overflow answer</a>):</p>
@@ -255,13 +255,13 @@ Local state is <code>A--B--(uncommitted changes)</code>.</p>
 </div>
 <div id="git-pull-with-local-commits" class="section level2">
 <h2>
-<span class="header-section-number">28.2</span> Local work is committed<a class="anchor" aria-label="anchor" href="#git-pull-with-local-commits"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.2</span> Local work is committed<a class="anchor" aria-label="anchor" href="pull-tricky.html#git-pull-with-local-commits"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remote state is <code>A--B--C</code>.<br>
 Local state is <code>A--B--D</code>.</p>
 <div id="pull-fetch-and-merge" class="section level3">
 <h3>
-<span class="header-section-number">28.2.1</span> Pull (fetch and merge)<a class="anchor" aria-label="anchor" href="#pull-fetch-and-merge"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.2.1</span> Pull (fetch and merge)<a class="anchor" aria-label="anchor" href="pull-tricky.html#pull-fetch-and-merge"><i class="fas fa-link"></i></a>
 </h3>
 <p>The simplest option is to fetch the commits from upstream and merge them, which is what <code>git pull</code> does. This is a good option if you’re new to Git. It leads to a messier history, but when you are new, this is the least of your worries. Merge, be happy, and carry on.</p>
 <p>Here is the best case, no-merge-conflicts version of <code>git pull</code>:</p>
@@ -293,7 +293,7 @@ Local state is <code>A--B--D</code>.</p>
 </div>
 <div id="pull-and-rebase" class="section level3">
 <h3>
-<span class="header-section-number">28.2.2</span> Pull and rebase<a class="anchor" aria-label="anchor" href="#pull-and-rebase"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.2.2</span> Pull and rebase<a class="anchor" aria-label="anchor" href="pull-tricky.html#pull-and-rebase"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>git pull --rebase</code> creates a nicer history than <code>git pull</code> when integrating local and remote commits. It avoids a merge commit, so the history is less cluttered and is linear. It can make merge conflicts more onerous to resolve, which is why I still recommend <code>git pull</code> as the entry-level solution.</p>
 <p>Here is the best case, no-merge-conflicts version of <code>git pull --rebase</code>:</p>
@@ -313,12 +313,12 @@ Applying: Take max</code></pre>
 </div>
 <div id="other-approaches" class="section level2">
 <h2>
-<span class="header-section-number">28.3</span> Other approaches<a class="anchor" aria-label="anchor" href="#other-approaches"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.3</span> Other approaches<a class="anchor" aria-label="anchor" href="pull-tricky.html#other-approaches"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are many more ways to handle this situation, which you can discover and explore as you gain experience and start to care more about the history. We sketch some ideas here.</p>
 <div id="use-a-temporary-branch-for-local-work" class="section level3">
 <h3>
-<span class="header-section-number">28.3.1</span> Use a temporary branch for local work<a class="anchor" aria-label="anchor" href="#use-a-temporary-branch-for-local-work"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.3.1</span> Use a temporary branch for local work<a class="anchor" aria-label="anchor" href="pull-tricky.html#use-a-temporary-branch-for-local-work"><i class="fas fa-link"></i></a>
 </h3>
 <p>Recall:<br>
 Remote state is <code>A--B--C</code>.<br>
@@ -335,7 +335,7 @@ Local state is <code>A--B--(uncommitted changes)</code>.</p>
 </div>
 <div id="some-local-work-is-committed-some-is-not" class="section level2">
 <h2>
-<span class="header-section-number">28.4</span> Some local work is committed, some is not<a class="anchor" aria-label="anchor" href="#some-local-work-is-committed-some-is-not"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.4</span> Some local work is committed, some is not<a class="anchor" aria-label="anchor" href="pull-tricky.html#some-local-work-is-committed-some-is-not"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is an awkward hybrid situation that can be handled with a combination of strategies seen above: make a pragmatic commit on <code>master</code> or a temporary branch. Integrate the upstream and local changes in <code>master</code>. If you aren’t happy with the final pragmatic commit (which only exists locally), reset or amend until you are.</p>
 
@@ -347,24 +347,24 @@ Local state is <code>A--B--(uncommitted changes)</code>.</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pull-tricky"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="nav-link" href="pull-tricky.html#pull-tricky"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
 <li>
-<a class="nav-link" href="#local-work-is-uncommitted"><span class="header-section-number">28.1</span> Local work is uncommitted</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#happy-simple-cases"><span class="header-section-number">28.1.1</span> Happy simple cases</a></li>
-<li><a class="nav-link" href="#git-stash-works-sometimes"><span class="header-section-number">28.1.2</span> git stash works, sometimes</a></li>
-<li><a class="nav-link" href="#git-stash-with-conflicts"><span class="header-section-number">28.1.3</span> git stash with conflicts</a></li>
+<a class="nav-link" href="pull-tricky.html#local-work-is-uncommitted"><span class="header-section-number">28.1</span> Local work is uncommitted</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="pull-tricky.html#happy-simple-cases"><span class="header-section-number">28.1.1</span> Happy simple cases</a></li>
+<li><a class="nav-link" href="pull-tricky.html#git-stash-works-sometimes"><span class="header-section-number">28.1.2</span> git stash works, sometimes</a></li>
+<li><a class="nav-link" href="pull-tricky.html#git-stash-with-conflicts"><span class="header-section-number">28.1.3</span> git stash with conflicts</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#git-pull-with-local-commits"><span class="header-section-number">28.2</span> Local work is committed</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pull-fetch-and-merge"><span class="header-section-number">28.2.1</span> Pull (fetch and merge)</a></li>
-<li><a class="nav-link" href="#pull-and-rebase"><span class="header-section-number">28.2.2</span> Pull and rebase</a></li>
+<a class="nav-link" href="pull-tricky.html#git-pull-with-local-commits"><span class="header-section-number">28.2</span> Local work is committed</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="pull-tricky.html#pull-fetch-and-merge"><span class="header-section-number">28.2.1</span> Pull (fetch and merge)</a></li>
+<li><a class="nav-link" href="pull-tricky.html#pull-and-rebase"><span class="header-section-number">28.2.2</span> Pull and rebase</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#other-approaches"><span class="header-section-number">28.3</span> Other approaches</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#use-a-temporary-branch-for-local-work"><span class="header-section-number">28.3.1</span> Use a temporary branch for local work</a></li></ul>
+<a class="nav-link" href="pull-tricky.html#other-approaches"><span class="header-section-number">28.3</span> Other approaches</a><ul class="nav navbar-nav"><li><a class="nav-link" href="pull-tricky.html#use-a-temporary-branch-for-local-work"><span class="header-section-number">28.3.1</span> Use a temporary branch for local work</a></li></ul>
 </li>
-<li><a class="nav-link" href="#some-local-work-is-committed-some-is-not"><span class="header-section-number">28.4</span> Some local work is committed, some is not</a></li>
+<li><a class="nav-link" href="pull-tricky.html#some-local-work-is-committed-some-is-not"><span class="header-section-number">28.4</span> Some local work is committed, some is not</a></li>
 </ul>
 
       <div class="book-extra">

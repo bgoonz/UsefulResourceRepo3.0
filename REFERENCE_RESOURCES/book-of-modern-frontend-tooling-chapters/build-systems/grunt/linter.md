@@ -17,7 +17,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.initConfig({
-    jshint: {} // config happens here
+    jshint: {}, // config happens here
   });
 };
 ```
@@ -35,8 +35,8 @@ The most simple way to supply input files, is by setting an array of filenames i
 ```js
 grunt.initConfig({
   jshint: {
-    files: ['Gruntfile.js']
-  }
+    files: ['Gruntfile.js'],
+  },
 });
 ```
 
@@ -46,7 +46,7 @@ If you run the `jshint` task now, you will see that the linter will scan one fil
 $ grunt jshint
 ```
 
-If you want to see more output in the tasks you run, you can add the `--verbose` flag: 
+If you want to see more output in the tasks you run, you can add the `--verbose` flag:
 
 ```bash
 $ grunt jshint --verbose
@@ -59,15 +59,15 @@ If you try that, you will see which files exactly were scanned (in this case `Gr
 On the inside, Grunt makes use of [minimatch](https://github.com/isaacs/minimatch) to match filenames. This is a nice library that allow the use of **globbing** to refer to multiple files, and it will make your life easier. You could have, for instance:
 
 ```js
-files: ['Gruntfile.js', 'app/*.js']
+files: ['Gruntfile.js', 'app/*.js'];
 ```
 
-And that would make JSHint to scan `Gruntfile.js` *and* all the files with `.js` extension that are immediately under the `app` directory.
+And that would make JSHint to scan `Gruntfile.js` _and_ all the files with `.js` extension that are immediately under the `app` directory.
 
-Note that this will match `app/main.js`, but *not* `app/models/user.js`, since `user.js` is not directly under `app`, but in a subdirectory. If you want to use recursive matching, make use of **globstar** (`**`):
+Note that this will match `app/main.js`, but _not_ `app/models/user.js`, since `user.js` is not directly under `app`, but in a subdirectory. If you want to use recursive matching, make use of **globstar** (`**`):
 
 ```js
-files: ['Gruntfile.js', 'app/**/*.js']
+files: ['Gruntfile.js', 'app/**/*.js'];
 ```
 
 ## Configuration options
@@ -81,9 +81,9 @@ grunt.initConfig({
   jshint: {
     files: ['Gruntfile.js'],
     options: {
-      strict: true
-    }
-  }
+      strict: true,
+    },
+  },
 });
 ```
 
@@ -96,9 +96,9 @@ grunt.initConfig({
   jshint: {
     files: ['Gruntfile.js'],
     options: {
-      jshintrc: true
-    }
-  }
+      jshintrc: true,
+    },
+  },
 });
 ```
 
@@ -111,6 +111,4 @@ Here's a sample `.jshintrc` you can try:
 ```
 
 [^rules]: You can see all the rules available at [JSHint's documentation](http://www.jshint.com/docs/options/).
-
 [^browser-rule]: This rule will allow the use of global variables available in browsers, like `document` or `FileReader`.
-

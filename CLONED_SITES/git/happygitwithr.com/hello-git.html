@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="hello-git.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hello-git" class="section level1">
 <h1>
-<span class="header-section-number">7</span> Introduce yourself to Git<a class="anchor" aria-label="anchor" href="#hello-git"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> Introduce yourself to Git<a class="anchor" aria-label="anchor" href="hello-git.html#hello-git"><i class="fas fa-link"></i></a>
 </h1>
 <p>In the shell (Appendix <a href="shell.html#shell">A</a>):</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="hello-git.html#cb12-1"></a><span class="fu">git</span> config --global user.name <span class="st">'Jane Doe'</span></span>
@@ -135,7 +135,7 @@
 <span class="fu">use_git_config</span><span class="op">(</span>user.name <span class="op">=</span> <span class="st">"Jane Doe"</span>, user.email <span class="op">=</span> <span class="st">"jane@example.org"</span><span class="op">)</span></code></pre></div>
 <div id="more-about-git-config" class="section level2">
 <h2>
-<span class="header-section-number">7.1</span> More about <code>git config</code><a class="anchor" aria-label="anchor" href="#more-about-git-config"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> More about <code>git config</code><a class="anchor" aria-label="anchor" href="hello-git.html#more-about-git-config"><i class="fas fa-link"></i></a>
 </h2>
 <p>An easy way to get into a shell from RStudio is <em>Tools &gt; Terminal</em> or <em>Tools &gt; Shell</em>. More about the shell in the Appendix <a href="shell.html#shell">A</a>.</p>
 <p>Special Windows gotchas: If you are struggling on Windows, consider there are different types of shell and you might be in the wrong one. You want to be in a “Git Bash” shell, as opposed to Power Shell or the legacy <code>cmd.exe</code> command prompt. Read more in <a href="shell.html#windows-shell-hell">the Appendix</a>. This might also be a reason to do this configuration via the usethis package in R.</p>
@@ -144,7 +144,7 @@
 <p>These commands return nothing. You can check that Git understood what you typed by looking at the output of <code>git config --global --list</code>.</p>
 <div id="git-editor" class="section level3">
 <h3>
-<span class="header-section-number">7.1.1</span> Configure the Git editor<a class="anchor" aria-label="anchor" href="#git-editor"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1.1</span> Configure the Git editor<a class="anchor" aria-label="anchor" href="hello-git.html#git-editor"><i class="fas fa-link"></i></a>
 </h3>
 <p>Another Git option that many people eventually configure is the editor. At some point, you will fail to give Git what it wants in terms of a commit message and it will kick you into an editor. This can be distressing, if it’s not your editor of choice and you don’t even know how to save and quit. You can enforce your will with something along these lines:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="hello-git.html#cb14-1"></a><span class="fu">git</span> config --global core.editor <span class="st">"emacs"</span></span></code></pre></div>
@@ -152,7 +152,7 @@
 </div>
 <div id="configure-the-default-name-for-an-initial-branch" class="section level3">
 <h3>
-<span class="header-section-number">7.1.2</span> Configure the default name for an initial branch<a class="anchor" aria-label="anchor" href="#configure-the-default-name-for-an-initial-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1.2</span> Configure the default name for an initial branch<a class="anchor" aria-label="anchor" href="hello-git.html#configure-the-default-name-for-an-initial-branch"><i class="fas fa-link"></i></a>
 </h3>
 <p>You may also want to configure the default name for the initial branch in a new repo.
 Historically, this has been <code>master</code>, as that was baked into Git itself.
@@ -174,11 +174,11 @@ Shortly thereafter, major Git hosts like GitHub and GitLab made <code>main</code
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#hello-git"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="nav-link" href="hello-git.html#hello-git"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
 <li>
-<a class="nav-link" href="#more-about-git-config"><span class="header-section-number">7.1</span> More about git config</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-editor"><span class="header-section-number">7.1.1</span> Configure the Git editor</a></li>
-<li><a class="nav-link" href="#configure-the-default-name-for-an-initial-branch"><span class="header-section-number">7.1.2</span> Configure the default name for an initial branch</a></li>
+<a class="nav-link" href="hello-git.html#more-about-git-config"><span class="header-section-number">7.1</span> More about git config</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="hello-git.html#git-editor"><span class="header-section-number">7.1.1</span> Configure the Git editor</a></li>
+<li><a class="nav-link" href="hello-git.html#configure-the-default-name-for-an-initial-branch"><span class="header-section-number">7.1.2</span> Configure the default name for an initial branch</a></li>
 </ul>
 </li>
 </ul>

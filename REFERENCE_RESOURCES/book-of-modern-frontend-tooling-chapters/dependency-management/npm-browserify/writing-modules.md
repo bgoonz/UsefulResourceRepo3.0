@@ -1,6 +1,6 @@
 # Writing Modules
 
-Using modules from npm is really useful, but we can also harness the power of Browserify when writing our own modules. This is a great way to structure our own application into a set of small, composable  pieces, each in their own file.
+Using modules from npm is really useful, but we can also harness the power of Browserify when writing our own modules. This is a great way to structure our own application into a set of small, composable pieces, each in their own file.
 
 If you're familiar with and have used Node.js to build applications, chances are that you know how to write modules. All you have to do is write your JavaScript as you would but add in a little extra to define what should be exported from the module.
 
@@ -16,7 +16,9 @@ console.log(name.first());
 Notice how we're using `require` just like we did when we required Underscore in the previous chapter, but this time it's pointing to a local file, `name.js`. We could also miss out the `.js` extension, and `require` will still be able to find the file. Let's take a look at `name.js`:
 
 ```js
-exports.first = function() { return 'Jack'; };
+exports.first = function () {
+  return 'Jack';
+};
 ```
 
 Notice how the `first` function is attached to the `exports` object. This `exports` object is implicitly available to you, you don't have to create it. This object is the object that's returned when a module is required. Hence, when we require `name.js` and assign it to the `name` variable, that variable's value is set to the `exports` object, and hence we have the `first` function available to call.
@@ -34,8 +36,8 @@ And run that in the browser, you'll see 'Jack' logged to the screen. Let's recap
 There's also a second way to export from a module, by setting `module.exports`. This is typically used when your module is going to export one thing, either an object or often a function. Let's rewrite `name.js` so it just exports the `first` function:
 
 ```js
-module.exports = function() {
-    return 'Jack';
+module.exports = function () {
+  return 'Jack';
 };
 ```
 
@@ -52,7 +54,7 @@ When you use `module.exports`, you are indicating to `require` that it should re
 
 ```js
 module.exports = {
-    foo: 2
+  foo: 2,
 };
 ```
 

@@ -1,5 +1,5 @@
-import React from "react";
-import Todo from "./Todo";
+import React from 'react';
+import Todo from './Todo';
 
 export default function TodoList({ todos, toggleTodo }) {
   return todos.map((todo) => {

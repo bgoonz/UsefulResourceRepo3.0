@@ -1,0 +1,148 @@
+@import '../../shared/mixins',
+        '../../shared/reset',
+        '../../shared/about-dark';
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #e9eff2;
+}
+
+.container {
+  margin: 80px auto;
+  width: 400px;
+  text-align: center;
+}
+
+.share-btn {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0 20px;
+  padding-top: 40px;
+  width: 80px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  @include box-shadow(0 2px 2px rgba(black, .2));
+
+  &:active {
+    margin-top: 3px;
+
+    .share-btn-action {
+      padding-bottom: 3px;
+      @include box-shadow(inset 0 -3px rgba(black, .15), inset 0 -1px rgba(black, .15));
+
+      &:after { bottom: 3px; }
+    }
+  }
+}
+
+.share-btn-count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 40px;
+  font-size: 19px;
+  letter-spacing: -1px;
+  color: #555;
+  text-shadow: 0 1px white;
+  background: #e6eff5;
+  border-width: 1px 1px 0;
+  border-style: solid;
+  border-color: #c5c5c5 #bbb;
+  border-radius: 8px 8px 0 0;
+  @include linear-gradient(top, rgba(black, .03), transparent 40%);
+  @include box-shadow(inset 0 1px rgba(white, .5), 0 1px rgba(black, .18), 0 2px rgba(black, .07));
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border: 6px solid transparent;
+    border-top-color: #e6eff5;
+  }
+
+  &:before {
+    margin-left: -7px;
+    margin-top: 1px;
+    border-width: 7px;
+    border-top-color: rgba(black, .07);
+  }
+}
+
+.share-btn-action {
+  display: block;
+  position: relative;
+  line-height: 32px;
+  padding: 2px 0 6px;
+  font-size: 12px;
+  color: white;
+  text-shadow: 0 1px 1px rgba(black, .4);
+  border: solid rgba(black, .18);
+  border-width: 0 1px;
+  border-radius: 0 0 8px 8px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    margin: 8px 2px 0 0;
+    width: 18px;
+    height: 18px;
+    background-image: url('../img/icons.png');
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 6px 6px;
+    @include box-shadow(inset 0 -1px 2px rgba(white, .25));
+  }
+}
+
+.share-btn-tweet {
+  background: #83cfe8;
+  @include linear-gradient(top, #83cfe8, #6ebbd4);
+  @include box-shadow(inset 0 -6px rgba(black, .16), inset 0 -1px rgba(black, .15));
+
+  &:before { margin-left: -3px; }
+  &:after { @include box-shadow(inset 0 -1px 2px rgba(white, .5)); }
+
+  + .share-btn-count {
+    @include box-shadow(inset 0 1px rgba(white, .5), 0 1px rgba(black, .12), 0 2px rgba(black, .04));
+    &:before { border-top-color: rgba(black, .05); }
+  }
+}
+
+.share-btn-like {
+  background: #6480bd;
+  @include linear-gradient(top, #6480bd, #3c5894);
+  @include box-shadow(inset 0 -6px rgba(black, .15), inset 0 -1px rgba(black, .2));
+
+  &:before { background-position: -18px 0; }
+}
+
+.share-btn-plus {
+  background: #626262;
+  @include linear-gradient(top, #626262, #404040);
+  @include box-shadow(inset 0 -6px rgba(black, .08), inset 0 -1px rgba(black, .3));
+
+  &:before { display: none; }
+}

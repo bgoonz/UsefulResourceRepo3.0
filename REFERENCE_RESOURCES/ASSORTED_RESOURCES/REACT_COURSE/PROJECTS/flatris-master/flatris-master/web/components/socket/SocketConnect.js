@@ -27,13 +27,15 @@ export function withSocket(
       offGameKeepAlive: func.isRequired,
     };
 
-    createActionHandler = (actionName: string) => async (...args: any) => {
-      const { broadcastGameAction } = this.context;
-      const actionCreator = syncActions[actionName];
+    createActionHandler =
+      (actionName: string) =>
+      async (...args: any) => {
+        const { broadcastGameAction } = this.context;
+        const actionCreator = syncActions[actionName];
 
-      // NOTE: This must only run on the client!
-      return broadcastGameAction(actionCreator(...args));
-    };
+        // NOTE: This must only run on the client!
+        return broadcastGameAction(actionCreator(...args));
+      };
 
     getBoundHandlers() {
       return Object.keys(syncActions).reduce((acc, actionName) => {

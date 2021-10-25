@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import TodoList from "./TodoList";
-import uuidv4 from "uuid/v4";
+import React, { useState, useRef, useEffect } from 'react';
+import TodoList from './TodoList';
+import uuidv4 from 'uuid/v4';
 
-const LOCAL_STORAGE_KEY = "todoApp.todos";
+const LOCAL_STORAGE_KEY = 'todoApp.todos';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -26,7 +26,7 @@ function App() {
 
   function handleAddTodo(e) {
     const name = todoNameRef.current.value;
-    if (name === "") return;
+    if (name === '') return;
     setTodos((prevTodos) => {
       return [...prevTodos, { id: uuidv4(), name: name, complete: false }];
     });

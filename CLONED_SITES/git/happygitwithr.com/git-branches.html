@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="git-branches.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-branches" class="section level1">
 <h1>
-<span class="header-section-number">22</span> Branches<a class="anchor" aria-label="anchor" href="#git-branches"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22</span> Branches<a class="anchor" aria-label="anchor" href="git-branches.html#git-branches"><i class="fas fa-link"></i></a>
 </h1>
 <p>Branching means that you take a detour from the main stream of development and
 do work without changing the main stream. It allows one or many people to work
@@ -130,7 +130,7 @@ workflows which create small branches for exploration or new features, often
 merging them back together quickly.</p>
 <div id="create-a-new-branch" class="section level2">
 <h2>
-<span class="header-section-number">22.1</span> Create a new branch<a class="anchor" aria-label="anchor" href="#create-a-new-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.1</span> Create a new branch<a class="anchor" aria-label="anchor" href="git-branches.html#create-a-new-branch"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can create a new branch with <code>git branch</code>, then checkout the branch with <code>git checkout</code>. To distinguish it from the main stream of development, presumably on <code>master</code>, we’ll call this a “feature branch”.</p>
 <pre class="shell"><code>git branch issue-5
@@ -140,7 +140,7 @@ git checkout issue-5</code></pre>
 </div>
 <div id="switching-branches" class="section level2">
 <h2>
-<span class="header-section-number">22.2</span> Switching branches<a class="anchor" aria-label="anchor" href="#switching-branches"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.2</span> Switching branches<a class="anchor" aria-label="anchor" href="git-branches.html#switching-branches"><i class="fas fa-link"></i></a>
 </h2>
 <p>You use <code>git checkout</code> to switch between branches.</p>
 <p>But what do you do if you are working on a branch and need to switch,
@@ -158,7 +158,7 @@ git reset HEAD^</code></pre>
 </div>
 <div id="merging-a-branch" class="section level2">
 <h2>
-<span class="header-section-number">22.3</span> Merging a branch<a class="anchor" aria-label="anchor" href="#merging-a-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3</span> Merging a branch<a class="anchor" aria-label="anchor" href="git-branches.html#merging-a-branch"><i class="fas fa-link"></i></a>
 </h2>
 <p>Once you have done your work and committed it to the feature branch, you can switch back to <code>master</code> and merge the feature branch.</p>
 <pre class="shell"><code>git checkout master
@@ -166,7 +166,7 @@ git merge issue-5</code></pre>
 </div>
 <div id="dealing-with-conflicts" class="section level2">
 <h2>
-<span class="header-section-number">22.4</span> Dealing with conflicts<a class="anchor" aria-label="anchor" href="#dealing-with-conflicts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4</span> Dealing with conflicts<a class="anchor" aria-label="anchor" href="git-branches.html#dealing-with-conflicts"><i class="fas fa-link"></i></a>
 </h2>
 <p>Most of the time, the merge will go smoothly. However if both the branches you
 are merging changed the same part of the same file you will get a merge
@@ -209,7 +209,7 @@ and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; issue-5:index.html</code> are from the fe
 <p>Now run <code>git add index.html</code> and <code>git commit</code> to finalize the merge. CONFLICTS RESOLVED.</p>
 <div id="bailing-out" class="section level3">
 <h3>
-<span class="header-section-number">22.4.1</span> Bailing out<a class="anchor" aria-label="anchor" href="#bailing-out"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.1</span> Bailing out<a class="anchor" aria-label="anchor" href="git-branches.html#bailing-out"><i class="fas fa-link"></i></a>
 </h3>
 <p>If, during the merge, you get confused about the state of things or make a
 mistake, use <code>git merge --abort</code> to abort the merge and go back to the state
@@ -226,12 +226,12 @@ prior to running <code>git merge</code>. Then you can try to complete the merge 
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-branches"><span class="header-section-number">22</span> Branches</a></li>
-<li><a class="nav-link" href="#create-a-new-branch"><span class="header-section-number">22.1</span> Create a new branch</a></li>
-<li><a class="nav-link" href="#switching-branches"><span class="header-section-number">22.2</span> Switching branches</a></li>
-<li><a class="nav-link" href="#merging-a-branch"><span class="header-section-number">22.3</span> Merging a branch</a></li>
+<li><a class="nav-link" href="git-branches.html#git-branches"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="nav-link" href="git-branches.html#create-a-new-branch"><span class="header-section-number">22.1</span> Create a new branch</a></li>
+<li><a class="nav-link" href="git-branches.html#switching-branches"><span class="header-section-number">22.2</span> Switching branches</a></li>
+<li><a class="nav-link" href="git-branches.html#merging-a-branch"><span class="header-section-number">22.3</span> Merging a branch</a></li>
 <li>
-<a class="nav-link" href="#dealing-with-conflicts"><span class="header-section-number">22.4</span> Dealing with conflicts</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#bailing-out"><span class="header-section-number">22.4.1</span> Bailing out</a></li></ul>
+<a class="nav-link" href="git-branches.html#dealing-with-conflicts"><span class="header-section-number">22.4</span> Dealing with conflicts</a><ul class="nav navbar-nav"><li><a class="nav-link" href="git-branches.html#bailing-out"><span class="header-section-number">22.4.1</span> Bailing out</a></li></ul>
 </li>
 </ul>
 

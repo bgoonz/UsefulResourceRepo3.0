@@ -8,13 +8,13 @@ Multiple entry points are specified by supplying an array or object to the `entr
 module.exports = {
   entry: {
     desktop: './src/desktop.js',
-    mobile: './src/mobile.js'
+    mobile: './src/mobile.js',
   },
   output: {
     path: './dist',
     filename: '[name].bundle.js',
-    chunkFilename: '[id].common.js'
-  }
+    chunkFilename: '[id].common.js',
+  },
 };
 ```
 
@@ -29,8 +29,8 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: './dist',
-    filename: '[hash].js'
-  }
+    filename: '[hash].js',
+  },
 };
 ```
 

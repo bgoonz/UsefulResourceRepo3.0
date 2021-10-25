@@ -1,5 +1,5 @@
 import Typography from 'typography';
-import kirkhamTheme from 'typography-theme-kirkham'
+import kirkhamTheme from 'typography-theme-kirkham';
 
 const typography = new Typography(kirkhamTheme);
 

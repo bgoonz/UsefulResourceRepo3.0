@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="https-pat.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="https-pat" class="section level1">
 <h1>
-<span class="header-section-number">9</span> Personal access token for HTTPS<a class="anchor" aria-label="anchor" href="#https-pat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9</span> Personal access token for HTTPS<a class="anchor" aria-label="anchor" href="https-pat.html#https-pat"><i class="fas fa-link"></i></a>
 </h1>
 <p>When we interact with a remote Git server, such as GitHub, we have to include credentials in the request.
 This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.</p>
@@ -137,7 +137,7 @@ fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'</code></pr
 <p>The recommendation to use a personal access token (PAT) is exactly what we cover in this chapter.</p>
 <div id="tldr" class="section level2">
 <h2>
-<span class="header-section-number">9.1</span> TL;DR<a class="anchor" aria-label="anchor" href="#tldr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1</span> TL;DR<a class="anchor" aria-label="anchor" href="https-pat.html#tldr"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is a very minimal account of getting and storing a PAT.
 This might be all you need when you’re first getting yourself set up.
@@ -173,7 +173,7 @@ If you’re still doing your initial setup, now is a great time to move on to <a
 </div>
 <div id="https-vs-ssh" class="section level2">
 <h2>
-<span class="header-section-number">9.2</span> HTTPS versus SSH<a class="anchor" aria-label="anchor" href="#https-vs-ssh"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2</span> HTTPS versus SSH<a class="anchor" aria-label="anchor" href="https-pat.html#https-vs-ssh"><i class="fas fa-link"></i></a>
 </h2>
 <p>I find HTTPS easier to get working quickly and <strong>strongly recommend</strong> it when you first start working with Git/GitHub.
 HTTPS is what GitHub recommends, presumably for exactly the same reasons.
@@ -193,7 +193,7 @@ If you authenticate via SSH for “regular” Git work, you will still have to s
 </ul>
 <div id="url-determines-protocol" class="section level3">
 <h3>
-<span class="header-section-number">9.2.1</span> URL determines the protocol<a class="anchor" aria-label="anchor" href="#url-determines-protocol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.1</span> URL determines the protocol<a class="anchor" aria-label="anchor" href="https-pat.html#url-determines-protocol"><i class="fas fa-link"></i></a>
 </h3>
 <p>Even though I’m suggesting that you adopt HTTPS as a lifestyle, it’s good to know that you actually have very granular control over the protocol.
 It is determined by the URL used to access a remote repo.
@@ -251,7 +251,7 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 </div>
 <div id="get-a-pat" class="section level2">
 <h2>
-<span class="header-section-number">9.3</span> Generate a personal access token (PAT)<a class="anchor" aria-label="anchor" href="#get-a-pat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3</span> Generate a personal access token (PAT)<a class="anchor" aria-label="anchor" href="https-pat.html#get-a-pat"><i class="fas fa-link"></i></a>
 </h2>
 <p>On github.com, assuming you’re signed in, you can manage your personal access tokens from <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a>, also reachable via <em>Settings &gt; Developer settings &gt; Personal access tokens</em>.
 You could click on “Generate new token” here or, perhaps even better, you could call <code>usethis::create_github_token()</code> from R:</p>
@@ -283,7 +283,7 @@ But if you create long-lasting tokens or want to feel free to play around with t
 </div>
 <div id="store-pat" class="section level2">
 <h2>
-<span class="header-section-number">9.4</span> Store your PAT<a class="anchor" aria-label="anchor" href="#store-pat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4</span> Store your PAT<a class="anchor" aria-label="anchor" href="https-pat.html#store-pat"><i class="fas fa-link"></i></a>
 </h2>
 <p>At this point, I assume you’ve generated a PAT and have it available, in one or both of these ways:</p>
 <ul>
@@ -298,7 +298,7 @@ challenge.</li>
 </ul>
 <div id="call-an-r-function-to-store-your-credentials" class="section level3">
 <h3>
-<span class="header-section-number">9.4.1</span> Call an R function to store your credentials<a class="anchor" aria-label="anchor" href="#call-an-r-function-to-store-your-credentials"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.1</span> Call an R function to store your credentials<a class="anchor" aria-label="anchor" href="https-pat.html#call-an-r-function-to-store-your-credentials"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are two R packages for accessing the Git credential store:</p>
 <ul>
@@ -309,7 +309,7 @@ challenge.</li>
 You don’t need to follow the instructions for both packages – pick one!</p>
 <div id="gitcreds-package" class="section level4">
 <h4>
-<span class="header-section-number">9.4.1.1</span> gitcreds package<a class="anchor" aria-label="anchor" href="#gitcreds-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.1.1</span> gitcreds package<a class="anchor" aria-label="anchor" href="https-pat.html#gitcreds-package"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you don’t have gitcreds installed, install via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("gitcreds")</a></code>.
 If you’ve installed usethis, you will already have gitcreds, because usethis uses gh and gh uses gitcreds.</p>
@@ -365,7 +365,7 @@ When in doubt, embrace a new, known-to-be-good credential over an old one, of du
 </div>
 <div id="credentials-package" class="section level4">
 <h4>
-<span class="header-section-number">9.4.1.2</span> credentials package<a class="anchor" aria-label="anchor" href="#credentials-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.1.2</span> credentials package<a class="anchor" aria-label="anchor" href="https-pat.html#credentials-package"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you don’t have credentials installed, install via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("credentials")</a></code>.
 If you’ve installed usethis, you will already have credentials, because usethis uses gert and gert uses credentials.</p>
@@ -389,7 +389,7 @@ If you don’t have a PAT stored already, it will prompt you to enter your PAT. 
 </div>
 <div id="store-credentials-through-organic-git-use" class="section level3">
 <h3>
-<span class="header-section-number">9.4.2</span> Store credentials through organic Git use<a class="anchor" aria-label="anchor" href="#store-credentials-through-organic-git-use"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.2</span> Store credentials through organic Git use<a class="anchor" aria-label="anchor" href="https-pat.html#store-credentials-through-organic-git-use"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>Before gitcreds and credentials existed (see above), we had to orchestrate a credential challenge by setting up (and then tearing down) a toy repo.
 That still occurs naturally in the guided exercise in <a href="push-pull-github.html#push-pull-github">Connect to GitHub</a>.
@@ -399,12 +399,12 @@ But I strongly recommend managing your PAT more directly and explicitly with
 </div>
 <div id="pat-troubleshooting" class="section level2">
 <h2>
-<span class="header-section-number">9.5</span> HTTPS PAT problems and solutions<a class="anchor" aria-label="anchor" href="#pat-troubleshooting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5</span> HTTPS PAT problems and solutions<a class="anchor" aria-label="anchor" href="https-pat.html#pat-troubleshooting"><i class="fas fa-link"></i></a>
 </h2>
 <p>This section is for people who need to know even more about PAT management, because they’re in a nonstandard situation or troubleshooting.</p>
 <div id="valid-pat-gets-stored-but-later-told-the-pat-is-invalid" class="section level3">
 <h3>
-<span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid<a class="anchor" aria-label="anchor" href="#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid<a class="anchor" aria-label="anchor" href="https-pat.html#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s say you generate a fresh PAT and successfully store it as described above.
 Maybe you even use it successfully.
@@ -421,7 +421,7 @@ even discovering your new, valid PAT.</li>
 </ol>
 <div id="regenerate-pat" class="section level4">
 <h4>
-<span class="header-section-number">9.5.1.1</span> PAT has expired<a class="anchor" aria-label="anchor" href="#regenerate-pat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.1.1</span> PAT has expired<a class="anchor" aria-label="anchor" href="https-pat.html#regenerate-pat"><i class="fas fa-link"></i></a>
 </h4>
 <p>You are going to be re-generating and re-storing your PAT on a schedule dictated by its expiration period.
 By default, once per month.</p>
@@ -435,7 +435,7 @@ The actual token may be changing, e.g., once a month, but its use case (and scop
 </div>
 <div id="old-github_pat-in-.renviron" class="section level4">
 <h4>
-<span class="header-section-number">9.5.1.2</span> Old <code>GITHUB_PAT</code> in <code>.Renviron</code><a class="anchor" aria-label="anchor" href="#old-github_pat-in-.renviron"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.1.2</span> Old <code>GITHUB_PAT</code> in <code>.Renviron</code><a class="anchor" aria-label="anchor" href="https-pat.html#old-github_pat-in-.renviron"><i class="fas fa-link"></i></a>
 </h4>
 <p>These usethis functions will diagnose this problem:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
@@ -450,7 +450,7 @@ Don’t forget to restart R for this change to take effect.</p>
 </div>
 <div id="pat-doesnt-persist-on-macos-or-windows" class="section level3">
 <h3>
-<span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows<a class="anchor" aria-label="anchor" href="#pat-doesnt-persist-on-macos-or-windows"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows<a class="anchor" aria-label="anchor" href="https-pat.html#pat-doesnt-persist-on-macos-or-windows"><i class="fas fa-link"></i></a>
 </h3>
 <p>The credential helpers used by Git take advantage of official OS-provided credential stores, where possible, such as macOS Keychain and Windows Credential Manager.</p>
 <p>If you’re trying to follow the advice here and your PAT never persists, consider that you may need to update Git to get its more modern credential helpers.
@@ -474,7 +474,7 @@ For keeners, that documentation gives you the gory details on how credentials ar
 </div>
 <div id="pat-doesnt-persist-on-linux" class="section level3">
 <h3>
-<span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux<a class="anchor" aria-label="anchor" href="#pat-doesnt-persist-on-linux"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux<a class="anchor" aria-label="anchor" href="https-pat.html#pat-doesnt-persist-on-linux"><i class="fas fa-link"></i></a>
 </h3>
 <p>The credential helpers used by Git take advantage of official OS-provided
 credential stores on macOS and Windows, but sadly there is no exact equivalent on Linux.</p>
@@ -504,23 +504,23 @@ Take care that this file is not accidentally pushed to the cloud, e.g. Google D
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#https-pat"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
-<li><a class="nav-link" href="#tldr"><span class="header-section-number">9.1</span> TL;DR</a></li>
+<li><a class="nav-link" href="https-pat.html#https-pat"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="nav-link" href="https-pat.html#tldr"><span class="header-section-number">9.1</span> TL;DR</a></li>
 <li>
-<a class="nav-link" href="#https-vs-ssh"><span class="header-section-number">9.2</span> HTTPS versus SSH</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#url-determines-protocol"><span class="header-section-number">9.2.1</span> URL determines the protocol</a></li></ul>
+<a class="nav-link" href="https-pat.html#https-vs-ssh"><span class="header-section-number">9.2</span> HTTPS versus SSH</a><ul class="nav navbar-nav"><li><a class="nav-link" href="https-pat.html#url-determines-protocol"><span class="header-section-number">9.2.1</span> URL determines the protocol</a></li></ul>
 </li>
-<li><a class="nav-link" href="#get-a-pat"><span class="header-section-number">9.3</span> Generate a personal access token (PAT)</a></li>
+<li><a class="nav-link" href="https-pat.html#get-a-pat"><span class="header-section-number">9.3</span> Generate a personal access token (PAT)</a></li>
 <li>
-<a class="nav-link" href="#store-pat"><span class="header-section-number">9.4</span> Store your PAT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#call-an-r-function-to-store-your-credentials"><span class="header-section-number">9.4.1</span> Call an R function to store your credentials</a></li>
-<li><a class="nav-link" href="#store-credentials-through-organic-git-use"><span class="header-section-number">9.4.2</span> Store credentials through organic Git use</a></li>
+<a class="nav-link" href="https-pat.html#store-pat"><span class="header-section-number">9.4</span> Store your PAT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="https-pat.html#call-an-r-function-to-store-your-credentials"><span class="header-section-number">9.4.1</span> Call an R function to store your credentials</a></li>
+<li><a class="nav-link" href="https-pat.html#store-credentials-through-organic-git-use"><span class="header-section-number">9.4.2</span> Store credentials through organic Git use</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#pat-troubleshooting"><span class="header-section-number">9.5</span> HTTPS PAT problems and solutions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid</a></li>
-<li><a class="nav-link" href="#pat-doesnt-persist-on-macos-or-windows"><span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows</a></li>
-<li><a class="nav-link" href="#pat-doesnt-persist-on-linux"><span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux</a></li>
+<a class="nav-link" href="https-pat.html#pat-troubleshooting"><span class="header-section-number">9.5</span> HTTPS PAT problems and solutions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="https-pat.html#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid</a></li>
+<li><a class="nav-link" href="https-pat.html#pat-doesnt-persist-on-macos-or-windows"><span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows</a></li>
+<li><a class="nav-link" href="https-pat.html#pat-doesnt-persist-on-linux"><span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux</a></li>
 </ul>
 </li>
 </ul>

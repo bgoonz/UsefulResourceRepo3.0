@@ -118,13 +118,8 @@ class Auth extends Component<Props, LocalState> {
 
   render() {
     const { jsReady } = this.props;
-    const {
-      name,
-      pendingAuth,
-      user,
-      onboardingStep,
-      hasSubmitted,
-    } = this.state;
+    const { name, pendingAuth, user, onboardingStep, hasSubmitted } =
+      this.state;
 
     // Greet user with onboarding after they authenticate
     if (user) {

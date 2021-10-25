@@ -10,9 +10,9 @@ var requireTest = require.context('./tests', true, /_test\.js$/);
 
 This will create a context with:
 
-* `./tests` as its base,
-* `true` to recusively search sub-directories,
-* and a regular expression `/_test\.js$/` the file must pass to be include. In this case, the file must end with `'_test.js'`.
+- `./tests` as its base,
+- `true` to recusively search sub-directories,
+- and a regular expression `/_test\.js$/` the file must pass to be include. In this case, the file must end with `'_test.js'`.
 
 Now we can use this new require function to resolve our test file `./tests/bear_test.js`:
 
@@ -31,12 +31,13 @@ Or setup to ignore certain tests:
 
 ```js
 var requireTest = require.context('./tests', true, /_test\.js$/);
-var ignoredTests = [
-  './ignoreme_test.js'
-];
-requireTest.keys().filter(function(testName) {
-  return ignoredTests.indexOf(testName) === -1;
-}).forEach(requireTest);
+var ignoredTests = ['./ignoreme_test.js'];
+requireTest
+  .keys()
+  .filter(function (testName) {
+    return ignoredTests.indexOf(testName) === -1;
+  })
+  .forEach(requireTest);
 ```
 
 The require context is a very useful feature when integrating with a framework with a built-in method of resolving pieces, such as with Ember resolvers.

@@ -1,9 +1,9 @@
 @import-normalize;
-@import "font.css";
-@import "buttons.css";
-@import "recipe-list.css";
-@import "ingredient-list.css";
-@import "recipe.css";
+@import 'font.css';
+@import 'buttons.css';
+@import 'recipe-list.css';
+@import 'ingredient-list.css';
+@import 'recipe.css';
 
 *,
 *::before,

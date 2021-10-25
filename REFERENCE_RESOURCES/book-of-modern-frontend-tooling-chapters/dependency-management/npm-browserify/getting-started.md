@@ -24,7 +24,7 @@ Now we can write some client side JavaScript that will require Underscore, in `a
 
 ```js
 var _ = require('underscore');
-console.log(_.max([1,2,3,4,5]));
+console.log(_.max([1, 2, 3, 4, 5]));
 ```
 
 If you were to try to run this in a browser now it would fail, because there is no global `require` function available. Once we have our code, we need to run it through Browserify to generate a browser specific file that defines a `require` function and deals with the dependencies for us.
@@ -38,15 +38,15 @@ $ browserify app.js --outfile bundle.js
 This instructs Browserify to start parsing at `app.js` and then output to `bundle.js`. Now we can add `bundle.js` to our HTML file:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Browserify Test 1</title>
-        <script src="bundle.js"></script>
-    </head>
-    <body>
-        ...
-    </body>
+  <head>
+    <title>Browserify Test 1</title>
+    <script src="bundle.js"></script>
+  </head>
+  <body>
+    ...
+  </body>
 </html>
 ```
 

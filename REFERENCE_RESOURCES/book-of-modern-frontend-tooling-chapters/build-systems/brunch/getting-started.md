@@ -1,14 +1,17 @@
 # Getting started
 
-## *Installation*
-The first thing to do is install the ``brunch`` command with ``npm`` by running ``sudo npm install brunch -g``. You'll also want to be using [Bower](http://bower.io) for external packages, which Brunch has excellent support for.
+## _Installation_
 
-## *Walkthrough*
+The first thing to do is install the `brunch` command with `npm` by running `sudo npm install brunch -g`. You'll also want to be using [Bower](http://bower.io) for external packages, which Brunch has excellent support for.
+
+## _Walkthrough_
 
 ## Conventions
+
 Brunch has a few conventions that help keep things simple - but you don't have to follow all of them. Firstly, Brunch asks you to specify a folder called 'assets' that is directly copied into your output folder with no modifications. Secondly, most Brunch projects have two separate JavaScript files - app.js, which contains your code, and vendor.js for all external libraries, including bower packages. This allows you to package your files into modules without affecting external libraries.
 
 ## Folder structure
+
 In order to understand how best to use Brunch, lets look at a typical folder structure and modify it to follow Brunch's conventions.
 
 The application we'll be converting uses CoffeeScript, AngularJS, and LESS, and has no current build system beyond running the CoffeeScript and LESS watchers on the app/ directory. Here's what the application structure looks like before we install Brunch:
@@ -28,18 +31,17 @@ The application we'll be converting uses CoffeeScript, AngularJS, and LESS, and 
 |- package.json # npm package folder
 ```
 
+The first thing we need to do is modify the application structure to fit Brunch's conventions. That means moving installed packages to outside the `app/` directory, and creating an assets folder for static files.
 
-The first thing we need to do is modify the application structure to fit Brunch's conventions. That means moving installed packages to outside the ``app/`` directory, and creating an assets folder for static files.
+The assets folder will live inside `app/`. It needs to contain any files that will be served statically - in this case, just `index.html` along with the `images/` and `views/` folders.
 
-The assets folder will live inside ``app/``. It needs to contain any files that will be served statically - in this case, just ``index.html`` along with the ``images/`` and ``views/`` folders.
-
-For this project, we also had to delete the existing bower configuration file (.bowerrc) and ``components/`` folder, rename the ``component.json`` file to ``bower.json`` before updating bower to the latest version. Running ``bower install`` created a ``bower_components/`` folder in the root project directory. This allows Brunch to easily identify which files are part of our app and which files are external libraries without having to write any complex regular expressions.
+For this project, we also had to delete the existing bower configuration file (.bowerrc) and `components/` folder, rename the `component.json` file to `bower.json` before updating bower to the latest version. Running `bower install` created a `bower_components/` folder in the root project directory. This allows Brunch to easily identify which files are part of our app and which files are external libraries without having to write any complex regular expressions.
 
 Finally, we need to update our index.html to be aware of the changes in structure. Currently, we have this in the head:
 
 ```html
-<link rel="stylesheet" href="/styles/bootstrap.min.css">
-<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/bootstrap.min.css" />
+<link rel="stylesheet" href="/styles/main.css" />
 ```
 
 and this in the body:
@@ -65,7 +67,7 @@ and this in the body:
 Ouch! With Brunch, we can replace the css files with this:
 
 ```html
-<link rel="stylesheet" type="text/css" href="/css/app.css">
+<link rel="stylesheet" type="text/css" href="/css/app.css" />
 ```
 
 and the ridiculous number of scripts with this:

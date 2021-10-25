@@ -1,14 +1,8 @@
 {
-  "presets": [
-    "latest",
-    "react",
-    "stage-1"
-  ],
+  "presets": ["latest", "react", "stage-1"],
   "env": {
     "development": {
-      "presets": [
-        "react-hmre"
-      ]
+      "presets": ["react-hmre"]
     },
     "production": {
       "plugins": [

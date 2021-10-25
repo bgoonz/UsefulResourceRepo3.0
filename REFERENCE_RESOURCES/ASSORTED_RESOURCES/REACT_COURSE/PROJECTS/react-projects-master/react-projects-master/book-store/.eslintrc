@@ -5,9 +5,7 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -36,8 +34,8 @@
     "no-alert": 0,
     "no-lone-blocks": 0,
     "jsx-quotes": 1,
-    "react/display-name": [ 1, {"ignoreTranspilerName": false }],
-    "react/forbid-prop-types": [1, {"forbid": ["any"]}],
+    "react/display-name": [1, { "ignoreTranspilerName": false }],
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "react/jsx-boolean-value": 0,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-curly-spacing": 1,
@@ -68,6 +66,5 @@
     "react/sort-comp": 1,
     "react/wrap-multilines": 1
   },
-  "globals": {
-  }
+  "globals": {}
 }

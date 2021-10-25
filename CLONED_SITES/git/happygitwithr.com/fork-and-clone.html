@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="fork-and-clone.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,12 +119,12 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="fork-and-clone" class="section level1">
 <h1>
-<span class="header-section-number">30</span> Fork and clone<a class="anchor" aria-label="anchor" href="#fork-and-clone"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30</span> Fork and clone<a class="anchor" aria-label="anchor" href="fork-and-clone.html#fork-and-clone"><i class="fas fa-link"></i></a>
 </h1>
 <p>Use “fork and clone” to get a copy of someone else’s repo if there’s any chance you will want to propose a change to the owner, i.e. send a “pull request”. If you are waffling between “clone” and “fork and clone”, go with “fork and clone”.</p>
 <div id="initial-workflow" class="section level2">
 <h2>
-<span class="header-section-number">30.1</span> Initial workflow<a class="anchor" aria-label="anchor" href="#initial-workflow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.1</span> Initial workflow<a class="anchor" aria-label="anchor" href="fork-and-clone.html#initial-workflow"><i class="fas fa-link"></i></a>
 </h2>
 <p>On <a href="https://github.com">GitHub</a>, make sure you are signed in and navigate to the repo of interest. Think of this as <code>OWNER/REPO</code>, where <code>OWNER</code> is the user or organization who owns the repository named <code>REPO</code>.</p>
 <p>In the upper right hand corner, click <strong>Fork</strong>.</p>
@@ -151,7 +151,7 @@
 </div>
 <div id="usethiscreate_from_githubownerrepo" class="section level2">
 <h2>
-<span class="header-section-number">30.2</span> <code>usethis::create_from_github("OWNER/REPO")</code><a class="anchor" aria-label="anchor" href="#usethiscreate_from_githubownerrepo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.2</span> <code>usethis::create_from_github("OWNER/REPO")</code><a class="anchor" aria-label="anchor" href="fork-and-clone.html#usethiscreate_from_githubownerrepo"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <a href="https://usethis.r-lib.org">usethis package</a> has a convenience function, <a href="https://usethis.r-lib.org/reference/create_from_github.html"><code>create_from_github()</code></a>, that can do “fork and clone”.
 In fact, it goes even further and <a href="upstream-changes.html#upstream-changes">configures the <code>upstream</code> remote</a> and sets the upstream tracking branch for <code>main</code> (or whatever the default branch is) to <code>upstream/main</code>.
@@ -162,7 +162,7 @@ But once you get tired of doing all of this “by hand”, check it out!</p>
 </div>
 <div id="engage-with-the-new-repo" class="section level2">
 <h2>
-<span class="header-section-number">30.3</span> Engage with the new repo<a class="anchor" aria-label="anchor" href="#engage-with-the-new-repo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.3</span> Engage with the new repo<a class="anchor" aria-label="anchor" href="fork-and-clone.html#engage-with-the-new-repo"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you did “fork and clone” via <a href="existing-github-first.html#existing-github-first">Existing project, GitHub first</a>, you are probably in an RStudio Project for this new repo.</p>
 <p>Regardless, get yourself into this project, whatever that means for you, using your usual method.</p>
@@ -170,7 +170,7 @@ But once you get tired of doing all of this “by hand”, check it out!</p>
 </div>
 <div id="dont-touch-master" class="section level2">
 <h2>
-<span class="header-section-number">30.4</span> Don’t mess with <code>master</code><a class="anchor" aria-label="anchor" href="#dont-touch-master"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.4</span> Don’t mess with <code>master</code><a class="anchor" aria-label="anchor" href="fork-and-clone.html#dont-touch-master"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you make any commits in your local repository, I <strong>strongly recommend</strong> that you work in <a href="git-branches.html#git-branches">a new branch</a>, not <code>master</code>.</p>
 <p>I <strong>strongly recommend</strong> that you do not make commits to <code>master</code> of a repo you have forked.</p>
@@ -178,7 +178,7 @@ But once you get tired of doing all of this “by hand”, check it out!</p>
 </div>
 <div id="the-original-repo-as-a-remote" class="section level2">
 <h2>
-<span class="header-section-number">30.5</span> The original repo as a remote<a class="anchor" aria-label="anchor" href="#the-original-repo-as-a-remote"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.5</span> The original repo as a remote<a class="anchor" aria-label="anchor" href="fork-and-clone.html#the-original-repo-as-a-remote"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remember we are here:</p>
 <div class="inline-figure"><img src="img/fork-and-clone.png"></div>
@@ -196,7 +196,7 @@ But once you get tired of doing all of this “by hand”, check it out!</p>
 <p>See the workflow <a href="upstream-changes.html#upstream-changes">Get upstream changes for a fork</a> for how to inspect your remotes, add <code>OWNER/REPO</code> as <code>upstream</code> if necessary, and pull changes, i.e. how to complete the “triangle” in the figure above.</p>
 <div id="no-you-cant-do-this-via-github" class="section level3">
 <h3>
-<span class="header-section-number">30.5.1</span> No, you can’t do this via GitHub<a class="anchor" aria-label="anchor" href="#no-you-cant-do-this-via-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">30.5.1</span> No, you can’t do this via GitHub<a class="anchor" aria-label="anchor" href="fork-and-clone.html#no-you-cant-do-this-via-github"><i class="fas fa-link"></i></a>
 </h3>
 <p>You might hope that GitHub could automatically keep your fork <code>YOU/REPO</code> synced up with the original <code>OWNER/REPO</code>. Or that you could do this in the browser interface. Then you could pull those upstream changes into your local repo.</p>
 <p>But you can’t.</p>
@@ -211,13 +211,13 @@ But once you get tired of doing all of this “by hand”, check it out!</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#fork-and-clone"><span class="header-section-number">30</span> Fork and clone</a></li>
-<li><a class="nav-link" href="#initial-workflow"><span class="header-section-number">30.1</span> Initial workflow</a></li>
-<li><a class="nav-link" href="#usethiscreate_from_githubownerrepo"><span class="header-section-number">30.2</span> usethis::create_from_github("OWNER/REPO")</a></li>
-<li><a class="nav-link" href="#engage-with-the-new-repo"><span class="header-section-number">30.3</span> Engage with the new repo</a></li>
-<li><a class="nav-link" href="#dont-touch-master"><span class="header-section-number">30.4</span> Don’t mess with master</a></li>
+<li><a class="nav-link" href="fork-and-clone.html#fork-and-clone"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="nav-link" href="fork-and-clone.html#initial-workflow"><span class="header-section-number">30.1</span> Initial workflow</a></li>
+<li><a class="nav-link" href="fork-and-clone.html#usethiscreate_from_githubownerrepo"><span class="header-section-number">30.2</span> usethis::create_from_github("OWNER/REPO")</a></li>
+<li><a class="nav-link" href="fork-and-clone.html#engage-with-the-new-repo"><span class="header-section-number">30.3</span> Engage with the new repo</a></li>
+<li><a class="nav-link" href="fork-and-clone.html#dont-touch-master"><span class="header-section-number">30.4</span> Don’t mess with master</a></li>
 <li>
-<a class="nav-link" href="#the-original-repo-as-a-remote"><span class="header-section-number">30.5</span> The original repo as a remote</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#no-you-cant-do-this-via-github"><span class="header-section-number">30.5.1</span> No, you can’t do this via GitHub</a></li></ul>
+<a class="nav-link" href="fork-and-clone.html#the-original-repo-as-a-remote"><span class="header-section-number">30.5</span> The original repo as a remote</a><ul class="nav navbar-nav"><li><a class="nav-link" href="fork-and-clone.html#no-you-cant-do-this-via-github"><span class="header-section-number">30.5.1</span> No, you can’t do this via GitHub</a></li></ul>
 </li>
 </ul>
 

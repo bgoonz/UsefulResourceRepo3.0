@@ -146,9 +146,7 @@ export function hasLines(well: WellGrid): boolean {
   return well.reduce((acc, rowBlocks) => acc || isLine(rowBlocks), false);
 }
 
-export function clearLines(
-  grid: WellGrid
-): {
+export function clearLines(grid: WellGrid): {
   clearedGrid: WellGrid,
   rowsCleared: Array<number>,
 } {

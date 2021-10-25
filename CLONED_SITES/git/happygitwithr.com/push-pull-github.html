@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="push-pull-github.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="push-pull-github" class="section level1">
 <h1>
-<span class="header-section-number">11</span> Connect to GitHub<a class="anchor" aria-label="anchor" href="#push-pull-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11</span> Connect to GitHub<a class="anchor" aria-label="anchor" href="push-pull-github.html#push-pull-github"><i class="fas fa-link"></i></a>
 </h1>
 <p>Objective: make sure that you can pull from and push to GitHub from your computer.</p>
 <p>I do not explain all the shell (Appendix <a href="shell.html#shell">A</a>) and Git commands in detail.
@@ -128,7 +128,7 @@ In later chapters and in live workshops, we revisit these operations with much m
 <p>I assume you’ve decided whether to use HTTPS (see chapter <a href="https-pat.html#https-pat">9</a> or SSH (see chapter <a href="ssh-keys.html#ssh-keys">10</a>) and you’ve prepared your credential.</p>
 <div id="make-a-repo-on-github" class="section level2">
 <h2>
-<span class="header-section-number">11.1</span> Make a repo on GitHub<a class="anchor" aria-label="anchor" href="#make-a-repo-on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> Make a repo on GitHub<a class="anchor" aria-label="anchor" href="push-pull-github.html#make-a-repo-on-github"><i class="fas fa-link"></i></a>
 </h2>
 <p>Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p>
 <p>Near “Repositories”, click the big green “New” button.
@@ -150,12 +150,12 @@ But if you’re opting for SSH, then make sure to copy the SSH URL.</p>
 </div>
 <div id="clone-the-repo-to-your-local-computer" class="section level2">
 <h2>
-<span class="header-section-number">11.2</span> Clone the repo to your local computer<a class="anchor" aria-label="anchor" href="#clone-the-repo-to-your-local-computer"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2</span> Clone the repo to your local computer<a class="anchor" aria-label="anchor" href="push-pull-github.html#clone-the-repo-to-your-local-computer"><i class="fas fa-link"></i></a>
 </h2>
 <p>We have a few ways to do this: with command line Git or via RStudio.</p>
 <div id="clone-with-command-line-git" class="section level3">
 <h3>
-<span class="header-section-number">11.2.1</span> Clone with command line Git<a class="anchor" aria-label="anchor" href="#clone-with-command-line-git"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2.1</span> Clone with command line Git<a class="anchor" aria-label="anchor" href="push-pull-github.html#clone-with-command-line-git"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to the shell (Appendix <a href="shell.html#shell">A</a>).</p>
 <p>Take charge of – or at least notice! – what directory you’re in.
@@ -206,7 +206,7 @@ git remote show origin</code></pre>
 </div>
 <div id="make-a-local-change-commit-and-push" class="section level2">
 <h2>
-<span class="header-section-number">11.3</span> Make a local change, commit, and push<a class="anchor" aria-label="anchor" href="#make-a-local-change-commit-and-push"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.3</span> Make a local change, commit, and push<a class="anchor" aria-label="anchor" href="push-pull-github.html#make-a-local-change-commit-and-push"><i class="fas fa-link"></i></a>
 </h2>
 <p>Add a line to README and verify that Git notices the change:</p>
 <pre class="console"><code>echo "A line I wrote on my local computer  " &gt;&gt; README.md
@@ -262,7 +262,7 @@ Try <code>git push</code> again and hopefully you’ll get another prompt, allow
 <p>If you ever feel you need to overwrite a bad credential with a new one, the easiest way to do this is to call <code>gitcreds::gitcreds:set()</code> from R.</p>
 <div id="windows-and-line-endings" class="section level3">
 <h3>
-<span class="header-section-number">11.3.1</span> Windows and line endings<a class="anchor" aria-label="anchor" href="#windows-and-line-endings"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.3.1</span> Windows and line endings<a class="anchor" aria-label="anchor" href="push-pull-github.html#windows-and-line-endings"><i class="fas fa-link"></i></a>
 </h3>
 <p>On Windows, you might see a message about <code>LF will be replaced by CRLF</code>. This is normal and does not require any action on your part.
 Windows handles line endings differently from other operating systems, but the default setup for Git for Windows is appropriate for most people and situations.</p>
@@ -277,7 +277,7 @@ The need to set this explicitly in your global user config suggests you should c
 </div>
 <div id="confirm-the-local-change-propagated-to-the-github-remote" class="section level2">
 <h2>
-<span class="header-section-number">11.4</span> Confirm the local change propagated to the GitHub remote<a class="anchor" aria-label="anchor" href="#confirm-the-local-change-propagated-to-the-github-remote"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4</span> Confirm the local change propagated to the GitHub remote<a class="anchor" aria-label="anchor" href="push-pull-github.html#confirm-the-local-change-propagated-to-the-github-remote"><i class="fas fa-link"></i></a>
 </h2>
 <p>Go back to the browser.
 I assume we’re still viewing your new GitHub repo.</p>
@@ -288,7 +288,7 @@ I assume we’re still viewing your new GitHub repo.</p>
 </div>
 <div id="clean-up" class="section level2">
 <h2>
-<span class="header-section-number">11.5</span> Clean up<a class="anchor" aria-label="anchor" href="#clean-up"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.5</span> Clean up<a class="anchor" aria-label="anchor" href="push-pull-github.html#clean-up"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you’re ready to conclude this test of your Git installation and GitHub configuration, we can clean up the test repository now.</p>
 <p><strong>Local</strong> When you’re ready to clean up, you can delete the local repo any way you like. It’s just a regular directory on your computer.</p>
@@ -307,16 +307,16 @@ Click on “Settings”.</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#push-pull-github"><span class="header-section-number">11</span> Connect to GitHub</a></li>
-<li><a class="nav-link" href="#make-a-repo-on-github"><span class="header-section-number">11.1</span> Make a repo on GitHub</a></li>
+<li><a class="nav-link" href="push-pull-github.html#push-pull-github"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="nav-link" href="push-pull-github.html#make-a-repo-on-github"><span class="header-section-number">11.1</span> Make a repo on GitHub</a></li>
 <li>
-<a class="nav-link" href="#clone-the-repo-to-your-local-computer"><span class="header-section-number">11.2</span> Clone the repo to your local computer</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#clone-with-command-line-git"><span class="header-section-number">11.2.1</span> Clone with command line Git</a></li></ul>
+<a class="nav-link" href="push-pull-github.html#clone-the-repo-to-your-local-computer"><span class="header-section-number">11.2</span> Clone the repo to your local computer</a><ul class="nav navbar-nav"><li><a class="nav-link" href="push-pull-github.html#clone-with-command-line-git"><span class="header-section-number">11.2.1</span> Clone with command line Git</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#make-a-local-change-commit-and-push"><span class="header-section-number">11.3</span> Make a local change, commit, and push</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#windows-and-line-endings"><span class="header-section-number">11.3.1</span> Windows and line endings</a></li></ul>
+<a class="nav-link" href="push-pull-github.html#make-a-local-change-commit-and-push"><span class="header-section-number">11.3</span> Make a local change, commit, and push</a><ul class="nav navbar-nav"><li><a class="nav-link" href="push-pull-github.html#windows-and-line-endings"><span class="header-section-number">11.3.1</span> Windows and line endings</a></li></ul>
 </li>
-<li><a class="nav-link" href="#confirm-the-local-change-propagated-to-the-github-remote"><span class="header-section-number">11.4</span> Confirm the local change propagated to the GitHub remote</a></li>
-<li><a class="nav-link" href="#clean-up"><span class="header-section-number">11.5</span> Clean up</a></li>
+<li><a class="nav-link" href="push-pull-github.html#confirm-the-local-change-propagated-to-the-github-remote"><span class="header-section-number">11.4</span> Confirm the local change propagated to the GitHub remote</a></li>
+<li><a class="nav-link" href="push-pull-github.html#clean-up"><span class="header-section-number">11.5</span> Clean up</a></li>
 </ul>
 
       <div class="book-extra">

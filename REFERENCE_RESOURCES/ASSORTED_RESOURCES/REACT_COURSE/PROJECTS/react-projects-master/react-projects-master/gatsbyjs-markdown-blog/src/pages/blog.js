@@ -1,35 +1,33 @@
-import React from "react";
-import g from "glamorous";
-import Link from "gatsby-link";
+import React from 'react';
+import g from 'glamorous';
+import Link from 'gatsby-link';
 
-import { rhythm } from "../utils/typography";
+import { rhythm } from '../utils/typography';
 
 // Displays list of blog posts (i.e markdown files)
 export default ({ data }) => {
-    return (
-        <div>
-            <g.H1 display={"inline-block"} borderBottom={"1px solid"}>
-                Amazing Pandas Eating Things
-            </g.H1>
-            <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-                <div key={node.id}>
-                    <Link
-                        to={node.fields.slug}
-                        css={{ textDecoration: `none`, color: `inherit` }}
-                    >
-                        <g.H3 marginBottom={rhythm(1 / 4)}>
-                            {node.frontmatter.title}{" "}
-                            <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
-                        </g.H3>
-                        <p>
-                            {node.excerpt}
-                        </p>
-                    </Link>
-                </div>
-            ))}
+  return (
+    <div>
+      <g.H1 display={'inline-block'} borderBottom={'1px solid'}>
+        Amazing Pandas Eating Things
+      </g.H1>
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link
+            to={node.fields.slug}
+            css={{ textDecoration: `none`, color: `inherit` }}
+          >
+            <g.H3 marginBottom={rhythm(1 / 4)}>
+              {node.frontmatter.title}{' '}
+              <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
+            </g.H3>
+            <p>{node.excerpt}</p>
+          </Link>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 // gatsby-transformer-remark converts each markdown file into JSON data with content as HTML

@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="pr-extend.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,13 +119,13 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pr-extend" class="section level1">
 <h1>
-<span class="header-section-number">32</span> Explore and extend a pull request<a class="anchor" aria-label="anchor" href="#pr-extend"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32</span> Explore and extend a pull request<a class="anchor" aria-label="anchor" href="pr-extend.html#pr-extend"><i class="fas fa-link"></i></a>
 </h1>
 <p>Scenario: you maintain an R package on GitHub with pull requests (PRs) from external contributors e.g. Jane Doe, janedoe on GitHub. Sometimes you need to experiment with the PR in order to provide feedback or to decide whether or not to merge. Going further, sometimes you want to add a few commits and then merge. Or maybe there are just some merge conflicts that require your personal, local attention. Let’s also assume that you want the original PR author to get credit for their commits, i.e. you want to preserve history and provenance, not just diffs.</p>
 <p>How do you checkout and possibly extend an external PR?</p>
 <div id="terminology" class="section level2">
 <h2>
-<span class="header-section-number">32.1</span> Terminology<a class="anchor" aria-label="anchor" href="#terminology"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.1</span> Terminology<a class="anchor" aria-label="anchor" href="pr-extend.html#terminology"><i class="fas fa-link"></i></a>
 </h2>
 <p>Vocabulary I use throughout.</p>
 <p><strong>fork branch</strong> The name of the branch in the fork from which the PR was made. Best case scenario: informative name like <code>fix-fluffy-bunny</code>. Worst case scenario: PR is from <code>master</code>.</p>
@@ -135,7 +135,7 @@
 </div>
 <div id="official-github-advice-version-1" class="section level2">
 <h2>
-<span class="header-section-number">32.2</span> Official GitHub advice, Version 1<a class="anchor" aria-label="anchor" href="#official-github-advice-version-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2</span> Official GitHub advice, Version 1<a class="anchor" aria-label="anchor" href="pr-extend.html#official-github-advice-version-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Every PR on GitHub has a link to “command line instructions” on how to merge the PR locally via command line Git. On this journey, there is a point at which you can pause and explore the PR locally.</p>
 <p>Here are their steps with my vocabulary and some example commands:</p>
@@ -179,7 +179,7 @@ git merge --no-ff janedoe-master</code></pre>
 </div>
 <div id="official-github-advice-version-2" class="section level2">
 <h2>
-<span class="header-section-number">32.3</span> Official GitHub advice, Version 2<a class="anchor" aria-label="anchor" href="#official-github-advice-version-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3</span> Official GitHub advice, Version 2<a class="anchor" aria-label="anchor" href="pr-extend.html#official-github-advice-version-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>GitHub has another set of instructions: <a href="https://help.github.com/articles/checking-out-pull-requests-locally/">Checking out pull requests locally</a></p>
 <p>It starts out by referring to the Version 1 instructions, but goes on to address an inactive pull request“, defined as a PR”whose owner has either stopped responding, or, more likely, has deleted their fork".</p>
@@ -187,7 +187,7 @@ git merge --no-ff janedoe-master</code></pre>
 </div>
 <div id="official-github-advice-version-3" class="section level2">
 <h2>
-<span class="header-section-number">32.4</span> Official GitHub advice, Version 3<a class="anchor" aria-label="anchor" href="#official-github-advice-version-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.4</span> Official GitHub advice, Version 3<a class="anchor" aria-label="anchor" href="pr-extend.html#official-github-advice-version-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>GitHub has yet another set of instructions: <a href="https://help.github.com/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork/">Committing changes to a pull request branch created from a fork</a></p>
 <p>The page linked above explains all the pre-conditions, but the short version is that a maintainer can probably push new commits to a PR, effectively pushing commits to a fork. Strange, but true!</p>
@@ -196,7 +196,7 @@ git merge --no-ff janedoe-master</code></pre>
 </div>
 <div id="my-under-development-workflow" class="section level2">
 <h2>
-<span class="header-section-number">32.5</span> My under-development workflow<a class="anchor" aria-label="anchor" href="#my-under-development-workflow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.5</span> My under-development workflow<a class="anchor" aria-label="anchor" href="pr-extend.html#my-under-development-workflow"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>work in progress</em></p>
 <p>This combines ideas from the three above approaches, but with a few tweaks. I am sketching this up in R code, with the hope of putting this into a function and package at some point. This is a revision of an earlier approach, based on feedback from Jim Hester.</p>
@@ -242,12 +242,12 @@ git merge --no-ff janedoe-master</code></pre>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pr-extend"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
-<li><a class="nav-link" href="#terminology"><span class="header-section-number">32.1</span> Terminology</a></li>
-<li><a class="nav-link" href="#official-github-advice-version-1"><span class="header-section-number">32.2</span> Official GitHub advice, Version 1</a></li>
-<li><a class="nav-link" href="#official-github-advice-version-2"><span class="header-section-number">32.3</span> Official GitHub advice, Version 2</a></li>
-<li><a class="nav-link" href="#official-github-advice-version-3"><span class="header-section-number">32.4</span> Official GitHub advice, Version 3</a></li>
-<li><a class="nav-link" href="#my-under-development-workflow"><span class="header-section-number">32.5</span> My under-development workflow</a></li>
+<li><a class="nav-link" href="pr-extend.html#pr-extend"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="nav-link" href="pr-extend.html#terminology"><span class="header-section-number">32.1</span> Terminology</a></li>
+<li><a class="nav-link" href="pr-extend.html#official-github-advice-version-1"><span class="header-section-number">32.2</span> Official GitHub advice, Version 1</a></li>
+<li><a class="nav-link" href="pr-extend.html#official-github-advice-version-2"><span class="header-section-number">32.3</span> Official GitHub advice, Version 2</a></li>
+<li><a class="nav-link" href="pr-extend.html#official-github-advice-version-3"><span class="header-section-number">32.4</span> Official GitHub advice, Version 3</a></li>
+<li><a class="nav-link" href="pr-extend.html#my-under-development-workflow"><span class="header-section-number">32.5</span> My under-development workflow</a></li>
 </ul>
 
       <div class="book-extra">

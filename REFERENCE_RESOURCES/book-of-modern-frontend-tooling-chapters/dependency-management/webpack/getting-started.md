@@ -44,11 +44,11 @@ The `src/app.js` file is the main entry point to your application. From here, we
 The `dist/` contains your distributable application. The `dist/bundle.js` file is created by webpack and is to be included by our `dist/index.html` file. In a typical webpack project, the main `index.html` is usually very simple like such:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <script src="bundle.js"></script>
-</head>
+  <head>
+    <script src="bundle.js"></script>
+  </head>
   <body></body>
 </html>
 ```
@@ -144,13 +144,11 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: './dist',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' }
-    ]
-  }
+    loaders: [{ test: /\.css$/, loader: 'style!css' }],
+  },
 };
 ```
 
@@ -180,7 +178,7 @@ With npm, let's install and load a module. [hash-change](https://www.npmjs.org/p
 
 ```js
 var yell = require('./js/alert.js');
-require('hash-change').on('change', function(hash) {
+require('hash-change').on('change', function (hash) {
   yell(hash);
 });
 ```
@@ -198,15 +196,13 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: './dist',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' }
-    ]
+    loaders: [{ test: /\.css$/, loader: 'style!css' }],
   },
   resolve: {
-    modulesDirectories: ['node_modules', 'bower_components', 'web_modules']
-  }
+    modulesDirectories: ['node_modules', 'bower_components', 'web_modules'],
+  },
 };
 ```

@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="git-remotes.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,14 +119,14 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-remotes" class="section level1">
 <h1>
-<span class="header-section-number">23</span> Remotes<a class="anchor" aria-label="anchor" href="#git-remotes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23</span> Remotes<a class="anchor" aria-label="anchor" href="git-remotes.html#git-remotes"><i class="fas fa-link"></i></a>
 </h1>
 <p>Remote repositories are versions of your project that are hosted on the
 Internet or another network. A single project can have 1, 2 or even hundreds of
 remotes. You pull others changes from remotes and push your changes to remotes.</p>
 <div id="listing-what-remotes-exist" class="section level2">
 <h2>
-<span class="header-section-number">23.1</span> Listing what remotes exist<a class="anchor" aria-label="anchor" href="#listing-what-remotes-exist"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.1</span> Listing what remotes exist<a class="anchor" aria-label="anchor" href="git-remotes.html#listing-what-remotes-exist"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>git remote</code> lists the names of available remotes, but usually it is more
 useful to see what URLs each note corresponds to (with <code>-v</code>).</p>
@@ -136,7 +136,7 @@ useful to see what URLs each note corresponds to (with <code>-v</code>).</p>
 </div>
 <div id="adding-a-new-remote" class="section level2">
 <h2>
-<span class="header-section-number">23.2</span> Adding a new remote<a class="anchor" aria-label="anchor" href="#adding-a-new-remote"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.2</span> Adding a new remote<a class="anchor" aria-label="anchor" href="git-remotes.html#adding-a-new-remote"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>git clone</code> automatically adds a new remote, so often you do not need to do
 this manually initially. However, after the initial clone, it is often useful to
@@ -150,7 +150,7 @@ add additional remotes.</p>
 </div>
 <div id="fetching-data-from-remotes" class="section level2">
 <h2>
-<span class="header-section-number">23.3</span> Fetching data from remotes<a class="anchor" aria-label="anchor" href="#fetching-data-from-remotes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.3</span> Fetching data from remotes<a class="anchor" aria-label="anchor" href="git-remotes.html#fetching-data-from-remotes"><i class="fas fa-link"></i></a>
 </h2>
 <p>To get new data from a remote use <code>git fetch &lt;remote_name&gt;</code>. This retrieves the
 data locally, but importantly it does <em>not</em> change the state of your repository
@@ -167,7 +167,7 @@ git pull happygit master</code></pre>
 </div>
 <div id="pushing-to-remotes" class="section level2">
 <h2>
-<span class="header-section-number">23.4</span> Pushing to remotes<a class="anchor" aria-label="anchor" href="#pushing-to-remotes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4</span> Pushing to remotes<a class="anchor" aria-label="anchor" href="git-remotes.html#pushing-to-remotes"><i class="fas fa-link"></i></a>
 </h2>
 <p>Use <code>git push &lt;remote&gt; &lt;branch&gt;</code> to push your local changes to the <code>&lt;branch&gt;</code>
 branch on the <code>&lt;remote&gt;</code> remote.</p>
@@ -179,7 +179,7 @@ git push happygit test</code></pre>
 </div>
 <div id="renaming-and-changing-remotes" class="section level2">
 <h2>
-<span class="header-section-number">23.5</span> Renaming and changing remotes<a class="anchor" aria-label="anchor" href="#renaming-and-changing-remotes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.5</span> Renaming and changing remotes<a class="anchor" aria-label="anchor" href="git-remotes.html#renaming-and-changing-remotes"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>git remote rename</code> can be used to rename a remote</p>
 <pre class="shell"><code>git remote rename happygit hg</code></pre>
@@ -195,7 +195,7 @@ git remote add origin git@github.com:jimhester/happy-git-with-r.git</code></pre>
 </div>
 <div id="upstream-tracking-branches" class="section level2">
 <h2>
-<span class="header-section-number">23.6</span> Upstream tracking branches<a class="anchor" aria-label="anchor" href="#upstream-tracking-branches"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.6</span> Upstream tracking branches<a class="anchor" aria-label="anchor" href="git-remotes.html#upstream-tracking-branches"><i class="fas fa-link"></i></a>
 </h2>
 <p>It is possible to set the branch on the remote each of your local remotes
 corresponds to. <code>git clone</code> sets this up automatically, so for your own master
@@ -227,13 +227,13 @@ the same name on the remote.</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-remotes"><span class="header-section-number">23</span> Remotes</a></li>
-<li><a class="nav-link" href="#listing-what-remotes-exist"><span class="header-section-number">23.1</span> Listing what remotes exist</a></li>
-<li><a class="nav-link" href="#adding-a-new-remote"><span class="header-section-number">23.2</span> Adding a new remote</a></li>
-<li><a class="nav-link" href="#fetching-data-from-remotes"><span class="header-section-number">23.3</span> Fetching data from remotes</a></li>
-<li><a class="nav-link" href="#pushing-to-remotes"><span class="header-section-number">23.4</span> Pushing to remotes</a></li>
-<li><a class="nav-link" href="#renaming-and-changing-remotes"><span class="header-section-number">23.5</span> Renaming and changing remotes</a></li>
-<li><a class="nav-link" href="#upstream-tracking-branches"><span class="header-section-number">23.6</span> Upstream tracking branches</a></li>
+<li><a class="nav-link" href="git-remotes.html#git-remotes"><span class="header-section-number">23</span> Remotes</a></li>
+<li><a class="nav-link" href="git-remotes.html#listing-what-remotes-exist"><span class="header-section-number">23.1</span> Listing what remotes exist</a></li>
+<li><a class="nav-link" href="git-remotes.html#adding-a-new-remote"><span class="header-section-number">23.2</span> Adding a new remote</a></li>
+<li><a class="nav-link" href="git-remotes.html#fetching-data-from-remotes"><span class="header-section-number">23.3</span> Fetching data from remotes</a></li>
+<li><a class="nav-link" href="git-remotes.html#pushing-to-remotes"><span class="header-section-number">23.4</span> Pushing to remotes</a></li>
+<li><a class="nav-link" href="git-remotes.html#renaming-and-changing-remotes"><span class="header-section-number">23.5</span> Renaming and changing remotes</a></li>
+<li><a class="nav-link" href="git-remotes.html#upstream-tracking-branches"><span class="header-section-number">23.6</span> Upstream tracking branches</a></li>
 </ul>
 
       <div class="book-extra">

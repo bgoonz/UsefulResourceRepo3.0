@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="existing-github-last.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="existing-github-last" class="section level1">
 <h1>
-<span class="header-section-number">17</span> Existing project, GitHub last<a class="anchor" aria-label="anchor" href="#existing-github-last"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17</span> Existing project, GitHub last<a class="anchor" aria-label="anchor" href="existing-github-last.html#existing-github-last"><i class="fas fa-link"></i></a>
 </h1>
 <p>This an explicit workflow for connecting an existing local R project to GitHub, when for some reason you cannot or don’t want to do a “GitHub first” workflow (see chapters <a href="new-github-first.html#new-github-first">15</a> and <a href="existing-github-first.html#existing-github-first">16</a>).</p>
 <p>When does this come up?
@@ -130,7 +130,7 @@ But this workflow is not that hard, even with command line Git, and is even easi
 All of these are covered below.</p>
 <div id="prepare-the-local-project" class="section level2">
 <h2>
-<span class="header-section-number">17.1</span> Prepare the local project<a class="anchor" aria-label="anchor" href="#prepare-the-local-project"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.1</span> Prepare the local project<a class="anchor" aria-label="anchor" href="existing-github-last.html#prepare-the-local-project"><i class="fas fa-link"></i></a>
 </h2>
 <p>We assume you’ve got your existing R project isolated in a directory on your computer.
 If that’s not already true, make it so.
@@ -140,7 +140,7 @@ It doesn’t really matter where you do this, but note where the project current
 If you opt-out of this, the instructions using command line Git or usethis will still work for you, outside of RStudio.</p>
 <div id="make-or-verify-an-rstudio-project" class="section level3">
 <h3>
-<span class="header-section-number">17.1.1</span> Make or verify an RStudio Project<a class="anchor" aria-label="anchor" href="#make-or-verify-an-rstudio-project"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.1.1</span> Make or verify an RStudio Project<a class="anchor" aria-label="anchor" href="existing-github-last.html#make-or-verify-an-rstudio-project"><i class="fas fa-link"></i></a>
 </h3>
 <p>If the project is not already an RStudio Project, make it so:</p>
 <ul>
@@ -151,7 +151,7 @@ If you opt-out of this, the instructions using command line Git or usethis will 
 </div>
 <div id="make-or-verify-a-git-repo" class="section level3">
 <h3>
-<span class="header-section-number">17.1.2</span> Make or verify a Git repo<a class="anchor" aria-label="anchor" href="#make-or-verify-a-git-repo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.1.2</span> Make or verify a Git repo<a class="anchor" aria-label="anchor" href="existing-github-last.html#make-or-verify-a-git-repo"><i class="fas fa-link"></i></a>
 </h3>
 <p>You should be in RStudio now, in your project.</p>
 <p>Is it already a Git repository?
@@ -170,7 +170,7 @@ RStudio should now have a Git pane.</p>
 </div>
 <div id="stage-and-commit-1" class="section level2">
 <h2>
-<span class="header-section-number">17.2</span> Stage and commit<a class="anchor" aria-label="anchor" href="#stage-and-commit-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.2</span> Stage and commit<a class="anchor" aria-label="anchor" href="existing-github-last.html#stage-and-commit-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>If your local project was already a Git repo and was up-to-date, move on. Otherwise, you probably need to stage and commit.</p>
 <ul>
@@ -192,7 +192,7 @@ this is a long-term situation, list the file in <code>.gitignore</code>.</li>
 </div>
 <div id="make-and-connect-a-github-repo-with-usethis" class="section level2">
 <h2>
-<span class="header-section-number">17.3</span> Make and connect a GitHub repo with usethis<a class="anchor" aria-label="anchor" href="#make-and-connect-a-github-repo-with-usethis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.3</span> Make and connect a GitHub repo with usethis<a class="anchor" aria-label="anchor" href="existing-github-last.html#make-and-connect-a-github-repo-with-usethis"><i class="fas fa-link"></i></a>
 </h2>
 <p>To use usethis for this task, you must have configured a personal access token (PAT).
 This will already by configured for anyone using HTTPS as their protocol, because they are already using the PAT to authenticate for other Git operations.
@@ -209,11 +209,11 @@ It is fine to have both a PAT and SSH keys.</p>
 </div>
 <div id="make-and-connect-a-github-repo-without-usethis" class="section level2">
 <h2>
-<span class="header-section-number">17.4</span> Make and connect a GitHub repo without usethis<a class="anchor" aria-label="anchor" href="#make-and-connect-a-github-repo-without-usethis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4</span> Make and connect a GitHub repo without usethis<a class="anchor" aria-label="anchor" href="existing-github-last.html#make-and-connect-a-github-repo-without-usethis"><i class="fas fa-link"></i></a>
 </h2>
 <div id="make-a-new-repo-on-github" class="section level3">
 <h3>
-<span class="header-section-number">17.4.1</span> Make a new repo on GitHub<a class="anchor" aria-label="anchor" href="#make-a-new-repo-on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4.1</span> Make a new repo on GitHub<a class="anchor" aria-label="anchor" href="existing-github-last.html#make-a-new-repo-on-github"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p>
 <p>Near “Repositories”, click the big green “New” button.
@@ -236,13 +236,13 @@ But if you’re opting for SSH, then make sure to copy the SSH URL.</p>
 </div>
 <div id="connect-local-repo-to-github-repo" class="section level3">
 <h3>
-<span class="header-section-number">17.4.2</span> Connect local repo to GitHub repo<a class="anchor" aria-label="anchor" href="#connect-local-repo-to-github-repo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4.2</span> Connect local repo to GitHub repo<a class="anchor" aria-label="anchor" href="existing-github-last.html#connect-local-repo-to-github-repo"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can do this in the shell or, with recent versions of RStudio, via RStudio.</p>
 </div>
 <div id="in-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">17.4.3</span> In RStudio<a class="anchor" aria-label="anchor" href="#in-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4.3</span> In RStudio<a class="anchor" aria-label="anchor" href="existing-github-last.html#in-rstudio"><i class="fas fa-link"></i></a>
 </h3>
 <p>Click on the “two purple boxes and a white square” in the Git pane.
 Click “Add remote”.
@@ -256,7 +256,7 @@ In the next dialog, choose “overwrite”.</p>
 </div>
 <div id="in-the-shell" class="section level3">
 <h3>
-<span class="header-section-number">17.4.4</span> In the shell<a class="anchor" aria-label="anchor" href="#in-the-shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4.4</span> In the shell<a class="anchor" aria-label="anchor" href="existing-github-last.html#in-the-shell"><i class="fas fa-link"></i></a>
 </h3>
 <p>In a shell, do this, substituting your URL:</p>
 <pre class="console"><code>git remote add origin https://github.com/jennybc/myrepo.git</code></pre>
@@ -266,7 +266,7 @@ In the next dialog, choose “overwrite”.</p>
 </div>
 <div id="confirm-the-local-files-propagated-to-the-github-remote" class="section level2">
 <h2>
-<span class="header-section-number">17.5</span> Confirm the local files propagated to the GitHub remote<a class="anchor" aria-label="anchor" href="#confirm-the-local-files-propagated-to-the-github-remote"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.5</span> Confirm the local files propagated to the GitHub remote<a class="anchor" aria-label="anchor" href="existing-github-last.html#confirm-the-local-files-propagated-to-the-github-remote"><i class="fas fa-link"></i></a>
 </h2>
 <p>Go back to the browser.
 I assume we’re still viewing your new GitHub repo.</p>
@@ -276,7 +276,7 @@ I assume we’re still viewing your new GitHub repo.</p>
 </div>
 <div id="the-end-1" class="section level2">
 <h2>
-<span class="header-section-number">17.6</span> The end<a class="anchor" aria-label="anchor" href="#the-end-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.6</span> The end<a class="anchor" aria-label="anchor" href="existing-github-last.html#the-end-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now just “lather, rinse, repeat”.
 Do work somewhere: locally or on GitHub.
@@ -294,25 +294,25 @@ For this reason, it’s a good idea to try and get into the habit of pulling bef
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#existing-github-last"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="nav-link" href="existing-github-last.html#existing-github-last"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
 <li>
-<a class="nav-link" href="#prepare-the-local-project"><span class="header-section-number">17.1</span> Prepare the local project</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#make-or-verify-an-rstudio-project"><span class="header-section-number">17.1.1</span> Make or verify an RStudio Project</a></li>
-<li><a class="nav-link" href="#make-or-verify-a-git-repo"><span class="header-section-number">17.1.2</span> Make or verify a Git repo</a></li>
+<a class="nav-link" href="existing-github-last.html#prepare-the-local-project"><span class="header-section-number">17.1</span> Prepare the local project</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="existing-github-last.html#make-or-verify-an-rstudio-project"><span class="header-section-number">17.1.1</span> Make or verify an RStudio Project</a></li>
+<li><a class="nav-link" href="existing-github-last.html#make-or-verify-a-git-repo"><span class="header-section-number">17.1.2</span> Make or verify a Git repo</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#stage-and-commit-1"><span class="header-section-number">17.2</span> Stage and commit</a></li>
-<li><a class="nav-link" href="#make-and-connect-a-github-repo-with-usethis"><span class="header-section-number">17.3</span> Make and connect a GitHub repo with usethis</a></li>
+<li><a class="nav-link" href="existing-github-last.html#stage-and-commit-1"><span class="header-section-number">17.2</span> Stage and commit</a></li>
+<li><a class="nav-link" href="existing-github-last.html#make-and-connect-a-github-repo-with-usethis"><span class="header-section-number">17.3</span> Make and connect a GitHub repo with usethis</a></li>
 <li>
-<a class="nav-link" href="#make-and-connect-a-github-repo-without-usethis"><span class="header-section-number">17.4</span> Make and connect a GitHub repo without usethis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#make-a-new-repo-on-github"><span class="header-section-number">17.4.1</span> Make a new repo on GitHub</a></li>
-<li><a class="nav-link" href="#connect-local-repo-to-github-repo"><span class="header-section-number">17.4.2</span> Connect local repo to GitHub repo</a></li>
-<li><a class="nav-link" href="#in-rstudio"><span class="header-section-number">17.4.3</span> In RStudio</a></li>
-<li><a class="nav-link" href="#in-the-shell"><span class="header-section-number">17.4.4</span> In the shell</a></li>
+<a class="nav-link" href="existing-github-last.html#make-and-connect-a-github-repo-without-usethis"><span class="header-section-number">17.4</span> Make and connect a GitHub repo without usethis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="existing-github-last.html#make-a-new-repo-on-github"><span class="header-section-number">17.4.1</span> Make a new repo on GitHub</a></li>
+<li><a class="nav-link" href="existing-github-last.html#connect-local-repo-to-github-repo"><span class="header-section-number">17.4.2</span> Connect local repo to GitHub repo</a></li>
+<li><a class="nav-link" href="existing-github-last.html#in-rstudio"><span class="header-section-number">17.4.3</span> In RStudio</a></li>
+<li><a class="nav-link" href="existing-github-last.html#in-the-shell"><span class="header-section-number">17.4.4</span> In the shell</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#confirm-the-local-files-propagated-to-the-github-remote"><span class="header-section-number">17.5</span> Confirm the local files propagated to the GitHub remote</a></li>
-<li><a class="nav-link" href="#the-end-1"><span class="header-section-number">17.6</span> The end</a></li>
+<li><a class="nav-link" href="existing-github-last.html#confirm-the-local-files-propagated-to-the-github-remote"><span class="header-section-number">17.5</span> Confirm the local files propagated to the GitHub remote</a></li>
+<li><a class="nav-link" href="existing-github-last.html#the-end-1"><span class="header-section-number">17.6</span> The end</a></li>
 </ul>
 
       <div class="book-extra">

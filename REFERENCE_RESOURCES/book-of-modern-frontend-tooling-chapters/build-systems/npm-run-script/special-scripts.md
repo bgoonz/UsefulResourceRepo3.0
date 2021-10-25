@@ -74,4 +74,3 @@ A `pre*` script can be defined so that it is run **before** the script is invoke
     }
 
 With the above scripts defined, running `npm test` would invoke `npm run lint` before invoking `npm run test`.
-

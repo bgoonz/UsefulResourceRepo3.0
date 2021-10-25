@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class Counter extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Counter extends Component {
   }
 
   render() {
-    console.log("Render Counter");
+    console.log('Render Counter');
     return (
       <div>
         <button onClick={() => this.changeCount(-1)}>-</button>

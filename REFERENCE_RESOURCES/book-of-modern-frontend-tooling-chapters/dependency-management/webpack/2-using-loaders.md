@@ -33,11 +33,11 @@ Which will first transform the file into resolved CSS and then apply that CSS to
 Some loaders have options that can be passed to them. Such as with the exports-loader, a loader for exporting a specific variable from within the module. For example if we have a module that does not use `module.exports` but rather just defines a global variable:
 
 ```js
-var Animal = (function() {
-  return function(type) {
+var Animal = (function () {
+  return function (type) {
     console.log('I am a ' + type);
-  }
-}());
+  };
+})();
 ```
 
 You can resolve this module by specifying which variable should be exported by passing an option to the exports loader using the `'?'` separator:
@@ -54,19 +54,17 @@ Prefixing all your modules with a loader might be taxing where in a lot of insta
 
 In your `webpack.config.js`:
 
-``` javascript
+```javascript
 module.exports = {
   module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' }
-    ]
-  }
+    loaders: [{ test: /\.css$/, loader: 'style!css' }],
+  },
 };
 ```
 
 Now any module that ends with `.css` that is resolved will automatically have the CSS and style loader applied. Which shortens our previous call to apply CSS to our page to:
 
-``` javascript
+```javascript
 require('./css/style.css');
 ```
 

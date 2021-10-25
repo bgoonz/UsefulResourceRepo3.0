@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Title } from "react-head";
-import FaTwitter from "react-icons/lib/fa/twitter";
-import FaUserSecret from "react-icons/lib/fa/user-secret";
-import googleLogo from "../../../assets/images/google-logo.svg";
-import kanbanLogo from "../../../assets/images/kanban-logo.svg";
-import background1920 from "../../../assets/images/postits-1920.jpg";
-import background1366 from "../../../assets/images/postits-1366.jpg";
-import "./LandingPage.scss";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Title } from 'react-head';
+import FaTwitter from 'react-icons/lib/fa/twitter';
+import FaUserSecret from 'react-icons/lib/fa/user-secret';
+import googleLogo from '../../../assets/images/google-logo.svg';
+import kanbanLogo from '../../../assets/images/kanban-logo.svg';
+import background1920 from '../../../assets/images/postits-1920.jpg';
+import background1366 from '../../../assets/images/postits-1366.jpg';
+import './LandingPage.scss';
 
 class LandingPage extends Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
   };
 
   enterAsGuest = () => {
-    this.props.dispatch({ type: "ENTER_AS_GUEST" });
+    this.props.dispatch({ type: 'ENTER_AS_GUEST' });
   };
 
   render = () => (
@@ -42,14 +42,15 @@ class LandingPage extends Component {
           </div>
           <p className="landing-page-description">
             An open source kanban application inspired by Trello. Check out the
-            source code on{" "}
+            source code on{' '}
             <a
               href="https://github.com/yogaboll/react-kanban"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </a>.
+            </a>
+            .
           </p>
           <div className="signin-buttons">
             <div>

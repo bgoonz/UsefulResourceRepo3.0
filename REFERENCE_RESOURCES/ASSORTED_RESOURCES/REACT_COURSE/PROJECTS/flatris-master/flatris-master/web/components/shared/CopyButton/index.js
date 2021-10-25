@@ -53,13 +53,8 @@ export default class CopyButton extends Component<Props, LocalState> {
   };
 
   render() {
-    const {
-      disabled,
-      copyText,
-      defaultLabel,
-      successLabel,
-      errorLabel,
-    } = this.props;
+    const { disabled, copyText, defaultLabel, successLabel, errorLabel } =
+      this.props;
     const { copyStatus } = this.state;
 
     let bgColor;

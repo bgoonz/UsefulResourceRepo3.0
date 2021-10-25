@@ -2,28 +2,28 @@
 
 ## Summary
 
--   Introduction
-    -   [Hello World](#hello-world)
-    -   [Go CLI Commands](#go-cli-commands)
-    -   [Go Modules](#go-modules)
--   Basic
-    -   [Basic Types](#basic-types)
-    -   [Variables](#variables)
-    -   [Operators](#operators)
-    -   [Conditional Statements](#conditional-statements)
-    -   [Loops](#loops)
-    -   [Arrays](#arrays)
-    -   [Functions](#functions)
--   Advanced
-    -   [Structs](#structs)
-    -   [Maps](#maps)
-    -   [Pointers](#pointers)
-    -   [Methods and Interfaces](#methods-and-interfaces)
-    -   [Errors](#errors)
-    -   [Testing](#testing)
-    -   [Concurrency](#concurrency)
--   Standard Libs
-    -   [Package fmt](#package-fmt)
+- Introduction
+  - [Hello World](#hello-world)
+  - [Go CLI Commands](#go-cli-commands)
+  - [Go Modules](#go-modules)
+- Basic
+  - [Basic Types](#basic-types)
+  - [Variables](#variables)
+  - [Operators](#operators)
+  - [Conditional Statements](#conditional-statements)
+  - [Loops](#loops)
+  - [Arrays](#arrays)
+  - [Functions](#functions)
+- Advanced
+  - [Structs](#structs)
+  - [Maps](#maps)
+  - [Pointers](#pointers)
+  - [Methods and Interfaces](#methods-and-interfaces)
+  - [Errors](#errors)
+  - [Testing](#testing)
+  - [Concurrency](#concurrency)
+- Standard Libs
+  - [Package fmt](#package-fmt)
 
 ## Hello World
 
@@ -86,11 +86,11 @@ $ go version
 
 ## Go Modules
 
--   Go projects are called **modules**
--   Each module has multiple **packages**
--   Each package should has a scoped functionality. Packages talk to each other to compose the code
--   A module needs at least one package, the **main**
--   The package main needs a entry function called **main**
+- Go projects are called **modules**
+- Each module has multiple **packages**
+- Each package should has a scoped functionality. Packages talk to each other to compose the code
+- A module needs at least one package, the **main**
+- The package main needs a entry function called **main**
 
 ```bash
 # Create Module
@@ -109,25 +109,25 @@ Example: github.com/spf13/cobra
 
 ## Basic Types
 
-|    Type    |               Set of Values                |                    Values                     |
-| :--------: | :----------------------------------------: | :-------------------------------------------: |
-|    bool    |                  boolean                   |                  true/false                   |
-|   string   |            array of characters             |             needs to be inside ""             |
-|    int     |                  integers                  |             32 or 64 bit integer              |
-|    int8    |               8-bit integers               |                 [ -128, 128 ]                 |
-|   int16    |              16-bit integers               |               [ -32768, 32767]                |
-|   int32    |              32-bit integers               |          [ -2147483648, 2147483647]           |
-|   int64    |              64-bit integers               | [ -9223372036854775808, 9223372036854775807 ] |
-|   uint8    |          8-bit unsigned integers           |                  [ 0, 255 ]                   |
-|   uint16   |          16-bit unsigned integers          |                 [ 0, 65535 ]                  |
-|   uint32   |          32-bit unsigned integers          |               [ 0, 4294967295 ]               |
-|   uint64   |          64-bit unsigned integers          |          [ 0, 18446744073709551615 ]          |
-|  float32   |                32-bit float                |                                               |
-|  float64   |                64-bit float                |                                               |
-| complex64  | 32-bit float with real and imaginary parts |                                               |
-| complex128 | 64-bit float with real and imaginary parts |                                               |
-|    byte    |                sets of bits                |                alias for uint8                |
-|    rune    |             Unicode characters             |                alias for int32                |
+| Type | Set of Values | Values |
+| :-: | :-: | :-: |
+| bool | boolean | true/false |
+| string | array of characters | needs to be inside "" |
+| int | integers | 32 or 64 bit integer |
+| int8 | 8-bit integers | [ -128, 128 ] |
+| int16 | 16-bit integers | [ -32768, 32767] |
+| int32 | 32-bit integers | [ -2147483648, 2147483647] |
+| int64 | 64-bit integers | [ -9223372036854775808, 9223372036854775807 ] |
+| uint8 | 8-bit unsigned integers | [ 0, 255 ] |
+| uint16 | 16-bit unsigned integers | [ 0, 65535 ] |
+| uint32 | 32-bit unsigned integers | [ 0, 4294967295 ] |
+| uint64 | 64-bit unsigned integers | [ 0, 18446744073709551615 ] |
+| float32 | 32-bit float |  |
+| float64 | 64-bit float |  |
+| complex64 | 32-bit float with real and imaginary parts |  |
+| complex128 | 64-bit float with real and imaginary parts |  |
+| byte | sets of bits | alias for uint8 |
+| rune | Unicode characters | alias for int32 |
 
 [Return to Summary](#summary)
 
@@ -177,37 +177,11 @@ const pi = 3.1415
 
 [Return to Summary](#summary)
 
-Arithmetic Operators
-| Symbol | Operation | Valid Types |
-|:---------:|:-------------:|:-------------:|
-| `+` | Sum | integers, floats, complex values, strings |
-| `-` | Difference | integers, floats, complex values |
-| `*` | Product | integers, floats, complex values |
-| `/` | Quotient | integers, floats, complex values |
-| `%` | Remainder | integers |
-| `&` | Bitwise AND | integers |
-| `|` | Bitwise OR | integers |
-| `^` | Bitwise XOR | integers |
-| `&^` | Bit clear (AND NOT) | integers |
-| `<<` | Left shift | integer << unsigned integer |
-| `>>` | Right shift | integer >> unsigned integer |
+Arithmetic Operators | Symbol | Operation | Valid Types | |:---------:|:-------------:|:-------------:| | `+` | Sum | integers, floats, complex values, strings | | `-` | Difference | integers, floats, complex values | | `*` | Product | integers, floats, complex values | | `/` | Quotient | integers, floats, complex values | | `%` | Remainder | integers | | `&` | Bitwise AND | integers | | `|` | Bitwise OR | integers | | `^` | Bitwise XOR | integers | | `&^` | Bit clear (AND NOT) | integers | | `<<` | Left shift | integer << unsigned integer | | `>>` | Right shift | integer >> unsigned integer |
 
-Comparison Operators
-| Symbol | Operation |
-|:---------:|:-------------:|
-| `==` | Equal |
-| `!=` | Not equal |
-| `<` | Less |
-| `<=` | Less or equal |
-| `>` | Greater |
-| `>=` | Greater or equal |
+Comparison Operators | Symbol | Operation | |:---------:|:-------------:| | `==` | Equal | | `!=` | Not equal | | `<` | Less | | `<=` | Less or equal | | `>` | Greater | | `>=` | Greater or equal |
 
-Logical Operators
-| Symbol | Operation |
-|:---------:|:-------------:|
-| `&&` | Conditional AND |
-| `||` | Conditional OR |
-| `!` | NOT |
+Logical Operators | Symbol | Operation | |:---------:|:-------------:| | `&&` | Conditional AND | | `||` | Conditional OR | | `!` | NOT |
 
 [Return to Summary](#summary)
 
@@ -571,8 +545,7 @@ dog := Dog{"Rex"}
 dog.bark() // Rex is barking!
 ```
 
-Interfaces are implicitly implemented. You don't need to inform that your struct are correctly implementing a interface if it already has all methods with the same name of the interface.
-All structs implement the `interface{}` interface. This empty interface means the same as `any`.
+Interfaces are implicitly implemented. You don't need to inform that your struct are correctly implementing a interface if it already has all methods with the same name of the interface. All structs implement the `interface{}` interface. This empty interface means the same as `any`.
 
 ```go
 // Car implements Vehicle interface
@@ -600,7 +573,7 @@ Go doesn't support `throw`, `try`, `catch` and other common error handling struc
 ```go
 import "errors"
 
-// Function that contain a logic that can cause a possible exception flow 
+// Function that contain a logic that can cause a possible exception flow
 func firstLetter(text string) (string, error) {
     if len(text) < 1 {
         return nil, errors.New("Parameter text is empty")
@@ -632,7 +605,7 @@ func Sum(x, y int) int {
 }
 
 // main_test.go
-import ( 
+import (
     "testing"
     "reflect"
 )
@@ -676,7 +649,7 @@ func main() {
     blocking2: 0
     blocking2: 1
     blocking2: 2
-    done 
+    done
 */
 
 // Go routines are a function (either declared previously or anonymous) called with the keyword go

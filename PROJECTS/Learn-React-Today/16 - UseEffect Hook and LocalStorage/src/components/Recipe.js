@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import IngredientList from "./IngredientList";
-import { RecipeContext } from "./App";
+import React, { useContext } from 'react';
+import IngredientList from './IngredientList';
+import { RecipeContext } from './App';
 
 export default function Recipe(props) {
   const { handleRecipeDelete } = useContext(RecipeContext);

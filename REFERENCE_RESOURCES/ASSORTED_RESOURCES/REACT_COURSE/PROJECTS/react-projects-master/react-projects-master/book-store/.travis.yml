@@ -9,11 +9,11 @@ install:
   - yarn install
 cache:
   directories:
-  - $HOME/.yarn-cache
+    - $HOME/.yarn-cache
 node_js:
-  - "6"
-  - "5"
-  - "4"
+  - '6'
+  - '5'
+  - '4'
 after_success:
   # Send coverage data to coveralls.
   - npm run test:cover:travis

@@ -10,17 +10,20 @@ webpack at its core is a Node.js library and exposes an API to bundle programmat
 // require the webpack Node.js library
 var webpack = require('webpack');
 
-webpack({
-  // The first argument is your webpack config
-  entry: './src/entry.js',
-  output: {
-    path: './dist',
-    filename: 'bundle.js'
+webpack(
+  {
+    // The first argument is your webpack config
+    entry: './src/entry.js',
+    output: {
+      path: './dist',
+      filename: 'bundle.js',
+    },
+  },
+  function (err, stats) {
+    // The second argument is a callback function that returns
+    // more information about your bundle when it is complete
   }
-}, function(err, stats) {
-  // The second argument is a callback function that returns
-  // more information about your bundle when it is complete
-});
+);
 ```
 
 To actively watch files and compile when a file changes, use the `watch` method:
@@ -29,13 +32,15 @@ To actively watch files and compile when a file changes, use the `watch` method:
 var webpack = require('webpack');
 
 // Create an instance of the compiler
-var compiler = webpack({ /* webpack config */ });
+var compiler = webpack({
+  /* webpack config */
+});
 
 // Run the compiler manually
-compiler.run(function(err, stats) { });
+compiler.run(function (err, stats) {});
 
 // Start watching files and upon change call the callback
-compiler.watch(/* watchDelay */ 200, function(err, stats) { });
+compiler.watch(/* watchDelay */ 200, function (err, stats) {});
 ```
 
 ## Using with Grunt

@@ -29,14 +29,14 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.initConfig({
-    sass: {} // config goes here
+    sass: {}, // config goes here
   });
 };
 ```
 
 ## Task targets
 
-The plugin we are using is a bit special, since it *requires* you to create **targets** (or configurations) for it.
+The plugin we are using is a bit special, since it _requires_ you to create **targets** (or configurations) for it.
 
 A target is just a name associated to a task configuration. Let's say that you want to have a Sass configuration for development (`dev`) different from the configuration for production (`prod`)[^names]. Once you define these two targets, you can run a task target with:
 
@@ -46,7 +46,7 @@ $ grunt sass:dev
 
 [^names]: Note that these are arbitrary names.
 
-When a task has multiple targets, if you omit the target name, then *all targets* will be executed. We will see examples of this use in other plugins.
+When a task has multiple targets, if you omit the target name, then _all targets_ will be executed. We will see examples of this use in other plugins.
 
 The way you define targets, is by adding them as a key in the configuration object. For instance:
 
@@ -54,16 +54,16 @@ The way you define targets, is by adding them as a key in the configuration obje
 grunt.initConfig({
   sass: {
     dev: {}, // config for target 'dev' here
-    prod: {}
-  }
+    prod: {},
+  },
 });
 ```
 
 ## Source-destination file-matching
 
-The `sass` task is different from the `jshint` task in the way the accept files. With the linter, you just needed to supply input files; but `sass` requires both *input* (source) and *output* (destination) files.
+The `sass` task is different from the `jshint` task in the way the accept files. With the linter, you just needed to supply input files; but `sass` requires both _input_ (source) and _output_ (destination) files.
 
-The easiest — but less powerful — way to supply these source-destination files is by using a *files Object*. See this example:
+The easiest — but less powerful — way to supply these source-destination files is by using a _files Object_. See this example:
 
 ```js
 sass: {
@@ -80,13 +80,15 @@ If you have only a few sass files, this mapping is probably good enough. However
 ```js
 sass: {
   dev: {
-    files: [{
-      cwd: 'sass',
-      dest: 'styles',
-      src: ['*.{sass.scss}'],
-      ext: '.css',
-      expand: true
-    }]
+    files: [
+      {
+        cwd: 'sass',
+        dest: 'styles',
+        src: ['*.{sass.scss}'],
+        ext: '.css',
+        expand: true,
+      },
+    ];
   }
 }
 ```
@@ -135,7 +137,7 @@ sass: {
 }
 ```
 
-A DRY[^dry] approach would be to take advantage of Grunt's **template engine**[^lo-dash]. Long story short: everything you include between `<%=` and `%>` in a string, will be processed as a template and — here's the cool part — you can use your tasks configuration properties as template variables, for instance: `<%= jshint.files %>`. 
+A DRY[^dry] approach would be to take advantage of Grunt's **template engine**[^lo-dash]. Long story short: everything you include between `<%=` and `%>` in a string, will be processed as a template and — here's the cool part — you can use your tasks configuration properties as template variables, for instance: `<%= jshint.files %>`.
 
 [^lo-dash]: Powered by [Lo-Dash](http://lodash.com/docs#template)
 

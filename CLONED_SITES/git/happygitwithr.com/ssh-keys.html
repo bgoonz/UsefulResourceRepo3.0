@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="ssh-keys.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ssh-keys" class="section level1">
 <h1>
-<span class="header-section-number">10</span> Set up keys for SSH<a class="anchor" aria-label="anchor" href="#ssh-keys"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Set up keys for SSH<a class="anchor" aria-label="anchor" href="ssh-keys.html#ssh-keys"><i class="fas fa-link"></i></a>
 </h1>
 <p>When we interact with a remote Git server, such as GitHub, we have to include credentials in the request.
 This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.</p>
@@ -129,14 +129,14 @@ If you’re not sure whether to use HTTPS or SSH, please read <a href="https-pat
 From now on, we assume you’ve made an intentional choice to set up SSH keys.</p>
 <div id="ssh-keys-1" class="section level2">
 <h2>
-<span class="header-section-number">10.1</span> SSH keys<a class="anchor" aria-label="anchor" href="#ssh-keys-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> SSH keys<a class="anchor" aria-label="anchor" href="ssh-keys.html#ssh-keys-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>SSH keys provide a more secure way of logging into a server than using a password alone. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub!), and then unlock it by connecting to it with a client that already has the private key (your computer!). When the two match up, the system unlocks without the need for a password. You can increase security even more by protecting the private key with a passphrase.</p>
 <p>Adapted from instructions provided by <a href="https://help.github.com/categories/ssh/">GitHub</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2">Digital Ocean</a>.</p>
 </div>
 <div id="ssh-outline-and-advice" class="section level2">
 <h2>
-<span class="header-section-number">10.2</span> SSH outline and advice<a class="anchor" aria-label="anchor" href="#ssh-outline-and-advice"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> SSH outline and advice<a class="anchor" aria-label="anchor" href="ssh-keys.html#ssh-outline-and-advice"><i class="fas fa-link"></i></a>
 </h2>
 <p>High level overview of what must happen:</p>
 <ul>
@@ -155,13 +155,13 @@ From now on, we assume you’ve made an intentional choice to set up SSH keys.</
 </div>
 <div id="do-you-already-have-keys" class="section level2">
 <h2>
-<span class="header-section-number">10.3</span> Do you already have keys?<a class="anchor" aria-label="anchor" href="#do-you-already-have-keys"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3</span> Do you already have keys?<a class="anchor" aria-label="anchor" href="ssh-keys.html#do-you-already-have-keys"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can check this from RStudio or from the shell.</p>
 <p>Global advice: if you do have existing keys, but have no clue where they came from or why you created them, you should seriously consider creating a new SSH key pair. It’s up to you to figure out whether/how to delete the old ones. But don’t let that keep you from creating new keys and moving forward.</p>
 <div id="from-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">10.3.1</span> From RStudio<a class="anchor" aria-label="anchor" href="#from-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.1</span> From RStudio<a class="anchor" aria-label="anchor" href="ssh-keys.html#from-rstudio"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to <em>Tools &gt; Global Options…&gt; Git/SVN</em>. If you see something like <code>~/.ssh/id_rsa</code> in the SSH RSA Key box, you definitely have existing keys.</p>
 <p>Caveat: RStudio only looks for a key pair named <code>id_rsa</code> and <code>id_rsa.pub</code>.
@@ -172,7 +172,7 @@ Therefore, it’s probably a good idea to also check for existing keys in the sh
 </div>
 <div id="from-the-shell" class="section level3">
 <h3>
-<span class="header-section-number">10.3.2</span> From the shell<a class="anchor" aria-label="anchor" href="#from-the-shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.2</span> From the shell<a class="anchor" aria-label="anchor" href="ssh-keys.html#from-the-shell"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to the shell (appendix <a href="shell.html#shell">A</a>).</p>
 <p>List existing keys:</p>
@@ -185,11 +185,11 @@ If you’re happy to stick with your existing keys, skip to the sections about a
 </div>
 <div id="create-an-ssh-key-pair" class="section level2">
 <h2>
-<span class="header-section-number">10.4</span> Create an SSH key pair<a class="anchor" aria-label="anchor" href="#create-an-ssh-key-pair"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4</span> Create an SSH key pair<a class="anchor" aria-label="anchor" href="ssh-keys.html#create-an-ssh-key-pair"><i class="fas fa-link"></i></a>
 </h2>
 <div id="option-1-set-up-from-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">10.4.1</span> Option 1: Set up from RStudio<a class="anchor" aria-label="anchor" href="#option-1-set-up-from-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.1</span> Option 1: Set up from RStudio<a class="anchor" aria-label="anchor" href="ssh-keys.html#option-1-set-up-from-rstudio"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to <em>Tools &gt; Global Options…&gt; Git/SVN &gt; Create RSA Key…</em>.</p>
 <p>RStudio prompts you for a passphrase. It is optional, but also a best practice. Configuring your system for smooth operation with a passphrase-protected key introduces more moving parts.
@@ -201,7 +201,7 @@ If you want to comply with that advice, generate your keys in the shell for now.
 </div>
 <div id="option-2-set-up-from-the-shell" class="section level3">
 <h3>
-<span class="header-section-number">10.4.2</span> Option 2: Set up from the shell<a class="anchor" aria-label="anchor" href="#option-2-set-up-from-the-shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.2</span> Option 2: Set up from the shell<a class="anchor" aria-label="anchor" href="ssh-keys.html#option-2-set-up-from-the-shell"><i class="fas fa-link"></i></a>
 </h3>
 <p>Create the key pair like so, but substitute a comment that means something to you, especially if you’ll have multiple SSH keys in your life.
 Consider the email associated with your GitHub account or the name of your computer or some combination, e.g. <code>your_email@example.com</code> or <code>macbook-pro</code> or <code>jane-2020-macbook-pro</code>.</p>
@@ -243,7 +243,7 @@ The key's randomart image is:
 </div>
 <div id="add-key-to-ssh-agent" class="section level3">
 <h3>
-<span class="header-section-number">10.4.3</span> Add key to ssh-agent<a class="anchor" aria-label="anchor" href="#add-key-to-ssh-agent"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.3</span> Add key to ssh-agent<a class="anchor" aria-label="anchor" href="ssh-keys.html#add-key-to-ssh-agent"><i class="fas fa-link"></i></a>
 </h3>
 <p>Tell your ssh-agent about the key and, especially, set it up to manage the passphrase, if you chose to set one.</p>
 <p>Things get a little OS-specific around here.
@@ -251,7 +251,7 @@ When in doubt, consult <a href="https://docs.github.com/en/authentication/connec
 It also accounts for more unusual situations than I can.</p>
 <div id="mac-os" class="section level4">
 <h4>
-<span class="header-section-number">10.4.3.1</span> Mac OS<a class="anchor" aria-label="anchor" href="#mac-os"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.3.1</span> Mac OS<a class="anchor" aria-label="anchor" href="ssh-keys.html#mac-os"><i class="fas fa-link"></i></a>
 </h4>
 <p>Make sure ssh-agent is enabled. Here’s what success look like (the <code>pid</code> will vary):</p>
 <pre class="console"><code>~ % eval "$(ssh-agent -s)"
@@ -288,7 +288,7 @@ Useful StackOverflow thread: <a href="https://apple.stackexchange.com/questions/
 </div>
 <div id="windows" class="section level4">
 <h4>
-<span class="header-section-number">10.4.3.2</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.3.2</span> Windows<a class="anchor" aria-label="anchor" href="ssh-keys.html#windows"><i class="fas fa-link"></i></a>
 </h4>
 <p>In a Git Bash shell, make sure ssh-agent is running:</p>
 <pre class="console"><code>$ eval $(ssh-agent -s)
@@ -298,7 +298,7 @@ Agent pid 59566</code></pre>
 </div>
 <div id="linux-1" class="section level4">
 <h4>
-<span class="header-section-number">10.4.3.3</span> Linux<a class="anchor" aria-label="anchor" href="#linux-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.3.3</span> Linux<a class="anchor" aria-label="anchor" href="ssh-keys.html#linux-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>In a shell, make sure ssh-agent is running:</p>
 <pre class="console"><code>$ eval "$(ssh-agent -s)"
@@ -310,12 +310,12 @@ Agent pid 59566</code></pre>
 </div>
 <div id="provide-public-key-to-github" class="section level2">
 <h2>
-<span class="header-section-number">10.5</span> Provide public key to GitHub<a class="anchor" aria-label="anchor" href="#provide-public-key-to-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5</span> Provide public key to GitHub<a class="anchor" aria-label="anchor" href="ssh-keys.html#provide-public-key-to-github"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now we store a copy of your public key on GitHub.</p>
 <div id="rstudio-to-clipboard" class="section level3">
 <h3>
-<span class="header-section-number">10.5.1</span> RStudio to clipboard<a class="anchor" aria-label="anchor" href="#rstudio-to-clipboard"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.1</span> RStudio to clipboard<a class="anchor" aria-label="anchor" href="ssh-keys.html#rstudio-to-clipboard"><i class="fas fa-link"></i></a>
 </h3>
 <p>Go to <em>Tools &gt; Global Options…&gt; Git/SVN</em>.
 If your key pair is named like <code>id_rsa.pub</code> and <code>id_rsa</code>, RStudio will see it and offer to “View public key”.
@@ -324,7 +324,7 @@ Do that and accept the offer to copy to your clipboard.</p>
 </div>
 <div id="shell-to-clipboard" class="section level3">
 <h3>
-<span class="header-section-number">10.5.2</span> Shell to clipboard<a class="anchor" aria-label="anchor" href="#shell-to-clipboard"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.2</span> Shell to clipboard<a class="anchor" aria-label="anchor" href="ssh-keys.html#shell-to-clipboard"><i class="fas fa-link"></i></a>
 </h3>
 <p>Copy the public key onto your clipboard.
 For example, open <code>~/.ssh/id_ed25519.pub</code> in an editor and copy the contents to your clipboard.
@@ -341,7 +341,7 @@ Or do one of the following at the command line:</p>
 </div>
 <div id="on-github" class="section level3">
 <h3>
-<span class="header-section-number">10.5.3</span> On GitHub<a class="anchor" aria-label="anchor" href="#on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.3</span> On GitHub<a class="anchor" aria-label="anchor" href="ssh-keys.html#on-github"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we register the public key with GitHub.
 Click on your profile pic in upper right corner and go to <em>Settings &gt; SSH and GPG keys</em>.
@@ -357,11 +357,11 @@ Of course, the best test is to work through the realistic usage examples elsewhe
 </div>
 <div id="ssh-troubleshooting" class="section level2">
 <h2>
-<span class="header-section-number">10.6</span> Troubleshooting<a class="anchor" aria-label="anchor" href="#ssh-troubleshooting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6</span> Troubleshooting<a class="anchor" aria-label="anchor" href="ssh-keys.html#ssh-troubleshooting"><i class="fas fa-link"></i></a>
 </h2>
 <div id="https-url-when-you-meant-to-use-ssh" class="section level3">
 <h3>
-<span class="header-section-number">10.6.1</span> HTTPS URL when you meant to use SSH<a class="anchor" aria-label="anchor" href="#https-url-when-you-meant-to-use-ssh"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.1</span> HTTPS URL when you meant to use SSH<a class="anchor" aria-label="anchor" href="ssh-keys.html#https-url-when-you-meant-to-use-ssh"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you think you have SSH set up correctly and yet you are still challenged for credentials, consider this: for the repo in question, have you possibly set up GitHub, probably called <code>origin</code>, as an HTTPS remote, instead of SSH?</p>
 <p>How to see the remote URL(s) associated with the current repo in the shell:</p>
@@ -374,7 +374,7 @@ Of course, the best test is to work through the realistic usage examples elsewhe
 </div>
 <div id="git2r-or-some-other-tool-cant-find-ssh-keys-on-windows" class="section level3">
 <h3>
-<span class="header-section-number">10.6.2</span> git2r – or some other tool – can’t find SSH keys on Windows<a class="anchor" aria-label="anchor" href="#git2r-or-some-other-tool-cant-find-ssh-keys-on-windows"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.2</span> git2r – or some other tool – can’t find SSH keys on Windows<a class="anchor" aria-label="anchor" href="ssh-keys.html#git2r-or-some-other-tool-cant-find-ssh-keys-on-windows"><i class="fas fa-link"></i></a>
 </h3>
 <p>Have you seen this error message?</p>
 <pre class="console"><code>Error in .local(object, ...) : 
@@ -431,7 +431,7 @@ Bottom line: place your config and keys where your main tool expects them to be 
 </div>
 <div id="other" class="section level3">
 <h3>
-<span class="header-section-number">10.6.3</span> Other<a class="anchor" aria-label="anchor" href="#other"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.3</span> Other<a class="anchor" aria-label="anchor" href="ssh-keys.html#other"><i class="fas fa-link"></i></a>
 </h3>
 <p>Other things to double-check:</p>
 <ul>
@@ -448,34 +448,34 @@ Bottom line: place your config and keys where your main tool expects them to be 
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ssh-keys"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
-<li><a class="nav-link" href="#ssh-keys-1"><span class="header-section-number">10.1</span> SSH keys</a></li>
-<li><a class="nav-link" href="#ssh-outline-and-advice"><span class="header-section-number">10.2</span> SSH outline and advice</a></li>
+<li><a class="nav-link" href="ssh-keys.html#ssh-keys"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="nav-link" href="ssh-keys.html#ssh-keys-1"><span class="header-section-number">10.1</span> SSH keys</a></li>
+<li><a class="nav-link" href="ssh-keys.html#ssh-outline-and-advice"><span class="header-section-number">10.2</span> SSH outline and advice</a></li>
 <li>
-<a class="nav-link" href="#do-you-already-have-keys"><span class="header-section-number">10.3</span> Do you already have keys?</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#from-rstudio"><span class="header-section-number">10.3.1</span> From RStudio</a></li>
-<li><a class="nav-link" href="#from-the-shell"><span class="header-section-number">10.3.2</span> From the shell</a></li>
+<a class="nav-link" href="ssh-keys.html#do-you-already-have-keys"><span class="header-section-number">10.3</span> Do you already have keys?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="ssh-keys.html#from-rstudio"><span class="header-section-number">10.3.1</span> From RStudio</a></li>
+<li><a class="nav-link" href="ssh-keys.html#from-the-shell"><span class="header-section-number">10.3.2</span> From the shell</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#create-an-ssh-key-pair"><span class="header-section-number">10.4</span> Create an SSH key pair</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#option-1-set-up-from-rstudio"><span class="header-section-number">10.4.1</span> Option 1: Set up from RStudio</a></li>
-<li><a class="nav-link" href="#option-2-set-up-from-the-shell"><span class="header-section-number">10.4.2</span> Option 2: Set up from the shell</a></li>
-<li><a class="nav-link" href="#add-key-to-ssh-agent"><span class="header-section-number">10.4.3</span> Add key to ssh-agent</a></li>
+<a class="nav-link" href="ssh-keys.html#create-an-ssh-key-pair"><span class="header-section-number">10.4</span> Create an SSH key pair</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="ssh-keys.html#option-1-set-up-from-rstudio"><span class="header-section-number">10.4.1</span> Option 1: Set up from RStudio</a></li>
+<li><a class="nav-link" href="ssh-keys.html#option-2-set-up-from-the-shell"><span class="header-section-number">10.4.2</span> Option 2: Set up from the shell</a></li>
+<li><a class="nav-link" href="ssh-keys.html#add-key-to-ssh-agent"><span class="header-section-number">10.4.3</span> Add key to ssh-agent</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#provide-public-key-to-github"><span class="header-section-number">10.5</span> Provide public key to GitHub</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#rstudio-to-clipboard"><span class="header-section-number">10.5.1</span> RStudio to clipboard</a></li>
-<li><a class="nav-link" href="#shell-to-clipboard"><span class="header-section-number">10.5.2</span> Shell to clipboard</a></li>
-<li><a class="nav-link" href="#on-github"><span class="header-section-number">10.5.3</span> On GitHub</a></li>
+<a class="nav-link" href="ssh-keys.html#provide-public-key-to-github"><span class="header-section-number">10.5</span> Provide public key to GitHub</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="ssh-keys.html#rstudio-to-clipboard"><span class="header-section-number">10.5.1</span> RStudio to clipboard</a></li>
+<li><a class="nav-link" href="ssh-keys.html#shell-to-clipboard"><span class="header-section-number">10.5.2</span> Shell to clipboard</a></li>
+<li><a class="nav-link" href="ssh-keys.html#on-github"><span class="header-section-number">10.5.3</span> On GitHub</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#ssh-troubleshooting"><span class="header-section-number">10.6</span> Troubleshooting</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#https-url-when-you-meant-to-use-ssh"><span class="header-section-number">10.6.1</span> HTTPS URL when you meant to use SSH</a></li>
-<li><a class="nav-link" href="#git2r-or-some-other-tool-cant-find-ssh-keys-on-windows"><span class="header-section-number">10.6.2</span> git2r – or some other tool – can’t find SSH keys on Windows</a></li>
-<li><a class="nav-link" href="#other"><span class="header-section-number">10.6.3</span> Other</a></li>
+<a class="nav-link" href="ssh-keys.html#ssh-troubleshooting"><span class="header-section-number">10.6</span> Troubleshooting</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="ssh-keys.html#https-url-when-you-meant-to-use-ssh"><span class="header-section-number">10.6.1</span> HTTPS URL when you meant to use SSH</a></li>
+<li><a class="nav-link" href="ssh-keys.html#git2r-or-some-other-tool-cant-find-ssh-keys-on-windows"><span class="header-section-number">10.6.2</span> git2r – or some other tool – can’t find SSH keys on Windows</a></li>
+<li><a class="nav-link" href="ssh-keys.html#other"><span class="header-section-number">10.6.3</span> Other</a></li>
 </ul>
 </li>
 </ul>

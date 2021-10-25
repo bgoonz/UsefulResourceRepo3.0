@@ -11,4 +11,3 @@ While the default installation of Node.js provides `npm`, it is usually an out-o
 ## Create a `package.json` file
 
     % npm init
-

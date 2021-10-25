@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="shell.html#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -119,7 +119,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="shell" class="section level1">
 <h1>
-<span class="header-section-number">A</span> The shell<a class="anchor" aria-label="anchor" href="#shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A</span> The shell<a class="anchor" aria-label="anchor" href="shell.html#shell"><i class="fas fa-link"></i></a>
 </h1>
 <p>Even if you do most of your Git operations via a client, such as RStudio or GitKraken, you must sometimes work in the shell. As you get more comfortable with Git, you might prefer to do more and more via the command line. You might also need to use Git or file system operations on a server that lacks your usual Git client. For all these reasons, it is a good idea to learn your way around the shell.</p>
 <p>Here’s a typical look for a shell. You’ll see a simple blinking cursor, waiting for input:</p>
@@ -129,7 +129,7 @@
 <div class="inline-figure"><img src="img/440px-Bash_screenshot.png"></div>
 <div id="what-is-the-shell" class="section level2">
 <h2>
-<span class="header-section-number">A.1</span> What is the shell?<a class="anchor" aria-label="anchor" href="#what-is-the-shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.1</span> What is the shell?<a class="anchor" aria-label="anchor" href="shell.html#what-is-the-shell"><i class="fas fa-link"></i></a>
 </h2>
 <p>The shell is a program on your computer whose job is to run other programs. Pseudo-synonyms are “terminal”, “command line”, and “console”. There’s a whole StackExchange thread on the differences (<a href="https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line">What is the difference between Terminal, Console, Shell, and Command Line?</a>), but I don’t find it to be terribly enlightening. Your mileage may vary.</p>
 <p>Many programmers spend lots of time in a shell, as opposed to in GUIs, because it is very fast, concise, and ubiquitous in their relevant computing environments. This is how all work was done before we got the mouse and GUIs.</p>
@@ -138,11 +138,11 @@
 </div>
 <div id="starting-the-shell" class="section level2">
 <h2>
-<span class="header-section-number">A.2</span> Starting the shell<a class="anchor" aria-label="anchor" href="#starting-the-shell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.2</span> Starting the shell<a class="anchor" aria-label="anchor" href="shell.html#starting-the-shell"><i class="fas fa-link"></i></a>
 </h2>
 <div id="from-within-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">A.2.1</span> From within RStudio<a class="anchor" aria-label="anchor" href="#from-within-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.2.1</span> From within RStudio<a class="anchor" aria-label="anchor" href="shell.html#from-within-rstudio"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can launch a shell from RStudio. This is often handy, because RStudio makes every effort to put you in a sane working directory, i.e. in the current project.</p>
 <p>There are two ways:</p>
@@ -155,11 +155,11 @@
 </div>
 <div id="outside-of-rstudio" class="section level3">
 <h3>
-<span class="header-section-number">A.2.2</span> Outside of RStudio<a class="anchor" aria-label="anchor" href="#outside-of-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.2.2</span> Outside of RStudio<a class="anchor" aria-label="anchor" href="shell.html#outside-of-rstudio"><i class="fas fa-link"></i></a>
 </h3>
 <div id="macos-1" class="section level4">
 <h4>
-<span class="header-section-number">A.2.2.1</span> macOS<a class="anchor" aria-label="anchor" href="#macos-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.2.2.1</span> macOS<a class="anchor" aria-label="anchor" href="shell.html#macos-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>The shell is often called the “terminal” on macOS, by which people mean Terminal.app. One way to launch is via Spotlight Search. Type Command + space and start typing “terminal”. This process will something like so:</p>
 <div class="inline-figure"><img src="img/terminal_mac_search.png"></div>
@@ -170,7 +170,7 @@
 </div>
 <div id="windows-1" class="section level4">
 <h4>
-<span class="header-section-number">A.2.2.2</span> Windows<a class="anchor" aria-label="anchor" href="#windows-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.2.2.2</span> Windows<a class="anchor" aria-label="anchor" href="shell.html#windows-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>We defer this until the next section, due to the more complex shell situation on Windows.</p>
 </div>
@@ -178,14 +178,14 @@
 </div>
 <div id="windows-shell-hell" class="section level2">
 <h2>
-<span class="header-section-number">A.3</span> Windows is special … and not in a good way<a class="anchor" aria-label="anchor" href="#windows-shell-hell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3</span> Windows is special … and not in a good way<a class="anchor" aria-label="anchor" href="shell.html#windows-shell-hell"><i class="fas fa-link"></i></a>
 </h2>
 <p>Windows is not the ideal platform for scientific computing and software development. A lot of the functionality is going to feel janky and strapped on. Because it is.</p>
 <p>There are no fewer than 4 possible shells you can end up in. Unless you know better, you almost certainly want to be in a Git Bash shell, especially here in Happy Git.</p>
 <p>Windows users will want to understand the different types of shell, how to launch them, and how to tell which one you’re in.</p>
 <div id="git-bash" class="section level3">
 <h3>
-<span class="header-section-number">A.3.1</span> Git Bash<a class="anchor" aria-label="anchor" href="#git-bash"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.1</span> Git Bash<a class="anchor" aria-label="anchor" href="shell.html#git-bash"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>TL;DR how to tell if you’re in a Git Bash shell? Do this:</em></p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb199-1"><a href="shell.html#cb199-1"></a>$ <span class="bu">echo</span> <span class="va">$SHELL</span></span>
@@ -201,7 +201,7 @@
 </ul>
 <div id="accessing-git-bash-outside-of-rstudio" class="section level4">
 <h4>
-<span class="header-section-number">A.3.1.1</span> Accessing Git Bash outside of RStudio<a class="anchor" aria-label="anchor" href="#accessing-git-bash-outside-of-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.1.1</span> Accessing Git Bash outside of RStudio<a class="anchor" aria-label="anchor" href="shell.html#accessing-git-bash-outside-of-rstudio"><i class="fas fa-link"></i></a>
 </h4>
 <p>Sometimes you want to run Git Bash outside of RStudio. Here’s the easiest way: click the “Git” menu in the Windows menu and select “Git Bash”.</p>
 <div class="inline-figure"><img src="img/2019-01_git_bash_windows.png"></div>
@@ -214,7 +214,7 @@
 </div>
 <div id="command-prompt" class="section level3">
 <h3>
-<span class="header-section-number">A.3.2</span> Command prompt<a class="anchor" aria-label="anchor" href="#command-prompt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.2</span> Command prompt<a class="anchor" aria-label="anchor" href="shell.html#command-prompt"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>TL;DR how to tell if you’re in Command Prompt? Do this:</em></p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb200-1"><a href="shell.html#cb200-1"></a><span class="ex">C</span>:\Users\jenny<span class="op">&gt;</span>echo %COMSPEC%</span>
@@ -227,7 +227,7 @@
 </div>
 <div id="powershell" class="section level3">
 <h3>
-<span class="header-section-number">A.3.3</span> PowerShell<a class="anchor" aria-label="anchor" href="#powershell"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.3</span> PowerShell<a class="anchor" aria-label="anchor" href="shell.html#powershell"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>TL;DR how to tell if you’re in PowerShell? Do this:</em></p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb201-1"><a href="shell.html#cb201-1"></a><span class="ex">PS</span> C:\Users\jenny<span class="op">&gt;</span> Get-ChildItem Env:ComSpec</span>
@@ -237,12 +237,12 @@
 <span id="cb201-5"><a href="shell.html#cb201-5"></a><span class="ex">ComSpec</span>                        C:\WINDOWS\system32\cmd.exe</span></code></pre></div>
 <p>PowerShell is yet another Windows shell, a more modern successor to Command Prompt. It’s also rarely what you want, especially for the work described in Happy Git.</p>
 <p>A PowerShell session running outside of RStudio looks something like this:</p>
-<div class="inline-figure"><img src="img/2018-01-15_power-shell.png"></div>
+<div class="inline-figure"><img src="http://happygitwithr.com/img/2018-01-15_power-shell.png"></div>
 <p>Notice the <code>powershell.exe</code> in the title bar.</p>
 </div>
 <div id="bash-via-windows-services-for-linux" class="section level3">
 <h3>
-<span class="header-section-number">A.3.4</span> Bash via Windows Services for Linux<a class="anchor" aria-label="anchor" href="#bash-via-windows-services-for-linux"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.4</span> Bash via Windows Services for Linux<a class="anchor" aria-label="anchor" href="shell.html#bash-via-windows-services-for-linux"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>TL;DR how to tell if you’re in Bash via WSL? Do this:</em></p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb202-1"><a href="shell.html#cb202-1"></a>$ <span class="bu">echo</span> <span class="va">$SHELL</span></span>
@@ -253,7 +253,7 @@
 <p>FYI Microsoft also refers to WSL as Bash on Ubuntu on Windows.</p>
 <div id="windows-bottom-line" class="section level4">
 <h4>
-<span class="header-section-number">A.3.4.1</span> Windows bottom line<a class="anchor" aria-label="anchor" href="#windows-bottom-line"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.4.1</span> Windows bottom line<a class="anchor" aria-label="anchor" href="shell.html#windows-bottom-line"><i class="fas fa-link"></i></a>
 </h4>
 <p>When in doubt, you probably want to be in a Git Bash shell.</p>
 </div>
@@ -261,7 +261,7 @@
 </div>
 <div id="basic-shell-commands" class="section level2">
 <h2>
-<span class="header-section-number">A.4</span> Basic shell commands<a class="anchor" aria-label="anchor" href="#basic-shell-commands"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.4</span> Basic shell commands<a class="anchor" aria-label="anchor" href="shell.html#basic-shell-commands"><i class="fas fa-link"></i></a>
 </h2>
 <p>The most basic commands are listed below:</p>
 <ul>
@@ -308,23 +308,23 @@
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#shell"><span class="header-section-number">A</span> The shell</a></li>
-<li><a class="nav-link" href="#what-is-the-shell"><span class="header-section-number">A.1</span> What is the shell?</a></li>
+<li><a class="nav-link" href="shell.html#shell"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="nav-link" href="shell.html#what-is-the-shell"><span class="header-section-number">A.1</span> What is the shell?</a></li>
 <li>
-<a class="nav-link" href="#starting-the-shell"><span class="header-section-number">A.2</span> Starting the shell</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#from-within-rstudio"><span class="header-section-number">A.2.1</span> From within RStudio</a></li>
-<li><a class="nav-link" href="#outside-of-rstudio"><span class="header-section-number">A.2.2</span> Outside of RStudio</a></li>
+<a class="nav-link" href="shell.html#starting-the-shell"><span class="header-section-number">A.2</span> Starting the shell</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="shell.html#from-within-rstudio"><span class="header-section-number">A.2.1</span> From within RStudio</a></li>
+<li><a class="nav-link" href="shell.html#outside-of-rstudio"><span class="header-section-number">A.2.2</span> Outside of RStudio</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#windows-shell-hell"><span class="header-section-number">A.3</span> Windows is special … and not in a good way</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-bash"><span class="header-section-number">A.3.1</span> Git Bash</a></li>
-<li><a class="nav-link" href="#command-prompt"><span class="header-section-number">A.3.2</span> Command prompt</a></li>
-<li><a class="nav-link" href="#powershell"><span class="header-section-number">A.3.3</span> PowerShell</a></li>
-<li><a class="nav-link" href="#bash-via-windows-services-for-linux"><span class="header-section-number">A.3.4</span> Bash via Windows Services for Linux</a></li>
+<a class="nav-link" href="shell.html#windows-shell-hell"><span class="header-section-number">A.3</span> Windows is special … and not in a good way</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="shell.html#git-bash"><span class="header-section-number">A.3.1</span> Git Bash</a></li>
+<li><a class="nav-link" href="shell.html#command-prompt"><span class="header-section-number">A.3.2</span> Command prompt</a></li>
+<li><a class="nav-link" href="shell.html#powershell"><span class="header-section-number">A.3.3</span> PowerShell</a></li>
+<li><a class="nav-link" href="shell.html#bash-via-windows-services-for-linux"><span class="header-section-number">A.3.4</span> Bash via Windows Services for Linux</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#basic-shell-commands"><span class="header-section-number">A.4</span> Basic shell commands</a></li>
+<li><a class="nav-link" href="shell.html#basic-shell-commands"><span class="header-section-number">A.4</span> Basic shell commands</a></li>
 </ul>
 
       <div class="book-extra">
