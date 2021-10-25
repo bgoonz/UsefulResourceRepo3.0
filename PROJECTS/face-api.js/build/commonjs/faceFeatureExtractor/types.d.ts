@@ -1,10 +1,10 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   TNetInput,
   TfjsImageRecognitionBase,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 export declare type ConvWithBatchNormParams = BatchNormParams & {
   filter: tf.Tensor4D;
 };

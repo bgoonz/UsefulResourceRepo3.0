@@ -33,7 +33,7 @@
 
       class NullUser {
         constructor() {
-          this.name = "Guest";
+          this.name = 'Guest';
         }
 
         hasAccess() {
@@ -41,11 +41,11 @@
         }
       }
 
-      document.getElementById("loginBtn").addEventListener("click", loginClick);
+      document.getElementById('loginBtn').addEventListener('click', loginClick);
 
       function loginClick() {
-        let name = document.getElementById("user-select").value;
-        if (name === "") name = null;
+        let name = document.getElementById('user-select').value;
+        if (name === '') name = null;
         loginUser(getUser(name));
       }
 
@@ -65,7 +65,7 @@
         if (user.hasAccess()) {
           content = `<p>Congrats you are logged in</p>`;
         }
-        document.getElementById("content").innerHTML = `
+        document.getElementById('content').innerHTML = `
           <hr>
           <h3 class="text-center">Welcome ${user.name}</h3>
           ${content}

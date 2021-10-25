@@ -1,14 +1,14 @@
-const LinkedList = require("../..").DataStructures.LinkedList;
-import assert from "assert";
+const LinkedList = require('../..').DataStructures.LinkedList;
+import assert from 'assert';
 
-describe("LinkedList", () => {
-  it("starts empty", () => {
+describe('LinkedList', () => {
+  it('starts empty', () => {
     const l = new LinkedList();
     assert(l.isEmpty());
     assert.equal(l.length, 0);
   });
 
-  it("increments length when an item is added", () => {
+  it('increments length when an item is added', () => {
     const l = new LinkedList();
     l.add(1);
     assert.equal(l.length, 1);
@@ -18,7 +18,7 @@ describe("LinkedList", () => {
     assert.equal(l.length, 2);
   });
 
-  it("returns the items from the positions they were inserted", () => {
+  it('returns the items from the positions they were inserted', () => {
     const l = new LinkedList();
     l.add(1);
     l.add(2);
@@ -58,7 +58,7 @@ describe("LinkedList", () => {
     assert.equal(l.get(12), 13);
   });
 
-  it("throws errors when trying to access indexes out of bounds", () => {
+  it('throws errors when trying to access indexes out of bounds', () => {
     const l = new LinkedList();
     assert.throws(() => l.get(0), Error);
     assert.throws(() => l.get(1), Error);
@@ -81,7 +81,7 @@ describe("LinkedList", () => {
     assert.throws(() => l.get(10), Error);
   });
 
-  it("is able to delete elements", () => {
+  it('is able to delete elements', () => {
     const l = new LinkedList();
 
     l.add(1);
@@ -128,7 +128,7 @@ describe("LinkedList", () => {
     assert.equal(l.length, 0);
   });
 
-  it("performs a function to all elements with forEach", () => {
+  it('performs a function to all elements with forEach', () => {
     const l = new LinkedList();
     l.add(5);
     l.add(1);
@@ -144,7 +144,7 @@ describe("LinkedList", () => {
     assert.deepEqual(a, [5, 1, 3, 10, 1000]);
   });
 
-  it("throws an error when trying to delete from an empty list", () => {
+  it('throws an error when trying to delete from an empty list', () => {
     const l = new LinkedList();
     assert.throws(() => l.del(0), Error);
   });

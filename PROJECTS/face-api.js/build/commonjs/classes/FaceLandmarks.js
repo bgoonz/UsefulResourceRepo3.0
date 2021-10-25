@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var minBbox_1 = require("../minBbox");
-var FaceDetection_1 = require("./FaceDetection");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var minBbox_1 = require('../minBbox');
+var FaceDetection_1 = require('./FaceDetection');
 // face alignment constants
 var relX = 0.5;
 var relY = 0.43;
@@ -22,7 +22,7 @@ var FaceLandmarks = /** @class */ (function () {
         .add(shift);
     });
   }
-  Object.defineProperty(FaceLandmarks.prototype, "shift", {
+  Object.defineProperty(FaceLandmarks.prototype, 'shift', {
     get: function () {
       return new tfjs_image_recognition_base_1.Point(
         this._shift.x,
@@ -32,28 +32,28 @@ var FaceLandmarks = /** @class */ (function () {
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "imageWidth", {
+  Object.defineProperty(FaceLandmarks.prototype, 'imageWidth', {
     get: function () {
       return this._imgDims.width;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "imageHeight", {
+  Object.defineProperty(FaceLandmarks.prototype, 'imageHeight', {
     get: function () {
       return this._imgDims.height;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "positions", {
+  Object.defineProperty(FaceLandmarks.prototype, 'positions', {
     get: function () {
       return this._positions;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "relativePositions", {
+  Object.defineProperty(FaceLandmarks.prototype, 'relativePositions', {
     get: function () {
       var _this = this;
       return this._positions.map(function (pt) {
@@ -147,7 +147,7 @@ var FaceLandmarks = /** @class */ (function () {
     return box.pad(box.width * padding, box.height * padding);
   };
   FaceLandmarks.prototype.getRefPointsForAlignment = function () {
-    throw new Error("getRefPointsForAlignment not implemented by base class");
+    throw new Error('getRefPointsForAlignment not implemented by base class');
   };
   return FaceLandmarks;
 })();

@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceLandmarks_1 = require("../classes/FaceLandmarks");
-var FaceLandmarks68_1 = require("../classes/FaceLandmarks68");
-var WithFaceLandmarks_1 = require("../factories/WithFaceLandmarks");
-var drawContour_1 = require("./drawContour");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceLandmarks_1 = require('../classes/FaceLandmarks');
+var FaceLandmarks68_1 = require('../classes/FaceLandmarks68');
+var WithFaceLandmarks_1 = require('../factories/WithFaceLandmarks');
+var drawContour_1 = require('./drawContour');
 var DrawFaceLandmarksOptions = /** @class */ (function () {
   function DrawFaceLandmarksOptions(options) {
     if (options === void 0) {
@@ -22,8 +22,8 @@ var DrawFaceLandmarksOptions = /** @class */ (function () {
     this.drawPoints = drawPoints;
     this.lineWidth = lineWidth || 1;
     this.pointSize = pointSize || 2;
-    this.lineColor = lineColor || "rgba(0, 255, 255, 1)";
-    this.pointColor = pointColor || "rgba(255, 0, 255, 1)";
+    this.lineColor = lineColor || 'rgba(0, 255, 255, 1)';
+    this.pointColor = pointColor || 'rgba(255, 0, 255, 1)';
   }
   return DrawFaceLandmarksOptions;
 })();
@@ -86,7 +86,7 @@ function drawFaceLandmarks(canvasArg, faceLandmarks) {
         : undefined;
     if (!landmarks) {
       throw new Error(
-        "drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof"
+        'drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof'
       );
     }
     new DrawFaceLandmarks(landmarks).draw(canvasArg);

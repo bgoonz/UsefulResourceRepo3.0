@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Give your JPEGs alpha channels
-==============================
+# Give your JPEGs alpha channels
 
 August 07, 2014 • 1 min read
 
@@ -15,7 +14,7 @@ Cool trick, right? Check out [Dirk Weber's blog](http://w3.eleqtriq.com/2014/08/
 
 <a href="../../tags/images/index.html" class="post-tag">images</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -23,6 +22,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../how-to-get-faster-and-better-help-from-support/index.html" class="post-nav-previous"><span class="small">Previous post</span> How to get faster and better help from support</a> <a href="../box-sizing-border-box-explained/index.html" class="post-nav-next"><span class="small">Up next</span> box-sizing: border-box explained</a>

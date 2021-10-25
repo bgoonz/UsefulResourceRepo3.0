@@ -1,14 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var FaceDetection_1 = require("../classes/FaceDetection");
-var FaceLandmarks_1 = require("../classes/FaceLandmarks");
-var WithFaceDetection_1 = require("./WithFaceDetection");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var FaceDetection_1 = require('../classes/FaceDetection');
+var FaceLandmarks_1 = require('../classes/FaceLandmarks');
+var WithFaceDetection_1 = require('./WithFaceDetection');
 function isWithFaceLandmarks(obj) {
   return (
     WithFaceDetection_1.isWithFaceDetection(obj) &&
-    obj["landmarks"] instanceof FaceLandmarks_1.FaceLandmarks &&
-    obj["unshiftedLandmarks"] instanceof FaceLandmarks_1.FaceLandmarks &&
-    obj["alignedRect"] instanceof FaceDetection_1.FaceDetection
+    obj['landmarks'] instanceof FaceLandmarks_1.FaceLandmarks &&
+    obj['unshiftedLandmarks'] instanceof FaceLandmarks_1.FaceLandmarks &&
+    obj['alignedRect'] instanceof FaceDetection_1.FaceDetection
   );
 }
 exports.isWithFaceLandmarks = isWithFaceLandmarks;

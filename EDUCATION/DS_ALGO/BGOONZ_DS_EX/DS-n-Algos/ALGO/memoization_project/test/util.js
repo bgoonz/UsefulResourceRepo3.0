@@ -3,7 +3,7 @@ const catchStackOverflow = (fn, ...args) => {
     return fn(...args);
   } catch (err) {
     if (err instanceof RangeError) {
-      throw new Error("Stack Overflow");
+      throw new Error('Stack Overflow');
     }
   }
 };

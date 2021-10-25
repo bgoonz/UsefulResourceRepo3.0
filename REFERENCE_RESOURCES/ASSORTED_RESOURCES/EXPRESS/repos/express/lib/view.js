@@ -6,16 +6,16 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var debug = require("debug")("express:view");
-var path = require("path");
-var fs = require("fs");
+var debug = require('debug')('express:view');
+var path = require('path');
+var fs = require('fs');
 
 /**
  * Module variables.
@@ -59,7 +59,7 @@ function View(name, options) {
 
   if (!this.ext && !this.defaultEngine) {
     throw new Error(
-      "No default engine was specified and no extension was provided."
+      'No default engine was specified and no extension was provided.'
     );
   }
 
@@ -68,8 +68,8 @@ function View(name, options) {
   if (!this.ext) {
     // get extension from default engine name
     this.ext =
-      this.defaultEngine[0] !== "."
-        ? "." + this.defaultEngine
+      this.defaultEngine[0] !== '.'
+        ? '.' + this.defaultEngine
         : this.defaultEngine;
 
     fileName += this.ext;
@@ -83,7 +83,7 @@ function View(name, options) {
     // default engine export
     var fn = require(mod).__express;
 
-    if (typeof fn !== "function") {
+    if (typeof fn !== 'function') {
       throw new Error('Module "' + mod + '" does not provide a view engine.');
     }
 
@@ -158,7 +158,7 @@ View.prototype.resolve = function resolve(dir, file) {
   }
 
   // <path>/index.<ext>
-  path = join(dir, basename(file, ext), "index" + ext);
+  path = join(dir, basename(file, ext), 'index' + ext);
   stat = tryStat(path);
 
   if (stat && stat.isFile()) {

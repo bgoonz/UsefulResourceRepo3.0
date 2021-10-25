@@ -39,14 +39,14 @@ function waysToReturnMemoize(amount, denominations) {
 }
 const denominations = [1, 2, 3];
 const amount = 4;
-console.time("answer time");
+console.time('answer time');
 console.log(
   waysToReturnChange(denominations, denominations.length - 1, amount)
 );
-console.timeEnd("answer time");
-console.time("answer time1");
+console.timeEnd('answer time');
+console.time('answer time1');
 console.log(waysToReturnMemoize(amount, denominations));
-console.timeEnd("answer time1");
+console.timeEnd('answer time1');
 /*
 node memo-coin-change.js
 checking ways to make 4 with 3

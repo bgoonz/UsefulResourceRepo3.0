@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
 :root {
-  --body-font: "Manrope", sans-serif;
+  --body-font: 'Manrope', sans-serif;
   --body-color: #b3b3b3;
   --body-bg-color: #f2f2f2;
   --theme-bg-color: #fafafa;
@@ -167,7 +167,7 @@ body {
 .notify {
   position: relative;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     background-color: var(--logo-color);
     width: 5px;

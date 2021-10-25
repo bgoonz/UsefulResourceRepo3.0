@@ -39,7 +39,7 @@ Return value - A new string containing the specified part of the given string.
 */
 
 const licenseKeyFormatting = (S, K) => {
-  let cleanStr = S.toUpperCase().replace(/-/g, "");
+  let cleanStr = S.toUpperCase().replace(/-/g, '');
 
   let len = cleanStr.length;
 
@@ -55,12 +55,12 @@ const licenseKeyFormatting = (S, K) => {
   // i.e. s1 + K + K ... === len  . Till this is not the case, I have to keep placing each K elements to each group
 
   while (len > s1) {
-    resultStr += "-" + cleanStr.substring(s1, s1 + K);
+    resultStr += '-' + cleanStr.substring(s1, s1 + K);
     s1 += K;
   }
   return resultStr;
 };
 
-console.log(licenseKeyFormatting("5F3Z-2e-9-w", 4)); // => 5F3Z-2E9W
+console.log(licenseKeyFormatting('5F3Z-2e-9-w', 4)); // => 5F3Z-2E9W
 
-console.log(licenseKeyFormatting("2-5g-3-J", 2)); // => "2-5G-3J"
+console.log(licenseKeyFormatting('2-5g-3-J', 2)); // => "2-5G-3J"

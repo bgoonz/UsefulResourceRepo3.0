@@ -1,8 +1,8 @@
-const heap = require("../..").DataStructures.Heap;
-import assert from "assert";
+const heap = require('../..').DataStructures.Heap;
+import assert from 'assert';
 
-describe("Min Heap", () => {
-  it("always returns the lowest element", () => {
+describe('Min Heap', () => {
+  it('always returns the lowest element', () => {
     const h = new heap.MinHeap();
     assert(h.isEmpty());
     h.insert(10);
@@ -33,7 +33,7 @@ describe("Min Heap", () => {
     assert(h.isEmpty());
   });
 
-  it("heapifies an unordered array", () => {
+  it('heapifies an unordered array', () => {
     const h = new heap.MinHeap();
     h.heapify([10, 2091, 4, 1, 5, 500, 0, 18, 3, 22, 20]);
 
@@ -53,8 +53,8 @@ describe("Min Heap", () => {
   });
 
   it(
-    "calls a function to all elements from smallest to largest" +
-      " with forEach",
+    'calls a function to all elements from smallest to largest' +
+      ' with forEach',
     () => {
       const h = new heap.MinHeap();
       h.heapify([3, 10, 1000, 0, 2, 1]);
@@ -72,8 +72,8 @@ describe("Min Heap", () => {
   );
 });
 
-describe("Max Heap", () => {
-  it("always returns the greatest element", () => {
+describe('Max Heap', () => {
+  it('always returns the greatest element', () => {
     const h = new heap.MaxHeap();
     assert(h.isEmpty());
     h.insert(10);
@@ -104,7 +104,7 @@ describe("Max Heap", () => {
     assert(h.isEmpty());
   });
 
-  it("heapifies an unordered array", () => {
+  it('heapifies an unordered array', () => {
     const h = new heap.MaxHeap();
     h.heapify([10, 2091, 4, 1, 5, 500, 0, 18, 3, 22, 20]);
 
@@ -123,7 +123,7 @@ describe("Max Heap", () => {
     assert(h.isEmpty());
   });
 
-  it("calls a function to all elements from largest to smallest with forEach", () => {
+  it('calls a function to all elements from largest to smallest with forEach', () => {
     const h = new heap.MaxHeap();
     h.heapify([3, 10, 1000, 0, 2, 1]);
 

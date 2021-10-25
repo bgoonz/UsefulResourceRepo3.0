@@ -20,7 +20,7 @@ console.log(isPalindrome(323));
 
 // Alternative by reversing string. But this would require extra non-constant space for creating the string
 const isPalindrome1 = (x) => {
-  return x.toString().split("").reverse().join("") === x.toString();
+  return x.toString().split('').reverse().join('') === x.toString();
 };
 
 console.log(isPalindrome1(323));

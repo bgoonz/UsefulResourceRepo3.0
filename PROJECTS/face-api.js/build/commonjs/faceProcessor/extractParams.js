@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function extractParams(weights, channelsIn, channelsOut) {
   var paramMappings = [];
   var _a =
@@ -14,10 +14,10 @@ function extractParams(weights, channelsIn, channelsOut) {
       extractWeights,
       paramMappings
     );
-  var fc = extractFCParams(channelsIn, channelsOut, "fc");
+  var fc = extractFCParams(channelsIn, channelsOut, 'fc');
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

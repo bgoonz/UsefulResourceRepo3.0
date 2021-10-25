@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceLandmarks68_1 = require("../classes/FaceLandmarks68");
-var FaceProcessor_1 = require("../faceProcessor/FaceProcessor");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceLandmarks68_1 = require('../classes/FaceLandmarks68');
+var FaceProcessor_1 = require('../faceProcessor/FaceProcessor');
 var FaceLandmark68NetBase = /** @class */ (function (_super) {
   tslib_1.__extends(FaceLandmark68NetBase, _super);
   function FaceLandmark68NetBase() {

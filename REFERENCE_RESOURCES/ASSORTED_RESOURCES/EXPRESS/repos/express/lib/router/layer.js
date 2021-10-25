@@ -6,15 +6,15 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var pathRegexp = require("path-to-regexp");
-var debug = require("debug")("express:router:layer");
+var pathRegexp = require('path-to-regexp');
+var debug = require('debug')('express:router:layer');
 
 /**
  * Module variables.
@@ -35,18 +35,18 @@ function Layer(path, options, fn) {
     return new Layer(path, options, fn);
   }
 
-  debug("new %o", path);
+  debug('new %o', path);
   var opts = options || {};
 
   this.handle = fn;
-  this.name = fn.name || "<anonymous>";
+  this.name = fn.name || '<anonymous>';
   this.params = undefined;
   this.path = undefined;
   this.regexp = pathRegexp(path, (this.keys = []), opts);
 
   // set fast path flags
-  this.regexp.fast_star = path === "*";
-  this.regexp.fast_slash = path === "/" && opts.end === false;
+  this.regexp.fast_star = path === '*';
+  this.regexp.fast_slash = path === '/' && opts.end === false;
 }
 
 /**
@@ -114,7 +114,7 @@ Layer.prototype.match = function match(path) {
     // fast path non-ending match for / (any path matches)
     if (this.regexp.fast_slash) {
       this.params = {};
-      this.path = "";
+      this.path = '';
       return true;
     }
 
@@ -164,7 +164,7 @@ Layer.prototype.match = function match(path) {
  */
 
 function decode_param(val) {
-  if (typeof val !== "string" || val.length === 0) {
+  if (typeof val !== 'string' || val.length === 0) {
     return val;
   }
 

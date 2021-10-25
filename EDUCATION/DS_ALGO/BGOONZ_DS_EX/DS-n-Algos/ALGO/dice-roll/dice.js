@@ -17,7 +17,7 @@
 // dt( f, 1, s - k ) = 1 if ( s - k <= f ) and 0 otherwise
 //
 
-"use strict";
+'use strict';
 {
   Object.assign(self, {
     dt,

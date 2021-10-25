@@ -5,8 +5,8 @@ import {
   IDimensions,
   IRect,
   Point,
-} from "tfjs-image-recognition-base";
-import { FaceDetection } from "./FaceDetection";
+} from 'tfjs-image-recognition-base';
+import { FaceDetection } from './FaceDetection';
 export interface IFaceLandmarks {
   positions: Point[];
   shift: Point;

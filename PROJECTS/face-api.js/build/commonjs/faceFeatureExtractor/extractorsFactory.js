@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function extractorsFactory(extractWeights, paramMappings) {
   var extractConvParams =
     tfjs_image_recognition_base_1.TfjsImageRecognitionBase.extractConvParamsFactory(
@@ -22,21 +22,21 @@ function extractorsFactory(extractWeights, paramMappings) {
       isFirstLayer = false;
     }
     var conv0 = isFirstLayer
-      ? extractConvParams(channelsIn, channelsOut, 3, mappedPrefix + "/conv0")
+      ? extractConvParams(channelsIn, channelsOut, 3, mappedPrefix + '/conv0')
       : extractSeparableConvParams(
           channelsIn,
           channelsOut,
-          mappedPrefix + "/conv0"
+          mappedPrefix + '/conv0'
         );
     var conv1 = extractSeparableConvParams(
       channelsOut,
       channelsOut,
-      mappedPrefix + "/conv1"
+      mappedPrefix + '/conv1'
     );
     var conv2 = extractSeparableConvParams(
       channelsOut,
       channelsOut,
-      mappedPrefix + "/conv2"
+      mappedPrefix + '/conv2'
     );
     return { conv0: conv0, conv1: conv1, conv2: conv2 };
   }
@@ -61,7 +61,7 @@ function extractorsFactory(extractWeights, paramMappings) {
     var conv3 = extractSeparableConvParams(
       channelsOut,
       channelsOut,
-      mappedPrefix + "/conv3"
+      mappedPrefix + '/conv3'
     );
     return { conv0: conv0, conv1: conv1, conv2: conv2, conv3: conv3 };
   }

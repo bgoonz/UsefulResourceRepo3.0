@@ -6,22 +6,22 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var accepts = require("accepts");
-var deprecate = require("depd")("express");
-var isIP = require("net").isIP;
-var typeis = require("type-is");
-var http = require("http");
-var fresh = require("fresh");
-var parseRange = require("range-parser");
-var parse = require("parseurl");
-var proxyaddr = require("proxy-addr");
+var accepts = require('accepts');
+var deprecate = require('depd')('express');
+var isIP = require('net').isIP;
+var typeis = require('type-is');
+var http = require('http');
+var fresh = require('fresh');
+var parseRange = require('range-parser');
+var parse = require('parseurl');
+var proxyaddr = require('proxy-addr');
 
 /**
  * Request prototype.
@@ -63,18 +63,18 @@ module.exports = req;
 
 req.get = req.header = function header(name) {
   if (!name) {
-    throw new TypeError("name argument is required to req.get");
+    throw new TypeError('name argument is required to req.get');
   }
 
-  if (typeof name !== "string") {
-    throw new TypeError("name must be a string to req.get");
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
   }
 
   var lc = name.toLowerCase();
 
   switch (lc) {
-    case "referer":
-    case "referrer":
+    case 'referer':
+    case 'referrer':
       return this.headers.referrer || this.headers.referer;
     default:
       return this.headers[lc];
@@ -147,7 +147,7 @@ req.acceptsEncodings = function () {
 
 req.acceptsEncoding = deprecate.function(
   req.acceptsEncodings,
-  "req.acceptsEncoding: Use acceptsEncodings instead"
+  'req.acceptsEncoding: Use acceptsEncodings instead'
 );
 
 /**
@@ -166,7 +166,7 @@ req.acceptsCharsets = function () {
 
 req.acceptsCharset = deprecate.function(
   req.acceptsCharsets,
-  "req.acceptsCharset: Use acceptsCharsets instead"
+  'req.acceptsCharset: Use acceptsCharsets instead'
 );
 
 /**
@@ -185,7 +185,7 @@ req.acceptsLanguages = function () {
 
 req.acceptsLanguage = deprecate.function(
   req.acceptsLanguages,
-  "req.acceptsLanguage: Use acceptsLanguages instead"
+  'req.acceptsLanguage: Use acceptsLanguages instead'
 );
 
 /**
@@ -214,7 +214,7 @@ req.acceptsLanguage = deprecate.function(
  */
 
 req.range = function range(size, options) {
-  var range = this.get("Range");
+  var range = this.get('Range');
   if (!range) return;
   return parseRange(size, range, options);
 };
@@ -241,9 +241,9 @@ req.param = function param(name, defaultValue) {
   var body = this.body || {};
   var query = this.query || {};
 
-  var args = arguments.length === 1 ? "name" : "name, default";
+  var args = arguments.length === 1 ? 'name' : 'name, default';
   deprecate(
-    "req.param(" + args + "): Use req.params, req.body, or req.query instead"
+    'req.param(' + args + '): Use req.params, req.body, or req.query instead'
   );
 
   if (null != params[name] && params.hasOwnProperty(name)) return params[name];
@@ -307,9 +307,9 @@ req.is = function is(types) {
  * @public
  */
 
-defineGetter(req, "protocol", function protocol() {
-  var proto = this.connection.encrypted ? "https" : "http";
-  var trust = this.app.get("trust proxy fn");
+defineGetter(req, 'protocol', function protocol() {
+  var proto = this.connection.encrypted ? 'https' : 'http';
+  var trust = this.app.get('trust proxy fn');
 
   if (!trust(this.connection.remoteAddress, 0)) {
     return proto;
@@ -317,8 +317,8 @@ defineGetter(req, "protocol", function protocol() {
 
   // Note: X-Forwarded-Proto is normally only ever a
   //       single value, but this is to be safe.
-  var header = this.get("X-Forwarded-Proto") || proto;
-  var index = header.indexOf(",");
+  var header = this.get('X-Forwarded-Proto') || proto;
+  var index = header.indexOf(',');
 
   return index !== -1 ? header.substring(0, index).trim() : header.trim();
 });
@@ -332,8 +332,8 @@ defineGetter(req, "protocol", function protocol() {
  * @public
  */
 
-defineGetter(req, "secure", function secure() {
-  return this.protocol === "https";
+defineGetter(req, 'secure', function secure() {
+  return this.protocol === 'https';
 });
 
 /**
@@ -346,8 +346,8 @@ defineGetter(req, "secure", function secure() {
  * @public
  */
 
-defineGetter(req, "ip", function ip() {
-  var trust = this.app.get("trust proxy fn");
+defineGetter(req, 'ip', function ip() {
+  var trust = this.app.get('trust proxy fn');
   return proxyaddr(this, trust);
 });
 
@@ -363,8 +363,8 @@ defineGetter(req, "ip", function ip() {
  * @public
  */
 
-defineGetter(req, "ips", function ips() {
-  var trust = this.app.get("trust proxy fn");
+defineGetter(req, 'ips', function ips() {
+  var trust = this.app.get('trust proxy fn');
   var addrs = proxyaddr.all(this, trust);
 
   // reverse the order (to farthest -> closest)
@@ -389,13 +389,13 @@ defineGetter(req, "ips", function ips() {
  * @public
  */
 
-defineGetter(req, "subdomains", function subdomains() {
+defineGetter(req, 'subdomains', function subdomains() {
   var hostname = this.hostname;
 
   if (!hostname) return [];
 
-  var offset = this.app.get("subdomain offset");
-  var subdomains = !isIP(hostname) ? hostname.split(".").reverse() : [hostname];
+  var offset = this.app.get('subdomain offset');
+  var subdomains = !isIP(hostname) ? hostname.split('.').reverse() : [hostname];
 
   return subdomains.slice(offset);
 });
@@ -407,7 +407,7 @@ defineGetter(req, "subdomains", function subdomains() {
  * @public
  */
 
-defineGetter(req, "path", function path() {
+defineGetter(req, 'path', function path() {
   return parse(this).pathname;
 });
 
@@ -422,23 +422,23 @@ defineGetter(req, "path", function path() {
  * @public
  */
 
-defineGetter(req, "hostname", function hostname() {
-  var trust = this.app.get("trust proxy fn");
-  var host = this.get("X-Forwarded-Host");
+defineGetter(req, 'hostname', function hostname() {
+  var trust = this.app.get('trust proxy fn');
+  var host = this.get('X-Forwarded-Host');
 
   if (!host || !trust(this.connection.remoteAddress, 0)) {
-    host = this.get("Host");
-  } else if (host.indexOf(",") !== -1) {
+    host = this.get('Host');
+  } else if (host.indexOf(',') !== -1) {
     // Note: X-Forwarded-Host is normally only ever a
     //       single value, but this is to be safe.
-    host = host.substring(0, host.indexOf(",")).trimRight();
+    host = host.substring(0, host.indexOf(',')).trimRight();
   }
 
   if (!host) return;
 
   // IPv6 literal support
-  var offset = host[0] === "[" ? host.indexOf("]") + 1 : 0;
-  var index = host.indexOf(":", offset);
+  var offset = host[0] === '[' ? host.indexOf(']') + 1 : 0;
+  var index = host.indexOf(':', offset);
 
   return index !== -1 ? host.substring(0, index) : host;
 });
@@ -447,10 +447,10 @@ defineGetter(req, "hostname", function hostname() {
 
 defineGetter(
   req,
-  "host",
+  'host',
   deprecate.function(function host() {
     return this.hostname;
-  }, "req.host: Use req.hostname instead")
+  }, 'req.host: Use req.hostname instead')
 );
 
 /**
@@ -462,19 +462,19 @@ defineGetter(
  * @public
  */
 
-defineGetter(req, "fresh", function () {
+defineGetter(req, 'fresh', function () {
   var method = this.method;
   var res = this.res;
   var status = res.statusCode;
 
   // GET or HEAD for weak freshness validation only
-  if ("GET" !== method && "HEAD" !== method) return false;
+  if ('GET' !== method && 'HEAD' !== method) return false;
 
   // 2xx or 304 as per rfc2616 14.26
   if ((status >= 200 && status < 300) || 304 === status) {
     return fresh(this.headers, {
-      etag: res.get("ETag"),
-      "last-modified": res.get("Last-Modified"),
+      etag: res.get('ETag'),
+      'last-modified': res.get('Last-Modified'),
     });
   }
 
@@ -490,7 +490,7 @@ defineGetter(req, "fresh", function () {
  * @public
  */
 
-defineGetter(req, "stale", function stale() {
+defineGetter(req, 'stale', function stale() {
   return !this.fresh;
 });
 
@@ -501,9 +501,9 @@ defineGetter(req, "stale", function stale() {
  * @public
  */
 
-defineGetter(req, "xhr", function xhr() {
-  var val = this.get("X-Requested-With") || "";
-  return val.toLowerCase() === "xmlhttprequest";
+defineGetter(req, 'xhr', function xhr() {
+  var val = this.get('X-Requested-With') || '';
+  return val.toLowerCase() === 'xmlhttprequest';
 });
 
 /**

@@ -19,7 +19,7 @@
 // So dt(f, e) = 1 + min(max(dt(x - 1, e - 1), dt(f - x, e))): x in [1...f]
 // So recursion and memoization
 
-"use strict";
+'use strict';
 {
   Object.assign(self, {
     edr,
@@ -33,8 +33,8 @@
       1 +
       Math.min(
         ...Array(k + 1)
-          .join(".")
-          .split("")
+          .join('.')
+          .split('')
           .map((_, i) => i)
           .map((x) => Math.max(edr(n - 1, x - 1), edr(n, k - x)))
       );
@@ -50,8 +50,8 @@
       return m[key];
     } else {
       const trials = Array(k + 1)
-        .join(".")
-        .split("")
+        .join('.')
+        .split('')
         .map((_, i) => i + 1)
         .map((x) => Math.max(edm(n - 1, x - 1, m), edm(n, k - x, m)));
       const minTrials = 1 + Math.min(...trials);
@@ -60,7 +60,7 @@
   }
 
   function test_ed() {
-    console.log("Testing Egg Drop");
+    console.log('Testing Egg Drop');
     const tests = [
       [2, 36, 8],
       [5, 1000, 11],

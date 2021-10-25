@@ -1,12 +1,12 @@
 // Fake user database
 
 var users = [
-  { name: "TJ", email: "tj@vision-media.ca" },
-  { name: "Tobi", email: "tobi@vision-media.ca" },
+  { name: 'TJ', email: 'tj@vision-media.ca' },
+  { name: 'Tobi', email: 'tobi@vision-media.ca' },
 ];
 
 exports.list = function (req, res) {
-  res.render("users", { title: "Users", users: users });
+  res.render('users', { title: 'Users', users: users });
 };
 
 exports.load = function (req, res, next) {
@@ -15,22 +15,22 @@ exports.load = function (req, res, next) {
   if (req.user) {
     next();
   } else {
-    var err = new Error("cannot find user " + id);
+    var err = new Error('cannot find user ' + id);
     err.status = 404;
     next(err);
   }
 };
 
 exports.view = function (req, res) {
-  res.render("users/view", {
-    title: "Viewing user " + req.user.name,
+  res.render('users/view', {
+    title: 'Viewing user ' + req.user.name,
     user: req.user,
   });
 };
 
 exports.edit = function (req, res) {
-  res.render("users/edit", {
-    title: "Editing user " + req.user.name,
+  res.render('users/edit', {
+    title: 'Editing user ' + req.user.name,
     user: req.user,
   });
 };
@@ -41,5 +41,5 @@ exports.update = function (req, res) {
   var user = req.body.user;
   req.user.name = user.name;
   req.user.email = user.email;
-  res.redirect("back");
+  res.redirect('back');
 };

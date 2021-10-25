@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceLandmarks_1 = require("./FaceLandmarks");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceLandmarks_1 = require('./FaceLandmarks');
 var FaceLandmarks5 = /** @class */ (function (_super) {
   tslib_1.__extends(FaceLandmarks5, _super);
   function FaceLandmarks5() {

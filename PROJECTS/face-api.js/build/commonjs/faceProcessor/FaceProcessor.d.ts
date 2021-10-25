@@ -1,11 +1,11 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { NetInput, NeuralNetwork } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { NetInput, NeuralNetwork } from 'tfjs-image-recognition-base';
 import {
   FaceFeatureExtractorParams,
   IFaceFeatureExtractor,
   TinyFaceFeatureExtractorParams,
-} from "../faceFeatureExtractor/types";
-import { NetParams } from "./types";
+} from '../faceFeatureExtractor/types';
+import { NetParams } from './types';
 export declare abstract class FaceProcessor<
   TExtractorParams extends
     | FaceFeatureExtractorParams
@@ -25,14 +25,14 @@ export declare abstract class FaceProcessor<
   loadClassifierParams(weights: Float32Array): void;
   extractClassifierParams(weights: Float32Array): {
     params: NetParams;
-    paramMappings: import("tfjs-image-recognition-base/build/commonjs/common").ParamMapping[];
+    paramMappings: import('tfjs-image-recognition-base/build/commonjs/common').ParamMapping[];
   };
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
     params: NetParams;
-    paramMappings: import("tfjs-image-recognition-base/build/commonjs/common").ParamMapping[];
+    paramMappings: import('tfjs-image-recognition-base/build/commonjs/common').ParamMapping[];
   };
   protected extractParams(weights: Float32Array): {
     params: NetParams;
-    paramMappings: import("tfjs-image-recognition-base/build/commonjs/common").ParamMapping[];
+    paramMappings: import('tfjs-image-recognition-base/build/commonjs/common').ParamMapping[];
   };
 }

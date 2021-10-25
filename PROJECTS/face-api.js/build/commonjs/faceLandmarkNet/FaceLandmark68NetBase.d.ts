@@ -1,11 +1,11 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { IDimensions, NetInput, TNetInput } from "tfjs-image-recognition-base";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
+import * as tf from '@tensorflow/tfjs-core';
+import { IDimensions, NetInput, TNetInput } from 'tfjs-image-recognition-base';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
 import {
   FaceFeatureExtractorParams,
   TinyFaceFeatureExtractorParams,
-} from "../faceFeatureExtractor/types";
-import { FaceProcessor } from "../faceProcessor/FaceProcessor";
+} from '../faceFeatureExtractor/types';
+import { FaceProcessor } from '../faceProcessor/FaceProcessor';
 export declare abstract class FaceLandmark68NetBase<
   TExtractorParams extends
     | FaceFeatureExtractorParams

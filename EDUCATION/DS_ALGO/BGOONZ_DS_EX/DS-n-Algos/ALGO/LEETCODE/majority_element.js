@@ -24,7 +24,7 @@ const majorityElement = (nums) => {
       majorElement[currentElm] = 1; // Create the current element in the hash for the first time
     }
   }
-  return "not found";
+  return 'not found';
 };
 
 const num = [1, 1, 1, 1, 3, 4, 5];

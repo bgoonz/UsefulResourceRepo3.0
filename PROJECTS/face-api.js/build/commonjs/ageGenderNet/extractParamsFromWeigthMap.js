@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function extractParamsFromWeigthMap(weightMap) {
   var paramMappings = [];
   var extractWeightEntry =
@@ -9,14 +9,14 @@ function extractParamsFromWeigthMap(weightMap) {
       paramMappings
     );
   function extractFcParams(prefix) {
-    var weights = extractWeightEntry(prefix + "/weights", 2);
-    var bias = extractWeightEntry(prefix + "/bias", 1);
+    var weights = extractWeightEntry(prefix + '/weights', 2);
+    var bias = extractWeightEntry(prefix + '/bias', 1);
     return { weights: weights, bias: bias };
   }
   var params = {
     fc: {
-      age: extractFcParams("fc/age"),
-      gender: extractFcParams("fc/gender"),
+      age: extractFcParams('fc/age'),
+      gender: extractFcParams('fc/gender'),
     },
   };
   tfjs_image_recognition_base_1.TfjsImageRecognitionBase.disposeUnusedWeightTensors(

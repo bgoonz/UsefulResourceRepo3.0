@@ -1,14 +1,14 @@
-const Queue = require("../..").DataStructures.Queue;
-import assert from "assert";
+const Queue = require('../..').DataStructures.Queue;
+import assert from 'assert';
 
-describe("Queue", () => {
-  it("starts empty", () => {
+describe('Queue', () => {
+  it('starts empty', () => {
     const q = new Queue();
     assert(q.isEmpty());
     assert.equal(q.length, 0);
   });
 
-  it("implements a FIFO logic", () => {
+  it('implements a FIFO logic', () => {
     const q = new Queue();
     q.push(1);
     q.push(2);
@@ -22,7 +22,7 @@ describe("Queue", () => {
   });
 
   it(
-    "allows me to peek at the first element in" + " line without popping it",
+    'allows me to peek at the first element in' + ' line without popping it',
     () => {
       const q = new Queue();
       assert.throws(() => q.peek(), Error); // Empty list

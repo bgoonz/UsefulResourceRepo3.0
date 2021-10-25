@@ -1,29 +1,29 @@
-const radixSort = require("../../..").Sorting.radixSort;
-import assert from "assert";
+const radixSort = require('../../..').Sorting.radixSort;
+import assert from 'assert';
 
 const firstObject = {
-  someProperty: "The",
+  someProperty: 'The',
   key: 88541234132,
 };
 
 const secondObject = {
-  someProperty: "winter",
+  someProperty: 'winter',
   key: 90071992540992,
 };
 
 const thirdObject = {
-  someProperty: "is",
+  someProperty: 'is',
   key: 0,
 };
 
 const fourthObject = {
-  someProperty: "coming",
+  someProperty: 'coming',
   key: 65234567,
-  anotherProperty: "!",
+  anotherProperty: '!',
 };
 
-describe("Radix Sort", () => {
-  it("sorts the given array", () => {
+describe('Radix Sort', () => {
+  it('sorts the given array', () => {
     const sorted = radixSort([
       thirdObject,
       fourthObject,

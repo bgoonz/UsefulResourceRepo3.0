@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 function drawContour(ctx, points, isClosed) {
   if (isClosed === void 0) {
     isClosed = false;

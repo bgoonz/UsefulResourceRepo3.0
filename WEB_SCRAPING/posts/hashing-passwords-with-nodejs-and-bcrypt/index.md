@@ -1,18 +1,16 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Hashing Passwords with Node.js and bcrypt
-=========================================
+# Hashing Passwords with Node.js and bcrypt
 
 February 08, 2017 • 1 min read
 
-The [bcrypt library on NPM](https://www.npmjs.com/package/bcrypt) makes it really easy to hash and compare passwords in Node. If you're coming from a PHP background, these are roughly equivalent to [password\_hash()](http://php.net/manual/en/function.password-hash.php) and [password\_verify()](http://php.net/manual/en/function.password-verify.php).
+The [bcrypt library on NPM](https://www.npmjs.com/package/bcrypt) makes it really easy to hash and compare passwords in Node. If you're coming from a PHP background, these are roughly equivalent to [password_hash()](http://php.net/manual/en/function.password-hash.php) and [password_verify()](http://php.net/manual/en/function.password-verify.php).
 
 Bcrypt is the de facto way to hash and store passwords. For a brief explanation of why we use one-way hashes instead of encryption, check out [this answer](http://stackoverflow.com/a/326706) on StackOverflow.
 
-Installing <a href="#installing" class="direct-link">#</a>
-----------------------------------------------------------
+## Installing <a href="#installing" class="direct-link">#</a>
 
 To use the library, simply install with NPM:
 
@@ -22,8 +20,7 @@ Then include it like this:
 
     const bcrypt = require('bcrypt');
 
-Creating and verifying a password hash <a href="#creating-and-verifying-a-password-hash" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Creating and verifying a password hash <a href="#creating-and-verifying-a-password-hash" class="direct-link">#</a>
 
 Bcrypt supports both sync and async methods. The asynchronous approach is recommended because hashing is CPU intensive, and the synchronous version will block the event loop and prevent your app from handling other requests until it finishes.
 
@@ -67,7 +64,7 @@ That's it! You've just hashed and verified your first password using Node.js an
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/node.js/index.html" class="post-tag">node.js</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -75,6 +72,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../using-an-orm/index.html" class="post-nav-previous"><span class="small">Previous post</span> Using an ORM</a> <a href="../determining-your-apps-base-directory-in-nodejs/index.html" class="post-nav-next"><span class="small">Up next</span> Determining your app's base directory in Node.js</a>

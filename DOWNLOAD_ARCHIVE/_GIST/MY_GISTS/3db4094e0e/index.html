@@ -1,0 +1,59 @@
+<h1>(remix colors with sliders down below)</h1>
+
+<script src="https://gist.github.com/lonekorean/8a6a3c508b7c71deb4070d3314900b1f.js"></script>
+
+<div id="app">
+  <textarea class="filter-css" v-model="cssFilterDisplay"></textarea>
+  <div class="filters">
+    <filter-control
+      label="Hue Rotate"
+      filter-key="hueRotate"
+      min="0"
+      max="360"
+      :initial-value="hueRotate"
+      @update="updateValue"
+    >
+    </filter-control>
+
+    <filter-control
+      label="Brightness"
+      filter-key="brightness"
+      min="0"
+      max="200"
+      :initial-value="brightness"
+      @update="updateValue"
+    >
+    </filter-control>
+
+    <filter-control
+      label="Contrast"
+      filter-key="contrast"
+      min="0"
+      max="200"
+      :initial-value="contrast"
+      @update="updateValue"
+    >
+    </filter-control>
+
+    <filter-control
+      label="Saturate"
+      filter-key="saturate"
+      min="0"
+      max="200"
+      :initial-value="saturate"
+      @update="updateValue"
+    >
+    </filter-control>
+  </div>
+</div>
+
+<script type="text/x-template" id="filter-control-template">
+  <div class="filter-control">
+   	<label :for="filterKey">{{label}}</label>
+     <div class="filter-inputs">
+    	<input type="range" class="filter-range" :min="min" :max="max" v-model="number">
+   		<input type="number" class="filter-number" :id="filterKey" :min="min" :max="max" v-model="number">
+    	 	<div class="filter-unit">{{unit}}</div>
+   	</div>
+   </div>
+</script>

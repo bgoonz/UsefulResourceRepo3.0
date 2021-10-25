@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var depthwiseSeparableConv_1 = require("../common/depthwiseSeparableConv");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var depthwiseSeparableConv_1 = require('../common/depthwiseSeparableConv');
 function denseBlock3(x, denseBlockParams, isFirstLayer) {
   if (isFirstLayer === void 0) {
     isFirstLayer = false;
@@ -10,7 +10,7 @@ function denseBlock3(x, denseBlockParams, isFirstLayer) {
     var out1 = tf.relu(
       isFirstLayer
         ? tf.add(
-            tf.conv2d(x, denseBlockParams.conv0.filters, [2, 2], "same"),
+            tf.conv2d(x, denseBlockParams.conv0.filters, [2, 2], 'same'),
             denseBlockParams.conv0.bias
           )
         : depthwiseSeparableConv_1.depthwiseSeparableConv(
@@ -49,7 +49,7 @@ function denseBlock4(x, denseBlockParams, isFirstLayer, isScaleDown) {
               x,
               denseBlockParams.conv0.filters,
               isScaleDown ? [2, 2] : [1, 1],
-              "same"
+              'same'
             ),
             denseBlockParams.conv0.bias
           )

@@ -1,4 +1,4 @@
-import { FaceDetection } from "../classes/FaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
 export declare type WithFaceDetection<TSource> = TSource & {
   detection: FaceDetection;
 };

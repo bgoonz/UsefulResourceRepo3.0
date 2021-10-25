@@ -5,23 +5,23 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @api private
  */
 
-var Buffer = require("safe-buffer").Buffer;
-var contentDisposition = require("content-disposition");
-var contentType = require("content-type");
-var deprecate = require("depd")("express");
-var flatten = require("array-flatten");
-var mime = require("send").mime;
-var etag = require("etag");
-var proxyaddr = require("proxy-addr");
-var qs = require("qs");
-var querystring = require("querystring");
+var Buffer = require('safe-buffer').Buffer;
+var contentDisposition = require('content-disposition');
+var contentType = require('content-type');
+var deprecate = require('depd')('express');
+var flatten = require('array-flatten');
+var mime = require('send').mime;
+var etag = require('etag');
+var proxyaddr = require('proxy-addr');
+var qs = require('qs');
+var querystring = require('querystring');
 
 /**
  * Return strong ETag for `body`.
@@ -54,9 +54,9 @@ exports.wetag = createETagGenerator({ weak: true });
  */
 
 exports.isAbsolute = function (path) {
-  if ("/" === path[0]) return true;
-  if (":" === path[1] && ("\\" === path[2] || "/" === path[2])) return true; // Windows device path
-  if ("\\\\" === path.substring(0, 2)) return true; // Microsoft Azure absolute path
+  if ('/' === path[0]) return true;
+  if (':' === path[1] && ('\\' === path[2] || '/' === path[2])) return true; // Windows device path
+  if ('\\\\' === path.substring(0, 2)) return true; // Microsoft Azure absolute path
 };
 
 /**
@@ -69,7 +69,7 @@ exports.isAbsolute = function (path) {
 
 exports.flatten = deprecate.function(
   flatten,
-  "utils.flatten: use array-flatten npm module instead"
+  'utils.flatten: use array-flatten npm module instead'
 );
 
 /**
@@ -81,7 +81,7 @@ exports.flatten = deprecate.function(
  */
 
 exports.normalizeType = function (type) {
-  return ~type.indexOf("/")
+  return ~type.indexOf('/')
     ? acceptParams(type)
     : { value: mime.lookup(type), params: {} };
 };
@@ -115,7 +115,7 @@ exports.normalizeTypes = function (types) {
 
 exports.contentDisposition = deprecate.function(
   contentDisposition,
-  "utils.contentDisposition: use content-disposition npm module instead"
+  'utils.contentDisposition: use content-disposition npm module instead'
 );
 
 /**
@@ -134,7 +134,7 @@ function acceptParams(str, index) {
 
   for (var i = 1; i < parts.length; ++i) {
     var pms = parts[i].split(/ *= */);
-    if ("q" === pms[0]) {
+    if ('q' === pms[0]) {
       ret.quality = parseFloat(pms[1]);
     } else {
       ret.params[pms[0]] = pms[1];
@@ -155,7 +155,7 @@ function acceptParams(str, index) {
 exports.compileETag = function (val) {
   var fn;
 
-  if (typeof val === "function") {
+  if (typeof val === 'function') {
     return val;
   }
 
@@ -165,14 +165,14 @@ exports.compileETag = function (val) {
       break;
     case false:
       break;
-    case "strong":
+    case 'strong':
       fn = exports.etag;
       break;
-    case "weak":
+    case 'weak':
       fn = exports.wetag;
       break;
     default:
-      throw new TypeError("unknown value for etag function: " + val);
+      throw new TypeError('unknown value for etag function: ' + val);
   }
 
   return fn;
@@ -189,7 +189,7 @@ exports.compileETag = function (val) {
 exports.compileQueryParser = function compileQueryParser(val) {
   var fn;
 
-  if (typeof val === "function") {
+  if (typeof val === 'function') {
     return val;
   }
 
@@ -200,14 +200,14 @@ exports.compileQueryParser = function compileQueryParser(val) {
     case false:
       fn = newObject;
       break;
-    case "extended":
+    case 'extended':
       fn = parseExtendedQueryString;
       break;
-    case "simple":
+    case 'simple':
       fn = querystring.parse;
       break;
     default:
-      throw new TypeError("unknown value for query parser function: " + val);
+      throw new TypeError('unknown value for query parser function: ' + val);
   }
 
   return fn;
@@ -222,7 +222,7 @@ exports.compileQueryParser = function compileQueryParser(val) {
  */
 
 exports.compileTrust = function (val) {
-  if (typeof val === "function") return val;
+  if (typeof val === 'function') return val;
 
   if (val === true) {
     // Support plain true/false
@@ -231,14 +231,14 @@ exports.compileTrust = function (val) {
     };
   }
 
-  if (typeof val === "number") {
+  if (typeof val === 'number') {
     // Support trusting hop count
     return function (a, i) {
       return i < val;
     };
   }
 
-  if (typeof val === "string") {
+  if (typeof val === 'string') {
     // Support comma-separated values
     val = val.split(/ *, */);
   }

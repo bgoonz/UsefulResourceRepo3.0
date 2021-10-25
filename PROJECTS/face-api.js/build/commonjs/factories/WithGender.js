@@ -1,12 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var types_1 = require("../ageGenderNet/types");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var types_1 = require('../ageGenderNet/types');
 function isWithGender(obj) {
   return (
-    (obj["gender"] === types_1.Gender.MALE ||
-      obj["gender"] === types_1.Gender.FEMALE) &&
-    tfjs_image_recognition_base_1.isValidProbablitiy(obj["genderProbability"])
+    (obj['gender'] === types_1.Gender.MALE ||
+      obj['gender'] === types_1.Gender.FEMALE) &&
+    tfjs_image_recognition_base_1.isValidProbablitiy(obj['genderProbability'])
   );
 }
 exports.isWithGender = isWithGender;

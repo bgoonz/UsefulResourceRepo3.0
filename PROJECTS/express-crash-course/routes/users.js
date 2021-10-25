@@ -1,30 +1,30 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 router.use(logger);
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   console.log(req.query.name);
-  res.send("User List");
+  res.send('User List');
 });
 
-router.get("/new", (req, res) => {
-  res.render("users/new");
+router.get('/new', (req, res) => {
+  res.render('users/new');
 });
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   const isValid = false;
   if (isValid) {
     users.push({ firstName: req.body.firstName });
     res.redirect(`/users/${users.length - 1}`);
   } else {
-    console.log("Error");
-    res.render("users/new", { firstName: req.body.firstName });
+    console.log('Error');
+    res.render('users/new', { firstName: req.body.firstName });
   }
 });
 
 router
-  .route("/:id")
+  .route('/:id')
   .get((req, res) => {
     console.log(req.user);
     res.send(`Get User With ID ${req.params.id}`);
@@ -36,8 +36,8 @@ router
     res.send(`Delete User With ID ${req.params.id}`);
   });
 
-const users = [{ name: "Kyle" }, { name: "Sally" }];
-router.param("id", (req, res, next, id) => {
+const users = [{ name: 'Kyle' }, { name: 'Sally' }];
+router.param('id', (req, res, next, id) => {
   req.user = users[id];
   next();
 });

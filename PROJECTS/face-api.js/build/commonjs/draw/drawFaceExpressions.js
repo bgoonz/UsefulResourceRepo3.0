@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var faceExpressionNet_1 = require("../faceExpressionNet");
-var WithFaceDetection_1 = require("../factories/WithFaceDetection");
-var WithFaceExpressions_1 = require("../factories/WithFaceExpressions");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var faceExpressionNet_1 = require('../faceExpressionNet');
+var WithFaceDetection_1 = require('../factories/WithFaceDetection');
+var WithFaceExpressions_1 = require('../factories/WithFaceExpressions');
 function drawFaceExpressions(
   canvasArg,
   faceExpressions,
@@ -25,7 +25,7 @@ function drawFaceExpressions(
         : undefined;
     if (!expr) {
       throw new Error(
-        "drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof"
+        'drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof'
       );
     }
     var sorted = expr.asSortedArray();
@@ -39,9 +39,9 @@ function drawFaceExpressions(
       resultsToDisplay.map(function (expr) {
         return (
           expr.expression +
-          " (" +
+          ' (' +
           tfjs_image_recognition_base_1.round(expr.probability) +
-          ")"
+          ')'
         );
       }),
       anchor

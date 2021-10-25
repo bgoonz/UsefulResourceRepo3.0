@@ -1,25 +1,25 @@
-var express = require("../"),
-  request = require("supertest");
+var express = require('../'),
+  request = require('supertest');
 
-describe("app", function () {
-  describe(".VERB()", function () {
-    it("should not get invoked without error handler on error", function (done) {
+describe('app', function () {
+  describe('.VERB()', function () {
+    it('should not get invoked without error handler on error', function (done) {
       var app = express();
 
       app.use(function (req, res, next) {
-        next(new Error("boom!"));
+        next(new Error('boom!'));
       });
 
-      app.get("/bar", function (req, res) {
-        res.send("hello, world!");
+      app.get('/bar', function (req, res) {
+        res.send('hello, world!');
       });
 
       request(app)
-        .post("/bar")
+        .post('/bar')
         .expect(500, /Error: boom!/, done);
     });
 
-    it("should only call an error handling routing callback when an error is propagated", function (done) {
+    it('should only call an error handling routing callback when an error is propagated', function (done) {
       var app = express();
 
       var a = false;
@@ -28,9 +28,9 @@ describe("app", function () {
       var d = false;
 
       app.get(
-        "/",
+        '/',
         function (req, res, next) {
-          next(new Error("fabricated error"));
+          next(new Error('fabricated error'));
         },
         function (req, res, next) {
           a = true;
@@ -38,12 +38,12 @@ describe("app", function () {
         },
         function (err, req, res, next) {
           b = true;
-          err.message.should.equal("fabricated error");
+          err.message.should.equal('fabricated error');
           next(err);
         },
         function (err, req, res, next) {
           c = true;
-          err.message.should.equal("fabricated error");
+          err.message.should.equal('fabricated error');
           next();
         },
         function (err, req, res, next) {
@@ -59,7 +59,7 @@ describe("app", function () {
         }
       );
 
-      request(app).get("/").expect(204, done);
+      request(app).get('/').expect(204, done);
     });
   });
 });

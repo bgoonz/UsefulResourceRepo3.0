@@ -2,63 +2,63 @@
  * Module dependencies.
  */
 
-var express = require("../../..");
-var fs = require("fs");
-var path = require("path");
+var express = require('../../..');
+var fs = require('fs');
+var path = require('path');
 
 module.exports = function (parent, options) {
-  var dir = path.join(__dirname, "..", "controllers");
+  var dir = path.join(__dirname, '..', 'controllers');
   var verbose = options.verbose;
   fs.readdirSync(dir).forEach(function (name) {
     var file = path.join(dir, name);
     if (!fs.statSync(file).isDirectory()) return;
-    verbose && console.log("\n   %s:", name);
+    verbose && console.log('\n   %s:', name);
     var obj = require(file);
     var name = obj.name || name;
-    var prefix = obj.prefix || "";
+    var prefix = obj.prefix || '';
     var app = express();
     var handler;
     var method;
     var url;
 
     // allow specifying the view engine
-    if (obj.engine) app.set("view engine", obj.engine);
-    app.set("views", path.join(__dirname, "..", "controllers", name, "views"));
+    if (obj.engine) app.set('view engine', obj.engine);
+    app.set('views', path.join(__dirname, '..', 'controllers', name, 'views'));
 
     // generate routes based
     // on the exported methods
     for (var key in obj) {
       // "reserved" exports
-      if (~["name", "prefix", "engine", "before"].indexOf(key)) continue;
+      if (~['name', 'prefix', 'engine', 'before'].indexOf(key)) continue;
       // route exports
       switch (key) {
-        case "show":
-          method = "get";
-          url = "/" + name + "/:" + name + "_id";
+        case 'show':
+          method = 'get';
+          url = '/' + name + '/:' + name + '_id';
           break;
-        case "list":
-          method = "get";
-          url = "/" + name + "s";
+        case 'list':
+          method = 'get';
+          url = '/' + name + 's';
           break;
-        case "edit":
-          method = "get";
-          url = "/" + name + "/:" + name + "_id/edit";
+        case 'edit':
+          method = 'get';
+          url = '/' + name + '/:' + name + '_id/edit';
           break;
-        case "update":
-          method = "put";
-          url = "/" + name + "/:" + name + "_id";
+        case 'update':
+          method = 'put';
+          url = '/' + name + '/:' + name + '_id';
           break;
-        case "create":
-          method = "post";
-          url = "/" + name;
+        case 'create':
+          method = 'post';
+          url = '/' + name;
           break;
-        case "index":
-          method = "get";
-          url = "/";
+        case 'index':
+          method = 'get';
+          url = '/';
           break;
         default:
           /* istanbul ignore next */
-          throw new Error("unrecognized route: " + name + "." + key);
+          throw new Error('unrecognized route: ' + name + '.' + key);
       }
 
       // setup
@@ -70,7 +70,7 @@ module.exports = function (parent, options) {
         app[method](url, obj.before, handler);
         verbose &&
           console.log(
-            "     %s %s -> before -> %s",
+            '     %s %s -> before -> %s',
             method.toUpperCase(),
             url,
             key
@@ -78,7 +78,7 @@ module.exports = function (parent, options) {
       } else {
         app[method](url, handler);
         verbose &&
-          console.log("     %s %s -> %s", method.toUpperCase(), url, key);
+          console.log('     %s %s -> %s', method.toUpperCase(), url, key);
       }
     }
 

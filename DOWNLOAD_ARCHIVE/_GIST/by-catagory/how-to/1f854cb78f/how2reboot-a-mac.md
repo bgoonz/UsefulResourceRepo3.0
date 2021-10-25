@@ -94,8 +94,7 @@ Homebrew is a great tool for web developers. First, it makes removing Node very 
 
 > ###### Resources
 >
-> [Homebrew Documentation](https://docs.brew.sh/)
-> Description from [Treehouse blog](http://blog.teamtreehouse.com/install-node-js-npm-mac)
+> [Homebrew Documentation](https://docs.brew.sh/) Description from [Treehouse blog](http://blog.teamtreehouse.com/install-node-js-npm-mac)
 
 ##
 
@@ -109,8 +108,7 @@ NPM is a package manager for JavaScript and the world's largest software registr
 
 > ###### Resources
 >
-> [npmjs Documentation](https://docs.npmjs.com/)
-> Description from [npmjs](https://www.npmjs.com)
+> [npmjs Documentation](https://docs.npmjs.com/) Description from [npmjs](https://www.npmjs.com)
 
 ##
 
@@ -123,8 +121,7 @@ gulp is a toolkit for automating painful or time-consuming tasks in your develop
 
 > ###### Resources
 >
-> [gulpjs Documentation](https://github.com/gulpjs/gulp)
-> Description from [gulpjs](https://github.com/gulpjs/gulp)
+> [gulpjs Documentation](https://github.com/gulpjs/gulp) Description from [gulpjs](https://github.com/gulpjs/gulp)
 
 ##
 
@@ -136,8 +133,7 @@ Homebrew-Cask extends Homebrew and brings its elegance, simplicity, and speed to
 
 > ###### Resources
 >
-> [Homebrew Cask Documentation](https://caskroom.github.io/)
-> Description from [Homebrew Cask](https://caskroom.github.io/)
+> [Homebrew Cask Documentation](https://caskroom.github.io/) Description from [Homebrew Cask](https://caskroom.github.io/)
 
 ##
 
@@ -149,8 +145,7 @@ Caskroom-fonts is a Homebrew Tap which allows you to use the same friendly Homeb
 
 > ###### Resources
 >
-> [Caskroom Fonts Documentation](https://github.com/caskroom/homebrew-fonts)
-> Description from [Caskroom Fonts](https://github.com/caskroom/homebrew-fonts)
+> [Caskroom Fonts Documentation](https://github.com/caskroom/homebrew-fonts) Description from [Caskroom Fonts](https://github.com/caskroom/homebrew-fonts)
 
 ##
 
@@ -223,8 +218,7 @@ To install all of the following applications with a single line of code:
 
 > ###### Resources
 >
-> [Homebrew Cask Documentation](https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md)
-> Description from [Homebrew Cask](https://caskroom.github.io/)
+> [Homebrew Cask Documentation](https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md) Description from [Homebrew Cask](https://caskroom.github.io/)
 
 ---
 

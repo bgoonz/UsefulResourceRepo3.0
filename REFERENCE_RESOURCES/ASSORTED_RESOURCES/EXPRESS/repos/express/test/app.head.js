@@ -1,34 +1,34 @@
-var express = require("../");
-var request = require("supertest");
-var assert = require("assert");
+var express = require('../');
+var request = require('supertest');
+var assert = require('assert');
 
-describe("HEAD", function () {
-  it("should default to GET", function (done) {
+describe('HEAD', function () {
+  it('should default to GET', function (done) {
     var app = express();
 
-    app.get("/tobi", function (req, res) {
+    app.get('/tobi', function (req, res) {
       // send() detects HEAD
-      res.send("tobi");
+      res.send('tobi');
     });
 
-    request(app).head("/tobi").expect(200, done);
+    request(app).head('/tobi').expect(200, done);
   });
 
-  it("should output the same headers as GET requests", function (done) {
+  it('should output the same headers as GET requests', function (done) {
     var app = express();
 
-    app.get("/tobi", function (req, res) {
+    app.get('/tobi', function (req, res) {
       // send() detects HEAD
-      res.send("tobi");
+      res.send('tobi');
     });
 
     request(app)
-      .get("/tobi")
+      .get('/tobi')
       .expect(200, function (err, res) {
         if (err) return done(err);
         var headers = res.headers;
         request(app)
-          .get("/tobi")
+          .get('/tobi')
           .expect(200, function (err, res) {
             if (err) return done(err);
             delete headers.date;
@@ -40,23 +40,23 @@ describe("HEAD", function () {
   });
 });
 
-describe("app.head()", function () {
-  it("should override", function (done) {
+describe('app.head()', function () {
+  it('should override', function (done) {
     var app = express(),
       called;
 
-    app.head("/tobi", function (req, res) {
+    app.head('/tobi', function (req, res) {
       called = true;
-      res.end("");
+      res.end('');
     });
 
-    app.get("/tobi", function (req, res) {
-      assert(0, "should not call GET");
-      res.send("tobi");
+    app.get('/tobi', function (req, res) {
+      assert(0, 'should not call GET');
+      res.send('tobi');
     });
 
     request(app)
-      .head("/tobi")
+      .head('/tobi')
       .expect(200, function () {
         assert(called);
         done();

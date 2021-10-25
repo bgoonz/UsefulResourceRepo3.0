@@ -1,5 +1,5 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { DenseBlock3Params, DenseBlock4Params } from "./types";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { DenseBlock3Params, DenseBlock4Params } from './types';
 export declare function extractorsFactory(
   extractWeights: TfjsImageRecognitionBase.ExtractWeightsFunction,
   paramMappings: TfjsImageRecognitionBase.ParamMapping[]

@@ -2248,8 +2248,7 @@
 # 3.0.4 / 2012-12-05
 
 - add 'etag' option to disable `res.send()` Etags
-- add escaping of urls in text/plain in `res.redirect()`
-  for old browsers interpreting as html
+- add escaping of urls in text/plain in `res.redirect()` for old browsers interpreting as html
 - change crc32 module for a more liberal license
 - update connect
 
@@ -2543,8 +2542,7 @@
 - Added `app.routes.all()`. Closes #803
 - Added "basepath" setting to work in conjunction with reverse proxies etc.
 - Refactored `Route` to use a single array of callbacks
-- Added support for multiple callbacks for `app.param()`. Closes #801
-  Closes #805
+- Added support for multiple callbacks for `app.param()`. Closes #801 Closes #805
 - Changed: removed .call(self) for route callbacks
 - Dependency: `qs >= 0.3.1`
 - Fixed `res.redirect()` on windows due to `join()` usage. Closes #808
@@ -2664,10 +2662,8 @@
 - Changed; auto set Content-Type in res.attachement [Aaron Heckmann]
 - Renamed "cache views" to "view cache". Closes #628
 - Fixed caching of views when using several apps. Closes #637
-- Fixed gotcha invoking `app.param()` callbacks once per route middleware.
-  Closes #638
-- Fixed partial lookup precedence. Closes #631
-  Shaw]
+- Fixed gotcha invoking `app.param()` callbacks once per route middleware. Closes #638
+- Fixed partial lookup precedence. Closes #631 Shaw]
 
 # 2.2.2 / 2011-04-12
 
@@ -2677,11 +2673,7 @@
 # 2.2.1 / 2011-04-04
 
 - Added `layout(path)` helper to change the layout within a view. Closes #610
-- Fixed `partial()` collection object support.
-  Previously only anything with `.length` would work.
-  When `.length` is present one must still be aware of holes,
-  however now `{ collection: {foo: 'bar'}}` is valid, exposes
-  `keyInCollection` and `keysInCollection`.
+- Fixed `partial()` collection object support. Previously only anything with `.length` would work. When `.length` is present one must still be aware of holes, however now `{ collection: {foo: 'bar'}}` is valid, exposes `keyInCollection` and `keysInCollection`.
 
 - Performance improved with better view caching
 - Removed `request` and `response` locals
@@ -2737,17 +2729,12 @@
 
 # 2.0.0beta3 / 2011-03-09
 
-- Added support for `res.contentType()` literal
-  The original `res.contentType('.json')`,
-  `res.contentType('application/json')`, and `res.contentType('json')`
-  will work now.
+- Added support for `res.contentType()` literal The original `res.contentType('.json')`, `res.contentType('application/json')`, and `res.contentType('json')` will work now.
 - Added `res.render()` status option support back
 - Added charset option for `res.render()`
 - Added `.charset` support (via connect 1.0.4)
 - Added view resolution hints when in development and a lookup fails
-- Added layout lookup support relative to the page view.
-  For example while rendering `./views/user/index.jade` if you create
-  `./views/user/layout.jade` it will be used in favour of the root layout.
+- Added layout lookup support relative to the page view. For example while rendering `./views/user/index.jade` if you create `./views/user/layout.jade` it will be used in favour of the root layout.
 - Fixed `res.redirect()`. RFC states absolute url [reported by unlink]
 - Fixed; default `res.send()` string charset to utf8
 - Removed `Partial` constructor (not currently used)
@@ -2777,8 +2764,7 @@
 - Added `cache views` setting, defaulting to enabled in "production" env
 - Added index file partial resolution, eg: partial('user') may try _views/user/index.jade_.
 - Added `req.accepts()` support for extensions
-- Changed; `res.download()` and `res.sendfile()` now utilize Connect's
-  static file server `connect.static.send()`.
+- Changed; `res.download()` and `res.sendfile()` now utilize Connect's static file server `connect.static.send()`.
 - Changed; replaced `connect.utils.mime()` with npm _mime_ module
 - Changed; allow `req.query` to be pre-defined (via middleware or other parent
 - Changed view partial resolution, now relative to parent view
@@ -2797,8 +2783,7 @@
 
 # 1.0.7 / 2011-02-07
 
-- Fixed `render()` setting inheritance.
-  Mounted apps would not inherit "view engine"
+- Fixed `render()` setting inheritance. Mounted apps would not inherit "view engine"
 
 # 1.0.6 / 2011-02-07
 
@@ -2823,33 +2808,21 @@
 
 # 1.0.1 / 2010-12-29
 
-- Fixed for middleware stacked via `createServer()`
-  previously the `foo` middleware passed to `createServer(foo)`
-  would not have access to Express methods such as `res.send()`
-  or props like `req.query` etc.
+- Fixed for middleware stacked via `createServer()` previously the `foo` middleware passed to `createServer(foo)` would not have access to Express methods such as `res.send()` or props like `req.query` etc.
 
 # 1.0.0 / 2010-11-16
 
-- Added; deduce partial object names from the last segment.
-  For example by default `partial('forum/post', postObject)` will
-  give you the _post_ object, providing a meaningful default.
+- Added; deduce partial object names from the last segment. For example by default `partial('forum/post', postObject)` will give you the _post_ object, providing a meaningful default.
 - Added http status code string representation to `res.redirect()` body
 - Added; `res.redirect()` supporting _text/plain_ and _text/html_ via **Accept**.
 - Added `req.is()` to aid in content negotiation
-- Added partial local inheritance [suggested by masylum]. Closes #102
-  providing access to parent template locals.
+- Added partial local inheritance [suggested by masylum]. Closes #102 providing access to parent template locals.
 - Added _-s, --session[s]_ flag to express(1) to add session related middleware
-- Added _--template_ flag to express(1) to specify the
-  template engine to use.
-- Added _--css_ flag to express(1) to specify the
-  stylesheet engine to use (or just plain css by default).
+- Added _--template_ flag to express(1) to specify the template engine to use.
+- Added _--css_ flag to express(1) to specify the stylesheet engine to use (or just plain css by default).
 - Added `app.all()` support [thanks aheckmann]
-- Added partial direct object support.
-  You may now `partial('user', user)` providing the "user" local,
-  vs previously `partial('user', { object: user })`.
-- Added _route-separation_ example since many people question ways
-  to do this with CommonJS modules. Also view the _blog_ example for
-  an alternative.
+- Added partial direct object support. You may now `partial('user', user)` providing the "user" local, vs previously `partial('user', { object: user })`.
+- Added _route-separation_ example since many people question ways to do this with CommonJS modules. Also view the _blog_ example for an alternative.
 - Performance; caching view path derived partial object names
 - Fixed partial local inheritance precedence. [reported by Nick Poulden] Closes #454
 - Fixed jsonp support; _text/javascript_ as per mailinglist discussion
@@ -2912,12 +2885,9 @@
 - Added mounted hook. Closes #369
 - Added connect dependency to _package.json_
 
-- Removed "reload views" setting and support code
-  development env never caches, production always caches.
+- Removed "reload views" setting and support code development env never caches, production always caches.
 
-- Removed _param_ in route callbacks, signature is now
-  simply (req, res, next), previously (req, res, params, next).
-  Use _req.params_ for path captures, _req.query_ for GET params.
+- Removed _param_ in route callbacks, signature is now simply (req, res, next), previously (req, res, params, next). Use _req.params_ for path captures, _req.query_ for GET params.
 
 - Fixed "home" setting
 - Fixed middleware/router precedence issue. Closes #366
@@ -2993,8 +2963,7 @@
 
 # 0.10.0 / 2010-04-30
 
-- Added charset support via Request#charset (automatically assigned to 'UTF-8' when respond()'s
-  encoding is set to 'utf8' or 'utf-8'.
+- Added charset support via Request#charset (automatically assigned to 'UTF-8' when respond()'s encoding is set to 'utf8' or 'utf-8'.
 - Added "encoding" option to Request#render(). Closes #299
 - Added "dump exceptions" setting, which is enabled by default.
 - Added simple ejs template engine support
@@ -3107,14 +3076,11 @@
 - Added seed.yml for kiwi package management support
 - Added HTTP client query string support when method is GET. Closes #205
 
-- Added support for arbitrary view engines.
-  For example "foo.engine.html" will now require('engine'),
-  the exports from this module are cached after the first require().
+- Added support for arbitrary view engines. For example "foo.engine.html" will now require('engine'), the exports from this module are cached after the first require().
 
 - Added async plugin support
 
-- Removed usage of RESTful route funcs as http client
-  get() etc, use http.get() and friends
+- Removed usage of RESTful route funcs as http client get() etc, use http.get() and friends
 
 - Removed custom exceptions
 

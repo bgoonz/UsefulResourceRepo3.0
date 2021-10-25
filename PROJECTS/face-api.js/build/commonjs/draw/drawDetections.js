@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("../classes/FaceDetection");
-var WithFaceDetection_1 = require("../factories/WithFaceDetection");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('../classes/FaceDetection');
+var WithFaceDetection_1 = require('../factories/WithFaceDetection');
 function drawDetections(canvasArg, detections) {
   var detectionsArray = Array.isArray(detections) ? detections : [detections];
   detectionsArray.forEach(function (det) {
@@ -19,7 +19,7 @@ function drawDetections(canvasArg, detections) {
         ? det.detection.box
         : new tfjs_image_recognition_base_1.Box(det);
     var label = score
-      ? "" + tfjs_image_recognition_base_1.round(score)
+      ? '' + tfjs_image_recognition_base_1.round(score)
       : undefined;
     new tfjs_image_recognition_base_1.draw.DrawBox(box, { label: label }).draw(
       canvasArg

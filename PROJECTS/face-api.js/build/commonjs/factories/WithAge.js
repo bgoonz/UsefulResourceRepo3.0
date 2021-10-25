@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 function isWithAge(obj) {
-  return typeof obj["age"] === "number";
+  return typeof obj['age'] === 'number';
 }
 exports.isWithAge = isWithAge;
 function extendWithAge(sourceObj, age) {

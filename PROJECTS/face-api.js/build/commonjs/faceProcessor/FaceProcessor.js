@@ -1,12 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var fullyConnectedLayer_1 = require("../common/fullyConnectedLayer");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
-var util_1 = require("./util");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var fullyConnectedLayer_1 = require('../common/fullyConnectedLayer');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
+var util_1 = require('./util');
 var FaceProcessor = /** @class */ (function (_super) {
   tslib_1.__extends(FaceProcessor, _super);
   function FaceProcessor(_name, faceFeatureExtractor) {
@@ -14,7 +14,7 @@ var FaceProcessor = /** @class */ (function (_super) {
     _this._faceFeatureExtractor = faceFeatureExtractor;
     return _this;
   }
-  Object.defineProperty(FaceProcessor.prototype, "faceFeatureExtractor", {
+  Object.defineProperty(FaceProcessor.prototype, 'faceFeatureExtractor', {
     get: function () {
       return this._faceFeatureExtractor;
     },
@@ -25,7 +25,7 @@ var FaceProcessor = /** @class */ (function (_super) {
     var _this = this;
     var params = this.params;
     if (!params) {
-      throw new Error(this._name + " - load model before inference");
+      throw new Error(this._name + ' - load model before inference');
     }
     return tf.tidy(function () {
       var bottleneckFeatures =

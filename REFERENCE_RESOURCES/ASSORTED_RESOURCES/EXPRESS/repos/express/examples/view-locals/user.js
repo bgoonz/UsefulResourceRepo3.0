@@ -27,8 +27,8 @@ User.count = function (fn) {
 
 var users = [];
 
-users.push(new User("Tobi", 2, "ferret"));
-users.push(new User("Loki", 1, "ferret"));
-users.push(new User("Jane", 6, "ferret"));
-users.push(new User("Luna", 1, "cat"));
-users.push(new User("Manny", 1, "cat"));
+users.push(new User('Tobi', 2, 'ferret'));
+users.push(new User('Loki', 1, 'ferret'));
+users.push(new User('Jane', 6, 'ferret'));
+users.push(new User('Luna', 1, 'cat'));
+users.push(new User('Manny', 1, 'cat'));

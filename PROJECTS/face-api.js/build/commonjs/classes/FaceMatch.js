@@ -1,19 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 var FaceMatch = /** @class */ (function () {
   function FaceMatch(label, distance) {
     this._label = label;
     this._distance = distance;
   }
-  Object.defineProperty(FaceMatch.prototype, "label", {
+  Object.defineProperty(FaceMatch.prototype, 'label', {
     get: function () {
       return this._label;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceMatch.prototype, "distance", {
+  Object.defineProperty(FaceMatch.prototype, 'distance', {
     get: function () {
       return this._distance;
     },
@@ -25,11 +25,11 @@ var FaceMatch = /** @class */ (function () {
       withDistance = true;
     }
     return (
-      "" +
+      '' +
       this.label +
       (withDistance
-        ? " (" + tfjs_image_recognition_base_1.round(this.distance) + ")"
-        : "")
+        ? ' (' + tfjs_image_recognition_base_1.round(this.distance) + ')'
+        : '')
     );
   };
   return FaceMatch;

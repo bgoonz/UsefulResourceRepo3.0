@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from 'assert';
 
 export default {
   testSort(sortFn) {
@@ -12,7 +12,7 @@ export default {
       sortFn([1, 295, 3, 6, 8, 10, 10, 20, 0, 5]),
       [0, 1, 3, 5, 6, 8, 10, 10, 20, 295]
     );
-    assert.deepEqual(sortFn(["a", "b", "abc"]), ["a", "abc", "b"]);
+    assert.deepEqual(sortFn(['a', 'b', 'abc']), ['a', 'abc', 'b']);
   },
 
   testSortWithComparisonFn(sortFn) {
@@ -21,18 +21,18 @@ export default {
       return length < length ? -1 : 1;
     };
     assert.deepEqual(sortFn([], compare), []);
-    assert.deepEqual(sortFn(["apple"], compare), ["apple"]);
-    assert.deepEqual(sortFn(["apple", "banana"], compare), ["apple", "banana"]);
-    assert.deepEqual(sortFn(["apple", "banana", "car"], compare), [
-      "car",
-      "apple",
-      "banana",
+    assert.deepEqual(sortFn(['apple'], compare), ['apple']);
+    assert.deepEqual(sortFn(['apple', 'banana'], compare), ['apple', 'banana']);
+    assert.deepEqual(sortFn(['apple', 'banana', 'car'], compare), [
+      'car',
+      'apple',
+      'banana',
     ]);
-    assert.deepEqual(sortFn(["apple", "banana", "car", "z"], compare), [
-      "z",
-      "car",
-      "apple",
-      "banana",
+    assert.deepEqual(sortFn(['apple', 'banana', 'car', 'z'], compare), [
+      'z',
+      'car',
+      'apple',
+      'banana',
     ]);
 
     const reverseSort = (a, b) => {

@@ -19,7 +19,7 @@ module.exports = (list) => {
 
   // Finds the longest prefix we can make using the word.
   const findPrefixes = (word) => {
-    let prefix = "";
+    let prefix = '';
     const found = [];
     let index = 0;
     let active = prefixes;

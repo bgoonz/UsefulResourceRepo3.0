@@ -1,13 +1,13 @@
-import root from "../..";
+import root from '../..';
 const AVLTree = root.DataStructures.AVLTree;
-import assert from "assert";
+import assert from 'assert';
 
-describe("AVL Tree", () => {
-  it("starts with null root", () => {
+describe('AVL Tree', () => {
+  it('starts with null root', () => {
     assert.equal(new AVLTree().root, null);
   });
 
-  it("inserts and single rotate (leftRight) properly", () => {
+  it('inserts and single rotate (leftRight) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(9);
     avlTree.insert(3);
@@ -22,7 +22,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.height, 1);
   });
 
-  it("inserts and single rotate (rightLeft) properly", () => {
+  it('inserts and single rotate (rightLeft) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(75);
@@ -37,7 +37,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.height, 1);
   });
 
-  it("inserts and double rotate (leftLeft) properly", () => {
+  it('inserts and double rotate (leftLeft) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(25);
@@ -52,7 +52,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.height, 1);
   });
 
-  it("inserts and double rotate (rightRight) properly", () => {
+  it('inserts and double rotate (rightRight) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(75);
@@ -67,7 +67,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.height, 1);
   });
 
-  it("inserts multiple nodes and balance properly (1)", () => {
+  it('inserts multiple nodes and balance properly (1)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(30);
     avlTree.insert(15);
@@ -88,7 +88,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.right.height, 1);
   });
 
-  it("removes nodes and balance properly (2)", () => {
+  it('removes nodes and balance properly (2)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(55);
     avlTree.insert(25);
@@ -105,7 +105,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.height, 1);
   });
 
-  it("keeps the tree always balanced", () => {
+  it('keeps the tree always balanced', () => {
     const avlTree = new AVLTree();
 
     avlTree.insert(50);
@@ -193,7 +193,7 @@ describe("AVL Tree", () => {
     assert.equal(avlTree.root.right.right.value, 200);
   });
 
-  it("returns parents before children when traversing in preorder", () => {
+  it('returns parents before children when traversing in preorder', () => {
     const avlTree = new AVLTree();
 
     avlTree.insert(50);
@@ -222,7 +222,7 @@ describe("AVL Tree", () => {
     assert.deepEqual(expectedPreOrder, preOrder);
   });
 
-  it("returns children before parents when traversing in postorder", () => {
+  it('returns children before parents when traversing in postorder', () => {
     const avlTree = new AVLTree();
 
     avlTree.insert(50);
@@ -251,7 +251,7 @@ describe("AVL Tree", () => {
     assert.deepEqual(expectedPostOrder, postOrder);
   });
 
-  it("returns the sorted elements when traversing in order", () => {
+  it('returns the sorted elements when traversing in order', () => {
     const avlTree = new AVLTree();
     const a = [];
     let i;

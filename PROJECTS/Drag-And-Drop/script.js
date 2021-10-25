@@ -1,21 +1,21 @@
-const draggables = document.querySelectorAll(".draggable");
-const containers = document.querySelectorAll(".container");
+const draggables = document.querySelectorAll('.draggable');
+const containers = document.querySelectorAll('.container');
 
 draggables.forEach((draggable) => {
-  draggable.addEventListener("dragstart", () => {
-    draggable.classList.add("dragging");
+  draggable.addEventListener('dragstart', () => {
+    draggable.classList.add('dragging');
   });
 
-  draggable.addEventListener("dragend", () => {
-    draggable.classList.remove("dragging");
+  draggable.addEventListener('dragend', () => {
+    draggable.classList.remove('dragging');
   });
 });
 
 containers.forEach((container) => {
-  container.addEventListener("dragover", (e) => {
+  container.addEventListener('dragover', (e) => {
     e.preventDefault();
     const afterElement = getDragAfterElement(container, e.clientY);
-    const draggable = document.querySelector(".dragging");
+    const draggable = document.querySelector('.dragging');
     if (afterElement == null) {
       container.appendChild(draggable);
     } else {
@@ -26,7 +26,7 @@ containers.forEach((container) => {
 
 function getDragAfterElement(container, y) {
   const draggableElements = [
-    ...container.querySelectorAll(".draggable:not(.dragging)"),
+    ...container.querySelectorAll('.draggable:not(.dragging)'),
   ];
 
   return draggableElements.reduce(

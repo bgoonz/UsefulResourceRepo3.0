@@ -1,21 +1,21 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var convLayer_1 = require("./convLayer");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
-var residualLayer_1 = require("./residualLayer");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var convLayer_1 = require('./convLayer');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
+var residualLayer_1 = require('./residualLayer');
 var FaceRecognitionNet = /** @class */ (function (_super) {
   tslib_1.__extends(FaceRecognitionNet, _super);
   function FaceRecognitionNet() {
-    return _super.call(this, "FaceRecognitionNet") || this;
+    return _super.call(this, 'FaceRecognitionNet') || this;
   }
   FaceRecognitionNet.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("FaceRecognitionNet - load model before inference");
+      throw new Error('FaceRecognitionNet - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(150, true).toFloat();
@@ -24,7 +24,7 @@ var FaceRecognitionNet = /** @class */ (function (_super) {
         .normalize(batchTensor, meanRgb)
         .div(tf.scalar(256));
       var out = convLayer_1.convDown(normalized, params.conv32_down);
-      out = tf.maxPool(out, 3, 2, "valid");
+      out = tf.maxPool(out, 3, 2, 'valid');
       out = residualLayer_1.residual(out, params.conv32_1);
       out = residualLayer_1.residual(out, params.conv32_2);
       out = residualLayer_1.residual(out, params.conv32_3);
@@ -101,7 +101,7 @@ var FaceRecognitionNet = /** @class */ (function (_super) {
     });
   };
   FaceRecognitionNet.prototype.getDefaultModelName = function () {
-    return "face_recognition_model";
+    return 'face_recognition_model';
   };
   FaceRecognitionNet.prototype.extractParamsFromWeigthMap = function (
     weightMap

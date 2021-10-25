@@ -1,20 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var denseBlock_1 = require("./denseBlock");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var denseBlock_1 = require('./denseBlock');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
 var FaceFeatureExtractor = /** @class */ (function (_super) {
   tslib_1.__extends(FaceFeatureExtractor, _super);
   function FaceFeatureExtractor() {
-    return _super.call(this, "FaceFeatureExtractor") || this;
+    return _super.call(this, 'FaceFeatureExtractor') || this;
   }
   FaceFeatureExtractor.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("FaceFeatureExtractor - load model before inference");
+      throw new Error('FaceFeatureExtractor - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(112, true);
@@ -26,7 +26,7 @@ var FaceFeatureExtractor = /** @class */ (function (_super) {
       out = denseBlock_1.denseBlock4(out, params.dense1);
       out = denseBlock_1.denseBlock4(out, params.dense2);
       out = denseBlock_1.denseBlock4(out, params.dense3);
-      out = tf.avgPool(out, [7, 7], [2, 2], "valid");
+      out = tf.avgPool(out, [7, 7], [2, 2], 'valid');
       return out;
     });
   };
@@ -48,7 +48,7 @@ var FaceFeatureExtractor = /** @class */ (function (_super) {
     });
   };
   FaceFeatureExtractor.prototype.getDefaultModelName = function () {
-    return "face_feature_extractor_model";
+    return 'face_feature_extractor_model';
   };
   FaceFeatureExtractor.prototype.extractParamsFromWeigthMap = function (
     weightMap

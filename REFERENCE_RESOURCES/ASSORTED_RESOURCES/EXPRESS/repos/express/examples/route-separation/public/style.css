@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Helvetica Neue", Arial, sans-serif;
+  font: 14px 'Helvetica Neue', Arial, sans-serif;
 }
 a {
   color: #00aeff;
@@ -11,10 +11,10 @@ a.edit {
   opacity: 0.3;
 }
 a.edit::before {
-  content: " [";
+  content: ' [';
 }
 a.edit::after {
-  content: "]";
+  content: ']';
 }
 dt {
   font-weight: bold;

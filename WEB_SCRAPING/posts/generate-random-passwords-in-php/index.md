@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Generate random passwords in PHP
-================================
+# Generate random passwords in PHP
 
 May 17, 2008 • 1 min read
 
@@ -28,7 +27,7 @@ Here is a function I wrote to generate a random string in PHP. It is probably mo
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/php/index.html" class="post-tag">php</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -36,6 +35,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../fetching-remote-web-pages-with-curl-and-php/index.html" class="post-nav-previous"><span class="small">Previous post</span> Fetching remote web pages with curl and PHP</a> <a href="../postjson-for-jquery/index.html" class="post-nav-next"><span class="small">Up next</span> $.postJSON() for jQuery</a>

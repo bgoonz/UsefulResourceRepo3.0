@@ -1,9 +1,9 @@
-var express = require("../"),
-  request = require("supertest");
+var express = require('../'),
+  request = require('supertest');
 
-describe("app", function () {
-  describe(".response", function () {
-    it("should extend the response prototype", function (done) {
+describe('app', function () {
+  describe('.response', function () {
+    it('should extend the response prototype', function (done) {
       var app = express();
 
       app.response.shout = function (str) {
@@ -11,13 +11,13 @@ describe("app", function () {
       };
 
       app.use(function (req, res) {
-        res.shout("hey");
+        res.shout('hey');
       });
 
-      request(app).get("/").expect("HEY", done);
+      request(app).get('/').expect('HEY', done);
     });
 
-    it("should not be influenced by other app protos", function (done) {
+    it('should not be influenced by other app protos', function (done) {
       var app = express(),
         app2 = express();
 
@@ -30,10 +30,10 @@ describe("app", function () {
       };
 
       app.use(function (req, res) {
-        res.shout("hey");
+        res.shout('hey');
       });
 
-      request(app).get("/").expect("HEY", done);
+      request(app).get('/').expect('HEY', done);
     });
   });
 });

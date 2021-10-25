@@ -1,9 +1,8 @@
 <a href="../index.html" class="header-link"><img src="../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../index.html" class="nav-item">Home</a> <a href="../tags/index.html" class="nav-item">Tags</a> <a href="index.html" class="nav-item">Archive</a> <a href="../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Forcing file downloads in PHP
-=============================
+# Forcing file downloads in PHP
 
 July 08, 2007 • 3 min read
 
@@ -15,8 +14,7 @@ Heads up! This post was written in 2007, so it may contain information that is n
 
 I've seen a number of methods to force file downloads using the PHP `header()` function which, essentially, sends a raw HTTP header to the browser. Depending on your browser, some files won't be downloaded automatically. Instead, they will be handled by the browser itself or a corresponding plug-in. This is often an issue with PDF files, TXT files, CSV files, LOG files, multimedia files (MP3, WAV, MOV, MPEG, AVI, etc.), and, for many users, Microsoft Office files. As a developer, being able to force the download of any type of file is extremely useful.
 
-To force, or not to force? <a href="#to-force%2C-or-not-to-force%3F" class="direct-link">#</a>
-----------------------------------------------------------------------------------------------
+## To force, or not to force? <a href="#to-force%2C-or-not-to-force%3F" class="direct-link">#</a>
 
 The argument of whether or not it is considered "good practice" to force users to download files rather than letting their browser handle them as exepected does not really have a place in this article. In some cases it is appropriate while in others it is probably not.
 
@@ -26,8 +24,7 @@ It is also handy for when you generate PDF files and want to push them to the us
 
 Again, in some cases it is appropriate to force a download, in others it is not.
 
-The force download script <a href="#the-force-download-script" class="direct-link">#</a>
-----------------------------------------------------------------------------------------
+## The force download script <a href="#the-force-download-script" class="direct-link">#</a>
 
 After rigorous browser testing and code tweaking, here is the script I ended up with. All of the unnecessary stuff has been stripped out and it has been simplified as much as possible.
 
@@ -52,8 +49,7 @@ The PHP `readfile()` function reads files verbatim, including PHP files. This op
 
 This script has been tested to work in IE6/7, Firefox 2, Opera 9, and Safari 3.
 
-Browser issues <a href="#browser-issues" class="direct-link">#</a>
-------------------------------------------------------------------
+## Browser issues <a href="#browser-issues" class="direct-link">#</a>
 
 ### Safari & filenames <a href="#safari-%26-filenames" class="direct-link">#</a>
 
@@ -95,7 +91,7 @@ You can find more information about this bug on the [MSDN Help & Support](http:/
 
 <a href="../tags/development/index.html" class="post-tag">development</a> <a href="../tags/php/index.html" class="post-tag">php</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -103,6 +99,6 @@ Written by [Cory LaViska](../index-4.html), a software engineer and UX architect
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="web-standards-are-just-minor-details/index.html" class="post-nav-previous"><span class="small">Previous post</span> Web standards are just "minor details"</a> <a href="an-excellent-free-font-resource/index.html" class="post-nav-next"><span class="small">Up next</span> DaFont: an excellent free font resource</a>

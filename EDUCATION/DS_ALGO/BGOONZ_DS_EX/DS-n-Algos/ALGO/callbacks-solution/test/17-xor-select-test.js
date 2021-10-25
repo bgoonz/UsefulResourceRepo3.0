@@ -1,8 +1,8 @@
-const assert = require("assert");
-const xorSelect = require("../problems/17-xor-select.js");
+const assert = require('assert');
+const xorSelect = require('../problems/17-xor-select.js');
 
-describe("xorSelect", () => {
-  it("", () => {
+describe('xorSelect', () => {
+  it('', () => {
     let isEven = (n) => {
       return n % 2 === 0;
     };
@@ -19,14 +19,14 @@ describe("xorSelect", () => {
     };
 
     let startsA = (s) => {
-      return s[0] === "a";
+      return s[0] === 'a';
     };
 
     let result2 = xorSelect(
-      ["art", "academy", "app", "cat", "buttery"],
+      ['art', 'academy', 'app', 'cat', 'buttery'],
       longString,
       startsA
     );
-    assert.deepEqual(result2, ["art", "app", "buttery"]);
+    assert.deepEqual(result2, ['art', 'app', 'buttery']);
   });
 });

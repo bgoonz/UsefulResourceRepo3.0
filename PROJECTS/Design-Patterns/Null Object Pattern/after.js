@@ -5,14 +5,14 @@ class User {
   }
 
   hasAccess() {
-    return this.name === "Bob";
+    return this.name === 'Bob';
   }
 }
 
 class NullUser {
   constructor() {
     this.id = -1;
-    this.name = "Guest";
+    this.name = 'Guest';
   }
 
   hasAccess() {
@@ -20,7 +20,7 @@ class NullUser {
   }
 }
 
-const users = [new User(1, "Bob"), new User(2, "John")];
+const users = [new User(1, 'Bob'), new User(2, 'John')];
 
 function getUser(id) {
   const user = users.find((user) => user.id === id);
@@ -36,11 +36,11 @@ function getUser(id) {
 
 function printUser(id) {
   const user = getUser(id);
-  console.log("Hello " + user.name);
+  console.log('Hello ' + user.name);
 
   if (user.hasAccess()) {
-    console.log("You have access");
+    console.log('You have access');
   } else {
-    console.log("You are not allowed here");
+    console.log('You are not allowed here');
   }
 }

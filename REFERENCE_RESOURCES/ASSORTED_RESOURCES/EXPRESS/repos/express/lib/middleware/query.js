@@ -6,15 +6,15 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-var merge = require("utils-merge");
-var parseUrl = require("parseurl");
-var qs = require("qs");
+var merge = require('utils-merge');
+var parseUrl = require('parseurl');
+var qs = require('qs');
 
 /**
  * @param {Object} options
@@ -26,7 +26,7 @@ module.exports = function query(options) {
   var opts = merge({}, options);
   var queryparse = qs.parse;
 
-  if (typeof options === "function") {
+  if (typeof options === 'function') {
     queryparse = options;
     opts = undefined;
   }

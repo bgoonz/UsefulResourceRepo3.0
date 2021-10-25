@@ -1,8 +1,8 @@
-const assert = require("assert");
-const alternatingMap = require("../problems/23-alternating-map.js");
+const assert = require('assert');
+const alternatingMap = require('../problems/23-alternating-map.js');
 
-describe("alternatingMap", () => {
-  it("", () => {
+describe('alternatingMap', () => {
+  it('', () => {
     const triple = (n) => {
       return 3 * n;
     };
@@ -16,19 +16,19 @@ describe("alternatingMap", () => {
     assert.deepEqual(actual1, expected1);
 
     const yell = (s) => {
-      return s.toUpperCase() + "!";
+      return s.toUpperCase() + '!';
     };
 
     const whisper = (s) => {
-      return ".." + s.toLowerCase() + "..";
+      return '..' + s.toLowerCase() + '..';
     };
 
     const actual2 = alternatingMap(
-      ["hEy", "EVERYone", "whats", "uP??"],
+      ['hEy', 'EVERYone', 'whats', 'uP??'],
       yell,
       whisper
     );
-    const expected2 = ["HEY!", "..everyone..", "WHATS!", "..up??.."];
+    const expected2 = ['HEY!', '..everyone..', 'WHATS!', '..up??..'];
     assert.deepEqual(actual2, expected2);
   });
 });

@@ -1,86 +1,20 @@
-def zeros(arr, n):
-count = 0
-for i in range(n):
-if arr[i] != 0:
-arr[count] = arr[i]
-count += 1
+def zeros(arr, n): count = 0 for i in range(n): if arr[i] != 0: arr[count] = arr[i] count += 1
 
     while count < n:
         arr[count] = 0
         count += 1
 
-def print_arr(arr, n):
-for i in range(n):
-print(arr[i], end=" ")
+def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")
 
-arr = [1, 0, 0, 2, 5, 0]
-zeros(arr, len(arr))
-print_arr(arr, len(arr))
+arr = [1, 0, 0, 2, 5, 0] zeros(arr, len(arr)) print_arr(arr, len(arr))
 
 # Simple function that will take a string of latin characters and return a unique hash
 
-def hashString(str): # Map characters to prime numbers to multiply
-charMap = {
-"a": 2,
-"b": 3,
-"c": 5,
-"d": 7,
-"e": 11,
-"f": 13,
-"g": 17,
-"h": 19,
-"i": 23,
-"j": 29,
-"k": 31,
-"l": 37,
-"m": 41,
-"n": 43,
-"o": 47,
-"p": 53,
-"q": 59,
-"r": 61,
-"s": 67,
-"t": 71,
-"u": 73,
-"v": 79,
-"w": 83,
-"x": 89,
-"y": 97,
-"z": 101,
-"A": 103,
-"B": 107,
-"C": 109,
-"D": 113,
-"E": 127,
-"F": 131,
-"G": 137,
-"H": 139,
-"I": 149,
-"J": 151,
-"K": 163,
-"L": 167,
-"M": 173,
-"N": 179,
-"O": 181,
-"P": 191,
-"Q": 193,
-"R": 197,
-"S": 199,
-"T": 211,
-"U": 223,
-"V": 227,
-"W": 229,
-"X": 233,
-"Y": 239,
-"Z": 241,
-}
+def hashString(str): # Map characters to prime numbers to multiply charMap = { "a": 2, "b": 3, "c": 5, "d": 7, "e": 11, "f": 13, "g": 17, "h": 19, "i": 23, "j": 29, "k": 31, "l": 37, "m": 41, "n": 43, "o": 47, "p": 53, "q": 59, "r": 61, "s": 67, "t": 71, "u": 73, "v": 79, "w": 83, "x": 89, "y": 97, "z": 101, "A": 103, "B": 107, "C": 109, "D": 113, "E": 127, "F": 131, "G": 137, "H": 139, "I": 149, "J": 151, "K": 163, "L": 167, "M": 173, "N": 179, "O": 181, "P": 191, "Q": 193, "R": 197, "S": 199, "T": 211, "U": 223, "V": 227, "W": 229, "X": 233, "Y": 239, "Z": 241, }
 
     return reduce(lambda memo, char: memo * charMap[char], list(str), 1)
 
-def anagramDetection(parent, child):
-length = len(child)
-anagram = hashString(child)
-total = 0
+def anagramDetection(parent, child): length = len(child) anagram = hashString(child) total = 0
 
     for i in range(0, len(parent) - length):
         if hashString(parent[i : i + length]) == anagram:
@@ -88,10 +22,7 @@ total = 0
 
     return total
 
-def SortAnagram(arr):
-temp = []
-stage = []
-dic = []
+def SortAnagram(arr): temp = [] stage = [] dic = []
 
     for i in arr:
         for j in i:
@@ -121,11 +52,7 @@ import unittest
 
 """solution to the array pair sum problem"""
 
-def array_pair_sum_iterative(arr, k):
-"""
-returns the array of pairs using an iterative method.
-complexity: O(n^2)
-"""
+def array_pair_sum_iterative(arr, k): """ returns the array of pairs using an iterative method. complexity: O(n^2) """
 
     result = []
 
@@ -136,11 +63,7 @@ complexity: O(n^2)
 
     return result
 
-def array_pair_sum_sort(arr, k):
-"""
-first sort the array and then use binary search to find pairs.
-complexity: O(nlogn)
-"""
+def array_pair_sum_sort(arr, k): """ first sort the array and then use binary search to find pairs. complexity: O(nlogn) """
 
     result = []
     arr.sort()
@@ -151,11 +74,7 @@ complexity: O(nlogn)
 
     return result
 
-def array_pair_sum_hash_table(arr, k):
-"""
-Use a hash table to store array elements of pairs.
-complexity: O(n)
-"""
+def array_pair_sum_hash_table(arr, k): """ Use a hash table to store array elements of pairs. complexity: O(n) """
 
     result = []
     hash_table = {}
@@ -171,12 +90,7 @@ complexity: O(n)
 
 # Unit tests
 
-class array_pair_sum_tests(unittest.TestCase):
-def setUp(self):
-self.arr1 = [3, 4, 5, 6, 7]
-self.arr2 = [3, 4, 5, 4, 4]
-self.result1 = [[3, 7], [4, 6]]
-self.result2 = [[3, 5], [4, 4], [4, 4], [4, 4]]
+class array_pair_sum_tests(unittest.TestCase): def setUp(self): self.arr1 = [3, 4, 5, 6, 7] self.arr2 = [3, 4, 5, 4, 4] self.result1 = [[3, 7], [4, 6]] self.result2 = [[3, 5], [4, 4], [4, 4], [4, 4]]
 
     def test_one(self):
         self.assertEqual(array_pair_sum_iterative(self.arr1, 10), self.result1)
@@ -188,8 +102,7 @@ self.result2 = [[3, 5], [4, 4], [4, 4], [4, 4]]
         self.assertEqual(array_pair_sum_sort(self.arr2, 8), self.result2)
         self.assertEqual(array_pair_sum_hash_table(self.arr2, 8), self.result2)
 
-if **name** == "**main**":
-unittest.main()
+if **name** == "**main**": unittest.main()
 
 # Use a dictionary to map sets of brackets to their opposites
 
@@ -197,83 +110,29 @@ brackets = {"(": ")", "{": "}", "[": "]"}
 
 # On each input string, process it using the balance checker
 
-def balancedBrackets(string):
-stack = [] # Process every character on input
-for char in string: # Assign an initial value in case the stack is empty
-last = 0 # Assign the value of the last element if stack is not empty
-if stack:
-last = stack[len(stack) - 1]
-if stack and last in brackets and brackets[last] == char:
-stack.pop()
-else:
-stack.append(char)
+def balancedBrackets(string): stack = [] # Process every character on input for char in string: # Assign an initial value in case the stack is empty last = 0 # Assign the value of the last element if stack is not empty if stack: last = stack[len(stack) - 1] if stack and last in brackets and brackets[last] == char: stack.pop() else: stack.append(char)
 
     return not stack
 
-def balance(arr):
-open_bracket = ["[", "{", "("]
-close_bracket = ["]", "}", ")"]
-stack = []
-for i in arr:
-if i in open_bracket:
-stack.append(i)
-elif i in close_bracket:
-pos = close_bracket.index(i)
-if len(stack) >= 0 and (open_bracket[pos] == stack[len(stack) - 1]):
-stack.pop()
-else:
-return "unbalanced"
-if len(stack) == 0:
-return "balanced"
-else:
-return "unbalanced"
+def balance(arr): open_bracket = ["[", "{", "("] close_bracket = ["]", "}", ")"] stack = [] for i in arr: if i in open_bracket: stack.append(i) elif i in close_bracket: pos = close_bracket.index(i) if len(stack) >= 0 and (open_bracket[pos] == stack[len(stack) - 1]): stack.pop() else: return "unbalanced" if len(stack) == 0: return "balanced" else: return "unbalanced"
 
-arr = ["{", "[", "]", "}"]
-print(balance(arr))
+arr = ["{", "[", "]", "}"] print(balance(arr))
 
-arr = [1, 2, 3, 4, 5, 6]
-x = 5
+arr = [1, 2, 3, 4, 5, 6] x = 5
 
 print("iterative approach to find element using")
 
-def binary_search_iterative(arr, l, r, x):
-while l <= r:
-mid = l + (r - l) // 2
-if arr[mid] == x:
-return mid
-elif arr[mid] < x:
-l = mid + 1
-else:
-l = r - 1
-return -1
+def binary_search_iterative(arr, l, r, x): while l <= r: mid = l + (r - l) // 2 if arr[mid] == x: return mid elif arr[mid] < x: l = mid + 1 else: l = r - 1 return -1
 
-result_iterative = binary_search_iterative(arr, 0, len(arr) - 1, x)
-if result_iterative != -1:
-print("element found: " + str(result_iterative))
-else:
-print("not found")
+result_iterative = binary_search_iterative(arr, 0, len(arr) - 1, x) if result_iterative != -1: print("element found: " + str(result_iterative)) else: print("not found")
 
-print("#########################################")
-print("recursive approach to find element using")
+print("#########################################") print("recursive approach to find element using")
 
-def binary_search_recursive(arr, l, r, x):
-if l <= r:
-mid = l + (r - l) // 2
-if arr[mid] == x:
-return mid
-elif arr[mid] < x:
-return binary_search_recursive(arr, mid + 1, r, x)
-else:
-return binary_search_recursive(arr, l, mid - 1, x)
-else:
-return -1
+def binary_search_recursive(arr, l, r, x): if l <= r: mid = l + (r - l) // 2 if arr[mid] == x: return mid elif arr[mid] < x: return binary_search_recursive(arr, mid + 1, r, x) else: return binary_search_recursive(arr, l, mid - 1, x) else: return -1
 
 result_recursive = binary_search_recursive(arr, 0, len(arr) - 1, x)
 
-if result_iterative != -1:
-print("element found: " + str(result_recursive))
-else:
-print("not found")
+if result_iterative != -1: print("element found: " + str(result_recursive)) else: print("not found")
 
 # sample input : 4
 
@@ -281,12 +140,7 @@ print("not found")
 
 # output : -1,0,3,9,57,89
 
-def bubble_sort(arr, n):
-for i in range(n):
-for j in range(0, n - i - 1):
-if arr[j] > arr[j + 1]:
-arr[j], arr[j + 1] = arr[j + 1], arr[j]
-return arr
+def bubble_sort(arr, n): for i in range(n): for j in range(0, n - i - 1): if arr[j] > arr[j + 1]: arr[j], arr[j + 1] = arr[j + 1], arr[j] return arr
 
 arr = [64, 34, 25, 12, 22, 11, 90]
 
@@ -294,17 +148,7 @@ result = bubble_sort(arr, len(arr))
 
 print(result)
 
-def orangesRotting(elemnts):
-if not elemnts or len(elemnts) == 0:
-return 0
-n = len(elemnts)
-m = len(elemnts[0])
-rotten = []
-for i in range(n):
-for j in range(m):
-if elemnts[i][j] == 2:
-rotten.append((i, j))
-mins = 0
+def orangesRotting(elemnts): if not elemnts or len(elemnts) == 0: return 0 n = len(elemnts) m = len(elemnts[0]) rotten = [] for i in range(n): for j in range(m): if elemnts[i][j] == 2: rotten.append((i, j)) mins = 0
 
     def dfs(rotten):
         count = []
@@ -342,8 +186,7 @@ mins = 0
 
 """solution to the convert array problem"""
 
-def f(arr):
-"""sorts the array by numbers in place using constant extra space"""
+def f(arr): """sorts the array by numbers in place using constant extra space"""
 
     position = 0
     for i in xrange(len(arr) / 3):
@@ -354,8 +197,7 @@ def f(arr):
 
     return arr
 
-#!/bin/python3
-import sys
+#!/bin/python3 import sys
 
 #
 
@@ -373,10 +215,7 @@ import sys
 
 #
 
-def countingValleys(steps, path): # Write your code here
-path = list(path)
-sealevel = valley = 0
-for paths in path:
+def countingValleys(steps, path): # Write your code here path = list(path) sealevel = valley = 0 for paths in path:
 
         if paths == "U":
             sealevel += 1
@@ -387,9 +226,7 @@ for paths in path:
             valley += 1
     return valley
 
-path = "UDDDUDUU"
-steps = 8
-print(countingValleys(steps, path))
+path = "UDDDUDUU" steps = 8 print(countingValleys(steps, path))
 
 # Input:
 
@@ -401,36 +238,13 @@ print(countingValleys(steps, path))
 
 # 2 occurrences.
 
-def CountChar(String, Occurance):
-STROCR = {}
-RESULT = []
-for i in range(len(String)):
-if String[i] in STROCR.keys():
-STROCR[String[i]] += 1
-else:
-STROCR[String[i]] = 1
-for j in STROCR.keys():
-if STROCR[j] == Occurance:
-RESULT.append(j)
-elif STROCR[j] > Occurance:
-RESULT.append(j)
-else:
-pass
-print(RESULT)
+def CountChar(String, Occurance): STROCR = {} RESULT = [] for i in range(len(String)): if String[i] in STROCR.keys(): STROCR[String[i]] += 1 else: STROCR[String[i]] = 1 for j in STROCR.keys(): if STROCR[j] == Occurance: RESULT.append(j) elif STROCR[j] > Occurance: RESULT.append(j) else: pass print(RESULT)
 
-String = "geeksforgeeks"
-Occurance = 2
-CountChar(String, Occurance)
+String = "geeksforgeeks" Occurance = 2 CountChar(String, Occurance)
 
-def cyclic_rotation(arr, n):
-temp = arr[n - 1]
-for i in range(n - 1, 0, -1):
-arr[i] = arr[i - 1]
-arr[0] = temp
+def cyclic_rotation(arr, n): temp = arr[n - 1] for i in range(n - 1, 0, -1): arr[i] = arr[i - 1] arr[0] = temp
 
-def print_array(arr, n):
-for i in range(n):
-print(arr[i])
+def print_array(arr, n): for i in range(n): print(arr[i])
 
 arr = [1, 2, 3, 4, 5]
 
@@ -448,26 +262,13 @@ print_array(arr, 5)
 
 # of the array.
 
-def Dis_array(arr):
-dup = []
-for i in arr:
-length = len(str(i))
-i = str(i)
-for j in range(length):
-if i[j] in dup:
-pass
-else:
-dup.append(i[j])
+def Dis_array(arr): dup = [] for i in arr: length = len(str(i)) i = str(i) for j in range(length): if i[j] in dup: pass else: dup.append(i[j])
 
     print(dup)
 
-arr = [131, 11, 48]
-Dis_array(arr)
+arr = [131, 11, 48] Dis_array(arr)
 
-class Stack:
-def **init**(self, limit=10):
-self.stack = []
-self.limit = limit
+class Stack: def **init**(self, limit=10): self.stack = [] self.limit = limit
 
     def push(self, n):
         if len(self.stack) > self.limit:
@@ -501,32 +302,19 @@ self.limit = limit
 
 sta = Stack(5)
 
-sta.push(1)
-sta.push(2)
-sta.push(1)
-sta.push(2)
-sta.push(2)
-sta.push(2)
+sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)
 
 sta.PrintStack()
 
 sta.Length()
 
-def duplicate_removal(arr):
-dictonary = {}
-for i in arr:
-if i in dictonary:
-dictonary[i] = dictonary[i] + 1
-else:
-dictonary[i] = 1
-return dictonary.keys()
+def duplicate_removal(arr): dictonary = {} for i in arr: if i in dictonary: dictonary[i] = dictonary[i] + 1 else: dictonary[i] = 1 return dictonary.keys()
 
 arr = [1, 2, 2, 3, 4, 5, 5, 6, 7]
 
 print(int(len(list(duplicate_removal(arr)))))
 
-def even_occuring_element(arr):
-"""Returns the even occuring element within a list of integers"""
+def even_occuring_element(arr): """Returns the even occuring element within a list of integers"""
 
     dict = {}
     for num in arr:
@@ -539,14 +327,9 @@ def even_occuring_element(arr):
         if not dict[num] & 1:  # bitwise check for parity.
             return num
 
-def find(arr, search, n):
-for i in range(n):
-if arr[i] == search:
-return True
-break
+def find(arr, search, n): for i in range(n): if arr[i] == search: return True break
 
-arr = [1, 2, 3, 4, 5, 6]
-search = 4
+arr = [1, 2, 3, 4, 5, 6] search = 4
 
 print(find(arr, search, 6))
 
@@ -554,23 +337,11 @@ import tarfile
 
 fname = "spark-3.0.2-bin-hadoop2.7.tgz"
 
-if fname.endswith("tgz"):
-tar = tarfile.open(
-"C:\\Users\\ag16000\Downloads\\spark-3.0.2-bin-hadoop2.7.tgz", "r:gz"
-)
-tar.extractall()
-tar.close()
-elif fname.endswith("tar"):
-tar = tarfile.open(
-"C:\\Users\\ag16000\Downloads\\spark-3.0.2-bin-hadoop2.7.tgz", "r:"
-)
-tar.extractall()
-tar.close()
+if fname.endswith("tgz"): tar = tarfile.open( "C:\\Users\\ag16000\Downloads\\spark-3.0.2-bin-hadoop2.7.tgz", "r:gz" ) tar.extractall() tar.close() elif fname.endswith("tar"): tar = tarfile.open( "C:\\Users\\ag16000\Downloads\\spark-3.0.2-bin-hadoop2.7.tgz", "r:" ) tar.extractall() tar.close()
 
 """solutions to the factorial problem"""
 
-def factorial_iterative(num):
-"""returns the factorial of num using an iterative method."""
+def factorial_iterative(num): """returns the factorial of num using an iterative method."""
 
     factor = 1
 
@@ -579,13 +350,11 @@ def factorial_iterative(num):
 
     return factor
 
-def factorial_reduce(num):
-"""returns the factorial of num using a reduce (shortest method)."""
+def factorial_reduce(num): """returns the factorial of num using a reduce (shortest method)."""
 
     return reduce(lambda x, y: x * y, range(1, num + 1))
 
-def factorial_recursive(num):
-"""returns the factorial of num using a recursive method."""
+def factorial_recursive(num): """returns the factorial of num using a recursive method."""
 
     if num == 1:
         return 1
@@ -594,8 +363,7 @@ def factorial_recursive(num):
 
 """solutions to the fibonacci problem"""
 
-def fibonacci_iterative(limit):
-"""fibonacci sequence using an iterative approach."""
+def fibonacci_iterative(limit): """fibonacci sequence using an iterative approach."""
 
     a, b = 0, 1
     for i in xrange(limit):
@@ -603,21 +371,18 @@ def fibonacci_iterative(limit):
 
     return a
 
-def fibonacci_recursive(limit):
-"""fibonacci sequence using a recusive approach."""
+def fibonacci_recursive(limit): """fibonacci sequence using a recusive approach."""
 
     if limit <= 1:
         return limit
 
     return fibonacci_recursive(limit - 1) + fibonacci_recursive(limit - 2)
 
-def fibonacci_reduce(limit):
-"""fibonacci sequence using reduce (shortest option)."""
+def fibonacci_reduce(limit): """fibonacci sequence using reduce (shortest option)."""
 
     return reduce(lambda x, y: x + [x[y] + x[y - 1]], range(1, limit), [0, 1])[-1]
 
-def fibonacci_comprehension(limit):
-"""fibonacci sequence using a list comprehension."""
+def fibonacci_comprehension(limit): """fibonacci sequence using a list comprehension."""
 
     sequence = [0, 1]
 
@@ -625,27 +390,17 @@ def fibonacci_comprehension(limit):
 
     return sequence[-1]
 
-def fib_series(count):
-a = 0
-b = 1
-c = 1
-for i in range(count):
-a = b
-b = c
-c = a + b
-print(a)
+def fib_series(count): a = 0 b = 1 c = 1 for i in range(count): a = b b = c c = a + b print(a)
 
 fib_series(10)
 
 """finds the missing element in the shuffled list"""
 
-def difference_set(orig, shuffled):
-"""finds the missing element using a set."""
+def difference_set(orig, shuffled): """finds the missing element using a set."""
 
     return set(orig).difference(set(shuffled)).pop()
 
-def difference_iterative(orig, shuffled):
-"""finds the missing element by iterating over the list"""
+def difference_iterative(orig, shuffled): """finds the missing element by iterating over the list"""
 
     for x in orig:
         if not x in shuffled:
@@ -661,12 +416,7 @@ def difference_iterative(orig, shuffled):
 
 # Output: 2
 
-def findDuplicate(arr):
-for i in range(len(arr)):
-if arr[i] == arr[i + 1]:
-return arr[i]
-else:
-pass
+def findDuplicate(arr): for i in range(len(arr)): if arr[i] == arr[i + 1]: return arr[i] else: pass
 
 arr = [1, 3, 4, 2, 2]
 
@@ -674,8 +424,7 @@ print(findDuplicate(arr))
 
 """solution for the first-non-repeated-character problem"""
 
-def first_non_repeated_character(str):
-"""finds the first character in a string that's not repreated"""
+def first_non_repeated_character(str): """finds the first character in a string that's not repreated"""
 
     for i, char in enumerate(str):
         if i - 1 >= 0 and char == str[i - 1]:
@@ -685,8 +434,7 @@ def first_non_repeated_character(str):
 
         return char
 
-def left_search(arr, low, high, x):
-temp = -1
+def left_search(arr, low, high, x): temp = -1
 
     while low <= high:
         mid = low + (high - low) // 2
@@ -699,8 +447,7 @@ temp = -1
             high = mid - 1
     return temp
 
-def right_search(arr, low, high, x):
-temp = -1
+def right_search(arr, low, high, x): temp = -1
 
     while low <= high:
         mid = low + (high - low) // 2
@@ -713,17 +460,13 @@ temp = -1
             low = mid + 1
     return temp
 
-arr = [1, 4, 4, 4, 5, 6, 7]
-l_result = left_search(arr, 0, len(arr), 4)
-r_result = right_search(arr, 0, len(arr), 4)
+arr = [1, 4, 4, 4, 5, 6, 7] l_result = left_search(arr, 0, len(arr), 4) r_result = right_search(arr, 0, len(arr), 4)
 
-print("first occurance:" + str(l_result))
-print("last occurance: " + str(r_result))
+print("first occurance:" + str(l_result)) print("last occurance: " + str(r_result))
 
 """accepts a multi dimensional array and returns a flattened version"""
 
-def flatten_array(orig):
-"""returns a new, flattened, list"""
+def flatten_array(orig): """returns a new, flattened, list"""
 
     flattened_list = []
 
@@ -735,8 +478,7 @@ def flatten_array(orig):
 
     return flattened_list
 
-def flatten_in_place(orig):
-"""flattens a given list in place"""
+def flatten_in_place(orig): """flattens a given list in place"""
 
     is_flattened = False
 
@@ -751,9 +493,7 @@ def flatten_in_place(orig):
 
     return orig
 
-def jumpingOnClouds(c):
-i = counter = 0
-length = len(c)
+def jumpingOnClouds(c): i = counter = 0 length = len(c)
 
     while i < length - 1:
         if c[i + 2] == 0:
@@ -767,25 +507,15 @@ arr = [0, 0, 0, 0, 1, 0]
 
 print(jumpingOnClouds(arr))
 
-def kidsWithCandies(candies, extraCandies):
-temp_array = []
-max_element = max(candies)
-for i in candies:
-temp = i + extraCandies
-if max_element <= temp:
-temp_array.append(True)
-else:
-temp_array.append(False)
+def kidsWithCandies(candies, extraCandies): temp_array = [] max_element = max(candies) for i in candies: temp = i + extraCandies if max_element <= temp: temp_array.append(True) else: temp_array.append(False)
 
     return temp_array
 
-candies = [2, 3, 5, 1, 3]
-extraCandies = 3
+candies = [2, 3, 5, 1, 3] extraCandies = 3
 
 print(kidsWithCandies(candies, extraCandies))
 
-def kth_array(arr, n):
-arr.sort(reverse=True)
+def kth_array(arr, n): arr.sort(reverse=True)
 
     for i in range(n):
         print(arr[i])
@@ -853,31 +583,15 @@ def kthSmallest(arr, l, r, k):
 
     return 999999999999
 
-def swap(arr, a, b):
-temp = arr[a]
-arr[a] = arr[b]
-arr[b] = temp
+def swap(arr, a, b): temp = arr[a] arr[a] = arr[b] arr[b] = temp
 
-def partition(arr, l, r):
-x = arr[r]
-i = l
-for j in range(l, r):
-if arr[j] <= x:
-swap(arr, i, j)
-i += 1
-swap(arr, i, r)
-return i
+def partition(arr, l, r): x = arr[r] i = l for j in range(l, r): if arr[j] <= x: swap(arr, i, j) i += 1 swap(arr, i, r) return i
 
-def randomPartition(arr, l, r):
-n = r - l + 1
-pivot = int(random.random() % n)
-swap(arr, l + pivot, r)
-return partition(arr, l, r)
+def randomPartition(arr, l, r): n = r - l + 1 pivot = int(random.random() % n) swap(arr, l + pivot, r) return partition(arr, l, r)
 
 """solution to the largest-continuous-sum problem"""
 
-def largest_continuous_sum(arr):
-"""returns the highest sum of a continuous sequence in a given list"""
+def largest_continuous_sum(arr): """returns the highest sum of a continuous sequence in a given list"""
 
     largest = 0
     queue = []
@@ -892,15 +606,7 @@ def largest_continuous_sum(arr):
 
     return largest
 
-def addTwoNumbers(l1, l2):
-l1.reverse()
-l2.reverse()
-con_1 = ""
-con_2 = ""
-for i in l1:
-con_1 += str(i)
-for i in l2:
-con_2 += str(i)
+def addTwoNumbers(l1, l2): l1.reverse() l2.reverse() con_1 = "" con_2 = "" for i in l1: con_1 += str(i) for i in l2: con_2 += str(i)
 
     result = int(con_1) + int(con_2)
 
@@ -913,23 +619,15 @@ con_2 += str(i)
     lis.reverse()
     return lis
 
-l1 = [2, 4, 3]
-l2 = [5, 6, 4]
-result = addTwoNumbers(l1, l2)
-print(result)
+l1 = [2, 4, 3] l2 = [5, 6, 4] result = addTwoNumbers(l1, l2) print(result)
 
 # linked list creation
 
 # singly linked list
 
-class Node:
-def **init**(self, data):
-self.data = data
-self.next = None
+class Node: def **init**(self, data): self.data = data self.next = None
 
-class LinkedList:
-def **init**(self):
-self.head = None
+class LinkedList: def **init**(self): self.head = None
 
     def PrintList(self):
         if self.head is not None:
@@ -938,11 +636,7 @@ self.head = None
                 print(itr.data, end="-->")
                 itr = itr.next
 
-if **name** == "**main**": # creating empty linked list
-l = LinkedList() # assigning the first node to head of linked list
-l.head = Node(1) # assigining the second node
-l2 = Node(2) # assigining the third node
-l3 = Node(3)
+if **name** == "**main**": # creating empty linked list l = LinkedList() # assigning the first node to head of linked list l.head = Node(1) # assigining the second node l2 = Node(2) # assigining the third node l3 = Node(3)
 
     # linking the first node to the second
     l.head.next = l2
@@ -952,31 +646,17 @@ l3 = Node(3)
     # printing the list
     l.PrintList()
 
-from **future** import division
-from math import ceil
-from itertools import combinations
-from operator import mul
+from **future** import division from math import ceil from itertools import combinations from operator import mul
 
 # Sum of multiples of 3 or 5 under 1000, simplified:
 
 # print (3 _ 333 _ 334 / 2) + (5 _ 199 _ 200 / 2) - (15 _ 66 _ 67 / 2)
 
-def getSumOfMultiple(num, limit):
-return int((ceil(limit / num) - 1) _ ceil(limit / num) _ num / 2)
+def getSumOfMultiple(num, limit): return int((ceil(limit / num) - 1) _ ceil(limit / num) _ num / 2)
 
-def getSumOfMultiples(multiples, limit):
-result = 0
-sign = 1
-for i in range(1, len(multiples) + 1):
-for x in combinations(multiples, i):
-result += sign _ getSumOfMultiple(reduce(mul, x, 1), limit)
-sign _= -1
-return result
+def getSumOfMultiples(multiples, limit): result = 0 sign = 1 for i in range(1, len(multiples) + 1): for x in combinations(multiples, i): result += sign _ getSumOfMultiple(reduce(mul, x, 1), limit) sign _= -1 return result
 
-class once:
-def **init**(self, func, times=1):
-self.times = int(times)
-self.func = func
+class once: def **init**(self, func, times=1): self.times = int(times) self.func = func
 
     def __call__(self, *args, **kwargs):
         if self.times > 0:
@@ -985,27 +665,11 @@ self.func = func
 
 from math import sqrt
 
-def is_prime(n):
-if n <= 1:
-return False
-elif n == 2:
-return True
-elif n % 2 == 0:
-return False
-for i in xrange(3, int(sqrt(n)) + 1, 2):
-if n % i == 0:
-return False
-return True
+def is_prime(n): if n <= 1: return False elif n == 2: return True elif n % 2 == 0: return False for i in xrange(3, int(sqrt(n)) + 1, 2): if n % i == 0: return False return True
 
 from random import randint
 
-def quickSort(lst): # List of 0 or 1 items is already sorted
-if len(lst) <= 1:
-return lst
-else: # Pivot can be chosen randomly
-pivotIndex = randint(0, len(lst) - 1)
-pivot = lst[pivotIndex] # Elements lower than and greater than pivot
-lesser, greater = [], []
+def quickSort(lst): # List of 0 or 1 items is already sorted if len(lst) <= 1: return lst else: # Pivot can be chosen randomly pivotIndex = randint(0, len(lst) - 1) pivot = lst[pivotIndex] # Elements lower than and greater than pivot lesser, greater = [], []
 
         for index in range(len(lst)):
             # Don't do anything if you're at the pivot
@@ -1022,17 +686,7 @@ lesser, greater = [], []
         # Sort lesser and greater, concatenate results
         return quickSort(lesser) + [pivot] + quickSort(greater)
 
-def sort_num(arr, n):
-cnt0 = 0
-cnt1 = 0
-cnt2 = 0
-for i in range(n):
-if arr[i] == 0:
-cnt0 += 1
-elif arr[i] == 1:
-cnt1 += 1
-elif arr[i] == 2:
-cnt2 += 1
+def sort_num(arr, n): cnt0 = 0 cnt1 = 0 cnt2 = 0 for i in range(n): if arr[i] == 0: cnt0 += 1 elif arr[i] == 1: cnt1 += 1 elif arr[i] == 2: cnt2 += 1
 
     i = 0
 
@@ -1049,29 +703,11 @@ cnt2 += 1
         i += 1
         cnt2 -= 1
 
-def print_arr(arr, n):
-for i in range(n):
-print(arr[i], end=" ")
+def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")
 
-arr = [0, 1, 2, 0, 1, 2]
-n = len(arr)
-sort_num(arr, n)
-print_arr(arr, n)
+arr = [0, 1, 2, 0, 1, 2] n = len(arr) sort_num(arr, n) print_arr(arr, n)
 
-def sorted_rotation(arr, low, high, n):
-while low < high:
-if arr[low] <= arr[high]:
-return low
-mid = low + (high - low) // 2
-next = (mid + 1) % n
-prev = (mid + n - 1) % n
-if arr[mid] < arr[next] and arr[mid] < arr[prev]:
-return mid
-elif arr[mid] <= arr[high]:
-high = mid - 1
-elif arr[mid] >= arr[low]:
-low = mid + 1
-return -1
+def sorted_rotation(arr, low, high, n): while low < high: if arr[low] <= arr[high]: return low mid = low + (high - low) // 2 next = (mid + 1) % n prev = (mid + n - 1) % n if arr[mid] < arr[next] and arr[mid] < arr[prev]: return mid elif arr[mid] <= arr[high]: high = mid - 1 elif arr[mid] >= arr[low]: low = mid + 1 return -1
 
 arr = [6, 7, 8, 9, 1, 2, 3, 4, 5]
 
@@ -1079,10 +715,7 @@ result = sorted_rotation(arr, 0, len(arr) - 1, len(arr))
 
 print("array is rotated by : " + result)
 
-def sprialMatrix(arr, m, n):
-k = 0
-l = 0
-while k < m and l < n:
+def sprialMatrix(arr, m, n): k = 0 l = 0 while k < m and l < n:
 
         for i in range(l, n):
             print(arr[k][i], end=" ")
@@ -1107,11 +740,7 @@ sprialMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3, 3)
 
 import sys
 
-class Stack: # initialize the constructor of empty array
-def **init**(self, arr, limit):
-self.arr = arr
-self.arr = []
-self.limit = limit
+class Stack: # initialize the constructor of empty array def **init**(self, arr, limit): self.arr = arr self.arr = [] self.limit = limit
 
     # defining an method to get all the elements in the que
     def print_elements(self):
@@ -1154,12 +783,7 @@ sta = Stack([], 4)
 
 # pushing an element to the array
 
-sta.push(1)
-sta.push(2)
-sta.push(1)
-sta.push(2)
-sta.push(2)
-sta.push(2)
+sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)
 
 # printing all the elements in the stack
 
@@ -1181,12 +805,7 @@ sta.pop()
 
 sta.is_empty()
 
-class Stack: # initialize the constructor of empty array
-def **init**(self, arr, limit):
-self.arr = arr
-self.arr = []
-self.limit = limit
-self.max_array = []
+class Stack: # initialize the constructor of empty array def **init**(self, arr, limit): self.arr = arr self.arr = [] self.limit = limit self.max_array = []
 
     # defining an method to get all the elements in the que
     def print_elements(self):
@@ -1227,24 +846,7 @@ sta = Stack([], 6)
 
 # pushing an element to the array
 
-sta.push(10)
-sta.maxPush()
-print("-------------------")
-sta.push(2)
-sta.maxPush()
-print("-------------------")
-sta.push(3)
-sta.maxPush()
-print("-------------------")
-sta.push(4)
-sta.maxPush()
-print("-------------------")
-sta.push(5)
-sta.maxPush()
-print("-------------------")
-sta.push(6)
-sta.maxPush()
-print("-------------------")
+sta.push(10) sta.maxPush() print("-------------------") sta.push(2) sta.maxPush() print("-------------------") sta.push(3) sta.maxPush() print("-------------------") sta.push(4) sta.maxPush() print("-------------------") sta.push(5) sta.maxPush() print("-------------------") sta.push(6) sta.maxPush() print("-------------------")
 
 # printing all the elements in the stack
 
@@ -1254,30 +856,7 @@ print("-------------------")
 
 # sta.pop()
 
-class Solution:
-def strongPasswordChecker(self, s: str) -> int:
-len_passwd = len(s)
-lowercase, uppercase, digit = False, False, False
-repeating = [] # list of interval of consecutive char.
-for idx, char in enumerate(s):
-if not lowercase and 97 <= ord(char) <= 122:
-lowercase = True
-if not uppercase and 65 <= ord(char) <= 90:
-uppercase = True
-if not digit and char in {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}:
-digit = True
-if (
-repeating
-and repeating[-1][1] + 1 == idx
-and s[repeating[-1][1]] == s[idx]
-):
-repeating[-1][1] = idx # extend the lastest interval
-if (
-0 < idx < len_passwd - 1
-and s[idx - 1] == s[idx] == s[idx + 1]
-and (not repeating or idx > repeating[-1][1])
-):
-repeating.append([idx - 1, idx + 1]) # new an interval
+class Solution: def strongPasswordChecker(self, s: str) -> int: len_passwd = len(s) lowercase, uppercase, digit = False, False, False repeating = [] # list of interval of consecutive char. for idx, char in enumerate(s): if not lowercase and 97 <= ord(char) <= 122: lowercase = True if not uppercase and 65 <= ord(char) <= 90: uppercase = True if not digit and char in {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}: digit = True if ( repeating and repeating[-1][1] + 1 == idx and s[repeating[-1][1]] == s[idx] ): repeating[-1][1] = idx # extend the lastest interval if ( 0 < idx < len_passwd - 1 and s[idx - 1] == s[idx] == s[idx + 1] and (not repeating or idx > repeating[-1][1]) ): repeating.append([idx - 1, idx + 1]) # new an interval
 
         def helper(lenpass, case, repeat):
             if 6 <= lenpass <= 20 and case == 3 and repeat == ():
@@ -1332,16 +911,13 @@ repeating.append([idx - 1, idx + 1]) # new an interval
             tuple([term[1] - term[0] + 1 for term in repeating]),
         )
 
-Sol = Solution()
-print(Sol.strongPasswordChecker("a"))
+Sol = Solution() print(Sol.strongPasswordChecker("a"))
 
 # Recursive Python3 program to find if a given pattern is
 
 # present in a text
 
-def exactMatch(text, pat, text_index, pat_index):
-if text_index == len(text) and pat_index != len(pat):
-return 0
+def exactMatch(text, pat, text_index, pat_index): if text_index == len(text) and pat_index != len(pat): return 0
 
     # Else If last character of pattern reaches
     if pat_index == len(pat):
@@ -1354,9 +930,7 @@ return 0
 
 # This function returns true if 'text' contain 'pat'
 
-def contains(text, pat, text_index, pat_index): # If last character of text reaches
-if text_index == len(text):
-return 0
+def contains(text, pat, text_index, pat_index): # If last character of text reaches if text_index == len(text): return 0
 
     # If current characters of pat and text match
     if text[text_index] == pat[pat_index]:
@@ -1370,9 +944,7 @@ return 0
 
 # Driver program to test the above function
 
-print(contains("geeksforgeeks", "geeks", 0, 0))
-print(contains("geeksforgeeks", "geeksquiz", 0, 0))
-print(contains("geeksquizgeeks", "quiz", 0, 0))
+print(contains("geeksforgeeks", "geeks", 0, 0)) print(contains("geeksforgeeks", "geeksquiz", 0, 0)) print(contains("geeksquizgeeks", "quiz", 0, 0))
 
 # def twoSum(arr,n,target):
 
@@ -1390,23 +962,15 @@ print(contains("geeksquizgeeks", "quiz", 0, 0))
 
 # twoSum(arr,len(arr),9)
 
-class Solution: # def **init**(self,arr,n,target): # self.arr=arr # self.n=n # self.target=target
-def twoSum(self, arr, n, target):
-for i in range(self.n):
-for j in range(1, self.n):
-result = self.arr[i] + self.arr[j]
-if result == self.target:
-print("[" + str(i) + "," + str(j) + "]")
+class Solution: # def **init**(self,arr,n,target): # self.arr=arr # self.n=n # self.target=target def twoSum(self, arr, n, target): for i in range(self.n): for j in range(1, self.n): result = self.arr[i] + self.arr[j] if result == self.target: print("[" + str(i) + "," + str(j) + "]")
 
 temp = Solution([2, 7, 11, 15], len([2, 7, 11, 15]), 9)
 
 temp.twoSum()
 
-import psutil
-import json
+import psutil import json
 
-def getListOfProcessSortedByMemory():
-listOfProcObjects = []
+def getListOfProcessSortedByMemory(): listOfProcObjects = []
 
     for proc in psutil.process_iter():
         pinfo = proc.as_dict(attrs=["pid", "name"])
@@ -1440,8 +1004,7 @@ def main():
     print("##### Create a list of all running processes #######")
     getListOfProcessSortedByMemory()
 
-if **name** == "**main**":
-main()
+if **name** == "**main**": main()
 
 # class human():
 
@@ -1503,14 +1066,7 @@ theBoard = [' '] \* 10
 
 print(theBoard)
 
-((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
-(bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle
-(bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
-(bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
-(bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
-(bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side
-(bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
-(bo[9] == le and bo[5] == le and bo[1] == le))
+((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal (bo[9] == le and bo[5] == le and bo[1] == le))
 
     print('   |   |')
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
@@ -1542,79 +1098,27 @@ def drawBoard(board):
     print(" " + board[1] + " | " + board[2] + " | " + board[3])
     print("   |   |")
 
-def inputPlayerLetter(): # Lets the player type which letter they want to be. # Returns a list with the player’s letter as the first item, and the computer's letter as the second.
-letter = ""
-while not (letter == "X" or letter == "O"):
-print("Do you want to be X or O?")
-letter = input().upper() # the first element in the list is the player’s letter, the second is the computer's letter.
-if letter == "X":
-return ["X", "O"]
-else:
-return ["O", "X"]
+def inputPlayerLetter(): # Lets the player type which letter they want to be. # Returns a list with the player’s letter as the first item, and the computer's letter as the second. letter = "" while not (letter == "X" or letter == "O"): print("Do you want to be X or O?") letter = input().upper() # the first element in the list is the player’s letter, the second is the computer's letter. if letter == "X": return ["X", "O"] else: return ["O", "X"]
 
-def whoGoesFirst(): # Randomly choose the player who goes first.
-if random.randint(0, 1) == 0:
-return "computer"
-else:
-return "player"
+def whoGoesFirst(): # Randomly choose the player who goes first. if random.randint(0, 1) == 0: return "computer" else: return "player"
 
-def playAgain(): # This function returns True if the player wants to play again, otherwise it returns False.
-print("Do you want to play again? (yes or no)")
-return input().lower().startswith("y")
+def playAgain(): # This function returns True if the player wants to play again, otherwise it returns False. print("Do you want to play again? (yes or no)") return input().lower().startswith("y")
 
-def makeMove(board, letter, move):
-board[move] = letter
+def makeMove(board, letter, move): board[move] = letter
 
-def isWinner(bo, le): # Given a board and a player’s letter, this function returns True if that player has won. # We use bo instead of board and le instead of letter so we don’t have to type as much.
-return (
-(bo[7] == le and bo[8] == le and bo[9] == le)
-or (bo[4] == le and bo[5] == le and bo[6] == le) # across the top
-or (bo[1] == le and bo[2] == le and bo[3] == le) # across the middle
-or (bo[7] == le and bo[4] == le and bo[1] == le) # across the bottom
-or (bo[8] == le and bo[5] == le and bo[2] == le) # down the left side
-or (bo[9] == le and bo[6] == le and bo[3] == le) # down the middle
-or (bo[7] == le and bo[5] == le and bo[3] == le) # down the right side
-or (bo[9] == le and bo[5] == le and bo[1] == le) # diagonal
-) # diagonal
+def isWinner(bo, le): # Given a board and a player’s letter, this function returns True if that player has won. # We use bo instead of board and le instead of letter so we don’t have to type as much. return ( (bo[7] == le and bo[8] == le and bo[9] == le) or (bo[4] == le and bo[5] == le and bo[6] == le) # across the top or (bo[1] == le and bo[2] == le and bo[3] == le) # across the middle or (bo[7] == le and bo[4] == le and bo[1] == le) # across the bottom or (bo[8] == le and bo[5] == le and bo[2] == le) # down the left side or (bo[9] == le and bo[6] == le and bo[3] == le) # down the middle or (bo[7] == le and bo[5] == le and bo[3] == le) # down the right side or (bo[9] == le and bo[5] == le and bo[1] == le) # diagonal ) # diagonal
 
-def getBoardCopy(board): # Make a duplicate of the board list and return it the duplicate.
-dupeBoard = []
-for i in board:
-dupeBoard.append(i)
+def getBoardCopy(board): # Make a duplicate of the board list and return it the duplicate. dupeBoard = [] for i in board: dupeBoard.append(i)
 
     return dupeBoard
 
-def isSpaceFree(board, move): # Return true if the passed move is free on the passed board.
-return board[move] == " "
+def isSpaceFree(board, move): # Return true if the passed move is free on the passed board. return board[move] == " "
 
-def getPlayerMove(board): # Let the player type in their move.
-move = " "
-while move not in "1 2 3 4 5 6 7 8 9".split() or not isSpaceFree(board, int(move)):
-print("What is your next move? (1-9)")
-move = input()
-return int(move)
+def getPlayerMove(board): # Let the player type in their move. move = " " while move not in "1 2 3 4 5 6 7 8 9".split() or not isSpaceFree(board, int(move)): print("What is your next move? (1-9)") move = input() return int(move)
 
-def chooseRandomMoveFromList(board, movesList): # Returns a valid move from the passed list on the passed board. # Returns None if there is no valid move.
-possibleMoves = []
-for i in movesList:
-if isSpaceFree(board, i):
-possibleMoves.append(i)
-if len(possibleMoves) != 0:
-return random.choice(possibleMoves)
-else:
-return None
+def chooseRandomMoveFromList(board, movesList): # Returns a valid move from the passed list on the passed board. # Returns None if there is no valid move. possibleMoves = [] for i in movesList: if isSpaceFree(board, i): possibleMoves.append(i) if len(possibleMoves) != 0: return random.choice(possibleMoves) else: return None
 
-def getComputerMove(board, computerLetter): # Given a board and the computer's letter, determine where to move and return that move.
-if computerLetter == "X":
-playerLetter = "O"
-else:
-playerLetter = "X" # Here is our algorithm for our Tic Tac Toe AI: # First, check if we can win in the next move
-for i in range(1, 10):
-copy = getBoardCopy(board)
-if isSpaceFree(copy, i):
-makeMove(copy, computerLetter, i)
-if isWinner(copy, computerLetter):
-return i
+def getComputerMove(board, computerLetter): # Given a board and the computer's letter, determine where to move and return that move. if computerLetter == "X": playerLetter = "O" else: playerLetter = "X" # Here is our algorithm for our Tic Tac Toe AI: # First, check if we can win in the next move for i in range(1, 10): copy = getBoardCopy(board) if isSpaceFree(copy, i): makeMove(copy, computerLetter, i) if isWinner(copy, computerLetter): return i
 
     # Check if the player could win on their next move, and block them.
     for i in range(1, 10):
@@ -1634,20 +1138,11 @@ return i
     # Move on one of the sides.
     return chooseRandomMoveFromList(board, [2, 4, 6, 8])
 
-def isBoardFull(board): # Return True if every space on the board has been taken. Otherwise return False.
-for i in range(1, 10):
-if isSpaceFree(board, i):
-return False
-return True
+def isBoardFull(board): # Return True if every space on the board has been taken. Otherwise return False. for i in range(1, 10): if isSpaceFree(board, i): return False return True
 
 print("Welcome to Tic Tac Toe!")
 
-while True: # Reset the board
-theBoard = [" "] \* 10
-playerLetter, computerLetter = inputPlayerLetter()
-turn = whoGoesFirst()
-print("The " + turn + " will go first.")
-gameIsPlaying = True
+while True: # Reset the board theBoard = [" "] \* 10 playerLetter, computerLetter = inputPlayerLetter() turn = whoGoesFirst() print("The " + turn + " will go first.") gameIsPlaying = True
 
     while gameIsPlaying:
         if turn == "player":
@@ -1688,96 +1183,39 @@ gameIsPlaying = True
 
 # Recursive Python function to solve the tower of hanoi
 
-def TowerOfHanoi(n, source, destination, auxiliary):
-if n == 1:
-print("Move disk 1 from source", source, "to destination", destination)
-return
-TowerOfHanoi(n - 1, source, auxiliary, destination)
-print("Move disk", n, "from source", source, "to destination", destination)
-TowerOfHanoi(n - 1, auxiliary, destination, source)
+def TowerOfHanoi(n, source, destination, auxiliary): if n == 1: print("Move disk 1 from source", source, "to destination", destination) return TowerOfHanoi(n - 1, source, auxiliary, destination) print("Move disk", n, "from source", source, "to destination", destination) TowerOfHanoi(n - 1, auxiliary, destination, source)
 
 # Driver code
 
-n = 4
-TowerOfHanoi(n, "A", "B", "C")
+n = 4 TowerOfHanoi(n, "A", "B", "C")
 
-def LeftMax(array, i):
-left = array[i]
-for j in range(i): # left=max(left,array[j])
-if left < array[j]:
-left = array[j]
-else:
-left = left
-return left
+def LeftMax(array, i): left = array[i] for j in range(i): # left=max(left,array[j]) if left < array[j]: left = array[j] else: left = left return left
 
-def RightMax(array, i):
-right = array[i]
-for j in range(i + 1, len(array)): # right=max(right,array[j])
-if right < array[j]:
-right = array[j]
-else:
-right = right
-return right
+def RightMax(array, i): right = array[i] for j in range(i + 1, len(array)): # right=max(right,array[j]) if right < array[j]: right = array[j] else: right = right return right
 
-def TrappingWater(array):
-totalwater = 0
-for i in range(1, len(array) - 1):
-leftMax = LeftMax(array, i)
-rightMax = RightMax(array, i)
-totalwater = totalwater + (min(leftMax, rightMax) - array[i])
-return totalwater
+def TrappingWater(array): totalwater = 0 for i in range(1, len(array) - 1): leftMax = LeftMax(array, i) rightMax = RightMax(array, i) totalwater = totalwater + (min(leftMax, rightMax) - array[i]) return totalwater
 
 array = [2, 0, 2]
 
 print(TrappingWater(array))
 
-class node:
-def **init**(self, val):
-self.right = None
-self.left = None
-self.val = val
+class node: def **init**(self, val): self.right = None self.left = None self.val = val
 
-root = node(1)
-root.left = node(2)
-root.right = node(3)
-root.left.right = node(5)
-root.left.left = node(4)
+root = node(1) root.left = node(2) root.right = node(3) root.left.right = node(5) root.left.left = node(4)
 
-def inorder_traversal(root):
-if root:
-inorder_traversal(root.left)
-print(root.val)
-inorder_traversal(root.right)
+def inorder_traversal(root): if root: inorder_traversal(root.left) print(root.val) inorder_traversal(root.right)
 
-def preorder_traversal(root):
-if root:
-print(root.val)
-preorder_traversal(root.left)
-preorder_traversal(root.right)
+def preorder_traversal(root): if root: print(root.val) preorder_traversal(root.left) preorder_traversal(root.right)
 
-def postorder_traversal(root):
-if root:
-postorder_traversal(root.left)
-postorder_traversal(root.right)
-print(root.val)
+def postorder_traversal(root): if root: postorder_traversal(root.left) postorder_traversal(root.right) print(root.val)
 
-print("########################")
-print("inorder traversal: L N R ")
-inorder_traversal(root)
+print("########################") print("inorder traversal: L N R ") inorder_traversal(root)
 
-print("########################")
-print("preorder traversal: N L R ")
-preorder_traversal(root)
+print("########################") print("preorder traversal: N L R ") preorder_traversal(root)
 
-print("########################")
-print("postorder traversal: N R L")
-postorder_traversal(root)
+print("########################") print("postorder traversal: N R L") postorder_traversal(root)
 
-class Tree:
-def **init**(self, data):
-self.data = data
-self.children = []
-self.parent = None
+class Tree: def **init**(self, data): self.data = data self.children = [] self.parent = None
 
     def add_child(self, child):
         child.parent = self
@@ -1792,41 +1230,17 @@ self.parent = None
 
 root = Tree("electronics")
 
-laptop = Tree("laptop")
-laptop.add_child(Tree("mac"))
-laptop.add_child(Tree("windows"))
+laptop = Tree("laptop") laptop.add_child(Tree("mac")) laptop.add_child(Tree("windows"))
 
-cell = Tree("cell")
-cell.add_child(Tree("LG"))
-cell.add_child(Tree("apple"))
+cell = Tree("cell") cell.add_child(Tree("LG")) cell.add_child(Tree("apple"))
 
-root.add_child(laptop)
-root.add_child(cell)
+root.add_child(laptop) root.add_child(cell)
 
 root.print_elements()
 
-class Node(object):
-def **init**(self, value):
-self.value = value
-self.left = None
-self.right = None
+class Node(object): def **init**(self, value): self.value = value self.left = None self.right = None
 
-def traverse_levelorder(root):
-if not root:
-return
-q = [root, True] # Use True as sentinel for end of row
-while len(q) > 0:
-node = q.pop(0)
-print node.value,
-if node.left:
-q.append(node.left)
-if node.right:
-q.append(node.right)
-if q[0] is True: # End of row
-q.pop(0)
-if len(q) > 0:
-q.append(True)
-print
+def traverse_levelorder(root): if not root: return q = [root, True] # Use True as sentinel for end of row while len(q) > 0: node = q.pop(0) print node.value, if node.left: q.append(node.left) if node.right: q.append(node.right) if q[0] is True: # End of row q.pop(0) if len(q) > 0: q.append(True) print
 
 # https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/
 
@@ -1870,23 +1284,7 @@ print
 
 # o(n^2)
 
-def Triplet(arr):
-n = len(arr)
-found = True
-for i in range(n - 1):
-l = i + 1
-r = n - 1
-x = arr[i]
-while l < r:
-if arr[l] + arr[r] + x == 0:
-print(arr[l], arr[r], x)
-l += 1
-r -= 1
-found = True
-elif arr[l] + arr[r] + x < 0:
-l += 1
-else:
-r -= 1
+def Triplet(arr): n = len(arr) found = True for i in range(n - 1): l = i + 1 r = n - 1 x = arr[i] while l < r: if arr[l] + arr[r] + x == 0: print(arr[l], arr[r], x) l += 1 r -= 1 found = True elif arr[l] + arr[r] + x < 0: l += 1 else: r -= 1
 
     if not found:
         print("triplet not found")
@@ -1901,10 +1299,7 @@ Triplet(arr)
 
 # Method 1
 
-class Solution: # Function to return the count of number of elements in union of two arrays.
-def doUnion(self, a, n, b, m):
-c = a + b
-c.sort()
+class Solution: # Function to return the count of number of elements in union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort()
 
         d = []
         for i in c:
@@ -1915,10 +1310,7 @@ c.sort()
 
         return len(d)
 
-if **name** == "**main**":
-t = int(input())
-for \_ in range(t):
-n, m = [int(x) for x in input().strip().split()]
+if **name** == "**main**": t = int(input()) for \_ in range(t): n, m = [int(x) for x in input().strip().split()]
 
         a = [int(x) for x in input().strip().split()]
         b = [int(x) for x in input().strip().split()]
@@ -1932,11 +1324,7 @@ n, m = [int(x) for x in input().strip().split()]
 
 # Method 2
 
-class Solution: # Function to return the count of number of elements in union of two arrays.
-def doUnion(self, a, n, b, m):
-c = a + b
-c.sort() # O(Mlog(M))+O(Nlog(N))
-sample_dict = {}
+class Solution: # Function to return the count of number of elements in union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort() # O(Mlog(M))+O(Nlog(N)) sample_dict = {}
 
         for i in c:  # O(M)+O(N)
             if i in sample_dict.keys():
@@ -1946,10 +1334,7 @@ sample_dict = {}
 
         return len([int(x) for x in sample_dict.values()])
 
-if **name** == "**main**":
-t = int(input())
-for \_ in range(t):
-n, m = [int(x) for x in input().strip().split()]
+if **name** == "**main**": t = int(input()) for \_ in range(t): n, m = [int(x) for x in input().strip().split()]
 
         a = [int(x) for x in input().strip().split()]
         b = [int(x) for x in input().strip().split()]
@@ -1957,37 +1342,19 @@ n, m = [int(x) for x in input().strip().split()]
 
         print(ob.doUnion(a, n, b, m))
 
-def wave(arr, n):
-arr.sort()
-for i in range(0, n - 1, 2):
-arr[i], arr[i + 1] = arr[i + 1], arr[i]
+def wave(arr, n): arr.sort() for i in range(0, n - 1, 2): arr[i], arr[i + 1] = arr[i + 1], arr[i]
 
 arr = [10, 90, 49, 2, 1, 5, 23]
 
 wave(arr, len(arr))
 
-for i in range(len(arr)):
-print(arr[i], end=" ")
+for i in range(len(arr)): print(arr[i], end=" ")
 
 file = open("sample.txt", "r")
 
-d = dict()
-for lines in file:
-lines = lines.strip()
-lines = lines.lower()
-words = lines.split(" ")
-for word in words:
-if word in d:
-d[word] = d[word] + 1
-else:
-d[word] = 1
+d = dict() for lines in file: lines = lines.strip() lines = lines.lower() words = lines.split(" ") for word in words: if word in d: d[word] = d[word] + 1 else: d[word] = 1
 
-find = str(input("enter the word to count: "))
-find = find.lower()
-if find in list(d.keys()):
-print(f"{find} : " + str(d.get(find)))
-else:
-print("word not present!! ")
+find = str(input("enter the word to count: ")) find = find.lower() if find in list(d.keys()): print(f"{find} : " + str(d.get(find))) else: print("word not present!! ")
 
 def xor(arr, n):
 
@@ -1996,22 +1363,14 @@ def xor(arr, n):
         xor_val = xor_val ^ arr[i]
     return xor_val
 
-arr = [3, 9, 12, 13, 15]
-n = len(arr)
-print(xor(arr, n))
+arr = [3, 9, 12, 13, 15] n = len(arr) print(xor(arr, n))
 
 import pafy
 
-url = "https://www.youtube.com/watch?v=OE7wUUpJw6I&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A"
-video = pafy.new(url)
-print(video.title)
+url = "https://www.youtube.com/watch?v=OE7wUUpJw6I&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A" video = pafy.new(url) print(video.title)
 
 stream = pafy.new(url).streams
 
-best = video.getbest()
-for i in stream:
-print(i)
+best = video.getbest() for i in stream: print(i)
 
-print(best.resolution, best.extension)
-print(best.url)
-best.download(quiet=False)
+print(best.resolution, best.extension) print(best.url) best.download(quiet=False)

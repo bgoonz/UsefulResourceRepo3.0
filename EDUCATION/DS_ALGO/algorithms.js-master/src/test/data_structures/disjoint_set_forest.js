@@ -1,8 +1,8 @@
-const DisjointSetForest = require("../..").DataStructures.DisjointSetForest;
-import assert from "assert";
+const DisjointSetForest = require('../..').DataStructures.DisjointSetForest;
+import assert from 'assert';
 
-describe("Disjoint Set Forest", () => {
-  it("decides if two elements belong to the same subset or not", () => {
+describe('Disjoint Set Forest', () => {
+  it('decides if two elements belong to the same subset or not', () => {
     const forest = new DisjointSetForest();
     assert(!forest.sameSubset(1, 2));
     forest.merge(1, 2);
@@ -14,7 +14,7 @@ describe("Disjoint Set Forest", () => {
     assert(!forest.sameSubset(1, 5));
   });
 
-  it("maintains subset sizes", () => {
+  it('maintains subset sizes', () => {
     const forest = new DisjointSetForest();
     const assertSizesCorrect = (elements, size) => {
       elements.forEach((element) => {
@@ -34,7 +34,7 @@ describe("Disjoint Set Forest", () => {
     assertSizesCorrect([0, 1, 2, 3, 4], 5);
   });
 
-  it("points all elements to the same root", () => {
+  it('points all elements to the same root', () => {
     const forest = new DisjointSetForest();
     const assertSameRoot = (element, ...rest) => {
       const root = forest.root(element);
@@ -52,7 +52,7 @@ describe("Disjoint Set Forest", () => {
     assertSameRoot(0, 1, 2, 3, 4, 5);
   });
 
-  it("does not choose the root element outside the subset", () => {
+  it('does not choose the root element outside the subset', () => {
     const forest = new DisjointSetForest();
     const assertInside = (value, set) =>
       set.some((element) => element === value);

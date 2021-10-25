@@ -1,25 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var fullyConnectedLayer_1 = require("../common/fullyConnectedLayer");
-var util_1 = require("../faceProcessor/util");
-var TinyXception_1 = require("../xception/TinyXception");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
-var types_1 = require("./types");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var fullyConnectedLayer_1 = require('../common/fullyConnectedLayer');
+var util_1 = require('../faceProcessor/util');
+var TinyXception_1 = require('../xception/TinyXception');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
+var types_1 = require('./types');
 var AgeGenderNet = /** @class */ (function (_super) {
   tslib_1.__extends(AgeGenderNet, _super);
   function AgeGenderNet(faceFeatureExtractor) {
     if (faceFeatureExtractor === void 0) {
       faceFeatureExtractor = new TinyXception_1.TinyXception(2);
     }
-    var _this = _super.call(this, "AgeGenderNet") || this;
+    var _this = _super.call(this, 'AgeGenderNet') || this;
     _this._faceFeatureExtractor = faceFeatureExtractor;
     return _this;
   }
-  Object.defineProperty(AgeGenderNet.prototype, "faceFeatureExtractor", {
+  Object.defineProperty(AgeGenderNet.prototype, 'faceFeatureExtractor', {
     get: function () {
       return this._faceFeatureExtractor;
     },
@@ -30,7 +30,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
     var _this = this;
     var params = this.params;
     if (!params) {
-      throw new Error(this._name + " - load model before inference");
+      throw new Error(this._name + ' - load model before inference');
     }
     return tf.tidy(function () {
       var bottleneckFeatures =
@@ -38,7 +38,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
           ? _this.faceFeatureExtractor.forwardInput(input)
           : input;
       var pooled = tf
-        .avgPool(bottleneckFeatures, [7, 7], [2, 2], "valid")
+        .avgPool(bottleneckFeatures, [7, 7], [2, 2], 'valid')
         .as2D(bottleneckFeatures.shape[0], -1);
       var age = fullyConnectedLayer_1
         .fullyConnectedLayer(pooled, params.fc.age)
@@ -153,7 +153,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
     });
   };
   AgeGenderNet.prototype.getDefaultModelName = function () {
-    return "age_gender_model";
+    return 'age_gender_model';
   };
   AgeGenderNet.prototype.dispose = function (throwOnRedispose) {
     if (throwOnRedispose === void 0) {

@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var convLayer_1 = require("./convLayer");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var convLayer_1 = require('./convLayer');
 function residual(x, params) {
   var out = convLayer_1.conv(x, params.conv1);
   out = convLayer_1.convNoRelu(out, params.conv2);
@@ -13,7 +13,7 @@ exports.residual = residual;
 function residualDown(x, params) {
   var out = convLayer_1.convDown(x, params.conv1);
   out = convLayer_1.convNoRelu(out, params.conv2);
-  var pooled = tf.avgPool(x, 2, 2, "valid");
+  var pooled = tf.avgPool(x, 2, 2, 'valid');
   var zeros = tf.zeros(pooled.shape);
   var isPad = pooled.shape[3] !== out.shape[3];
   var isAdjustShape =

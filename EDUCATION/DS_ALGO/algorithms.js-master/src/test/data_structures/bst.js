@@ -1,10 +1,10 @@
-import root from "../..";
+import root from '../..';
 const BST = root.DataStructures.BST;
 const bfs = root.Search.bfs;
-import assert from "assert";
+import assert from 'assert';
 
-describe("Binary Search Tree", () => {
-  it("inserts elements respecting the BST restrictions", () => {
+describe('Binary Search Tree', () => {
+  it('inserts elements respecting the BST restrictions', () => {
     const bst = new BST();
     bst.insert(4);
     bst.insert(8);
@@ -17,7 +17,7 @@ describe("Binary Search Tree", () => {
     bst.insert(100);
     assert.equal(bst.size, 9);
   });
-  it("checks if an element exists (in O(lg n))", () => {
+  it('checks if an element exists (in O(lg n))', () => {
     const bst = new BST();
     bst.insert(4);
     bst.insert(8);
@@ -63,8 +63,8 @@ describe("Binary Search Tree", () => {
   const callbackGenerator = (a) => (n) => a.push(n);
 
   it(
-    "removes a leaf without altering anything else in " +
-      "the structure of the tree",
+    'removes a leaf without altering anything else in ' +
+      'the structure of the tree',
     () => {
       bst.remove(0);
       /**
@@ -80,8 +80,8 @@ describe("Binary Search Tree", () => {
   );
 
   it(
-    "removes an element with just one child and substitute " +
-      "it as the root of only subtree",
+    'removes an element with just one child and substitute ' +
+      'it as the root of only subtree',
     () => {
       bst.remove(10);
       /**
@@ -97,8 +97,8 @@ describe("Binary Search Tree", () => {
   );
 
   it(
-    "substitute an element by the leftmost child in the right " +
-      "subtree and remove it as a leaf",
+    'substitute an element by the leftmost child in the right ' +
+      'subtree and remove it as a leaf',
     () => {
       /**
        *            4
@@ -141,7 +141,7 @@ describe("Binary Search Tree", () => {
     }
   );
 
-  it("returns the right root and size", () => {
+  it('returns the right root and size', () => {
     const bst = new BST();
     bst.insert(5);
     assert.equal(bst.size, 1);
@@ -160,7 +160,7 @@ describe("Binary Search Tree", () => {
     assert.equal(bst.size, 0);
   });
 
-  it("throws an error when trying to remove an unexisting node", () => {
+  it('throws an error when trying to remove an unexisting node', () => {
     const bst = new BST();
     assert.throws(() => bst.remove(0), Error);
     bst.insert(3);
@@ -168,36 +168,36 @@ describe("Binary Search Tree", () => {
   });
 });
 
-describe("Binary Search Tree with custom comparator", () => {
+describe('Binary Search Tree with custom comparator', () => {
   const strLenCompare = ({ length }, { length }) => {
     if (length === length) return 0;
     return length < length ? -1 : 1;
   };
 
-  it("inserts elements respecting the BST restrictions", () => {
+  it('inserts elements respecting the BST restrictions', () => {
     const bst = new BST(strLenCompare);
-    bst.insert("banana");
-    bst.insert("apple");
-    bst.insert("pineapple");
-    bst.insert("watermelon");
+    bst.insert('banana');
+    bst.insert('apple');
+    bst.insert('pineapple');
+    bst.insert('watermelon');
     assert.equal(bst.size, 4);
   });
 
-  it("checks if an element exists (in O(lg n))", () => {
+  it('checks if an element exists (in O(lg n))', () => {
     const bst = new BST(strLenCompare);
-    bst.insert("banana");
-    bst.insert("apple");
-    bst.insert("pineapple");
-    bst.insert("watermelon");
+    bst.insert('banana');
+    bst.insert('apple');
+    bst.insert('pineapple');
+    bst.insert('watermelon');
 
-    assert(bst.contains("watermelon"));
-    assert(bst.contains("apple"));
-    assert(bst.contains("banana"));
-    assert(bst.contains("pineapple"));
+    assert(bst.contains('watermelon'));
+    assert(bst.contains('apple'));
+    assert(bst.contains('banana'));
+    assert(bst.contains('pineapple'));
 
-    assert(!bst.contains("mango"));
-    assert(!bst.contains("melon"));
-    assert(!bst.contains("tangerine"));
+    assert(!bst.contains('mango'));
+    assert(!bst.contains('melon'));
+    assert(!bst.contains('tangerine'));
   });
 
   /**
@@ -207,25 +207,25 @@ describe("Binary Search Tree with custom comparator", () => {
    *
    */
   const bst = new BST(strLenCompare);
-  bst.insert("banana");
-  bst.insert("apple");
-  bst.insert("pear");
-  bst.insert("pineapple");
-  bst.insert("watermelon");
+  bst.insert('banana');
+  bst.insert('apple');
+  bst.insert('pear');
+  bst.insert('pineapple');
+  bst.insert('watermelon');
 
   const callbackGenerator = (a) => (n) => a.push(n);
 
-  it("inserts the items according to the comparator", () => {
+  it('inserts the items according to the comparator', () => {
     const a = [];
     bfs(bst.root, callbackGenerator(a));
-    assert.deepEqual(a, ["banana", "apple", "pineapple", "pear", "watermelon"]);
+    assert.deepEqual(a, ['banana', 'apple', 'pineapple', 'pear', 'watermelon']);
   });
 
   it(
-    "removes a leaf without altering anything else in " +
-      "the structure of the tree",
+    'removes a leaf without altering anything else in ' +
+      'the structure of the tree',
     () => {
-      bst.remove("watermelon");
+      bst.remove('watermelon');
       /**
        *           'banana'
        *     'apple'      'pineapple'
@@ -233,37 +233,37 @@ describe("Binary Search Tree with custom comparator", () => {
        */
       const a = [];
       bfs(bst.root, callbackGenerator(a));
-      assert.deepEqual(a, ["banana", "apple", "pineapple", "pear"]);
+      assert.deepEqual(a, ['banana', 'apple', 'pineapple', 'pear']);
     }
   );
 
   it(
-    "removes an element with just one child and substitute " +
-      "it as the root of only subtree",
+    'removes an element with just one child and substitute ' +
+      'it as the root of only subtree',
     () => {
-      bst.remove("apple");
+      bst.remove('apple');
       /**
        *           'banana'
        *     'pear'      'pineapple'
        */
       const a = [];
       bfs(bst.root, callbackGenerator(a));
-      assert.deepEqual(a, ["banana", "pear", "pineapple"]);
+      assert.deepEqual(a, ['banana', 'pear', 'pineapple']);
     }
   );
 
   it(
-    "substitutes an element by the leftmost child in the right " +
-      "subtree and remove it as a leaf",
+    'substitutes an element by the leftmost child in the right ' +
+      'subtree and remove it as a leaf',
     () => {
-      bst.remove("banana");
+      bst.remove('banana');
       /**
        *       'pineapple'
        *   'pear'
        */
       const a = [];
       bfs(bst.root, callbackGenerator(a));
-      assert.deepEqual(a, ["pineapple", "pear"]);
+      assert.deepEqual(a, ['pineapple', 'pear']);
     }
   );
 });

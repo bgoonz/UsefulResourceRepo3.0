@@ -1,6 +1,6 @@
 // Dynamic programming - factorial
 
-"use strict";
+'use strict';
 {
   const memory = [1, 1];
 

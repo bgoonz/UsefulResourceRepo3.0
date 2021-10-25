@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("../classes/FaceDetection");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('../classes/FaceDetection');
 /**
  * Extracts the tensors of the image regions containing the detected faces.
  * Useful if you want to compute the face descriptors for the face images.
@@ -22,14 +22,14 @@ function extractFaceTensors(imageTensor, detections) {
         !tfjs_image_recognition_base_1.isTensor4D(imageTensor)
       ) {
         throw new Error(
-          "extractFaceTensors - expected image tensor to be 3D or 4D"
+          'extractFaceTensors - expected image tensor to be 3D or 4D'
         );
       }
       if (
         tfjs_image_recognition_base_1.isTensor4D(imageTensor) &&
         imageTensor.shape[0] > 1
       ) {
-        throw new Error("extractFaceTensors - batchSize > 1 not supported");
+        throw new Error('extractFaceTensors - batchSize > 1 not supported');
       }
       return [
         2 /*return*/,

@@ -1,8 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("../classes/FaceDetection");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('../classes/FaceDetection');
 /**
  * Extracts the image regions containing the detected faces.
  *
@@ -23,7 +23,7 @@ function extractFaces(input, detections) {
         case 1:
           netInput = _b.sent();
           if (netInput.batchSize > 1) {
-            throw new Error("extractFaces - batchSize > 1 not supported");
+            throw new Error('extractFaces - batchSize > 1 not supported');
           }
           tensorOrCanvas = netInput.getInput(0);
           if (!(tensorOrCanvas instanceof Canvas)) return [3 /*break*/, 2];

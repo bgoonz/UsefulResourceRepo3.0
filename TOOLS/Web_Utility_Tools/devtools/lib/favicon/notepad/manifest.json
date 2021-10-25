@@ -1,0 +1,23 @@
+{
+  "short_name": "Notepad",
+  "name": "Notepad",
+  "description": "Notepad free online",
+  "start_url": "/tools/notepad.html",
+  "scope": "https://www.WebDevHubTools/",
+  "icons": [
+    {
+      "src": "/lib/favicon/notepad/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/lib/favicon/notepad/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait"
+}

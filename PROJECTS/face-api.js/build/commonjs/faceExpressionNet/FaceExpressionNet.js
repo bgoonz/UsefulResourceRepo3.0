@@ -1,18 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceFeatureExtractor_1 = require("../faceFeatureExtractor/FaceFeatureExtractor");
-var FaceProcessor_1 = require("../faceProcessor/FaceProcessor");
-var FaceExpressions_1 = require("./FaceExpressions");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceFeatureExtractor_1 = require('../faceFeatureExtractor/FaceFeatureExtractor');
+var FaceProcessor_1 = require('../faceProcessor/FaceProcessor');
+var FaceExpressions_1 = require('./FaceExpressions');
 var FaceExpressionNet = /** @class */ (function (_super) {
   tslib_1.__extends(FaceExpressionNet, _super);
   function FaceExpressionNet(faceFeatureExtractor) {
     if (faceFeatureExtractor === void 0) {
       faceFeatureExtractor = new FaceFeatureExtractor_1.FaceFeatureExtractor();
     }
-    return _super.call(this, "FaceExpressionNet", faceFeatureExtractor) || this;
+    return _super.call(this, 'FaceExpressionNet', faceFeatureExtractor) || this;
   }
   FaceExpressionNet.prototype.forwardInput = function (input) {
     var _this = this;
@@ -92,7 +92,7 @@ var FaceExpressionNet = /** @class */ (function (_super) {
     });
   };
   FaceExpressionNet.prototype.getDefaultModelName = function () {
-    return "face_expression_model";
+    return 'face_expression_model';
   };
   FaceExpressionNet.prototype.getClassifierChannelsIn = function () {
     return 256;

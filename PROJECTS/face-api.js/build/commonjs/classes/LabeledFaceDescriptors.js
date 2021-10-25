@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 var LabeledFaceDescriptors = /** @class */ (function () {
   function LabeledFaceDescriptors(label, descriptors) {
-    if (!(typeof label === "string")) {
+    if (!(typeof label === 'string')) {
       throw new Error(
-        "LabeledFaceDescriptors - constructor expected label to be a string"
+        'LabeledFaceDescriptors - constructor expected label to be a string'
       );
     }
     if (
@@ -14,20 +14,20 @@ var LabeledFaceDescriptors = /** @class */ (function () {
       })
     ) {
       throw new Error(
-        "LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array"
+        'LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array'
       );
     }
     this._label = label;
     this._descriptors = descriptors;
   }
-  Object.defineProperty(LabeledFaceDescriptors.prototype, "label", {
+  Object.defineProperty(LabeledFaceDescriptors.prototype, 'label', {
     get: function () {
       return this._label;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(LabeledFaceDescriptors.prototype, "descriptors", {
+  Object.defineProperty(LabeledFaceDescriptors.prototype, 'descriptors', {
     get: function () {
       return this._descriptors;
     },

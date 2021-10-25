@@ -1,14 +1,14 @@
-const Stack = require("../..").DataStructures.Stack;
-import assert from "assert";
+const Stack = require('../..').DataStructures.Stack;
+import assert from 'assert';
 
-describe("Stack", () => {
-  it("starts empty", () => {
+describe('Stack', () => {
+  it('starts empty', () => {
     const s = new Stack();
     assert(s.isEmpty());
     assert.equal(s.length, 0);
   });
 
-  it("implements a LIFO logic", () => {
+  it('implements a LIFO logic', () => {
     const s = new Stack();
     s.push(1);
     s.push(2);
@@ -22,7 +22,7 @@ describe("Stack", () => {
   });
 
   it(
-    "allows me to peek at the top element in" + " the stack without popping it",
+    'allows me to peek at the top element in' + ' the stack without popping it',
     () => {
       const s = new Stack();
       s.push(1);

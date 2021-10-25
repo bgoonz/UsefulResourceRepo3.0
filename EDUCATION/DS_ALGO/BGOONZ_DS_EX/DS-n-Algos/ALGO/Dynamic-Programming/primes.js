@@ -1,6 +1,6 @@
 // Dynamic programming - primes
 
-"use strict";
+'use strict';
 {
   const memory = [2, 3, 5, 7];
 
@@ -15,7 +15,7 @@
 
   function nthPrime(n) {
     if (n < 0) {
-      throw new TypeError("N > 0");
+      throw new TypeError('N > 0');
     }
     if (n < 4) {
       return memory[n];

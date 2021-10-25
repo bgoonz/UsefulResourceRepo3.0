@@ -23,7 +23,7 @@ And lower bound is -(2^31 - 1)
 
 // SOLUTION-1 My solution
 const reverse = (x) => {
-  const reversedX = +Math.abs(x).toString().split("").reverse().join("");
+  const reversedX = +Math.abs(x).toString().split('').reverse().join('');
   return reversedX > 2147483647 ? 0 : x < 0 ? -reversedX : reversedX;
 };
 
@@ -119,9 +119,9 @@ const reverseNum = (x) => {
 
   if (x < 0) {
     // For this case, slice the string after the first "-" sign. Else I will get a NaN
-    result = -("" + x).slice(1).split("").reverse().join("");
+    result = -('' + x).slice(1).split('').reverse().join('');
   } else {
-    result = +("" + x).split("").reverse().join("");
+    result = +('' + x).split('').reverse().join('');
   }
 
   // In split() and join() I have to pass the delimiter of an empty string as '' - Else tit will be an error.

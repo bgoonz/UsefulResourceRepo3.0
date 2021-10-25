@@ -2,18 +2,18 @@
  * Module dependencies.
  */
 
-var express = require("../..");
-var path = require("path");
-var User = require("./user");
+var express = require('../..');
+var path = require('path');
+var User = require('./user');
 var app = express();
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // filter ferrets only
 
 function ferrets(user) {
-  return user.species === "ferret";
+  return user.species === 'ferret';
 }
 
 // naive nesting approach,
@@ -21,13 +21,13 @@ function ferrets(user) {
 // in order to expose the "count"
 // and "users" locals
 
-app.get("/", function (req, res, next) {
+app.get('/', function (req, res, next) {
   User.count(function (err, count) {
     if (err) return next(err);
     User.all(function (err, users) {
       if (err) return next(err);
-      res.render("index", {
-        title: "Users",
+      res.render('index', {
+        title: 'Users',
         count: count,
         users: users.filter(ferrets),
       });
@@ -56,9 +56,9 @@ function users(req, res, next) {
   });
 }
 
-app.get("/middleware", count, users, function (req, res, next) {
-  res.render("index", {
-    title: "Users",
+app.get('/middleware', count, users, function (req, res, next) {
+  res.render('index', {
+    title: 'Users',
     count: req.count,
     users: req.users.filter(ferrets),
   });
@@ -91,12 +91,12 @@ function users2(req, res, next) {
   });
 }
 
-app.get("/middleware-locals", count2, users2, function (req, res, next) {
+app.get('/middleware-locals', count2, users2, function (req, res, next) {
   // you can see now how we have much less
   // to pass to res.render(). If we have
   // several routes related to users this
   // can be a great productivity booster
-  res.render("index", { title: "Users" });
+  res.render('index', { title: 'Users' });
 });
 
 // keep in mind that middleware may be placed anywhere
@@ -143,5 +143,5 @@ app.all('/api/*', function(req, res, next){
 /* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
-  console.log("Express started on port 3000");
+  console.log('Express started on port 3000');
 }

@@ -9,9 +9,9 @@
  * Module dependencies.
  */
 
-var express = require("../..");
-var online = require("online");
-var redis = require("redis");
+var express = require('../..');
+var online = require('online');
+var redis = require('redis');
 var db = redis.createClient();
 
 // online
@@ -27,7 +27,7 @@ var app = express();
 
 app.use(function (req, res, next) {
   // fire-and-forget
-  online.add(req.headers["user-agent"]);
+  online.add(req.headers['user-agent']);
   next();
 });
 
@@ -37,13 +37,13 @@ app.use(function (req, res, next) {
 
 function list(ids) {
   return (
-    "<ul>" +
+    '<ul>' +
     ids
       .map(function (id) {
-        return "<li>" + id + "</li>";
+        return '<li>' + id + '</li>';
       })
-      .join("") +
-    "</ul>"
+      .join('') +
+    '</ul>'
   );
 }
 
@@ -51,15 +51,15 @@ function list(ids) {
  * GET users online.
  */
 
-app.get("/", function (req, res, next) {
+app.get('/', function (req, res, next) {
   online.last(5, function (err, ids) {
     if (err) return next(err);
-    res.send("<p>Users online: " + ids.length + "</p>" + list(ids));
+    res.send('<p>Users online: ' + ids.length + '</p>' + list(ids));
   });
 });
 
 /* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
-  console.log("Express started on port 3000");
+  console.log('Express started on port 3000');
 }

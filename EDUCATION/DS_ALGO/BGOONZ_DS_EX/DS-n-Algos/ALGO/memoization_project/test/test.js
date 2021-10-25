@@ -1,11 +1,11 @@
-const util = require("./util");
-const chai = require("chai");
+const util = require('./util');
+const chai = require('chai');
 const { expect } = chai;
 
-const { lucasNumberMemo, minChange } = require("../lib/problems");
+const { lucasNumberMemo, minChange } = require('../lib/problems');
 
-describe("lucasNumberMemo(n)", () => {
-  it("should calculate the n-th number of the lucas sequence", () => {
+describe('lucasNumberMemo(n)', () => {
+  it('should calculate the n-th number of the lucas sequence', () => {
     util.catchStackOverflow(lucasNumberMemo, 10);
 
     expect(lucasNumberMemo(0)).to.equal(2);
@@ -14,17 +14,17 @@ describe("lucasNumberMemo(n)", () => {
     expect(lucasNumberMemo(9)).to.equal(76);
   });
 
-  it("should use memoization", () => {
+  it('should use memoization', () => {
     util.catchStackOverflow(lucasNumberMemo, 10);
 
     let memo = {
-      key: "value",
+      key: 'value',
     };
-    expect(lucasNumberMemo("key", memo)).to.equal("value");
+    expect(lucasNumberMemo('key', memo)).to.equal('value');
   });
 
-  context("when the input is large", () => {
-    it("runtime should not grow exponentially", () => {
+  context('when the input is large', () => {
+    it('runtime should not grow exponentially', () => {
       util.catchStackOverflow(lucasNumberMemo, 10);
 
       expect(lucasNumberMemo(40)).to.equal(228826127);
@@ -34,8 +34,8 @@ describe("lucasNumberMemo(n)", () => {
   });
 });
 
-describe("minChange(coins, amount)", () => {
-  it("it should return the minimum number of coins needed to make the amount", () => {
+describe('minChange(coins, amount)', () => {
+  it('it should return the minimum number of coins needed to make the amount', () => {
     util.catchStackOverflow(minChange, [1, 2, 5], 11);
 
     expect(minChange([1, 2, 5], 11)).to.equal(3);
@@ -45,8 +45,8 @@ describe("minChange(coins, amount)", () => {
     expect(minChange([83, 186, 408, 419], 6249)).to.equal(20);
   });
 
-  context("when the input is large", () => {
-    it("runtime should not grow exponentially", () => {
+  context('when the input is large', () => {
+    it('runtime should not grow exponentially', () => {
       util.catchStackOverflow(minChange, [1, 2, 5], 11);
 
       expect(minChange([1, 5, 10, 25], 100)).to.equal(4);
@@ -54,6 +54,6 @@ describe("minChange(coins, amount)", () => {
   });
 });
 
-describe("Leet Code #518 - Coin Change 2", () => {
-  it("https://leetcode.com/problems/coin-change-2/");
+describe('Leet Code #518 - Coin Change 2', () => {
+  it('https://leetcode.com/problems/coin-change-2/');
 });

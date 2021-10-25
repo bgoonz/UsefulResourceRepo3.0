@@ -6,20 +6,20 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-var bodyParser = require("body-parser");
-var EventEmitter = require("events").EventEmitter;
-var mixin = require("merge-descriptors");
-var proto = require("./application");
-var Route = require("./router/route");
-var Router = require("./router");
-var req = require("./request");
-var res = require("./response");
+var bodyParser = require('body-parser');
+var EventEmitter = require('events').EventEmitter;
+var mixin = require('merge-descriptors');
+var proto = require('./application');
+var Route = require('./router/route');
+var Router = require('./router');
+var req = require('./request');
+var res = require('./response');
 
 /**
  * Expose `createApplication()`.
@@ -76,9 +76,9 @@ exports.Router = Router;
  */
 
 exports.json = bodyParser.json;
-exports.query = require("./middleware/query");
+exports.query = require('./middleware/query');
 exports.raw = bodyParser.raw;
-exports.static = require("serve-static");
+exports.static = require('serve-static');
 exports.text = bodyParser.text;
 exports.urlencoded = bodyParser.urlencoded;
 
@@ -87,32 +87,32 @@ exports.urlencoded = bodyParser.urlencoded;
  */
 
 var removedMiddlewares = [
-  "bodyParser",
-  "compress",
-  "cookieSession",
-  "session",
-  "logger",
-  "cookieParser",
-  "favicon",
-  "responseTime",
-  "errorHandler",
-  "timeout",
-  "methodOverride",
-  "vhost",
-  "csrf",
-  "directory",
-  "limit",
-  "multipart",
-  "staticCache",
+  'bodyParser',
+  'compress',
+  'cookieSession',
+  'session',
+  'logger',
+  'cookieParser',
+  'favicon',
+  'responseTime',
+  'errorHandler',
+  'timeout',
+  'methodOverride',
+  'vhost',
+  'csrf',
+  'directory',
+  'limit',
+  'multipart',
+  'staticCache',
 ];
 
 removedMiddlewares.forEach(function (name) {
   Object.defineProperty(exports, name, {
     get: function () {
       throw new Error(
-        "Most middleware (like " +
+        'Most middleware (like ' +
           name +
-          ") is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware."
+          ') is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.'
       );
     },
     configurable: true,

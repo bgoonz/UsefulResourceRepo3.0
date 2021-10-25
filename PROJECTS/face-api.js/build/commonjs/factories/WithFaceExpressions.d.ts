@@ -1,4 +1,4 @@
-import { FaceExpressions } from "../faceExpressionNet/FaceExpressions";
+import { FaceExpressions } from '../faceExpressionNet/FaceExpressions';
 export declare type WithFaceExpressions<TSource> = TSource & {
   expressions: FaceExpressions;
 };

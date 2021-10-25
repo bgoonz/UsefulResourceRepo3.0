@@ -1,14 +1,14 @@
 function getUsers() {
-  return fetch("https://jsonplaceholder.typicode.com/users", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
+  return fetch('https://jsonplaceholder.typicode.com/users', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
   }).then((res) => res.json());
 }
 
 function getUserPosts(userId) {
   return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
   }).then((res) => res.json());
 }
 

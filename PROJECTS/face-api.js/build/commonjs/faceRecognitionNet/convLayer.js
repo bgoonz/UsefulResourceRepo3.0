@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var scaleLayer_1 = require("./scaleLayer");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var scaleLayer_1 = require('./scaleLayer');
 function convLayer(x, params, strides, withRelu, padding) {
   if (padding === void 0) {
-    padding = "same";
+    padding = 'same';
   }
   var _a = params.conv,
     filters = _a.filters,
@@ -23,7 +23,7 @@ function convNoRelu(x, params) {
 }
 exports.convNoRelu = convNoRelu;
 function convDown(x, params) {
-  return convLayer(x, params, [2, 2], true, "valid");
+  return convLayer(x, params, [2, 2], true, 'valid');
 }
 exports.convDown = convDown;
 //# sourceMappingURL=convLayer.js.map

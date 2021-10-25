@@ -1,8 +1,8 @@
-const assert = require("assert");
-const chainMap = require("../problems/09-chain-map.js");
+const assert = require('assert');
+const chainMap = require('../problems/09-chain-map.js');
 
-describe("chainMap", () => {
-  it("", () => {
+describe('chainMap', () => {
+  it('', () => {
     let add5 = (n) => {
       return n + 5;
     };

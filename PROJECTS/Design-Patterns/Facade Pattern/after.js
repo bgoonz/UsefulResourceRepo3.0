@@ -1,9 +1,9 @@
 function getUsers() {
-  return getFetch("https://jsonplaceholder.typicode.com/users");
+  return getFetch('https://jsonplaceholder.typicode.com/users');
 }
 
 function getUserPosts(userId) {
-  return getFetch("https://jsonplaceholder.typicode.com/posts", {
+  return getFetch('https://jsonplaceholder.typicode.com/posts', {
     userId: userId,
   });
 }
@@ -30,7 +30,7 @@ getUsers().then((users) => {
 function getFetch(url, params = {}) {
   return axios({
     url: url,
-    method: "GET",
+    method: 'GET',
     params: params,
   }).then((res) => res.data);
 }

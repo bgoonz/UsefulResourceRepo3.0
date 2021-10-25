@@ -1,15 +1,15 @@
-const assert = require("assert ");
-const none = require("../problems/20-none.js ");
+const assert = require('assert ');
+const none = require('../problems/20-none.js ');
 
-describe("none", () => {
-  it("", () => {
-    let result1 = none(["ruby", "topaz", "opa l"], (w) => {
-      return w.includes("e");
+describe('none', () => {
+  it('', () => {
+    let result1 = none(['ruby', 'topaz', 'opa l'], (w) => {
+      return w.includes('e');
     });
     assert.equal(result1, true);
 
-    let result2 = none(["ruby", "topaz", "sapphire", "opal"], (w) => {
-      return w.includes("e");
+    let result2 = none(['ruby', 'topaz', 'sapphire', 'opal'], (w) => {
+      return w.includes('e');
     });
     assert.equal(result2, false);
 

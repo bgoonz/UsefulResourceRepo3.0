@@ -1,5 +1,5 @@
-import { Rect, TNetInput } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
+import { Rect, TNetInput } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
 /**
  * Extracts the image regions containing the detected faces.
  *
