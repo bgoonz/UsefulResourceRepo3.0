@@ -1,0 +1,10 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <h1>Cart</h1>
+  <ngcart-cart template-url="components/ngCart/cart.html"></ngcart-cart>
+
+  <h1>Checkout</h1>
+  <p class="help-block">{{ errors }}</p>
+  <ngcart-checkout service="http" settings="payPalSettings" template-url="components/ngCart/checkout.html">Checkout with PayPal</ngcart-checkout>
+</div>

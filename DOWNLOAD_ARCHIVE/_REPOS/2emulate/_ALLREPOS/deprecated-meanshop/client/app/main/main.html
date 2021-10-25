@@ -1,0 +1,20 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Meanshop</h1>
+    <p class="lead">A meaningful way of shopping</p>
+    <img src="assets/images/mean-cart.png" alt="meanshop cart">
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Featured Products</h1>
+      <div ng-include="'app/products/templates/products-list.html'"></div>
+      <a ui-sref="products">See all</a>
+    </div>
+  </div>
+</div>
+
