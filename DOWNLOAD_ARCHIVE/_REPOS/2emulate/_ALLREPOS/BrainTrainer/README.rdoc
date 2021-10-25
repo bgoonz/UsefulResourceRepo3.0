@@ -1,0 +1,5 @@
+== BrainTrainer 
+This application is a web app that aims to boost the calculation skills of the users through training and different levels in a form of a game. 
+
+It's still under active development, but it's already ready to use.
+Check it out at: http://braintrainer.adrianmejia.com

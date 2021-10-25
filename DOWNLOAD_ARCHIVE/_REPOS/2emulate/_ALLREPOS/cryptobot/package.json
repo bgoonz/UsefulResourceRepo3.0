@@ -1,0 +1,60 @@
+{
+  "name": "cryptobot",
+  "version": "4.2.0",
+  "description": "Cryptocurrency trading bot",
+  "main": "bin/cli.js",
+  "dependencies": {
+    "amqplib": "0.5.1",
+    "body-parser": "1.17.2",
+    "co": "4.6.0",
+    "commander": "2.11.0",
+    "d3": "4.11.0",
+    "debug": "amejiarosario/debug#hide-tty-date",
+    "express": "4.15.3",
+    "gdax": "amejiarosario/gdax-node#heartbeat",
+    "lodash": "4.17.4",
+    "moment": "2.18.1",
+    "mongodb": "2.2.30",
+    "morgan": "1.8.2",
+    "rxjs": "5.4.2",
+    "techan": "0.8.0",
+    "uuid": "3.1.0"
+  },
+  "devDependencies": {
+    "chai": "4.1.0",
+    "chalk": "2.1.0",
+    "husky": "0.14.3",
+    "mocha": "3.5.0",
+    "nyc": "11.1.0",
+    "sinon": "4.1.2",
+    "ws": "3.1.0"
+  },
+  "scripts": {
+    "start": "DEBUG=crybot:* node bin/cli ticker --provider gdax:BTC-USD,ETH-USD --modifier bufferTime:60000",
+    "preinstall": "npm install pm2 -g",
+    "precommit": "npm test",
+    "prepush": "npm run allTests",
+    "heroku": "DEBUG='crybot:*' DEBUG_DEPTH=6 DEBUG_HIDE_TTY_DATE=true heroku local",
+    "deploy": "git push heroku master && git push web master --no-verify",
+    "test": "ENV=test mocha --recursive 'lib/**/*spec.js'",
+    "allTests": "ENV=test nyc --reporter=html --reporter=text --reporter=text-summary --per-file --lines 80 mocha --bail lib/**/*spec.js test/e2e/{**/,}*{spec,e2e}.js",
+    "watch": "ENV=test mocha --recursive --watch 'lib/**/*spec.js'",
+    "e2e": "DEBUG='crybot:*' DEBUG_DEPTH=6 NODE_TLS_REJECT_UNAUTHORIZED=0 ENV=test mocha --recursive test/e2e/{**/,}*{spec,e2e}.js",
+    "we2e": "DEBUG='crybot:*' DEBUG_DEPTH=6 NODE_TLS_REJECT_UNAUTHORIZED=0 ENV=test mocha --recursive --watch test/e2e/{**/,}*{spec,e2e}.js",
+    "ce2e": "DEBUG='crybot:*' DEBUG_DEPTH=6 NODE_TLS_REJECT_UNAUTHORIZED=0 ENV=test nyc --reporter=html --reporter=text mocha --recursive test/e2e/{**/,}*{spec,e2e}.js",
+    "coverage": "nyc --reporter=html --reporter=text npm run test",
+    "simulator": "lsof -i -n -P | grep LISTEN | grep 5100 | awk 'NR==1 {print $2}' | xargs kill && ps aux | grep -E 'ticker|analyzer|ticker,web,analyzer|lib/web' | grep -v grep | awk 'NR==1 {print $2}' | xargs kill -9 && ENV=simulation DEBUG='crybot:*' DEBUG_DEPTH=6 mocha lib/simulator/*simulator.js",
+    "simulator-web": "ENV=simulation DEBUG='crybot:*' node lib/web"
+  },
+  "keywords": [],
+  "author": "Adrian Mejia <me@adrianmejia.com> (http://adrianmejia.com)",
+  "license": "ISC",
+  "engines": {
+    "node": "8.1.4",
+    "npm": "5.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git.heroku.com/crybot.git"
+  }
+}

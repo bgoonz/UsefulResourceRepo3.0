@@ -1,0 +1,77 @@
+/*
+Net Profit
+$ 18421.38
+1842.14 %
+
+Gross Loss
+$ 748.57
+74.86 %
+
+Commission Paid	$ 961.60
+
+*/
+//@version=2
+strategy("Daily Close Comparison Strategy (by ChartArt)", shorttitle = "weekly close", overlay = false, initial_capital = 1000, commission_type = strategy.commission.percent, commission_value = 0.25)
+
+threshold = input(title = "Price Difference Threshold", type = float, defval = 0, step = 0.00001)
+
+resolution = input('3D') // D, W, #minutes; ohlc = 1D; 3D the most profits
+
+getDiff() =>
+    yesterday = security(tickerid, resolution, close[1])
+    today = security(tickerid, resolution, close)
+    delta = today - yesterday
+    percentage = delta / yesterday
+
+closeDiff = getDiff()
+
+buying = closeDiff > threshold ? true : closeDiff < -threshold ? false : buying[1]
+
+hline(0, title = "zero line")
+
+bgcolor(buying ? green : red, transp = 90)
+
+plot(closeDiff, color = silver, style = area, transp = 10)
+plot(closeDiff, color = aqua, title = "prediction")
+
+longCondition = buying
+if (longCondition)
+    strategy.entry("Buy", strategy.long, 250)
+
+shortCondition = buying != true
+if (shortCondition)
+    strategy.entry("Sell", strategy.short, 250)
+
+
+/**
+//@version=2
+strategy("Daily Close Comparison Strategy (by ChartArt)", shorttitle="weekly close", overlay=false, initial_capital = 1000, commission_type = strategy.commission.percent, commission_value = 0.25, pyramiding=100)
+
+threshold = input(title="Price Difference Threshold", type=float, step=0.00001, defval=0.03)
+
+resolution = input('3D') // D, W, #minutes; ohlc = 1D; 3D the most profits
+
+getDiff() =>
+    yesterday=security(tickerid, resolution, close[1])
+    today=security(tickerid, resolution, close)
+    delta=today-yesterday
+    percentage=delta/yesterday
+
+closeDiff = getDiff()
+plot(closeDiff, color=silver, style=area, transp=10)
+plot(closeDiff, color=aqua, title="prediction")
+
+hline(0, title="zero line")
+bgcolor(closeDiff > threshold  ? green : (closeDiff < -threshold ? red : white), transp=90)
+
+// buying = closeDiff > threshold ? true : (closeDiff < -threshold ? false : buying[1])
+
+
+longCondition = closeDiff > threshold
+if (longCondition)
+    strategy.entry("Buy", strategy.long)
+
+shortCondition = closeDiff < -threshold
+if (shortCondition)
+    strategy.entry("Sell", strategy.short)
+ */

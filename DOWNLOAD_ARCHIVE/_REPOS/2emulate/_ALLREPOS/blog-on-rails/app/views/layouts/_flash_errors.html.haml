@@ -1,0 +1,6 @@
+- if flash[:error] and flash[:error].any?
+	#error_explanation
+		%h2= "#{pluralize(flash[:error].count, "error")} prohibited this data from being saved:"
+		%ul
+			- flash[:error].full_messages.each do |msg|
+				%li= msg

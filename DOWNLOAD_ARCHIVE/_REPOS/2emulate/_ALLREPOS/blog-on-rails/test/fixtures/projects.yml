@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company: 
+  start_date: 2012-03-22
+  end_date: 2012-03-22
+  description: MyText
+  technologies: MyString
+
+two:
+  company: 
+  start_date: 2012-03-22
+  end_date: 2012-03-22
+  description: MyText
+  technologies: MyString

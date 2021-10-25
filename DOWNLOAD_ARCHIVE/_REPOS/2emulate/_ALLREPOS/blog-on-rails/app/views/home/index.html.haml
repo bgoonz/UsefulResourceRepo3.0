@@ -1,0 +1,16 @@
+- content_for :title do
+	Home | Adrian Mejia's Website.
+
+%div.hero-unit
+	%h1 Hello World!
+	%p=raw "Here you can find #{link_to "articles", posts_path } (mostly related to technology and programming), projects and work experiences entries, ..."
+	=link_to "Read Articles", posts_path, :class=>"btn btn-primary btn-large"
+	
+- if @recent_posts.any?
+	%h2 Recents Posts:
+	%ul
+		- @recent_posts.each do |post|
+			%li= link_to "#{post.title}", post
+		%li=raw "#{link_to "...see more...", posts_path }"
+		
+		

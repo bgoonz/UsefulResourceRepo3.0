@@ -1,0 +1,8 @@
+= form.fields_for :tags do |tag_form| 
+  .field
+    = tag_form.label :name, 'Tag:' 
+    = tag_form.text_field :name 
+  - unless tag_form.object.nil? || tag_form.object.new_record?
+    .field
+      = tag_form.label :_destroy, 'Remove:'
+      = tag_form.check_box :_destroy

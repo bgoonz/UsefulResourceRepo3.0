@@ -1,0 +1,78 @@
+!!! html
+%html
+	%head
+		-# http://gradients.glrzad.com/ TODO use it
+		%meta(charset="utf-8")
+		%meta{name: "description", content: "#{content_for?(:meta_description) ? yield(:meta_description) : "Adrian Mejia's website and articles related to his work experiences in software engineering, web development, technologies, web frameworks and so on."}"}
+		%meta{name: "keywords", content: "#{content_for?(:meta_keywords) ? yield(:meta_keywords) : "software engineering, ruby on rails, ruby, java, blog, technology, internet, person"}"}
+		%title= content_for?(:title) ? yield(:title) : 'Adrian Mejia - Blog'
+		/ Le HTML5 shim, for IE6-8 support of HTML elements
+		/[if lt IE 9]
+			= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+		= stylesheet_link_tag "application", :media => "all"
+		=# stylesheet_link_tag "twitter/bootstrap"
+		=# stylesheet_link_tag "twitter/bootstrap-responsive"
+		= stylesheet_link_tag "bootstrap.min"
+		= stylesheet_link_tag "prettify"
+		= csrf_meta_tags
+		=raw '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+		= auto_discovery_link_tag(:rss, "/rss.xml", {:title => "RSS Feed"})
+		= content_for?(:stylesheets) ? yield(:stylesheets) : ""
+		
+	%body
+		%div.container
+			%header
+				%nav
+					%ul{:class => "nav nav-pills"}
+						%li{:class => active?(@title, "Home") }= link_to "Home", root_path
+						%li{:class => active?(@title, "Portfolio") }= link_to "Portfolio", portfolio_path
+						%li{:class => active?(yield(:title), "Blog") }= link_to "Blog", blog_path
+						%li{:class => active?(@title, "About") }= link_to "About", about_path
+						%li{:class => active?(@title, "Contact") }= link_to "Contact", contactme_path
+						- if signed_in?
+							%li{:class => active?(@title, "Admin") }= link_to "Admin", admin_index_path
+						- else
+							%li{:class => active?(@title, "Login") }= link_to "Login", login_path
+
+			%section.container-fluid#main-content
+				%div.row-fluid
+					%div.span9
+						-# <!--Body content-->
+						= yield
+					%div.span3
+						-# <!--Sidebar content-->
+						%nav
+							%ul{:class=>"nav nav-tabs nav-stacked"}
+								- if signed_in?
+									%li= link_to "Profile", current_user
+									%li= link_to "Create a Post", new_post_path
+									%li= link_to "View messages", contacts_path
+									%li -
+									%li= link_to "Logout", logout_path
+
+			
+			%footer
+				%hr
+				= "Copyright © 2011-#{Time.now.year} by "
+				= link_to "Adrian Mejia", "http://adrianmejia.com"
+				· All Rights Reserved.
+		
+			
+			- if Rails.env.development?
+				%hr
+				= debug(params) 			
+				%br
+				= debug(flash)
+				%br
+				=# debug(request.host)
+				=# debug(request.domain)
+				= debug(request.url)
+				= debug(request.remote_ip)
+				
+		=# javascript_include_tag "twitter/bootstrap"
+		= javascript_include_tag "application"
+		= javascript_include_tag "prettify"
+		= javascript_include_tag "bootstrap.min"
+		= render 'layouts/googleanalytics'
+		= content_for?(:javascripts) ? yield(:javascripts) : ""
+		

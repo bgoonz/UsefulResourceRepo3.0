@@ -1,0 +1,21 @@
+.color {
+  &-main {
+    color: $primary;
+  }
+
+  &-white {
+    color: $white;
+  }
+
+  &-light {
+    color: $light;
+  }
+
+  &-black {
+    color: $black;
+  }
+
+  &-destructive {
+    color: $destructive;
+  }
+}

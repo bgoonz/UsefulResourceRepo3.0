@@ -1,0 +1,13 @@
+{
+  "name": "carbon",
+  "type": "static",
+  "public": true,
+  "static": {
+    "rewrites": [
+      {
+        "source": "!/?(about)?(embed)",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

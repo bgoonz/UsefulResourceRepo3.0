@@ -16,6 +16,7 @@ seo:
       value: >-
         A reference for suggested typographic treatment and styles for your content
 
+
       keyName: property
     - name: 'og:image'
       value: images/5.jpg
@@ -28,6 +29,7 @@ seo:
     - name: 'twitter:description'
       value: >-
         A reference for suggested typographic treatment and styles for your content
+
 
     - name: 'twitter:image'
       value: images/5.jpg

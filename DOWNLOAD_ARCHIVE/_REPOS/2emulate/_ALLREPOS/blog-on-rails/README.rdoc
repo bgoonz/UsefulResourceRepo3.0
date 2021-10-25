@@ -1,0 +1,7 @@
+== Blog on Rails (Yabor)
+
+It's yet another blog implemented in Rails, some custom features are being developed for intelligent categorizing, easy theming, mailers, find related post automatically.
+
+Still in active development...
+
+http://yabor.adrianmejia.com (demo)

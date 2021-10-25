@@ -1,0 +1,14 @@
+= form.fields_for :operations, :html => { :class => 'form-horizontal' } do |f|
+	.control-group
+		= f.label :numbers, :class => 'control-label'
+		.controls
+			= f.text_area :numbers, :class => 'text_area', :rows => 3
+	.control-group
+		= f.label :operator, :class => 'control-label'
+		.controls
+			= f.text_field :operator, :class => 'text_field'
+	.control-group
+		= f.label :align, :class => 'control-label'
+		.controls
+			-# f.text_field :align, :class => 'text_field'
+			= f.select :align, [["horizontal","horizontal"],["vertical","vertical"]],  :class => 'text_field'

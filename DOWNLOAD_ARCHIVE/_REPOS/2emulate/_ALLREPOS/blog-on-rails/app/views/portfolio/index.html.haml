@@ -1,0 +1,13 @@
+- content_for :title do
+	Portfolio | projects, work experience and code.
+
+%p It's not ready yet... in the meantime you:
+%ul
+	%li=raw "Read the #{link_to "about", about_index_path } section."
+	%li=raw "Review my #{resume_link}." 
+	%li=raw "Check out my #{linkedin_link} profile."
+	%li=raw "View some projects I had work on in my spare time #{link_to "github repository", "https://github.com/amejiarosario"}."
+/	
+	%ul
+		%li= link_to "BrainTrainer", "http://braintrainer.adrianmejia.com"
+		

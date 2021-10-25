@@ -1,0 +1,8 @@
+<h1>post</h1>
+<section id="main">
+  <%- partial('_partial/article', {post: page, index: false}) %>
+</section>
+
+<% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+  <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+<% } %>

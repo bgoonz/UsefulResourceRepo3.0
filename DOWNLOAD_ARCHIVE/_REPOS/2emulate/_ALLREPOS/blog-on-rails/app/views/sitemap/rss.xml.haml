@@ -1,0 +1,20 @@
+!!! XML
+=raw '<?xml version="1.0" encoding="utf-8"?>'
+%rss{version: "2.0"}
+	%channel
+		%title Adrian Mejia's Website RSS
+		%description Adrian Mejia's website and articles related to his work experiences in software engineering, web development, technologies, web frameworks and so on.
+		%link= @base_url 
+		%lastBuildDate= @posts.last.updated_at.to_s(:rfc822) #strftime("%a, %d %b %Y %H:%M:%S %z")
+		%pubDate= Time.now.to_s(:rfc822)
+		%language en
+		/%ttl 1800
+		
+		- @posts.each do |post|
+			%item
+				%title= post.title
+				%link= "#{@base_url}#{url_for(post)}"
+				/%guid= url_for(post)
+				%pubDate= post.updated_at.strftime "%Y-%m-%d"
+				%description=raw "<![CDATA[#{post.content}]]>"
+				

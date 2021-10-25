@@ -1,0 +1,106 @@
+!!! 5
+%html(lang="en")
+	%head
+		%meta(charset="utf-8")
+		%meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		%title= content_for?(:title) ? yield(:title) : "BrainTrainer"
+		= csrf_meta_tags
+		/ Le HTML5 shim, for IE6-8 support of HTML elements
+		/[if lt IE 9]
+			= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+		= stylesheet_link_tag "application", :media => "all"
+		%link(href="assets/favicon.ico" rel="shortcut icon")
+		%link(href="images/apple-touch-icon.png" rel="apple-touch-icon")
+		%link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72")
+		%link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114")
+
+	%body
+		.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+					%a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+						%span.icon-bar
+						%span.icon-bar
+						%span.icon-bar
+					= link_to "BrainTrainer", root_path, class: "brand" #a.brand(href="/exercises") BrainTrainer
+					.container.nav-collapse
+						%ul.nav
+							%li= link_to "Train", exercises_path #home_train_path
+							/%li= link_to "Score", exercises_path #home_score_path TODO add score view and stats
+							%li= link_to "About", home_about_path
+						%ul.nav.pull-right
+							- if current_user
+								%li.dropdown
+									%a.dropdown-toggle{href: "#", "data-toggle" => "dropdown" }
+										%i.icon-user
+										= current_user.name || current_user.email
+										%b.caret
+									%ul.dropdown-menu
+										%li= link_to raw('<i class="icon-cog"></i> Profile'), current_user
+										%li= link_to raw('<i class="icon-signal"></i> Score'), "#"
+										%li.divider
+										%li= link_to raw('<i class="icon-off"></i> Logout'), logout_path
+							- else
+								%li= link_to "Login", login_path
+							-#%li.dropdown
+								
+
+		.container
+
+			.content
+				.row
+					.span9
+						-# E.g. redirect_to e, flash: { error: "You got #{user_rating}%, which is less than the 80% correct. Please try again.", notice: "fix it!", success: "Good job! (green)", info: ["info1", "Shown as blue"], other: ["other message shown as warning-yellow", "other one"], nada: "shown as warning-yellow" }
+						-if flash.any?
+							- flash.each do |klass, msg|
+								- clazz = (msg.include? "success")? "success" : klass
+								%div{class: "alert alert-#{clazz}"}
+									%a{class:"close", "data-dismiss" => "alert"}x
+									- if msg.respond_to? :each
+										%h2
+											%strong= "#{pluralize( msg.count, klass.to_s)}:"
+										%ul
+											- msg.each do |m|
+												%li= m
+									- else
+										%h2
+											%strong= msg					
+						= yield
+					.span3
+						.well.sidebar-nav-fixed{class: (admin?) ? "admin" : "non-admin" }
+							- if admin?
+								%h3 Sidebar
+								%ul.nav.nav-list
+									%li.nav-header Admin
+									%li= link_to "Exercises List", exercises_path
+									%li= link_to "Add Exercise", new_exercise_path
+									%li= link_to "Edit Users", users_path
+			%hr
+			%footer
+				= "Created by "																																													
+				= link_to "Adrian Mejia", "http://adrianmejia.com"
+				= "2012"
+
+				- if Rails.env.development?
+					%hr
+					= debug(params) 			
+					%br
+					= debug(flash)
+		/
+			Javascripts
+			\==================================================
+		/ Placed at the end of the document so the pages load faster
+		= javascript_include_tag "application"
+		%script{:type => "text/javascript"}
+			:plain
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-24183929-5']);
+				_gaq.push(['_trackPageview']);
+				_gaq.push(['_setDomainName', 'adrianmejia.com']);
+				_gaq.push(['_setSiteSpeedSampleRate', 100]);
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+

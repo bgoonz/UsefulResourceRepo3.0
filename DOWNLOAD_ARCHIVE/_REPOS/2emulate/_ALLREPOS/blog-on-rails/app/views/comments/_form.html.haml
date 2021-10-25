@@ -1,0 +1,9 @@
+= form_for([@post, @post.comments.build]) do |f|
+	.field
+		= f.label "Your comment:"
+		= f.text_area :body, rows: 5
+	.field
+		= f.label "Your name:"
+		= f.text_field :commenter
+	.actions
+		= f.submit

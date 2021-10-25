@@ -1,0 +1,21 @@
+#login-view
+	%aside
+		%h1 BrainTrainer
+		= image_tag "brain-cogs-300x225.png", alt: "BrainTrainer", width: "150"
+	
+	= form_tag sessions_path do
+		= label_tag :email
+		= email_field_tag :email, params[:email]
+		
+		= label_tag :password
+		= password_field_tag :password
+		
+		%br
+		%p=raw "New user? #{link_to "Sign up!", signup_path}"
+				
+		%br
+		= submit_tag "Login", class: "btn btn-primary"
+	.clear
+	%p=raw '&nbsp;'
+	
+	

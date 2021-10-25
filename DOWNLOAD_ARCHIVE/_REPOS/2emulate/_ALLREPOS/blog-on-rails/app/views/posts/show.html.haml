@@ -1,0 +1,32 @@
+- content_for :title do
+	= "#{@post.title} | Adrian Mejia's Blog"
+
+- content_for :meta_description do
+	= "#{truncate(strip_tags(@post.content),length: 160, omission: "...")}"
+
+- content_for :meta_keywords do
+	= "#{strip_tags(post_tags(@post))}"
+	
+%p#notice= notice
+= render "layouts/flash_errors"
+
+-if signed_in?
+	%div.pull-right=raw "#{link_to 'edit', edit_post_path(@post)} | #{link_to 'delete', @post, :confirm => 'Are you sure?', :method => :delete}"
+
+%h1= @post.title
+%p.details=raw "by #{@post.user.name} in #{l @post.created_at, format: :post} #{(l(@post.updated_at, format: :post) != l(@post.created_at, format: :post))? " and last update was in #{l @post.updated_at, format: :post}":"" }"
+%p=raw @post.content
+%b.tags Tags: 
+=raw post_tags(@post)
+
+%hr
+/%h2= "#{pluralize(@post.comments.length, "Comment")}"
+/= render @post.comments if @post.comments.exists?
+
+%hr
+%h2 Add a new comment
+=# render "comments/form"
+
+= render "comments/disqus"
+
+=# link_to 'Back', posts_path

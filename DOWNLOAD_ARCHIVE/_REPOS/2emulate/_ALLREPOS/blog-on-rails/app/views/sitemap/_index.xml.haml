@@ -1,0 +1,21 @@
+!!! XML
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+	- base_url = "http://#{request.host_with_port}"
+	- @posts.each do |post|
+		%url
+			%loc= "#{@base_url}#{url_for(post)}"
+			%lastmod= post.updated_at.strftime "%Y-%m-%d"
+			%changefreq monthly
+			%priority 0.9
+	- @tags.each do |tag|
+		%url
+			%loc= "#{@base_url}#{url_for(tag)}"
+			%lastmod= tag.updated_at.strftime "%Y-%m-%d"
+			%changefreq monthly
+			%priority 0.8
+	- @static.each do |static|
+		%url
+			%log= "#{@base_url}#{static}"
+			%lastmod= Time.now.strftime "%Y-%m-%d"
+			%changefreq monthly
+			%priority 0.7

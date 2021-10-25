@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid $border;
+
+  @keyframes header__rotate {
+    0% {
+      transform: rotate(0turn);
+    }
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+
+  &__logo {
+    --size: 42px;
+
+    position: relative;
+    margin: $gutter 0 $gutter/2;
+    width: var(--size);
+    height: var(--size);
+    background: $gradient;
+    border-radius: 100%;
+  }
+
+  &__spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 100%;
+    border-color: transparent;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    animation-name: header__rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &--visible {
+      opacity: 1;
+    }
+
+    &--white {
+      border-right-color: $white;
+      animation-duration: 0.5s;
+    }
+
+    &--black {
+      border-right-color: $black;
+      animation-duration: 1s;
+    }
+
+    &--primary {
+      border-right-color: $primary;
+      animation-duration: 1.2s;
+    }
+  }
+
+  &__button {
+    margin: 0 $gutter/1.5;
+    padding: $gutter/1.5 2px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 -2px 0 $light;
+    }
+
+    &.active {
+      box-shadow: inset 0 -2px 0 $primary;
+    }
+  }
+}

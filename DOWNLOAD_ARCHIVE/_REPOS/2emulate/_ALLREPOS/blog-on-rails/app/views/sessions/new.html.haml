@@ -1,0 +1,20 @@
+%p#notice= notice
+- if not flash[:error].nil?
+	%div#error_explanation
+		%h2= flash[:error]
+		
+%h1 Log in
+= form_for(:session, :url => sessions_path) do |f|
+	.field
+		= f.label :email
+		.input-prepend
+			-# # FIXME css hard-coded
+			%span{:class=>"add-on", :style=>"float:left;"} @ 
+			= f.text_field :email, :style=>'width:185px;'
+	.field
+		= f.label :password
+		= f.password_field :password
+	.action
+		= f.submit "Log in"
+
+%p=#raw "New User? #{link_to "Register", register_path}"

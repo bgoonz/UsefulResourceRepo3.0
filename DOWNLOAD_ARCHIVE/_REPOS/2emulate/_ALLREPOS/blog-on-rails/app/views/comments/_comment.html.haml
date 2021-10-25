@@ -1,0 +1,7 @@
+.comment
+	=# gravatar_image_tag comment.email, alt: comment.commenter
+	%b= comment.commenter
+	%p= comment.body
+
+-if signed_in?
+	= link_to 'delete', [comment.post, comment], confirm: 'R U sure?', method: :delete 

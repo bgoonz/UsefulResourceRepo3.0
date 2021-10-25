@@ -1,0 +1,16 @@
+- content_for :title do
+	Blog | articles about technology, programming, software development tips and experiences.
+	
+%h1 Articles
+
+- if @posts.empty?
+	%p No posts
+- else
+	- @posts.each do |post|
+		%article
+			%h2= link_to post.title, post
+			-# by #{link_to "#{post.user.name}", post.user} in
+			%p.details=raw "#{l post.created_at, format: :post}"
+			%p=raw truncate(strip_tags(post.content), length: 600, omission: "... #{link_to "Read more", post }")
+			%p.tags=raw "Tags: #{post_tags(post)}"
+			%p.comments= pluralize(post.comments.length, "comment") + "." if post.comments.length > 0

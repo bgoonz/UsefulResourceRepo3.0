@@ -1,0 +1,21 @@
+- @exercise.operations.build
+= form_for @exercise, :html => { :class => 'form-horizontal' } do |f|
+	.control-group
+		= f.label :no, :class => 'control-label'
+		.controls
+			= f.number_field :no, :class => 'number_field'
+	.control-group
+		= f.label :short_description, :class => 'control-label'
+		.controls
+			= f.text_field :short_description, :class => 'text_field'
+	.control-group
+		= f.label :long_description, :class => 'control-label'
+		.controls
+			= f.text_area :long_description, :class => 'text_area', rows: 3
+	
+	%h2 Operations:
+	= render partial: "operations/form", locals: {form: f}
+	
+	.form-actions
+		= f.submit nil, :class => 'btn btn-primary'
+		= link_to t('.cancel', :default => t("helpers.links.cancel")), exercises_path, :class => 'btn'
