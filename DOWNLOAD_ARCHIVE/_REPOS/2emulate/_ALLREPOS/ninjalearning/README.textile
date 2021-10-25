@@ -1,0 +1,68 @@
+h1. Ninja Learning
+
+Semantic eLearning resources manager
+
+h2. More Information
+
+Today there is a lot of online resources/information and tutorials out there. Online tutorials have some advantage over printed books. They are are updated constantly (some times daily), something that cannot be done in a printed book. However, in a book you can place a bookmark to know where you let off last time, but how do you do that online? and what about if you are reading many tutorials at the same time? You can use the bookmarks (or favorites) feature in your browser, but using the browser's bookmarks in time they will become a lot! and you will be confuse between the old, new ones and the one that are not for keeping track of your visited tutorials.
+
+Solution: an web app that allow you to keep track of your tutorial, make suggestions, collaborate, and received/send suggestions from friends, connect to social network and more...
+There is open-source software, open-hardware, open-information, distributed knowledge, why not an open and collaborative e-university??
+
+h2. Required Gems
+
+This application requires this gem:
+
+* "rails":http://rubygems.org/gems/rails
+
+h2. Dependencies
+
+To use this application, you will need:
+
+* The Ruby language (version 1.8.7 or 1.9.3)
+* Rails (version 3.2.6 or newer)
+
+"!https://gemnasium.com/amejiarosario/ninjalearning.png!":https://gemnasium.com/amejiarosario/ninjalearning
+
+h2. Installing the Application
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. Getting Started
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. Documentation and Support
+
+This is the only documentation.
+
+h4. Issues
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Code Analysis: "!https://codeclimate.com/badge.png!":https://codeclimate.com/github/amejiarosario/ninjalearning
+
+Tests: "!https://secure.travis-ci.org/amejiarosario/ninjalearning.png!":http://travis-ci.org/amejiarosario/ninjalearning
+
+h2. Similar Projects
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. Contributing
+
+If you make improvements to this application, please share with others.
+
+* Fork the project on GitHub.
+* Make your feature addition or bug fix.
+* Commit with Git.
+* Send the author a pull request.
+
+If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
+
+h2. Credits
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. License
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.

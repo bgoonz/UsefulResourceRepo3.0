@@ -1,0 +1,12 @@
+%h3 Add Learning Content
+%ul.nav.nav-list
+- @lu = LearningUnit.new
+= form_for @lu, html: {class: 'form-horizontal'} do |f|
+	.control-group
+		= f.label :url, class: 'control-label'
+		.controls
+			= f.text_field :url, class: 'text-field input-xlarge'
+	.control-group
+		= f.label :file_upload, class: 'control-label'
+		.controls
+			= f.file_field :file_upload, class: 'file-upload input-file' 

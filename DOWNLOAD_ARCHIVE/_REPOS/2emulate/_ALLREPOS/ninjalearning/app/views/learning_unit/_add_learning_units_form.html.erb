@@ -1,0 +1,26 @@
+<% @lu = LearningUnit.new %>
+
+<h3>Add Learning Content</h3>
+
+<ul class="nav nav-list">
+	<%= form_for @lu do |f| %>
+		
+		<div class="control-group">
+			<li class="nav-header"><%= f.label :url, "Add Url", class: 'control-label' %></li>
+			<div class="controls">
+				<%= f.text_field :url, class: 'text-field', placeholder: 'e.g. http://adrianmejia.com' %>	
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<li class="nav-header"><%= f.label :file, "Upload File", class: 'control-label' %></li>
+			<div class="control">
+				<%= f.file_field :file, class: 'file-upload input-file' %>
+			</div>
+		</div>
+		
+	<% end %>
+	
+</ul>
+
+
