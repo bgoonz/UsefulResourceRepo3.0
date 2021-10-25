@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Returns true if object is an iterator
@@ -8,5 +8,5 @@
  * @return {boolean}
  */
 export default function isIterator(obj) {
-  return obj && typeof obj.next === "function";
+  return obj && typeof obj.next === 'function';
 }

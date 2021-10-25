@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 var traverse = (module.exports = function (schema, opts, cb) {
   // Legacy support for v0.3.1 and earlier.
-  if (typeof opts == "function") {
+  if (typeof opts == 'function') {
     cb = opts;
     opts = {};
   }
 
   cb = opts.cb || cb;
-  var pre = typeof cb == "function" ? cb : cb.pre || function () {};
+  var pre = typeof cb == 'function' ? cb : cb.pre || function () {};
   var post = cb.post || function () {};
 
-  _traverse(opts, pre, post, schema, "", schema);
+  _traverse(opts, pre, post, schema, '', schema);
 });
 
 traverse.keywords = {
@@ -70,7 +70,7 @@ function _traverse(
   parentSchema,
   keyIndex
 ) {
-  if (schema && typeof schema == "object" && !Array.isArray(schema)) {
+  if (schema && typeof schema == 'object' && !Array.isArray(schema)) {
     pre(
       schema,
       jsonPtr,
@@ -90,7 +90,7 @@ function _traverse(
               pre,
               post,
               sch[i],
-              jsonPtr + "/" + key + "/" + i,
+              jsonPtr + '/' + key + '/' + i,
               rootSchema,
               jsonPtr,
               key,
@@ -99,14 +99,14 @@ function _traverse(
             );
         }
       } else if (key in traverse.propsKeywords) {
-        if (sch && typeof sch == "object") {
+        if (sch && typeof sch == 'object') {
           for (var prop in sch)
             _traverse(
               opts,
               pre,
               post,
               sch[prop],
-              jsonPtr + "/" + key + "/" + escapeJsonPtr(prop),
+              jsonPtr + '/' + key + '/' + escapeJsonPtr(prop),
               rootSchema,
               jsonPtr,
               key,
@@ -123,7 +123,7 @@ function _traverse(
           pre,
           post,
           sch,
-          jsonPtr + "/" + key,
+          jsonPtr + '/' + key,
           rootSchema,
           jsonPtr,
           key,
@@ -144,5 +144,5 @@ function _traverse(
 }
 
 function escapeJsonPtr(str) {
-  return str.replace(/~/g, "~0").replace(/\//g, "~1");
+  return str.replace(/~/g, '~0').replace(/\//g, '~1');
 }

@@ -19,10 +19,10 @@ function PermutationStep(num) {
     }
     return permArr;
   }
-  permute(String(num).split(""));
+  permute(String(num).split(''));
 
   for (var i = 0; i < permArr.length; i++) {
-    permArr[i] = Number(permArr[i].join(""));
+    permArr[i] = Number(permArr[i].join(''));
   }
 
   permArr = permArr.sort(function (a, b) {

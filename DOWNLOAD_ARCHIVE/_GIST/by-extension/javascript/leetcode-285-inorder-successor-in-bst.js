@@ -1,6 +1,6 @@
 // 4.6. Follow up - Successor: Write an algorithm to find the "next" node (i.e., in-order successor)
 // of a given node in a BST. Node do not have a link to its parent.
-import { BinaryTree } from "../helpers/tree.js";
+import { BinaryTree } from '../helpers/tree.js';
 
 const inorderSuccessor = (root, p) => {
   if (!p) return null;

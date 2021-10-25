@@ -3,7 +3,7 @@ function StringScramble(str1, str2) {
     if (str1.indexOf(str2[i]) === -1) {
       return false;
     } else {
-      str1 = str1.replace(str2[i], "");
+      str1 = str1.replace(str2[i], '');
     }
   }
 

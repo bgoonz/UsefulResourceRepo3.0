@@ -1,6 +1,6 @@
 let player = {
-  name: "Bryan",
-  skill: "hockey",
+  name: 'Bryan',
+  skill: 'hockey',
 };
 for (let key in player) {
   console.log(key, player[key]);

@@ -1,10 +1,10 @@
 // Step-by-step
 function LookSaySequence(num) {
   // First, we create a result variable to hold the string we're going to return
-  var result = "";
+  var result = '';
   // Appending an empty string to our input number type coerces it into a string
   // This allows us to add numbers to it without JavaScript thinking we want to perform arithmetic
-  num = num + "";
+  num = num + '';
   // Next, we create variables to hold our current number (intializing it to the first number in the sequence) and a counter variable to capture how many times the number has been repeated
   var currentNum = num[0];
   var counter = 1;
@@ -33,8 +33,8 @@ function LookSaySequence(num) {
 
 // No comments
 function LookSaySequence(num) {
-  var result = "";
-  num = num + "";
+  var result = '';
+  num = num + '';
   var currentNum = num[0];
   var counter = 1;
   for (var i = 1; i < num.length; i++) {

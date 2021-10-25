@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Returns an array of [key, value] pairs for the given object (just like
@@ -7,5 +7,5 @@
  * @param {Object} obj
  * @return {!Array}
  */
-import items from "lodash/object/pairs";
+import items from 'lodash/object/pairs';
 export default items;

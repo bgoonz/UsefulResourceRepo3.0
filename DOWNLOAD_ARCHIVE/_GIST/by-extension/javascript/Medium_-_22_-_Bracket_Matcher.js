@@ -3,9 +3,9 @@ function BracketMatcher(str) {
   var rightCount = 0;
 
   for (var i = 0; i < str.length; i++) {
-    if (str[i] == "(") {
+    if (str[i] == '(') {
       leftCount++;
-    } else if (str[i] == ")") {
+    } else if (str[i] == ')') {
       rightCount++;
     }
     if (rightCount > leftCount) {

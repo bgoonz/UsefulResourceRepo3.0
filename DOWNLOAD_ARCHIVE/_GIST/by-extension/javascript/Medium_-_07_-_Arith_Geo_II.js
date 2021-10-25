@@ -19,9 +19,9 @@ function ArithGeoII(arr) {
   }
 
   if (arithFlag) {
-    return "Arithmetic";
+    return 'Arithmetic';
   } else if (geoFlag) {
-    return "Geometric";
+    return 'Geometric';
   } else {
     return -1;
   }

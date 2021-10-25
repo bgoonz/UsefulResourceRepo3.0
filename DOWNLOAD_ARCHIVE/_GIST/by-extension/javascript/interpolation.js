@@ -1,4 +1,4 @@
-let keyName = "two";
+let keyName = 'two';
 // If the key is not known, you can use an alternative `[]` syntax for
 // object initialization only
 let obj2 = {

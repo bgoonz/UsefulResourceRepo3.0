@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
 /**
  * @fileoverview Identifies polyfills and transforms that should not be present if using module/nomodule pattern.
@@ -18,15 +18,15 @@
 /** @typedef {LH.Audit.ByteEfficiencyItem & {subItems: {type: 'subitems', items: SubItem[]}}} Item */
 /** @typedef {{signal: string, location: LH.Audit.Details.SourceLocationValue}} SubItem */
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const JsBundles = require("../../computed/js-bundles.js");
-const i18n = require("../../lib/i18n/i18n.js");
-const thirdPartyWeb = require("../../lib/third-party-web.js");
-const NetworkAnalyzer = require("../../lib/dependency-graph/simulator/network-analyzer.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const JsBundles = require('../../computed/js-bundles.js');
+const i18n = require('../../lib/i18n/i18n.js');
+const thirdPartyWeb = require('../../lib/third-party-web.js');
+const NetworkAnalyzer = require('../../lib/dependency-graph/simulator/network-analyzer.js');
 
 const UIStrings = {
   /** Title of a Lighthouse audit that tells the user about legacy polyfills and transforms used on the page. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Avoid serving legacy JavaScript to modern browsers",
+  title: 'Avoid serving legacy JavaScript to modern browsers',
   // eslint-disable-next-line max-len
   // TODO: web.dev article. this codelab is good starting place: https://web.dev/codelab-serve-modern-code/
   /** Description of a Lighthouse audit that tells the user about old JavaScript that is no longer needed. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
@@ -47,8 +47,8 @@ class CodePatternMatcher {
   constructor(patterns) {
     const patternsExpression = patterns
       .map((pattern) => `(${pattern.expression})`)
-      .join("|");
-    this.re = new RegExp(`(^\r\n|\r|\n)|${patternsExpression}`, "g");
+      .join('|');
+    this.re = new RegExp(`(^\r\n|\r|\n)|${patternsExpression}`, 'g');
     this.patterns = patterns;
   }
 
@@ -109,17 +109,17 @@ class LegacyJavascript extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "legacy-javascript",
+      id: 'legacy-javascript',
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       description: str_(UIStrings.description),
       title: str_(UIStrings.title),
       requiredArtifacts: [
-        "devtoolsLogs",
-        "traces",
-        "ScriptElements",
-        "SourceMaps",
-        "GatherContext",
-        "URL",
+        'devtoolsLogs',
+        'traces',
+        'ScriptElements',
+        'SourceMaps',
+        'GatherContext',
+        'URL',
       ],
     };
   }
@@ -131,7 +131,7 @@ class LegacyJavascript extends ByteEfficiencyAudit {
   static buildPolyfillExpression(object, property) {
     const qt = (/** @type {string} */ token) => `['"]${token}['"]`; // don't worry about matching string delims
 
-    let expression = "";
+    let expression = '';
 
     if (object) {
       // String.prototype.startsWith =
@@ -149,11 +149,11 @@ class LegacyJavascript extends ByteEfficiencyAudit {
     }
 
     // Object.defineProperty(String.prototype, 'startsWith'
-    expression += `|defineProperty\\(${object || "window"},\\s?${qt(property)}`;
+    expression += `|defineProperty\\(${object || 'window'},\\s?${qt(property)}`;
 
     // core-js
     if (object) {
-      const objectWithoutPrototype = object.replace(".prototype", "");
+      const objectWithoutPrototype = object.replace('.prototype', '');
       // e(e.S,"Object",{values
       // Minified + mangled pattern found in CDN babel-polyfill.
       // see https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js
@@ -180,73 +180,73 @@ class LegacyJavascript extends ByteEfficiencyAudit {
 
   static getPolyfillData() {
     return [
-      ["Array.prototype.fill", "es6.array.fill"],
-      ["Array.prototype.filter", "es6.array.filter"],
-      ["Array.prototype.find", "es6.array.find"],
-      ["Array.prototype.findIndex", "es6.array.find-index"],
-      ["Array.prototype.forEach", "es6.array.for-each"],
-      ["Array.from", "es6.array.from"],
-      ["Array.isArray", "es6.array.is-array"],
-      ["Array.prototype.map", "es6.array.map"],
-      ["Array.of", "es6.array.of"],
-      ["Array.prototype.reduce", "es6.array.reduce"],
-      ["Array.prototype.reduceRight", "es6.array.reduce-right"],
-      ["Array.prototype.some", "es6.array.some"],
-      ["Date.now", "es6.date.now"],
-      ["Date.prototype.toISOString", "es6.date.to-iso-string"],
-      ["Date.prototype.toJSON", "es6.date.to-json"],
-      ["Date.prototype.toString", "es6.date.to-string"],
-      ["Function.prototype.name", "es6.function.name"],
-      ["Number.isInteger", "es6.number.is-integer"],
-      ["Number.isSafeInteger", "es6.number.is-safe-integer"],
-      ["Number.parseInt", "es6.number.parse-int"],
-      ["Object.defineProperties", "es6.object.define-properties"],
-      ["Object.defineProperty", "es6.object.define-property"],
-      ["Object.freeze", "es6.object.freeze"],
-      ["Object.getOwnPropertyNames", "es6.object.get-own-property-names"],
-      ["Object.getPrototypeOf", "es6.object.get-prototype-of"],
-      ["Object.isExtensible", "es6.object.is-extensible"],
-      ["Object.isFrozen", "es6.object.is-frozen"],
-      ["Object.isSealed", "es6.object.is-sealed"],
-      ["Object.keys", "es6.object.keys"],
-      ["Object.preventExtensions", "es6.object.prevent-extensions"],
-      ["Object.seal", "es6.object.seal"],
-      ["Object.setPrototypeOf", "es6.object.set-prototype-of"],
-      ["Reflect.apply", "es6.reflect.apply"],
-      ["Reflect.construct", "es6.reflect.construct"],
-      ["Reflect.defineProperty", "es6.reflect.define-property"],
-      ["Reflect.deleteProperty", "es6.reflect.delete-property"],
-      ["Reflect.get", "es6.reflect.get"],
+      ['Array.prototype.fill', 'es6.array.fill'],
+      ['Array.prototype.filter', 'es6.array.filter'],
+      ['Array.prototype.find', 'es6.array.find'],
+      ['Array.prototype.findIndex', 'es6.array.find-index'],
+      ['Array.prototype.forEach', 'es6.array.for-each'],
+      ['Array.from', 'es6.array.from'],
+      ['Array.isArray', 'es6.array.is-array'],
+      ['Array.prototype.map', 'es6.array.map'],
+      ['Array.of', 'es6.array.of'],
+      ['Array.prototype.reduce', 'es6.array.reduce'],
+      ['Array.prototype.reduceRight', 'es6.array.reduce-right'],
+      ['Array.prototype.some', 'es6.array.some'],
+      ['Date.now', 'es6.date.now'],
+      ['Date.prototype.toISOString', 'es6.date.to-iso-string'],
+      ['Date.prototype.toJSON', 'es6.date.to-json'],
+      ['Date.prototype.toString', 'es6.date.to-string'],
+      ['Function.prototype.name', 'es6.function.name'],
+      ['Number.isInteger', 'es6.number.is-integer'],
+      ['Number.isSafeInteger', 'es6.number.is-safe-integer'],
+      ['Number.parseInt', 'es6.number.parse-int'],
+      ['Object.defineProperties', 'es6.object.define-properties'],
+      ['Object.defineProperty', 'es6.object.define-property'],
+      ['Object.freeze', 'es6.object.freeze'],
+      ['Object.getOwnPropertyNames', 'es6.object.get-own-property-names'],
+      ['Object.getPrototypeOf', 'es6.object.get-prototype-of'],
+      ['Object.isExtensible', 'es6.object.is-extensible'],
+      ['Object.isFrozen', 'es6.object.is-frozen'],
+      ['Object.isSealed', 'es6.object.is-sealed'],
+      ['Object.keys', 'es6.object.keys'],
+      ['Object.preventExtensions', 'es6.object.prevent-extensions'],
+      ['Object.seal', 'es6.object.seal'],
+      ['Object.setPrototypeOf', 'es6.object.set-prototype-of'],
+      ['Reflect.apply', 'es6.reflect.apply'],
+      ['Reflect.construct', 'es6.reflect.construct'],
+      ['Reflect.defineProperty', 'es6.reflect.define-property'],
+      ['Reflect.deleteProperty', 'es6.reflect.delete-property'],
+      ['Reflect.get', 'es6.reflect.get'],
       [
-        "Reflect.getOwnPropertyDescriptor",
-        "es6.reflect.get-own-property-descriptor",
+        'Reflect.getOwnPropertyDescriptor',
+        'es6.reflect.get-own-property-descriptor',
       ],
-      ["Reflect.getPrototypeOf", "es6.reflect.get-prototype-of"],
-      ["Reflect.has", "es6.reflect.has"],
-      ["Reflect.isExtensible", "es6.reflect.is-extensible"],
-      ["Reflect.ownKeys", "es6.reflect.own-keys"],
-      ["Reflect.preventExtensions", "es6.reflect.prevent-extensions"],
-      ["Reflect.setPrototypeOf", "es6.reflect.set-prototype-of"],
-      ["String.prototype.codePointAt", "es6.string.code-point-at"],
-      ["String.fromCodePoint", "es6.string.from-code-point"],
-      ["String.raw", "es6.string.raw"],
-      ["String.prototype.repeat", "es6.string.repeat"],
-      ["Array.prototype.includes", "es7.array.includes"],
-      ["Object.entries", "es7.object.entries"],
+      ['Reflect.getPrototypeOf', 'es6.reflect.get-prototype-of'],
+      ['Reflect.has', 'es6.reflect.has'],
+      ['Reflect.isExtensible', 'es6.reflect.is-extensible'],
+      ['Reflect.ownKeys', 'es6.reflect.own-keys'],
+      ['Reflect.preventExtensions', 'es6.reflect.prevent-extensions'],
+      ['Reflect.setPrototypeOf', 'es6.reflect.set-prototype-of'],
+      ['String.prototype.codePointAt', 'es6.string.code-point-at'],
+      ['String.fromCodePoint', 'es6.string.from-code-point'],
+      ['String.raw', 'es6.string.raw'],
+      ['String.prototype.repeat', 'es6.string.repeat'],
+      ['Array.prototype.includes', 'es7.array.includes'],
+      ['Object.entries', 'es7.object.entries'],
       [
-        "Object.getOwnPropertyDescriptors",
-        "es7.object.get-own-property-descriptors",
+        'Object.getOwnPropertyDescriptors',
+        'es7.object.get-own-property-descriptors',
       ],
-      ["Object.values", "es7.object.values"],
+      ['Object.values', 'es7.object.values'],
     ].map((data) => {
       const [name, coreJs2Module] = data;
       return {
         name,
         coreJs2Module,
         coreJs3Module: coreJs2Module
-          .replace("es6.", "es.")
-          .replace("es7.", "es.")
-          .replace("typed.", "typed-array."),
+          .replace('es6.', 'es.')
+          .replace('es7.', 'es.')
+          .replace('typed.', 'typed-array.'),
       };
     });
   }
@@ -256,9 +256,9 @@ class LegacyJavascript extends ByteEfficiencyAudit {
    */
   static getPolyfillPatterns() {
     return this.getPolyfillData().map(({ name }) => {
-      const parts = name.split(".");
+      const parts = name.split('.');
       const object =
-        parts.length > 1 ? parts.slice(0, parts.length - 1).join(".") : null;
+        parts.length > 1 ? parts.slice(0, parts.length - 1).join('.') : null;
       const property = parts[parts.length - 1];
       return {
         name,
@@ -273,23 +273,23 @@ class LegacyJavascript extends ByteEfficiencyAudit {
   static getTransformPatterns() {
     return [
       {
-        name: "@babel/plugin-transform-classes",
-        expression: "Cannot call a class as a function",
+        name: '@babel/plugin-transform-classes',
+        expression: 'Cannot call a class as a function',
         estimateBytes: (result) =>
-          150 + result.count * "_classCallCheck()".length,
+          150 + result.count * '_classCallCheck()'.length,
       },
       {
-        name: "@babel/plugin-transform-regenerator",
+        name: '@babel/plugin-transform-regenerator',
         expression: /regeneratorRuntime\.a?wrap/.source,
         // Example of this transform: https://gist.github.com/connorjclark/af8bccfff377ac44efc104a79bc75da2
         // `regeneratorRuntime.awrap` is generated for every usage of `await`, and adds ~80 bytes each.
         estimateBytes: (result) => result.count * 80,
       },
       {
-        name: "@babel/plugin-transform-spread",
+        name: '@babel/plugin-transform-spread',
         expression: /\.apply\(void 0,\s?_toConsumableArray/.source,
         estimateBytes: (result) =>
-          1169 + result.count * "_toConsumableArray()".length,
+          1169 + result.count * '_toConsumableArray()'.length,
       },
     ];
   }
@@ -361,12 +361,12 @@ class LegacyJavascript extends ByteEfficiencyAudit {
    */
   static estimateWastedBytes(matches) {
     // Split up results based on polyfill / transform. Only transforms start with @.
-    const polyfillResults = matches.filter((m) => !m.name.startsWith("@"));
-    const transformResults = matches.filter((m) => m.name.startsWith("@"));
+    const polyfillResults = matches.filter((m) => !m.name.startsWith('@'));
+    const transformResults = matches.filter((m) => m.name.startsWith('@'));
 
     let estimatedWastedBytesFromPolyfills = 0;
     /** @type {import('../../scripts/legacy-javascript/create-polyfill-size-estimation.js').PolyfillSizeEstimator} */
-    const graph = require("./polyfill-graph-data.json");
+    const graph = require('./polyfill-graph-data.json');
     const modulesSeen = new Set();
     for (const result of polyfillResults) {
       const modules = graph.dependencies[result.name];
@@ -441,7 +441,7 @@ class LegacyJavascript extends ByteEfficiencyAudit {
       const transferSize = ByteEfficiencyAudit.estimateTransferSize(
         networkRecord,
         contentLength,
-        "Script"
+        'Script'
       );
       transferRatio = transferSize / contentLength;
     }
@@ -462,7 +462,7 @@ class LegacyJavascript extends ByteEfficiencyAudit {
     if (!entry) return;
 
     return {
-      file: entry.sourceURL || "",
+      file: entry.sourceURL || '',
       line: entry.sourceLineNumber || 0,
       column: entry.sourceColumnNumber || 0,
     };
@@ -510,7 +510,7 @@ class LegacyJavascript extends ByteEfficiencyAudit {
         url,
         wastedBytes,
         subItems: {
-          type: "subitems",
+          type: 'subitems',
           items: [],
         },
         // Not needed, but keeps typescript happy.
@@ -525,13 +525,13 @@ class LegacyJavascript extends ByteEfficiencyAudit {
         const subItem = {
           signal: name,
           location: {
-            type: "source-location",
+            type: 'source-location',
             url,
             line,
             column,
             original:
               bundle && this._findOriginalLocation(bundle, line, column),
-            urlProvider: "network",
+            urlProvider: 'network',
           },
         };
         item.subItems.items.push(subItem);
@@ -552,20 +552,20 @@ class LegacyJavascript extends ByteEfficiencyAudit {
     const headings = [
       /* eslint-disable max-len */
       {
-        key: "url",
-        valueType: "url",
-        subItemsHeading: { key: "location", valueType: "source-location" },
+        key: 'url',
+        valueType: 'url',
+        subItemsHeading: { key: 'location', valueType: 'source-location' },
         label: str_(i18n.UIStrings.columnURL),
       },
       {
         key: null,
-        valueType: "code",
-        subItemsHeading: { key: "signal" },
-        label: "",
+        valueType: 'code',
+        subItemsHeading: { key: 'signal' },
+        label: '',
       },
       {
-        key: "wastedBytes",
-        valueType: "bytes",
+        key: 'wastedBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnWastedBytes),
       },
       /* eslint-enable max-len */

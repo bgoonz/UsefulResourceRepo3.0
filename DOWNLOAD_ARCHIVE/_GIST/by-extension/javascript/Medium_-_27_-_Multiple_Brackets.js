@@ -5,18 +5,18 @@ function MultipleBrackets(str) {
   var rightBCount = 0;
 
   for (var i = 0; i <= str.length; i++) {
-    if (str[i] == "(") {
+    if (str[i] == '(') {
       leftPCount++;
-    } else if (str[i] == ")") {
+    } else if (str[i] == ')') {
       rightPCount++;
     }
     if (rightPCount > leftPCount) {
       return 0;
     }
 
-    if (str[i] == "[") {
+    if (str[i] == '[') {
       leftBCount++;
-    } else if (str[i] == "]") {
+    } else if (str[i] == ']') {
       rightBCount++;
     }
     if (rightBCount > leftBCount) {
@@ -25,7 +25,7 @@ function MultipleBrackets(str) {
   }
 
   if (leftPCount == rightPCount && leftBCount == rightBCount) {
-    return "1 " + (leftPCount + leftBCount);
+    return '1 ' + (leftPCount + leftBCount);
   }
   return 0;
 }

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -8,12 +8,12 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.state.liked) {
-      return "You liked this.";
+      return 'You liked this.';
     }
 
     return <button onClick={() => this.setState({ liked: true })}>Like</button>;
   }
 }
 
-let domContainer = document.querySelector("#like_button_container");
+let domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(<LikeButton />, domContainer);

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Returns true if object implement the @@iterator method.
@@ -8,5 +8,5 @@
  * @return {boolean}
  */
 export default function isIterable(obj) {
-  return typeof obj[Symbol.iterator] === "function";
+  return typeof obj[Symbol.iterator] === 'function';
 }

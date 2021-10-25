@@ -1,13 +1,13 @@
-var auto = require("run-auto");
-var escapeStringRegexp = require("escape-string-regexp");
-var model = require("../model");
-var values = require("object-values");
+var auto = require('run-auto');
+var escapeStringRegexp = require('escape-string-regexp');
+var model = require('../model');
+var values = require('object-values');
 
 var MAX_RESULTS = 8;
 var MAX_QUERY_LENGTH = 255; // prevent mongoDB exceptions
 
 module.exports = function (app) {
-  app.get("/autocomplete", function (req, res, next) {
+  app.get('/autocomplete', function (req, res, next) {
     var q = req.query.q;
 
     autocomplete(q, function (err, results) {
@@ -21,7 +21,7 @@ module.exports = function (app) {
 };
 
 function autocomplete(query, cb) {
-  query = (query || "").trim();
+  query = (query || '').trim();
 
   if (query.length >= MAX_QUERY_LENGTH) return cb(null, []);
 
@@ -34,25 +34,25 @@ function autocomplete(query, cb) {
             { searchName: regexForQuery(query) },
           ],
         })
-          .sort("-hits")
+          .sort('-hits')
           .limit(MAX_RESULTS)
-          .select("name hits")
+          .select('name hits')
           .exec(cb);
       },
 
       notes(cb) {
         model.Note.find({ name: regexForQuery(query), published: true })
-          .sort("-hits")
+          .sort('-hits')
           .limit(MAX_RESULTS)
-          .select("name hits course notetype")
+          .select('name hits course notetype')
           .exec(cb);
       },
 
       users(cb) {
         model.User.find({ name: regexForQuery(query), hits: { $gte: 1000 } })
-          .sort("-hits")
+          .sort('-hits')
           .limit(MAX_RESULTS)
-          .select("name hits")
+          .select('name hits')
           .exec(cb);
       },
 
@@ -63,17 +63,17 @@ function autocomplete(query, cb) {
             { shortName: regexForQuery(query) },
           ],
         })
-          .sort("-hits")
+          .sort('-hits')
           .limit(MAX_RESULTS)
-          .select("name hits")
+          .select('name hits')
           .exec(cb);
       },
 
       essays(cb) {
         model.Essay.find({ name: regexForQuery(query), published: true })
-          .sort("-hits")
+          .sort('-hits')
           .limit(MAX_RESULTS)
-          .select("name hits college")
+          .select('name hits college')
           .exec(cb);
       },
     },
@@ -127,14 +127,14 @@ function autocomplete(query, cb) {
  * @return {RegExp}
  */
 function regexForQuery(query) {
-  var tokens = query.split(" ");
-  var str = "(^|\\s)[^a-z]*" + escapeStringRegexp(tokens[0]);
+  var tokens = query.split(' ');
+  var str = '(^|\\s)[^a-z]*' + escapeStringRegexp(tokens[0]);
 
   for (var i = 1, len = tokens.length; i < len; i++) {
-    str += ".*\\s[^a-z]*" + escapeStringRegexp(tokens[i]);
+    str += '.*\\s[^a-z]*' + escapeStringRegexp(tokens[i]);
   }
 
-  return new RegExp(str, "i");
+  return new RegExp(str, 'i');
 }
 
 /**
@@ -145,20 +145,20 @@ function regexForQuery(query) {
  */
 function weight(result, query) {
   var w = 0;
-  var words = query.split(" ");
+  var words = query.split(' ');
 
   // Model-specific weights
   switch (result.constructor.modelName) {
-    case "Course":
+    case 'Course':
       w += 20;
       break;
-    case "College":
+    case 'College':
       w += 10;
       break;
-    case "Note":
+    case 'Note':
       w += 2;
       break;
-    case "Essay":
+    case 'Essay':
       w += 1;
       break;
     default:
@@ -173,7 +173,7 @@ function weight(result, query) {
   // Word match
   words.forEach(function (word) {
     if (word.length <= 3) return;
-    var re = new RegExp("(^|\\s)" + escapeStringRegexp(word) + "($|\\s)", "i");
+    var re = new RegExp('(^|\\s)' + escapeStringRegexp(word) + '($|\\s)', 'i');
     if (re.test(result.name)) {
       w += 100;
     }
@@ -192,17 +192,17 @@ function weight(result, query) {
  */
 
 function highlight(str, query) {
-  var tokens = query.split(" ");
-  var reStr = "";
+  var tokens = query.split(' ');
+  var reStr = '';
 
   tokens.forEach(function (token, i) {
     if (i !== 0) {
-      reStr += "|";
+      reStr += '|';
     }
-    reStr += "((^|\\s)[^a-z]*" + escapeStringRegexp(tokens[i]) + ")";
+    reStr += '((^|\\s)[^a-z]*' + escapeStringRegexp(tokens[i]) + ')';
   });
 
-  str = str.replace(new RegExp(reStr, "gi"), "<strong>$&</strong>");
+  str = str.replace(new RegExp(reStr, 'gi'), '<strong>$&</strong>');
 
   return str;
 }

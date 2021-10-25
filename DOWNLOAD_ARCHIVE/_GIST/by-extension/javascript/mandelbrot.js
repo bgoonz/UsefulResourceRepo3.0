@@ -145,10 +145,10 @@ class PageState {
   static fromURL(url) {
     let s = new PageState();
     let u = new URL(url); // Initialize state from the url's search params.
-    s.cx = parseFloat(u.searchParams.get("cx"));
-    s.cy = parseFloat(u.searchParams.get("cy"));
-    s.perPixel = parseFloat(u.searchParams.get("pp"));
-    s.maxIterations = parseInt(u.searchParams.get("it"));
+    s.cx = parseFloat(u.searchParams.get('cx'));
+    s.cy = parseFloat(u.searchParams.get('cy'));
+    s.perPixel = parseFloat(u.searchParams.get('pp'));
+    s.maxIterations = parseInt(u.searchParams.get('it'));
     // If we got valid values, return the PageState object, otherwise null.
     return isNaN(s.cx) ||
       isNaN(s.cy) ||
@@ -162,10 +162,10 @@ class PageState {
   // parameters of the browser's current location.
   toURL() {
     let u = new URL(window.location);
-    u.searchParams.set("cx", this.cx);
-    u.searchParams.set("cy", this.cy);
-    u.searchParams.set("pp", this.perPixel);
-    u.searchParams.set("it", this.maxIterations);
+    u.searchParams.set('cx', this.cx);
+    u.searchParams.set('cy', this.cy);
+    u.searchParams.set('pp', this.perPixel);
+    u.searchParams.set('it', this.maxIterations);
     return u.href;
   }
 }
@@ -184,8 +184,8 @@ class MandelbrotCanvas {
   constructor(canvas) {
     // Store the canvas, get its context object, and initialize a WorkerPool
     this.canvas = canvas;
-    this.context = canvas.getContext("2d");
-    this.workerPool = new WorkerPool(NUMWORKERS, "mandelbrotWorker.js");
+    this.context = canvas.getContext('2d');
+    this.workerPool = new WorkerPool(NUMWORKERS, 'mandelbrotWorker.js');
 
     // Define some properties that we'll use later
     this.tiles = null; // Subregions of the canvas
@@ -195,16 +195,16 @@ class MandelbrotCanvas {
     this.colorTable = null; // For converting raw data to pixel values.
 
     // Set up our event handlers
-    this.canvas.addEventListener("pointerdown", (e) => this.handlePointer(e));
-    window.addEventListener("keydown", (e) => this.handleKey(e));
-    window.addEventListener("resize", (e) => this.handleResize(e));
-    window.addEventListener("popstate", (e) => this.setState(e.state, false));
+    this.canvas.addEventListener('pointerdown', (e) => this.handlePointer(e));
+    window.addEventListener('keydown', (e) => this.handleKey(e));
+    window.addEventListener('resize', (e) => this.handleResize(e));
+    window.addEventListener('popstate', (e) => this.setState(e.state, false));
 
     // Initialize our state from the URL or start with the initial state.
     this.state = PageState.fromURL(window.location) || PageState.initialState();
 
     // Save this state with the history mechanism.
-    history.replaceState(this.state, "", this.state.toURL());
+    history.replaceState(this.state, '', this.state.toURL());
 
     // Set the canvas size and get an array of tiles that cover it.
     this.setSize();
@@ -233,7 +233,7 @@ class MandelbrotCanvas {
   setState(f, save = true) {
     // If the argument is a function, call it to update the state.
     // Otherwise, copy its properties into the current state.
-    if (typeof f === "function") {
+    if (typeof f === 'function') {
       f(this.state);
     } else {
       for (let property in f) {
@@ -247,7 +247,7 @@ class MandelbrotCanvas {
     // Normally we save the new state. Except when we're called with
     // a second argument of false which we do when we get a popstate event.
     if (save) {
-      history.pushState(this.state, "", this.state.toURL());
+      history.pushState(this.state, '', this.state.toURL());
     }
   }
 
@@ -356,7 +356,7 @@ class MandelbrotCanvas {
         // corresponding tiles of the canvas using putImageData().
         // (First, though, remove any CSS transforms on the canvas that may
         // have been set by the pointerdown event handler.)
-        this.canvas.style.transform = "";
+        this.canvas.style.transform = '';
         for (let r of responses) {
           this.context.putImageData(r.imageData, r.tile.x, r.tile.y);
         }
@@ -365,7 +365,7 @@ class MandelbrotCanvas {
         // If anything went wrong in any of our Promises, we'll log
         // an error here. This shouldn't happen, but this will help with
         // debugging if it does.
-        console.error("Promise rejected in render():", reason);
+        console.error('Promise rejected in render():', reason);
       })
       .finally(() => {
         // When we are done rendering, clear the pendingRender flags
@@ -399,33 +399,33 @@ class MandelbrotCanvas {
   // the new state, updates the URL, and saves the state in browser history.
   handleKey(event) {
     switch (event.key) {
-      case "Escape": // Type Escape to go back to the initial state
+      case 'Escape': // Type Escape to go back to the initial state
         this.setState(PageState.initialState());
         break;
-      case "+": // Type + to increase the number of iterations
+      case '+': // Type + to increase the number of iterations
         this.setState((s) => {
           s.maxIterations = Math.round(s.maxIterations * 1.5);
         });
         break;
-      case "-": // Type - to decrease the number of iterations
+      case '-': // Type - to decrease the number of iterations
         this.setState((s) => {
           s.maxIterations = Math.round(s.maxIterations / 1.5);
           if (s.maxIterations < 1) s.maxIterations = 1;
         });
         break;
-      case "o": // Type o to zoom out
+      case 'o': // Type o to zoom out
         this.setState((s) => (s.perPixel *= 2));
         break;
-      case "ArrowUp": // Up arrow to scroll up
+      case 'ArrowUp': // Up arrow to scroll up
         this.setState((s) => (s.cy -= (this.height / 10) * s.perPixel));
         break;
-      case "ArrowDown": // Down arrow to scroll down
+      case 'ArrowDown': // Down arrow to scroll down
         this.setState((s) => (s.cy += (this.height / 10) * s.perPixel));
         break;
-      case "ArrowLeft": // Left arrow to scroll left
+      case 'ArrowLeft': // Left arrow to scroll left
         this.setState((s) => (s.cx -= (this.width / 10) * s.perPixel));
         break;
-      case "ArrowRight": // Right arrow to scroll right
+      case 'ArrowRight': // Right arrow to scroll right
         this.setState((s) => (s.cx += (this.width / 10) * s.perPixel));
         break;
     }
@@ -464,8 +464,8 @@ class MandelbrotCanvas {
     const pointerUpHandler = (event) => {
       // When the pointer goes up, the gesture is over, so remove
       // the move and up handlers until the next gesture.
-      this.canvas.removeEventListener("pointermove", pointerMoveHandler);
-      this.canvas.removeEventListener("pointerup", pointerUpHandler);
+      this.canvas.removeEventListener('pointermove', pointerMoveHandler);
+      this.canvas.removeEventListener('pointerup', pointerUpHandler);
 
       // How much did the pointer move, and how much time passed?
       const dx = event.clientX - x0,
@@ -504,16 +504,16 @@ class MandelbrotCanvas {
 
     // When the user begins a gesture we register handlers for the
     // pointermove and pointerup events that follow.
-    this.canvas.addEventListener("pointermove", pointerMoveHandler);
-    this.canvas.addEventListener("pointerup", pointerUpHandler);
+    this.canvas.addEventListener('pointermove', pointerMoveHandler);
+    this.canvas.addEventListener('pointerup', pointerUpHandler);
   }
 }
 
 // Finally, here's how we set up the canvas. Note that this JavaScript file
 // is self-sufficient. The HTML file only needs to include this one <script>.
-let canvas = document.createElement("canvas"); // Create a canvas element
+let canvas = document.createElement('canvas'); // Create a canvas element
 document.body.append(canvas); // Insert it into the body
-document.body.style = "margin:0"; // No margin for the <body>
-canvas.style.width = "100%"; // Make canvas as wide as body
-canvas.style.height = "100%"; // and as high as the body.
+document.body.style = 'margin:0'; // No margin for the <body>
+canvas.style.width = '100%'; // Make canvas as wide as body
+canvas.style.height = '100%'; // and as high as the body.
 new MandelbrotCanvas(canvas); // And start rendering into it!

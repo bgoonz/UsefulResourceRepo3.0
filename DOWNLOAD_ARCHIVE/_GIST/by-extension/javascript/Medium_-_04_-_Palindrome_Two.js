@@ -1,22 +1,22 @@
 function PalindromeTwo(str) {
-  var strFor = str.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  var strFor = str.replace(/[^a-zA-Z]/g, '').toLowerCase();
   var strRev = str
-    .replace(/[^a-zA-Z]/g, "")
-    .split("")
+    .replace(/[^a-zA-Z]/g, '')
+    .split('')
     .reverse()
-    .join("")
+    .join('')
     .toLowerCase();
   return strFor === strRev;
 }
 
 function PalindromeTwo(str) {
   return (
-    str.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
+    str.replace(/[^a-zA-Z]/g, '').toLowerCase() ===
     str
-      .replace(/[^a-zA-Z]/g, "")
-      .split("")
+      .replace(/[^a-zA-Z]/g, '')
+      .split('')
       .reverse()
-      .join("")
+      .join('')
       .toLowerCase()
   );
 }

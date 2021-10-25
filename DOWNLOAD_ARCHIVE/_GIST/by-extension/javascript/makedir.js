@@ -1,14 +1,14 @@
-const path = require("path");
-const fs = require("fs");
-const _0777 = parseInt("0777", 8);
+const path = require('path');
+const fs = require('fs');
+const _0777 = parseInt('0777', 8);
 
 module.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
 
 function mkdirP(p, opts, f, made) {
-  if (typeof opts === "function") {
+  if (typeof opts === 'function') {
     f = opts;
     opts = {};
-  } else if (!opts || typeof opts !== "object") {
+  } else if (!opts || typeof opts !== 'object') {
     opts = { mode: opts };
   }
 
@@ -29,7 +29,7 @@ function mkdirP(p, opts, f, made) {
       return cb(null, made);
     }
     switch (er.code) {
-      case "ENOENT":
+      case 'ENOENT':
         if (path.dirname(p) === p) return cb(er);
         mkdirP(path.dirname(p), opts, (er, made) => {
           if (er) cb(er, made);
@@ -53,7 +53,7 @@ function mkdirP(p, opts, f, made) {
 }
 
 mkdirP.sync = function sync(p, opts, made) {
-  if (!opts || typeof opts !== "object") {
+  if (!opts || typeof opts !== 'object') {
     opts = { mode: opts };
   }
 
@@ -72,7 +72,7 @@ mkdirP.sync = function sync(p, opts, made) {
     made = made || p;
   } catch (err0) {
     switch (err0.code) {
-      case "ENOENT":
+      case 'ENOENT':
         made = sync(path.dirname(p), opts, made);
         sync(p, opts, made);
         break;

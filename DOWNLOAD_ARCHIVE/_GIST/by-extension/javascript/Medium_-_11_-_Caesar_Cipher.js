@@ -1,9 +1,9 @@
 function CaesarCipher(str, num) {
-  var alphaStrLow = "abcdefghijklmnopqrstuvwxyz";
-  var alphaStrUpp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var alphaStrLow = 'abcdefghijklmnopqrstuvwxyz';
+  var alphaStrUpp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var currentLetterInd = 0;
   var newLetterInd = 0;
-  var answer = "";
+  var answer = '';
   var lowerTest = /[a-z]/;
   var upperTest = /[A-Z]/;
 

@@ -1,22 +1,22 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var zen_observable_ts_1 = tslib_1.__importDefault(require("zen-observable-ts"));
-var apollo_utilities_1 = require("apollo-utilities");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var zen_observable_ts_1 = tslib_1.__importDefault(require('zen-observable-ts'));
+var apollo_utilities_1 = require('apollo-utilities');
 exports.getOperationName = apollo_utilities_1.getOperationName;
-var ts_invariant_1 = require("ts-invariant");
+var ts_invariant_1 = require('ts-invariant');
 function validateOperation(operation) {
   var OPERATION_FIELDS = [
-    "query",
-    "operationName",
-    "variables",
-    "extensions",
-    "context",
+    'query',
+    'operationName',
+    'variables',
+    'extensions',
+    'context',
   ];
   for (var _i = 0, _a = Object.keys(operation); _i < _a.length; _i++) {
     var key = _a[_i];
     if (OPERATION_FIELDS.indexOf(key) < 0) {
-      throw new ts_invariant_1.InvariantError("illegal argument: " + key);
+      throw new ts_invariant_1.InvariantError('illegal argument: ' + key);
     }
   }
   return operation;
@@ -43,7 +43,7 @@ function toPromise(observable) {
       next: function (data) {
         if (completed) {
           ts_invariant_1.invariant.warn(
-            "Promise Wrapper does not support multiple results from Observable"
+            'Promise Wrapper does not support multiple results from Observable'
           );
         } else {
           completed = true;
@@ -82,9 +82,9 @@ function transformOperation(operation) {
   };
   if (!transformedOperation.operationName) {
     transformedOperation.operationName =
-      typeof transformedOperation.query !== "string"
+      typeof transformedOperation.query !== 'string'
         ? apollo_utilities_1.getOperationName(transformedOperation.query)
-        : "";
+        : '';
   }
   return transformedOperation;
 }
@@ -92,7 +92,7 @@ exports.transformOperation = transformOperation;
 function createOperation(starting, operation) {
   var context = tslib_1.__assign({}, starting);
   var setContext = function (next) {
-    if (typeof next === "function") {
+    if (typeof next === 'function') {
       context = tslib_1.__assign({}, context, next(context));
     } else {
       context = tslib_1.__assign({}, context, next);
@@ -101,15 +101,15 @@ function createOperation(starting, operation) {
   var getContext = function () {
     return tslib_1.__assign({}, context);
   };
-  Object.defineProperty(operation, "setContext", {
+  Object.defineProperty(operation, 'setContext', {
     enumerable: false,
     value: setContext,
   });
-  Object.defineProperty(operation, "getContext", {
+  Object.defineProperty(operation, 'getContext', {
     enumerable: false,
     value: getContext,
   });
-  Object.defineProperty(operation, "toKey", {
+  Object.defineProperty(operation, 'toKey', {
     enumerable: false,
     value: function () {
       return getKey(operation);

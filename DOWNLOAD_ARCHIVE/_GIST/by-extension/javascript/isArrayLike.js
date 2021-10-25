@@ -6,7 +6,7 @@
 function isArrayLike(o) {
   if (
     o && // o is not null, undefined, etc.
-    typeof o === "object" && // o is an object
+    typeof o === 'object' && // o is an object
     Number.isFinite(o.length) && // o.length is a finite number
     o.length >= 0 && // o.length is non-negative
     Number.isInteger(o.length) && // o.length is an integer

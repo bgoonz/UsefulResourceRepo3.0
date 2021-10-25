@@ -4,8 +4,8 @@ function FibonacciChecker(num) {
     fibSeq.push(fibSeq[i] + fibSeq[i + 1]);
   }
   if (fibSeq.indexOf(num) != -1) {
-    return "yes";
+    return 'yes';
   } else {
-    return "no";
+    return 'no';
   }
 }

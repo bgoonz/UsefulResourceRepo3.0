@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import forEach from "./forEach";
+import forEach from './forEach';
 
 /**
  * Returns the maximum value from an iterable. It uses the optional callback

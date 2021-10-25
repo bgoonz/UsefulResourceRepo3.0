@@ -1,8 +1,8 @@
-import _ from "lodash";
-import { Graph } from "./graph";
+import _ from 'lodash';
+import { Graph } from './graph';
 
 function getVariable(nodeA, nodeB) {
-  return "I(" + nodeA + ", " + nodeB + ")";
+  return 'I(' + nodeA + ', ' + nodeB + ')';
 }
 
 function generateEquations(graph, nodeStart, nodeEnd) {
@@ -14,7 +14,7 @@ function generateEquations(graph, nodeStart, nodeEnd) {
       graph.iterateAdjacent(node, function (nodeAdj, value) {
         components.push(getVariable(node, nodeAdj));
       });
-      console.log(components.join(" + ") + " = 0");
+      console.log(components.join(' + ') + ' = 0');
     }
   });
 
@@ -25,7 +25,7 @@ function generateEquations(graph, nodeStart, nodeEnd) {
   graph.iterateAdjacent(nodeEnd, function (nodeAdj, value) {
     components.push(getVariable(nodeAdj, nodeEnd));
   });
-  console.log(components.join(" + ") + " = 0");
+  console.log(components.join(' + ') + ' = 0');
 
   graph.findAllLoops(function (loop) {
     components = [];
@@ -37,23 +37,23 @@ function generateEquations(graph, nodeStart, nodeEnd) {
           [
             getVariable(nodeLast, node),
             graph.getEdgeValue(nodeLast, node),
-          ].join(" * ")
+          ].join(' * ')
         );
       }
       nodeLast = node;
     });
-    console.log(components.join(" + ") + " = 0");
+    console.log(components.join(' + ') + ' = 0');
   });
 }
 
 let graph = new Graph({
   edges: {
-    "a -> b": 10,
-    "b -> c": 5,
-    "a -> c": 5,
-    "b -> d": 5,
-    "c -> d": 10,
+    'a -> b': 10,
+    'b -> c': 5,
+    'a -> c': 5,
+    'b -> d': 5,
+    'c -> d': 10,
   },
 });
 
-generateEquations(graph, "a", "d");
+generateEquations(graph, 'a', 'd');

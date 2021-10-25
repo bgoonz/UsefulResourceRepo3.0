@@ -2,9 +2,9 @@
 
 let ispalindrome = (string) => {
   string = string.toLowerCase();
-  let charactersArr = string.split("");
+  let charactersArr = string.split('');
   //ignoring all non alphabet characters
-  let validCharacters = "qwertyuiopasdfghjklzxcvbnm".split("");
+  let validCharacters = 'qwertyuiopasdfghjklzxcvbnm'.split('');
 
   let lettersArr = [];
 
@@ -12,9 +12,9 @@ let ispalindrome = (string) => {
     if (validCharacters.indexOf(char) > -1) lettersArr.push(char);
   });
 
-  if (lettersArr.join("") == lettersArr.reverse().join("")) return true;
+  if (lettersArr.join('') == lettersArr.reverse().join('')) return true;
   else return false;
 };
 
-console.log(ispalindrome("hello:bunny!"));
+console.log(ispalindrome('hello:bunny!'));
 console.log(ispalindrome("Madam i'm Adam"));

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import Map from "./Map";
+import Map from './Map';
 
 /**
  * Tests whether the value is a Map.

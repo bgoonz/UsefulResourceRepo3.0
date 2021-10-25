@@ -7,7 +7,7 @@ function topKeywords(reviews, keywords, k) {
     .map((rev) => {
       return rev
         .toLowerCase() // case the review
-        .split(" ") // split it into words
+        .split(' ') // split it into words
         .filter((w) => keywords.includes(w)); // filter keywords
     })
     .reduce((acc, cv) => {

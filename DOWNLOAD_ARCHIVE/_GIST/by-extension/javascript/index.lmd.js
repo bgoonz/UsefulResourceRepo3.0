@@ -2,7 +2,7 @@
 (function (global, main, modules, modules_options, options) {
   var initialized_modules = {},
     global_eval = function (code) {
-      return global.Function("return " + code)();
+      return global.Function('return ' + code)();
     },
     global_document = global.document,
     local_undefined,
@@ -12,12 +12,12 @@
       modules[moduleName] = output.exports;
       if (!module) {
         module = module || global[moduleName];
-      } else if (typeof module === "function") {
+      } else if (typeof module === 'function') {
         var module_require = lmd_require;
         if (
           modules_options[moduleName] &&
           modules_options[moduleName].sandbox &&
-          typeof module_require === "function"
+          typeof module_require === 'function'
         ) {
           module_require = local_undefined;
         }
@@ -37,7 +37,7 @@
       if (initialized_modules[moduleName] && module) {
         return module;
       }
-      if (typeof module === "string" && module.indexOf("(function(") === 0) {
+      if (typeof module === 'string' && module.indexOf('(function(') === 0) {
         module = global_eval(module);
       }
       return register_module(moduleName, module);
@@ -51,23 +51,23 @@
   this,
   function (require, exports, module) {
     /* wrapped by builder */
-    var jQuery = require("jQuery"); // MyJquery;
+    var jQuery = require('jQuery'); // MyJquery;
 
     console.log(jQuery !== window.jQuery); // true
-    console.log(typeof jQuery.fn.asEventStream === "function"); // true
-    console.log(typeof window.jQuery.fn.asEventStream === "undefined"); // true
+    console.log(typeof jQuery.fn.asEventStream === 'function'); // true
+    console.log(typeof window.jQuery.fn.asEventStream === 'undefined'); // true
   },
   {
     jQuery: function (require, exports, module) {
       /* wrapped by builder */
       // myjQuery.js
-      var jQuery = require("_jQuery"),
+      var jQuery = require('_jQuery'),
         myjQuery = jQuery.noConflict(true);
 
       // Пробрасываем для Bacon на время инициализации
       window.jQuery = myjQuery;
 
-      require("_Bacon");
+      require('_Bacon');
 
       // Возвращаем
       window.jQuery = jQuery;

@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-import isPlainObject from "lodash/lang/isPlainObject";
-import mapValues from "lodash/object/mapValues";
+import isPlainObject from 'lodash/lang/isPlainObject';
+import mapValues from 'lodash/object/mapValues';
 
-import isArrayLike from "./isArrayLike";
-import isIterable from "./isIterable";
-import isIterator from "./isIterator";
-import mapIterator from "./mapIterator";
+import isArrayLike from './isArrayLike';
+import isIterable from './isIterable';
+import isIterator from './isIterator';
+import mapIterator from './mapIterator';
 
 const nativeMap = Array.prototype.map;
 

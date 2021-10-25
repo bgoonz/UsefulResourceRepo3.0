@@ -1,5 +1,5 @@
 function LetterCount(str) {
-  var wordArr = str.split(" ");
+  var wordArr = str.split(' ');
   var currentDif = 0;
   var largestDif = 0;
   var answer;
@@ -9,7 +9,7 @@ function LetterCount(str) {
   var currentWordRLength;
 
   for (i = 0; i < wordArr.length; i++) {
-    currentWord = wordArr[i].split("").sort();
+    currentWord = wordArr[i].split('').sort();
     currentWordLength = currentWord.length;
     for (j = 0; j < currentWordLength - 1; j++) {
       if (currentWord[j] === currentWord[j + 1]) {

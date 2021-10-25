@@ -47,7 +47,7 @@
     return builder.build();
   };
 
-  lunr.version = "2.3.8";
+  lunr.version = '2.3.8';
   /*!
    * lunr.utils
    * Copyright (C) 2019 Oliver Nightingale
@@ -89,7 +89,7 @@
    */
   lunr.utils.asString = function (obj) {
     if (obj === void 0 || obj === null) {
-      return "";
+      return '';
     } else {
       return obj.toString();
     }
@@ -129,16 +129,16 @@
       }
 
       if (
-        typeof val === "string" ||
-        typeof val === "number" ||
-        typeof val === "boolean"
+        typeof val === 'string' ||
+        typeof val === 'number' ||
+        typeof val === 'boolean'
       ) {
         clone[key] = val;
         continue;
       }
 
       throw new TypeError(
-        "clone is not deep and does not support nested objects"
+        'clone is not deep and does not support nested objects'
       );
     }
 
@@ -150,13 +150,13 @@
     this._stringValue = stringValue;
   };
 
-  lunr.FieldRef.joiner = "/";
+  lunr.FieldRef.joiner = '/';
 
   lunr.FieldRef.fromString = function (s) {
     var n = s.indexOf(lunr.FieldRef.joiner);
 
     if (n === -1) {
-      throw "malformed field ref string";
+      throw 'malformed field ref string';
     }
 
     var fieldRef = s.slice(0, n),
@@ -322,7 +322,7 @@
     var documentsWithTerm = 0;
 
     for (var fieldName in posting) {
-      if (fieldName == "_index") continue; // Ignore the term index, its not a field
+      if (fieldName == '_index') continue; // Ignore the term index, its not a field
       documentsWithTerm += Object.keys(posting[fieldName]).length;
     }
 
@@ -341,7 +341,7 @@
    * @param {object} [metadata={}] - Metadata associated with this token.
    */
   lunr.Token = function (str, metadata) {
-    this.str = str || "";
+    this.str = str || '';
     this.metadata = metadata || {};
   };
 
@@ -442,8 +442,8 @@
       if (char.match(lunr.tokenizer.separator) || sliceEnd == len) {
         if (sliceLength > 0) {
           var tokenMetadata = lunr.utils.clone(metadata) || {};
-          tokenMetadata["position"] = [sliceStart, sliceLength];
-          tokenMetadata["index"] = tokens.length;
+          tokenMetadata['position'] = [sliceStart, sliceLength];
+          tokenMetadata['index'] = tokens.length;
 
           tokens.push(
             new lunr.Token(str.slice(sliceStart, sliceEnd), tokenMetadata)
@@ -540,7 +540,7 @@
    */
   lunr.Pipeline.registerFunction = function (fn, label) {
     if (label in this.registeredFunctions) {
-      lunr.utils.warn("Overwriting existing registered function: " + label);
+      lunr.utils.warn('Overwriting existing registered function: ' + label);
     }
 
     fn.label = label;
@@ -558,7 +558,7 @@
 
     if (!isRegistered) {
       lunr.utils.warn(
-        "Function is not registered with pipeline. This may cause problems when serialising the index.\n",
+        'Function is not registered with pipeline. This may cause problems when serialising the index.\n',
         fn
       );
     }
@@ -583,7 +583,7 @@
       if (fn) {
         pipeline.add(fn);
       } else {
-        throw new Error("Cannot load unregistered function: " + fnName);
+        throw new Error('Cannot load unregistered function: ' + fnName);
       }
     });
 
@@ -620,7 +620,7 @@
 
     var pos = this._stack.indexOf(existingFn);
     if (pos == -1) {
-      throw new Error("Cannot find existingFn");
+      throw new Error('Cannot find existingFn');
     }
 
     pos = pos + 1;
@@ -641,7 +641,7 @@
 
     var pos = this._stack.indexOf(existingFn);
     if (pos == -1) {
-      throw new Error("Cannot find existingFn");
+      throw new Error('Cannot find existingFn');
     }
 
     this._stack.splice(pos, 0, newFn);
@@ -678,7 +678,7 @@
       for (var j = 0; j < tokens.length; j++) {
         var result = fn(tokens[j], j, tokens);
 
-        if (result === null || result === void 0 || result === "") continue;
+        if (result === null || result === void 0 || result === '') continue;
 
         if (Array.isArray(result)) {
           for (var k = 0; k < result.length; k++) {
@@ -825,7 +825,7 @@
    */
   lunr.Vector.prototype.insert = function (insertIdx, val) {
     this.upsert(insertIdx, val, function () {
-      throw "duplicate index";
+      throw 'duplicate index';
     });
   };
 
@@ -954,45 +954,45 @@
    */
   lunr.stemmer = (function () {
     var step2list = {
-        ational: "ate",
-        tional: "tion",
-        enci: "ence",
-        anci: "ance",
-        izer: "ize",
-        bli: "ble",
-        alli: "al",
-        entli: "ent",
-        eli: "e",
-        ousli: "ous",
-        ization: "ize",
-        ation: "ate",
-        ator: "ate",
-        alism: "al",
-        iveness: "ive",
-        fulness: "ful",
-        ousness: "ous",
-        aliti: "al",
-        iviti: "ive",
-        biliti: "ble",
-        logi: "log",
+        ational: 'ate',
+        tional: 'tion',
+        enci: 'ence',
+        anci: 'ance',
+        izer: 'ize',
+        bli: 'ble',
+        alli: 'al',
+        entli: 'ent',
+        eli: 'e',
+        ousli: 'ous',
+        ization: 'ize',
+        ation: 'ate',
+        ator: 'ate',
+        alism: 'al',
+        iveness: 'ive',
+        fulness: 'ful',
+        ousness: 'ous',
+        aliti: 'al',
+        iviti: 'ive',
+        biliti: 'ble',
+        logi: 'log',
       },
       step3list = {
-        icate: "ic",
-        ative: "",
-        alize: "al",
-        iciti: "ic",
-        ical: "ic",
-        ful: "",
-        ness: "",
+        icate: 'ic',
+        ative: '',
+        alize: 'al',
+        iciti: 'ic',
+        ical: 'ic',
+        ful: '',
+        ness: '',
       },
-      c = "[^aeiou]", // consonant
-      v = "[aeiouy]", // vowel
-      C = c + "[^aeiouy]*", // consonant sequence
-      V = v + "[aeiou]*", // vowel sequence
-      mgr0 = "^(" + C + ")?" + V + C, // [C]VC... is m>0
-      meq1 = "^(" + C + ")?" + V + C + "(" + V + ")?$", // [C]VC[V] is m=1
-      mgr1 = "^(" + C + ")?" + V + C + V + C, // [C]VCVC... is m>1
-      s_v = "^(" + C + ")?" + v; // vowel in stem
+      c = '[^aeiou]', // consonant
+      v = '[aeiouy]', // vowel
+      C = c + '[^aeiouy]*', // consonant sequence
+      V = v + '[aeiou]*', // vowel sequence
+      mgr0 = '^(' + C + ')?' + V + C, // [C]VC... is m>0
+      meq1 = '^(' + C + ')?' + V + C + '(' + V + ')?$', // [C]VC[V] is m=1
+      mgr1 = '^(' + C + ')?' + V + C + V + C, // [C]VCVC... is m>1
+      s_v = '^(' + C + ')?' + v; // vowel in stem
 
     var re_mgr0 = new RegExp(mgr0);
     var re_mgr1 = new RegExp(mgr1);
@@ -1005,8 +1005,8 @@
     var re2_1b = /^(.+?)(ed|ing)$/;
     var re_1b_2 = /.$/;
     var re2_1b_2 = /(at|bl|iz)$/;
-    var re3_1b_2 = new RegExp("([^aeiouylsz])\\1$");
-    var re4_1b_2 = new RegExp("^" + C + v + "[^aeiouwxy]$");
+    var re3_1b_2 = new RegExp('([^aeiouylsz])\\1$');
+    var re4_1b_2 = new RegExp('^' + C + v + '[^aeiouwxy]$');
 
     var re_1c = /^(.+?[^aeiou])y$/;
     var re_2 =
@@ -1020,7 +1020,7 @@
 
     var re_5 = /^(.+?)e$/;
     var re_5_1 = /ll$/;
-    var re3_5 = new RegExp("^" + C + v + "[^aeiouwxy]$");
+    var re3_5 = new RegExp('^' + C + v + '[^aeiouwxy]$');
 
     var porterStemmer = function porterStemmer(w) {
       var stem, suffix, firstch, re, re2, re3, re4;
@@ -1030,7 +1030,7 @@
       }
 
       firstch = w.substr(0, 1);
-      if (firstch == "y") {
+      if (firstch == 'y') {
         w = firstch.toUpperCase() + w.substr(1);
       }
 
@@ -1039,9 +1039,9 @@
       re2 = re2_1a;
 
       if (re.test(w)) {
-        w = w.replace(re, "$1$2");
+        w = w.replace(re, '$1$2');
       } else if (re2.test(w)) {
-        w = w.replace(re2, "$1$2");
+        w = w.replace(re2, '$1$2');
       }
 
       // Step 1b
@@ -1052,7 +1052,7 @@
         re = re_mgr0;
         if (re.test(fp[1])) {
           re = re_1b_2;
-          w = w.replace(re, "");
+          w = w.replace(re, '');
         }
       } else if (re2.test(w)) {
         var fp = re2.exec(w);
@@ -1064,12 +1064,12 @@
           re3 = re3_1b_2;
           re4 = re4_1b_2;
           if (re2.test(w)) {
-            w = w + "e";
+            w = w + 'e';
           } else if (re3.test(w)) {
             re = re_1b_2;
-            w = w.replace(re, "");
+            w = w.replace(re, '');
           } else if (re4.test(w)) {
-            w = w + "e";
+            w = w + 'e';
           }
         }
       }
@@ -1079,7 +1079,7 @@
       if (re.test(w)) {
         var fp = re.exec(w);
         stem = fp[1];
-        w = stem + "i";
+        w = stem + 'i';
       }
 
       // Step 2
@@ -1142,12 +1142,12 @@
       re2 = re_mgr1;
       if (re.test(w) && re2.test(w)) {
         re = re_1b_2;
-        w = w.replace(re, "");
+        w = w.replace(re, '');
       }
 
       // and turn initial Y back to y
 
-      if (firstch == "y") {
+      if (firstch == 'y') {
         w = firstch.toLowerCase() + w.substr(1);
       }
 
@@ -1159,7 +1159,7 @@
     };
   })();
 
-  lunr.Pipeline.registerFunction(lunr.stemmer, "stemmer");
+  lunr.Pipeline.registerFunction(lunr.stemmer, 'stemmer');
   /*!
    * lunr.stopWordFilter
    * Copyright (C) 2019 Oliver Nightingale
@@ -1203,128 +1203,128 @@
    * @see {@link lunr.Pipeline}
    */
   lunr.stopWordFilter = lunr.generateStopWordFilter([
-    "a",
-    "able",
-    "about",
-    "across",
-    "after",
-    "all",
-    "almost",
-    "also",
-    "am",
-    "among",
-    "an",
-    "and",
-    "any",
-    "are",
-    "as",
-    "at",
-    "be",
-    "because",
-    "been",
-    "but",
-    "by",
-    "can",
-    "cannot",
-    "could",
-    "dear",
-    "did",
-    "do",
-    "does",
-    "either",
-    "else",
-    "ever",
-    "every",
-    "for",
-    "from",
-    "get",
-    "got",
-    "had",
-    "has",
-    "have",
-    "he",
-    "her",
-    "hers",
-    "him",
-    "his",
-    "how",
-    "however",
-    "i",
-    "if",
-    "in",
-    "into",
-    "is",
-    "it",
-    "its",
-    "just",
-    "least",
-    "let",
-    "like",
-    "likely",
-    "may",
-    "me",
-    "might",
-    "most",
-    "must",
-    "my",
-    "neither",
-    "no",
-    "nor",
-    "not",
-    "of",
-    "off",
-    "often",
-    "on",
-    "only",
-    "or",
-    "other",
-    "our",
-    "own",
-    "rather",
-    "said",
-    "say",
-    "says",
-    "she",
-    "should",
-    "since",
-    "so",
-    "some",
-    "than",
-    "that",
-    "the",
-    "their",
-    "them",
-    "then",
-    "there",
-    "these",
-    "they",
-    "this",
-    "tis",
-    "to",
-    "too",
-    "twas",
-    "us",
-    "wants",
-    "was",
-    "we",
-    "were",
-    "what",
-    "when",
-    "where",
-    "which",
-    "while",
-    "who",
-    "whom",
-    "why",
-    "will",
-    "with",
-    "would",
-    "yet",
-    "you",
-    "your",
+    'a',
+    'able',
+    'about',
+    'across',
+    'after',
+    'all',
+    'almost',
+    'also',
+    'am',
+    'among',
+    'an',
+    'and',
+    'any',
+    'are',
+    'as',
+    'at',
+    'be',
+    'because',
+    'been',
+    'but',
+    'by',
+    'can',
+    'cannot',
+    'could',
+    'dear',
+    'did',
+    'do',
+    'does',
+    'either',
+    'else',
+    'ever',
+    'every',
+    'for',
+    'from',
+    'get',
+    'got',
+    'had',
+    'has',
+    'have',
+    'he',
+    'her',
+    'hers',
+    'him',
+    'his',
+    'how',
+    'however',
+    'i',
+    'if',
+    'in',
+    'into',
+    'is',
+    'it',
+    'its',
+    'just',
+    'least',
+    'let',
+    'like',
+    'likely',
+    'may',
+    'me',
+    'might',
+    'most',
+    'must',
+    'my',
+    'neither',
+    'no',
+    'nor',
+    'not',
+    'of',
+    'off',
+    'often',
+    'on',
+    'only',
+    'or',
+    'other',
+    'our',
+    'own',
+    'rather',
+    'said',
+    'say',
+    'says',
+    'she',
+    'should',
+    'since',
+    'so',
+    'some',
+    'than',
+    'that',
+    'the',
+    'their',
+    'them',
+    'then',
+    'there',
+    'these',
+    'they',
+    'this',
+    'tis',
+    'to',
+    'too',
+    'twas',
+    'us',
+    'wants',
+    'was',
+    'we',
+    'were',
+    'what',
+    'when',
+    'where',
+    'which',
+    'while',
+    'who',
+    'whom',
+    'why',
+    'will',
+    'with',
+    'would',
+    'yet',
+    'you',
+    'your',
   ]);
 
-  lunr.Pipeline.registerFunction(lunr.stopWordFilter, "stopWordFilter");
+  lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter');
   /*!
    * lunr.trimmer
    * Copyright (C) 2019 Oliver Nightingale
@@ -1347,11 +1347,11 @@
    */
   lunr.trimmer = function (token) {
     return token.update(function (s) {
-      return s.replace(/^\W+/, "").replace(/\W+$/, "");
+      return s.replace(/^\W+/, '').replace(/\W+$/, '');
     });
   };
 
-  lunr.Pipeline.registerFunction(lunr.trimmer, "trimmer");
+  lunr.Pipeline.registerFunction(lunr.trimmer, 'trimmer');
   /*!
    * lunr.TokenSet
    * Copyright (C) 2019 Oliver Nightingale
@@ -1423,7 +1423,7 @@
    * @returns {lunr.TokenSet}
    */
   lunr.TokenSet.fromClause = function (clause) {
-    if ("editDistance" in clause) {
+    if ('editDistance' in clause) {
       return lunr.TokenSet.fromFuzzyString(clause.term, clause.editDistance);
     } else {
       return lunr.TokenSet.fromString(clause.term);
@@ -1487,11 +1487,11 @@
       }
 
       // insertion
-      if ("*" in frame.node.edges) {
-        var insertionNode = frame.node.edges["*"];
+      if ('*' in frame.node.edges) {
+        var insertionNode = frame.node.edges['*'];
       } else {
         var insertionNode = new lunr.TokenSet();
-        frame.node.edges["*"] = insertionNode;
+        frame.node.edges['*'] = insertionNode;
       }
 
       if (frame.str.length == 0) {
@@ -1525,11 +1525,11 @@
       // can only do a substitution if we have enough edits remaining
       // and if there are characters left to substitute
       if (frame.str.length >= 1) {
-        if ("*" in frame.node.edges) {
-          var substitutionNode = frame.node.edges["*"];
+        if ('*' in frame.node.edges) {
+          var substitutionNode = frame.node.edges['*'];
         } else {
           var substitutionNode = new lunr.TokenSet();
-          frame.node.edges["*"] = substitutionNode;
+          frame.node.edges['*'] = substitutionNode;
         }
 
         if (frame.str.length == 1) {
@@ -1599,7 +1599,7 @@
       var char = str[i],
         final = i == len - 1;
 
-      if (char == "*") {
+      if (char == '*') {
         node.edges[char] = node;
         node.final = final;
       } else {
@@ -1629,7 +1629,7 @@
 
     var stack = [
       {
-        prefix: "",
+        prefix: '',
         node: this,
       },
     ];
@@ -1684,7 +1684,7 @@
       return this._str;
     }
 
-    var str = this.final ? "1" : "0",
+    var str = this.final ? '1' : '0',
       labels = Object.keys(this.edges).sort(),
       len = labels.length;
 
@@ -1738,7 +1738,7 @@
         for (var n = 0; n < nLen; n++) {
           var nEdge = nEdges[n];
 
-          if (nEdge == qEdge || qEdge == "*") {
+          if (nEdge == qEdge || qEdge == '*') {
             var node = frame.node.edges[nEdge],
               qNode = frame.qNode.edges[qEdge],
               final = node.final && qNode.final,
@@ -1772,7 +1772,7 @@
     return output;
   };
   lunr.TokenSet.Builder = function () {
-    this.previousWord = "";
+    this.previousWord = '';
     this.root = new lunr.TokenSet();
     this.uncheckedNodes = [];
     this.minimizedNodes = {};
@@ -1783,7 +1783,7 @@
       commonPrefix = 0;
 
     if (word < this.previousWord) {
-      throw new Error("Out of order word insertion");
+      throw new Error('Out of order word insertion');
     }
 
     for (var i = 0; i < word.length && i < this.previousWord.length; i++) {
@@ -2077,7 +2077,7 @@
             var field = clause.fields[k],
               fieldPosting = posting[field],
               matchingDocumentRefs = Object.keys(fieldPosting),
-              termField = expandedTerm + "/" + field,
+              termField = expandedTerm + '/' + field,
               matchingDocumentsSet = new lunr.Set(matchingDocumentRefs);
 
             /*
@@ -2390,7 +2390,7 @@
    * @property {array} metadataWhitelist - A list of metadata keys that have been whitelisted for entry in the index.
    */
   lunr.Builder = function () {
-    this._ref = "id";
+    this._ref = 'id';
     this._fields = Object.create(null);
     this._documents = Object.create(null);
     this.invertedIndex = Object.create(null);
@@ -2548,7 +2548,7 @@
         // create an initial posting if one doesn't exist
         if (this.invertedIndex[term] == undefined) {
           var posting = Object.create(null);
-          posting["_index"] = this.termIndex;
+          posting['_index'] = this.termIndex;
           this.termIndex += 1;
 
           for (var k = 0; k < fields.length; k++) {
@@ -2884,7 +2884,7 @@
    * })
    */
 
-  lunr.Query.wildcard = new String("*");
+  lunr.Query.wildcard = new String('*');
   lunr.Query.wildcard.NONE = 0;
   lunr.Query.wildcard.LEADING = 1;
   lunr.Query.wildcard.TRAILING = 2;
@@ -2943,19 +2943,19 @@
    * @returns {lunr.Query}
    */
   lunr.Query.prototype.clause = function (clause) {
-    if (!("fields" in clause)) {
+    if (!('fields' in clause)) {
       clause.fields = this.allFields;
     }
 
-    if (!("boost" in clause)) {
+    if (!('boost' in clause)) {
       clause.boost = 1;
     }
 
-    if (!("usePipeline" in clause)) {
+    if (!('usePipeline' in clause)) {
       clause.usePipeline = true;
     }
 
-    if (!("wildcard" in clause)) {
+    if (!('wildcard' in clause)) {
       clause.wildcard = lunr.Query.wildcard.NONE;
     }
 
@@ -2963,17 +2963,17 @@
       clause.wildcard & lunr.Query.wildcard.LEADING &&
       clause.term.charAt(0) != lunr.Query.wildcard
     ) {
-      clause.term = "*" + clause.term;
+      clause.term = '*' + clause.term;
     }
 
     if (
       clause.wildcard & lunr.Query.wildcard.TRAILING &&
       clause.term.slice(-1) != lunr.Query.wildcard
     ) {
-      clause.term = "" + clause.term + "*";
+      clause.term = '' + clause.term + '*';
     }
 
-    if (!("presence" in clause)) {
+    if (!('presence' in clause)) {
       clause.presence = lunr.Query.presence.OPTIONAL;
     }
 
@@ -3041,7 +3041,7 @@
     return this;
   };
   lunr.QueryParseError = function (message, start, end) {
-    this.name = "QueryParseError";
+    this.name = 'QueryParseError';
     this.message = message;
     this.start = start;
     this.end = end;
@@ -3079,7 +3079,7 @@
     subSlices.push(this.str.slice(sliceStart, this.pos));
     this.escapeCharPositions.length = 0;
 
-    return subSlices.join("");
+    return subSlices.join('');
   };
 
   lunr.QueryLexer.prototype.emit = function (type) {
@@ -3141,12 +3141,12 @@
     return this.pos < this.length;
   };
 
-  lunr.QueryLexer.EOS = "EOS";
-  lunr.QueryLexer.FIELD = "FIELD";
-  lunr.QueryLexer.TERM = "TERM";
-  lunr.QueryLexer.EDIT_DISTANCE = "EDIT_DISTANCE";
-  lunr.QueryLexer.BOOST = "BOOST";
-  lunr.QueryLexer.PRESENCE = "PRESENCE";
+  lunr.QueryLexer.EOS = 'EOS';
+  lunr.QueryLexer.FIELD = 'FIELD';
+  lunr.QueryLexer.TERM = 'TERM';
+  lunr.QueryLexer.EDIT_DISTANCE = 'EDIT_DISTANCE';
+  lunr.QueryLexer.BOOST = 'BOOST';
+  lunr.QueryLexer.PRESENCE = 'PRESENCE';
 
   lunr.QueryLexer.lexField = function (lexer) {
     lexer.backup();
@@ -3215,11 +3215,11 @@
         continue;
       }
 
-      if (char == ":") {
+      if (char == ':') {
         return lunr.QueryLexer.lexField;
       }
 
-      if (char == "~") {
+      if (char == '~') {
         lexer.backup();
         if (lexer.width() > 0) {
           lexer.emit(lunr.QueryLexer.TERM);
@@ -3227,7 +3227,7 @@
         return lunr.QueryLexer.lexEditDistance;
       }
 
-      if (char == "^") {
+      if (char == '^') {
         lexer.backup();
         if (lexer.width() > 0) {
           lexer.emit(lunr.QueryLexer.TERM);
@@ -3238,7 +3238,7 @@
       // "+" indicates term presence is required
       // checking for length to ensure that only
       // leading "+" are considered
-      if (char == "+" && lexer.width() === 1) {
+      if (char == '+' && lexer.width() === 1) {
         lexer.emit(lunr.QueryLexer.PRESENCE);
         return lunr.QueryLexer.lexText;
       }
@@ -3246,7 +3246,7 @@
       // "-" indicates term presence is prohibited
       // checking for length to ensure that only
       // leading "-" are considered
-      if (char == "-" && lexer.width() === 1) {
+      if (char == '-' && lexer.width() === 1) {
         lexer.emit(lunr.QueryLexer.PRESENCE);
         return lunr.QueryLexer.lexText;
       }
@@ -3309,7 +3309,7 @@
         return lunr.QueryParser.parseTerm;
       default:
         var errorMessage =
-          "expected either a field or a term, found " + lexeme.type;
+          'expected either a field or a term, found ' + lexeme.type;
 
         if (lexeme.str.length >= 1) {
           errorMessage += " with value '" + lexeme.str + "'";
@@ -3327,10 +3327,10 @@
     }
 
     switch (lexeme.str) {
-      case "-":
+      case '-':
         parser.currentClause.presence = lunr.Query.presence.PROHIBITED;
         break;
-      case "+":
+      case '+':
         parser.currentClause.presence = lunr.Query.presence.REQUIRED;
         break;
       default:
@@ -3341,7 +3341,7 @@
     var nextLexeme = parser.peekLexeme();
 
     if (nextLexeme == undefined) {
-      var errorMessage = "expecting term or field, found nothing";
+      var errorMessage = 'expecting term or field, found nothing';
       throw new lunr.QueryParseError(errorMessage, lexeme.start, lexeme.end);
     }
 
@@ -3373,7 +3373,7 @@
           .map(function (f) {
             return "'" + f + "'";
           })
-          .join(", "),
+          .join(', '),
         errorMessage =
           "unrecognised field '" +
           lexeme.str +
@@ -3388,7 +3388,7 @@
     var nextLexeme = parser.peekLexeme();
 
     if (nextLexeme == undefined) {
-      var errorMessage = "expecting term, found nothing";
+      var errorMessage = 'expecting term, found nothing';
       throw new lunr.QueryParseError(errorMessage, lexeme.start, lexeme.end);
     }
 
@@ -3414,7 +3414,7 @@
 
     parser.currentClause.term = lexeme.str.toLowerCase();
 
-    if (lexeme.str.indexOf("*") != -1) {
+    if (lexeme.str.indexOf('*') != -1) {
       parser.currentClause.usePipeline = false;
     }
 
@@ -3459,7 +3459,7 @@
     var editDistance = parseInt(lexeme.str, 10);
 
     if (isNaN(editDistance)) {
-      var errorMessage = "edit distance must be numeric";
+      var errorMessage = 'edit distance must be numeric';
       throw new lunr.QueryParseError(errorMessage, lexeme.start, lexeme.end);
     }
 
@@ -3506,7 +3506,7 @@
     var boost = parseInt(lexeme.str, 10);
 
     if (isNaN(boost)) {
-      var errorMessage = "boost must be numeric";
+      var errorMessage = 'boost must be numeric';
       throw new lunr.QueryParseError(errorMessage, lexeme.start, lexeme.end);
     }
 
@@ -3548,10 +3548,10 @@
    * Export code from https://github.com/umdjs/umd/blob/master/returnExports.js
    */
   (function (root, factory) {
-    if (typeof define === "function" && define.amd) {
+    if (typeof define === 'function' && define.amd) {
       // AMD. Register as an anonymous module.
       define(factory);
-    } else if (typeof exports === "object") {
+    } else if (typeof exports === 'object') {
       /**
        * Node. Does not work with strict CommonJS, but
        * only CommonJS-like enviroments that support module.exports,

@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-import items from "./items";
-import toIterator from "./toIterator";
+import items from './items';
+import toIterator from './toIterator';
 
 /**
  * Returns an iterator of [key, value] pairs for the given object (just like

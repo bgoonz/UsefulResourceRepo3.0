@@ -56,18 +56,18 @@ class LinkedList {
   }
 
   removeKey(key) {
-    console.log(" reaching removeKey ");
+    console.log(' reaching removeKey ');
     if (this.head !== null) {
       if (this.head.value[0] === key) {
         return this.removeHead();
       }
       // find node if node not head
-      console.log("uhhh");
+      console.log('uhhh');
       let current = this.head;
       while (current.next !== null) {
-        console.log("while");
+        console.log('while');
         if (current.next.value[0] === key) {
-          console.log("while if");
+          console.log('while if');
           current.next = current.next.next;
           return;
         }

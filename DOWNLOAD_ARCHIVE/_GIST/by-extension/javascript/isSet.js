@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import Set from "./Set";
+import Set from './Set';
 
 /**
  * Tests whether the value is a Map.

@@ -1,10 +1,10 @@
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -15,11 +15,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -70,9 +70,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -89,29 +89,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -125,7 +125,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -135,7 +135,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -146,14 +146,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -163,20 +163,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -242,14 +242,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -315,7 +315,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -337,7 +337,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -371,11 +371,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -453,7 +453,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -482,18 +482,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -503,7 +503,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -528,7 +528,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -540,7 +540,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -571,8 +571,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -580,7 +580,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -628,7 +628,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -670,11 +670,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -702,7 +702,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -713,7 +713,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -722,13 +722,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -749,7 +749,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -769,12 +769,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -794,12 +794,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -907,16 +907,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -1048,12 +1048,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -1079,7 +1079,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -1118,13 +1118,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -1184,7 +1184,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -1194,8 +1194,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -1207,7 +1207,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -1218,18 +1218,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -1252,7 +1252,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -1268,7 +1268,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -1279,7 +1279,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -1349,7 +1349,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -1365,7 +1365,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -1400,7 +1400,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -1419,11 +1419,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -1434,7 +1434,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -1462,7 +1462,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -1476,7 +1476,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -1502,7 +1502,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -1510,22 +1510,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -1577,7 +1577,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -1591,11 +1591,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -1606,11 +1606,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -1661,9 +1661,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -1680,29 +1680,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -1716,7 +1716,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -1726,7 +1726,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -1737,14 +1737,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -1754,20 +1754,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -1833,14 +1833,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -1906,7 +1906,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -1928,7 +1928,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -1962,11 +1962,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -2044,7 +2044,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -2073,18 +2073,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -2094,7 +2094,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -2119,7 +2119,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -2131,7 +2131,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -2162,8 +2162,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -2171,7 +2171,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -2219,7 +2219,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -2261,11 +2261,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -2293,7 +2293,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -2304,7 +2304,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -2313,13 +2313,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -2340,7 +2340,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -2360,12 +2360,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -2385,12 +2385,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -2498,16 +2498,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -2639,12 +2639,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -2670,7 +2670,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -2709,13 +2709,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -2775,7 +2775,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -2785,8 +2785,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -2798,7 +2798,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -2809,18 +2809,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -2843,7 +2843,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -2859,7 +2859,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -2870,7 +2870,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -2940,7 +2940,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -2956,7 +2956,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -2991,7 +2991,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -3010,11 +3010,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -3025,7 +3025,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -3053,7 +3053,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -3067,7 +3067,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -3093,7 +3093,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -3101,22 +3101,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -3168,7 +3168,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -3182,11 +3182,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -3197,11 +3197,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -3252,9 +3252,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -3271,29 +3271,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -3307,7 +3307,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -3317,7 +3317,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -3328,14 +3328,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -3345,20 +3345,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -3424,14 +3424,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -3497,7 +3497,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -3519,7 +3519,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -3553,11 +3553,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -3635,7 +3635,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -3664,18 +3664,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -3685,7 +3685,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -3710,7 +3710,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -3722,7 +3722,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -3753,8 +3753,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -3762,7 +3762,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -3810,7 +3810,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -3852,11 +3852,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -3884,7 +3884,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -3895,7 +3895,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -3904,13 +3904,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -3931,7 +3931,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -3951,12 +3951,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -3976,12 +3976,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -4089,16 +4089,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -4230,12 +4230,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -4261,7 +4261,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -4300,13 +4300,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -4366,7 +4366,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -4376,8 +4376,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -4389,7 +4389,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -4400,18 +4400,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -4434,7 +4434,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -4450,7 +4450,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -4461,7 +4461,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -4531,7 +4531,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -4547,7 +4547,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -4582,7 +4582,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -4601,11 +4601,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -4616,7 +4616,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -4644,7 +4644,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -4658,7 +4658,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -4684,7 +4684,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -4692,22 +4692,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -4759,7 +4759,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -4773,11 +4773,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -4788,11 +4788,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -4843,9 +4843,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -4862,29 +4862,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -4898,7 +4898,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -4908,7 +4908,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -4919,14 +4919,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -4936,20 +4936,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -5015,14 +5015,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -5088,7 +5088,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -5110,7 +5110,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -5144,11 +5144,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -5226,7 +5226,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -5255,18 +5255,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -5276,7 +5276,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -5301,7 +5301,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -5313,7 +5313,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -5344,8 +5344,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -5353,7 +5353,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -5401,7 +5401,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -5443,11 +5443,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -5475,7 +5475,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -5486,7 +5486,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -5495,13 +5495,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -5522,7 +5522,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -5542,12 +5542,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -5567,12 +5567,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -5680,16 +5680,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -5821,12 +5821,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -5852,7 +5852,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -5891,13 +5891,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -5957,7 +5957,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -5967,8 +5967,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -5980,7 +5980,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -5991,18 +5991,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -6025,7 +6025,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -6041,7 +6041,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -6052,7 +6052,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -6122,7 +6122,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -6138,7 +6138,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -6173,7 +6173,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -6192,11 +6192,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -6207,7 +6207,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -6235,7 +6235,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -6249,7 +6249,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -6275,7 +6275,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -6283,22 +6283,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -6350,7 +6350,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -6364,11 +6364,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -6379,11 +6379,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -6434,9 +6434,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -6453,29 +6453,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -6489,7 +6489,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -6499,7 +6499,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -6510,14 +6510,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -6527,20 +6527,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -6606,14 +6606,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -6679,7 +6679,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -6701,7 +6701,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -6735,11 +6735,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -6817,7 +6817,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -6846,18 +6846,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -6867,7 +6867,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -6892,7 +6892,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -6904,7 +6904,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -6935,8 +6935,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -6944,7 +6944,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -6992,7 +6992,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -7034,11 +7034,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -7066,7 +7066,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -7077,7 +7077,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -7086,13 +7086,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -7113,7 +7113,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -7133,12 +7133,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -7158,12 +7158,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -7271,16 +7271,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -7412,12 +7412,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -7443,7 +7443,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -7482,13 +7482,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -7548,7 +7548,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -7558,8 +7558,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -7571,7 +7571,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -7582,18 +7582,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -7616,7 +7616,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -7632,7 +7632,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -7643,7 +7643,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -7713,7 +7713,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -7729,7 +7729,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -7764,7 +7764,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -7783,11 +7783,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -7798,7 +7798,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -7826,7 +7826,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -7840,7 +7840,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -7866,7 +7866,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -7874,22 +7874,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -7941,7 +7941,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -7955,11 +7955,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -7970,11 +7970,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -8025,9 +8025,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -8044,29 +8044,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -8080,7 +8080,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -8090,7 +8090,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -8101,14 +8101,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -8118,20 +8118,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -8197,14 +8197,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -8270,7 +8270,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -8292,7 +8292,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -8326,11 +8326,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -8408,7 +8408,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -8437,18 +8437,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -8458,7 +8458,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -8483,7 +8483,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -8495,7 +8495,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -8526,8 +8526,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -8535,7 +8535,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -8583,7 +8583,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -8625,11 +8625,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -8657,7 +8657,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -8668,7 +8668,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -8677,13 +8677,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -8704,7 +8704,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -8724,12 +8724,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -8749,12 +8749,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -8862,16 +8862,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -9003,12 +9003,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -9034,7 +9034,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -9073,13 +9073,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -9139,7 +9139,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -9149,8 +9149,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -9162,7 +9162,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -9173,18 +9173,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -9207,7 +9207,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -9223,7 +9223,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -9234,7 +9234,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -9304,7 +9304,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -9320,7 +9320,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -9355,7 +9355,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -9374,11 +9374,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -9389,7 +9389,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -9417,7 +9417,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -9431,7 +9431,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -9457,7 +9457,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -9465,22 +9465,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -9532,7 +9532,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -9546,11 +9546,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -9561,11 +9561,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -9616,9 +9616,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -9635,29 +9635,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -9671,7 +9671,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -9681,7 +9681,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -9692,14 +9692,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -9709,20 +9709,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -9788,14 +9788,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -9861,7 +9861,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -9883,7 +9883,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -9917,11 +9917,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -9999,7 +9999,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -10028,18 +10028,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -10049,7 +10049,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -10074,7 +10074,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -10086,7 +10086,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -10117,8 +10117,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -10126,7 +10126,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -10174,7 +10174,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -10216,11 +10216,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -10248,7 +10248,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -10259,7 +10259,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -10268,13 +10268,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -10295,7 +10295,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -10315,12 +10315,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -10340,12 +10340,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -10453,16 +10453,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -10594,12 +10594,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -10625,7 +10625,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -10664,13 +10664,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -10730,7 +10730,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -10740,8 +10740,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -10753,7 +10753,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -10764,18 +10764,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -10798,7 +10798,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -10814,7 +10814,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -10825,7 +10825,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -10895,7 +10895,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -10911,7 +10911,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -10946,7 +10946,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -10965,11 +10965,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -10980,7 +10980,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -11008,7 +11008,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -11022,7 +11022,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -11048,7 +11048,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -11056,22 +11056,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -11123,7 +11123,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -11137,11 +11137,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -11152,11 +11152,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -11207,9 +11207,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -11226,29 +11226,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -11262,7 +11262,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -11272,7 +11272,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -11283,14 +11283,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -11300,20 +11300,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -11379,14 +11379,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -11452,7 +11452,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -11474,7 +11474,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -11508,11 +11508,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -11590,7 +11590,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -11619,18 +11619,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -11640,7 +11640,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -11665,7 +11665,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -11677,7 +11677,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -11708,8 +11708,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -11717,7 +11717,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -11765,7 +11765,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -11807,11 +11807,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -11839,7 +11839,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -11850,7 +11850,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -11859,13 +11859,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -11886,7 +11886,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -11906,12 +11906,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -11931,12 +11931,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -12044,16 +12044,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -12185,12 +12185,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -12216,7 +12216,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -12255,13 +12255,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -12321,7 +12321,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -12331,8 +12331,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -12344,7 +12344,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -12355,18 +12355,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -12389,7 +12389,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -12405,7 +12405,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -12416,7 +12416,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -12486,7 +12486,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -12502,7 +12502,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -12537,7 +12537,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -12556,11 +12556,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -12571,7 +12571,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -12599,7 +12599,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -12613,7 +12613,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -12639,7 +12639,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -12647,22 +12647,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -12714,7 +12714,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -12728,11 +12728,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -12743,11 +12743,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -12798,9 +12798,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -12817,29 +12817,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -12853,7 +12853,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -12863,7 +12863,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -12874,14 +12874,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -12891,20 +12891,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -12970,14 +12970,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -13043,7 +13043,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -13065,7 +13065,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -13099,11 +13099,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -13181,7 +13181,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -13210,18 +13210,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -13231,7 +13231,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -13256,7 +13256,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -13268,7 +13268,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -13299,8 +13299,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -13308,7 +13308,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -13356,7 +13356,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -13398,11 +13398,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -13430,7 +13430,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -13441,7 +13441,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -13450,13 +13450,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -13477,7 +13477,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -13497,12 +13497,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -13522,12 +13522,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -13635,16 +13635,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -13776,12 +13776,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -13807,7 +13807,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -13846,13 +13846,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -13912,7 +13912,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -13922,8 +13922,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -13935,7 +13935,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -13946,18 +13946,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -13980,7 +13980,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -13996,7 +13996,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -14007,7 +14007,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -14077,7 +14077,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -14093,7 +14093,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -14128,7 +14128,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -14147,11 +14147,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -14162,7 +14162,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -14190,7 +14190,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -14204,7 +14204,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -14230,7 +14230,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -14238,22 +14238,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -14305,7 +14305,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -14319,11 +14319,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -14334,11 +14334,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -14389,9 +14389,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -14408,29 +14408,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -14444,7 +14444,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -14454,7 +14454,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -14465,14 +14465,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -14482,20 +14482,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -14561,14 +14561,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -14634,7 +14634,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -14656,7 +14656,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -14690,11 +14690,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -14772,7 +14772,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -14801,18 +14801,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -14822,7 +14822,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -14847,7 +14847,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -14859,7 +14859,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -14890,8 +14890,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -14899,7 +14899,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -14947,7 +14947,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -14989,11 +14989,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -15021,7 +15021,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -15032,7 +15032,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -15041,13 +15041,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -15068,7 +15068,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -15088,12 +15088,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -15113,12 +15113,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -15226,16 +15226,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -15367,12 +15367,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -15398,7 +15398,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -15437,13 +15437,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -15503,7 +15503,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -15513,8 +15513,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -15526,7 +15526,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -15537,18 +15537,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -15571,7 +15571,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -15587,7 +15587,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -15598,7 +15598,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -15668,7 +15668,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -15684,7 +15684,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -15719,7 +15719,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -15738,11 +15738,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -15753,7 +15753,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -15781,7 +15781,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -15795,7 +15795,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -15821,7 +15821,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -15829,22 +15829,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -15896,7 +15896,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -15910,11 +15910,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -15925,11 +15925,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -15980,9 +15980,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -15999,29 +15999,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -16035,7 +16035,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -16045,7 +16045,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -16056,14 +16056,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -16073,20 +16073,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -16152,14 +16152,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -16225,7 +16225,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -16247,7 +16247,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -16281,11 +16281,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -16363,7 +16363,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -16392,18 +16392,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -16413,7 +16413,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -16438,7 +16438,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -16450,7 +16450,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -16481,8 +16481,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -16490,7 +16490,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -16538,7 +16538,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -16580,11 +16580,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -16612,7 +16612,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -16623,7 +16623,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -16632,13 +16632,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -16659,7 +16659,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -16679,12 +16679,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -16704,12 +16704,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -16817,16 +16817,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -16958,12 +16958,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -16989,7 +16989,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -17028,13 +17028,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -17094,7 +17094,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -17104,8 +17104,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -17117,7 +17117,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -17128,18 +17128,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -17162,7 +17162,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -17178,7 +17178,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -17189,7 +17189,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -17259,7 +17259,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -17275,7 +17275,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -17310,7 +17310,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -17329,11 +17329,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -17344,7 +17344,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -17372,7 +17372,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -17386,7 +17386,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -17412,7 +17412,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -17420,22 +17420,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -17487,7 +17487,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -17501,11 +17501,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -17516,11 +17516,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -17571,9 +17571,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -17590,29 +17590,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -17626,7 +17626,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -17636,7 +17636,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -17647,14 +17647,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -17664,20 +17664,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -17743,14 +17743,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -17816,7 +17816,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -17838,7 +17838,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -17872,11 +17872,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -17954,7 +17954,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -17983,18 +17983,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -18004,7 +18004,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -18029,7 +18029,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -18041,7 +18041,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -18072,8 +18072,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -18081,7 +18081,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -18129,7 +18129,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -18171,11 +18171,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -18203,7 +18203,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -18214,7 +18214,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -18223,13 +18223,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -18250,7 +18250,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -18270,12 +18270,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -18295,12 +18295,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -18408,16 +18408,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -18549,12 +18549,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -18580,7 +18580,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -18619,13 +18619,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -18685,7 +18685,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -18695,8 +18695,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -18708,7 +18708,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -18719,18 +18719,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -18753,7 +18753,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -18769,7 +18769,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -18780,7 +18780,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -18850,7 +18850,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -18866,7 +18866,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -18901,7 +18901,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -18920,11 +18920,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -18935,7 +18935,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -18963,7 +18963,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -18977,7 +18977,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -19003,7 +19003,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -19011,22 +19011,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -19078,7 +19078,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -19092,11 +19092,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -19107,11 +19107,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -19162,9 +19162,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -19181,29 +19181,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -19217,7 +19217,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -19227,7 +19227,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -19238,14 +19238,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -19255,20 +19255,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -19334,14 +19334,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -19407,7 +19407,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -19429,7 +19429,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -19463,11 +19463,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -19545,7 +19545,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -19574,18 +19574,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -19595,7 +19595,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -19620,7 +19620,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -19632,7 +19632,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -19663,8 +19663,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -19672,7 +19672,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -19720,7 +19720,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -19762,11 +19762,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -19794,7 +19794,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -19805,7 +19805,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -19814,13 +19814,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -19841,7 +19841,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -19861,12 +19861,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -19886,12 +19886,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -19999,16 +19999,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -20140,12 +20140,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -20171,7 +20171,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -20210,13 +20210,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -20276,7 +20276,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -20286,8 +20286,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -20299,7 +20299,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -20310,18 +20310,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -20344,7 +20344,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -20360,7 +20360,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -20371,7 +20371,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -20441,7 +20441,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -20457,7 +20457,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -20492,7 +20492,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -20511,11 +20511,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -20526,7 +20526,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -20554,7 +20554,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -20568,7 +20568,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -20594,7 +20594,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -20602,22 +20602,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -20669,7 +20669,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -20683,11 +20683,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -20698,11 +20698,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -20753,9 +20753,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -20772,29 +20772,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -20808,7 +20808,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -20818,7 +20818,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -20829,14 +20829,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -20846,20 +20846,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -20925,14 +20925,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -20998,7 +20998,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -21020,7 +21020,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -21054,11 +21054,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -21136,7 +21136,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -21165,18 +21165,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -21186,7 +21186,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -21211,7 +21211,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -21223,7 +21223,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -21254,8 +21254,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -21263,7 +21263,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -21311,7 +21311,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -21353,11 +21353,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -21385,7 +21385,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -21396,7 +21396,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -21405,13 +21405,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -21432,7 +21432,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -21452,12 +21452,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -21477,12 +21477,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -21590,16 +21590,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -21731,12 +21731,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -21762,7 +21762,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -21801,13 +21801,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -21867,7 +21867,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -21877,8 +21877,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -21890,7 +21890,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -21901,18 +21901,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -21935,7 +21935,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -21951,7 +21951,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -21962,7 +21962,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -22032,7 +22032,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -22048,7 +22048,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -22083,7 +22083,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -22102,11 +22102,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -22117,7 +22117,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -22145,7 +22145,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -22159,7 +22159,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -22185,7 +22185,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -22193,22 +22193,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -22260,7 +22260,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -22274,11 +22274,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -22289,11 +22289,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -22344,9 +22344,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -22363,29 +22363,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -22399,7 +22399,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -22409,7 +22409,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -22420,14 +22420,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -22437,20 +22437,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -22516,14 +22516,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -22589,7 +22589,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -22611,7 +22611,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -22645,11 +22645,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -22727,7 +22727,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -22756,18 +22756,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -22777,7 +22777,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -22802,7 +22802,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -22814,7 +22814,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -22845,8 +22845,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -22854,7 +22854,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -22902,7 +22902,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -22944,11 +22944,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -22976,7 +22976,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -22987,7 +22987,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -22996,13 +22996,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -23023,7 +23023,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -23043,12 +23043,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -23068,12 +23068,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -23181,16 +23181,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -23322,12 +23322,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -23353,7 +23353,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -23392,13 +23392,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -23458,7 +23458,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -23468,8 +23468,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -23481,7 +23481,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -23492,18 +23492,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -23526,7 +23526,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -23542,7 +23542,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -23553,7 +23553,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -23623,7 +23623,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -23639,7 +23639,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -23674,7 +23674,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -23693,11 +23693,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -23708,7 +23708,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -23736,7 +23736,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -23750,7 +23750,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -23776,7 +23776,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -23784,22 +23784,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -23851,7 +23851,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -23865,11 +23865,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -23880,11 +23880,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -23935,9 +23935,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -23954,29 +23954,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -23990,7 +23990,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -24000,7 +24000,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -24011,14 +24011,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -24028,20 +24028,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -24107,14 +24107,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -24180,7 +24180,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -24202,7 +24202,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -24236,11 +24236,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -24318,7 +24318,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -24347,18 +24347,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -24368,7 +24368,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -24393,7 +24393,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -24405,7 +24405,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -24436,8 +24436,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -24445,7 +24445,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -24493,7 +24493,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -24535,11 +24535,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -24567,7 +24567,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -24578,7 +24578,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -24587,13 +24587,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -24614,7 +24614,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -24634,12 +24634,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -24659,12 +24659,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -24772,16 +24772,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -24913,12 +24913,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -24944,7 +24944,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -24983,13 +24983,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -25049,7 +25049,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -25059,8 +25059,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -25072,7 +25072,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -25083,18 +25083,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -25117,7 +25117,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -25133,7 +25133,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -25144,7 +25144,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -25214,7 +25214,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -25230,7 +25230,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -25265,7 +25265,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -25284,11 +25284,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -25299,7 +25299,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -25327,7 +25327,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -25341,7 +25341,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -25367,7 +25367,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -25375,22 +25375,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -25442,7 +25442,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -25456,11 +25456,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -25471,11 +25471,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -25526,9 +25526,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -25545,29 +25545,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -25581,7 +25581,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -25591,7 +25591,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -25602,14 +25602,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -25619,20 +25619,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -25698,14 +25698,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -25771,7 +25771,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -25793,7 +25793,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -25827,11 +25827,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -25909,7 +25909,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -25938,18 +25938,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -25959,7 +25959,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -25984,7 +25984,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -25996,7 +25996,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -26027,8 +26027,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -26036,7 +26036,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -26084,7 +26084,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -26126,11 +26126,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -26158,7 +26158,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -26169,7 +26169,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -26178,13 +26178,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -26205,7 +26205,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -26225,12 +26225,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -26250,12 +26250,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -26363,16 +26363,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -26504,12 +26504,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -26535,7 +26535,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -26574,13 +26574,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -26640,7 +26640,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -26650,8 +26650,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -26663,7 +26663,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -26674,18 +26674,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -26708,7 +26708,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -26724,7 +26724,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -26735,7 +26735,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -26805,7 +26805,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -26821,7 +26821,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -26856,7 +26856,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -26875,11 +26875,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -26890,7 +26890,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -26918,7 +26918,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -26932,7 +26932,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -26958,7 +26958,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -26966,22 +26966,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -27033,7 +27033,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -27047,11 +27047,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -27062,11 +27062,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -27117,9 +27117,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -27136,29 +27136,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -27172,7 +27172,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -27182,7 +27182,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -27193,14 +27193,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -27210,20 +27210,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -27289,14 +27289,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -27362,7 +27362,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -27384,7 +27384,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -27418,11 +27418,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -27500,7 +27500,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -27529,18 +27529,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -27550,7 +27550,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -27575,7 +27575,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -27587,7 +27587,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -27618,8 +27618,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -27627,7 +27627,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -27675,7 +27675,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -27717,11 +27717,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -27749,7 +27749,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -27760,7 +27760,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -27769,13 +27769,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -27796,7 +27796,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -27816,12 +27816,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -27841,12 +27841,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -27954,16 +27954,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -28095,12 +28095,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -28126,7 +28126,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -28165,13 +28165,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -28231,7 +28231,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -28241,8 +28241,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -28254,7 +28254,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -28265,18 +28265,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -28299,7 +28299,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -28315,7 +28315,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -28326,7 +28326,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -28396,7 +28396,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -28412,7 +28412,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -28447,7 +28447,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -28466,11 +28466,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -28481,7 +28481,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -28509,7 +28509,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -28523,7 +28523,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -28549,7 +28549,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -28557,22 +28557,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -28624,7 +28624,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -28638,11 +28638,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -28653,11 +28653,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -28708,9 +28708,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -28727,29 +28727,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -28763,7 +28763,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -28773,7 +28773,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -28784,14 +28784,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -28801,20 +28801,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -28880,14 +28880,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -28953,7 +28953,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -28975,7 +28975,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -29009,11 +29009,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -29091,7 +29091,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -29120,18 +29120,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -29141,7 +29141,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -29166,7 +29166,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -29178,7 +29178,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -29209,8 +29209,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -29218,7 +29218,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -29266,7 +29266,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -29308,11 +29308,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -29340,7 +29340,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -29351,7 +29351,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -29360,13 +29360,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -29387,7 +29387,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -29407,12 +29407,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -29432,12 +29432,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -29545,16 +29545,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
@@ -29686,12 +29686,12 @@ kMeans(
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -29717,7 +29717,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -29756,13 +29756,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -29822,7 +29822,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -29832,8 +29832,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -29845,7 +29845,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -29856,18 +29856,18 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
 const palindrome = (str) => {
-  const s = str.toLowerCase().replace(/[\W_]/g, "");
-  return s === [...s].reverse().join("");
+  const s = str.toLowerCase().replace(/[\W_]/g, '');
+  return s === [...s].reverse().join('');
 };
 
 //--------------------------------
 
-palindrome("taco cat"); // true
+palindrome('taco cat'); // true
 
 //--------------------------------
 
@@ -29890,7 +29890,7 @@ const pick = (obj, arr) =>
 
 //--------------------------------
 
-pick({ a: 1, b: "2", c: 3 }, ["a", "c"]); // { 'a': 1, 'c': 3 }
+pick({ a: 1, b: '2', c: 3 }, ['a', 'c']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -29906,7 +29906,7 @@ powerset([1, 2]); // [[], [1], [2], [2, 1]]
 const prefersDarkColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 //--------------------------------
 
@@ -29917,7 +29917,7 @@ prefersDarkColorScheme(); // true
 const prefersLightColorScheme = () =>
   window &&
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: light)").matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 //--------------------------------
 
@@ -29987,7 +29987,7 @@ quickSort([1, 6, 1, 5, 3, 2, 1, 4]); // [1, 1, 1, 2, 3, 4, 5, 6]
 //--------------------------------
 
 const randomAlphaNumeric = (length) => {
-  let s = "";
+  let s = '';
   Array.from({ length }).some(() => {
     s += Math.random().toString(36).slice(2);
     return s.length >= length;
@@ -30003,7 +30003,7 @@ randomAlphaNumeric(5); // '0afad'
 
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
+  return '#' + n.slice(0, 6);
 };
 
 //--------------------------------
@@ -30038,7 +30038,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -30057,11 +30057,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -30072,7 +30072,7 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
@@ -30100,7 +30100,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -30114,7 +30114,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -30140,7 +30140,7 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
@@ -30148,22 +30148,22 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -30215,7 +30215,7 @@ sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, (o) => o.x); // 1
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -30229,11 +30229,11 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -30244,11 +30244,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -30299,9 +30299,9 @@ takeWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -30318,29 +30318,29 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -30354,7 +30354,7 @@ toISOStringWithTimezone(new Date()); // '2020-10-06T20:43:33-04:00'
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -30364,7 +30364,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -30375,14 +30375,14 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -30392,20 +30392,20 @@ tomorrow(); // 2018-10-19 (if current date is 2018-10-18)
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
 const untildify = (str) =>
-  str.replace(/^~($|\/|\\)/, `${require("os").homedir()}$1`);
+  str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 
 //--------------------------------
 
-untildify("~/node"); // '/Users/aUser/node'
+untildify('~/node'); // '/Users/aUser/node'
 
 //--------------------------------
 
@@ -30471,14 +30471,14 @@ const xProd = (a, b) =>
 
 //--------------------------------
 
-xProd([1, 2], ["a", "b"]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+xProd([1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
 
 //--------------------------------
 
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -30487,25 +30487,25 @@ yesterday(); // 2018-10-17 (if current date is 2018-10-18)
 
 //--------------------------------
 
-const CSVToArray = (data, delimiter = ",", omitFirstRow = false) =>
+const CSVToArray = (data, delimiter = ',', omitFirstRow = false) =>
   data
-    .slice(omitFirstRow ? data.indexOf("\n") + 1 : 0)
-    .split("\n")
+    .slice(omitFirstRow ? data.indexOf('\n') + 1 : 0)
+    .split('\n')
     .map((v) => v.split(delimiter));
 
 //--------------------------------
 
-CSVToArray("a,b\nc,d"); // [['a', 'b'], ['c', 'd']];
-CSVToArray("a;b\nc;d", ";"); // [['a', 'b'], ['c', 'd']];
-CSVToArray("col1,col2\na,b\nc,d", ",", true); // [['a', 'b'], ['c', 'd']];
+CSVToArray('a,b\nc,d'); // [['a', 'b'], ['c', 'd']];
+CSVToArray('a;b\nc;d', ';'); // [['a', 'b'], ['c', 'd']];
+CSVToArray('col1,col2\na,b\nc,d', ',', true); // [['a', 'b'], ['c', 'd']];
 
 //--------------------------------
 
-const CSVToJSON = (data, delimiter = ",") => {
-  const titles = data.slice(0, data.indexOf("\n")).split(delimiter);
+const CSVToJSON = (data, delimiter = ',') => {
+  const titles = data.slice(0, data.indexOf('\n')).split(delimiter);
   return data
-    .slice(data.indexOf("\n") + 1)
-    .split("\n")
+    .slice(data.indexOf('\n') + 1)
+    .split('\n')
     .map((v) => {
       const values = v.split(delimiter);
       return titles.reduce(
@@ -30517,9 +30517,9 @@ const CSVToJSON = (data, delimiter = ",") => {
 
 //--------------------------------
 
-CSVToJSON("col1,col2\na,b\nc,d");
+CSVToJSON('col1,col2\na,b\nc,d');
 // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
-CSVToJSON("col1;col2\na;b\nc;d", ";");
+CSVToJSON('col1;col2\na;b\nc;d', ';');
 // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
 
 //--------------------------------
@@ -30554,40 +30554,40 @@ HSLToRGB(13, 100, 11); // [56.1, 12.155, 0]
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
 const JSONToFile = (obj, filename) =>
   fs.writeFileSync(`${filename}.json`, JSON.stringify(obj, null, 2));
 
 //--------------------------------
 
-JSONToFile({ test: "is passed" }, "testJsonFile");
+JSONToFile({ test: 'is passed' }, 'testJsonFile');
 // writes the object to 'testJsonFile.json'
 
 //--------------------------------
 
-const JSONtoCSV = (arr, columns, delimiter = ",") =>
+const JSONtoCSV = (arr, columns, delimiter = ',') =>
   [
     columns.join(delimiter),
     ...arr.map((obj) =>
       columns.reduce(
         (acc, key) =>
-          `${acc}${!acc.length ? "" : delimiter}"${!obj[key] ? "" : obj[key]}"`,
-        ""
+          `${acc}${!acc.length ? '' : delimiter}"${!obj[key] ? '' : obj[key]}"`,
+        ''
       )
     ),
-  ].join("\n");
+  ].join('\n');
 
 //--------------------------------
 
 JSONtoCSV(
   [{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }],
-  ["a", "b"]
+  ['a', 'b']
 ); // 'a,b\n"1","2"\n"3","4"\n"6",""\n"","7"'
 JSONtoCSV(
   [{ a: 1, b: 2 }, { a: 3, b: 4, c: 5 }, { a: 6 }, { b: 7 }],
-  ["a", "b"],
-  ";"
+  ['a', 'b'],
+  ';'
 ); // 'a;b\n"1";"2"\n"3";"4"\n"6";""\n"";"7"'
 
 //--------------------------------
@@ -30637,7 +30637,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -30647,17 +30647,17 @@ RGBToHex(255, 165, 1); // 'ffa501'
 
 const URLJoin = (...args) =>
   args
-    .join("/")
-    .replace(/[\/]+/g, "/")
-    .replace(/^(.+):\//, "$1://")
-    .replace(/^file:/, "file:/")
-    .replace(/\/(\?|&|#[^!])/g, "$1")
-    .replace(/\?/g, "&")
-    .replace("&", "?");
+    .join('/')
+    .replace(/[\/]+/g, '/')
+    .replace(/^(.+):\//, '$1://')
+    .replace(/^file:/, 'file:/')
+    .replace(/\/(\?|&|#[^!])/g, '$1')
+    .replace(/\?/g, '&')
+    .replace('&', '?');
 
 //--------------------------------
 
-URLJoin("http://www.google.com", "a", "/b/cd", "?foo=123", "?bar=foo");
+URLJoin('http://www.google.com', 'a', '/b/cd', '?foo=123', '?bar=foo');
 // 'http://www.google.com/a/b/cd?foo=123&bar=foo'
 
 //--------------------------------
@@ -30676,7 +30676,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -30703,7 +30703,7 @@ const addClass = (el, className) => el.classList.add(className);
 
 //--------------------------------
 
-addClass(document.querySelector("p"), "special");
+addClass(document.querySelector('p'), 'special');
 // The paragraph will now have the 'special' class
 
 //--------------------------------
@@ -30711,26 +30711,26 @@ addClass(document.querySelector("p"), "special");
 const addDaysToDate = (date, n) => {
   const d = new Date(date);
   d.setDate(d.getDate() + n);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-addDaysToDate("2020-10-15", 10); // '2020-10-25'
-addDaysToDate("2020-10-15", -10); // '2020-10-05'
+addDaysToDate('2020-10-15', 10); // '2020-10-25'
+addDaysToDate('2020-10-15', -10); // '2020-10-05'
 
 //--------------------------------
 
 const addMinutesToDate = (date, n) => {
   const d = new Date(date);
   d.setTime(d.getTime() + n * 60000);
-  return d.toISOString().split(".")[0].replace("T", " ");
+  return d.toISOString().split('.')[0].replace('T', ' ');
 };
 
 //--------------------------------
 
-addMinutesToDate("2020-10-19 12:00:00", 10); // '2020-10-19 12:10:00'
-addMinutesToDate("2020-10-19", -10); // '2020-10-18 23:50:00'
+addMinutesToDate('2020-10-19 12:00:00', 10); // '2020-10-19 12:10:00'
+addMinutesToDate('2020-10-19', -10); // '2020-10-18 23:50:00'
 
 //--------------------------------
 
@@ -30743,10 +30743,10 @@ const addMultipleListeners = (el, types, listener, options, useCapture) => {
 //--------------------------------
 
 addMultipleListeners(
-  document.querySelector(".my-element"),
-  ["click", "mousedown"],
+  document.querySelector('.my-element'),
+  ['click', 'mousedown'],
   () => {
-    console.log("hello!");
+    console.log('hello!');
   }
 );
 
@@ -30756,10 +30756,10 @@ const addStyles = (el, styles) => Object.assign(el.style, styles);
 
 //--------------------------------
 
-addStyles(document.getElementById("my-element"), {
-  background: "red",
-  color: "#ffff00",
-  fontSize: "3rem",
+addStyles(document.getElementById('my-element'), {
+  background: 'red',
+  color: '#ffff00',
+  fontSize: '3rem',
 });
 
 //--------------------------------
@@ -30774,8 +30774,8 @@ const addWeekDays = (startDate, count) =>
 
 //--------------------------------
 
-addWeekDays(new Date("Oct 09, 2020"), 5); // 'Oct 16, 2020'
-addWeekDays(new Date("Oct 12, 2020"), 5); // 'Oct 19, 2020'
+addWeekDays(new Date('Oct 09, 2020'), 5); // 'Oct 16, 2020'
+addWeekDays(new Date('Oct 12, 2020'), 5); // 'Oct 19, 2020'
 
 //--------------------------------
 
@@ -30875,31 +30875,31 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 
 //--------------------------------
 
-const arrayToCSV = (arr, delimiter = ",") =>
+const arrayToCSV = (arr, delimiter = ',') =>
   arr
     .map((v) =>
       v
         .map((x) => (isNaN(x) ? `"${x.replace(/"/g, '""')}"` : x))
         .join(delimiter)
     )
-    .join("\n");
+    .join('\n');
 
 //--------------------------------
 
 arrayToCSV([
-  ["a", "b"],
-  ["c", "d"],
+  ['a', 'b'],
+  ['c', 'd'],
 ]); // '"a","b"\n"c","d"'
 arrayToCSV(
   [
-    ["a", "b"],
-    ["c", "d"],
+    ['a', 'b'],
+    ['c', 'd'],
   ],
-  ";"
+  ';'
 ); // '"a";"b"\n"c";"d"'
 arrayToCSV([
-  ["a", '"b" great'],
-  ["c", 3.1415],
+  ['a', '"b" great'],
+  ['c', 3.1415],
 ]);
 // '"a","""b"" great"\n"c",3.1415'
 
@@ -30908,11 +30908,11 @@ arrayToCSV([
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -30924,15 +30924,15 @@ const ary =
 //--------------------------------
 
 const firstTwoMax = ary(Math.max, 2);
-[[2, 6, "a"], [6, 4, 8], [10]].map((x) => firstTwoMax(...x)); // [6, 6, 10]
+[[2, 6, 'a'], [6, 4, 8], [10]].map((x) => firstTwoMax(...x)); // [6, 6, 10]
 
 //--------------------------------
 
-const atob = (str) => Buffer.from(str, "base64").toString("binary");
+const atob = (str) => Buffer.from(str, 'base64').toString('binary');
 
 //--------------------------------
 
-atob("Zm9vYmFy"); // 'foobar'
+atob('Zm9vYmFy'); // 'foobar'
 
 //--------------------------------
 
@@ -30948,7 +30948,7 @@ const attempt = (fn, ...args) => {
 
 var elements = attempt(function (selector) {
   return document.querySelectorAll(selector);
-}, ">_>");
+}, '>_>');
 if (elements instanceof Error) elements = []; // elements = []
 
 //--------------------------------
@@ -30965,13 +30965,13 @@ average(1, 2, 3); // 2
 
 const averageBy = (arr, fn) =>
   arr
-    .map(typeof fn === "function" ? fn : (val) => val[fn])
+    .map(typeof fn === 'function' ? fn : (val) => val[fn])
     .reduce((acc, val) => acc + val, 0) / arr.length;
 
 //--------------------------------
 
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], (o) => o.n); // 5
-averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 5
+averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 5
 
 //--------------------------------
 
@@ -30983,7 +30983,7 @@ const bifurcate = (arr, filter) =>
 
 //--------------------------------
 
-bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true]);
+bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]);
 // [ ['beep', 'boop', 'bar'], ['foo'] ]
 
 //--------------------------------
@@ -30996,7 +30996,7 @@ const bifurcateBy = (arr, fn) =>
 
 //--------------------------------
 
-bifurcateBy(["beep", "boop", "foo", "bar"], (x) => x[0] === "b");
+bifurcateBy(['beep', 'boop', 'foo', 'bar'], (x) => x[0] === 'b');
 // [ ['beep', 'boop', 'bar'], ['foo'] ]
 
 //--------------------------------
@@ -31005,7 +31005,7 @@ const binary = (fn) => (a, b) => fn(a, b);
 
 //--------------------------------
 
-["2", "1", "0"].map(binary(Math.max)); // [2, 1, 2]
+['2', '1', '0'].map(binary(Math.max)); // [2, 1, 2]
 
 //--------------------------------
 
@@ -31038,11 +31038,11 @@ const bind =
 //--------------------------------
 
 function greet(greeting, punctuation) {
-  return greeting + " " + this.user + punctuation;
+  return greeting + ' ' + this.user + punctuation;
 }
-const freddy = { user: "fred" };
+const freddy = { user: 'fred' };
 const freddyBound = bind(greet, freddy);
-console.log(freddyBound("hi", "!")); // 'hi fred!'
+console.log(freddyBound('hi', '!')); // 'hi fred!'
 
 //--------------------------------
 
@@ -31059,13 +31059,13 @@ const bindAll = (obj, ...fns) =>
 //--------------------------------
 
 var view = {
-  label: "docs",
+  label: 'docs',
   click: function () {
-    console.log("clicked " + this.label);
+    console.log('clicked ' + this.label);
   },
 };
-bindAll(view, "click");
-document.body.addEventListener("click", view.click);
+bindAll(view, 'click');
+document.body.addEventListener('click', view.click);
 // Log 'clicked docs' when clicked.
 
 //--------------------------------
@@ -31078,13 +31078,13 @@ const bindKey =
 //--------------------------------
 
 const freddy = {
-  user: "fred",
+  user: 'fred',
   greet: function (greeting, punctuation) {
-    return greeting + " " + this.user + punctuation;
+    return greeting + ' ' + this.user + punctuation;
   },
 };
-const freddyBound = bindKey(freddy, "greet");
-console.log(freddyBound("hi", "!")); // 'hi fred!'
+const freddyBound = bindKey(freddy, 'greet');
+console.log(freddyBound('hi', '!')); // 'hi fred!'
 
 //--------------------------------
 
@@ -31131,11 +31131,11 @@ bottomVisible(); // true
 
 //--------------------------------
 
-const btoa = (str) => Buffer.from(str, "binary").toString("base64");
+const btoa = (str) => Buffer.from(str, 'binary').toString('base64');
 
 //--------------------------------
 
-btoa("foobar"); // 'Zm9vYmFy'
+btoa('foobar'); // 'Zm9vYmFy'
 
 //--------------------------------
 
@@ -31184,8 +31184,8 @@ const byteSize = (str) => new Blob([str]).size;
 
 //--------------------------------
 
-byteSize("😀"); // 4
-byteSize("Hello World"); // 11
+byteSize('😀'); // 4
+byteSize('Hello World'); // 11
 
 //--------------------------------
 
@@ -31201,13 +31201,13 @@ const caesarCipher = (str, shift, decrypt = false) => {
         return String.fromCharCode(((c - 97 + n) % 26) + 97);
       return l;
     })
-    .join("");
+    .join('');
 };
 
 //--------------------------------
 
-caesarCipher("Hello World!", -3); // 'Ebiil Tloia!'
-caesarCipher("Ebiil Tloia!", 23, true); // 'Hello World!'
+caesarCipher('Hello World!', -3); // 'Ebiil Tloia!'
+caesarCipher('Ebiil Tloia!', 23, true); // 'Hello World!'
 
 //--------------------------------
 
@@ -31219,9 +31219,9 @@ const call =
 //--------------------------------
 
 Promise.resolve([1, 2, 3])
-  .then(call("map", (x) => 2 * x))
+  .then(call('map', (x) => 2 * x))
   .then(console.log); // [ 2, 4, 6 ]
-const map = call.bind(null, "map");
+const map = call.bind(null, 'map');
 Promise.resolve([1, 2, 3])
   .then(map((x) => 2 * x))
   .then(console.log); // [ 2, 4, 6 ]
@@ -31230,12 +31230,12 @@ Promise.resolve([1, 2, 3])
 
 const capitalize = ([first, ...rest], lowerRest = false) =>
   first.toUpperCase() +
-  (lowerRest ? rest.join("").toLowerCase() : rest.join(""));
+  (lowerRest ? rest.join('').toLowerCase() : rest.join(''));
 
 //--------------------------------
 
-capitalize("fooBar"); // 'FooBar'
-capitalize("fooBar", true); // 'Foobar'
+capitalize('fooBar'); // 'FooBar'
+capitalize('fooBar', true); // 'Foobar'
 
 //--------------------------------
 
@@ -31244,7 +31244,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -31253,7 +31253,7 @@ const cartesianProduct = (a, b) =>
 
 //--------------------------------
 
-cartesianProduct(["x", "y"], [1, 2]);
+cartesianProduct(['x', 'y'], [1, 2]);
 // [['x', 1], ['x', 2], ['y', 1], ['y', 2]]
 
 //--------------------------------
@@ -31262,7 +31262,7 @@ const castArray = (val) => (Array.isArray(val) ? val : [val]);
 
 //--------------------------------
 
-castArray("foo"); // ['foo']
+castArray('foo'); // ['foo']
 castArray([1]); // [1]
 
 //--------------------------------
@@ -31289,15 +31289,15 @@ const chainAsync = (fns) => {
 
 chainAsync([
   (next) => {
-    console.log("0 seconds");
+    console.log('0 seconds');
     setTimeout(next, 1000);
   },
   (next) => {
-    console.log("1 second");
+    console.log('1 second');
     setTimeout(next, 1000);
   },
   () => {
-    console.log("2 second");
+    console.log('2 second');
   },
 ]);
 
@@ -31316,8 +31316,8 @@ const changeLightness = (delta, hslStr) => {
 
 //--------------------------------
 
-changeLightness(10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 60%)'
-changeLightness(-10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 40%)'
+changeLightness(10, 'hsl(330, 50%, 50%)'); // 'hsl(330, 50%, 60%)'
+changeLightness(-10, 'hsl(330, 50%, 50%)'); // 'hsl(330, 50%, 40%)'
 
 //--------------------------------
 
@@ -31325,20 +31325,20 @@ const checkProp = (predicate, prop) => (obj) => !!predicate(obj[prop]);
 
 //--------------------------------
 
-const lengthIs4 = checkProp((l) => l === 4, "length");
+const lengthIs4 = checkProp((l) => l === 4, 'length');
 lengthIs4([]); // false
 lengthIs4([1, 2, 3, 4]); // true
 lengthIs4(new Set([1, 2, 3, 4])); // false (Set uses Size, not length)
 
 const session = { user: {} };
-const validUserSession = checkProp((u) => u.active && !u.disabled, "user");
+const validUserSession = checkProp((u) => u.active && !u.disabled, 'user');
 
 validUserSession(session); // false
 
 session.user.active = true;
 validUserSession(session); // true
 
-const noLength = checkProp((l) => l === undefined, "length");
+const noLength = checkProp((l) => l === undefined, 'length');
 noLength([]); // false
 noLength({}); // true
 noLength(new Set()); // true
@@ -31392,7 +31392,7 @@ const coalesce = (...args) => args.find((v) => ![undefined, null].includes(v));
 
 //--------------------------------
 
-coalesce(null, undefined, "", NaN, "Waldo"); // ''
+coalesce(null, undefined, '', NaN, 'Waldo'); // ''
 
 //--------------------------------
 
@@ -31404,9 +31404,9 @@ const coalesceFactory =
 //--------------------------------
 
 const customCoalesce = coalesceFactory(
-  (v) => ![null, undefined, "", NaN].includes(v)
+  (v) => ![null, undefined, '', NaN].includes(v)
 );
-customCoalesce(undefined, null, NaN, "", "Waldo"); // 'Waldo'
+customCoalesce(undefined, null, NaN, '', 'Waldo'); // 'Waldo'
 
 //--------------------------------
 
@@ -31426,29 +31426,29 @@ Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
 //--------------------------------
 
 const colorize = (...args) => ({
-  black: `\x1b[30m${args.join(" ")}`,
-  red: `\x1b[31m${args.join(" ")}`,
-  green: `\x1b[32m${args.join(" ")}`,
-  yellow: `\x1b[33m${args.join(" ")}`,
-  blue: `\x1b[34m${args.join(" ")}`,
-  magenta: `\x1b[35m${args.join(" ")}`,
-  cyan: `\x1b[36m${args.join(" ")}`,
-  white: `\x1b[37m${args.join(" ")}`,
-  bgBlack: `\x1b[40m${args.join(" ")}\x1b[0m`,
-  bgRed: `\x1b[41m${args.join(" ")}\x1b[0m`,
-  bgGreen: `\x1b[42m${args.join(" ")}\x1b[0m`,
-  bgYellow: `\x1b[43m${args.join(" ")}\x1b[0m`,
-  bgBlue: `\x1b[44m${args.join(" ")}\x1b[0m`,
-  bgMagenta: `\x1b[45m${args.join(" ")}\x1b[0m`,
-  bgCyan: `\x1b[46m${args.join(" ")}\x1b[0m`,
-  bgWhite: `\x1b[47m${args.join(" ")}\x1b[0m`,
+  black: `\x1b[30m${args.join(' ')}`,
+  red: `\x1b[31m${args.join(' ')}`,
+  green: `\x1b[32m${args.join(' ')}`,
+  yellow: `\x1b[33m${args.join(' ')}`,
+  blue: `\x1b[34m${args.join(' ')}`,
+  magenta: `\x1b[35m${args.join(' ')}`,
+  cyan: `\x1b[36m${args.join(' ')}`,
+  white: `\x1b[37m${args.join(' ')}`,
+  bgBlack: `\x1b[40m${args.join(' ')}\x1b[0m`,
+  bgRed: `\x1b[41m${args.join(' ')}\x1b[0m`,
+  bgGreen: `\x1b[42m${args.join(' ')}\x1b[0m`,
+  bgYellow: `\x1b[43m${args.join(' ')}\x1b[0m`,
+  bgBlue: `\x1b[44m${args.join(' ')}\x1b[0m`,
+  bgMagenta: `\x1b[45m${args.join(' ')}\x1b[0m`,
+  bgCyan: `\x1b[46m${args.join(' ')}\x1b[0m`,
+  bgWhite: `\x1b[47m${args.join(' ')}\x1b[0m`,
 });
 
 //--------------------------------
 
-console.log(colorize("foo").red); // 'foo' (red letters)
-console.log(colorize("foo", "bar").bgBlue); // 'foo bar' (blue background)
-console.log(colorize(colorize("foo").yellow, colorize("foo").green).bgWhite);
+console.log(colorize('foo').red); // 'foo' (red letters)
+console.log(colorize('foo', 'bar').bgBlue); // 'foo bar' (blue background)
+console.log(colorize(colorize('foo').yellow, colorize('foo').green).bgWhite);
 // 'foo bar' (first word in yellow letters, second word in green letters, white background for both)
 
 //--------------------------------
@@ -31465,11 +31465,11 @@ const combine = (a, b, prop) =>
 //--------------------------------
 
 const x = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Maria" },
+  { id: 1, name: 'John' },
+  { id: 2, name: 'Maria' },
 ];
 const y = [{ id: 1, age: 28 }, { id: 3, age: 26 }, { age: 3 }];
-combine(x, y, "id");
+combine(x, y, 'id');
 // [
 //  { id: 1, name: 'John', age: 28 },
 //  { id: 2, name: 'Maria' },
@@ -31482,7 +31482,7 @@ const compact = (arr) => arr.filter(Boolean);
 
 //--------------------------------
 
-compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
+compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]);
 // [ 1, 2, 3, 'a', 's', 34 ]
 
 //--------------------------------
@@ -31493,7 +31493,7 @@ const compactObject = (val) => {
     (acc, key) => {
       const value = data[key];
       if (Boolean(value))
-        acc[key] = typeof value === "object" ? compactObject(value) : value;
+        acc[key] = typeof value === 'object' ? compactObject(value) : value;
       return acc;
     },
     Array.isArray(val) ? [] : {}
@@ -31508,22 +31508,22 @@ const obj = {
   c: true,
   d: 0,
   e: 1,
-  f: "",
-  g: "a",
-  h: [null, false, "", true, 1, "a"],
-  i: { j: 0, k: false, l: "a" },
+  f: '',
+  g: 'a',
+  h: [null, false, '', true, 1, 'a'],
+  i: { j: 0, k: false, l: 'a' },
 };
 compactObject(obj);
 // { c: true, e: 1, g: 'a', h: [ true, 1, 'a' ], i: { l: 'a' } }
 
 //--------------------------------
 
-const compactWhitespace = (str) => str.replace(/\s{2,}/g, " ");
+const compactWhitespace = (str) => str.replace(/\s{2,}/g, ' ');
 
 //--------------------------------
 
-compactWhitespace("Lorem    Ipsum"); // 'Lorem Ipsum'
-compactWhitespace("Lorem \n Ipsum"); // 'Lorem Ipsum'
+compactWhitespace('Lorem    Ipsum'); // 'Lorem Ipsum'
+compactWhitespace('Lorem \n Ipsum'); // 'Lorem Ipsum'
 
 //--------------------------------
 
@@ -31577,8 +31577,8 @@ const containsWhitespace = (str) => /\s/.test(str);
 
 //--------------------------------
 
-containsWhitespace("lorem"); // false
-containsWhitespace("lorem ipsum"); // true
+containsWhitespace('lorem'); // false
+containsWhitespace('lorem ipsum'); // true
 
 //--------------------------------
 
@@ -31609,18 +31609,18 @@ copySign(-2, -3); // -2
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -31630,13 +31630,13 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
 const countBy = (arr, fn) =>
   arr
-    .map(typeof fn === "function" ? fn : (val) => val[fn])
+    .map(typeof fn === 'function' ? fn : (val) => val[fn])
     .reduce((acc, val) => {
       acc[val] = (acc[val] || 0) + 1;
       return acc;
@@ -31645,7 +31645,7 @@ const countBy = (arr, fn) =>
 //--------------------------------
 
 countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
-countBy(["one", "two", "three"], "length"); // {3: 2, 5: 1}
+countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
 countBy([{ count: 5 }, { count: 10 }, { count: 5 }], (x) => x.count);
 // {5: 2, 10: 1}
 
@@ -31672,8 +31672,8 @@ const countSubstrings = (str, searchValue) => {
 
 //--------------------------------
 
-countSubstrings("tiktok tok tok tik tok tik", "tik"); // 3
-countSubstrings("tutut tut tut", "tut"); // 4
+countSubstrings('tiktok tok tok tik tok tik', 'tik'); // 3
+countSubstrings('tutut tut tut', 'tut'); // 4
 
 //--------------------------------
 
@@ -31689,8 +31689,8 @@ const countWeekDaysBetween = (startDate, endDate) =>
 
 //--------------------------------
 
-countWeekDaysBetween(new Date("Oct 05, 2020"), new Date("Oct 06, 2020")); // 1
-countWeekDaysBetween(new Date("Oct 05, 2020"), new Date("Oct 14, 2020")); // 7
+countWeekDaysBetween(new Date('Oct 05, 2020'), new Date('Oct 06, 2020')); // 1
+countWeekDaysBetween(new Date('Oct 05, 2020'), new Date('Oct 14, 2020')); // 7
 
 //--------------------------------
 
@@ -31708,25 +31708,25 @@ const counter = (selector, start, end, step = 1, duration = 2000) => {
 
 //--------------------------------
 
-counter("#my-id", 1, 1000, 5, 2000);
+counter('#my-id', 1, 1000, 5, 2000);
 // Creates a 2-second timer for the element with id="my-id"
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
 const createDirIfNotExists = (dir) =>
   !fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined;
 
 //--------------------------------
 
-createDirIfNotExists("test");
+createDirIfNotExists('test');
 // creates the directory 'test', if it doesn't exist
 
 //--------------------------------
 
 const createElement = (str) => {
-  const el = document.createElement("div");
+  const el = document.createElement('div');
   el.innerHTML = str;
   return el.firstElementChild;
 };
@@ -31765,17 +31765,17 @@ const hub = createEventHub();
 let increment = 0;
 
 // Subscribe: listen for different types of events
-hub.on("message", handler);
-hub.on("message", () => console.log("Message event fired"));
-hub.on("increment", () => increment++);
+hub.on('message', handler);
+hub.on('message', () => console.log('Message event fired'));
+hub.on('increment', () => increment++);
 
 // Publish: emit events to invoke all handlers subscribed to them, passing the data to them as an argument
-hub.emit("message", "hello world"); // logs 'hello world' and 'Message event fired'
-hub.emit("message", { hello: "world" }); // logs the object and 'Message event fired'
-hub.emit("increment"); // `increment` variable is now 1
+hub.emit('message', 'hello world'); // logs 'hello world' and 'Message event fired'
+hub.emit('message', { hello: 'world' }); // logs the object and 'Message event fired'
+hub.emit('increment'); // `increment` variable is now 1
 
 // Unsubscribe: stop a specific handler from listening to the 'message' event
-hub.off("message", handler);
+hub.off('message', handler);
 
 //--------------------------------
 
@@ -31816,12 +31816,12 @@ binaryCycle.next(); // { value: 1, done: false }
 //--------------------------------
 
 const dayName = (date, locale) =>
-  date.toLocaleDateString(locale, { weekday: "long" });
+  date.toLocaleDateString(locale, { weekday: 'long' });
 
 //--------------------------------
 
 dayName(new Date()); // 'Saturday'
-dayName(new Date("09/23/2020"), "de-DE"); // 'Samstag'
+dayName(new Date('09/23/2020'), 'de-DE'); // 'Samstag'
 
 //--------------------------------
 
@@ -31837,7 +31837,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -31849,7 +31849,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -31869,7 +31869,7 @@ const debounce = (fn, ms = 0) => {
 //--------------------------------
 
 window.addEventListener(
-  "resize",
+  'resize',
   debounce(() => {
     console.log(window.innerWidth);
     console.log(window.innerHeight);
@@ -31904,23 +31904,23 @@ const debouncePromise = (fn, ms = 0) => {
 
 const fn = (arg) =>
   new Promise((resolve) => {
-    setTimeout(resolve, 1000, ["resolved", arg]);
+    setTimeout(resolve, 1000, ['resolved', arg]);
   });
 const debounced = debouncePromise(fn, 200);
-debounced("foo").then(console.log);
-debounced("bar").then(console.log);
+debounced('foo').then(console.log);
+debounced('bar').then(console.log);
 // Will log ['resolved', 'bar'] both times
 
 //--------------------------------
 
 const decapitalize = ([first, ...rest], upperRest = false) =>
   first.toLowerCase() +
-  (upperRest ? rest.join("").toUpperCase() : rest.join(""));
+  (upperRest ? rest.join('').toUpperCase() : rest.join(''));
 
 //--------------------------------
 
-decapitalize("FooBar"); // 'fooBar'
-decapitalize("FooBar", true); // 'fOOBAR'
+decapitalize('FooBar'); // 'fooBar'
+decapitalize('FooBar', true); // 'fOOBAR'
 
 //--------------------------------
 
@@ -31930,7 +31930,7 @@ const deepClone = (obj) => {
   Object.keys(clone).forEach(
     (key) =>
       (clone[key] =
-        typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key])
+        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
   );
   if (Array.isArray(obj)) {
     clone.length = obj.length;
@@ -31941,7 +31941,7 @@ const deepClone = (obj) => {
 
 //--------------------------------
 
-const a = { foo: "bar", obj: { a: 1, b: 2 } };
+const a = { foo: 'bar', obj: { a: 1, b: 2 } };
 const b = deepClone(a); // a !== b, a.obj !== b.obj
 
 //--------------------------------
@@ -31957,14 +31957,14 @@ deepFlatten([1, [2], [[3], 4], 5]); // [1, 2, 3, 4, 5]
 
 const deepFreeze = (obj) => {
   Object.keys(obj).forEach((prop) => {
-    if (typeof obj[prop] === "object") deepFreeze(obj[prop]);
+    if (typeof obj[prop] === 'object') deepFreeze(obj[prop]);
   });
   return Object.freeze(obj);
 };
 
 //--------------------------------
 
-("use strict");
+('use strict');
 
 const val = deepFreeze([1, [2, 3]]);
 
@@ -31986,24 +31986,24 @@ const data = {
   foo: {
     foz: [1, 2, 3],
     bar: {
-      baz: ["a", "b", "c"],
+      baz: ['a', 'b', 'c'],
     },
   },
 };
-deepGet(data, ["foo", "foz", index]); // get 3
-deepGet(data, ["foo", "bar", "baz", 8, "foz"]); // null
+deepGet(data, ['foo', 'foz', index]); // get 3
+deepGet(data, ['foo', 'bar', 'baz', 8, 'foz']); // null
 
 //--------------------------------
 
 const deepMapKeys = (obj, fn) =>
   Array.isArray(obj)
     ? obj.map((val) => deepMapKeys(val, fn))
-    : typeof obj === "object"
+    : typeof obj === 'object'
     ? Object.keys(obj).reduce((acc, current) => {
         const key = fn(current);
         const val = obj[current];
         acc[key] =
-          val !== null && typeof val === "object" ? deepMapKeys(val, fn) : val;
+          val !== null && typeof val === 'object' ? deepMapKeys(val, fn) : val;
         return acc;
       }, {})
     : obj;
@@ -32011,12 +32011,12 @@ const deepMapKeys = (obj, fn) =>
 //--------------------------------
 
 const obj = {
-  foo: "1",
+  foo: '1',
   nested: {
     child: {
       withArray: [
         {
-          grandChild: ["hello"],
+          grandChild: ['hello'],
         },
       ],
     },
@@ -32054,10 +32054,10 @@ const defer = (fn, ...args) => setTimeout(fn, 1, ...args);
 //--------------------------------
 
 // Example A:
-defer(console.log, "a"), console.log("b"); // logs 'b' then 'a'
+defer(console.log, 'a'), console.log('b'); // logs 'b' then 'a'
 
 // Example B:
-document.querySelector("#someElement").innerHTML = "Hello";
+document.querySelector('#someElement').innerHTML = 'Hello';
 longRunningFunction();
 // Browser will not update the HTML until this has finished
 defer(longRunningFunction);
@@ -32082,7 +32082,7 @@ delay(
     console.log(text);
   },
   1000,
-  "later"
+  'later'
 ); // Logs 'later' after one second.
 
 //--------------------------------
@@ -32091,8 +32091,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -32100,7 +32100,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -32153,7 +32153,7 @@ const dig = (obj, target) =>
     ? obj[target]
     : Object.values(obj).reduce((acc, val) => {
         if (acc !== undefined) return acc;
-        if (typeof val === "object") return dig(val, target);
+        if (typeof val === 'object') return dig(val, target);
       }, undefined);
 
 //--------------------------------
@@ -32161,12 +32161,12 @@ const dig = (obj, target) =>
 const data = {
   level1: {
     level2: {
-      level3: "some data",
+      level3: 'some data',
     },
   },
 };
-dig(data, "level3"); // 'some data'
-dig(data, "level4"); // undefined
+dig(data, 'level3'); // 'some data'
+dig(data, 'level4'); // undefined
 
 //--------------------------------
 
@@ -32261,11 +32261,11 @@ const elementContains = (parent, child) =>
 //--------------------------------
 
 elementContains(
-  document.querySelector("head"),
-  document.querySelector("title")
+  document.querySelector('head'),
+  document.querySelector('title')
 );
 // true
-elementContains(document.querySelector("body"), document.querySelector("body"));
+elementContains(document.querySelector('body'), document.querySelector('body'));
 // false
 
 //--------------------------------
@@ -32300,7 +32300,7 @@ const equals = (a, b) => {
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date)
     return a.getTime() === b.getTime();
-  if (!a || !b || (typeof a !== "object" && typeof b !== "object"))
+  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object'))
     return a === b;
   if (a.prototype !== b.prototype) return false;
   let keys = Object.keys(a);
@@ -32311,8 +32311,8 @@ const equals = (a, b) => {
 //--------------------------------
 
 equals(
-  { a: [2, { e: 3 }], b: [4], c: "foo" },
-  { a: [2, { e: 3 }], b: [4], c: "foo" }
+  { a: [2, { e: 3 }], b: [4], c: 'foo' },
+  { a: [2, { e: 3 }], b: [4], c: 'foo' }
 ); // true
 equals([1, 2, 3], { 0: 1, 1: 2, 2: 3 }); // true
 
@@ -32323,11 +32323,11 @@ const escapeHTML = (str) =>
     /[&<>'"]/g,
     (tag) =>
       ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "'": "&#39;",
-        '"': "&quot;",
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;',
       }[tag] || tag)
   );
 
@@ -32338,11 +32338,11 @@ escapeHTML('<a href="#">Me & you</a>');
 
 //--------------------------------
 
-const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 //--------------------------------
 
-escapeRegExp("(test)"); // \\(test\\)
+escapeRegExp('(test)'); // \\(test\\)
 
 //--------------------------------
 
@@ -32364,33 +32364,33 @@ everyNth([1, 2, 3, 4, 5, 6], 2); // [ 2, 4, 6 ]
 
 //--------------------------------
 
-const expandTabs = (str, count) => str.replace(/\t/g, " ".repeat(count));
+const expandTabs = (str, count) => str.replace(/\t/g, ' '.repeat(count));
 
 //--------------------------------
 
-expandTabs("\t\tlorem", 3); // '      lorem'
+expandTabs('\t\tlorem', 3); // '      lorem'
 
 //--------------------------------
 
 const extendHex = (shortHex) =>
-  "#" +
+  '#' +
   shortHex
-    .slice(shortHex.startsWith("#") ? 1 : 0)
-    .split("")
+    .slice(shortHex.startsWith('#') ? 1 : 0)
+    .split('')
     .map((x) => x + x)
-    .join("");
+    .join('');
 
 //--------------------------------
 
-extendHex("#03f"); // '#0033ff'
-extendHex("05a"); // '#0055aa'
+extendHex('#03f'); // '#0033ff'
+extendHex('05a'); // '#0055aa'
 
 //--------------------------------
 
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -32438,11 +32438,11 @@ const filterNonUniqueBy = (arr, fn) =>
 
 filterNonUniqueBy(
   [
-    { id: 0, value: "a" },
-    { id: 1, value: "b" },
-    { id: 2, value: "c" },
-    { id: 1, value: "d" },
-    { id: 0, value: "e" },
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'd' },
+    { id: 0, value: 'e' },
   ],
   (a, b) => a.id === b.id
 ); // [ { id: 2, value: 'c' } ]
@@ -32465,11 +32465,11 @@ const filterUniqueBy = (arr, fn) =>
 
 filterUniqueBy(
   [
-    { id: 0, value: "a" },
-    { id: 1, value: "b" },
-    { id: 2, value: "c" },
-    { id: 3, value: "d" },
-    { id: 0, value: "e" },
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 3, value: 'd' },
+    { id: 0, value: 'e' },
   ],
   (a, b) => a.id == b.id
 ); // [ { id: 0, value: 'a' }, { id: 0, value: 'e' } ]
@@ -32487,7 +32487,7 @@ findKey(
     fred: { age: 40, active: false },
     pebbles: { age: 1, active: true },
   },
-  (x) => x["active"]
+  (x) => x['active']
 ); // 'barney'
 
 //--------------------------------
@@ -32540,7 +32540,7 @@ findLastKey(
     fred: { age: 40, active: false },
     pebbles: { age: 1, active: true },
   },
-  (x) => x["active"]
+  (x) => x['active']
 ); // 'pebbles'
 
 //--------------------------------
@@ -32559,11 +32559,11 @@ flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -32585,7 +32585,7 @@ const flip =
 
 //--------------------------------
 
-let a = { name: "John Smith" };
+let a = { name: 'John Smith' };
 let b = {};
 const mergeFrom = flip(Object.assign);
 let mergePerson = mergeFrom.bind(null, a);
@@ -32608,7 +32608,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -32619,7 +32619,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -32634,7 +32634,7 @@ const formToObject = (form) =>
 
 //--------------------------------
 
-formToObject(document.querySelector("#form"));
+formToObject(document.querySelector('#form'));
 // { email: 'test@email.com', name: 'Test Name' }
 
 //--------------------------------
@@ -32650,8 +32650,8 @@ const formatDuration = (ms) => {
   };
   return Object.entries(time)
     .filter((val) => val[1] !== 0)
-    .map(([key, val]) => `${val} ${key}${val !== 1 ? "s" : ""}`)
-    .join(", ");
+    .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
+    .join(', ');
 };
 
 //--------------------------------
@@ -32679,24 +32679,24 @@ const frequencies = (arr) =>
 
 //--------------------------------
 
-frequencies(["a", "b", "a", "c", "a", "a", "b"]); // { a: 4, b: 2, c: 1 }
-frequencies([..."ball"]); // { b: 1, a: 1, l: 2 }
+frequencies(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // { a: 4, b: 2, c: 1 }
+frequencies([...'ball']); // { b: 1, a: 1, l: 2 }
 
 //--------------------------------
 
-const fromCamelCase = (str, separator = "_") =>
+const fromCamelCase = (str, separator = '_') =>
   str
-    .replace(/([a-z\d])([A-Z])/g, "$1" + separator + "$2")
-    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, "$1" + separator + "$2")
+    .replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
+    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2')
     .toLowerCase();
 
 //--------------------------------
 
-fromCamelCase("someDatabaseFieldName", " "); // 'some database field name'
-fromCamelCase("someLabelThatNeedsToBeDecamelized", "-");
+fromCamelCase('someDatabaseFieldName', ' '); // 'some database field name'
+fromCamelCase('someLabelThatNeedsToBeDecamelized', '-');
 // 'some-label-that-needs-to-be-decamelized'
-fromCamelCase("someJavascriptProperty", "_"); // 'some_javascript_property'
-fromCamelCase("JSONToCSV", "."); // 'json.to.csv'
+fromCamelCase('someJavascriptProperty', '_'); // 'some_javascript_property'
+fromCamelCase('JSONToCSV', '.'); // 'json.to.csv'
 
 //--------------------------------
 
@@ -32723,7 +32723,7 @@ frozenSet([1, 2, 3, 1, 2]);
 
 //--------------------------------
 
-const fullscreen = (mode = true, el = "body") =>
+const fullscreen = (mode = true, el = 'body') =>
   mode
     ? document.querySelector(el).requestFullscreen()
     : document.exitFullscreen();
@@ -32749,7 +32749,7 @@ const functions = (obj, inherited = false) =>
   (inherited
     ? [...Object.keys(obj), ...Object.keys(Object.getPrototypeOf(obj))]
     : Object.keys(obj)
-  ).filter((key) => typeof obj[key] === "function");
+  ).filter((key) => typeof obj[key] === 'function');
 
 //--------------------------------
 
@@ -32809,19 +32809,19 @@ geometricProgression(256, 1, 4); // [1, 4, 16, 64, 256]
 const get = (from, ...selectors) =>
   [...selectors].map((s) =>
     s
-      .replace(/\[([^\[\]]*)\]/g, ".$1.")
-      .split(".")
-      .filter((t) => t !== "")
+      .replace(/\[([^\[\]]*)\]/g, '.$1.')
+      .split('.')
+      .filter((t) => t !== '')
       .reduce((prev, cur) => prev && prev[cur], from)
   );
 
 //--------------------------------
 
 const obj = {
-  selector: { to: { val: "val to select" } },
-  target: [1, 2, { a: "test" }],
+  selector: { to: { val: 'val to select' } },
+  target: [1, 2, { a: 'test' }],
 };
-get(obj, "selector.to.val", "target[0]", "target[2].a");
+get(obj, 'selector.to.val', 'target[0]', 'target[2].a');
 // ['val to select', 1, 'test']
 
 //--------------------------------
@@ -32837,16 +32837,16 @@ const getAncestors = (el) => {
 
 //--------------------------------
 
-getAncestors(document.querySelector("nav"));
+getAncestors(document.querySelector('nav'));
 // [document, html, body, header, nav]
 
 //--------------------------------
 
-const getBaseURL = (url) => url.replace(/[?#].*$/, "");
+const getBaseURL = (url) => url.replace(/[?#].*$/, '');
 
 //--------------------------------
 
-getBaseURL("http://url.com/page?name=Adam&surname=Smith");
+getBaseURL('http://url.com/page?name=Adam&surname=Smith');
 // 'http://url.com/page'
 
 //--------------------------------
@@ -32864,13 +32864,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -32882,8 +32882,8 @@ getElementsBiggerThanViewport(); // <div id="ultra-wide-item" />
 //--------------------------------
 
 const getImages = (el, includeDuplicates = false) => {
-  const images = [...el.getElementsByTagName("img")].map((img) =>
-    img.getAttribute("src")
+  const images = [...el.getElementsByTagName('img')].map((img) =>
+    img.getAttribute('src')
   );
   return includeDuplicates ? images : [...new Set(images)];
 };
@@ -32897,12 +32897,12 @@ getImages(document, false); // ['image1.jpg', 'image2.png', '...']
 
 const getMeridiemSuffixOfInteger = (num) =>
   num === 0 || num === 24
-    ? 12 + "am"
+    ? 12 + 'am'
     : num === 12
-    ? 12 + "pm"
+    ? 12 + 'pm'
     : num < 12
-    ? (num % 12) + "am"
-    : (num % 12) + "pm";
+    ? (num % 12) + 'am'
+    : (num % 12) + 'pm';
 
 //--------------------------------
 
@@ -32923,14 +32923,14 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
 const getParentsUntil = (el, selector) => {
   let parents = [],
     _el = el.parentNode;
-  while (_el && typeof _el.matches === "function") {
+  while (_el && typeof _el.matches === 'function') {
     parents.unshift(_el);
     if (_el.matches(selector)) return parents;
     else _el = _el.parentNode;
@@ -32940,7 +32940,7 @@ const getParentsUntil = (el, selector) => {
 
 //--------------------------------
 
-getParentsUntil(document.querySelector("#home-link"), "header");
+getParentsUntil(document.querySelector('#home-link'), 'header');
 // [header, nav, ul, li]
 
 //--------------------------------
@@ -32977,7 +32977,7 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
@@ -32985,7 +32985,7 @@ const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
 
 //--------------------------------
 
-getStyle(document.querySelector("p"), "font-size"); // '16px'
+getStyle(document.querySelector('p'), 'font-size'); // '16px'
 
 //--------------------------------
 
@@ -32998,7 +32998,7 @@ getTimestamp(); // 1602162242
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -33009,15 +33009,15 @@ getType(new Set([1, 2, 3])); // 'Set'
 const getURLParameters = (url) =>
   (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(
     (a, v) => (
-      (a[v.slice(0, v.indexOf("="))] = v.slice(v.indexOf("=") + 1)), a
+      (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a
     ),
     {}
   );
 
 //--------------------------------
 
-getURLParameters("google.com"); // {}
-getURLParameters("http://url.com/page?name=Adam&surname=Smith");
+getURLParameters('google.com'); // {}
+getURLParameters('http://url.com/page?name=Adam&surname=Smith');
 // {name: 'Adam', surname: 'Smith'}
 
 //--------------------------------
@@ -33034,13 +33034,13 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const groupBy = (arr, fn) =>
   arr
-    .map(typeof fn === "function" ? fn : (val) => val[fn])
+    .map(typeof fn === 'function' ? fn : (val) => val[fn])
     .reduce((acc, val, i) => {
       acc[val] = (acc[val] || []).concat(arr[i]);
       return acc;
@@ -33049,12 +33049,12 @@ const groupBy = (arr, fn) =>
 //--------------------------------
 
 groupBy([6.1, 4.2, 6.3], Math.floor); // {4: [4.2], 6: [6.1, 6.3]}
-groupBy(["one", "two", "three"], "length"); // {3: ['one', 'two'], 5: ['three']}
+groupBy(['one', 'two', 'three'], 'length'); // {3: ['one', 'two'], 5: ['three']}
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -33066,7 +33066,7 @@ const hasClass = (el, className) => el.classList.contains(className);
 
 //--------------------------------
 
-hasClass(document.querySelector("p.special"), "special"); // true
+hasClass(document.querySelector('p.special'), 'special'); // true
 
 //--------------------------------
 
@@ -33081,15 +33081,15 @@ hasDuplicates([0, 1, 2, 3]); // false
 
 const hasFlags = (...flags) =>
   flags.every((flag) =>
-    process.argv.includes(/^-{1,2}/.test(flag) ? flag : "--" + flag)
+    process.argv.includes(/^-{1,2}/.test(flag) ? flag : '--' + flag)
   );
 
 //--------------------------------
 
 // node myScript.js -s --test --cool=true
-hasFlags("-s"); // true
-hasFlags("--test", "cool=true", "-s"); // true
-hasFlags("special"); // false
+hasFlags('-s'); // true
+hasFlags('--test', 'cool=true', '-s'); // true
+hasFlags('special'); // false
 
 //--------------------------------
 
@@ -33097,7 +33097,7 @@ const hasKey = (obj, keys) => {
   return (
     keys.length > 0 &&
     keys.every((key) => {
-      if (typeof obj !== "object" || !obj.hasOwnProperty(key)) return false;
+      if (typeof obj !== 'object' || !obj.hasOwnProperty(key)) return false;
       obj = obj[key];
       return true;
     })
@@ -33109,51 +33109,51 @@ const hasKey = (obj, keys) => {
 let obj = {
   a: 1,
   b: { c: 4 },
-  "b.d": 5,
+  'b.d': 5,
 };
-hasKey(obj, ["a"]); // true
-hasKey(obj, ["b"]); // true
-hasKey(obj, ["b", "c"]); // true
-hasKey(obj, ["b.d"]); // true
-hasKey(obj, ["d"]); // false
-hasKey(obj, ["c"]); // false
-hasKey(obj, ["b", "f"]); // false
+hasKey(obj, ['a']); // true
+hasKey(obj, ['b']); // true
+hasKey(obj, ['b', 'c']); // true
+hasKey(obj, ['b.d']); // true
+hasKey(obj, ['d']); // false
+hasKey(obj, ['c']); // false
+hasKey(obj, ['b', 'f']); // false
 
 //--------------------------------
 
 const hashBrowser = (val) =>
   crypto.subtle
-    .digest("SHA-256", new TextEncoder("utf-8").encode(val))
+    .digest('SHA-256', new TextEncoder('utf-8').encode(val))
     .then((h) => {
       let hexes = [],
         view = new DataView(h);
       for (let i = 0; i < view.byteLength; i += 4)
-        hexes.push(("00000000" + view.getUint32(i).toString(16)).slice(-8));
-      return hexes.join("");
+        hexes.push(('00000000' + view.getUint32(i).toString(16)).slice(-8));
+      return hexes.join('');
     });
 
 //--------------------------------
 
 hashBrowser(
-  JSON.stringify({ a: "a", b: [1, 2, 3, 4], foo: { c: "bar" } })
+  JSON.stringify({ a: 'a', b: [1, 2, 3, 4], foo: { c: 'bar' } })
 ).then(console.log);
 // '04aa106279f5977f59f9067fa9712afc4aedc6f5862a8defc34552d8c7206393'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const hashNode = (val) =>
   new Promise((resolve) =>
     setTimeout(
-      () => resolve(crypto.createHash("sha256").update(val).digest("hex")),
+      () => resolve(crypto.createHash('sha256').update(val).digest('hex')),
       0
     )
   );
 
 //--------------------------------
 
-hashNode(JSON.stringify({ a: "a", b: [1, 2, 3, 4], foo: { c: "bar" } })).then(
+hashNode(JSON.stringify({ a: 'a', b: [1, 2, 3, 4], foo: { c: 'bar' } })).then(
   console.log
 );
 // '04aa106279f5977f59f9067fa9712afc4aedc6f5862a8defc34552d8c7206393'
@@ -33217,43 +33217,43 @@ heapsort([6, 3, 4, 1]); // [1, 3, 4, 6]
 
 const hexToRGB = (hex) => {
   let alpha = false,
-    h = hex.slice(hex.startsWith("#") ? 1 : 0);
-  if (h.length === 3) h = [...h].map((x) => x + x).join("");
+    h = hex.slice(hex.startsWith('#') ? 1 : 0);
+  if (h.length === 3) h = [...h].map((x) => x + x).join('');
   else if (h.length === 8) alpha = true;
   h = parseInt(h, 16);
   return (
-    "rgb" +
-    (alpha ? "a" : "") +
-    "(" +
+    'rgb' +
+    (alpha ? 'a' : '') +
+    '(' +
     (h >>> (alpha ? 24 : 16)) +
-    ", " +
+    ', ' +
     ((h & (alpha ? 0x00ff0000 : 0x00ff00)) >>> (alpha ? 16 : 8)) +
-    ", " +
+    ', ' +
     ((h & (alpha ? 0x0000ff00 : 0x0000ff)) >>> (alpha ? 8 : 0)) +
-    (alpha ? `, ${h & 0x000000ff}` : "") +
-    ")"
+    (alpha ? `, ${h & 0x000000ff}` : '') +
+    ')'
   );
 };
 
 //--------------------------------
 
-hexToRGB("#27ae60ff"); // 'rgba(39, 174, 96, 255)'
-hexToRGB("27ae60"); // 'rgb(39, 174, 96)'
-hexToRGB("#fff"); // 'rgb(255, 255, 255)'
+hexToRGB('#27ae60ff'); // 'rgba(39, 174, 96, 255)'
+hexToRGB('27ae60'); // 'rgb(39, 174, 96)'
+hexToRGB('#fff'); // 'rgb(255, 255, 255)'
 
 //--------------------------------
 
-const hide = (...el) => [...el].forEach((e) => (e.style.display = "none"));
+const hide = (...el) => [...el].forEach((e) => (e.style.display = 'none'));
 
 //--------------------------------
 
-hide(document.querySelectorAll("img")); // Hides all <img> elements on the page
+hide(document.querySelectorAll('img')); // Hides all <img> elements on the page
 
 //--------------------------------
 
 const httpDelete = (url, callback, err = console.error) => {
   const request = new XMLHttpRequest();
-  request.open("DELETE", url, true);
+  request.open('DELETE', url, true);
   request.onload = () => callback(request);
   request.onerror = () => err(request);
   request.send();
@@ -33261,7 +33261,7 @@ const httpDelete = (url, callback, err = console.error) => {
 
 //--------------------------------
 
-httpDelete("https://jsonplaceholder.typicode.com/posts/1", (request) => {
+httpDelete('https://jsonplaceholder.typicode.com/posts/1', (request) => {
   console.log(request.responseText);
 }); // Logs: {}
 
@@ -33269,7 +33269,7 @@ httpDelete("https://jsonplaceholder.typicode.com/posts/1", (request) => {
 
 const httpGet = (url, callback, err = console.error) => {
   const request = new XMLHttpRequest();
-  request.open("GET", url, true);
+  request.open('GET', url, true);
   request.onload = () => callback(request.responseText);
   request.onerror = () => err(request);
   request.send();
@@ -33277,7 +33277,7 @@ const httpGet = (url, callback, err = console.error) => {
 
 //--------------------------------
 
-httpGet("https://jsonplaceholder.typicode.com/posts/1", console.log); /*
+httpGet('https://jsonplaceholder.typicode.com/posts/1', console.log); /*
 Logs: {
   "userId": 1,
   "id": 1,
@@ -33290,8 +33290,8 @@ Logs: {
 
 const httpPost = (url, data, callback, err = console.error) => {
   const request = new XMLHttpRequest();
-  request.open("POST", url, true);
-  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+  request.open('POST', url, true);
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   request.onload = () => callback(request.responseText);
   request.onerror = () => err(request);
   request.send(data);
@@ -33302,11 +33302,11 @@ const httpPost = (url, data, callback, err = console.error) => {
 const newPost = {
   userId: 1,
   id: 1337,
-  title: "Foo",
-  body: "bar bar bar",
+  title: 'Foo',
+  body: 'bar bar bar',
 };
 const data = JSON.stringify(newPost);
-httpPost("https://jsonplaceholder.typicode.com/posts", data, console.log); /*
+httpPost('https://jsonplaceholder.typicode.com/posts', data, console.log); /*
 Logs: {
   "userId": 1,
   "id": 1337,
@@ -33315,7 +33315,7 @@ Logs: {
 }
 */
 httpPost(
-  "https://jsonplaceholder.typicode.com/posts",
+  'https://jsonplaceholder.typicode.com/posts',
   null, // does not send a body
   console.log
 ); /*
@@ -33328,8 +33328,8 @@ Logs: {
 
 const httpPut = (url, data, callback, err = console.error) => {
   const request = new XMLHttpRequest();
-  request.open("PUT", url, true);
-  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+  request.open('PUT', url, true);
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   request.onload = () => callback(request);
   request.onerror = () => err(request);
   request.send(data);
@@ -33337,14 +33337,14 @@ const httpPut = (url, data, callback, err = console.error) => {
 
 //--------------------------------
 
-const password = "fooBaz";
+const password = 'fooBaz';
 const data = JSON.stringify({
   id: 1,
-  title: "foo",
-  body: "bar",
+  title: 'foo',
+  body: 'bar',
   userId: 1,
 });
-httpPut("https://jsonplaceholder.typicode.com/posts/1", data, (request) => {
+httpPut('https://jsonplaceholder.typicode.com/posts/1', data, (request) => {
   console.log(request.responseText);
 }); /*
 Logs: {
@@ -33358,8 +33358,8 @@ Logs: {
 //--------------------------------
 
 const httpsRedirect = () => {
-  if (location.protocol !== "https:")
-    location.replace("https://" + location.href.split("//")[1]);
+  if (location.protocol !== 'https:')
+    location.replace('https://' + location.href.split('//')[1]);
 };
 
 //--------------------------------
@@ -33425,13 +33425,13 @@ includesAny([1, 2, 3, 4], [8, 9]); // false
 
 //--------------------------------
 
-const indentString = (str, count, indent = " ") =>
+const indentString = (str, count, indent = ' ') =>
   str.replace(/^/gm, indent.repeat(count));
 
 //--------------------------------
 
-indentString("Lorem\nIpsum", 2); // '  Lorem\n  Ipsum'
-indentString("Lorem\nIpsum", 2, "_"); // '__Lorem\n__Ipsum'
+indentString('Lorem\nIpsum', 2); // '  Lorem\n  Ipsum'
+indentString('Lorem\nIpsum', 2, '_'); // '__Lorem\n__Ipsum'
 
 //--------------------------------
 
@@ -33458,9 +33458,9 @@ const indexOfSubstrings = function* (str, searchValue) {
 
 //--------------------------------
 
-[...indexOfSubstrings("tiktok tok tok tik tok tik", "tik")]; // [0, 15, 23]
-[...indexOfSubstrings("tutut tut tut", "tut")]; // [0, 2, 6, 10]
-[...indexOfSubstrings("hello", "hi")]; // []
+[...indexOfSubstrings('tiktok tok tok tik tok tik', 'tik')]; // [0, 15, 23]
+[...indexOfSubstrings('tutut tut tut', 'tut')]; // [0, 2, 6, 10]
+[...indexOfSubstrings('hello', 'hi')]; // []
 
 //--------------------------------
 
@@ -33532,8 +33532,8 @@ initializeNDArray(5, 2, 2, 2); // [[[5, 5], [5, 5]], [[5, 5], [5, 5]]]
 //--------------------------------
 
 const injectCSS = (css) => {
-  let el = document.createElement("style");
-  el.type = "text/css";
+  let el = document.createElement('style');
+  el.type = 'text/css';
   el.innerText = css;
   document.head.appendChild(el);
   return el;
@@ -33541,17 +33541,17 @@ const injectCSS = (css) => {
 
 //--------------------------------
 
-injectCSS("body { background-color: #000 }");
+injectCSS('body { background-color: #000 }');
 // '<style type="text/css">body { background-color: #000 }</style>'
 
 //--------------------------------
 
 const insertAfter = (el, htmlString) =>
-  el.insertAdjacentHTML("afterend", htmlString);
+  el.insertAdjacentHTML('afterend', htmlString);
 
 //--------------------------------
 
-insertAfter(document.getElementById("myId"), "<p>after</p>");
+insertAfter(document.getElementById('myId'), '<p>after</p>');
 // <div id="myId">...</div> <p>after</p>
 
 //--------------------------------
@@ -33572,11 +33572,11 @@ insertAt(otherArray, 0, 4, 6, 8); // otherArray = [2, 4, 6, 8, 10]
 //--------------------------------
 
 const insertBefore = (el, htmlString) =>
-  el.insertAdjacentHTML("beforebegin", htmlString);
+  el.insertAdjacentHTML('beforebegin', htmlString);
 
 //--------------------------------
 
-insertBefore(document.getElementById("myId"), "<p>before</p>");
+insertBefore(document.getElementById('myId'), '<p>before</p>');
 // <p>before</p> <div id="myId">...</div>
 
 //--------------------------------
@@ -33624,8 +33624,8 @@ const intersectionBy = (a, b, fn) => {
 
 intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
 intersectionBy(
-  [{ title: "Apple" }, { title: "Orange" }],
-  [{ title: "Orange" }, { title: "Melon" }],
+  [{ title: 'Apple' }, { title: 'Orange' }],
+  [{ title: 'Orange' }, { title: 'Melon' }],
   (x) => x.title
 ); // [{ title: 'Orange' }]
 
@@ -33655,7 +33655,7 @@ const invertKeyValues = (obj, fn) =>
 //--------------------------------
 
 invertKeyValues({ a: 1, b: 2, c: 1 }); // { 1: [ 'a', 'c' ], 2: [ 'b' ] }
-invertKeyValues({ a: 1, b: 2, c: 1 }, (value) => "group" + value);
+invertKeyValues({ a: 1, b: 2, c: 1 }, (value) => 'group' + value);
 // { group1: [ 'a', 'c' ], group2: [ 'b' ] }
 
 //--------------------------------
@@ -33671,8 +33671,8 @@ is(RegExp, /./g); // true
 is(Set, new Set()); // true
 is(WeakMap, new WeakMap()); // true
 is(WeakSet, new WeakSet()); // true
-is(String, ""); // true
-is(String, new String("")); // true
+is(String, ''); // true
+is(String, new String('')); // true
 is(Number, 1); // true
 is(Number, new Number(1)); // true
 is(Boolean, true); // true
@@ -33684,9 +33684,9 @@ const isAbsoluteURL = (str) => /^[a-z][a-z0-9+.-]*:/.test(str);
 
 //--------------------------------
 
-isAbsoluteURL("https://google.com"); // true
-isAbsoluteURL("ftp://www.myserver.net"); // true
-isAbsoluteURL("/foo/bar"); // false
+isAbsoluteURL('https://google.com'); // true
+isAbsoluteURL('ftp://www.myserver.net'); // true
+isAbsoluteURL('/foo/bar'); // false
 
 //--------------------------------
 
@@ -33702,9 +33702,9 @@ const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
 
 //--------------------------------
 
-isAlpha("sampleInput"); // true
-isAlpha("this Will fail"); // false
-isAlpha("123"); // false
+isAlpha('sampleInput'); // true
+isAlpha('this Will fail'); // false
+isAlpha('123'); // false
 
 //--------------------------------
 
@@ -33712,10 +33712,10 @@ const isAlphaNumeric = (str) => /^[a-z0-9]+$/gi.test(str);
 
 //--------------------------------
 
-isAlphaNumeric("hello123"); // true
-isAlphaNumeric("123"); // true
-isAlphaNumeric("hello 123"); // false (space character is not alphanumeric)
-isAlphaNumeric("#$hello"); // false
+isAlphaNumeric('hello123'); // true
+isAlphaNumeric('123'); // true
+isAlphaNumeric('hello 123'); // false (space character is not alphanumeric)
+isAlphaNumeric('#$hello'); // false
 
 //--------------------------------
 
@@ -33723,33 +33723,33 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 
 const isArrayLike = (obj) =>
-  obj != null && typeof obj[Symbol.iterator] === "function";
+  obj != null && typeof obj[Symbol.iterator] === 'function';
 
 //--------------------------------
 
 isArrayLike([1, 2, 3]); // true
-isArrayLike(document.querySelectorAll(".className")); // true
-isArrayLike("abc"); // true
+isArrayLike(document.querySelectorAll('.className')); // true
+isArrayLike('abc'); // true
 isArrayLike(null); // false
 
 //--------------------------------
 
 const isAsyncFunction = (val) =>
-  Object.prototype.toString.call(val) === "[object AsyncFunction]";
+  Object.prototype.toString.call(val) === '[object AsyncFunction]';
 
 //--------------------------------
 
@@ -33784,7 +33784,7 @@ isBetweenDates(
 
 //--------------------------------
 
-const isBoolean = (val) => typeof val === "boolean";
+const isBoolean = (val) => typeof val === 'boolean';
 
 //--------------------------------
 
@@ -33793,7 +33793,7 @@ isBoolean(false); // true
 
 //--------------------------------
 
-const isBrowser = () => ![typeof window, typeof document].includes("undefined");
+const isBrowser = () => ![typeof window, typeof document].includes('undefined');
 
 //--------------------------------
 
@@ -33831,12 +33831,12 @@ const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
 
 //--------------------------------
 
-isDateValid("December 17, 1995 03:24:00"); // true
-isDateValid("1995-12-17T03:24:00"); // true
-isDateValid("1995-12-17 T03:24:00"); // false
-isDateValid("Duck"); // false
+isDateValid('December 17, 1995 03:24:00'); // true
+isDateValid('1995-12-17T03:24:00'); // true
+isDateValid('1995-12-17 T03:24:00'); // false
+isDateValid('Duck'); // false
 isDateValid(1995, 11, 17); // true
-isDateValid(1995, 11, 17, "Duck"); // false
+isDateValid(1995, 11, 17, 'Duck'); // false
 isDateValid({}); // false
 
 //--------------------------------
@@ -33844,7 +33844,7 @@ isDateValid({}); // false
 const isDeepFrozen = (obj) =>
   Object.isFrozen(obj) &&
   Object.keys(obj).every(
-    (prop) => typeof obj[prop] !== "object" || isDeepFrozen(obj[prop])
+    (prop) => typeof obj[prop] !== 'object' || isDeepFrozen(obj[prop])
   );
 
 //--------------------------------
@@ -33879,16 +33879,16 @@ isDivisible(6, 3); // true
 
 const isDuplexStream = (val) =>
   val !== null &&
-  typeof val === "object" &&
-  typeof val.pipe === "function" &&
-  typeof val._read === "function" &&
-  typeof val._readableState === "object" &&
-  typeof val._write === "function" &&
-  typeof val._writableState === "object";
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._read === 'function' &&
+  typeof val._readableState === 'object' &&
+  typeof val._write === 'function' &&
+  typeof val._writableState === 'object';
 
 //--------------------------------
 
-const Stream = require("stream");
+const Stream = require('stream');
 
 isDuplexStream(new Stream.Duplex()); // true
 
@@ -33900,10 +33900,10 @@ const isEmpty = (val) => val == null || !(Object.keys(val) || val).length;
 
 isEmpty([]); // true
 isEmpty({}); // true
-isEmpty(""); // true
+isEmpty(''); // true
 isEmpty([1, 2]); // false
 isEmpty({ a: 1, b: 2 }); // false
-isEmpty("text"); // false
+isEmpty('text'); // false
 isEmpty(123); // true - type is not considered a collection
 isEmpty(true); // true - type is not considered a collection
 
@@ -33917,17 +33917,17 @@ isEven(3); // false
 
 //--------------------------------
 
-const isFunction = (val) => typeof val === "function";
+const isFunction = (val) => typeof val === 'function';
 
 //--------------------------------
 
-isFunction("x"); // false
+isFunction('x'); // false
 isFunction((x) => x); // true
 
 //--------------------------------
 
 const isGeneratorFunction = (val) =>
-  Object.prototype.toString.call(val) === "[object GeneratorFunction]";
+  Object.prototype.toString.call(val) === '[object GeneratorFunction]';
 
 //--------------------------------
 
@@ -33943,8 +33943,8 @@ const isISOString = (val) => {
 
 //--------------------------------
 
-isISOString("2020-10-12T10:10:10.000Z"); // true
-isISOString("2020-10-12"); // false
+isISOString('2020-10-12T10:10:10.000Z'); // true
+isISOString('2020-10-12'); // false
 
 //--------------------------------
 
@@ -33978,9 +33978,9 @@ const isLowerCase = (str) => str === str.toLowerCase();
 
 //--------------------------------
 
-isLowerCase("abc"); // true
-isLowerCase("a3@$"); // true
-isLowerCase("Ab4"); // false
+isLowerCase('abc'); // true
+isLowerCase('a3@$'); // true
+isLowerCase('Ab4'); // false
 
 //--------------------------------
 
@@ -33999,12 +33999,12 @@ const isNil = (val) => val === undefined || val === null;
 
 isNil(null); // true
 isNil(undefined); // true
-isNil(""); // false
+isNil(''); // false
 
 //--------------------------------
 
 const isNode = () =>
-  typeof process !== "undefined" &&
+  typeof process !== 'undefined' &&
   process.versions !== null &&
   process.versions.node !== null;
 
@@ -34023,12 +34023,12 @@ isNull(null); // true
 
 //--------------------------------
 
-const isNumber = (val) => typeof val === "number" && val === val;
+const isNumber = (val) => typeof val === 'number' && val === val;
 
 //--------------------------------
 
 isNumber(1); // true
-isNumber("1"); // false
+isNumber('1'); // false
 isNumber(NaN); // false
 
 //--------------------------------
@@ -34039,14 +34039,14 @@ const isObject = (obj) => obj === Object(obj);
 
 isObject([1, 2, 3, 4]); // true
 isObject([]); // true
-isObject(["Hello!"]); // true
+isObject(['Hello!']); // true
 isObject({ a: 1 }); // true
 isObject({}); // true
 isObject(true); // false
 
 //--------------------------------
 
-const isObjectLike = (val) => val !== null && typeof val === "object";
+const isObjectLike = (val) => val !== null && typeof val === 'object';
 
 //--------------------------------
 
@@ -34066,7 +34066,7 @@ isOdd(3); // true
 //--------------------------------
 
 const isPlainObject = (val) =>
-  !!val && typeof val === "object" && val.constructor === Object;
+  !!val && typeof val === 'object' && val.constructor === Object;
 
 //--------------------------------
 
@@ -34114,7 +34114,7 @@ const isPrimitive = (val) => Object(val) !== val;
 isPrimitive(null); // true
 isPrimitive(undefined); // true
 isPrimitive(50); // true
-isPrimitive("Hello!"); // true
+isPrimitive('Hello!'); // true
 isPrimitive(false); // true
 isPrimitive(Symbol()); // true
 isPrimitive([]); // false
@@ -34124,14 +34124,14 @@ isPrimitive({}); // false
 
 const isPromiseLike = (obj) =>
   obj !== null &&
-  (typeof obj === "object" || typeof obj === "function") &&
-  typeof obj.then === "function";
+  (typeof obj === 'object' || typeof obj === 'function') &&
+  typeof obj.then === 'function';
 
 //--------------------------------
 
 isPromiseLike({
   then: function () {
-    return "";
+    return '';
   },
 }); // true
 isPromiseLike(null); // false
@@ -34141,16 +34141,16 @@ isPromiseLike({}); // false
 
 const isReadableStream = (val) =>
   val !== null &&
-  typeof val === "object" &&
-  typeof val.pipe === "function" &&
-  typeof val._read === "function" &&
-  typeof val._readableState === "object";
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._read === 'function' &&
+  typeof val._readableState === 'object';
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
-isReadableStream(fs.createReadStream("test.txt")); // true
+isReadableStream(fs.createReadStream('test.txt')); // true
 
 //--------------------------------
 
@@ -34199,33 +34199,33 @@ isSorted([4]); // 0
 //--------------------------------
 
 const isStream = (val) =>
-  val !== null && typeof val === "object" && typeof val.pipe === "function";
+  val !== null && typeof val === 'object' && typeof val.pipe === 'function';
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
-isStream(fs.createReadStream("test.txt")); // true
-
-//--------------------------------
-
-const isString = (val) => typeof val === "string";
+isStream(fs.createReadStream('test.txt')); // true
 
 //--------------------------------
 
-isString("10"); // true
+const isString = (val) => typeof val === 'string';
 
 //--------------------------------
 
-const isSymbol = (val) => typeof val === "symbol";
+isString('10'); // true
 
 //--------------------------------
 
-isSymbol(Symbol("x")); // true
+const isSymbol = (val) => typeof val === 'symbol';
 
 //--------------------------------
 
-const isTravisCI = () => "TRAVIS" in process.env && "CI" in process.env;
+isSymbol(Symbol('x')); // true
+
+//--------------------------------
+
+const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
 
 //--------------------------------
 
@@ -34245,9 +34245,9 @@ const isUpperCase = (str) => str === str.toUpperCase();
 
 //--------------------------------
 
-isUpperCase("ABC"); // true
-isUpperCase("A3@$"); // true
-isUpperCase("aB4"); // false
+isUpperCase('ABC'); // true
+isUpperCase('A3@$'); // true
+isUpperCase('aB4'); // false
 
 //--------------------------------
 
@@ -34286,20 +34286,20 @@ isWeekend(); // 2018-10-19 (if current date is 2018-10-18)
 
 const isWritableStream = (val) =>
   val !== null &&
-  typeof val === "object" &&
-  typeof val.pipe === "function" &&
-  typeof val._write === "function" &&
-  typeof val._writableState === "object";
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._write === 'function' &&
+  typeof val._writableState === 'object';
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
-isWritableStream(fs.createWriteStream("test.txt")); // true
+isWritableStream(fs.createWriteStream('test.txt')); // true
 
 //--------------------------------
 
-const join = (arr, separator = ",", end = separator) =>
+const join = (arr, separator = ',', end = separator) =>
   arr.reduce(
     (acc, val, i) =>
       i === arr.length - 2
@@ -34307,14 +34307,14 @@ const join = (arr, separator = ",", end = separator) =>
         : i === arr.length - 1
         ? acc + val
         : acc + val + separator,
-    ""
+    ''
   );
 
 //--------------------------------
 
-join(["pen", "pineapple", "apple", "pen"], ",", "&"); // 'pen,pineapple,apple&pen'
-join(["pen", "pineapple", "apple", "pen"], ","); // 'pen,pineapple,apple,pen'
-join(["pen", "pineapple", "apple", "pen"]); // 'pen,pineapple,apple,pen'
+join(['pen', 'pineapple', 'apple', 'pen'], ',', '&'); // 'pen,pineapple,apple&pen'
+join(['pen', 'pineapple', 'apple', 'pen'], ','); // 'pen,pineapple,apple,pen'
+join(['pen', 'pineapple', 'apple', 'pen']); // 'pen,pineapple,apple,pen'
 
 //--------------------------------
 
@@ -34332,8 +34332,8 @@ juxt(
 )(1, 2, 3); // [[2, 3, 4], [0, 1, 2], [10, 20, 30]]
 juxt(
   (s) => s.length,
-  (s) => s.split(" ").join("-")
-)("30 seconds of code"); // [[18], ['30-seconds-of-code']]
+  (s) => s.split(' ').join('-')
+)('30 seconds of code'); // [[18], ['30-seconds-of-code']]
 
 //--------------------------------
 
@@ -34456,12 +34456,12 @@ last(undefined); // undefined
 
 const lastDateOfMonth = (date = new Date()) => {
   let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
 
-lastDateOfMonth(new Date("2015-08-11")); // '2015-08-30'
+lastDateOfMonth(new Date('2015-08-11')); // '2015-08-30'
 
 //--------------------------------
 
@@ -34500,7 +34500,7 @@ const levenshteinDistance = (s, t) => {
 
 //--------------------------------
 
-levenshteinDistance("duck", "dark"); // 2
+levenshteinDistance('duck', 'dark'); // 2
 
 //--------------------------------
 
@@ -34523,8 +34523,8 @@ const listenOnce = (el, evt, fn) =>
 
 //--------------------------------
 
-listenOnce(document.getElementById("my-id"), "click", () =>
-  console.log("Hello world")
+listenOnce(document.getElementById('my-id'), 'click', () =>
+  console.log('Hello world')
 ); // 'Hello world' will only be logged on the first click
 
 //--------------------------------
@@ -34543,11 +34543,11 @@ const longestItem = (...vals) =>
 
 //--------------------------------
 
-longestItem("this", "is", "a", "testcase"); // 'testcase'
-longestItem(...["a", "ab", "abc"]); // 'abc'
-longestItem(...["a", "ab", "abc"], "abcd"); // 'abcd'
+longestItem('this', 'is', 'a', 'testcase'); // 'testcase'
+longestItem(...['a', 'ab', 'abc']); // 'abc'
+longestItem(...['a', 'ab', 'abc'], 'abcd'); // 'abcd'
 longestItem([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]); // [1, 2, 3, 4, 5]
-longestItem([1, 2, 3], "foobar"); // 'foobar'
+longestItem([1, 2, 3], 'foobar'); // 'foobar'
 
 //--------------------------------
 
@@ -34559,14 +34559,14 @@ const lowercaseKeys = (obj) =>
 
 //--------------------------------
 
-const myObj = { Name: "Adam", sUrnAME: "Smith" };
+const myObj = { Name: 'Adam', sUrnAME: 'Smith' };
 const myObjLower = lowercaseKeys(myObj); // {name: 'Adam', surname: 'Smith'};
 
 //--------------------------------
 
 const luhnCheck = (num) => {
-  let arr = (num + "")
-    .split("")
+  let arr = (num + '')
+    .split('')
     .reverse()
     .map((x) => parseInt(x));
   let lastDigit = arr.splice(0, 1)[0];
@@ -34580,7 +34580,7 @@ const luhnCheck = (num) => {
 
 //--------------------------------
 
-luhnCheck("4485275742308327"); // true
+luhnCheck('4485275742308327'); // true
 luhnCheck(6011329933655299); //  false
 luhnCheck(123456789); // false
 
@@ -34621,13 +34621,13 @@ mapObject([1, 2, 3], (a) => a * a); // { 1: 1, 2: 4, 3: 9 }
 
 const mapString = (str, fn) =>
   str
-    .split("")
+    .split('')
     .map((c, i) => fn(c, i, str))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-mapString("lorem ipsum", (c) => c.toUpperCase()); // 'LOREM IPSUM'
+mapString('lorem ipsum', (c) => c.toUpperCase()); // 'LOREM IPSUM'
 
 //--------------------------------
 
@@ -34640,21 +34640,21 @@ const mapValues = (obj, fn) =>
 //--------------------------------
 
 const users = {
-  fred: { user: "fred", age: 40 },
-  pebbles: { user: "pebbles", age: 1 },
+  fred: { user: 'fred', age: 40 },
+  pebbles: { user: 'pebbles', age: 1 },
 };
 mapValues(users, (u) => u.age); // { fred: 40, pebbles: 1 }
 
 //--------------------------------
 
-const mask = (cc, num = 4, mask = "*") =>
+const mask = (cc, num = 4, mask = '*') =>
   `${cc}`.slice(-num).padStart(`${cc}`.length, mask);
 
 //--------------------------------
 
 mask(1234567890); // '******7890'
 mask(1234567890, 3); // '*******890'
-mask(1234567890, -4, "$"); // '$$$$567890'
+mask(1234567890, -4, '$'); // '$$$$567890'
 
 //--------------------------------
 
@@ -34665,9 +34665,9 @@ const matches = (obj, source) =>
 
 //--------------------------------
 
-matches({ age: 25, hair: "long", beard: true }, { hair: "long", beard: true });
+matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true });
 // true
-matches({ hair: "long", beard: true }, { age: 25, hair: "long", beard: true });
+matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true });
 // false
 
 //--------------------------------
@@ -34683,20 +34683,20 @@ const matchesWith = (obj, source, fn) =>
 
 const isGreeting = (val) => /^h(?:i|ello)$/.test(val);
 matchesWith(
-  { greeting: "hello" },
-  { greeting: "hi" },
+  { greeting: 'hello' },
+  { greeting: 'hi' },
   (oV, sV) => isGreeting(oV) && isGreeting(sV)
 ); // true
 
 //--------------------------------
 
 const maxBy = (arr, fn) =>
-  Math.max(...arr.map(typeof fn === "function" ? fn : (val) => val[fn]));
+  Math.max(...arr.map(typeof fn === 'function' ? fn : (val) => val[fn]));
 
 //--------------------------------
 
 maxBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], (x) => x.n); // 8
-maxBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 8
+maxBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 8
 
 //--------------------------------
 
@@ -34750,8 +34750,8 @@ const memoize = (fn) => {
 
 // See the `anagrams` snippet.
 const anagramsCached = memoize(anagrams);
-anagramsCached("javascript"); // takes a long time
-anagramsCached("javascript"); // returns virtually instantly since it's cached
+anagramsCached('javascript'); // takes a long time
+anagramsCached('javascript'); // returns virtually instantly since it's cached
 console.log(anagramsCached.cache); // The cached anagrams map
 
 //--------------------------------
@@ -34777,7 +34777,7 @@ const object = {
 const other = {
   a: { z: 3 },
   b: [2, 3],
-  c: "foo",
+  c: 'foo',
 };
 merge(object, other);
 // { a: [ { x: 2 }, { y: 4 }, { z: 3 } ], b: [ 1, 2, 3 ], c: 'foo' }
@@ -34837,12 +34837,12 @@ milesToKm(5); // ~8.04672
 //--------------------------------
 
 const minBy = (arr, fn) =>
-  Math.min(...arr.map(typeof fn === "function" ? fn : (val) => val[fn]));
+  Math.min(...arr.map(typeof fn === 'function' ? fn : (val) => val[fn]));
 
 //--------------------------------
 
 minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], (x) => x.n); // 2
-minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 2
+minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 2
 
 //--------------------------------
 
@@ -34879,7 +34879,7 @@ const mostFrequent = (arr) =>
 
 //--------------------------------
 
-mostFrequent(["a", "b", "a", "c", "a", "a", "b"]); // 'a'
+mostFrequent(['a', 'b', 'a', 'c', 'a', 'a', 'b']); // 'a'
 
 //--------------------------------
 
@@ -34897,11 +34897,11 @@ const mostPerformant = (fns, iterations = 10000) => {
 mostPerformant([
   () => {
     // Loops through the entire array before returning `false`
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, "10"].every((el) => typeof el === "number");
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, '10'].every((el) => typeof el === 'number');
   },
   () => {
     // Only needs to reach index `1` before returning `false`
-    [1, "2", 3, 4, 5, 6, 7, 8, 9, 10].every((el) => typeof el === "number");
+    [1, '2', 3, 4, 5, 6, 7, 8, 9, 10].every((el) => typeof el === 'number');
   },
 ]); // 1
 
@@ -34918,7 +34918,7 @@ const negate =
 
 //--------------------------------
 
-const nest = (items, id = null, link = "parent_id") =>
+const nest = (items, id = null, link = 'parent_id') =>
   items
     .filter((item) => item[link] === id)
     .map((item) => ({ ...item, children: nest(items, item.id, link) }));
@@ -34954,14 +34954,14 @@ none([0, 0, 0]); // true
 
 //--------------------------------
 
-const normalizeLineEndings = (str, normalized = "\r\n") =>
+const normalizeLineEndings = (str, normalized = '\r\n') =>
   str.replace(/\r?\n/g, normalized);
 
 //--------------------------------
 
-normalizeLineEndings("This\r\nis a\nmultiline\nstring.\r\n");
+normalizeLineEndings('This\r\nis a\nmultiline\nstring.\r\n');
 // 'This\r\nis a\r\nmultiline\r\nstring.\r\n'
-normalizeLineEndings("This\r\nis a\nmultiline\nstring.\r\n", "\n");
+normalizeLineEndings('This\r\nis a\nmultiline\nstring.\r\n', '\n');
 // 'This\nis a\nmultiline\nstring.\n'
 
 //--------------------------------
@@ -34995,8 +34995,8 @@ const nthElement = (arr, n = 0) =>
 
 //--------------------------------
 
-nthElement(["a", "b", "c"], 1); // 'b'
-nthElement(["a", "b", "b"], -3); // 'a'
+nthElement(['a', 'b', 'c'], 1); // 'b'
+nthElement(['a', 'b', 'b'], -3); // 'a'
 
 //--------------------------------
 
@@ -35014,8 +35014,8 @@ const objectFromPairs = (arr) =>
 //--------------------------------
 
 objectFromPairs([
-  ["a", 1],
-  ["b", 2],
+  ['a', 1],
+  ['b', 2],
 ]); // {a: 1, b: 2}
 
 //--------------------------------
@@ -35040,19 +35040,19 @@ const objectToQueryString = (queryParameters) => {
   return queryParameters
     ? Object.entries(queryParameters).reduce(
         (queryString, [key, val], index) => {
-          const symbol = queryString.length === 0 ? "?" : "&";
+          const symbol = queryString.length === 0 ? '?' : '&';
           queryString +=
-            typeof val === "string" ? `${symbol}${key}=${val}` : "";
+            typeof val === 'string' ? `${symbol}${key}=${val}` : '';
           return queryString;
         },
-        ""
+        ''
       )
-    : "";
+    : '';
 };
 
 //--------------------------------
 
-objectToQueryString({ page: "1", size: "2kg", key: undefined });
+objectToQueryString({ page: '1', size: '2kg', key: undefined });
 // '?page=1&size=2kg'
 
 //--------------------------------
@@ -35092,9 +35092,9 @@ const off = (el, evt, fn, opts = false) =>
 
 //--------------------------------
 
-const fn = () => console.log("!");
-document.body.addEventListener("click", fn);
-off(document.body, "click", fn); // no longer logs '!' upon clicking on the page
+const fn = () => console.log('!');
+document.body.addEventListener('click', fn);
+off(document.body, 'click', fn); // no longer logs '!' upon clicking on the page
 
 //--------------------------------
 
@@ -35114,7 +35114,7 @@ const omit = (obj, arr) =>
 
 //--------------------------------
 
-omit({ a: 1, b: "2", c: 3 }, ["b"]); // { 'a': 1, 'c': 3 }
+omit({ a: 1, b: '2', c: 3 }, ['b']); // { 'a': 1, 'c': 3 }
 
 //--------------------------------
 
@@ -35125,7 +35125,7 @@ const omitBy = (obj, fn) =>
 
 //--------------------------------
 
-omitBy({ a: 1, b: "2", c: 3 }, (x) => typeof x === "number"); // { b: '2' }
+omitBy({ a: 1, b: '2', c: 3 }, (x) => typeof x === 'number'); // { b: '2' }
 
 //--------------------------------
 
@@ -35142,24 +35142,24 @@ const on = (el, evt, fn, opts = {}) => {
 
 //--------------------------------
 
-const fn = () => console.log("!");
-on(document.body, "click", fn); // logs '!' upon clicking the body
-on(document.body, "click", fn, { target: "p" });
+const fn = () => console.log('!');
+on(document.body, 'click', fn); // logs '!' upon clicking the body
+on(document.body, 'click', fn, { target: 'p' });
 // logs '!' upon clicking a `p` element child of the body
-on(document.body, "click", fn, { options: true });
+on(document.body, 'click', fn, { options: true });
 // use capturing instead of bubbling
 
 //--------------------------------
 
 const onClickOutside = (element, callback) => {
-  document.addEventListener("click", (e) => {
+  document.addEventListener('click', (e) => {
     if (!element.contains(e.target)) callback();
   });
 };
 
 //--------------------------------
 
-onClickOutside("#my-element", () => console.log("Hello"));
+onClickOutside('#my-element', () => console.log('Hello'));
 // Will log 'Hello' whenever the user clicks outside of #my-element
 
 //--------------------------------
@@ -35167,7 +35167,7 @@ onClickOutside("#my-element", () => console.log("Hello"));
 const onScrollStop = (callback) => {
   let isScrolling;
   window.addEventListener(
-    "scroll",
+    'scroll',
     (e) => {
       clearTimeout(isScrolling);
       isScrolling = setTimeout(() => {
@@ -35181,34 +35181,34 @@ const onScrollStop = (callback) => {
 //--------------------------------
 
 onScrollStop(() => {
-  console.log("The user has stopped scrolling");
+  console.log('The user has stopped scrolling');
 });
 
 //--------------------------------
 
 const onUserInputChange = (callback) => {
-  let type = "mouse",
+  let type = 'mouse',
     lastTime = 0;
   const mousemoveHandler = () => {
     const now = performance.now();
     if (now - lastTime < 20)
-      (type = "mouse"),
+      (type = 'mouse'),
         callback(type),
-        document.removeEventListener("mousemove", mousemoveHandler);
+        document.removeEventListener('mousemove', mousemoveHandler);
     lastTime = now;
   };
-  document.addEventListener("touchstart", () => {
-    if (type === "touch") return;
-    (type = "touch"),
+  document.addEventListener('touchstart', () => {
+    if (type === 'touch') return;
+    (type = 'touch'),
       callback(type),
-      document.addEventListener("mousemove", mousemoveHandler);
+      document.addEventListener('mousemove', mousemoveHandler);
   });
 };
 
 //--------------------------------
 
 onUserInputChange((type) => {
-  console.log("The user is now using", type, "as an input method.");
+  console.log('The user is now using', type, 'as an input method.');
 });
 
 //--------------------------------
@@ -35227,7 +35227,7 @@ const once = (fn) => {
 const startApp = function (event) {
   console.log(this, event); // document.body, MouseEvent
 };
-document.body.addEventListener("click", once(startApp));
+document.body.addEventListener('click', once(startApp));
 // only runs `startApp` once upon click
 
 //--------------------------------
@@ -35247,7 +35247,7 @@ const orderBy = (arr, props, orders) =>
     props.reduce((acc, prop, i) => {
       if (acc === 0) {
         const [p1, p2] =
-          orders && orders[i] === "desc"
+          orders && orders[i] === 'desc'
             ? [b[prop], a[prop]]
             : [a[prop], b[prop]];
         acc = p1 > p2 ? 1 : p1 < p2 ? -1 : 0;
@@ -35259,13 +35259,13 @@ const orderBy = (arr, props, orders) =>
 //--------------------------------
 
 const users = [
-  { name: "fred", age: 48 },
-  { name: "barney", age: 36 },
-  { name: "fred", age: 40 },
+  { name: 'fred', age: 48 },
+  { name: 'barney', age: 36 },
+  { name: 'fred', age: 40 },
 ];
-orderBy(users, ["name", "age"], ["asc", "desc"]);
+orderBy(users, ['name', 'age'], ['asc', 'desc']);
 // [{name: 'barney', age: 36}, {name: 'fred', age: 48}, {name: 'fred', age: 40}]
-orderBy(users, ["name", "age"]);
+orderBy(users, ['name', 'age']);
 // [{name: 'barney', age: 36}, {name: 'fred', age: 40}, {name: 'fred', age: 48}]
 
 //--------------------------------
@@ -35285,14 +35285,14 @@ const orderWith = (arr, prop, order) => {
 //--------------------------------
 
 const users = [
-  { name: "fred", language: "Javascript" },
-  { name: "barney", language: "TypeScript" },
-  { name: "frannie", language: "Javascript" },
-  { name: "anna", language: "Java" },
-  { name: "jimmy" },
-  { name: "nicky", language: "Python" },
+  { name: 'fred', language: 'Javascript' },
+  { name: 'barney', language: 'TypeScript' },
+  { name: 'frannie', language: 'Javascript' },
+  { name: 'anna', language: 'Java' },
+  { name: 'jimmy' },
+  { name: 'nicky', language: 'Python' },
 ];
-orderWith(users, "language", ["Javascript", "TypeScript", "Java"]);
+orderWith(users, 'language', ['Javascript', 'TypeScript', 'Java']);
 /* 
 [
   { name: 'fred', language: 'Javascript' },
@@ -35363,7 +35363,7 @@ RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 //--------------------------------
 
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 
 //--------------------------------
 
@@ -35385,7 +35385,7 @@ UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const UUIDGeneratorNode = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -35419,11 +35419,11 @@ arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 const arrayToHTMLList = (arr, listID) =>
   (document.querySelector(`#${listID}`).innerHTML += arr
     .map((item) => `<li>${item}</li>`)
-    .join(""));
+    .join(''));
 
 //--------------------------------
 
-arrayToHTMLList(["item 1", "item 2"], "myListID");
+arrayToHTMLList(['item 1', 'item 2'], 'myListID');
 
 //--------------------------------
 
@@ -35501,7 +35501,7 @@ const capitalizeEveryWord = (str) =>
 
 //--------------------------------
 
-capitalizeEveryWord("hello world!"); // 'Hello World!'
+capitalizeEveryWord('hello world!'); // 'Hello World!'
 
 //--------------------------------
 
@@ -35530,18 +35530,18 @@ chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 //--------------------------------
 
 const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
+  const el = document.createElement('textarea');
   el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -35551,7 +35551,7 @@ const copyToClipboard = (str) => {
 
 //--------------------------------
 
-copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
 
@@ -35576,7 +35576,7 @@ dayOfYear(new Date()); // 272
 const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -35588,7 +35588,7 @@ daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -35619,8 +35619,8 @@ const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? "Mobile"
-    : "Desktop";
+    ? 'Mobile'
+    : 'Desktop';
 
 //--------------------------------
 
@@ -35628,7 +35628,7 @@ detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-const detectLanguage = (defaultLang = "en-US") =>
+const detectLanguage = (defaultLang = 'en-US') =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
@@ -35676,7 +35676,7 @@ dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError("Negative numbers are not allowed!");
+        throw new TypeError('Negative numbers are not allowed!');
       })()
     : n <= 1
     ? 1
@@ -35718,11 +35718,11 @@ filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-const flattenObject = (obj, prefix = "") =>
+const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : "";
+    const pre = prefix.length ? `${prefix}.` : '';
     if (
-      typeof obj[k] === "object" &&
+      typeof obj[k] === 'object' &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -35750,7 +35750,7 @@ const forOwn = (obj, fn) =>
 
 //--------------------------------
 
-forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
+forOwn({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
 
@@ -35761,7 +35761,7 @@ const forOwnRight = (obj, fn) =>
 
 //--------------------------------
 
-forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: 'bar', a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
 
@@ -35770,13 +35770,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
+getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 
 //--------------------------------
 
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll("*")].filter(
+  return [...document.querySelectorAll('*')].filter(
     (el) => el.offsetWidth > docWidth
   );
 };
@@ -35797,7 +35797,7 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
+getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
 
 //--------------------------------
 
@@ -35817,12 +35817,12 @@ const getSiblings = (el) =>
 
 //--------------------------------
 
-getSiblings(document.querySelector("head")); // ['body']
+getSiblings(document.querySelector('head')); // ['body']
 
 //--------------------------------
 
 const getType = (v) =>
-  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name;
 
 //--------------------------------
 
@@ -35842,12 +35842,12 @@ const getVerticalOffset = (el) => {
 
 //--------------------------------
 
-getVerticalOffset(".my-element"); // 120
+getVerticalOffset('.my-element'); // 120
 
 //--------------------------------
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
+  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 
 //--------------------------------
 
@@ -35955,16 +35955,16 @@ const isAnagram = (str1, str2) => {
   const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, "")
-      .split("")
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
       .sort()
-      .join("");
+      .join('');
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-isAnagram("iceman", "cinema"); // true
+isAnagram('iceman', 'cinema'); // true
 
 //--------------------------------
 

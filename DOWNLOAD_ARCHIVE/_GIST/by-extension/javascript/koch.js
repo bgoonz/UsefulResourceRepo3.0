@@ -40,7 +40,7 @@ function snowflake(c, n, x, y, len) {
   }
 }
 
-let c = document.querySelector("canvas").getContext("2d");
+let c = document.querySelector('canvas').getContext('2d');
 snowflake(c, 0, 25, 125, 125); // A level-0 snowflake is a triangle
 snowflake(c, 1, 175, 125, 125); // A level-1 snowflake is a 6-sided star
 snowflake(c, 2, 325, 125, 125); // etc.

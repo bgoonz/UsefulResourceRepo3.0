@@ -3,7 +3,7 @@ function SwapII(str) {
   var testChar = /[a-zA-Z]/;
   // Regex to match a number, followed by any number (but at least one) alpha characters, followed by a number
   var testSwap = /[0-9][a-zA-Z]+[0-9]/g;
-  var result = "";
+  var result = '';
 
   // Loop over the input string...
   for (var i = 0; i < str.length; i++) {

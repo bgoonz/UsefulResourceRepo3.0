@@ -1,5 +1,5 @@
 function BinaryConverter(str) {
-  str = str.split("").reverse();
+  str = str.split('').reverse();
   var sum = 0;
   if (str[0] == 1) {
     sum += 1;

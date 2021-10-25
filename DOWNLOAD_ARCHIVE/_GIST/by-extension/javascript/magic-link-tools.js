@@ -1,7 +1,7 @@
 const createUser = ({
-  email = "",
-  publicAddress = "",
-  sessionToken = "",
+  email = '',
+  publicAddress = '',
+  sessionToken = '',
   isSignedIn = false,
 } = {}) => ({
   email,
@@ -11,7 +11,7 @@ const createUser = ({
 });
 
 const noop = () => {
-  console.log("sign in status changed");
+  console.log('sign in status changed');
 };
 
 const objEqReducer = (oldObj, newObj) => (same, prop) =>

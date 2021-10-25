@@ -2,9 +2,9 @@ function magicConchShouldIUseVar() {
   let reasons = Infinity;
   for (let i = 0; i < reasons; i++) {
     if (i < reasons) {
-      return "NO";
+      return 'NO';
     } else {
-      return "still no brah";
+      return 'still no brah';
     }
   }
 }

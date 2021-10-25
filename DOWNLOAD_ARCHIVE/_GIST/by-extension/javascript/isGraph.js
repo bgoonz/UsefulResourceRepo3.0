@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Returns true if value is a Graph
@@ -8,5 +8,5 @@
  */
 export default function isGraph(value) {
   // We are not using instanceof to avoid circular dependencies
-  return value && typeof value.addNode === "function";
+  return value && typeof value.addNode === 'function';
 }

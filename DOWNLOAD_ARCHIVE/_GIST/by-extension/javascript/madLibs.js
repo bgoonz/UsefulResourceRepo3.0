@@ -13,8 +13,8 @@ Bonus objectives:
 3) Keep the adult madlibs in a hidden directory
 */
 
-const fs = require("fs");
-const readline = require("readline");
+const fs = require('fs');
+const readline = require('readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -22,9 +22,9 @@ const rl = readline.createInterface({
 });
 
 const getNextWord = (text) => {
-  if (text.includes("#*")) {
-    let openingIndex = text.indexOf("#*");
-    let closingIndex = text.indexOf("*#");
+  if (text.includes('#*')) {
+    let openingIndex = text.indexOf('#*');
+    let closingIndex = text.indexOf('*#');
     let word = text.slice(openingIndex + 2, closingIndex);
     return [word, openingIndex, closingIndex];
   }
@@ -37,7 +37,7 @@ const replaceWord = (text, nextWordArr) => {
   return before + replace + after;
 };
 
-fs.readFile("madLibShort.txt", "utf8", (err, data) => {
+fs.readFile('madLibShort.txt', 'utf8', (err, data) => {
   if (err) {
     console.log(err);
     return;
@@ -45,10 +45,10 @@ fs.readFile("madLibShort.txt", "utf8", (err, data) => {
 
   const getFindReplace = (longStr) => {
     // base case
-    if (longStr.indexOf("#*") === -1) {
+    if (longStr.indexOf('#*') === -1) {
       rl.close();
       console.log(longStr);
-      fs.writeFile(`completed_madLibs.txt`, "madLibs.js", "utf8", (err) => {
+      fs.writeFile(`completed_madLibs.txt`, 'madLibs.js', 'utf8', (err) => {
         if (err) {
           console.log(err);
           return;

@@ -48,13 +48,13 @@ function test(n) {
     });
   }
 
-  console.time("with_nested_for_each");
+  console.time('with_nested_for_each');
   const result_1 = with_nested_for_each([a, b]);
-  console.timeEnd("with_nested_for_each");
+  console.timeEnd('with_nested_for_each');
 
-  console.time("with_lookup");
+  console.time('with_lookup');
   const result_2 = with_lookup([a, b]);
-  console.timeEnd("with_lookup");
+  console.timeEnd('with_lookup');
 
   console.log({ result_1, result_2 });
 }

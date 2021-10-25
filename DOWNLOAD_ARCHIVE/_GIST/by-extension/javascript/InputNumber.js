@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const InputNumber = (props = {}) => {
   const { handleChange = () => {}, ...otherProps } = props;
 
   const onKeyDown = (e = {}) => {
-    const { ctrlKey, metaKey, key = "", target = {} } = e;
+    const { ctrlKey, metaKey, key = '', target = {} } = e;
 
     const { type } = target;
 
     if (
       !ctrlKey &&
       !metaKey &&
-      type === "number" &&
+      type === 'number' &&
       key.length === 1 &&
       /[^0-9.]/g.test(key)
     ) {
@@ -23,7 +23,7 @@ const InputNumber = (props = {}) => {
   const onChange = (e = {}) => {
     const { target = {} } = e;
 
-    const { maxLength, name, value = "" } = target;
+    const { maxLength, name, value = '' } = target;
 
     let newValue = value;
 

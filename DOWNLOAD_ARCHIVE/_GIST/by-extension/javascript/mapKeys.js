@@ -9,19 +9,19 @@ const mapKeys = (collection, rootKey) => {
 const justins = [
   {
     id: 1,
-    name: "Justin Bieber",
+    name: 'Justin Bieber',
   },
   {
     id: 2,
-    name: "Justin Timberlake",
+    name: 'Justin Timberlake',
   },
   {
     id: 3,
-    name: "Justin Time",
+    name: 'Justin Time',
   },
 ];
 
-mapKeys(justins, "id");
+mapKeys(justins, 'id');
 
 // {
 //  1: {id: 1, name: 'Justin Bieber'},

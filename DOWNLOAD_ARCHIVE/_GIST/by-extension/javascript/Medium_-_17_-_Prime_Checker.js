@@ -1,6 +1,6 @@
 function PrimeChecker(num) {
   function permute(num) {
-    num = num.toString().split("");
+    num = num.toString().split('');
     var answerArr = [];
     var outerLength = num.length;
     var innerLength = 1;
@@ -18,7 +18,7 @@ function PrimeChecker(num) {
         moveItem = num.shift();
         num.splice(j, 0, moveItem);
         if (j < innerLength) {
-          answerArr.push(parseInt(startItem + num.join("")));
+          answerArr.push(parseInt(startItem + num.join('')));
         }
       }
       num.splice(i, 0, startItem);

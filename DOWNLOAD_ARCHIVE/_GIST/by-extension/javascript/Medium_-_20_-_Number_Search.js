@@ -4,8 +4,8 @@ function NumberSearch(str) {
   var sum = 0;
   var alphaCount = 0;
 
-  var strAlpha = str.replace(notAlpha, "");
-  var strNum = str.replace(notNum, "");
+  var strAlpha = str.replace(notAlpha, '');
+  var strNum = str.replace(notNum, '');
 
   for (i = 0; i < strAlpha.length; i++) {
     alphaCount++;

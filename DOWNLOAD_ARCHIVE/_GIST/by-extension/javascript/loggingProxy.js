@@ -24,7 +24,7 @@ function loggingProxy(o, objname) {
       // the value is an object or function then return a Proxy for it.
       if (
         Reflect.ownKeys(target).includes(property) &&
-        (typeof value === "object" || typeof value === "function")
+        (typeof value === 'object' || typeof value === 'function')
       ) {
         return loggingProxy(value, `${objname}.${property.toString()}`);
       }

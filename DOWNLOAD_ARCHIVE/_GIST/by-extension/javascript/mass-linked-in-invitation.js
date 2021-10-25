@@ -5,25 +5,25 @@ function delay(ms) {
 }
 
 async function processInvitations() {
-  var cards = [...document.querySelectorAll("li.invitation-card")];
+  var cards = [...document.querySelectorAll('li.invitation-card')];
 
   var acceptCards = cards.filter((card) => {
     var title =
-      (card.querySelectorAll(".invitation-card__subtitle")[0] || {})
-        .innerHTML || "";
+      (card.querySelectorAll('.invitation-card__subtitle')[0] || {})
+        .innerHTML || '';
     return accept(title);
   });
 
   var rejectCards = cards.filter((card) => {
     var title =
-      (card.querySelectorAll(".invitation-card__subtitle")[0] || {})
-        .innerHTML || "";
+      (card.querySelectorAll('.invitation-card__subtitle')[0] || {})
+        .innerHTML || '';
     return !accept(title);
   });
 
   for (let card of acceptCards) {
     let acceptBtn = card.querySelectorAll(
-      ".invitation-card__action-btn.artdeco-button--secondary"
+      '.invitation-card__action-btn.artdeco-button--secondary'
     )[0];
     if (acceptBtn) {
       acceptBtn.click();
@@ -33,7 +33,7 @@ async function processInvitations() {
 
   for (let card of rejectCards) {
     let rejectBtn = card.querySelectorAll(
-      ".invitation-card__action-btn.artdeco-button--tertiary"
+      '.invitation-card__action-btn.artdeco-button--tertiary'
     )[0];
     if (rejectBtn) {
       rejectBtn.click();
@@ -42,7 +42,7 @@ async function processInvitations() {
   }
 
   var nextBtn = document.querySelectorAll(
-    ".artdeco-pagination__button--next"
+    '.artdeco-pagination__button--next'
   )[0];
   if (nextBtn) {
     nextBtn.click();
@@ -50,7 +50,7 @@ async function processInvitations() {
 
     processInvitations().catch(console.log);
   } else {
-    alert("No more found!");
+    alert('No more found!');
   }
 }
 

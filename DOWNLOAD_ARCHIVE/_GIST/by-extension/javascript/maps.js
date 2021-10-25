@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 /** Hide a DOM element. */
 function hideElement(el) {
-  el.style.display = "none";
+  el.style.display = 'none';
 }
 
 /** Show a DOM element that has been hidden. */
 function showElement(el) {
-  el.style.display = "block";
+  el.style.display = 'block';
 }
 
 /**
@@ -20,15 +20,15 @@ function LocatorPlus(configuration) {
   locator.locations = configuration.locations || [];
   locator.capabilities = configuration.capabilities || {};
 
-  const mapEl = document.getElementById("map");
-  locator.panelListEl = document.getElementById("locations-panel-list");
+  const mapEl = document.getElementById('map');
+  locator.panelListEl = document.getElementById('locations-panel-list');
   const sectionNameEl = document.getElementById(
-    "location-results-section-name"
+    'location-results-section-name'
   );
-  const resultsContainerEl = document.getElementById("location-results-list");
+  const resultsContainerEl = document.getElementById('location-results-list');
 
   const itemsTemplate = Handlebars.compile(
-    document.getElementById("locator-result-items-tmpl").innerHTML
+    document.getElementById('locator-result-items-tmpl').innerHTML
   );
 
   locator.searchLocation = null;
@@ -52,9 +52,9 @@ function LocatorPlus(configuration) {
   const selectResultItem = function (locationIdx, panToMarker) {
     locator.selectedLocationIdx = locationIdx;
     for (let locationElem of resultsContainerEl.children) {
-      locationElem.classList.remove("selected");
+      locationElem.classList.remove('selected');
       if (getResultIndex(locationElem) === locator.selectedLocationIdx) {
-        locationElem.classList.add("selected");
+        locationElem.classList.add('selected');
       }
     }
     if (panToMarker && locationIdx != null) {
@@ -69,7 +69,7 @@ function LocatorPlus(configuration) {
       map: locator.map,
       title: location.title,
     });
-    marker.addListener("click", function () {
+    marker.addListener('click', function () {
       selectResultItem(index, false);
     });
     return marker;
@@ -107,7 +107,7 @@ function LocatorPlus(configuration) {
 
   // Render the results list --------------------------------------------------
   const getResultIndex = function (elem) {
-    return parseInt(elem.getAttribute("data-location-index"));
+    return parseInt(elem.getAttribute('data-location-index'));
   };
 
   locator.renderResultsList = function () {
@@ -117,7 +117,7 @@ function LocatorPlus(configuration) {
     }
     if (locator.searchLocation) {
       sectionNameEl.textContent =
-        "Nearest locations (" + locations.length + ")";
+        'Nearest locations (' + locations.length + ')';
       locations.sort(function (a, b) {
         return getLocationDistance(a) - getLocationDistance(b);
       });
@@ -132,7 +132,7 @@ function LocatorPlus(configuration) {
     for (let item of resultsContainerEl.children) {
       const resultIndex = getResultIndex(item);
       if (resultIndex === locator.selectedLocationIdx) {
-        item.classList.add("selected");
+        item.classList.add('selected');
       }
 
       const resultSelectionHandler = function () {
@@ -145,24 +145,24 @@ function LocatorPlus(configuration) {
       // Clicking anywhere on the item selects this location.
       // Additionally, create a button element to make this behavior
       // accessible under tab navigation.
-      item.addEventListener("click", resultSelectionHandler);
+      item.addEventListener('click', resultSelectionHandler);
       item
-        .querySelector(".select-location")
-        .addEventListener("click", function (e) {
+        .querySelector('.select-location')
+        .addEventListener('click', function (e) {
           resultSelectionHandler();
           e.stopPropagation();
         });
 
       item
-        .querySelector(".details-button")
-        .addEventListener("click", function () {
+        .querySelector('.details-button')
+        .addEventListener('click', function () {
           locator.showDetails(resultIndex);
         });
 
       if (resultItemContext.showDirectionsButton) {
         item
-          .querySelector(".show-directions")
-          .addEventListener("click", function (e) {
+          .querySelector('.show-directions')
+          .addEventListener('click', function (e) {
             selectResultItem(resultIndex, false);
             locator.updateDirections();
             e.stopPropagation();
@@ -186,8 +186,8 @@ function initializeSearchInput(locator) {
   const geocodeCache = new Map();
   const geocoder = new google.maps.Geocoder();
 
-  const searchInputEl = document.getElementById("location-search-input");
-  const searchButtonEl = document.getElementById("location-search-button");
+  const searchInputEl = document.getElementById('location-search-input');
+  const searchButtonEl = document.getElementById('location-search-button');
 
   const updateSearchLocation = function (address, location) {
     if (locator.searchLocationMarker) {
@@ -201,11 +201,11 @@ function initializeSearchInput(locator) {
     locator.searchLocationMarker = new google.maps.Marker({
       position: location,
       map: locator.map,
-      title: "My location",
+      title: 'My location',
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
         scale: 12,
-        fillColor: "#3367D6",
+        fillColor: '#3367D6',
         fillOpacity: 0.5,
         strokeOpacity: 0,
       },
@@ -214,7 +214,7 @@ function initializeSearchInput(locator) {
     // Update the locator's idea of the user's country, used for units. Use
     // `formatted_address` instead of the more structured `address_components`
     // to avoid an additional billed call.
-    const addressParts = address.split(" ");
+    const addressParts = address.split(' ');
     locator.userCountry = addressParts[addressParts.length - 1];
 
     // Update map bounds to include the new location marker.
@@ -247,7 +247,7 @@ function initializeSearchInput(locator) {
     }
     const request = { address: query, bounds: locator.map.getBounds() };
     geocoder.geocode(request, function (results, status) {
-      if (status === "OK") {
+      if (status === 'OK') {
         if (results.length > 0) {
           const result = results[0];
           geocodeCache.set(query, result);
@@ -258,7 +258,7 @@ function initializeSearchInput(locator) {
   };
 
   // Set up geocoding on the search input.
-  searchButtonEl.addEventListener("click", function () {
+  searchButtonEl.addEventListener('click', function () {
     geocodeSearch(searchInputEl.value.trim());
   });
 
@@ -280,11 +280,11 @@ function initializeSearchInputAutocomplete(
 ) {
   // Set up Autocomplete on the search input. Bias results to map viewport.
   const autocomplete = new google.maps.places.Autocomplete(searchInputEl, {
-    types: ["geocode"],
-    fields: ["place_id", "formatted_address", "geometry.location"],
+    types: ['geocode'],
+    fields: ['place_id', 'formatted_address', 'geometry.location'],
   });
-  autocomplete.bindTo("bounds", locator.map);
-  autocomplete.addListener("place_changed", function () {
+  autocomplete.bindTo('bounds', locator.map);
+  autocomplete.addListener('place_changed', function () {
     const placeResult = autocomplete.getPlace();
     if (!placeResult.geometry) {
       // Hitting 'Enter' without selecting a suggestion will result in a
@@ -308,7 +308,7 @@ function initializeDistanceMatrix(locator) {
     if (!locator.searchLocation) return;
 
     const units =
-      locator.userCountry === "USA"
+      locator.userCountry === 'USA'
         ? google.maps.UnitSystem.IMPERIAL
         : google.maps.UnitSystem.METRIC;
     const request = {
@@ -320,12 +320,12 @@ function initializeDistanceMatrix(locator) {
       unitSystem: units,
     };
     const callback = function (response, status) {
-      if (status === "OK") {
+      if (status === 'OK') {
         const distances = response.rows[0].elements;
         for (let i = 0; i < distances.length; i++) {
           const distResult = distances[i];
           let travelDistanceText, travelDistanceValue;
-          if (distResult.status === "OK") {
+          if (distResult.status === 'OK') {
             travelDistanceText = distResult.distance.text;
             travelDistanceValue = distResult.distance.value;
           }
@@ -372,7 +372,7 @@ function initializeDirections(locator) {
       travelMode: google.maps.TravelMode.DRIVING,
     };
     directionsService.route(request, function (response, status) {
-      if (status === "OK") {
+      if (status === 'OK') {
         directionsRenderer.setMap(locator.map);
         directionsRenderer.setDirections(response);
         directionsCache.set(cacheKey, response);
@@ -387,18 +387,18 @@ function initializeDirections(locator) {
 
 /** Initialize Place Details service and UI for the locator. */
 function initializeDetails(locator) {
-  const panelDetailsEl = document.getElementById("locations-panel-details");
+  const panelDetailsEl = document.getElementById('locations-panel-details');
   const detailsService = new google.maps.places.PlacesService(locator.map);
 
   const detailsTemplate = Handlebars.compile(
-    document.getElementById("locator-details-tmpl").innerHTML
+    document.getElementById('locator-details-tmpl').innerHTML
   );
 
   const renderDetails = function (context) {
     panelDetailsEl.innerHTML = detailsTemplate(context);
     panelDetailsEl
-      .querySelector(".back-button")
-      .addEventListener("click", hideDetails);
+      .querySelector('.back-button')
+      .addEventListener('click', hideDetails);
   };
 
   const hideDetails = function () {
@@ -423,14 +423,14 @@ function initializeDetails(locator) {
       const request = {
         placeId: location.placeId,
         fields: [
-          "formatted_phone_number",
-          "website",
-          "opening_hours",
-          "url",
-          "utc_offset_minutes",
-          "price_level",
-          "rating",
-          "user_ratings_total",
+          'formatted_phone_number',
+          'website',
+          'opening_hours',
+          'url',
+          'utc_offset_minutes',
+          'price_level',
+          'rating',
+          'user_ratings_total',
         ],
       };
       detailsService.getDetails(request, function (place, status) {
@@ -442,13 +442,13 @@ function initializeDetails(locator) {
 
             for (let i = 1; i < daysHours.length; i++) {
               if (daysHours[i - 1].hours === daysHours[i].hours) {
-                if (daysHours[i - 1].days.indexOf("-") !== -1) {
+                if (daysHours[i - 1].days.indexOf('-') !== -1) {
                   daysHours[i - 1].days = daysHours[i - 1].days.replace(
                     /\w+$/,
                     daysHours[i].days
                   );
                 } else {
-                  daysHours[i - 1].days += " - " + daysHours[i].days;
+                  daysHours[i - 1].days += ' - ' + daysHours[i].days;
                 }
                 daysHours.splice(i--, 1);
               }

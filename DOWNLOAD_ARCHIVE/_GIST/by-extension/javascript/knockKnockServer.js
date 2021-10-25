@@ -1,14 +1,14 @@
 // A TCP server that delivers interactive knock-knock jokes on port 6789.
 // (Why is six afraid of seven? Because seven ate nine!)
-const net = require("net");
-const readline = require("readline");
+const net = require('net');
+const readline = require('readline');
 
 // Create a Server object and start listening for connections
 let server = net.createServer();
-server.listen(6789, () => console.log("Delivering laughs on port 6789"));
+server.listen(6789, () => console.log('Delivering laughs on port 6789'));
 
 // When a client connects, tell them a knock-knock joke.
-server.on("connection", (socket) => {
+server.on('connection', (socket) => {
   tellJoke(socket)
     .then(() => socket.end()) // When the joke is done, close the socket.
     .catch((err) => {
@@ -21,7 +21,7 @@ server.on("connection", (socket) => {
 const jokes = {
   Boo: "Don't cry...it's only a joke!",
   Lettuce: "Let us in! It's freezing out here!",
-  "A little old lady": "Wow, I didn't know you could yodel!",
+  'A little old lady': "Wow, I didn't know you could yodel!",
 };
 
 // Interactively perform a knock-knock joke over this socket, without blocking.
@@ -35,7 +35,7 @@ async function tellJoke(socket) {
   let lineReader = readline.createInterface({
     input: socket,
     output: socket,
-    prompt: ">> ",
+    prompt: '>> ',
   });
 
   // A utility function to output a line of text to the client
@@ -51,7 +51,7 @@ async function tellJoke(socket) {
   let stage = 0;
 
   // Start the knock-knock joke off in the traditional way.
-  output("Knock knock!");
+  output('Knock knock!');
 
   // Now read lines asynchronously from the client until the joke is done.
   for await (let inputLine of lineReader) {

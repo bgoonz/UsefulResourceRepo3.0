@@ -44,10 +44,10 @@ for (let i of rangeGenerator(6, 10)) console.log(i);
 
 //--------------------------------
 
-const fs = require("fs");
+const fs = require('fs');
 
 const readFileLines = (filename) =>
-  fs.readFileSync(filename).toString("UTF8").split("\n");
+  fs.readFileSync(filename).toString('UTF8').split('\n');
 
 //--------------------------------
 
@@ -58,7 +58,7 @@ contents of test.txt :
   line3
   ___________________________
 */
-let arr = readFileLines("test.txt");
+let arr = readFileLines('test.txt');
 console.log(arr); // ['line1', 'line2', 'line3']
 
 //--------------------------------
@@ -76,7 +76,7 @@ var rearged = rearg(
   },
   [2, 0, 1]
 );
-rearged("b", "c", "a"); // ['a', 'b', 'c']
+rearged('b', 'c', 'a'); // ['a', 'b', 'c']
 
 //--------------------------------
 
@@ -105,7 +105,7 @@ const recordAnimationFrames = (callback, autoStart = true) => {
 
 //--------------------------------
 
-const cb = () => console.log("Animation frame fired");
+const cb = () => console.log('Animation frame fired');
 const recorder = recordAnimationFrames(cb);
 // logs 'Animation frame fired' on each animation frame
 recorder.stop(); // stops logging
@@ -120,7 +120,7 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');
 
 //--------------------------------
 
@@ -146,9 +146,9 @@ reduceWhich([1, 3, 2]); // 1
 reduceWhich([1, 3, 2], (a, b) => b - a); // 3
 reduceWhich(
   [
-    { name: "Tom", age: 12 },
-    { name: "Jack", age: 18 },
-    { name: "Lucy", age: 9 },
+    { name: 'Tom', age: 12 },
+    { name: 'Jack', age: 18 },
+    { name: 'Lucy', age: 9 },
   ],
   (a, b) => a.age - b.age
 ); // {name: 'Lucy', age: 9}
@@ -168,16 +168,16 @@ const reducedFilter = (data, keys, fn) =>
 const data = [
   {
     id: 1,
-    name: "john",
+    name: 'john',
     age: 24,
   },
   {
     id: 2,
-    name: "mike",
+    name: 'mike',
     age: 50,
   },
 ];
-reducedFilter(data, ["id", "name"], (item) => item.age > 24);
+reducedFilter(data, ['id', 'name'], (item) => item.age > 24);
 // [{ id: 2, name: 'mike'}]
 
 //--------------------------------
@@ -187,7 +187,7 @@ const reject = (pred, array) => array.filter((...args) => !pred(...args));
 //--------------------------------
 
 reject((x) => x % 2 === 0, [1, 2, 3, 4, 5]); // [1, 3, 5]
-reject((word) => word.length > 4, ["Apple", "Pear", "Kiwi", "Banana"]);
+reject((word) => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']);
 // ['Pear', 'Kiwi']
 
 //--------------------------------
@@ -207,11 +207,11 @@ remove([1, 2, 3, 4], (n) => n % 2 === 0); // [2, 4]
 //--------------------------------
 
 const removeAccents = (str) =>
-  str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 //--------------------------------
 
-removeAccents("Antoine de Saint-Exupéry"); // 'Antoine de Saint-Exupery'
+removeAccents('Antoine de Saint-Exupéry'); // 'Antoine de Saint-Exupery'
 
 //--------------------------------
 
@@ -219,7 +219,7 @@ const removeClass = (el, className) => el.classList.remove(className);
 
 //--------------------------------
 
-removeClass(document.querySelector("p.special"), "special");
+removeClass(document.querySelector('p.special'), 'special');
 // The paragraph will not have the 'special' class anymore
 
 //--------------------------------
@@ -228,24 +228,24 @@ const removeElement = (el) => el.parentNode.removeChild(el);
 
 //--------------------------------
 
-removeElement(document.querySelector("#my-element"));
+removeElement(document.querySelector('#my-element'));
 // Removes #my-element from the DOM
 
 //--------------------------------
 
-const removeNonASCII = (str) => str.replace(/[^\x20-\x7E]/g, "");
+const removeNonASCII = (str) => str.replace(/[^\x20-\x7E]/g, '');
 
 //--------------------------------
 
-removeNonASCII("äÄçÇéÉêlorem-ipsumöÖÐþúÚ"); // 'lorem-ipsum'
+removeNonASCII('äÄçÇéÉêlorem-ipsumöÖÐþúÚ'); // 'lorem-ipsum'
 
 //--------------------------------
 
-const removeWhitespace = (str) => str.replace(/\s+/g, "");
+const removeWhitespace = (str) => str.replace(/\s+/g, '');
 
 //--------------------------------
 
-removeWhitespace("Lorem ipsum.\n Dolor sit amet. ");
+removeWhitespace('Lorem ipsum.\n Dolor sit amet. ');
 // 'Loremipsum.Dolorsitamet.'
 
 //--------------------------------
@@ -261,8 +261,8 @@ const renameKeys = (keysMap, obj) =>
 
 //--------------------------------
 
-const obj = { name: "Bobo", job: "Front-End Master", shoeSize: 100 };
-renameKeys({ name: "firstName", job: "passion" }, obj);
+const obj = { name: 'Bobo', job: 'Front-End Master', shoeSize: 100 };
+renameKeys({ name: 'firstName', job: 'passion' }, obj);
 // { firstName: 'Bobo', passion: 'Front-End Master', shoeSize: 100 }
 
 //--------------------------------
@@ -270,11 +270,11 @@ renameKeys({ name: "firstName", job: "passion" }, obj);
 const renderElement = ({ type, props = {} }, container) => {
   const isTextElement = !type;
   const element = isTextElement
-    ? document.createTextNode("")
+    ? document.createTextNode('')
     : document.createElement(type);
 
-  const isListener = (p) => p.startsWith("on");
-  const isAttribute = (p) => !isListener(p) && p !== "children";
+  const isListener = (p) => p.startsWith('on');
+  const isAttribute = (p) => !isListener(p) && p !== 'children';
 
   Object.keys(props).forEach((p) => {
     if (isAttribute(p)) element[p] = props[p];
@@ -293,12 +293,12 @@ const renderElement = ({ type, props = {} }, container) => {
 //--------------------------------
 
 const myElement = {
-  type: "button",
+  type: 'button',
   props: {
-    type: "button",
-    className: "btn",
-    onClick: () => alert("Clicked"),
-    children: [{ props: { nodeValue: "Click me" } }],
+    type: 'button',
+    className: 'btn',
+    onClick: () => alert('Clicked'),
+    children: [{ props: { nodeValue: 'Click me' } }],
   },
 };
 
@@ -331,12 +331,12 @@ const requireUncached = (module) => {
 
 //--------------------------------
 
-const fs = requireUncached("fs"); // 'fs' will be loaded fresh every time
+const fs = requireUncached('fs'); // 'fs' will be loaded fresh every time
 
 //--------------------------------
 
 const reverseNumber = (n) =>
-  parseFloat(`${n}`.split("").reverse().join("")) * Math.sign(n);
+  parseFloat(`${n}`.split('').reverse().join('')) * Math.sign(n);
 
 //--------------------------------
 
@@ -347,11 +347,11 @@ reverseNumber(-5.23); // -32.5
 
 //--------------------------------
 
-const reverseString = (str) => [...str].reverse().join("");
+const reverseString = (str) => [...str].reverse().join('');
 
 //--------------------------------
 
-reverseString("foobar"); // 'raboof'
+reverseString('foobar'); // 'raboof'
 
 //--------------------------------
 
@@ -367,7 +367,7 @@ round(1.005, 2); // 1.01
 const runAsync = (fn) => {
   const worker = new Worker(
     URL.createObjectURL(new Blob([`postMessage((${fn})());`]), {
-      type: "application/javascript; charset=utf-8",
+      type: 'application/javascript; charset=utf-8',
     })
   );
   return new Promise((res, rej) => {
@@ -452,7 +452,7 @@ scrollToTop(); // Smooth-scrolls to the top of the page
 //--------------------------------
 
 const sdbm = (str) => {
-  let arr = str.split("");
+  let arr = str.split('');
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
@@ -466,7 +466,7 @@ const sdbm = (str) => {
 
 //--------------------------------
 
-sdbm("name"); // -3521204949
+sdbm('name'); // -3521204949
 
 //--------------------------------
 
@@ -492,18 +492,18 @@ const serializeCookie = (name, val) =>
 
 //--------------------------------
 
-serializeCookie("foo", "bar"); // 'foo=bar'
+serializeCookie('foo', 'bar'); // 'foo=bar'
 
 //--------------------------------
 
 const serializeForm = (form) =>
   Array.from(new FormData(form), (field) =>
-    field.map(encodeURIComponent).join("=")
-  ).join("&");
+    field.map(encodeURIComponent).join('=')
+  ).join('&');
 
 //--------------------------------
 
-serializeForm(document.querySelector("#form"));
+serializeForm(document.querySelector('#form'));
 // email=test%40email.com&name=Test%20Name
 
 //--------------------------------
@@ -512,7 +512,7 @@ const setStyle = (el, rule, val) => (el.style[rule] = val);
 
 //--------------------------------
 
-setStyle(document.querySelector("p"), "font-size", "20px");
+setStyle(document.querySelector('p'), 'font-size', '20px');
 // The first <p> element on the page will have a font-size of 20px
 
 //--------------------------------
@@ -534,19 +534,19 @@ const shank = (arr, index = 0, delCount = 0, ...elements) =>
 
 //--------------------------------
 
-const names = ["alpha", "bravo", "charlie"];
-const namesAndDelta = shank(names, 1, 0, "delta");
+const names = ['alpha', 'bravo', 'charlie'];
+const namesAndDelta = shank(names, 1, 0, 'delta');
 // [ 'alpha', 'delta', 'bravo', 'charlie' ]
 const namesNoBravo = shank(names, 1, 1); // [ 'alpha', 'charlie' ]
 console.log(names); // ['alpha', 'bravo', 'charlie']
 
 //--------------------------------
 
-const show = (...el) => [...el].forEach((e) => (e.style.display = ""));
+const show = (...el) => [...el].forEach((e) => (e.style.display = ''));
 
 //--------------------------------
 
-show(...document.querySelectorAll("img"));
+show(...document.querySelectorAll('img'));
 // Shows all <img> elements on the page
 
 //--------------------------------
@@ -578,16 +578,16 @@ similarity([1, 2, 3], [1, 2, 4]); // [1, 2]
 const size = (val) =>
   Array.isArray(val)
     ? val.length
-    : val && typeof val === "object"
+    : val && typeof val === 'object'
     ? val.size || val.length || Object.keys(val).length
-    : typeof val === "string"
+    : typeof val === 'string'
     ? new Blob([val]).size
     : 0;
 
 //--------------------------------
 
 size([1, 2, 3, 4, 5]); // 5
-size("size"); // 4
+size('size'); // 4
 size({ one: 1, two: 2, three: 3 }); // 3
 
 //--------------------------------
@@ -599,7 +599,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function sleepyWork() {
   console.log("I'm going to sleep for 1 second.");
   await sleep(1000);
-  console.log("I woke up after 1 second.");
+  console.log('I woke up after 1 second.');
 }
 
 //--------------------------------
@@ -608,35 +608,35 @@ const slugify = (str) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 //--------------------------------
 
-slugify("Hello World!"); // 'hello-world'
+slugify('Hello World!'); // 'hello-world'
 
 //--------------------------------
 
 const smoothScroll = (element) =>
   document.querySelector(element).scrollIntoView({
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 
 //--------------------------------
 
-smoothScroll("#fooBar"); // scrolls smoothly to the element with the id fooBar
-smoothScroll(".fooBar");
+smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
+smoothScroll('.fooBar');
 // scrolls smoothly to the first element with a class of fooBar
 
 //--------------------------------
 
 const sortCharactersInString = (str) =>
-  [...str].sort((a, b) => a.localeCompare(b)).join("");
+  [...str].sort((a, b) => a.localeCompare(b)).join('');
 
 //--------------------------------
 
-sortCharactersInString("cabbage"); // 'aabbceg'
+sortCharactersInString('cabbage'); // 'aabbceg'
 
 //--------------------------------
 
@@ -702,7 +702,7 @@ const splitLines = (str) => str.split(/\r?\n/);
 
 //--------------------------------
 
-splitLines("This\nis a\nmultiline\nstring.\n");
+splitLines('This\nis a\nmultiline\nstring.\n');
 // ['This', 'is a', 'multiline', 'string.' , '']
 
 //--------------------------------
@@ -750,7 +750,7 @@ standardDeviation([10, 2, 38, 23, 38, 23, 21], true);
 const stringPermutations = (str) => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
-    .split("")
+    .split('')
     .reduce(
       (acc, letter, i) =>
         acc.concat(
@@ -764,14 +764,14 @@ const stringPermutations = (str) => {
 
 //--------------------------------
 
-stringPermutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+stringPermutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 //--------------------------------
 
 const stringifyCircularJSON = (obj) => {
   const seen = new WeakSet();
   return JSON.stringify(obj, (k, v) => {
-    if (v !== null && typeof v === "object") {
+    if (v !== null && typeof v === 'object') {
       if (seen.has(v)) return;
       seen.add(v);
     }
@@ -787,11 +787,11 @@ stringifyCircularJSON(obj); // '{"n": 42}'
 
 //--------------------------------
 
-const stripHTMLTags = (str) => str.replace(/<[^>]*>/g, "");
+const stripHTMLTags = (str) => str.replace(/<[^>]*>/g, '');
 
 //--------------------------------
 
-stripHTMLTags("<p><em>lorem</em> <strong>ipsum</strong></p>"); // 'lorem ipsum'
+stripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'); // 'lorem ipsum'
 
 //--------------------------------
 
@@ -819,13 +819,13 @@ sum(...[1, 2, 3, 4]); // 10
 
 const sumBy = (arr, fn) =>
   arr
-    .map(typeof fn === "function" ? fn : (val) => val[fn])
+    .map(typeof fn === 'function' ? fn : (val) => val[fn])
     .reduce((acc, val) => acc + val, 0);
 
 //--------------------------------
 
 sumBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], (x) => x.n); // 20
-sumBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 20
+sumBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 20
 
 //--------------------------------
 
@@ -864,7 +864,7 @@ superSet(new Set([1, 2, 3, 4]), new Set([1, 5])); // false
 
 //--------------------------------
 
-const supportsTouchEvents = () => window && "ontouchstart" in window;
+const supportsTouchEvents = () => window && 'ontouchstart' in window;
 
 //--------------------------------
 
@@ -875,11 +875,11 @@ supportsTouchEvents(); // true
 const swapCase = (str) =>
   [...str]
     .map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
-    .join("");
+    .join('');
 
 //--------------------------------
 
-swapCase("Hello world!"); // 'hELLO WORLD!'
+swapCase('Hello world!'); // 'hELLO WORLD!'
 
 //--------------------------------
 
@@ -1029,7 +1029,7 @@ const throttle = (fn, wait) => {
 //--------------------------------
 
 window.addEventListener(
-  "resize",
+  'resize',
   throttle(function (evt) {
     console.log(window.innerWidth);
     console.log(window.innerHeight);
@@ -1039,9 +1039,9 @@ window.addEventListener(
 //--------------------------------
 
 const timeTaken = (callback) => {
-  console.time("timeTaken");
+  console.time('timeTaken');
   const r = callback();
-  console.timeEnd("timeTaken");
+  console.timeEnd('timeTaken');
   return r;
 };
 
@@ -1058,7 +1058,7 @@ const times = (n, fn, context = undefined) => {
 
 //--------------------------------
 
-var output = "";
+var output = '';
 times(5, (i) => (output += i));
 console.log(output); // 01234
 
@@ -1072,17 +1072,17 @@ const toCamelCase = (str) => {
         /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
       )
       .map((x) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())
-      .join("");
+      .join('');
   return s.slice(0, 1).toLowerCase() + s.slice(1);
 };
 
 //--------------------------------
 
-toCamelCase("some_database_field_name"); // 'someDatabaseFieldName'
-toCamelCase("Some label that needs to be camelized");
+toCamelCase('some_database_field_name'); // 'someDatabaseFieldName'
+toCamelCase('Some label that needs to be camelized');
 // 'someLabelThatNeedsToBeCamelized'
-toCamelCase("some-javascript-property"); // 'someJavascriptProperty'
-toCamelCase("some-mixed_string with spaces_underscores-and-hyphens");
+toCamelCase('some-javascript-property'); // 'someJavascriptProperty'
+toCamelCase('some-mixed_string with spaces_underscores-and-hyphens');
 // 'someMixedStringWithSpacesUnderscoresAndHyphens'
 
 //--------------------------------
@@ -1091,32 +1091,32 @@ const toCharArray = (s) => [...s];
 
 //--------------------------------
 
-toCharArray("hello"); // ['h', 'e', 'l', 'l', 'o']
+toCharArray('hello'); // ['h', 'e', 'l', 'l', 'o']
 
 //--------------------------------
 
 const toCurrency = (n, curr, LanguageFormat = undefined) =>
   Intl.NumberFormat(LanguageFormat, {
-    style: "currency",
+    style: 'currency',
     currency: curr,
   }).format(n);
 
 //--------------------------------
 
-toCurrency(123456.789, "EUR");
+toCurrency(123456.789, 'EUR');
 // €123,456.79  | currency: Euro | currencyLangFormat: Local
-toCurrency(123456.789, "USD", "en-us");
+toCurrency(123456.789, 'USD', 'en-us');
 // $123,456.79  | currency: US Dollar | currencyLangFormat: English (United States)
-toCurrency(123456.789, "USD", "fa");
+toCurrency(123456.789, 'USD', 'fa');
 // ۱۲۳٬۴۵۶٫۷۹ ؜$ | currency: US Dollar | currencyLangFormat: Farsi
-toCurrency(322342436423.2435, "JPY");
+toCurrency(322342436423.2435, 'JPY');
 // ¥322,342,436,423 | currency: Japanese Yen | currencyLangFormat: Local
-toCurrency(322342436423.2435, "JPY", "fi");
+toCurrency(322342436423.2435, 'JPY', 'fi');
 // 322 342 436 423 ¥ | currency: Japanese Yen | currencyLangFormat: Finnish
 
 //--------------------------------
 
-const toDecimalMark = (num) => num.toLocaleString("en-US");
+const toDecimalMark = (num) => num.toLocaleString('en-US');
 
 //--------------------------------
 
@@ -1128,7 +1128,7 @@ const toHSLArray = (hslStr) => hslStr.match(/\d+/g).map(Number);
 
 //--------------------------------
 
-toHSLArray("hsl(50, 10%, 10%)"); // [50, 10, 10]
+toHSLArray('hsl(50, 10%, 10%)'); // [50, 10, 10]
 
 //--------------------------------
 
@@ -1139,7 +1139,7 @@ const toHSLObject = (hslStr) => {
 
 //--------------------------------
 
-toHSLObject("hsl(50, 10%, 10%)"); // { hue: 50, saturation: 10, lightness: 10 }
+toHSLObject('hsl(50, 10%, 10%)'); // { hue: 50, saturation: 10, lightness: 10 }
 
 //--------------------------------
 
@@ -1153,12 +1153,12 @@ const toHash = (object, key) =>
 //--------------------------------
 
 toHash([4, 3, 2, 1]); // { 0: 4, 1: 3, 2: 2, 3: 1 }
-toHash([{ a: "label" }], "a"); // { label: { a: 'label' } }
+toHash([{ a: 'label' }], 'a'); // { label: { a: 'label' } }
 // A more in depth example:
 let users = [
-  { id: 1, first: "Jon" },
-  { id: 2, first: "Joe" },
-  { id: 3, first: "Moe" },
+  { id: 1, first: 'Jon' },
+  { id: 2, first: 'Joe' },
+  { id: 3, first: 'Moe' },
 ];
 let managers = [{ manager: 1, employees: [2, 3] }];
 // We use function here because we want a bindable reference,
@@ -1167,7 +1167,7 @@ managers.forEach(
   (manager) =>
     (manager.employees = manager.employees.map(function (id) {
       return this[id];
-    }, toHash(users, "id")))
+    }, toHash(users, 'id')))
 );
 managers;
 // [ {manager:1, employees: [ {id: 2, first: 'Joe'}, {id: 3, first: 'Moe'} ] } ]
@@ -1176,23 +1176,23 @@ managers;
 
 const toISOStringWithTimezone = (date) => {
   const tzOffset = -date.getTimezoneOffset();
-  const diff = tzOffset >= 0 ? "+" : "-";
-  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, "0");
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = (n) => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
   return (
     date.getFullYear() +
-    "-" +
+    '-' +
     pad(date.getMonth() + 1) +
-    "-" +
+    '-' +
     pad(date.getDate()) +
-    "T" +
+    'T' +
     pad(date.getHours()) +
-    ":" +
+    ':' +
     pad(date.getMinutes()) +
-    ":" +
+    ':' +
     pad(date.getSeconds()) +
     diff +
     pad(tzOffset / 60) +
-    ":" +
+    ':' +
     pad(tzOffset % 60)
   );
 };
@@ -1208,16 +1208,16 @@ const toKebabCase = (str) =>
   str
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map((x) => x.toLowerCase())
-    .join("-");
+    .join('-');
 
 //--------------------------------
 
-toKebabCase("camelCase"); // 'camel-case'
-toKebabCase("some text"); // 'some-text'
-toKebabCase("some-mixed_string With spaces_underscores-and-hyphens");
+toKebabCase('camelCase'); // 'camel-case'
+toKebabCase('some text'); // 'some-text'
+toKebabCase('some-mixed_string With spaces_underscores-and-hyphens');
 // 'some-mixed-string-with-spaces-underscores-and-hyphens'
-toKebabCase("AllThe-small Things"); // 'all-the-small-things'
-toKebabCase("IAmEditingSomeXMLAndHTML");
+toKebabCase('AllThe-small Things'); // 'all-the-small-things'
+toKebabCase('IAmEditingSomeXMLAndHTML');
 // 'i-am-editing-some-xml-and-html'
 
 //--------------------------------
@@ -1225,7 +1225,7 @@ toKebabCase("IAmEditingSomeXMLAndHTML");
 const toOrdinalSuffix = (num) => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
-    ordinals = ["st", "nd", "rd", "th"],
+    ordinals = ['st', 'nd', 'rd', 'th'],
     oPattern = [1, 2, 3, 4],
     tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
   return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])
@@ -1235,7 +1235,7 @@ const toOrdinalSuffix = (num) => {
 
 //--------------------------------
 
-toOrdinalSuffix("123"); // '123rd'
+toOrdinalSuffix('123'); // '123rd'
 
 //--------------------------------
 
@@ -1248,8 +1248,8 @@ const toPairs = (obj) =>
 
 toPairs({ a: 1, b: 2 }); // [['a', 1], ['b', 2]]
 toPairs([2, 4, 8]); // [[0, 2], [1, 4], [2, 8]]
-toPairs("shy"); // [['0', 's'], ['1', 'h'], ['2', 'y']]
-toPairs(new Set(["a", "b", "c", "a"])); // [['a', 'a'], ['b', 'b'], ['c', 'c']]
+toPairs('shy'); // [['0', 's'], ['1', 'h'], ['2', 'y']]
+toPairs(new Set(['a', 'b', 'c', 'a'])); // [['a', 'a'], ['b', 'b'], ['c', 'c']]
 
 //--------------------------------
 
@@ -1257,7 +1257,7 @@ const toRGBArray = (rgbStr) => rgbStr.match(/\d+/g).map(Number);
 
 //--------------------------------
 
-toRGBArray("rgb(255, 12, 0)"); // [255, 12, 0]
+toRGBArray('rgb(255, 12, 0)'); // [255, 12, 0]
 
 //--------------------------------
 
@@ -1268,31 +1268,31 @@ const toRGBObject = (rgbStr) => {
 
 //--------------------------------
 
-toRGBObject("rgb(255, 12, 0)"); // {red: 255, green: 12, blue: 0}
+toRGBObject('rgb(255, 12, 0)'); // {red: 255, green: 12, blue: 0}
 
 //--------------------------------
 
 const toRomanNumeral = (num) => {
   const lookup = [
-    ["M", 1000],
-    ["CM", 900],
-    ["D", 500],
-    ["CD", 400],
-    ["C", 100],
-    ["XC", 90],
-    ["L", 50],
-    ["XL", 40],
-    ["X", 10],
-    ["IX", 9],
-    ["V", 5],
-    ["IV", 4],
-    ["I", 1],
+    ['M', 1000],
+    ['CM', 900],
+    ['D', 500],
+    ['CD', 400],
+    ['C', 100],
+    ['XC', 90],
+    ['L', 50],
+    ['XL', 40],
+    ['X', 10],
+    ['IX', 9],
+    ['V', 5],
+    ['IV', 4],
+    ['I', 1],
   ];
   return lookup.reduce((acc, [k, v]) => {
     acc += k.repeat(Math.floor(num / v));
     num = num % v;
     return acc;
-  }, "");
+  }, '');
 };
 
 //--------------------------------
@@ -1310,7 +1310,7 @@ const toSafeInteger = (num) =>
 
 //--------------------------------
 
-toSafeInteger("3.2"); // 3
+toSafeInteger('3.2'); // 3
 toSafeInteger(Infinity); // 9007199254740991
 
 //--------------------------------
@@ -1320,16 +1320,16 @@ const toSnakeCase = (str) =>
   str
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map((x) => x.toLowerCase())
-    .join("_");
+    .join('_');
 
 //--------------------------------
 
-toSnakeCase("camelCase"); // 'camel_case'
-toSnakeCase("some text"); // 'some_text'
-toSnakeCase("some-mixed_string With spaces_underscores-and-hyphens");
+toSnakeCase('camelCase'); // 'camel_case'
+toSnakeCase('some text'); // 'some_text'
+toSnakeCase('some-mixed_string With spaces_underscores-and-hyphens');
 // 'some_mixed_string_with_spaces_underscores_and_hyphens'
-toSnakeCase("AllThe-small Things"); // 'all_the_small_things'
-toKebabCase("IAmEditingSomeXMLAndHTML");
+toSnakeCase('AllThe-small Things'); // 'all_the_small_things'
+toKebabCase('IAmEditingSomeXMLAndHTML');
 // 'i_am_editing_some_xml_and_html'
 
 //--------------------------------
@@ -1338,15 +1338,15 @@ const toTitleCase = (str) =>
   str
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
-    .join(" ");
+    .join(' ');
 
 //--------------------------------
 
-toTitleCase("some_database_field_name"); // 'Some Database Field Name'
-toTitleCase("Some label that needs to be title-cased");
+toTitleCase('some_database_field_name'); // 'Some Database Field Name'
+toTitleCase('Some label that needs to be title-cased');
 // 'Some Label That Needs To Be Title Cased'
-toTitleCase("some-package-name"); // 'Some Package Name'
-toTitleCase("some-mixed_string with spaces_underscores-and-hyphens");
+toTitleCase('some-package-name'); // 'Some Package Name'
+toTitleCase('some-mixed_string with spaces_underscores-and-hyphens');
 // 'Some Mixed String With Spaces Underscores And Hyphens'
 
 //--------------------------------
@@ -1355,7 +1355,7 @@ const toggleClass = (el, className) => el.classList.toggle(className);
 
 //--------------------------------
 
-toggleClass(document.querySelector("p.special"), "special");
+toggleClass(document.querySelector('p.special'), 'special');
 // The paragraph will not have the 'special' class anymore
 
 //--------------------------------
@@ -1363,7 +1363,7 @@ toggleClass(document.querySelector("p.special"), "special");
 const tomorrow = () => {
   let d = new Date();
   d.setDate(d.getDate() + 1);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split('T')[0];
 };
 
 //--------------------------------
@@ -1393,31 +1393,31 @@ const triggerEvent = (el, eventType, detail) =>
 
 //--------------------------------
 
-triggerEvent(document.getElementById("myId"), "click");
-triggerEvent(document.getElementById("myId"), "click", { username: "bob" });
+triggerEvent(document.getElementById('myId'), 'click');
+triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });
 
 //--------------------------------
 
 const truncateString = (str, num) =>
-  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + "..." : str;
+  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
 
 //--------------------------------
 
-truncateString("boomerang", 7); // 'boom...'
+truncateString('boomerang', 7); // 'boom...'
 
 //--------------------------------
 
-const truncateStringAtWhitespace = (str, lim, ending = "...") => {
+const truncateStringAtWhitespace = (str, lim, ending = '...') => {
   if (str.length <= lim) return str;
-  const lastSpace = str.slice(0, lim - ending.length + 1).lastIndexOf(" ");
+  const lastSpace = str.slice(0, lim - ending.length + 1).lastIndexOf(' ');
   return str.slice(0, lastSpace > 0 ? lastSpace : lim - ending.length) + ending;
 };
 
 //--------------------------------
 
-truncateStringAtWhitespace("short", 10); // 'short'
-truncateStringAtWhitespace("not so short", 10); // 'not so...'
-truncateStringAtWhitespace("trying a thing", 10); // 'trying...'
-truncateStringAtWhitespace("javascripting", 10); // 'javascr...'
+truncateStringAtWhitespace('short', 10); // 'short'
+truncateStringAtWhitespace('not so short', 10); // 'not so...'
+truncateStringAtWhitespace('trying a thing', 10); // 'trying...'
+truncateStringAtWhitespace('javascripting', 10); // 'javascr...'
 
 //--------------------------------

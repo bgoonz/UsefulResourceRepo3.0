@@ -71,16 +71,16 @@
   Have fun!
 */
 
-import React from "react";
-import { Sampler, Sequencer } from "react-music";
+import React from 'react';
+import { Sampler, Sequencer } from 'react-music';
 
 const parseBeats = (diagram, expansions) => {
-  const beats = diagram.replace(/\s/g, "").split("");
+  const beats = diagram.replace(/\s/g, '').split('');
   for (let i = 0; i < beats.length; i++) {
     const char = beats[i];
-    if (char === "-") {
+    if (char === '-') {
       beats[i] = false;
-    } else if (char === "x") {
+    } else if (char === 'x') {
       beats[i] = true;
     } else {
       beats[i] = parseBeats(expansions[char], expansions);
@@ -90,7 +90,7 @@ const parseBeats = (diagram, expansions) => {
 };
 
 const getExpansionResolution = (beats, resolution) => {
-  const resolvedCount = beats.filter((c) => typeof c === "boolean").length;
+  const resolvedCount = beats.filter((c) => typeof c === 'boolean').length;
   const spaceForExpansions = resolution - resolvedCount;
   const expansionCount = beats.length - resolvedCount;
   const spacePerExpansion = spaceForExpansions / expansionCount;
