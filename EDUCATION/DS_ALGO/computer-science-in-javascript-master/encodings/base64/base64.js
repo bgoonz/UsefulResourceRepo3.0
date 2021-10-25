@@ -32,7 +32,7 @@ function base64Encode(text) {
   }
 
   const digits =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
   let i = 0;
   let cur;
@@ -65,13 +65,13 @@ function base64Encode(text) {
 
   if (byteNum == 0) {
     result.push(digits.charAt((prev & 3) << 4));
-    result.push("==");
+    result.push('==');
   } else if (byteNum == 1) {
     result.push(digits.charAt((prev & 0x0f) << 2));
-    result.push("=");
+    result.push('=');
   }
 
-  return result.join("");
+  return result.join('');
 }
 
 /**
@@ -81,16 +81,16 @@ function base64Encode(text) {
  */
 function base64Decode(text) {
   //ignore white space
-  text = text.replace(/\s/g, "");
+  text = text.replace(/\s/g, '');
 
   //first check for any unexpected input
   if (!/^[a-z0-9\+\/\s]+\={0,2}$/i.test(text) || text.length % 4 > 0) {
-    throw new Error("Not a base64-encoded string.");
+    throw new Error('Not a base64-encoded string.');
   }
 
   //local variables
   const digits =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
   let cur;
   let prev;
@@ -99,7 +99,7 @@ function base64Decode(text) {
   const result = [];
 
   //remove any equals signs
-  text = text.replace(/=/g, "");
+  text = text.replace(/=/g, '');
 
   //loop over each character
   while (i < text.length) {
@@ -127,5 +127,5 @@ function base64Decode(text) {
   }
 
   //return a string
-  return result.join("");
+  return result.join('');
 }

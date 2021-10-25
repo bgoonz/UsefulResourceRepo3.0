@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 exports.compilePattern = compilePattern;
@@ -7,7 +7,7 @@ exports.getParamNames = getParamNames;
 exports.getParams = getParams;
 exports.formatPattern = formatPattern;
 
-var _invariant = require("invariant");
+var _invariant = require('invariant');
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -16,11 +16,11 @@ function _interopRequireDefault(obj) {
 }
 
 function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function _compilePattern(pattern) {
-  var regexpSource = "";
+  var regexpSource = '';
   var paramNames = [];
   var tokens = [];
 
@@ -34,22 +34,22 @@ function _compilePattern(pattern) {
     }
 
     if (match[1]) {
-      regexpSource += "([^/]+)";
+      regexpSource += '([^/]+)';
       paramNames.push(match[1]);
-    } else if (match[0] === "**") {
-      regexpSource += "(.*)";
-      paramNames.push("splat");
-    } else if (match[0] === "*") {
-      regexpSource += "(.*?)";
-      paramNames.push("splat");
-    } else if (match[0] === "(") {
-      regexpSource += "(?:";
-    } else if (match[0] === ")") {
-      regexpSource += ")?";
-    } else if (match[0] === "\\(") {
-      regexpSource += "\\(";
-    } else if (match[0] === "\\)") {
-      regexpSource += "\\)";
+    } else if (match[0] === '**') {
+      regexpSource += '(.*)';
+      paramNames.push('splat');
+    } else if (match[0] === '*') {
+      regexpSource += '(.*?)';
+      paramNames.push('splat');
+    } else if (match[0] === '(') {
+      regexpSource += '(?:';
+    } else if (match[0] === ')') {
+      regexpSource += ')?';
+    } else if (match[0] === '\\(') {
+      regexpSource += '\\(';
+    } else if (match[0] === '\\)') {
+      regexpSource += '\\)';
     }
 
     tokens.push(match[0]);
@@ -101,8 +101,8 @@ function compilePattern(pattern) {
  */
 function matchPattern(pattern, pathname) {
   // Ensure pattern starts with leading slash for consistency with pathname.
-  if (pattern.charAt(0) !== "/") {
-    pattern = "/" + pattern;
+  if (pattern.charAt(0) !== '/') {
+    pattern = '/' + pattern;
   }
 
   var _compilePattern2 = compilePattern(pattern),
@@ -110,16 +110,16 @@ function matchPattern(pattern, pathname) {
     paramNames = _compilePattern2.paramNames,
     tokens = _compilePattern2.tokens;
 
-  if (pattern.charAt(pattern.length - 1) !== "/") {
-    regexpSource += "/?"; // Allow optional path separator at end.
+  if (pattern.charAt(pattern.length - 1) !== '/') {
+    regexpSource += '/?'; // Allow optional path separator at end.
   }
 
   // Special-case patterns like '*' for catch-all routes.
-  if (tokens[tokens.length - 1] === "*") {
-    regexpSource += "$";
+  if (tokens[tokens.length - 1] === '*') {
+    regexpSource += '$';
   }
 
-  var match = pathname.match(new RegExp("^" + regexpSource, "i"));
+  var match = pathname.match(new RegExp('^' + regexpSource, 'i'));
   if (match == null) {
     return null;
   }
@@ -130,13 +130,13 @@ function matchPattern(pattern, pathname) {
   if (remainingPathname) {
     // Require that the match ends at a path separator, if we didn't match
     // the full path, so any remaining pathname is a new path segment.
-    if (matchedPath.charAt(matchedPath.length - 1) !== "/") {
+    if (matchedPath.charAt(matchedPath.length - 1) !== '/') {
       return null;
     }
 
     // If there is a remaining pathname, treat the path separator as part of
     // the remaining pathname for properly continuing the match.
-    remainingPathname = "/" + remainingPathname;
+    remainingPathname = '/' + remainingPathname;
   }
 
   return {
@@ -181,7 +181,7 @@ function formatPattern(pattern, params) {
     tokens = _compilePattern3.tokens;
 
   var parenCount = 0,
-    pathname = "",
+    pathname = '',
     splatIndex = 0,
     parenHistory = [];
 
@@ -191,13 +191,13 @@ function formatPattern(pattern, params) {
   for (var i = 0, len = tokens.length; i < len; ++i) {
     token = tokens[i];
 
-    if (token === "*" || token === "**") {
+    if (token === '*' || token === '**') {
       paramValue = Array.isArray(params.splat)
         ? params.splat[splatIndex++]
         : params.splat;
 
       !(paramValue != null || parenCount > 0)
-        ? process.env.NODE_ENV !== "production"
+        ? process.env.NODE_ENV !== 'production'
           ? (0, _invariant2.default)(
               false,
               'Missing splat #%s for path "%s"',
@@ -208,25 +208,25 @@ function formatPattern(pattern, params) {
         : void 0;
 
       if (paramValue != null) pathname += encodeURI(paramValue);
-    } else if (token === "(") {
-      parenHistory[parenCount] = "";
+    } else if (token === '(') {
+      parenHistory[parenCount] = '';
       parenCount += 1;
-    } else if (token === ")") {
+    } else if (token === ')') {
       var parenText = parenHistory.pop();
       parenCount -= 1;
 
       if (parenCount) parenHistory[parenCount - 1] += parenText;
       else pathname += parenText;
-    } else if (token === "\\(") {
-      pathname += "(";
-    } else if (token === "\\)") {
-      pathname += ")";
-    } else if (token.charAt(0) === ":") {
+    } else if (token === '\\(') {
+      pathname += '(';
+    } else if (token === '\\)') {
+      pathname += ')';
+    } else if (token.charAt(0) === ':') {
       paramName = token.substring(1);
       paramValue = params[paramName];
 
       !(paramValue != null || parenCount > 0)
-        ? process.env.NODE_ENV !== "production"
+        ? process.env.NODE_ENV !== 'production'
           ? (0, _invariant2.default)(
               false,
               'Missing "%s" parameter for path "%s"',
@@ -238,26 +238,26 @@ function formatPattern(pattern, params) {
 
       if (paramValue == null) {
         if (parenCount) {
-          parenHistory[parenCount - 1] = "";
+          parenHistory[parenCount - 1] = '';
 
           var curTokenIdx = tokens.indexOf(token);
           var tokensSubset = tokens.slice(curTokenIdx, tokens.length);
           var nextParenIdx = -1;
 
           for (var _i = 0; _i < tokensSubset.length; _i++) {
-            if (tokensSubset[_i] == ")") {
+            if (tokensSubset[_i] == ')') {
               nextParenIdx = _i;
               break;
             }
           }
 
           !(nextParenIdx > 0)
-            ? process.env.NODE_ENV !== "production"
+            ? process.env.NODE_ENV !== 'production'
               ? (0, _invariant2.default)(
                   false,
                   'Path "%s" is missing end paren at segment "%s"',
                   pattern,
-                  tokensSubset.join("")
+                  tokensSubset.join('')
                 )
               : (0, _invariant2.default)(false)
             : void 0;
@@ -275,7 +275,7 @@ function formatPattern(pattern, params) {
   }
 
   !(parenCount <= 0)
-    ? process.env.NODE_ENV !== "production"
+    ? process.env.NODE_ENV !== 'production'
       ? (0, _invariant2.default)(
           false,
           'Path "%s" is missing end paren',
@@ -284,5 +284,5 @@ function formatPattern(pattern, params) {
       : (0, _invariant2.default)(false)
     : void 0;
 
-  return pathname.replace(/\/+/g, "/");
+  return pathname.replace(/\/+/g, '/');
 }

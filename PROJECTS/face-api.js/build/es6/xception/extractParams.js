@@ -1,4 +1,4 @@
-import { range, TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { range, TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 function extractorsFactory(extractWeights, paramMappings) {
   var extractConvParams = TfjsImageRecognitionBase.extractConvParamsFactory(
     extractWeights,
@@ -13,18 +13,18 @@ function extractorsFactory(extractWeights, paramMappings) {
     var separable_conv0 = extractSeparableConvParams(
       channelsIn,
       channelsOut,
-      mappedPrefix + "/separable_conv0"
+      mappedPrefix + '/separable_conv0'
     );
     var separable_conv1 = extractSeparableConvParams(
       channelsOut,
       channelsOut,
-      mappedPrefix + "/separable_conv1"
+      mappedPrefix + '/separable_conv1'
     );
     var expansion_conv = extractConvParams(
       channelsIn,
       channelsOut,
       1,
-      mappedPrefix + "/expansion_conv"
+      mappedPrefix + '/expansion_conv'
     );
     return {
       separable_conv0: separable_conv0,
@@ -36,17 +36,17 @@ function extractorsFactory(extractWeights, paramMappings) {
     var separable_conv0 = extractSeparableConvParams(
       channels,
       channels,
-      mappedPrefix + "/separable_conv0"
+      mappedPrefix + '/separable_conv0'
     );
     var separable_conv1 = extractSeparableConvParams(
       channels,
       channels,
-      mappedPrefix + "/separable_conv1"
+      mappedPrefix + '/separable_conv1'
     );
     var separable_conv2 = extractSeparableConvParams(
       channels,
       channels,
-      mappedPrefix + "/separable_conv2"
+      mappedPrefix + '/separable_conv2'
     );
     return {
       separable_conv0: separable_conv0,
@@ -71,16 +71,16 @@ export function extractParams(weights, numMainBlocks) {
     extractSeparableConvParams = _b.extractSeparableConvParams,
     extractReductionBlockParams = _b.extractReductionBlockParams,
     extractMainBlockParams = _b.extractMainBlockParams;
-  var entry_flow_conv_in = extractConvParams(3, 32, 3, "entry_flow/conv_in");
+  var entry_flow_conv_in = extractConvParams(3, 32, 3, 'entry_flow/conv_in');
   var entry_flow_reduction_block_0 = extractReductionBlockParams(
     32,
     64,
-    "entry_flow/reduction_block_0"
+    'entry_flow/reduction_block_0'
   );
   var entry_flow_reduction_block_1 = extractReductionBlockParams(
     64,
     128,
-    "entry_flow/reduction_block_1"
+    'entry_flow/reduction_block_1'
   );
   var entry_flow = {
     conv_in: entry_flow_conv_in,
@@ -89,20 +89,20 @@ export function extractParams(weights, numMainBlocks) {
   };
   var middle_flow = {};
   range(numMainBlocks, 0, 1).forEach(function (idx) {
-    middle_flow["main_block_" + idx] = extractMainBlockParams(
+    middle_flow['main_block_' + idx] = extractMainBlockParams(
       128,
-      "middle_flow/main_block_" + idx
+      'middle_flow/main_block_' + idx
     );
   });
   var exit_flow_reduction_block = extractReductionBlockParams(
     128,
     256,
-    "exit_flow/reduction_block"
+    'exit_flow/reduction_block'
   );
   var exit_flow_separable_conv = extractSeparableConvParams(
     256,
     512,
-    "exit_flow/separable_conv"
+    'exit_flow/separable_conv'
   );
   var exit_flow = {
     reduction_block: exit_flow_reduction_block,
@@ -110,7 +110,7 @@ export function extractParams(weights, numMainBlocks) {
   };
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

@@ -1,22 +1,22 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NeuralNetwork,
   normalize,
   toNetInput,
-} from "tfjs-image-recognition-base";
-import { denseBlock4 } from "./denseBlock";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
+} from 'tfjs-image-recognition-base';
+import { denseBlock4 } from './denseBlock';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
 var FaceFeatureExtractor = /** @class */ (function (_super) {
   tslib_1.__extends(FaceFeatureExtractor, _super);
   function FaceFeatureExtractor() {
-    return _super.call(this, "FaceFeatureExtractor") || this;
+    return _super.call(this, 'FaceFeatureExtractor') || this;
   }
   FaceFeatureExtractor.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("FaceFeatureExtractor - load model before inference");
+      throw new Error('FaceFeatureExtractor - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(112, true);
@@ -26,7 +26,7 @@ var FaceFeatureExtractor = /** @class */ (function (_super) {
       out = denseBlock4(out, params.dense1);
       out = denseBlock4(out, params.dense2);
       out = denseBlock4(out, params.dense3);
-      out = tf.avgPool(out, [7, 7], [2, 2], "valid");
+      out = tf.avgPool(out, [7, 7], [2, 2], 'valid');
       return out;
     });
   };
@@ -45,7 +45,7 @@ var FaceFeatureExtractor = /** @class */ (function (_super) {
     });
   };
   FaceFeatureExtractor.prototype.getDefaultModelName = function () {
-    return "face_feature_extractor_model";
+    return 'face_feature_extractor_model';
   };
   FaceFeatureExtractor.prototype.extractParamsFromWeigthMap = function (
     weightMap

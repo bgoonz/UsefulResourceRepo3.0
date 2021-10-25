@@ -1,8 +1,8 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { scale } from "./scaleLayer";
+import * as tf from '@tensorflow/tfjs-core';
+import { scale } from './scaleLayer';
 function convLayer(x, params, strides, withRelu, padding) {
   if (padding === void 0) {
-    padding = "same";
+    padding = 'same';
   }
   var _a = params.conv,
     filters = _a.filters,
@@ -19,6 +19,6 @@ export function convNoRelu(x, params) {
   return convLayer(x, params, [1, 1], false);
 }
 export function convDown(x, params) {
-  return convLayer(x, params, [2, 2], true, "valid");
+  return convLayer(x, params, [2, 2], true, 'valid');
 }
 //# sourceMappingURL=convLayer.js.map

@@ -1,19 +1,19 @@
-import { TNetInput } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
-import { ComposableTask } from "./ComposableTask";
+import { TNetInput } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
+import { ComposableTask } from './ComposableTask';
 import {
   DetectAllFaceLandmarksTask,
   DetectSingleFaceLandmarksTask,
-} from "./DetectFaceLandmarksTasks";
+} from './DetectFaceLandmarksTasks';
 import {
   PredictAllAgeAndGenderTask,
   PredictSingleAgeAndGenderTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsTask,
   PredictSingleFaceExpressionsTask,
-} from "./PredictFaceExpressionsTask";
-import { FaceDetectionOptions } from "./types";
+} from './PredictFaceExpressionsTask';
+import { FaceDetectionOptions } from './types';
 export declare class DetectFacesTaskBase<
   TReturn
 > extends ComposableTask<TReturn> {

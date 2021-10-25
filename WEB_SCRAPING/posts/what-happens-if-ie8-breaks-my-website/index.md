@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-What happens if IE8 "breaks" my website?
-========================================
+# What happens if IE8 "breaks" my website?
 
 June 27, 2009 • 1 min read
 
@@ -29,7 +28,7 @@ Wait! Don't actually call it a day and forget about it! Although I'm sure a lot 
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/ie/index.html" class="post-tag">ie</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -37,6 +36,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../images-display-in-firefox-and-safari-but-not-in-internet-explorer/index.html" class="post-nav-previous"><span class="small">Previous post</span> Images display in Firefox and Safari, but not in Internet Explorer</a> <a href="../browser-makers-wheres-the-new-tab-homepage-option/index.html" class="post-nav-next"><span class="small">Up next</span> Browser makers: where’s the new tab + homepage option?</a>

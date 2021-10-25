@@ -7,7 +7,7 @@ If `name` is an array, the `callback` trigger is registered for each parameter d
 For example, when `:user` is present in a route path, you may map user loading logic to automatically provide `req.user` to the route, or perform validations on the parameter input.
 
 ```js
-app.param("user", function (req, res, next, id) {
+app.param('user', function (req, res, next, id) {
   // try to get the user details from the User model and attach it to the request object
   User.find(id, function (err, user) {
     if (err) {
@@ -16,7 +16,7 @@ app.param("user", function (req, res, next, id) {
       req.user = user;
       next();
     } else {
-      next(new Error("failed to load user"));
+      next(new Error('failed to load user'));
     }
   });
 });
@@ -27,18 +27,18 @@ Param callback functions are local to the router on which they are defined. They
 All param callbacks will be called before any handler of any route in which the param occurs, and they will each be called only once in a request-response cycle, even if the parameter is matched in multiple routes, as shown in the following examples.
 
 ```js
-app.param("id", function (req, res, next, id) {
-  console.log("CALLED ONLY ONCE");
+app.param('id', function (req, res, next, id) {
+  console.log('CALLED ONLY ONCE');
   next();
 });
 
-app.get("/user/:id", function (req, res, next) {
-  console.log("although this matches");
+app.get('/user/:id', function (req, res, next) {
+  console.log('although this matches');
   next();
 });
 
-app.get("/user/:id", function (req, res) {
-  console.log("and this matches too");
+app.get('/user/:id', function (req, res) {
+  console.log('and this matches too');
   res.end();
 });
 ```
@@ -52,18 +52,18 @@ and this matches too
 ```
 
 ```js
-app.param(["id", "page"], function (req, res, next, value) {
-  console.log("CALLED ONLY ONCE with", value);
+app.param(['id', 'page'], function (req, res, next, value) {
+  console.log('CALLED ONLY ONCE with', value);
   next();
 });
 
-app.get("/user/:id/:page", function (req, res, next) {
-  console.log("although this matches");
+app.get('/user/:id/:page', function (req, res, next) {
+  console.log('although this matches');
   next();
 });
 
-app.get("/user/:id/:page", function (req, res) {
-  console.log("and this matches too");
+app.get('/user/:id/:page', function (req, res) {
+  console.log('and this matches too');
   res.end();
 });
 ```
@@ -90,7 +90,7 @@ The middleware returned by the function decides the behavior of what happens whe
 In this example, the `app.param(name, callback)` signature is modified to `app.param(name, accessId)`. Instead of accepting a name and a callback, `app.param()` will now accept a name and a number.
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
 // customizing the behavior of app.param()
@@ -99,21 +99,21 @@ app.param(function (param, option) {
     if (val === option) {
       next();
     } else {
-      next("route");
+      next('route');
     }
   };
 });
 
 // using the customized app.param()
-app.param("id", 1337);
+app.param('id', 1337);
 
 // route to trigger the capture
-app.get("/user/:id", function (req, res) {
-  res.send("OK");
+app.get('/user/:id', function (req, res) {
+  res.send('OK');
 });
 
 app.listen(3000, function () {
-  console.log("Ready");
+  console.log('Ready');
 });
 ```
 
@@ -125,12 +125,12 @@ app.param(function (param, validator) {
     if (validator(val)) {
       next();
     } else {
-      next("route");
+      next('route');
     }
   };
 });
 
-app.param("id", function (candidate) {
+app.param('id', function (candidate) {
   return !isNaN(parseFloat(candidate)) && isFinite(candidate);
 });
 ```
@@ -142,17 +142,17 @@ Examples:
 
 ```js
 // captures '1-a_6' but not '543-azser-sder'
-router.get("/[0-9]+-[[\\w]]*", function (req, res, next) {
+router.get('/[0-9]+-[[\\w]]*', function (req, res, next) {
   next();
 });
 
 // captures '1-a_6' and '543-az(ser"-sder' but not '5-a s'
-router.get("/[0-9]+-[[\\S]]*", function (req, res, next) {
+router.get('/[0-9]+-[[\\S]]*', function (req, res, next) {
   next();
 });
 
 // captures all (equivalent to '.*')
-router.get("[[\\s\\S]]*", function (req, res, next) {
+router.get('[[\\s\\S]]*', function (req, res, next) {
   next();
 });
 ```

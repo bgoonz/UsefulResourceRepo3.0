@@ -62,7 +62,7 @@
         if (count === 0 && statementMap[st].skip) {
           count = 1;
         }
-        if (typeof prevVal === "undefined" || prevVal < count) {
+        if (typeof prevVal === 'undefined' || prevVal < count) {
           lineMap[line] = count;
         }
       });
@@ -178,25 +178,25 @@
         total: 0,
         covered: 0,
         skipped: 0,
-        pct: "Unknown",
+        pct: 'Unknown',
       },
       statements: {
         total: 0,
         covered: 0,
         skipped: 0,
-        pct: "Unknown",
+        pct: 'Unknown',
       },
       functions: {
         total: 0,
         covered: 0,
         skipped: 0,
-        pct: "Unknown",
+        pct: 'Unknown',
       },
       branches: {
         total: 0,
         covered: 0,
         skipped: 0,
-        pct: "Unknown",
+        pct: 'Unknown',
       },
       linesCovered: {},
     };
@@ -213,9 +213,9 @@
   function summarizeFileCoverage(fileCoverage) {
     const ret = blankSummary();
     addDerivedInfoForFile(fileCoverage);
-    ret.lines = computeSimpleTotals(fileCoverage, "l");
-    ret.functions = computeSimpleTotals(fileCoverage, "f", "fnMap");
-    ret.statements = computeSimpleTotals(fileCoverage, "s", "statementMap");
+    ret.lines = computeSimpleTotals(fileCoverage, 'l');
+    ret.functions = computeSimpleTotals(fileCoverage, 'f', 'fnMap');
+    ret.statements = computeSimpleTotals(fileCoverage, 's', 'statementMap');
     ret.branches = computeBranchTotals(fileCoverage);
     ret.linesCovered = fileCoverage.l;
     return ret;
@@ -266,7 +266,7 @@
   function mergeSummaryObjects() {
     const ret = blankSummary();
     const args = Array.prototype.slice.call(arguments);
-    const keys = ["lines", "statements", "branches", "functions"];
+    const keys = ['lines', 'statements', 'branches', 'functions'];
 
     const increment = (obj) => {
       if (obj) {
@@ -377,15 +377,15 @@
     const fileCoverage = JSON.parse(JSON.stringify(cov));
 
     [
-      { mapKey: "statementMap", hitsKey: "s" },
-      { mapKey: "branchMap", hitsKey: "b" },
-      { mapKey: "fnMap", hitsKey: "f" },
+      { mapKey: 'statementMap', hitsKey: 's' },
+      { mapKey: 'branchMap', hitsKey: 'b' },
+      { mapKey: 'fnMap', hitsKey: 'f' },
     ].forEach(({ mapKey, hitsKey }) => {
       Object.keys(fileCoverage[mapKey]).forEach((key) => {
         const map = fileCoverage[mapKey][key];
         const hits = fileCoverage[hitsKey];
 
-        if (mapKey === "branchMap") {
+        if (mapKey === 'branchMap') {
           const locations = map.locations;
 
           locations.forEach(({ skip }, index) => {
@@ -426,7 +426,7 @@
     window.coverageUtils = exportables;
   }
 })(
-  typeof module !== "undefined" &&
-    typeof module.exports !== "undefined" &&
-    typeof exports !== "undefined"
+  typeof module !== 'undefined' &&
+    typeof module.exports !== 'undefined' &&
+    typeof exports !== 'undefined'
 );

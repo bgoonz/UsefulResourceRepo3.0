@@ -18,7 +18,7 @@ A JavaScript implementation of a linked list. This class uses the conventions of
 Use CommonJS to get access to the `CircularLinkedList` constructor:
 
 ```js
-const { CircularLinkedList } = require("@humanwhocodes/circular-linked-list");
+const { CircularLinkedList } = require('@humanwhocodes/circular-linked-list');
 ```
 
 Each instance of `CircularLinkedList` has the following properties and methods:
@@ -27,11 +27,11 @@ Each instance of `CircularLinkedList` has the following properties and methods:
 const list = new CircularLinkedList();
 
 // add an item to the end
-list.add("foo");
+list.add('foo');
 
 // insert an item
-list.insertBefore("bar", 0);
-list.insertAfter("baz", 1);
+list.insertBefore('bar', 0);
+list.insertAfter('baz', 1);
 
 // get the value at an index
 let value = list.get(0);
@@ -40,7 +40,7 @@ let value = list.get(0);
 let count = list.size;
 
 // get the index of a value
-let index = list.indexOf("foo");
+let index = list.indexOf('foo');
 
 // convert to an array using iterators
 let array1 = [...list.values()];

@@ -1,7 +1,7 @@
-import * as tslib_1 from "tslib";
-import { SsdMobilenetv1 } from "./SsdMobilenetv1";
-export * from "./SsdMobilenetv1";
-export * from "./SsdMobilenetv1Options";
+import * as tslib_1 from 'tslib';
+import { SsdMobilenetv1 } from './SsdMobilenetv1';
+export * from './SsdMobilenetv1';
+export * from './SsdMobilenetv1Options';
 export function createSsdMobilenetv1(weights) {
   var net = new SsdMobilenetv1();
   net.extractWeights(weights);

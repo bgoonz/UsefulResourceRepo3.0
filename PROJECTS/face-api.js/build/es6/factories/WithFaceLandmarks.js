@@ -1,12 +1,12 @@
-import { FaceDetection } from "../classes/FaceDetection";
-import { FaceLandmarks } from "../classes/FaceLandmarks";
-import { isWithFaceDetection } from "./WithFaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
+import { FaceLandmarks } from '../classes/FaceLandmarks';
+import { isWithFaceDetection } from './WithFaceDetection';
 export function isWithFaceLandmarks(obj) {
   return (
     isWithFaceDetection(obj) &&
-    obj["landmarks"] instanceof FaceLandmarks &&
-    obj["unshiftedLandmarks"] instanceof FaceLandmarks &&
-    obj["alignedRect"] instanceof FaceDetection
+    obj['landmarks'] instanceof FaceLandmarks &&
+    obj['unshiftedLandmarks'] instanceof FaceLandmarks &&
+    obj['alignedRect'] instanceof FaceDetection
   );
 }
 export function extendWithFaceLandmarks(sourceObj, unshiftedLandmarks) {

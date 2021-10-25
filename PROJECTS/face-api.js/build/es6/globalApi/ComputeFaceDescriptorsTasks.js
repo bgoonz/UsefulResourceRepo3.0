@@ -1,19 +1,19 @@
-import * as tslib_1 from "tslib";
-import { extendWithFaceDescriptor } from "../factories/WithFaceDescriptor";
-import { ComposableTask } from "./ComposableTask";
+import * as tslib_1 from 'tslib';
+import { extendWithFaceDescriptor } from '../factories/WithFaceDescriptor';
+import { ComposableTask } from './ComposableTask';
 import {
   extractAllFacesAndComputeResults,
   extractSingleFaceAndComputeResult,
-} from "./extractFacesAndComputeResults";
-import { nets } from "./nets";
+} from './extractFacesAndComputeResults';
+import { nets } from './nets';
 import {
   PredictAllAgeAndGenderWithFaceAlignmentTask,
   PredictSingleAgeAndGenderWithFaceAlignmentTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsWithFaceAlignmentTask,
   PredictSingleFaceExpressionsWithFaceAlignmentTask,
-} from "./PredictFaceExpressionsTask";
+} from './PredictFaceExpressionsTask';
 var ComputeFaceDescriptorsTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(ComputeFaceDescriptorsTaskBase, _super);
   function ComputeFaceDescriptorsTaskBase(parentTask, input) {

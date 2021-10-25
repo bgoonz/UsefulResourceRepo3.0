@@ -1,6 +1,6 @@
-import { FaceMatch } from "../classes/FaceMatch";
-import { LabeledFaceDescriptors } from "../classes/LabeledFaceDescriptors";
-import { WithFaceDescriptor } from "../factories";
+import { FaceMatch } from '../classes/FaceMatch';
+import { LabeledFaceDescriptors } from '../classes/LabeledFaceDescriptors';
+import { WithFaceDescriptor } from '../factories';
 export declare class FaceMatcher {
   private _labeledDescriptors;
   private _distanceThreshold;

@@ -1,12 +1,12 @@
-import { AgeGenderNet } from "../ageGenderNet/AgeGenderNet";
-import { FaceExpressionNet } from "../faceExpressionNet/FaceExpressionNet";
-import { FaceLandmark68Net } from "../faceLandmarkNet/FaceLandmark68Net";
-import { FaceLandmark68TinyNet } from "../faceLandmarkNet/FaceLandmark68TinyNet";
-import { FaceRecognitionNet } from "../faceRecognitionNet/FaceRecognitionNet";
-import { Mtcnn } from "../mtcnn/Mtcnn";
-import { SsdMobilenetv1 } from "../ssdMobilenetv1/SsdMobilenetv1";
-import { TinyFaceDetector } from "../tinyFaceDetector/TinyFaceDetector";
-import { TinyYolov2 } from "../tinyYolov2";
+import { AgeGenderNet } from '../ageGenderNet/AgeGenderNet';
+import { FaceExpressionNet } from '../faceExpressionNet/FaceExpressionNet';
+import { FaceLandmark68Net } from '../faceLandmarkNet/FaceLandmark68Net';
+import { FaceLandmark68TinyNet } from '../faceLandmarkNet/FaceLandmark68TinyNet';
+import { FaceRecognitionNet } from '../faceRecognitionNet/FaceRecognitionNet';
+import { Mtcnn } from '../mtcnn/Mtcnn';
+import { SsdMobilenetv1 } from '../ssdMobilenetv1/SsdMobilenetv1';
+import { TinyFaceDetector } from '../tinyFaceDetector/TinyFaceDetector';
+import { TinyYolov2 } from '../tinyYolov2';
 export var nets = {
   ssdMobilenetv1: new SsdMobilenetv1(),
   tinyFaceDetector: new TinyFaceDetector(),

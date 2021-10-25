@@ -1,21 +1,21 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { extractFaces, extractFaceTensors } from "../dom";
-import { extendWithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { ComposableTask } from "./ComposableTask";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { extractFaces, extractFaceTensors } from '../dom';
+import { extendWithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { ComposableTask } from './ComposableTask';
 import {
   ComputeAllFaceDescriptorsTask,
   ComputeSingleFaceDescriptorTask,
-} from "./ComputeFaceDescriptorsTasks";
-import { nets } from "./nets";
+} from './ComputeFaceDescriptorsTasks';
+import { nets } from './nets';
 import {
   PredictAllAgeAndGenderWithFaceAlignmentTask,
   PredictSingleAgeAndGenderWithFaceAlignmentTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsWithFaceAlignmentTask,
   PredictSingleFaceExpressionsWithFaceAlignmentTask,
-} from "./PredictFaceExpressionsTask";
+} from './PredictFaceExpressionsTask';
 var DetectFaceLandmarksTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(DetectFaceLandmarksTaskBase, _super);
   function DetectFaceLandmarksTaskBase(parentTask, input, useTinyLandmarkNet) {
@@ -25,7 +25,7 @@ var DetectFaceLandmarksTaskBase = /** @class */ (function (_super) {
     _this.useTinyLandmarkNet = useTinyLandmarkNet;
     return _this;
   }
-  Object.defineProperty(DetectFaceLandmarksTaskBase.prototype, "landmarkNet", {
+  Object.defineProperty(DetectFaceLandmarksTaskBase.prototype, 'landmarkNet', {
     get: function () {
       return this.useTinyLandmarkNet
         ? nets.faceLandmark68TinyNet

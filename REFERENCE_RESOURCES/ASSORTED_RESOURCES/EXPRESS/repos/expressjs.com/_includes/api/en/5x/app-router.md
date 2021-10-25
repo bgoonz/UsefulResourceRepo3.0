@@ -3,12 +3,12 @@
 The application's in-built instance of router. This is created lazily, on first access.
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 var router = app.router;
 
-router.get("/", function (req, res) {
-  res.send("hello world");
+router.get('/', function (req, res) {
+  res.send('hello world');
 });
 
 app.listen(3000);

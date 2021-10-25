@@ -1,4 +1,4 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 export function extractParams(weights, channelsIn, channelsOut) {
   var paramMappings = [];
   var _a = TfjsImageRecognitionBase.extractWeightsFactory(weights),
@@ -8,10 +8,10 @@ export function extractParams(weights, channelsIn, channelsOut) {
     extractWeights,
     paramMappings
   );
-  var fc = extractFCParams(channelsIn, channelsOut, "fc");
+  var fc = extractFCParams(channelsIn, channelsOut, 'fc');
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

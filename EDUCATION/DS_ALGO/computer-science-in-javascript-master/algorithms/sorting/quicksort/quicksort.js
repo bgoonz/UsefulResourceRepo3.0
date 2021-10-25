@@ -81,8 +81,8 @@ function quickSort(items, left, right) {
   // performance - don't sort an array with zero or one items
   if (items.length > 1) {
     // fix left and right values - might not be provided
-    left = typeof left != "number" ? 0 : left;
-    right = typeof right != "number" ? items.length - 1 : right;
+    left = typeof left != 'number' ? 0 : left;
+    right = typeof right != 'number' ? items.length - 1 : right;
 
     // split up the entire array
     index = partition(items, left, right);

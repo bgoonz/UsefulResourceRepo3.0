@@ -1,20 +1,18 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Swapping variables with JavaScript
-==================================
+# Swapping variables with JavaScript
 
 August 04, 2014 • 1 min read
 
 Swapping the value of two variables normally takes three lines and a temporary variable. What if I told you there was an easier way to do this with JavaScript?
 
-Traditional method <a href="#traditional-method" class="direct-link">#</a>
---------------------------------------------------------------------------
+## Traditional method <a href="#traditional-method" class="direct-link">#</a>
 
 The goal is to swap the values of `a` and `b`. The textbook method for doing this looks something like this:
 
-    var a = 1; 
+    var a = 1;
     var b = 2;
     var c;
 
@@ -24,8 +22,7 @@ The goal is to swap the values of `a` and `b`. The textbook method for doing th
 
 Of course, we've introduced another variable called `c` to temporarily store the original value of `a` during the swap. But can we do it without `c`?
 
-One-line method <a href="#one-line-method" class="direct-link">#</a>
---------------------------------------------------------------------
+## One-line method <a href="#one-line-method" class="direct-link">#</a>
 
 This trick uses an array to perform the swap. Take a second to wrap your head around it:
 
@@ -44,7 +41,7 @@ Want to learn another cool way to swap variables? If you're a math buff, you'll
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -52,6 +49,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../the-next-version-of-php-may-very-well-be-7/index.html" class="post-nav-previous"><span class="small">Previous post</span> The next version of PHP may very well be 7</a> <a href="../how-to-get-faster-and-better-help-from-support/index.html" class="post-nav-next"><span class="small">Up next</span> How to get faster and better help from support</a>

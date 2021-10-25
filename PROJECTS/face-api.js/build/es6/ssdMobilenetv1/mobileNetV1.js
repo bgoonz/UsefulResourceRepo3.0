@@ -1,9 +1,9 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { pointwiseConvLayer } from "./pointwiseConvLayer";
+import * as tf from '@tensorflow/tfjs-core';
+import { pointwiseConvLayer } from './pointwiseConvLayer';
 var epsilon = 0.0010000000474974513;
 function depthwiseConvLayer(x, params, strides) {
   return tf.tidy(function () {
-    var out = tf.depthwiseConv2d(x, params.filters, strides, "same");
+    var out = tf.depthwiseConv2d(x, params.filters, strides, 'same');
     out = tf.batchNorm(
       out,
       params.batch_norm_mean,
@@ -51,7 +51,7 @@ export function mobileNetV1(x, params) {
       }
     });
     if (conv11 === null) {
-      throw new Error("mobileNetV1 - output of conv layer 11 is null");
+      throw new Error('mobileNetV1 - output of conv layer 11 is null');
     }
     return {
       out: out,

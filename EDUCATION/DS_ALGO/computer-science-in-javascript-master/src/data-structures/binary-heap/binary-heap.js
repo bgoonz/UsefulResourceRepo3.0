@@ -200,8 +200,8 @@ function heapifyDown(array, compare) {
  * the public interface. You could also use ES2019 private fields, but those
  * are not yet widely available as of the time of my writing.
  */
-const array = Symbol("array");
-const compare = Symbol("compare");
+const array = Symbol('array');
+const compare = Symbol('compare');
 
 /**
  * A binary heap implementation in JavaScript.
@@ -255,7 +255,7 @@ class BinaryHeap {
    */
   peek() {
     if (this.isEmpty()) {
-      throw new Error("Heap is empty.");
+      throw new Error('Heap is empty.');
     }
 
     return this[array][0];
@@ -267,7 +267,7 @@ class BinaryHeap {
    */
   poll() {
     if (this.isEmpty()) {
-      throw new Error("Heap is empty.");
+      throw new Error('Heap is empty.');
     }
 
     /*

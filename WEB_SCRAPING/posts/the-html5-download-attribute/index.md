@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-The HTML5 download attribute
-============================
+# The HTML5 download attribute
 
 February 19, 2015 • 1 min read
 
@@ -19,7 +18,7 @@ Now, of course, the caveat. [Internet Explorer doesn't support it](http://canius
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/html/index.html" class="post-tag">html</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -27,6 +26,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../get-comfortable-with-abstraction/index.html" class="post-nav-previous"><span class="small">Previous post</span> Get comfortable with abstraction</a> <a href="../passing-data-from-php-to-javascript/index.html" class="post-nav-next"><span class="small">Up next</span> Passing data from PHP to JavaScript</a>

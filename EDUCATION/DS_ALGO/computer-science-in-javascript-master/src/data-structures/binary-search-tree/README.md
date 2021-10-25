@@ -23,7 +23,7 @@ Additionally, this implementation follows the JavaScript `Set` interface for add
 Use CommonJS to get access to the `BinarySearchTree` constructor:
 
 ```js
-const { BinarySearchTree } = require("@humanwhocodes/binary-search-tree");
+const { BinarySearchTree } = require('@humanwhocodes/binary-search-tree');
 ```
 
 Each instance of `BinarySearchTree` has the following properties and methods:

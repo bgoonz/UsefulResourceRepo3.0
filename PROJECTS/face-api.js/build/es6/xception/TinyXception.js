@@ -1,16 +1,16 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NeuralNetwork,
   normalize,
   range,
   toNetInput,
-} from "tfjs-image-recognition-base";
-import { depthwiseSeparableConv } from "../common/depthwiseSeparableConv";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
+} from 'tfjs-image-recognition-base';
+import { depthwiseSeparableConv } from '../common/depthwiseSeparableConv';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
 function conv(x, params, stride) {
-  return tf.add(tf.conv2d(x, params.filters, stride, "same"), params.bias);
+  return tf.add(tf.conv2d(x, params.filters, stride, 'same'), params.bias);
 }
 function reductionBlock(x, params, isActivateInput) {
   if (isActivateInput === void 0) {
@@ -19,7 +19,7 @@ function reductionBlock(x, params, isActivateInput) {
   var out = isActivateInput ? tf.relu(x) : x;
   out = depthwiseSeparableConv(out, params.separable_conv0, [1, 1]);
   out = depthwiseSeparableConv(tf.relu(out), params.separable_conv1, [1, 1]);
-  out = tf.maxPool(out, [3, 3], [2, 2], "same");
+  out = tf.maxPool(out, [3, 3], [2, 2], 'same');
   out = tf.add(out, conv(x, params.expansion_conv, [2, 2]));
   return out;
 }
@@ -33,7 +33,7 @@ function mainBlock(x, params) {
 var TinyXception = /** @class */ (function (_super) {
   tslib_1.__extends(TinyXception, _super);
   function TinyXception(numMainBlocks) {
-    var _this = _super.call(this, "TinyXception") || this;
+    var _this = _super.call(this, 'TinyXception') || this;
     _this._numMainBlocks = numMainBlocks;
     return _this;
   }
@@ -41,7 +41,7 @@ var TinyXception = /** @class */ (function (_super) {
     var _this = this;
     var params = this.params;
     if (!params) {
-      throw new Error("TinyXception - load model before inference");
+      throw new Error('TinyXception - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(112, true);
@@ -51,7 +51,7 @@ var TinyXception = /** @class */ (function (_super) {
       out = reductionBlock(out, params.entry_flow.reduction_block_0, false);
       out = reductionBlock(out, params.entry_flow.reduction_block_1);
       range(_this._numMainBlocks, 0, 1).forEach(function (idx) {
-        out = mainBlock(out, params.middle_flow["main_block_" + idx]);
+        out = mainBlock(out, params.middle_flow['main_block_' + idx]);
       });
       out = reductionBlock(out, params.exit_flow.reduction_block);
       out = tf.relu(
@@ -75,7 +75,7 @@ var TinyXception = /** @class */ (function (_super) {
     });
   };
   TinyXception.prototype.getDefaultModelName = function () {
-    return "tiny_xception_model";
+    return 'tiny_xception_model';
   };
   TinyXception.prototype.extractParamsFromWeigthMap = function (weightMap) {
     return extractParamsFromWeigthMap(weightMap, this._numMainBlocks);

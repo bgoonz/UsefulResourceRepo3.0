@@ -6,14 +6,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![Issues](https://img.shields.io/github/issues/afrozchakure/Competitive-Programming-Solutions)](https://github.com/afrozchakure/Competitive-Programming-Solutions/issues)
-[![Open PRs](https://img.shields.io/github/issues-pr-raw/afrozchakure/Competitive-Programming-Solutions)](https://github.com/afrozchakure/Competitive-Programming-Solutions/pulls)
-[![Last commit](https://badges.pufler.dev/updated/afrozchakure/Competitive-Programming-Solutions?color=red)](https://badges.pufler.dev)
-[![Stars](https://img.shields.io/github/stars/afrozchakure/Competitive-Programming-Solutions?color=green)](https://github.com/afrozchakure/Competitive-Programming-Solutions/stargazers)
-[![Forks](https://img.shields.io/github/forks/afrozchakure/Competitive-Programming-Solutions?color=orange)](https://github.com/afrozchakure/Competitive-Programming-Solutions/network/members)
-[![Visits](https://badges.pufler.dev/visits/afrozchakure/Competitive-Programming-Solutions?color=blueviolet)](https://badges.pufler.dev)
-[![Created](https://badges.pufler.dev/created/afrozchakure/Competitive-Programming-Solutions?color=yellowgreen)](https://badges.pufler.dev)
-[![License](https://img.shields.io/github/license/afrozchakure/Competitive-Programming-Solutions?color=blue)](https://github.com/afrozchakure/Competitive-Programming-Solutions/blob/master/LICENSE)
+[![Issues](https://img.shields.io/github/issues/afrozchakure/Competitive-Programming-Solutions)](https://github.com/afrozchakure/Competitive-Programming-Solutions/issues) [![Open PRs](https://img.shields.io/github/issues-pr-raw/afrozchakure/Competitive-Programming-Solutions)](https://github.com/afrozchakure/Competitive-Programming-Solutions/pulls) [![Last commit](https://badges.pufler.dev/updated/afrozchakure/Competitive-Programming-Solutions?color=red)](https://badges.pufler.dev) [![Stars](https://img.shields.io/github/stars/afrozchakure/Competitive-Programming-Solutions?color=green)](https://github.com/afrozchakure/Competitive-Programming-Solutions/stargazers) [![Forks](https://img.shields.io/github/forks/afrozchakure/Competitive-Programming-Solutions?color=orange)](https://github.com/afrozchakure/Competitive-Programming-Solutions/network/members) [![Visits](https://badges.pufler.dev/visits/afrozchakure/Competitive-Programming-Solutions?color=blueviolet)](https://badges.pufler.dev) [![Created](https://badges.pufler.dev/created/afrozchakure/Competitive-Programming-Solutions?color=yellowgreen)](https://badges.pufler.dev) [![License](https://img.shields.io/github/license/afrozchakure/Competitive-Programming-Solutions?color=blue)](https://github.com/afrozchakure/Competitive-Programming-Solutions/blob/master/LICENSE)
 
 Your one-stop repository for all solutions from major competitive programming sites. Check it out :point_down:
 
@@ -76,9 +69,9 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## ❤️ Project Admin
 
-|                            <a href="https://github.com/afrozchakure"><img src="https://avatars3.githubusercontent.com/u/40469121?s=400&u=2a837a16e7ab8df7d52bfc6af47bd55becfad6bc&v=4" width=150px height=150px /></a>                            |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                           **[Afroz Chakure](https://www.linkedin.com/in/afrozchakure)**                                                                                           |
+| <a href="https://github.com/afrozchakure"><img src="https://avatars3.githubusercontent.com/u/40469121?s=400&u=2a837a16e7ab8df7d52bfc6af47bd55becfad6bc&v=4" width=150px height=150px /></a> |
+| :-: |
+| **[Afroz Chakure](https://www.linkedin.com/in/afrozchakure)** |
 | <a href="https://www.linkedin.com/in/afrozchakure/"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |
 
 > **_Need help? Feel free to contact me @ [afrozchakure@gmail.com](mailto:afrozchakure@gmail.com?Subject=Competitive-Programming-Solutions-Repo)_**

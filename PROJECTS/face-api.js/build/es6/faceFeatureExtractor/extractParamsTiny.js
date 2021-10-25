@@ -1,5 +1,5 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { extractorsFactory } from "./extractorsFactory";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { extractorsFactory } from './extractorsFactory';
 export function extractParamsTiny(weights) {
   var paramMappings = [];
   var _a = TfjsImageRecognitionBase.extractWeightsFactory(weights),
@@ -9,12 +9,12 @@ export function extractParamsTiny(weights) {
     extractWeights,
     paramMappings
   ).extractDenseBlock3Params;
-  var dense0 = extractDenseBlock3Params(3, 32, "dense0", true);
-  var dense1 = extractDenseBlock3Params(32, 64, "dense1");
-  var dense2 = extractDenseBlock3Params(64, 128, "dense2");
+  var dense0 = extractDenseBlock3Params(3, 32, 'dense0', true);
+  var dense1 = extractDenseBlock3Params(32, 64, 'dense1');
+  var dense2 = extractDenseBlock3Params(64, 128, 'dense2');
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

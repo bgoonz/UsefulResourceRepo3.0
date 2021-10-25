@@ -1,12 +1,12 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   createCanvas,
   createCanvasFromMedia,
   env,
   getContext2dOrThrow,
-} from "tfjs-image-recognition-base";
-import { normalize } from "./normalize";
+} from 'tfjs-image-recognition-base';
+import { normalize } from './normalize';
 export function extractImagePatches(img, boxes, _a) {
   var width = _a.width,
     height = _a.height;

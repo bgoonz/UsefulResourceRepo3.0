@@ -1,6 +1,6 @@
-import { FaceMatch } from "../classes/FaceMatch";
-import { LabeledFaceDescriptors } from "../classes/LabeledFaceDescriptors";
-import { euclideanDistance } from "../euclideanDistance";
+import { FaceMatch } from '../classes/FaceMatch';
+import { LabeledFaceDescriptors } from '../classes/LabeledFaceDescriptors';
+import { euclideanDistance } from '../euclideanDistance';
 var FaceMatcher = /** @class */ (function () {
   function FaceMatcher(inputs, distanceThreshold) {
     if (distanceThreshold === void 0) {
@@ -10,12 +10,12 @@ var FaceMatcher = /** @class */ (function () {
     var inputArray = Array.isArray(inputs) ? inputs : [inputs];
     if (!inputArray.length) {
       throw new Error(
-        "FaceRecognizer.constructor - expected atleast one input"
+        'FaceRecognizer.constructor - expected atleast one input'
       );
     }
     var count = 1;
     var createUniqueLabel = function () {
-      return "person " + count++;
+      return 'person ' + count++;
     };
     this._labeledDescriptors = inputArray.map(function (desc) {
       if (desc instanceof LabeledFaceDescriptors) {
@@ -30,18 +30,18 @@ var FaceMatcher = /** @class */ (function () {
         ]);
       }
       throw new Error(
-        "FaceRecognizer.constructor - expected inputs to be of type LabeledFaceDescriptors | WithFaceDescriptor<any> | Float32Array | Array<LabeledFaceDescriptors | WithFaceDescriptor<any> | Float32Array>"
+        'FaceRecognizer.constructor - expected inputs to be of type LabeledFaceDescriptors | WithFaceDescriptor<any> | Float32Array | Array<LabeledFaceDescriptors | WithFaceDescriptor<any> | Float32Array>'
       );
     });
   }
-  Object.defineProperty(FaceMatcher.prototype, "labeledDescriptors", {
+  Object.defineProperty(FaceMatcher.prototype, 'labeledDescriptors', {
     get: function () {
       return this._labeledDescriptors;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceMatcher.prototype, "distanceThreshold", {
+  Object.defineProperty(FaceMatcher.prototype, 'distanceThreshold', {
     get: function () {
       return this._distanceThreshold;
     },
@@ -81,7 +81,7 @@ var FaceMatcher = /** @class */ (function () {
     var bestMatch = this.matchDescriptor(queryDescriptor);
     return bestMatch.distance < this.distanceThreshold
       ? bestMatch
-      : new FaceMatch("unknown", bestMatch.distance);
+      : new FaceMatch('unknown', bestMatch.distance);
   };
   return FaceMatcher;
 })();

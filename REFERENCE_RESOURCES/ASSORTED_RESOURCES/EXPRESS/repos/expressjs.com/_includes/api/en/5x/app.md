@@ -1,14 +1,13 @@
 <h2 id="app">Application</h2>
 
-The `app` object conventionally denotes the Express application.
-Create it by calling the top-level `express()` function exported by the Express module:
+The `app` object conventionally denotes the Express application. Create it by calling the top-level `express()` function exported by the Express module:
 
 ```js
-const express = require("express");
+const express = require('express');
 const app = express();
 
-app.get("/", function (req, res) {
-  res.send("hello world");
+app.get('/', function (req, res) {
+  res.send('hello world');
 });
 
 app.listen(3000);
@@ -21,8 +20,7 @@ The `app` object has methods for
 - Rendering HTML views; see [app.render](#app.render).
 - Registering a template engine; see [app.engine](#app.engine).
 
-It also has settings (properties) that affect how the application behaves;
-for more information, see [Application settings](#app.settings.table).
+It also has settings (properties) that affect how the application behaves; for more information, see [Application settings](#app.settings.table).
 
 <div class="doc-box doc-info" markdown="1">
 The Express application object can be referred from the [request object](#req) and the [response object](#res) as `req.app`, and `res.app`, respectively.

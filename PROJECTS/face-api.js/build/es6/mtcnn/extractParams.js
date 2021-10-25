@@ -1,6 +1,6 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 function extractorsFactory(extractWeights, paramMappings) {
   var extractConvParams = TfjsImageRecognitionBase.extractConvParamsFactory(
     extractWeights,
@@ -23,31 +23,31 @@ function extractorsFactory(extractWeights, paramMappings) {
       numFilters[0],
       numFilters[1],
       3,
-      mappedPrefix + "/conv1"
+      mappedPrefix + '/conv1'
     );
     var prelu1_alpha = extractPReluParams(
       numFilters[1],
-      mappedPrefix + "/prelu1_alpha"
+      mappedPrefix + '/prelu1_alpha'
     );
     var conv2 = extractConvParams(
       numFilters[1],
       numFilters[2],
       3,
-      mappedPrefix + "/conv2"
+      mappedPrefix + '/conv2'
     );
     var prelu2_alpha = extractPReluParams(
       numFilters[2],
-      mappedPrefix + "/prelu2_alpha"
+      mappedPrefix + '/prelu2_alpha'
     );
     var conv3 = extractConvParams(
       numFilters[2],
       numFilters[3],
       isRnet ? 2 : 3,
-      mappedPrefix + "/conv3"
+      mappedPrefix + '/conv3'
     );
     var prelu3_alpha = extractPReluParams(
       numFilters[3],
-      mappedPrefix + "/prelu3_alpha"
+      mappedPrefix + '/prelu3_alpha'
     );
     return {
       conv1: conv1,
@@ -59,20 +59,20 @@ function extractorsFactory(extractWeights, paramMappings) {
     };
   }
   function extractPNetParams() {
-    var sharedParams = extractSharedParams([3, 10, 16, 32], "pnet");
-    var conv4_1 = extractConvParams(32, 2, 1, "pnet/conv4_1");
-    var conv4_2 = extractConvParams(32, 4, 1, "pnet/conv4_2");
+    var sharedParams = extractSharedParams([3, 10, 16, 32], 'pnet');
+    var conv4_1 = extractConvParams(32, 2, 1, 'pnet/conv4_1');
+    var conv4_2 = extractConvParams(32, 4, 1, 'pnet/conv4_2');
     return tslib_1.__assign({}, sharedParams, {
       conv4_1: conv4_1,
       conv4_2: conv4_2,
     });
   }
   function extractRNetParams() {
-    var sharedParams = extractSharedParams([3, 28, 48, 64], "rnet", true);
-    var fc1 = extractFCParams(576, 128, "rnet/fc1");
-    var prelu4_alpha = extractPReluParams(128, "rnet/prelu4_alpha");
-    var fc2_1 = extractFCParams(128, 2, "rnet/fc2_1");
-    var fc2_2 = extractFCParams(128, 4, "rnet/fc2_2");
+    var sharedParams = extractSharedParams([3, 28, 48, 64], 'rnet', true);
+    var fc1 = extractFCParams(576, 128, 'rnet/fc1');
+    var prelu4_alpha = extractPReluParams(128, 'rnet/prelu4_alpha');
+    var fc2_1 = extractFCParams(128, 2, 'rnet/fc2_1');
+    var fc2_2 = extractFCParams(128, 4, 'rnet/fc2_2');
     return tslib_1.__assign({}, sharedParams, {
       fc1: fc1,
       prelu4_alpha: prelu4_alpha,
@@ -81,14 +81,14 @@ function extractorsFactory(extractWeights, paramMappings) {
     });
   }
   function extractONetParams() {
-    var sharedParams = extractSharedParams([3, 32, 64, 64], "onet");
-    var conv4 = extractConvParams(64, 128, 2, "onet/conv4");
-    var prelu4_alpha = extractPReluParams(128, "onet/prelu4_alpha");
-    var fc1 = extractFCParams(1152, 256, "onet/fc1");
-    var prelu5_alpha = extractPReluParams(256, "onet/prelu5_alpha");
-    var fc2_1 = extractFCParams(256, 2, "onet/fc2_1");
-    var fc2_2 = extractFCParams(256, 4, "onet/fc2_2");
-    var fc2_3 = extractFCParams(256, 10, "onet/fc2_3");
+    var sharedParams = extractSharedParams([3, 32, 64, 64], 'onet');
+    var conv4 = extractConvParams(64, 128, 2, 'onet/conv4');
+    var prelu4_alpha = extractPReluParams(128, 'onet/prelu4_alpha');
+    var fc1 = extractFCParams(1152, 256, 'onet/fc1');
+    var prelu5_alpha = extractPReluParams(256, 'onet/prelu5_alpha');
+    var fc2_1 = extractFCParams(256, 2, 'onet/fc2_1');
+    var fc2_2 = extractFCParams(256, 4, 'onet/fc2_2');
+    var fc2_3 = extractFCParams(256, 10, 'onet/fc2_3');
     return tslib_1.__assign({}, sharedParams, {
       conv4: conv4,
       prelu4_alpha: prelu4_alpha,
@@ -119,7 +119,7 @@ export function extractParams(weights) {
   var onet = extractONetParams();
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

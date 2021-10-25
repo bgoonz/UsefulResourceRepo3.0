@@ -5,5 +5,5 @@ A Boolean property that is true if a TLS connection is established. Equivalent t
 <!-- eslint-disable no-unused-expressions -->
 
 ```js
-req.protocol === "https";
+req.protocol === 'https';
 ```

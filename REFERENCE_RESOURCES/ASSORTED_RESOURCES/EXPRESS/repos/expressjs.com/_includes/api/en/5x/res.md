@@ -2,28 +2,25 @@
 
 The `res` object represents the HTTP response that an Express app sends when it gets an HTTP request.
 
-In this documentation and by convention,
-the object is always referred to as `res` (and the HTTP request is `req`) but its actual name is determined
-by the parameters to the callback function in which you're working.
+In this documentation and by convention, the object is always referred to as `res` (and the HTTP request is `req`) but its actual name is determined by the parameters to the callback function in which you're working.
 
 For example:
 
 ```js
-app.get("/user/:id", function (req, res) {
-  res.send("user " + req.params.id);
+app.get('/user/:id', function (req, res) {
+  res.send('user ' + req.params.id);
 });
 ```
 
 But you could just as well have:
 
 ```js
-app.get("/user/:id", function (request, response) {
-  response.send("user " + request.params.id);
+app.get('/user/:id', function (request, response) {
+  response.send('user ' + request.params.id);
 });
 ```
 
-The `res` object is an enhanced version of Node's own response object
-and supports all [built-in fields and methods](https://nodejs.org/api/http.html#http_class_http_serverresponse).
+The `res` object is an enhanced version of Node's own response object and supports all [built-in fields and methods](https://nodejs.org/api/http.html#http_class_http_serverresponse).
 
 <h3 id='res.properties'>Properties</h3>
 

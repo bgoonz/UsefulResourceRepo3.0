@@ -2,15 +2,15 @@
  * @fileoverview Doubly Linked List tests
  */
 /* global it, describe, beforeEach */
-"use strict";
+'use strict';
 
 //-----------------------------------------------------------------------------
 // Requirements
 //-----------------------------------------------------------------------------
 
-import { assert } from "chai";
+import { assert } from 'chai';
 
-import { BinaryHeap } from "../../../src/data-structures/binary-heap/binary-heap";
+import { BinaryHeap } from '../../../src/data-structures/binary-heap/binary-heap';
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -32,40 +32,40 @@ function assertHeapValues(heap, values) {
 // Tests
 //-----------------------------------------------------------------------------
 
-describe("BinaryHeap", () => {
+describe('BinaryHeap', () => {
   let heap;
 
   beforeEach(() => {
     heap = new BinaryHeap();
   });
 
-  describe("add()", () => {
-    it("should store an item when one item is added", () => {
+  describe('add()', () => {
+    it('should store an item when one item is added', () => {
       heap.add(1);
       assertHeapValues(heap, [1]);
     });
 
-    it("should store two items when multiple items are added", () => {
+    it('should store two items when multiple items are added', () => {
       heap.add(2);
       heap.add(1);
 
       assertHeapValues(heap, [1, 2]);
     });
 
-    it("should store two items when multiple items are added", () => {
+    it('should store two items when multiple items are added', () => {
       heap.add(2);
       heap.add(3);
       assertHeapValues(heap, [2, 3]);
     });
 
-    it("should store three items when multiple items are added", () => {
+    it('should store three items when multiple items are added', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
       assertHeapValues(heap, [1, 3, 2]);
     });
 
-    it("should store four items when multiple items are added", () => {
+    it('should store four items when multiple items are added', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -74,30 +74,30 @@ describe("BinaryHeap", () => {
     });
   });
 
-  describe("size", () => {
-    it("should return the correct size when the heap has no items", () => {
+  describe('size', () => {
+    it('should return the correct size when the heap has no items', () => {
       assert.strictEqual(heap.size, 0);
     });
 
-    it("should return the correct size when the heap has one item", () => {
+    it('should return the correct size when the heap has one item', () => {
       heap.add(1);
       assert.strictEqual(heap.size, 1);
     });
 
-    it("should return the correct size when the heap has two items", () => {
+    it('should return the correct size when the heap has two items', () => {
       heap.add(2);
       heap.add(1);
       assert.strictEqual(heap.size, 2);
     });
 
-    it("should return the correct size when the heap has three items", () => {
+    it('should return the correct size when the heap has three items', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
       assert.strictEqual(heap.size, 3);
     });
 
-    it("should return the correct size when the heap has four items", () => {
+    it('should return the correct size when the heap has four items', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -106,60 +106,60 @@ describe("BinaryHeap", () => {
     });
   });
 
-  describe("isEmpty()", () => {
-    it("should return true when the heap is empty", () => {
+  describe('isEmpty()', () => {
+    it('should return true when the heap is empty', () => {
       assert.isTrue(heap.isEmpty());
     });
 
-    it("should return false when the heap has one item", () => {
+    it('should return false when the heap has one item', () => {
       heap.add(1);
       assert.isFalse(heap.isEmpty());
     });
 
-    it("should return false when the heap has two items", () => {
+    it('should return false when the heap has two items', () => {
       heap.add(2);
       heap.add(1);
       assert.isFalse(heap.isEmpty());
     });
   });
 
-  describe("includes()", () => {
-    it("should return false when the heap is empty", () => {
+  describe('includes()', () => {
+    it('should return false when the heap is empty', () => {
       assert.isFalse(heap.includes(5));
     });
 
-    it("should return true when the item is found", () => {
+    it('should return true when the item is found', () => {
       heap.add(1);
       assert.isTrue(heap.includes(1));
     });
 
-    it("should return false when the item is not found", () => {
+    it('should return false when the item is not found', () => {
       heap.add(1);
       assert.isFalse(heap.includes(10));
     });
 
-    it("should return true when the heap has two items and the item is found", () => {
+    it('should return true when the heap has two items and the item is found', () => {
       heap.add(2);
       heap.add(1);
       assert.isTrue(heap.includes(2));
     });
   });
 
-  describe("peek()", () => {
-    it("should return the only item from a one-item heap", () => {
+  describe('peek()', () => {
+    it('should return the only item from a one-item heap', () => {
       heap.add(1);
       assert.strictEqual(heap.peek(), 1);
       assert.strictEqual(heap.size, 1);
     });
 
-    it("should return the lowest value from a two-item heap", () => {
+    it('should return the lowest value from a two-item heap', () => {
       heap.add(2);
       heap.add(1);
       assert.strictEqual(heap.peek(), 1);
       assert.strictEqual(heap.size, 2);
     });
 
-    it("should return the lowest value from a three-item heap", () => {
+    it('should return the lowest value from a three-item heap', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -167,7 +167,7 @@ describe("BinaryHeap", () => {
       assert.strictEqual(heap.size, 3);
     });
 
-    it("should return the lowest value from a four-item heap", () => {
+    it('should return the lowest value from a four-item heap', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -177,15 +177,15 @@ describe("BinaryHeap", () => {
     });
   });
 
-  describe("poll()", () => {
-    it("should return the only item from a one-item heap", () => {
+  describe('poll()', () => {
+    it('should return the only item from a one-item heap', () => {
       heap.add(1);
       assert.strictEqual(heap.poll(), 1);
       assert.strictEqual(heap.size, 0);
       assertHeapValues(heap, []);
     });
 
-    it("should return the lowest value from a two-item heap", () => {
+    it('should return the lowest value from a two-item heap', () => {
       heap.add(2);
       heap.add(1);
       assert.strictEqual(heap.poll(), 1);
@@ -193,7 +193,7 @@ describe("BinaryHeap", () => {
       assertHeapValues(heap, [2]);
     });
 
-    it("should return the lowest value from a three-item heap", () => {
+    it('should return the lowest value from a three-item heap', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -202,7 +202,7 @@ describe("BinaryHeap", () => {
       assertHeapValues(heap, [2, 3]);
     });
 
-    it("should return the lowest value from a four-item heap", () => {
+    it('should return the lowest value from a four-item heap', () => {
       heap.add(2);
       heap.add(3);
       heap.add(1);
@@ -213,38 +213,38 @@ describe("BinaryHeap", () => {
     });
   });
 
-  describe("Custom Comparator", () => {
+  describe('Custom Comparator', () => {
     beforeEach(() => {
       heap = new BinaryHeap((a, b) => b - a);
     });
 
-    describe("add()", () => {
-      it("should store an item when one item is added", () => {
+    describe('add()', () => {
+      it('should store an item when one item is added', () => {
         heap.add(1);
         assertHeapValues(heap, [1]);
       });
 
-      it("should store two items when multiple items are added", () => {
+      it('should store two items when multiple items are added', () => {
         heap.add(2);
         heap.add(1);
 
         assertHeapValues(heap, [2, 1]);
       });
 
-      it("should store two items when multiple items are added", () => {
+      it('should store two items when multiple items are added', () => {
         heap.add(2);
         heap.add(3);
         assertHeapValues(heap, [3, 2]);
       });
 
-      it("should store three items when multiple items are added", () => {
+      it('should store three items when multiple items are added', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);
         assertHeapValues(heap, [3, 2, 1]);
       });
 
-      it("should store four items when multiple items are added", () => {
+      it('should store four items when multiple items are added', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);
@@ -253,21 +253,21 @@ describe("BinaryHeap", () => {
       });
     });
 
-    describe("peek()", () => {
-      it("should return the only item from a one-item heap", () => {
+    describe('peek()', () => {
+      it('should return the only item from a one-item heap', () => {
         heap.add(1);
         assert.strictEqual(heap.peek(), 1);
         assert.strictEqual(heap.size, 1);
       });
 
-      it("should return the highest value from a two-item heap", () => {
+      it('should return the highest value from a two-item heap', () => {
         heap.add(2);
         heap.add(1);
         assert.strictEqual(heap.peek(), 2);
         assert.strictEqual(heap.size, 2);
       });
 
-      it("should return the highest value from a three-item heap", () => {
+      it('should return the highest value from a three-item heap', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);
@@ -275,7 +275,7 @@ describe("BinaryHeap", () => {
         assert.strictEqual(heap.size, 3);
       });
 
-      it("should return the highest value from a four-item heap", () => {
+      it('should return the highest value from a four-item heap', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);
@@ -285,15 +285,15 @@ describe("BinaryHeap", () => {
       });
     });
 
-    describe("poll()", () => {
-      it("should return the only item from a one-item heap", () => {
+    describe('poll()', () => {
+      it('should return the only item from a one-item heap', () => {
         heap.add(1);
         assert.strictEqual(heap.poll(), 1);
         assert.strictEqual(heap.size, 0);
         assertHeapValues(heap, []);
       });
 
-      it("should return the highest value from a two-item heap", () => {
+      it('should return the highest value from a two-item heap', () => {
         heap.add(2);
         heap.add(1);
         assert.strictEqual(heap.poll(), 2);
@@ -301,7 +301,7 @@ describe("BinaryHeap", () => {
         assertHeapValues(heap, [1]);
       });
 
-      it("should return the highest value from a three-item heap", () => {
+      it('should return the highest value from a three-item heap', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);
@@ -310,7 +310,7 @@ describe("BinaryHeap", () => {
         assertHeapValues(heap, [2, 1]);
       });
 
-      it("should return the highest value from a four-item heap", () => {
+      it('should return the highest value from a four-item heap', () => {
         heap.add(2);
         heap.add(3);
         heap.add(1);

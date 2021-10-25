@@ -1,10 +1,10 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   Point,
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes";
+} from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes';
 export declare class TinyFaceDetector extends TfjsImageRecognitionBase.TinyYolov2 {
   constructor();
   readonly anchors: Point[];

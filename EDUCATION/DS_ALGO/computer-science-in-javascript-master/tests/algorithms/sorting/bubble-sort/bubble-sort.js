@@ -3,21 +3,21 @@
  */
 /* global it, describe */
 
-"use strict";
+'use strict';
 
 //-----------------------------------------------------------------------------
 // Requirements
 //-----------------------------------------------------------------------------
 
-import { assert } from "chai";
+import { assert } from 'chai';
 
-import { bubbleSort } from "../../../../src/algorithms/sorting/bubble-sort";
+import { bubbleSort } from '../../../../src/algorithms/sorting/bubble-sort';
 
 //-----------------------------------------------------------------------------
 // Tests
 //-----------------------------------------------------------------------------
 
-describe("bubbleSort()", () => {
+describe('bubbleSort()', () => {
   [
     [],
     [1],

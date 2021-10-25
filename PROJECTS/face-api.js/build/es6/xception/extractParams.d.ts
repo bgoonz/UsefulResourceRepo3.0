@@ -1,5 +1,5 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { TinyXceptionParams } from "./types";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { TinyXceptionParams } from './types';
 export declare function extractParams(
   weights: Float32Array,
   numMainBlocks: number

@@ -7,7 +7,7 @@
  * the public interface. You could also use ES2019 private fields, but those
  * are not yet widely available as of the time of my writing.
  */
-const tail = Symbol("tail");
+const tail = Symbol('tail');
 
 /**
  * Represents a single node in a LinkedList.

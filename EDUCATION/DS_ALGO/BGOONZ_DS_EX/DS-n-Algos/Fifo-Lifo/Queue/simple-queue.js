@@ -25,6 +25,6 @@ class Queue {
   }
 
   print() {
-    console.log(this.queue.join(" "));
+    console.log(this.queue.join(' '));
   }
 }

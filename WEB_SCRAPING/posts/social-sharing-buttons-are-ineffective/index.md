@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Social sharing buttons are ineffective
-======================================
+# Social sharing buttons are ineffective
 
 December 16, 2014 • 1 min read
 
@@ -17,7 +16,7 @@ While their stance isn't conclusive, the fact that they even raised the question
 
 <a href="../../tags/rants/index.html" class="post-tag">rants</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -25,6 +24,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../how-to-use-currentcolor-in-your-stylesheet/index.html" class="post-nav-previous"><span class="small">Previous post</span> How to use currentColor in your stylesheet</a> <a href="../why-developers-hate-being-interrupted/index.html" class="post-nav-next"><span class="small">Up next</span> Why developers hate being interrupted</a>

@@ -1,30 +1,30 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NeuralNetwork,
   normalize,
   toNetInput,
-} from "tfjs-image-recognition-base";
-import { convDown } from "./convLayer";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { residual, residualDown } from "./residualLayer";
+} from 'tfjs-image-recognition-base';
+import { convDown } from './convLayer';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { residual, residualDown } from './residualLayer';
 var FaceRecognitionNet = /** @class */ (function (_super) {
   tslib_1.__extends(FaceRecognitionNet, _super);
   function FaceRecognitionNet() {
-    return _super.call(this, "FaceRecognitionNet") || this;
+    return _super.call(this, 'FaceRecognitionNet') || this;
   }
   FaceRecognitionNet.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("FaceRecognitionNet - load model before inference");
+      throw new Error('FaceRecognitionNet - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(150, true).toFloat();
       var meanRgb = [122.782, 117.001, 104.298];
       var normalized = normalize(batchTensor, meanRgb).div(tf.scalar(256));
       var out = convDown(normalized, params.conv32_down);
-      out = tf.maxPool(out, 3, 2, "valid");
+      out = tf.maxPool(out, 3, 2, 'valid');
       out = residual(out, params.conv32_1);
       out = residual(out, params.conv32_2);
       out = residual(out, params.conv32_3);
@@ -95,7 +95,7 @@ var FaceRecognitionNet = /** @class */ (function (_super) {
     });
   };
   FaceRecognitionNet.prototype.getDefaultModelName = function () {
-    return "face_recognition_model";
+    return 'face_recognition_model';
   };
   FaceRecognitionNet.prototype.extractParamsFromWeigthMap = function (
     weightMap

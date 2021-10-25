@@ -8,6 +8,4 @@ console.dir(req.subdomains);
 // => ["ferrets", "tobi"]
 ```
 
-The application property `subdomain offset`, which defaults to 2, is used for determining the
-beginning of the subdomain segments. To change this behavior, change its value
-using [app.set](/{{ page.lang }}/5x/api.html#app.set).
+The application property `subdomain offset`, which defaults to 2, is used for determining the beginning of the subdomain segments. To change this behavior, change its value using [app.set](/{{ page.lang }}/5x/api.html#app.set).

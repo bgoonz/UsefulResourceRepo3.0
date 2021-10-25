@@ -17,7 +17,7 @@ A JavaScript implementation of a hash map where all keys must be strings. This c
 Use CommonJS to get access to the `HashMap` constructor:
 
 ```js
-const { HashMap } = require("@humanwhocodes/hash-map");
+const { HashMap } = require('@humanwhocodes/hash-map');
 ```
 
 Each instance of `HashMap` has the following properties and methods:
@@ -26,19 +26,19 @@ Each instance of `HashMap` has the following properties and methods:
 const map = new HashMap();
 
 // add an item
-map.set("foo", 1);
+map.set('foo', 1);
 
 // get the value of an item
-let value = map.get("foo");
+let value = map.get('foo');
 
 // get the number of items
 let count = map.size;
 
 // does the key exist in the map?
-let found = map.has("foo");
+let found = map.has('foo');
 
 // remove a key
-map.delete("foo");
+map.delete('foo');
 
 // get all key-value pairs
 let entries1 = [...map.entries()];

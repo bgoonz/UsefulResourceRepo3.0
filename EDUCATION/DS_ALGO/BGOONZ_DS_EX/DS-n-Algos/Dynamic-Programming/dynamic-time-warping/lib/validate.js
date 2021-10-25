@@ -13,7 +13,7 @@ function validateSequence(sequence, sequenceParameterName) {
     );
   }
 
-  if (typeof sequence[0] !== "number") {
+  if (typeof sequence[0] !== 'number') {
     throw new TypeError(
       "Invalid data points types for sequence '" +
         sequenceParameterName +

@@ -1,6 +1,6 @@
-import * as tslib_1 from "tslib";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes";
+import * as tslib_1 from 'tslib';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes';
 import {
   BOX_ANCHORS,
   BOX_ANCHORS_SEPARABLE,
@@ -8,7 +8,7 @@ import {
   DEFAULT_MODEL_NAME_SEPARABLE_CONV,
   IOU_THRESHOLD,
   MEAN_RGB_SEPARABLE,
-} from "./const";
+} from './const';
 var TinyYolov2 = /** @class */ (function (_super) {
   tslib_1.__extends(TinyYolov2, _super);
   function TinyYolov2(withSeparableConvs) {
@@ -21,7 +21,7 @@ var TinyYolov2 = /** @class */ (function (_super) {
       {
         withSeparableConvs: withSeparableConvs,
         iouThreshold: IOU_THRESHOLD,
-        classes: ["face"],
+        classes: ['face'],
       },
       withSeparableConvs
         ? {
@@ -36,14 +36,14 @@ var TinyYolov2 = /** @class */ (function (_super) {
     _this = _super.call(this, config) || this;
     return _this;
   }
-  Object.defineProperty(TinyYolov2.prototype, "withSeparableConvs", {
+  Object.defineProperty(TinyYolov2.prototype, 'withSeparableConvs', {
     get: function () {
       return this.config.withSeparableConvs;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(TinyYolov2.prototype, "anchors", {
+  Object.defineProperty(TinyYolov2.prototype, 'anchors', {
     get: function () {
       return this.config.anchors;
     },

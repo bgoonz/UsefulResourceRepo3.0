@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { ConvLayerParams } from "./types";
+import * as tf from '@tensorflow/tfjs-core';
+import { ConvLayerParams } from './types';
 export declare function conv(
   x: tf.Tensor4D,
   params: ConvLayerParams

@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { depthwiseSeparableConv } from "../common/depthwiseSeparableConv";
+import * as tf from '@tensorflow/tfjs-core';
+import { depthwiseSeparableConv } from '../common/depthwiseSeparableConv';
 export function denseBlock3(x, denseBlockParams, isFirstLayer) {
   if (isFirstLayer === void 0) {
     isFirstLayer = false;
@@ -8,7 +8,7 @@ export function denseBlock3(x, denseBlockParams, isFirstLayer) {
     var out1 = tf.relu(
       isFirstLayer
         ? tf.add(
-            tf.conv2d(x, denseBlockParams.conv0.filters, [2, 2], "same"),
+            tf.conv2d(x, denseBlockParams.conv0.filters, [2, 2], 'same'),
             denseBlockParams.conv0.bias
           )
         : depthwiseSeparableConv(x, denseBlockParams.conv0, [2, 2])
@@ -34,7 +34,7 @@ export function denseBlock4(x, denseBlockParams, isFirstLayer, isScaleDown) {
               x,
               denseBlockParams.conv0.filters,
               isScaleDown ? [2, 2] : [1, 1],
-              "same"
+              'same'
             ),
             denseBlockParams.conv0.bias
           )

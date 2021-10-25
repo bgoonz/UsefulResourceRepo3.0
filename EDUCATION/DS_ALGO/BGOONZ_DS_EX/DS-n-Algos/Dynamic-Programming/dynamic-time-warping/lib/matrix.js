@@ -1,10 +1,10 @@
 const createArray = (length, value) => {
-  if (typeof length !== "number") {
-    throw new TypeError("Invalid length type");
+  if (typeof length !== 'number') {
+    throw new TypeError('Invalid length type');
   }
 
-  if (typeof value === "undefined") {
-    throw new Error("Invalid value: expected a value to be provided");
+  if (typeof value === 'undefined') {
+    throw new Error('Invalid value: expected a value to be provided');
   }
 
   const array = new Array(length);

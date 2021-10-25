@@ -1,22 +1,22 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NeuralNetwork,
   normalize,
   toNetInput,
-} from "tfjs-image-recognition-base";
-import { denseBlock3 } from "./denseBlock";
-import { extractParamsFromWeigthMapTiny } from "./extractParamsFromWeigthMapTiny";
-import { extractParamsTiny } from "./extractParamsTiny";
+} from 'tfjs-image-recognition-base';
+import { denseBlock3 } from './denseBlock';
+import { extractParamsFromWeigthMapTiny } from './extractParamsFromWeigthMapTiny';
+import { extractParamsTiny } from './extractParamsTiny';
 var TinyFaceFeatureExtractor = /** @class */ (function (_super) {
   tslib_1.__extends(TinyFaceFeatureExtractor, _super);
   function TinyFaceFeatureExtractor() {
-    return _super.call(this, "TinyFaceFeatureExtractor") || this;
+    return _super.call(this, 'TinyFaceFeatureExtractor') || this;
   }
   TinyFaceFeatureExtractor.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("TinyFaceFeatureExtractor - load model before inference");
+      throw new Error('TinyFaceFeatureExtractor - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(112, true);
@@ -25,7 +25,7 @@ var TinyFaceFeatureExtractor = /** @class */ (function (_super) {
       var out = denseBlock3(normalized, params.dense0, true);
       out = denseBlock3(out, params.dense1);
       out = denseBlock3(out, params.dense2);
-      out = tf.avgPool(out, [14, 14], [2, 2], "valid");
+      out = tf.avgPool(out, [14, 14], [2, 2], 'valid');
       return out;
     });
   };
@@ -44,7 +44,7 @@ var TinyFaceFeatureExtractor = /** @class */ (function (_super) {
     });
   };
   TinyFaceFeatureExtractor.prototype.getDefaultModelName = function () {
-    return "face_feature_extractor_tiny_model";
+    return 'face_feature_extractor_tiny_model';
   };
   TinyFaceFeatureExtractor.prototype.extractParamsFromWeigthMap = function (
     weightMap

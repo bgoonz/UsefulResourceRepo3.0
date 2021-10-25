@@ -1,6 +1,6 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { BoundingBox } from "tfjs-image-recognition-base";
-import { PNetParams } from "./types";
+import * as tf from '@tensorflow/tfjs-core';
+import { BoundingBox } from 'tfjs-image-recognition-base';
+import { PNetParams } from './types';
 export declare function stage1(
   imgTensor: tf.Tensor4D,
   scales: number[],

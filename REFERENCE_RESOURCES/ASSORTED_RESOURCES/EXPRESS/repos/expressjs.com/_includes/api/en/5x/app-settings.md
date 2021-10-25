@@ -5,8 +5,7 @@ Note that sub-apps will:
 - Not inherit the value of settings that have a default value. You must set the value in the sub-app.
 - Inherit the value of settings with no default value; these are explicitly noted in the table below.
 
-Exceptions: Sub-apps will inherit the value of `trust proxy` even though it has a default value (for backward-compatibility);
-Sub-apps will not inherit the value of `view cache` in production (when `NODE_ENV` is "production").
+Exceptions: Sub-apps will inherit the value of `trust proxy` even though it has a default value (for backward-compatibility); Sub-apps will not inherit the value of `view cache` in production (when `NODE_ENV` is "production").
 
 <div class="table-scroller">
   <table class="doctable" border="1">
@@ -230,25 +229,25 @@ Set IP addresses in any of the following ways:
 Specify a single subnet:
 
 ```js
-app.set("trust proxy", "loopback");
+app.set('trust proxy', 'loopback');
 ```
 
 Specify a subnet and an address:
 
 ```js
-app.set("trust proxy", "loopback, 123.123.123.123");
+app.set('trust proxy', 'loopback, 123.123.123.123');
 ```
 
 Specify multiple subnets as CSV:
 
 ```js
-app.set("trust proxy", "loopback, linklocal, uniquelocal");
+app.set('trust proxy', 'loopback, linklocal, uniquelocal');
 ```
 
 Specify multiple subnets as an array:
 
 ```js
-app.set("trust proxy", ["loopback", "linklocal", "uniquelocal"]);
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
 ```
 
 When specified, the IP addresses or the subnets are excluded from the address determination process, and the untrusted IP address nearest to the application server is determined as the client's IP address.
@@ -267,8 +266,8 @@ When specified, the IP addresses or the subnets are excluded from the address de
   Custom trust implementation. Use this only if you know what you are doing.
 
 ```js
-app.set("trust proxy", function (ip) {
-  if (ip === "127.0.0.1" || ip === "123.123.123.123") return true;
+app.set('trust proxy', function (ip) {
+  if (ip === '127.0.0.1' || ip === '123.123.123.123') return true;
   // trusted IPs
   else return false;
 });
@@ -314,7 +313,7 @@ The [express.static](#express.static) middleware ignores these settings.
   <td markdown="1">Custom ETag function implementation. Use this only if you know what you are doing.
 
 ```js
-app.set("etag", function (body, encoding) {
+app.set('etag', function (body, encoding) {
   return generateHash(body, encoding); // consider the function is defined
 });
 ```

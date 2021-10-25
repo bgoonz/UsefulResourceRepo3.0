@@ -1,7 +1,7 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { FaceLandmarks5 } from "../classes/FaceLandmarks5";
-import { WithFaceDetection, WithFaceLandmarks } from "../factories";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { FaceLandmarks5 } from '../classes/FaceLandmarks5';
+import { WithFaceDetection, WithFaceLandmarks } from '../factories';
 export declare type SharedParams = {
   conv1: TfjsImageRecognitionBase.ConvParams;
   prelu1_alpha: tf.Tensor1D;

@@ -1,11 +1,11 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
-import { TinyXceptionParams } from "./types";
+} from 'tfjs-image-recognition-base';
+import { TinyXceptionParams } from './types';
 export declare class TinyXception extends NeuralNetwork<TinyXceptionParams> {
   private _numMainBlocks;
   constructor(numMainBlocks: number);

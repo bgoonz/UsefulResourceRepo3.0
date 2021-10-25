@@ -1,4 +1,4 @@
-import { BoundingBox } from "tfjs-image-recognition-base";
+import { BoundingBox } from 'tfjs-image-recognition-base';
 export function minBbox(pts) {
   var xs = pts.map(function (pt) {
     return pt.x;

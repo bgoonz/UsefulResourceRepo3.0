@@ -1,10 +1,10 @@
-var assert = require("assert");
-var path = require("path");
-var fs = require("graceful-fs");
-var Q = require("q");
-var createHash = require("crypto").createHash;
-var mkdirp = require("mkdirp");
-var iconv = require("iconv-lite");
+var assert = require('assert');
+var path = require('path');
+var fs = require('graceful-fs');
+var Q = require('q');
+var createHash = require('crypto').createHash;
+var mkdirp = require('mkdirp');
+var iconv = require('iconv-lite');
 var Ap = Array.prototype;
 var slice = Ap.slice;
 var join = Ap.join;
@@ -39,13 +39,13 @@ function makePromise(callback, context) {
 exports.makePromise = makePromise;
 
 exports.cachedMethod = function (fn, keyFn) {
-  var p = require("private").makeAccessor();
+  var p = require('private').makeAccessor();
 
   function wrapper() {
     var priv = p(this);
     var cache = priv.cache || (priv.cache = {});
     var args = arguments;
-    var key = keyFn ? keyFn.apply(this, args) : join.call(args, "\0");
+    var key = keyFn ? keyFn.apply(this, args) : join.call(args, '\0');
     return cache.hasOwnProperty(key)
       ? cache[key]
       : (cache[key] = fn.apply(this, args));
@@ -69,7 +69,7 @@ function readFileP(file, charset) {
           });
         }
       : function (callback) {
-          return fs.readFile(file, "utf8", callback);
+          return fs.readFile(file, 'utf8', callback);
         }
   );
 }
@@ -97,8 +97,8 @@ function readFromStdinP(timeLimit, message, color) {
   timeLimit = timeLimit || 1000;
   var timeout = setTimeout(function () {
     log.err(
-      message || "Warning: still waiting for STDIN after " + timeLimit + "ms",
-      color || "yellow"
+      message || 'Warning: still waiting for STDIN after ' + timeLimit + 'ms',
+      color || 'yellow'
     );
   }, timeLimit);
 
@@ -114,15 +114,15 @@ function readFromStdinP(timeLimit, message, color) {
 
   if (stdin) {
     stdin.resume();
-    stdin.setEncoding("utf8");
+    stdin.setEncoding('utf8');
 
     stdin
-      .on("data", function (data) {
+      .on('data', function (data) {
         ins.push(data);
       })
-      .on("end", function () {
+      .on('end', function () {
         clearTimeout(timeout);
-        deferred.resolve(ins.join(""));
+        deferred.resolve(ins.join(''));
       });
   }
 
@@ -137,38 +137,38 @@ exports.readJsonFromStdinP = function (timeLimit) {
 };
 
 function deepHash(val) {
-  var hash = createHash("sha1");
+  var hash = createHash('sha1');
   var type = typeof val;
 
   if (val === null) {
-    type = "null";
+    type = 'null';
   }
 
   switch (type) {
-    case "object":
+    case 'object':
       Object.keys(val)
         .sort()
         .forEach(function (key) {
-          if (typeof val[key] === "function") {
+          if (typeof val[key] === 'function') {
             // Silently ignore nested methods, but nevertheless
             // complain below if the root value is a function.
             return;
           }
 
-          hash.update(key + "\0").update(deepHash(val[key]));
+          hash.update(key + '\0').update(deepHash(val[key]));
         });
       break;
 
-    case "function":
-      assert.ok(false, "cannot hash function objects");
+    case 'function':
+      assert.ok(false, 'cannot hash function objects');
       break;
 
     default:
-      hash.update(val + "");
+      hash.update(val + '');
       break;
   }
 
-  return hash.digest("hex");
+  return hash.digest('hex');
 }
 exports.deepHash = deepHash;
 
@@ -182,8 +182,8 @@ exports.existsP = function (fullPath) {
 
 function writeFdP(fd, content) {
   return makePromise(function (callback) {
-    content += "";
-    var buffer = new Buffer(content, "utf8");
+    content += '';
+    var buffer = new Buffer(content, 'utf8');
     var length = fs.writeSync(fd, buffer, 0, buffer.length, null);
     assert.strictEqual(length, buffer.length);
     callback(null, content);
@@ -195,14 +195,14 @@ exports.writeFdP = writeFdP;
 
 function openFileP(file, mode) {
   return makePromise(function (callback) {
-    fs.open(file, mode || "w+", callback);
+    fs.open(file, mode || 'w+', callback);
   });
 }
 exports.openFileP = openFileP;
 
 function openExclusiveP(file) {
   // The 'x' in "wx+" means the file must be newly created.
-  return openFileP(file, "wx+");
+  return openFileP(file, 'wx+');
 }
 exports.openExclusiveP = openExclusiveP;
 
@@ -214,22 +214,22 @@ exports.copyP = function (srcFile, dstFile) {
       callback(
         err ||
           new Error(
-            "error in util.copyP(" +
+            'error in util.copyP(' +
               JSON.stringify(srcFile) +
-              ", " +
+              ', ' +
               JSON.stringify(dstFile) +
-              ")"
+              ')'
           )
       );
     }
 
     reader
-      .on("error", onError)
+      .on('error', onError)
       .pipe(fs.createWriteStream(dstFile))
-      .on("finish", function () {
+      .on('finish', function () {
         callback(null, dstFile);
       })
-      .on("error", onError);
+      .on('error', onError);
   });
 };
 
@@ -257,16 +257,16 @@ exports.unlinkP = function (file) {
 };
 
 var colors = {
-  bold: "\033[1m",
-  red: "\033[31m",
-  green: "\033[32m",
-  yellow: "\033[33m",
-  cyan: "\033[36m",
-  reset: "\033[0m",
+  bold: '\033[1m',
+  red: '\033[31m',
+  green: '\033[32m',
+  yellow: '\033[33m',
+  cyan: '\033[36m',
+  reset: '\033[0m',
 };
 
 Object.keys(colors).forEach(function (key) {
-  if (key !== "reset") {
+  if (key !== 'reset') {
     exports[key] = function (text) {
       return colors[key] + text + colors.reset;
     };
@@ -275,28 +275,28 @@ Object.keys(colors).forEach(function (key) {
 
 var log = (exports.log = {
   out: function (text, color) {
-    text = (text + "").trim();
+    text = (text + '').trim();
     if (colors.hasOwnProperty(color))
       text = colors[color] + text + colors.reset;
-    process.stdout.write(text + "\n");
+    process.stdout.write(text + '\n');
   },
 
   err: function (text, color) {
-    text = (text + "").trim();
-    if (!colors.hasOwnProperty(color)) color = "red";
+    text = (text + '').trim();
+    if (!colors.hasOwnProperty(color)) color = 'red';
     text = colors[color] + text + colors.reset;
-    process.stderr.write(text + "\n");
+    process.stderr.write(text + '\n');
   },
 });
 
 var slugExp = /[^a-z\-]/gi;
 exports.idToSlug = function (id) {
-  return id.replace(slugExp, "_");
+  return id.replace(slugExp, '_');
 };
 
 var moduleIdExp = /^[ a-z0-9\-_\/\.]+$/i;
 exports.isValidModuleId = function (id) {
-  return id === "<stdin>" || moduleIdExp.test(id);
+  return id === '<stdin>' || moduleIdExp.test(id);
 };
 
 var objToStr = Object.prototype.toString;
@@ -326,30 +326,30 @@ exports.inherits = function (ctor, base) {
 };
 
 function absolutize(moduleId, requiredId) {
-  if (requiredId.charAt(0) === ".")
-    requiredId = path.join(moduleId, "..", requiredId);
-  return path.normalize(requiredId).replace(/\\/g, "/");
+  if (requiredId.charAt(0) === '.')
+    requiredId = path.join(moduleId, '..', requiredId);
+  return path.normalize(requiredId).replace(/\\/g, '/');
 }
 exports.absolutize = absolutize;
 
 function relativize(moduleId, requiredId) {
   requiredId = absolutize(moduleId, requiredId);
 
-  if (requiredId.charAt(0) === ".") {
+  if (requiredId.charAt(0) === '.') {
     // Keep the required ID relative.
   } else {
     // Relativize the required ID.
-    requiredId = path.relative(path.join(moduleId, ".."), requiredId);
+    requiredId = path.relative(path.join(moduleId, '..'), requiredId);
   }
 
-  if (requiredId.charAt(0) !== ".") requiredId = "./" + requiredId;
+  if (requiredId.charAt(0) !== '.') requiredId = './' + requiredId;
 
-  return requiredId.replace(/\\/g, "/");
+  return requiredId.replace(/\\/g, '/');
 }
 exports.relativize = relativize;
 
 function waitForValuesP(obj, makeCopy) {
-  if (typeof obj !== "object") return Q(obj);
+  if (typeof obj !== 'object') return Q(obj);
 
   var result = makeCopy ? {} : obj;
   var keys = Object.keys(obj);

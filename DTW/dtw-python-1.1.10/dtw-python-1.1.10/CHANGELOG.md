@@ -81,15 +81,13 @@
 
 - Test setup requires. [Toni]
 - Test cibuildwheel. [Toni]
-- Added test for issue https://github.com/DynamicTimeWarping/dtw-
-  python/issues/5. [Toni]
+- Added test for issue https://github.com/DynamicTimeWarping/dtw- python/issues/5. [Toni]
 
 ## v1.0.6 (2020-06-17)
 
 - Fixed subtle bug with open_begin. [Toni]
 - Adding CRAN test equivalent. [Toni]
-- Fixes https://github.com/DynamicTimeWarping/dtw-python/issues/5.
-  [Toni]
+- Fixes https://github.com/DynamicTimeWarping/dtw-python/issues/5. [Toni]
 
 ## v1.0.5 (2020-02-24)
 
@@ -102,14 +100,11 @@
 
   The previous version had variable names such as query.size in it
 
-  - notation which is common in R, but doesn't work in Python.
-    This commit corrects these names to query_size, reference_size
-    and window_size, respectively.
+  - notation which is common in R, but doesn't work in Python. This commit corrects these names to query_size, reference_size and window_size, respectively.
 
 ## v1.0.4 (2019-12-30)
 
-- Fixes https://github.com/DynamicTimeWarping/dtw-python/issues/1.
-  [Toni]
+- Fixes https://github.com/DynamicTimeWarping/dtw-python/issues/1. [Toni]
 - Possible fix for windows. [Toni]
 - Conda env. [Toni]
 

@@ -18,7 +18,7 @@ A JavaScript implementation of a binary heap. This class uses the conventions of
 Use CommonJS to get access to the `BinaryHeap` constructor:
 
 ```js
-const { BinaryHeap } = require("@humanwhocodes/binary-heap");
+const { BinaryHeap } = require('@humanwhocodes/binary-heap');
 ```
 
 Each instance of `BinaryHeap` has the following properties and methods:
@@ -27,7 +27,7 @@ Each instance of `BinaryHeap` has the following properties and methods:
 const heap = new BinaryHeap();
 
 // add an item to the end
-heap.add("foo");
+heap.add('foo');
 
 // get the minimum value without removing
 let value = heap.peek();

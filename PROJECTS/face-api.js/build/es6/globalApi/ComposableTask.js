@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import * as tslib_1 from 'tslib';
 var ComposableTask = /** @class */ (function () {
   function ComposableTask() {}
   ComposableTask.prototype.then = function (onfulfilled) {
@@ -18,7 +18,7 @@ var ComposableTask = /** @class */ (function () {
   ComposableTask.prototype.run = function () {
     return tslib_1.__awaiter(this, void 0, void 0, function () {
       return tslib_1.__generator(this, function (_a) {
-        throw new Error("ComposableTask - run is not implemented");
+        throw new Error('ComposableTask - run is not implemented');
       });
     });
   };

@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { conv, convDown, convNoRelu } from "./convLayer";
+import * as tf from '@tensorflow/tfjs-core';
+import { conv, convDown, convNoRelu } from './convLayer';
 export function residual(x, params) {
   var out = conv(x, params.conv1);
   out = convNoRelu(out, params.conv2);
@@ -10,7 +10,7 @@ export function residual(x, params) {
 export function residualDown(x, params) {
   var out = convDown(x, params.conv1);
   out = convNoRelu(out, params.conv2);
-  var pooled = tf.avgPool(x, 2, 2, "valid");
+  var pooled = tf.avgPool(x, 2, 2, 'valid');
   var zeros = tf.zeros(pooled.shape);
   var isPad = pooled.shape[3] !== out.shape[3];
   var isAdjustShape =

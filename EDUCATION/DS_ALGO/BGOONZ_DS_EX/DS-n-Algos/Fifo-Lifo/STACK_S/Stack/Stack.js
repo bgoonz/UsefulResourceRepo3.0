@@ -26,7 +26,7 @@ const Stack = (() => {
     // Removes and returns the value at the end of the stack
     pop() {
       if (this.top === 0) {
-        return "Stack is Empty";
+        return 'Stack is Empty';
       }
 
       this.top--;

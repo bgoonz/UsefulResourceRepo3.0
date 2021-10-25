@@ -1,22 +1,22 @@
-import { TNetInput } from "tfjs-image-recognition-base";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { FaceLandmark68Net } from "../faceLandmarkNet/FaceLandmark68Net";
-import { FaceLandmark68TinyNet } from "../faceLandmarkNet/FaceLandmark68TinyNet";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { ComposableTask } from "./ComposableTask";
+import { TNetInput } from 'tfjs-image-recognition-base';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { FaceLandmark68Net } from '../faceLandmarkNet/FaceLandmark68Net';
+import { FaceLandmark68TinyNet } from '../faceLandmarkNet/FaceLandmark68TinyNet';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { ComposableTask } from './ComposableTask';
 import {
   ComputeAllFaceDescriptorsTask,
   ComputeSingleFaceDescriptorTask,
-} from "./ComputeFaceDescriptorsTasks";
+} from './ComputeFaceDescriptorsTasks';
 import {
   PredictAllAgeAndGenderWithFaceAlignmentTask,
   PredictSingleAgeAndGenderWithFaceAlignmentTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsWithFaceAlignmentTask,
   PredictSingleFaceExpressionsWithFaceAlignmentTask,
-} from "./PredictFaceExpressionsTask";
+} from './PredictFaceExpressionsTask';
 export declare class DetectFaceLandmarksTaskBase<
   TReturn,
   TParentReturn

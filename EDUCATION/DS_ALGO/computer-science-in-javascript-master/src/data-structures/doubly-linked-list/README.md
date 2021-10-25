@@ -22,7 +22,7 @@ Read the [blog post](https://humanwhocodes.com/blog/2019/02/computer-science-in-
 Use CommonJS to get access to the `DoublyLinkedList` constructor:
 
 ```js
-const { DoublyLinkedList } = require("@humanwhocodes/doubly-linked-list");
+const { DoublyLinkedList } = require('@humanwhocodes/doubly-linked-list');
 ```
 
 Each instance of `DoublyLinkedList` has the following properties and methods:
@@ -31,11 +31,11 @@ Each instance of `DoublyLinkedList` has the following properties and methods:
 const list = new DoublyLinkedList();
 
 // add an item to the end
-list.add("foo");
+list.add('foo');
 
 // insert an item
-list.insertBefore("bar", 0);
-list.insertAfter("baz", 1);
+list.insertBefore('bar', 0);
+list.insertAfter('baz', 1);
 
 // get the value at an index
 let value = list.get(0);
@@ -44,7 +44,7 @@ let value = list.get(0);
 let count = list.size;
 
 // get the index of a value
-let index = list.indexOf("foo");
+let index = list.indexOf('foo');
 
 // search for a value
 let result = list.find((value) => value.length > 3);

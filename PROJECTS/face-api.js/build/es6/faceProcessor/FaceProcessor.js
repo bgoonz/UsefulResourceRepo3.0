@@ -1,10 +1,10 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { NetInput, NeuralNetwork } from "tfjs-image-recognition-base";
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { seperateWeightMaps } from "./util";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { NetInput, NeuralNetwork } from 'tfjs-image-recognition-base';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { seperateWeightMaps } from './util';
 var FaceProcessor = /** @class */ (function (_super) {
   tslib_1.__extends(FaceProcessor, _super);
   function FaceProcessor(_name, faceFeatureExtractor) {
@@ -12,7 +12,7 @@ var FaceProcessor = /** @class */ (function (_super) {
     _this._faceFeatureExtractor = faceFeatureExtractor;
     return _this;
   }
-  Object.defineProperty(FaceProcessor.prototype, "faceFeatureExtractor", {
+  Object.defineProperty(FaceProcessor.prototype, 'faceFeatureExtractor', {
     get: function () {
       return this._faceFeatureExtractor;
     },
@@ -23,7 +23,7 @@ var FaceProcessor = /** @class */ (function (_super) {
     var _this = this;
     var params = this.params;
     if (!params) {
-      throw new Error(this._name + " - load model before inference");
+      throw new Error(this._name + ' - load model before inference');
     }
     return tf.tidy(function () {
       var bottleneckFeatures =

@@ -1,21 +1,21 @@
-import { Dimensions } from "tfjs-image-recognition-base";
-import { FaceDetection } from "./classes/FaceDetection";
-import { FaceLandmarks } from "./classes/FaceLandmarks";
+import { Dimensions } from 'tfjs-image-recognition-base';
+import { FaceDetection } from './classes/FaceDetection';
+import { FaceLandmarks } from './classes/FaceLandmarks';
 import {
   extendWithFaceDetection,
   isWithFaceDetection,
-} from "./factories/WithFaceDetection";
+} from './factories/WithFaceDetection';
 import {
   extendWithFaceLandmarks,
   isWithFaceLandmarks,
-} from "./factories/WithFaceLandmarks";
+} from './factories/WithFaceLandmarks';
 export function resizeResults(results, dimensions) {
   var _a = new Dimensions(dimensions.width, dimensions.height),
     width = _a.width,
     height = _a.height;
   if (width <= 0 || height <= 0) {
     throw new Error(
-      "resizeResults - invalid dimensions: " +
+      'resizeResults - invalid dimensions: ' +
         JSON.stringify({ width: width, height: height })
     );
   }

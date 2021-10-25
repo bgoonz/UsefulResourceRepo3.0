@@ -1,23 +1,23 @@
-import * as tslib_1 from "tslib";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { extendWithFaceDetection } from "../factories/WithFaceDetection";
-import { MtcnnOptions } from "../mtcnn/MtcnnOptions";
-import { SsdMobilenetv1Options } from "../ssdMobilenetv1/SsdMobilenetv1Options";
-import { TinyFaceDetectorOptions } from "../tinyFaceDetector/TinyFaceDetectorOptions";
-import { ComposableTask } from "./ComposableTask";
+import * as tslib_1 from 'tslib';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { extendWithFaceDetection } from '../factories/WithFaceDetection';
+import { MtcnnOptions } from '../mtcnn/MtcnnOptions';
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options';
+import { TinyFaceDetectorOptions } from '../tinyFaceDetector/TinyFaceDetectorOptions';
+import { ComposableTask } from './ComposableTask';
 import {
   DetectAllFaceLandmarksTask,
   DetectSingleFaceLandmarksTask,
-} from "./DetectFaceLandmarksTasks";
-import { nets } from "./nets";
+} from './DetectFaceLandmarksTasks';
+import { nets } from './nets';
 import {
   PredictAllAgeAndGenderTask,
   PredictSingleAgeAndGenderTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsTask,
   PredictSingleFaceExpressionsTask,
-} from "./PredictFaceExpressionsTask";
+} from './PredictFaceExpressionsTask';
 var DetectFacesTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(DetectFacesTaskBase, _super);
   function DetectFacesTaskBase(input, options) {
@@ -70,7 +70,7 @@ var DetectAllFacesTask = /** @class */ (function (_super) {
                 : null;
             if (!faceDetectionFunction) {
               throw new Error(
-                "detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options"
+                'detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options'
               );
             }
             return [2 /*return*/, faceDetectionFunction(input)];

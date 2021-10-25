@@ -15,7 +15,7 @@ This is an implementation of the bubble sort algorithm in JavaScript. The functi
 Use CommonJS to get access to the `bubbleSort()` function:
 
 ```js
-const { bubbleSort } = require("@humanwhocodes/bubble-sort");
+const { bubbleSort } = require('@humanwhocodes/bubble-sort');
 
 const items = [1, 5, 2];
 const result = bubbleSort(items);

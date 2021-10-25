@@ -2,13 +2,13 @@
  * @fileoverview Hash Map implementation in JavaScript
  */
 
-"use strict";
+'use strict';
 
 //-----------------------------------------------------------------------------
 // Requirements
 //-----------------------------------------------------------------------------
 
-import { DoublyLinkedList } from "@humanwhocodes/doubly-linked-list";
+import { DoublyLinkedList } from '@humanwhocodes/doubly-linked-list';
 
 //-----------------------------------------------------------------------------
 // Private
@@ -85,8 +85,8 @@ function createArray() {
  *      string.
  */
 function assertNonEmptyString(key) {
-  if (typeof key !== "string" || key.length === 0) {
-    throw new TypeError("Key must be a non-empty string.");
+  if (typeof key !== 'string' || key.length === 0) {
+    throw new TypeError('Key must be a non-empty string.');
   }
 }
 
@@ -99,7 +99,7 @@ function assertNonEmptyString(key) {
  * the public interface. You could also use ES2019 private fields, but those
  * are not yet widely available as of the time of my writing.
  */
-const array = Symbol("array");
+const array = Symbol('array');
 
 /**
  * A binary heap implementation in JavaScript.

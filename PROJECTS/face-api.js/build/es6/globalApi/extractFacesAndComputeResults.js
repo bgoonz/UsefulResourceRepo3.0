@@ -1,7 +1,7 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { extractFaces, extractFaceTensors } from "../dom";
-import { isWithFaceLandmarks } from "../factories/WithFaceLandmarks";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { extractFaces, extractFaceTensors } from '../dom';
+import { isWithFaceLandmarks } from '../factories/WithFaceLandmarks';
 export function extractAllFacesAndComputeResults(
   parentResults,
   input,

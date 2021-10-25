@@ -1,9 +1,9 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { nonMaxSuppression } from "tfjs-image-recognition-base";
-import { extractImagePatches } from "./extractImagePatches";
-import { MtcnnBox } from "./MtcnnBox";
-import { RNet } from "./RNet";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { nonMaxSuppression } from 'tfjs-image-recognition-base';
+import { extractImagePatches } from './extractImagePatches';
+import { MtcnnBox } from './MtcnnBox';
+import { RNet } from './RNet';
 export function stage2(img, inputBoxes, scoreThreshold, params, stats) {
   return tslib_1.__awaiter(this, void 0, void 0, function () {
     var ts,

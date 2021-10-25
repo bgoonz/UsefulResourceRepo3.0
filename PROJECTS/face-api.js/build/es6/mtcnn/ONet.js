@@ -1,13 +1,13 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { prelu } from "./prelu";
-import { sharedLayer } from "./sharedLayers";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { prelu } from './prelu';
+import { sharedLayer } from './sharedLayers';
 export function ONet(x, params) {
   return tf.tidy(function () {
     var out = sharedLayer(x, params);
-    out = tf.maxPool(out, [2, 2], [2, 2], "same");
-    out = TfjsImageRecognitionBase.convLayer(out, params.conv4, "valid");
+    out = tf.maxPool(out, [2, 2], [2, 2], 'same');
+    out = TfjsImageRecognitionBase.convLayer(out, params.conv4, 'valid');
     out = prelu(out, params.prelu4_alpha);
     var vectorized = tf.reshape(out, [
       out.shape[0],

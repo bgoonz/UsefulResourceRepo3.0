@@ -1,5 +1,5 @@
-import { Box } from "tfjs-image-recognition-base";
-import { RNetParams } from "./types";
+import { Box } from 'tfjs-image-recognition-base';
+import { RNetParams } from './types';
 export declare function stage2(
   img: HTMLCanvasElement,
   inputBoxes: Box[],

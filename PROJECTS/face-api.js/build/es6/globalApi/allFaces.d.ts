@@ -1,13 +1,13 @@
 import {
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 import {
   WithFaceDescriptor,
   WithFaceDetection,
   WithFaceLandmarks,
-} from "../factories";
-import { IMtcnnOptions } from "../mtcnn/MtcnnOptions";
+} from '../factories';
+import { IMtcnnOptions } from '../mtcnn/MtcnnOptions';
 export declare function allFacesSsdMobilenetv1(
   input: TNetInput,
   minConfidence?: number

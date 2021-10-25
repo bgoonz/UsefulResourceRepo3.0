@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
-const conversions = require("webidl-conversions");
-const utils = require("./utils.js");
+const conversions = require('webidl-conversions');
+const utils = require('./utils.js');
 const impl = utils.implSymbol;
 
 function HTMLHyperlinkElementUtils() {
-  throw new TypeError("Illegal constructor");
+  throw new TypeError('Illegal constructor');
 }
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "href", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'href', {
   get() {
     return this[impl].href;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].href = V;
   },
   enumerable: true,
@@ -22,12 +22,12 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "href", {
 
 HTMLHyperlinkElementUtils.prototype.toString = function () {
   if (!this || !module.exports.is(this)) {
-    throw new TypeError("Illegal invocation");
+    throw new TypeError('Illegal invocation');
   }
   return this[impl].href;
 };
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "origin", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'origin', {
   get() {
     return this[impl].origin;
   },
@@ -35,108 +35,108 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "origin", {
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "protocol", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'protocol', {
   get() {
     return this[impl].protocol;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].protocol = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "username", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'username', {
   get() {
     return this[impl].username;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].username = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "password", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'password', {
   get() {
     return this[impl].password;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].password = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "host", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'host', {
   get() {
     return this[impl].host;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].host = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hostname", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'hostname', {
   get() {
     return this[impl].hostname;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].hostname = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "port", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'port', {
   get() {
     return this[impl].port;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].port = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "pathname", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'pathname', {
   get() {
     return this[impl].pathname;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].pathname = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "search", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'search', {
   get() {
     return this[impl].search;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].search = V;
   },
   enumerable: true,
   configurable: true,
 });
 
-Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hash", {
+Object.defineProperty(HTMLHyperlinkElementUtils.prototype, 'hash', {
   get() {
     return this[impl].hash;
   },
   set(V) {
-    V = conversions["USVString"](V);
+    V = conversions['USVString'](V);
     this[impl].hash = V;
   },
   enumerable: true,
@@ -198,4 +198,4 @@ const iface = {
 };
 module.exports = iface;
 
-const Impl = require("../nodes/HTMLHyperlinkElementUtils-impl.js");
+const Impl = require('../nodes/HTMLHyperlinkElementUtils-impl.js');

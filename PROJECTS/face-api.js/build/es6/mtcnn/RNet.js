@@ -1,7 +1,7 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { prelu } from "./prelu";
-import { sharedLayer } from "./sharedLayers";
+import * as tf from '@tensorflow/tfjs-core';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { prelu } from './prelu';
+import { sharedLayer } from './sharedLayers';
 export function RNet(x, params) {
   return tf.tidy(function () {
     var convOut = sharedLayer(x, params);

@@ -1,36 +1,36 @@
 # DTW.js
 
 ```js
-var debug = require("debug")("dtw");
-var validate = require("./validate");
-var matrix = require("./matrix");
-var comparison = require("./comparison");
+var debug = require('debug')('dtw');
+var validate = require('./validate');
+var matrix = require('./matrix');
+var comparison = require('./comparison');
 
 function validateOptions(options) {
-  if (typeof options !== "object") {
-    throw new TypeError("Invalid options type: expected an object");
+  if (typeof options !== 'object') {
+    throw new TypeError('Invalid options type: expected an object');
   } else if (
-    typeof options.distanceMetric !== "string" &&
-    typeof options.distanceFunction !== "function"
+    typeof options.distanceMetric !== 'string' &&
+    typeof options.distanceFunction !== 'function'
   ) {
     throw new TypeError(
-      "Invalid distance types: expected a string distance type or a distance function"
+      'Invalid distance types: expected a string distance type or a distance function'
     );
   } else if (
-    typeof options.distanceMetric === "string" &&
-    typeof options.distanceFunction === "function"
+    typeof options.distanceMetric === 'string' &&
+    typeof options.distanceFunction === 'function'
   ) {
     throw new Error(
-      "Invalid parameters: provide either a distance metric or function but not both"
+      'Invalid parameters: provide either a distance metric or function but not both'
     );
   }
 
-  if (typeof options.distanceMetric === "string") {
+  if (typeof options.distanceMetric === 'string') {
     var normalizedDistanceMetric = options.distanceMetric.toLowerCase();
     if (
-      normalizedDistanceMetric !== "manhattan" &&
-      normalizedDistanceMetric !== "euclidean" &&
-      normalizedDistanceMetric !== "squaredeuclidean"
+      normalizedDistanceMetric !== 'manhattan' &&
+      normalizedDistanceMetric !== 'euclidean' &&
+      normalizedDistanceMetric !== 'squaredeuclidean'
     ) {
       throw new Error(
         "Invalid parameter value: Unknown distance metric '" +
@@ -44,12 +44,12 @@ function validateOptions(options) {
 function retrieveDistanceFunction(distanceMetric) {
   var normalizedDistanceMetric = distanceMetric.toLowerCase();
   var distanceFunction = null;
-  if (normalizedDistanceMetric === "manhattan") {
-    distanceFunction = require("./distanceFunctions/manhattan").distance;
-  } else if (normalizedDistanceMetric === "euclidean") {
-    distanceFunction = require("./distanceFunctions/euclidean").distance;
-  } else if (normalizedDistanceMetric === "squaredeuclidean") {
-    distanceFunction = require("./distanceFunctions/squaredEuclidean").distance;
+  if (normalizedDistanceMetric === 'manhattan') {
+    distanceFunction = require('./distanceFunctions/manhattan').distance;
+  } else if (normalizedDistanceMetric === 'euclidean') {
+    distanceFunction = require('./distanceFunctions/euclidean').distance;
+  } else if (normalizedDistanceMetric === 'squaredeuclidean') {
+    distanceFunction = require('./distanceFunctions/squaredEuclidean').distance;
   }
 
   return distanceFunction;
@@ -88,22 +88,22 @@ var DTW = function (options) {
   var state = {
     distanceCostMatrix: null,
   };
-  if (typeof options === "undefined") {
-    state.distance = require("./distanceFunctions/squaredEuclidean").distance;
+  if (typeof options === 'undefined') {
+    state.distance = require('./distanceFunctions/squaredEuclidean').distance;
   } else {
     validateOptions(options);
-    if (typeof options.distanceMetric === "string") {
+    if (typeof options.distanceMetric === 'string') {
       state.distance = retrieveDistanceFunction(options.distanceMetric);
-    } else if (typeof options.distanceFunction === "function") {
+    } else if (typeof options.distanceFunction === 'function') {
       state.distance = options.distanceFunction;
     }
   }
 
   this.compute = function (firstSequence, secondSequence, window) {
     var cost = Number.POSITIVE_INFINITY;
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       cost = computeOptimalPath(firstSequence, secondSequence, state);
-    } else if (typeof window === "number") {
+    } else if (typeof window === 'number') {
       cost = computeOptimalPathWithWindow(
         firstSequence,
         secondSequence,
@@ -111,7 +111,7 @@ var DTW = function (options) {
         state
       );
     } else {
-      throw new TypeError("Invalid window parameter type: expected a number");
+      throw new TypeError('Invalid window parameter type: expected a number');
     }
 
     return cost;
@@ -128,12 +128,12 @@ var DTW = function (options) {
 };
 
 function validateComputeParameters(s, t) {
-  validate.sequence(s, "firstSequence");
-  validate.sequence(t, "secondSequence");
+  validate.sequence(s, 'firstSequence');
+  validate.sequence(t, 'secondSequence');
 }
 
 function computeOptimalPath(s, t, state) {
-  debug("> computeOptimalPath");
+  debug('> computeOptimalPath');
   validateComputeParameters(s, t);
   var start = new Date().getTime();
   state.m = s.length;
@@ -173,14 +173,14 @@ function computeOptimalPath(s, t, state) {
 
   var end = new Date().getTime();
   var time = end - start;
-  debug("< computeOptimalPath (" + time + " ms)");
+  debug('< computeOptimalPath (' + time + ' ms)');
   state.distanceCostMatrix = distanceCostMatrix;
   state.similarity = distanceCostMatrix[state.m - 1][state.n - 1];
   return state.similarity;
 }
 
 function computeOptimalPathWithWindow(s, t, w, state) {
-  debug("> computeOptimalPathWithWindow");
+  debug('> computeOptimalPathWithWindow');
   validateComputeParameters(s, t);
   var start = new Date().getTime();
   state.m = s.length;
@@ -212,7 +212,7 @@ function computeOptimalPathWithWindow(s, t, w, state) {
 
   var end = new Date().getTime();
   var time = end - start;
-  debug("< computeOptimalPathWithWindow (" + time + " ms)");
+  debug('< computeOptimalPathWithWindow (' + time + ' ms)');
   distanceCostMatrix.shift();
   distanceCostMatrix = distanceCostMatrix.map(function (row) {
     return row.slice(1, row.length);
@@ -223,7 +223,7 @@ function computeOptimalPathWithWindow(s, t, w, state) {
 }
 
 function retrieveOptimalPath(state) {
-  debug("> retrieveOptimalPath");
+  debug('> retrieveOptimalPath');
   var start = new Date().getTime();
 
   var rowIndex = state.m - 1;
@@ -274,7 +274,7 @@ function retrieveOptimalPath(state) {
 
   var end = new Date().getTime();
   var time = end - start;
-  debug("< retrieveOptimalPath (" + time + " ms)");
+  debug('< retrieveOptimalPath (' + time + ' ms)');
   return path.reverse();
 }
 

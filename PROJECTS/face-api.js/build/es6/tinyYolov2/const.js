@@ -1,4 +1,4 @@
-import { Point } from "tfjs-image-recognition-base";
+import { Point } from 'tfjs-image-recognition-base';
 export var IOU_THRESHOLD = 0.4;
 export var BOX_ANCHORS = [
   new Point(0.738768, 0.874946),
@@ -15,7 +15,7 @@ export var BOX_ANCHORS_SEPARABLE = [
   new Point(9.041765, 10.66308),
 ];
 export var MEAN_RGB_SEPARABLE = [117.001, 114.697, 97.404];
-export var DEFAULT_MODEL_NAME = "tiny_yolov2_model";
+export var DEFAULT_MODEL_NAME = 'tiny_yolov2_model';
 export var DEFAULT_MODEL_NAME_SEPARABLE_CONV =
-  "tiny_yolov2_separable_conv_model";
+  'tiny_yolov2_separable_conv_model';
 //# sourceMappingURL=const.js.map

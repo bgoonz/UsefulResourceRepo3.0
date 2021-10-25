@@ -7,8 +7,8 @@
  * the public interface. You could also use ES2019 private fields, but those
  * are not yet widely available as of the time of my writing.
  */
-const head = Symbol("head");
-const tail = Symbol("tail");
+const head = Symbol('head');
+const tail = Symbol('tail');
 
 /**
  * Represents a single node in a DoublyLinkedList.

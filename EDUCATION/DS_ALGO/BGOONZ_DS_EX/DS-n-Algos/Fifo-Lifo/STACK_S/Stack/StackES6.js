@@ -27,7 +27,7 @@ class Stack {
       this.top -= 1;
       return this.stack.pop();
     }
-    throw new Error("Stack Underflow");
+    throw new Error('Stack Underflow');
   }
 
   // Returns the number of elements in the Stack
@@ -54,15 +54,15 @@ class Stack {
   }
 }
 const newStack = new Stack();
-console.log("Is it a Stack?,", Stack.isStack(newStack));
-console.log("Is stack empty? ", newStack.isEmpty);
-newStack.push("Hello world");
+console.log('Is it a Stack?,', Stack.isStack(newStack));
+console.log('Is stack empty? ', newStack.isEmpty);
+newStack.push('Hello world');
 newStack.push(42);
 newStack.push({ a: 6, b: 7 });
-console.log("The length of stack is ", newStack.length);
-console.log("Is stack empty? ", newStack.isEmpty);
-console.log("Give me the last one ", newStack.last);
-console.log("Pop the latest ", newStack.pop());
-console.log("Pop the latest ", newStack.pop());
-console.log("Pop the latest ", newStack.pop());
-console.log("Is stack empty? ", newStack.isEmpty);
+console.log('The length of stack is ', newStack.length);
+console.log('Is stack empty? ', newStack.isEmpty);
+console.log('Give me the last one ', newStack.last);
+console.log('Pop the latest ', newStack.pop());
+console.log('Pop the latest ', newStack.pop());
+console.log('Pop the latest ', newStack.pop());
+console.log('Is stack empty? ', newStack.isEmpty);

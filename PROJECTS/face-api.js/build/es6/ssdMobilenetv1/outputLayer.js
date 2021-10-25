@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 function getCenterCoordinatesAndSizesLayer(x) {
   var vec = tf.unstack(tf.transpose(x, [1, 0]));
   var sizes = [tf.sub(vec[2], vec[0]), tf.sub(vec[3], vec[1])];

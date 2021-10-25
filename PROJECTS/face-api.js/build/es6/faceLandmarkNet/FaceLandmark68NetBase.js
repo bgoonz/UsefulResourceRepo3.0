@@ -1,8 +1,8 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { isEven, Point, toNetInput } from "tfjs-image-recognition-base";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { FaceProcessor } from "../faceProcessor/FaceProcessor";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { isEven, Point, toNetInput } from 'tfjs-image-recognition-base';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { FaceProcessor } from '../faceProcessor/FaceProcessor';
 var FaceLandmark68NetBase = /** @class */ (function (_super) {
   tslib_1.__extends(FaceLandmark68NetBase, _super);
   function FaceLandmark68NetBase() {

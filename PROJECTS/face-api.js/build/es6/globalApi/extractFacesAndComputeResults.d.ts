@@ -1,8 +1,8 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TNetInput } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../factories/WithFaceLandmarks";
+import * as tf from '@tensorflow/tfjs-core';
+import { TNetInput } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../factories/WithFaceLandmarks';
 export declare function extractAllFacesAndComputeResults<
   TSource extends WithFaceDetection<{}>,
   TResult

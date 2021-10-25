@@ -1,5 +1,5 @@
 export function isWithAge(obj) {
-  return typeof obj["age"] === "number";
+  return typeof obj['age'] === 'number';
 }
 export function extendWithAge(sourceObj, age) {
   var extension = { age: age };

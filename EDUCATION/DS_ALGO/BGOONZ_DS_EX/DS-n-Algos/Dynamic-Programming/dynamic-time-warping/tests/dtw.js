@@ -1,16 +1,16 @@
-const should = require("should");
-const DTW = require("../lib/dtw.js");
+const should = require('should');
+const DTW = require('../lib/dtw.js');
 
-describe("DTW", () => {
-  describe("#Constructor()", () => {
-    it("should not throw an error upon no value being passed for initialization", () => {
+describe('DTW', () => {
+  describe('#Constructor()', () => {
+    it('should not throw an error upon no value being passed for initialization', () => {
       (() => {
-        const instanceFunctions = ["compute", "path"];
+        const instanceFunctions = ['compute', 'path'];
         const dtw = new DTW();
         instanceFunctions.forEach((fn) => {
           const typeName = typeof dtw[fn];
           typeName.should.equal(
-            "function",
+            'function',
             "Expected function to be accessible: '" + fn + "'"
           );
         });
@@ -18,9 +18,9 @@ describe("DTW", () => {
     });
   });
 
-  describe("#Constructor(value)", () => {
-    it("should throw an error upon an invalid value being passed for initialization", () => {
-      const invalidOptions = [null, "", {}, () => {}];
+  describe('#Constructor(value)', () => {
+    it('should throw an error upon an invalid value being passed for initialization', () => {
+      const invalidOptions = [null, '', {}, () => {}];
 
       invalidOptions.forEach((options) => {
         (() => {
@@ -29,8 +29,8 @@ describe("DTW", () => {
       });
     });
 
-    it("should throw an error upon an invalid distance metric value being passed for initialization", () => {
-      const invalidDistanceMetrics = [null, "", {}, "ea", undefined, () => {}];
+    it('should throw an error upon an invalid distance metric value being passed for initialization', () => {
+      const invalidDistanceMetrics = [null, '', {}, 'ea', undefined, () => {}];
 
       invalidDistanceMetrics.forEach((distanceMetric) => {
         (() => {
@@ -41,8 +41,8 @@ describe("DTW", () => {
       });
     });
 
-    it("should throw an error upon an invalid distance function value being passed for initialization", () => {
-      const invalidDistanceFunctions = [null, "", {}, "ea", undefined];
+    it('should throw an error upon an invalid distance function value being passed for initialization', () => {
+      const invalidDistanceFunctions = [null, '', {}, 'ea', undefined];
 
       invalidDistanceFunctions.forEach((distanceFunction) => {
         (() => {
@@ -53,10 +53,10 @@ describe("DTW", () => {
       });
     });
 
-    it("should throw an error upon an providing both distance metric and function value being passed for initialization", () => {
+    it('should throw an error upon an providing both distance metric and function value being passed for initialization', () => {
       (() => {
         const options = {
-          distanceMetric: "manhattan",
+          distanceMetric: 'manhattan',
           distanceFunction(x, y) {
             return x + y;
           },
@@ -65,14 +65,14 @@ describe("DTW", () => {
       }).should.throw();
     });
 
-    it("should not throw an error upon an providing a valid distance metric passed for initialization", () => {
+    it('should not throw an error upon an providing a valid distance metric passed for initialization', () => {
       const validDistanceMetric = [
-        "manhattan",
-        "manhattaN",
-        "euclidean",
-        "eucLidean",
-        "squaredeuclidean",
-        "squaredEuclidean",
+        'manhattan',
+        'manhattaN',
+        'euclidean',
+        'eucLidean',
+        'squaredeuclidean',
+        'squaredEuclidean',
       ];
 
       validDistanceMetric.forEach((distanceMetric) => {
@@ -85,7 +85,7 @@ describe("DTW", () => {
       });
     });
 
-    it("should not throw an error upon an providing a valid distance function passed for initialization", () => {
+    it('should not throw an error upon an providing a valid distance function passed for initialization', () => {
       (() => {
         const options = {
           distanceFunction(x, y) {
@@ -97,14 +97,14 @@ describe("DTW", () => {
     });
   });
 
-  describe("#compute(value1, value2)", () => {
-    it("should throw if invalid type for first sequence", () => {
-      const invalidSequences = [null, {}, () => {}, [], "", 0];
+  describe('#compute(value1, value2)', () => {
+    it('should throw if invalid type for first sequence', () => {
+      const invalidSequences = [null, {}, () => {}, [], '', 0];
 
       invalidSequences.forEach((s) => {
         (() => {
           const options = {
-            distanceMetric: "squaredEuclidean",
+            distanceMetric: 'squaredEuclidean',
           };
           const dtw = new DTW(options);
           const t = [1, 1, 2, 2, 3, 3, 2, 4, 4, 4];
@@ -113,13 +113,13 @@ describe("DTW", () => {
       });
     });
 
-    it("should throw if invalid type for second sequence", () => {
-      const invalidSequences = [null, {}, () => {}, [], "", 0];
+    it('should throw if invalid type for second sequence', () => {
+      const invalidSequences = [null, {}, () => {}, [], '', 0];
 
       invalidSequences.forEach((t) => {
         (() => {
           const options = {
-            distanceMetric: "squaredEuclidean",
+            distanceMetric: 'squaredEuclidean',
           };
           const dtw = new DTW(options);
           const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -128,9 +128,9 @@ describe("DTW", () => {
       });
     });
 
-    it("should compute a valid similarity value for the squared euclidean distance metric", () => {
+    it('should compute a valid similarity value for the squared euclidean distance metric', () => {
       const options = {
-        distanceMetric: "squaredEuclidean",
+        distanceMetric: 'squaredEuclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -139,9 +139,9 @@ describe("DTW", () => {
       cost.should.equal(0);
     });
 
-    it("should compute a valid similarity value for the euclidean distance metric", () => {
+    it('should compute a valid similarity value for the euclidean distance metric', () => {
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -150,9 +150,9 @@ describe("DTW", () => {
       cost.should.equal(0);
     });
 
-    it("should compute a valid similarity value for the manhattan distance metric", () => {
+    it('should compute a valid similarity value for the manhattan distance metric', () => {
       const options = {
-        distanceMetric: "manhattan",
+        distanceMetric: 'manhattan',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -162,14 +162,14 @@ describe("DTW", () => {
     });
   });
 
-  describe("#compute(value1, value2, value3)", () => {
-    it("should throw if invalid window type", () => {
-      const invalidWindowTypes = [null, {}, () => {}, [], "", [0]];
+  describe('#compute(value1, value2, value3)', () => {
+    it('should throw if invalid window type', () => {
+      const invalidWindowTypes = [null, {}, () => {}, [], '', [0]];
 
       invalidWindowTypes.forEach((w) => {
         (() => {
           const options = {
-            distanceMetric: "squaredEuclidean",
+            distanceMetric: 'squaredEuclidean',
           };
           const dtw = new DTW(options);
           const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -179,9 +179,9 @@ describe("DTW", () => {
       });
     });
 
-    it("should compute a valid similarity value for the squared euclidean distance metric", () => {
+    it('should compute a valid similarity value for the squared euclidean distance metric', () => {
       const options = {
-        distanceMetric: "squaredEuclidean",
+        distanceMetric: 'squaredEuclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -191,9 +191,9 @@ describe("DTW", () => {
       cost.should.equal(0);
     });
 
-    it("should compute a valid similarity value for the euclidean distance metric", () => {
+    it('should compute a valid similarity value for the euclidean distance metric', () => {
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -203,9 +203,9 @@ describe("DTW", () => {
       cost.should.equal(0);
     });
 
-    it("should compute a valid similarity value for the manhattan distance metric", () => {
+    it('should compute a valid similarity value for the manhattan distance metric', () => {
       const options = {
-        distanceMetric: "manhattan",
+        distanceMetric: 'manhattan',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -216,10 +216,10 @@ describe("DTW", () => {
     });
   });
 
-  describe("#path()", () => {
-    it("should compute a valid similarity value and path for the squared euclidean distance metric", () => {
+  describe('#path()', () => {
+    it('should compute a valid similarity value and path for the squared euclidean distance metric', () => {
       const options = {
-        distanceMetric: "squaredEuclidean",
+        distanceMetric: 'squaredEuclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -247,9 +247,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the euclidean distance metric", () => {
+    it('should compute a valid similarity value and path for the euclidean distance metric', () => {
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -277,9 +277,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the manhattan distance metric", () => {
+    it('should compute a valid similarity value and path for the manhattan distance metric', () => {
       const options = {
-        distanceMetric: "manhattan",
+        distanceMetric: 'manhattan',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -307,9 +307,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the squared euclidean distance metric with infinity locality constraint", () => {
+    it('should compute a valid similarity value and path for the squared euclidean distance metric with infinity locality constraint', () => {
       const options = {
-        distanceMetric: "squaredEuclidean",
+        distanceMetric: 'squaredEuclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -338,9 +338,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the euclidean distance metric with locality infinity constraint", () => {
+    it('should compute a valid similarity value and path for the euclidean distance metric with locality infinity constraint', () => {
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -369,9 +369,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the manhattan distance metric with locality infinity constraint", () => {
+    it('should compute a valid similarity value and path for the manhattan distance metric with locality infinity constraint', () => {
       const options = {
-        distanceMetric: "manhattan",
+        distanceMetric: 'manhattan',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -400,9 +400,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the squared euclidean distance metric with locality constraint", () => {
+    it('should compute a valid similarity value and path for the squared euclidean distance metric with locality constraint', () => {
       const options = {
-        distanceMetric: "squaredEuclidean",
+        distanceMetric: 'squaredEuclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -431,9 +431,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the euclidean distance metric with locality constraint", () => {
+    it('should compute a valid similarity value and path for the euclidean distance metric with locality constraint', () => {
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -462,9 +462,9 @@ describe("DTW", () => {
       path.should.eql(expectedPath);
     });
 
-    it("should compute a valid similarity value and path for the manhattan distance metric with locality constraint", () => {
+    it('should compute a valid similarity value and path for the manhattan distance metric with locality constraint', () => {
       const options = {
-        distanceMetric: "manhattan",
+        distanceMetric: 'manhattan',
       };
       const dtw = new DTW(options);
       const s = [1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4];
@@ -494,8 +494,8 @@ describe("DTW", () => {
     });
   });
 
-  describe("algorithm implementation", () => {
-    it("should compute valid cost and path 1 with no locality constraint", () => {
+  describe('algorithm implementation', () => {
+    it('should compute valid cost and path 1 with no locality constraint', () => {
       const s = [
         0.13105, -0.1966, -0.81353, 1.49472, 0.42999, 0.22573, 0.91088, 0.19439,
         0.87484, 0.28494, -1.72894, -0.60786, 1.17165, 0.62805, 0.52309,
@@ -535,7 +535,7 @@ describe("DTW", () => {
       path.should.be.eql(expectdPath);
     });
 
-    it("should compute valid cost and path 2 with no locality constraint", () => {
+    it('should compute valid cost and path 2 with no locality constraint', () => {
       const s = [1, 1, 2, 3, 2, 0];
       const t = [0, 1, 1, 2, 3, 2, 1];
       const dtw = new DTW();
@@ -554,7 +554,7 @@ describe("DTW", () => {
       path.should.be.eql(expectedPath);
     });
 
-    it("should compute valid cost and path 3 with locality constraint", () => {
+    it('should compute valid cost and path 3 with locality constraint', () => {
       const s = [
         0.4125044, 0.1827033, 0.7174426, 0.5938232, 0.4614635, 0.5900535,
         0.8329995, 0.2489138, 0.020492, 0.9778591, 0.5764358, 0.4740868,
@@ -577,7 +577,7 @@ describe("DTW", () => {
         0.467764, 0.315294, 0.165611,
       ];
       const options = {
-        distanceMetric: "euclidean",
+        distanceMetric: 'euclidean',
       };
       const dtw = new DTW(options);
       const w = 5;

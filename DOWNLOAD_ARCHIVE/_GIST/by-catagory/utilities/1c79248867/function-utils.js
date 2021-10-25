@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
  * Copyright 2020 Palantir Technologies, Inc. All rights reserved.
  *
@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.safeInvokeOrValue = exports.safeInvoke = exports.isFunction = void 0;
 /** Returns whether the value is a function. Acts as a type guard. */
 // eslint-disable-next-line @typescript-eslint/ban-types
 function isFunction(value) {
-  return typeof value === "function";
+  return typeof value === 'function';
 }
 exports.isFunction = isFunction;
 // eslint-disable-next-line @typescript-eslint/ban-types

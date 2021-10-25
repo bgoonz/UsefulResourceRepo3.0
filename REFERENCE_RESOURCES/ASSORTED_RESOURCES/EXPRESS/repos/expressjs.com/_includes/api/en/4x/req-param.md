@@ -8,15 +8,15 @@ Returns the value of param `name` when present.
 
 ```js
 // ?name=tobi
-req.param("name");
+req.param('name');
 // => "tobi"
 
 // POST name=tobi
-req.param("name");
+req.param('name');
 // => "tobi"
 
 // /user/tobi for /user/:name
-req.param("name");
+req.param('name');
 // => "tobi"
 ```
 

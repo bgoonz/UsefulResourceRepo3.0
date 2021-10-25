@@ -7,10 +7,10 @@ module.exports = {
    * @return The parent `example-choice` element
    */
   findParentChoiceElem: function (element) {
-    "use strict";
+    'use strict';
     var parent = element.parentElement;
     var parentClassList = parent.classList;
-    while (parent && !parentClassList.contains("example-choice")) {
+    while (parent && !parentClassList.contains('example-choice')) {
       // get the next parent
       parent = parent.parentElement;
       // get the new parent's `classList`
@@ -24,20 +24,20 @@ module.exports = {
    * @param {Object} dataset = The dataset from which to get the property
    */
   isPropertySupported: function (dataset) {
-    "use strict";
+    'use strict';
 
     /* If there are no 'property' attributes,
            there is nothing to test, so return true. */
-    if (dataset["property"] === undefined) {
+    if (dataset['property'] === undefined) {
       return true;
     }
 
     // `property` may be a space-separated list of properties.
-    var properties = dataset["property"].split(" ");
+    var properties = dataset['property'].split(' ');
     /* Iterate through properties: if any of them apply,
         the browser supports this example. */
     var supported = false;
-    var tmpElem = document.createElement("div");
+    var tmpElem = document.createElement('div');
 
     for (var i = 0, l = properties.length; i < l; i++) {
       if (tmpElem.style[properties[i]] !== undefined) {
@@ -54,7 +54,7 @@ module.exports = {
    */
   openLinksInNewTab: function (externalLinks) {
     externalLinks.forEach(function (externalLink) {
-      externalLink.addEventListener("click", function (event) {
+      externalLink.addEventListener('click', function (event) {
         event.preventDefault();
         window.open(externalLink.href);
       });
@@ -70,7 +70,7 @@ module.exports = {
     // developer.mozilla.org or wiki.developer.mozilla.org or the
     // staging site. There is no confidential data being sent so
     // this is not a security risk.
-    window.parent.postMessage(perf, "*");
+    window.parent.postMessage(perf, '*');
   },
   /**
    * Interrupts the default click event on relative links inside
@@ -80,7 +80,7 @@ module.exports = {
    */
   scrollToAnchors: function (shadow, relativeLinks) {
     relativeLinks.forEach(function (relativeLink) {
-      relativeLink.addEventListener("click", function (event) {
+      relativeLink.addEventListener('click', function (event) {
         event.preventDefault();
         shadow.querySelector(relativeLink.hash).scrollIntoView();
       });
@@ -91,12 +91,12 @@ module.exports = {
    * @param {object} customBlock - The HTML section to show
    */
   showCustomExampleHTML: function (customBlock) {
-    "use strict";
-    var defaultExample = document.getElementById("default-example");
-    defaultExample.classList.add("hidden");
-    defaultExample.setAttribute("aria-hidden", true);
+    'use strict';
+    var defaultExample = document.getElementById('default-example');
+    defaultExample.classList.add('hidden');
+    defaultExample.setAttribute('aria-hidden', true);
 
-    customBlock.classList.remove("hidden");
-    customBlock.setAttribute("aria-hidden", false);
+    customBlock.classList.remove('hidden');
+    customBlock.setAttribute('aria-hidden', false);
   },
 };

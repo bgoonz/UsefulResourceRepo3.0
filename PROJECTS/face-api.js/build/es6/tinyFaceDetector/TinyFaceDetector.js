@@ -1,7 +1,7 @@
-import * as tslib_1 from "tslib";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes";
-import { BOX_ANCHORS, IOU_THRESHOLD, MEAN_RGB } from "./const";
+import * as tslib_1 from 'tslib';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes';
+import { BOX_ANCHORS, IOU_THRESHOLD, MEAN_RGB } from './const';
 var TinyFaceDetector = /** @class */ (function (_super) {
   tslib_1.__extends(TinyFaceDetector, _super);
   function TinyFaceDetector() {
@@ -9,7 +9,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     var config = {
       withSeparableConvs: true,
       iouThreshold: IOU_THRESHOLD,
-      classes: ["face"],
+      classes: ['face'],
       anchors: BOX_ANCHORS,
       meanRgb: MEAN_RGB,
       isFirstLayerConv2d: true,
@@ -18,7 +18,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     _this = _super.call(this, config) || this;
     return _this;
   }
-  Object.defineProperty(TinyFaceDetector.prototype, "anchors", {
+  Object.defineProperty(TinyFaceDetector.prototype, 'anchors', {
     get: function () {
       return this.config.anchors;
     },
@@ -48,7 +48,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     });
   };
   TinyFaceDetector.prototype.getDefaultModelName = function () {
-    return "tiny_face_detector_model";
+    return 'tiny_face_detector_model';
   };
   TinyFaceDetector.prototype.extractParamsFromWeigthMap = function (weightMap) {
     return _super.prototype.extractParamsFromWeigthMap.call(this, weightMap);

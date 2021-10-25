@@ -1,4 +1,4 @@
-import { Point } from "tfjs-image-recognition-base";
+import { Point } from 'tfjs-image-recognition-base';
 export var IOU_THRESHOLD = 0.4;
 export var BOX_ANCHORS = [
   new Point(1.603231, 2.094468),

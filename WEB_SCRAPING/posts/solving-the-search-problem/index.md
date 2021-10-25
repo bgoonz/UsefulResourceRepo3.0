@@ -1,34 +1,30 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Solving the search problem
-==========================
+# Solving the search problem
 
 February 06, 2017 • 3 min read
 
-I recently wrote about [using an ORM](../index-2.html) and how it allowed me to support five different database platforms with minimal effort. There is, however, one feature that even Sequelize couldn't tackle for me: *full-text search*
+I recently wrote about [using an ORM](../index-2.html) and how it allowed me to support five different database platforms with minimal effort. There is, however, one feature that even Sequelize couldn't tackle for me: _full-text search_
 
 A full-text search is typically a database feature that lets you locate content just like you would in a search engine. Ideally, the results are ranked by some sort of relevancy score.
 
 The problem is that not all databases support full-text search out of the box, and the ones that do don't necessarily rank results the same way.
 
-Searching with SQLite <a href="#searching-with-sqlite" class="direct-link">#</a>
---------------------------------------------------------------------------------
+## Searching with SQLite <a href="#searching-with-sqlite" class="direct-link">#</a>
 
 I'm using SQLite at the moment for development, and while it supports full-text search, you have to use one of three possible extensions (FTS3, FTS4, FTS5) that must be compiled along with SQLite.
 
 Having three extensions is confusing enough, much less making users compile their own version of SQLite just to run Postleaf. And none of this accounts for the four other database dialects that I'd like to support.
 
-Searching with MySQL <a href="#searching-with-mysql" class="direct-link">#</a>
-------------------------------------------------------------------------------
+## Searching with MySQL <a href="#searching-with-mysql" class="direct-link">#</a>
 
 The previous version of Postleaf ran on top of MySQL, which has a built-in full-text search. Once you create an index, you can search against content with relative ease. Results are reasonably relevant, but not amazing.
 
 Some quirks — it ignores any term that's three letters or less. So a search for "cat" will always yield zero results. And if you want to rank a post's title higher than its content (a weighted search), you have to do the math and write the raw SQL yourself. Lame.
 
-Solving Search is hard! <a href="#solving-search-is-hard!" class="direct-link">#</a>
-------------------------------------------------------------------------------------
+## Solving Search is hard! <a href="#solving-search-is-hard!" class="direct-link">#</a>
 
 It's true, search is hard, but this problem is much bigger than Postleaf. Ghost has a [two year old issue](https://github.com/TryGhost/Ghost/issues/5321) about it and a lot of people complain that WordPress searches [lack relevance](http://www.noupe.com/wordpress/improving-the-default-search-experience-in-wordpress-75862.html).
 
@@ -38,8 +34,7 @@ A more effective way to solve this problem is with a dedicated search engine suc
 
 Making a complex third-party app a dependency of Postleaf was simply not going to happen. And while there are other options out there, they tend to be more complicated than they're worth for the simple search that I needed for Postleaf.
 
-Experimenting with Lunr <a href="#experimenting-with-lunr" class="direct-link">#</a>
-------------------------------------------------------------------------------------
+## Experimenting with Lunr <a href="#experimenting-with-lunr" class="direct-link">#</a>
 
 After some searching around, I began experimenting with a JavaScript library called [Lunr](http://lunrjs.com/). Lunr can be used with Node.js apps or directly in the browser.
 
@@ -65,8 +60,7 @@ And then you can search quite easily:
 
 Lunr is fast, lightweight, and JavaScript. And it's results are spot on! I immediately knew it would be a key component to my full-text search solution, but some challenges still remained.
 
-Implementing Lunr in Postleaf <a href="#implementing-lunr-in-postleaf" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------
+## Implementing Lunr in Postleaf <a href="#implementing-lunr-in-postleaf" class="direct-link">#</a>
 
 My initial approach to implementing Lunr turned out to be expensive. I wanted to see how fast fetching, indexing, and searching would be on the fly. It looked something like this:
 
@@ -89,7 +83,7 @@ Needless to say, the Postleaf rebuild is shipping with a fast, relevant, databas
 
 <a href="../../tags/postleaf/index.html" class="post-tag">postleaf</a> <a href="../../tags/lunr/index.html" class="post-tag">lunr</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -97,6 +91,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../moving-to-nodejs/index.html" class="post-nav-previous"><span class="small">Previous post</span> Moving to Node.js</a> <a href="../using-an-orm/index.html" class="post-nav-next"><span class="small">Up next</span> Using an ORM</a>

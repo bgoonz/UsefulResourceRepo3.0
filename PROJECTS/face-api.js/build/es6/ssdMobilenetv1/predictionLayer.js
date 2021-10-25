@@ -1,6 +1,6 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { boxPredictionLayer } from "./boxPredictionLayer";
-import { pointwiseConvLayer } from "./pointwiseConvLayer";
+import * as tf from '@tensorflow/tfjs-core';
+import { boxPredictionLayer } from './boxPredictionLayer';
+import { pointwiseConvLayer } from './pointwiseConvLayer';
 export function predictionLayer(x, conv11, params) {
   return tf.tidy(function () {
     var conv0 = pointwiseConvLayer(x, params.conv_0, [1, 1]);

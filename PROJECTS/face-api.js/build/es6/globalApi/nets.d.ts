@@ -1,25 +1,25 @@
 import {
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
-import { AgeGenderNet } from "../ageGenderNet/AgeGenderNet";
-import { AgeAndGenderPrediction } from "../ageGenderNet/types";
-import { FaceDetection } from "../classes/FaceDetection";
-import { FaceLandmarks5 } from "../classes/FaceLandmarks5";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { FaceExpressionNet } from "../faceExpressionNet/FaceExpressionNet";
-import { FaceExpressions } from "../faceExpressionNet/FaceExpressions";
-import { FaceLandmark68Net } from "../faceLandmarkNet/FaceLandmark68Net";
-import { FaceLandmark68TinyNet } from "../faceLandmarkNet/FaceLandmark68TinyNet";
-import { FaceRecognitionNet } from "../faceRecognitionNet/FaceRecognitionNet";
-import { WithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { Mtcnn } from "../mtcnn/Mtcnn";
-import { MtcnnOptions } from "../mtcnn/MtcnnOptions";
-import { SsdMobilenetv1 } from "../ssdMobilenetv1/SsdMobilenetv1";
-import { SsdMobilenetv1Options } from "../ssdMobilenetv1/SsdMobilenetv1Options";
-import { TinyFaceDetector } from "../tinyFaceDetector/TinyFaceDetector";
-import { TinyFaceDetectorOptions } from "../tinyFaceDetector/TinyFaceDetectorOptions";
-import { TinyYolov2 } from "../tinyYolov2";
+} from 'tfjs-image-recognition-base';
+import { AgeGenderNet } from '../ageGenderNet/AgeGenderNet';
+import { AgeAndGenderPrediction } from '../ageGenderNet/types';
+import { FaceDetection } from '../classes/FaceDetection';
+import { FaceLandmarks5 } from '../classes/FaceLandmarks5';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { FaceExpressionNet } from '../faceExpressionNet/FaceExpressionNet';
+import { FaceExpressions } from '../faceExpressionNet/FaceExpressions';
+import { FaceLandmark68Net } from '../faceLandmarkNet/FaceLandmark68Net';
+import { FaceLandmark68TinyNet } from '../faceLandmarkNet/FaceLandmark68TinyNet';
+import { FaceRecognitionNet } from '../faceRecognitionNet/FaceRecognitionNet';
+import { WithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { Mtcnn } from '../mtcnn/Mtcnn';
+import { MtcnnOptions } from '../mtcnn/MtcnnOptions';
+import { SsdMobilenetv1 } from '../ssdMobilenetv1/SsdMobilenetv1';
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options';
+import { TinyFaceDetector } from '../tinyFaceDetector/TinyFaceDetector';
+import { TinyFaceDetectorOptions } from '../tinyFaceDetector/TinyFaceDetectorOptions';
+import { TinyYolov2 } from '../tinyYolov2';
 export declare const nets: {
   ssdMobilenetv1: SsdMobilenetv1;
   tinyFaceDetector: TinyFaceDetector;
