@@ -1,0 +1,570 @@
+Progressive Web Apps (PWAs) are web apps that are [progressively enhanced](https://en.wikipedia.org/wiki/Progressive_enhancement "Progressive enhancement | Wikipedia"). The progressive enhancements include app-like features, such as installation, offline support, and push notifications. You can also package your PWA for app stores, such as Microsoft Store, Google Play, and Mac App Store. The Microsoft Store is the commercial app store built into Windows 10.
+
+The following guide gives you an overview of PWA basics by creating a simple web app and extending it as a PWA. The finished project works across modern browsers.
+
+ Tip
+
+You can use [PWABuilder](https://www.pwabuilder.com/ "PWA Builder") to create a new PWA, enhance your existing PWA, or package your PWA for app stores.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#prerequisites)Prerequisites
+------------------------------------------------------------------------------------------------------------------------
+
+-   Use [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code") to edit your PWA source code.
+-   Use [Node.js](https://nodejs.org/ "Node.js") as your local web server.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#create-a-basic-web-app)Create a basic web app
+------------------------------------------------------------------------------------------------------------------------------------------
+
+To create an empty web app, follow the steps in [Node Express App Generator](https://expressjs.com/starter/generator.html "Express application generator | Express"), and name your app `MySamplePwa`.
+
+In the prompt, run the following commands.
+
+shellCopy
+
+```
+npx express-generator --no-view
+
+```
+
+shellCopy
+
+```
+npm install
+
+```
+
+The commands create an empty web app and install any dependencies.
+
+You now have a simple, functional web app. To start your web app, run the following command.
+
+shellCopy
+
+```
+npm start
+
+```
+
+Now browse to `http://localhost:3000` to view your new web app.
+
+[![Running your new PWA on localhost](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+[
+
+Running your new PWA on localhost
+
+](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#get-started-building-a-pwa)Get started building a PWA
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Now that you have a simple web app, extend it as a PWA by adding the three requirements for PWAs: [HTTPS](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-1---use-https), a [Web App Manifest](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-2---create-a-web-app-manifest), and a [Service Worker](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-3---add-a-service-worker).
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-1---use-https)Step 1 - Use HTTPS
+
+Key parts of the PWA platform, such as [Service Workers](https://developer.mozilla.org/docs/Web/API/Service_Worker_API "Service Worker API | MDN"), require the use of HTTPS. When your PWA goes live, you must publish it to an HTTPS URL.
+
+For debugging purposes, Microsoft Edge also permits `http://localhost` to use the PWA APIs.
+
+[Publish your web app as a live site](https://docs.microsoft.com/en-us/azure/javascript/tutorial-vscode-azure-app-service-node-03 "Deploy a Node.js app to Azure with Visual Studio Code | Microsoft Docs"), but make sure your server is configured for HTTPS. For example, you can create an [Azure free account](https://azure.microsoft.com/free "Create Azure free account | Microsoft Azure"). Host your site on the [Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web "Web Apps | Microsoft Azure") and it is served over HTTPS by default.
+
+The following guide, use `http://localhost` to build your PWA.
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-2---create-a-web-app-manifest)Step 2 - Create a Web App Manifest
+
+A [Web App Manifest](https://developer.mozilla.org/docs/Web/Manifest "Web App Manifest | MDN") is a JSON file containing metadata about your app, such as name, description, icons, and more.
+
+To add an app manifest to the web app:
+
+1.  In Visual Studio Code, select File > Open Folder and then select the `MySamplePwa` directory you created earlier.
+
+2.  Select `Ctrl`+`N` to create a new file, and paste in the following code snippet.
+
+    JSONCopy
+
+    ```
+    {
+        "lang": "en-us",
+        "name": "My Sample PWA",
+        "short_name": "SamplePWA",
+        "description": "A sample PWA for testing purposes",
+        "start_url": "/",
+        "background_color": "#2f3d58",
+        "theme_color": "#2f3d58",
+        "orientation": "any",
+        "display": "standalone",
+        "icons": [
+            {
+                "src": "/icon512.png",
+                "sizes": "512x512"
+            }
+        ]
+    }
+
+    ```
+
+3.  Save the file as `/MySamplePwa/public/manifest.json`.
+
+4.  Add a 512x512 app icon image named `icon512.png` to `/MySamplePwa/public/images`. You can use the [sample image](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/progressive-web-app.png) for testing purposes.
+
+5.  In Visual Studio Code, open `/public/index.html`, and add the following code snippet inside the `<head>` tag.
+
+    HTMLCopy
+
+    ```
+    <link rel="manifest" href="/manifest.json">
+
+    ```
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-3---add-a-service-worker)Step 3 - Add a Service Worker
+
+Service workers are the key technology behind PWAs, enabling scenarios that were previously limited to native apps, such as offline support, advanced caching, and running background tasks.
+
+Service workers are background tasks that intercept network requests from your web app. Service workers attempt to complete tasks, even when your PWA is not running. Tasks include:
+
+-   Serving requested resources from a cache.
+-   Sending push notifications.
+-   Running background fetch tasks.
+-   Badging icons.
+
+Service workers are defined in a special JavaScript file. For more information, navigate to [Using Service Workers](https://developer.mozilla.org/docs/Web/API/Service_Worker_API/Using_Service_Workers "Using Service Workers | MDN") and [Service Worker API](https://developer.mozilla.org/docs/Web/API/Service_Worker_API "Service Worker API | MDN").
+
+To build a service worker in your project, use the Cache-first network service worker recipe from PWA Builder, as follows.
+
+1.  Copy the source files [pwabuilder-sw-register.js](https://github.com/pwa-builder/pwabuilder-serviceworkers/blob/master/serviceWorker6/pwabuilder-sw-register.js " pwabuilder-serviceworkers/pwabuilder-sw-register.js | GitHub") and [pwabuilder-sw.js](https://github.com/pwa-builder/pwabuilder-serviceworkers/blob/master/serviceWorker6/pwabuilder-sw.js " pwabuilder-serviceworkers/pwabuilder-sw.js | GitHub") to the `public` folder in your web app project.
+
+2.  In Visual Studio Code, open `/public/index.html` and add the following code snippet inside the `<head>` tag.
+
+    HTMLCopy
+
+    ```
+    <script type="module" src="/pwabuilder-sw-register.js"></script>
+
+    ```
+
+Your web app now has a service worker that uses the cache-first strategy. The new service worker fetches resources from the cache first, and from the network only as needed. Cached resources include images, JavaScript, CSS, and HTML.
+
+Confirm that your service worker runs, as follows:
+
+1.  Navigate to your web app using `http://localhost:3000`. If your web app is not available, run the following command.
+
+    shellCopy
+
+    ```
+    npm start
+
+    ```
+
+2.  In Microsoft Edge, select `F12` to open the Microsoft Edge DevTools. Select Application, then Service Workers to view the service workers. If the service worker is not displayed, refresh the page.
+
+    [![Microsoft Edge DevTools Service Worker overview](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-sw-overview.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-sw-overview.png#lightbox)
+
+    [
+
+    Microsoft Edge DevTools Service Worker overview
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-sw-overview.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-sw-overview.png#lightbox)
+3.  View the service worker cache by expanding Cache Storage and select pwabuilder-precache. All of the resources cached by the service worker should be displayed. The resources cached by the service worker include the app icon, app manifest, CSS, and JavaScript files.
+
+    [![Service Worker cache in Microsoft Edge DevTools](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-cache.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-cache.png#lightbox)
+
+    [
+
+    Service Worker cache in Microsoft Edge DevTools (F12)
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-cache.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-cache.png#lightbox)
+4.  Try your PWA as an offline app, as follows. In Microsoft Edge DevTools (`F12`), select Network, and then change the Online status to Offline.
+
+    [![Setting app to offline mode in Microsoft Edge DevTools](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-offline.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-offline.png#lightbox)
+
+    [
+
+    Setting app to offline mode in Microsoft Edge DevTools
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-offline.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-offline.png#lightbox)
+5.  Refresh your app. It should display the offline mechanism for serving the resources of your app from the cache.
+
+    [![PWA running offline](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+    [
+
+    PWA running offline
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/visual-studio-nodejs-express-index.png#lightbox)
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#add-push-notifications-to-your-pwa)Add push notifications to your PWA
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To create a PWA that supports push notifications:
+
+1.  Subscribe to a messaging service using the [Push API](https://developer.mozilla.org/docs/Web/API/Push_API "Push API | MDN").
+2.  Display a toast message when a message is received from the service using the [Notifications API](https://developer.mozilla.org/docs/Web/API/Notifications_API "Notifications API | MDN").
+
+Just like with Service Workers, the push notification APIs are standards-based APIs. The push notification APIs work across browsers, so your code should work everywhere that PWAs are supported. For more information about delivering push messages to different browsers on your server, navigate to [Web-Push](https://www.npmjs.com/package/web-push "web-push | npm").
+
+The following steps have been adapted from the Push Rich Demo in [Service Worker Cookbook](https://serviceworke.rs/push-rich_demo.html "Push Rich Demo | ServiceWorker Cookbook") provided by Mozilla, which has many other useful Web Push and service worker recipes.
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-1---generate-vapid-keys)Step 1 - Generate VAPID keys
+
+Push notifications require VAPID (Voluntary Application Server Identification) keys in order to send push messages to the PWA client. There are several VAPID key generators available online (for example, [vapidkeys.com](https://vapidkeys.com/ "Secure VAPID Key Generator | VapidKeys")). After generation, you should get a JSON object containing a public and private key. Save the keys for later steps in the following tutorial. For information about VAPID and WebPush, navigate to [Sending VAPID identified WebPush Notifications using the Mozilla Push Service](https://blog.mozilla.org/services/2016/08/23/sending-vapid-identified-webpush-notifications-via-mozillas-push-service "Sending VAPID identified WebPush Notifications via Mozilla's Push Service | Mozilla Services").
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-2---subscribe-to-push-notifications)Step 2 - Subscribe to push notifications
+
+Service workers handle push events and toast notification interactions in your PWA. To subscribe the PWA to server push notifications:
+
+-   Make sure your PWA is installed, active, and registered.
+-   Make sure your code to complete the subscription task is on the main UI thread of the PWA.
+-   Make sure you have network connectivity.
+
+Before a new push subscription is created, Microsoft Edge checks whether the user granted the PWA permission to receive notifications. If not, the user is prompted by the browser for permission. If the permission is denied, the request to `registration.pushManager.subscribe` throws a `DOMException`, which must be handled. For more on permission management, navigate to [Push Notifications in Microsoft Edge](https://blogs.windows.com/msedgedev/2016/05/16/web-notifications-microsoft-edge#UAbvU2ymUlHO8EUV.97 "Web Notifications in Microsoft Edge | Windows Blogs").
+
+In your `pwabuilder-sw-register.js` file, append the following code snippet.
+
+JavaScriptCopy
+
+```
+// Ask the user for permission to send push notifications.
+navigator.serviceWorker.ready
+    .then(function (registration) {
+        // Check if the user has an existing subscription
+        return registration.pushManager.getSubscription()
+            .then(function (subscription) {
+                if (subscription) {
+                    return subscription;
+                }
+
+                const vapidPublicKey = "PASTE YOUR PUBLIC VAPID KEY HERE";
+                return registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
+                });
+            });
+    });
+
+// Utility function for browser interoperability
+function urlBase64ToUint8Array(base64String) {
+    var padding = '='.repeat((4 - base64String.length % 4) % 4);
+    var base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+    var rawData = window.atob(base64);
+    var outputArray = new Uint8Array(rawData.length);
+
+    for (var i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
+```
+
+For more information, navigate to [PushManager](https://developer.mozilla.org/docs/Web/API/PushManager "PushManager | MDN") and [Web-Push](https://www.npmjs.com/package/web-push#usage "Usage - web-push | NPM").
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-3---listen-for-push-notifications)Step 3 - Listen for push notifications
+
+After a subscription is created in your PWA, add handlers to the service worker to respond to push events. Push event are sent from the server to display toast notifications. Toast notifications display data for a received message. To complete any of the following tasks, you must add a `click` handler:
+
+-   Dismissing the toast notification.
+-   Opening, focusing, or opening and focusing any open windows.
+-   Opening and focusing a new window to display a PWA client page.
+
+In your `pwabuilder-sw.js` file, add the following handlers.
+
+JavaScriptCopy
+
+```
+// Respond to a server push with a user notification.
+self.addEventListener('push', function (event) {
+    if (Notification.permission === "granted") {
+        const notificationText = event.data.text();
+        const showNotification = self.registration.showNotification('Sample PWA', {
+            body: notificationText,
+            icon: 'images/icon512.png'
+        });
+        // Make sure the toast notification is displayed, before exiting the function.
+        event.waitUntil(showNotification);
+    }
+});
+
+// Respond to the user selecting the toast notification.
+self.addEventListener('notificationclick', function (event) {
+    console.log('On notification click: ', event.notification.tag);
+    event.notification.close();
+
+    // This attempts to display the current notification if it is already open and then focuses on it.
+    event.waitUntil(clients.matchAll({
+        type: 'window'
+    }).then(function (clientList) {
+        for (var i = 0; i < clientList.length; i++) {
+            var client = clientList[i];
+            if (client.url == 'http://localhost:1337/' && 'focus' in client)
+                return client.focus();
+        }
+        if (clients.openWindow)
+            return clients.openWindow('/');
+    }));
+});
+
+```
+
+### [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#step-4---try-it-out)Step 4 - Try it out
+
+To test push notifications for your PWA:
+
+1.  Navigate to your PWA at `http://localhost:3000`. When your service worker activates and attempts to subscribe your PWA to push notifications, Microsoft Edge prompts you to allow your PWA to show notifications. Select Allow.
+
+    [![Permission dialog for enabling notifications](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/notification-permission.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/notification-permission.png#lightbox)
+
+    [
+
+    Permission dialog for enabling notifications
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/notification-permission.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/notification-permission.png#lightbox)
+2.  Simulate a server-side push notification, as follows. With your PWA opened at `http://localhost:3000` in your browser, select `F12` to open the DevTools. Select Application > Service Worker > Push to send a test push notification to your PWA.
+
+    A push notification should display near the taskbar.
+
+    [![Push a notification from DevTools](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-push.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-push.png#lightbox)
+
+    [
+
+    Push a notification from DevTools
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-push.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/devtools-push.png#lightbox)
+
+    If you do not select (or activate) a toast notification, the system automatically dismisses it after several seconds and queues it in your Windows Action Center.
+
+    [![Notifications in Windows Action Center](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/windows-action-center.png)](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/windows-action-center.png#lightbox)
+
+    [
+
+    Notifications in Windows Action Center
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/windows-action-center.png#lightbox)
+
+    [](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/media/windows-action-center.png#lightbox)
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#next-steps)Next steps
+------------------------------------------------------------------------------------------------------------------
+
+To build a robust, real-world PWA, consider the following:
+
+-   Managing and storing push subscriptions.
+-   [Encrypting](https://www.npmjs.com/package/web-push#encryptuserpublickey-userauth-payload-contentencoding "encrypt(userPublicKey, userAuth, payload, contentEncoding) - web-push | NPM") payload data.
+-   Responsive design.
+-   Deep-linking.
+-   [Cross-browser testing](https://www.browserstack.com/test-on-microsoft-edge-browser "Free Microsoft Edge Browser Testing on Windows 10 | BrowserStack").
+-   Validation and testing practices such as [Webhint](https://webhint.io/ "webhint").
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/get-started#see-also)See also
+--------------------------------------------------------------------------------------------------------------
+
+-   [Progressive Web Apps on MDN web docs](https://developer.mozilla.org/Apps/Progressive "Progressive web apps (PWAs) | MDN")
+-   [Progressive Web Apps on web.dev](https://developers.google.com/web/progressive-web-apps "Progressive Web Apps | web.dev")
+-   [Hacker News readers as Progressive Web Apps](https://hnpwa.com/ "Hacker News readers as Progressive Web Apps") - Compares different frameworks and performance patterns for implementing a sample (Hacker News reader) PWA.
+-   [Myth Busting PWAs](https://www.davrous.com/2019/10/18/myth-busting-pwas-the-new-edge-edition "Myth Busting PWAs -- The New Edge Edition")
+-   [A Progressive Roadmap for your Progressive Web App](https://cloudfour.com/thinks/a-progressive-roadmap-for-your-progressive-web-app "A Progressive Roadmap for your Progressive Web App")
+-   [Offline POSTs with Progressive Web Apps](https://medium.com/web-on-the-edge/offline-posts-with-progressive-web-apps-fc2dc4ad895 "Offline POSTs with Progressive Web Apps")
+-   [PWA Q&A](https://www.aaron-gustafson.com/notebook/pwa-qa "PWA Q&A")
+-   [Betting on the Web](https://joreteg.com/blog/betting-on-the-web "Betting on the Web")
+-   [Naming Progressive Web Apps](https://fberriman.com/2017/06/26/naming-progressive-web-apps "Naming Progressive Web Apps")
+-   [Designing And Building A Progressive Web Application Without A Framework (Part 1)](https://www.smashingmagazine.com/2019/07/progressive-web-application-pwa-framework-part-1 "Designing And Building A Progressive Web Application Without A Framework (Part 1)")
+-   [Designing And Building A Progressive Web Application Without A Framework (Part 2)](https://www.smashingmagazine.com/2019/07/progressive-web-application-pwa-framework-part-2 "Designing And Building A Progressive Web Application Without A Framework (Part 2)")
+-   [Designing And Building A Progressive Web Application Without A Framework (Part 3)](https://www.smashingmagazine.com/2019/07/progressive-web-application-pwa-framework-part-3 "Designing And Building A Progressive Web Application Without A Framework (Part 3)")
+
+* * * * *
+
+Recommended content
+-------------------
+
+-   [
+
+    ### Publish your Progressive Web App to the Microsoft Store - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/microsoft-store)
+
+    Make your PWA more discoverable by publishing in the Microsoft Store
+
+-   [
+
+    ### Progressive Web Apps on Windows - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/)
+
+    Progressive Web Apps (Chromium) run natively on Windows 10. Here is everything you need to know as a web developer.
+
+-   [
+
+    ### Use the Web App Manifest to integrate your Progressive Web App into the Operating System - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/webappmanifests)
+
+    Learn how to use the Web App Manifest to integrate your Progressive Web App into your Operating System.
+
+-   [
+
+    ### Experimental features - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/experimental-features/)
+
+    The latest experimental features in Microsoft Edge for Web Apps
+
+
+Use Service Workers to manage network requests and push notifications
+=====================================================================
+
+-   01/07/2021
+-   3 minutes to read
+-   -   [![](https://github.com/MSEdgeTeam.png?size=32)](https://github.com/MSEdgeTeam "MSEdgeTeam")
+    -   [![](https://github.com/mikehoffms.png?size=32)](https://github.com/mikehoffms "mikehoffms")
+    -   [![](https://github.com/jm-trd-ms.png?size=32)](https://github.com/jm-trd-ms "jm-trd-ms")
+    -   [![](https://github.com/aarongustafson.png?size=32)](https://github.com/aarongustafson "aarongustafson")
+
+Service Workers are a special type of Web Worker with the ability to intercept, modify, and respond to all network requests using the `Fetch` API. Service Workers can access the `Cache` API, and asynchronous client-side data stores, such as `IndexedDB`, to store resources.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/serviceworker#registering-a-service-worker)Registering a Service Worker
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Similar to other Web Workers, Service Workers must exist in a separate file. You reference this file when registering the Service Worker, as shown in the following code snippet.
+
+JavaScriptCopy
+
+```
+if ( "serviceWorker" in navigator ) {
+    navigator.serviceWorker.register( "/serviceworker.min.js" );
+}
+
+```
+
+Modern browsers provide different levels of support for Service Workers. As such, it is a good practice to test for the existence of the `serviceWorker` object before running any Service Worker-related code. In the above code snippet, a Service Worker is registered using the `serviceworker.min.js` file located at the root of the site. Ensure that the JavaScript file that defines your Service Worker exists in the highest-level directory that you want it to manage (which is referred to as the scope of the Service Worker). In the previous code snippet, the file is stored in the root, and the Service Worker manages all pages in the domain. If the Service Worker file was stored in a `js` directory, the scope of the Service Worker would be the `js` directory and any subdirectories. As a best practice, place the Service Worker file in the root of your site, unless you need to reduce the scope of your Service Worker.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/serviceworker#the-service-worker-lifecycle)The Service Worker lifecycle
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The lifecycle of a Service Worker consists of multiple steps, with each step triggering an event. You can add listeners to these events to run code to perform an action. The following list presents a high-level view of the lifecycle and related events of service workers.
+
+1.  Register the Service Worker.
+
+2.  The browser downloads the JavaScript file, installs the Service Worker, and triggers the `install` event. You can use the `install` event to pre-cache any important and long-lived files, such as CSS files, JavaScript files, logo images, offline pages, and so on from your website.
+
+    JavaScriptCopy
+
+    ```
+    self.addEventListener( "install", function( event ){
+        console.log( "WORKER: install event in progress." );
+    });
+
+    ```
+
+3.  The Service Worker is activated, which triggers the `activate` event. Use this event to clean up outdated caches.
+
+    JavaScriptCopy
+
+    ```
+    self.addEventListener( "activate", event => {
+        console.log('WORKER: activate event in progress.');
+    });
+
+    ```
+
+4.  The Service Worker is ready to run when the page is refreshed or when the user navigates to a new page on the site. If you want to run the Service Worker without waiting, use the `self.skipWaiting()` method during the `install` event.
+
+    JavaScriptCopy
+
+    ```
+    self.addEventListener( "install", event => {
+        self.skipWaiting();
+        // ...
+    });
+
+    ```
+
+5.  The Service Worker is now running.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/serviceworker#using-fetch-in-service-workers)Using fetch in Service Workers
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The main event that you use in a Service Worker is the `fetch` event. The `fetch` event runs every time the browser attempts to access content within the scope of the Service Worker. The following code snippet shows how to add a listener to the fetch event.
+
+JavaScriptCopy
+
+```
+self.addEventListener( "fetch", event => {
+  console.log('WORKER: Fetching', event.request);
+});
+
+```
+
+Within the `fetch` handler, you may control whether a request goes to the network, pulls from the cache, and so on. The approach you take likely varies based upon the type of resource being requested, how frequently it is updated, and other business logic unique to your application. Here are a few examples of what you may do:
+
+-   If available, return a response from the cache, otherwise fallback to request the resource over the network.
+-   Fetch a resource from the network, cache a copy, and return the response.
+-   Allow user's to specify a preference to save data.
+-   Supply a placeholder image for certain image requests.
+-   Generate a response directly in the Service Worker.
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/serviceworker#push-notifications)Push Notifications
+------------------------------------------------------------------------------------------------------------------------------------
+
+Service workers can push notifications to users. Push Notifications are helpful to prompt users to re-engage with your application after some time has elapsed. For more information, navigate to [Push Notifications walkthrough and demo](https://webpushdemo.azurewebsites.net/ "Web Push Notifications |  Microsoft Edge Demos").
+
+[](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/serviceworker#see-also)See also
+----------------------------------------------------------------------------------------------------------------
+
+To learn more about Service Workers, navigate to the following list of related topics.
+
+-   [Making PWAs work offline with Service workers](https://developer.mozilla.org/docs/Web/Progressive_web_apps/Offline_Service_workers "Making PWAs work offline with Service workers - PWAs | MDN")
+-   [How to make PWAs re-engageable using Notifications and Push](https://developer.mozilla.org/docs/Web/Progressive_web_apps/Re-engageable_Notifications_Push "How to make PWAs re-engageable using Notifications and Push - PWAs | MDN")
+
+* * * * *
+
+Recommended content
+-------------------
+
+-   [
+
+    ### Create an extension tutorial - Part 1 - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/part1-simple-extension)
+
+    Build an extension that pops up the NASA picture of the day
+
+-   [
+
+    ### Create an extension tutorial Part 2 - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/part2-content-scripts)
+
+    Dynamically Insert NASA Picture Below The Page Body Tag Using Content Scripts
+
+-   [
+
+    ### View Web SQL data with Microsoft Edge DevTools - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/storage/websql)
+
+    How to view Web SQL data from the Application panel of Microsoft Edge DevTools.
+
+-   [
+
+    ### Extension concepts and architecture - Microsoft Edge Development
+
+    ](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/)
+
+    The architecture of Microsoft Edge (Chromium) extensions, and core concepts to build extensions.
+
+Show more
