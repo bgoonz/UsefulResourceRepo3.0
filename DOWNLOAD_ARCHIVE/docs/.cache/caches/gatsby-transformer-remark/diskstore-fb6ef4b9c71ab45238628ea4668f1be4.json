@@ -1,0 +1,1133 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-c622c2f473e4fd6bb64db4a1d9120940-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#npm-init1",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "npm init1 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "npm-init(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 14, "offset": 14 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 14, "offset": 14 },
+          "indent": []
+        },
+        "data": {
+          "id": "npm-init1",
+          "htmlAttributes": { "id": "npm-init1" },
+          "hProperties": { "id": "npm-init1", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#create-a-packagejson-file",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "create a packagejson file permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "create a package.json file",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 19 },
+              "end": { "line": 4, "column": 30, "offset": 45 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 16 },
+          "end": { "line": 4, "column": 30, "offset": 45 },
+          "indent": []
+        },
+        "data": {
+          "id": "create-a-packagejson-file",
+          "htmlAttributes": { "id": "create-a-packagejson-file" },
+          "hProperties": {
+            "id": "create-a-packagejson-file",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#synopsis",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "synopsis permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 51 },
+              "end": { "line": 6, "column": 13, "offset": 59 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 47 },
+          "end": { "line": 6, "column": 13, "offset": 59 },
+          "indent": []
+        },
+        "data": {
+          "id": "synopsis",
+          "htmlAttributes": { "id": "synopsis" },
+          "hProperties": { "id": "synopsis", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> init <span class=\"token punctuation\">[</span>--force<span class=\"token operator\">|</span>-f<span class=\"token operator\">|</span>--yes<span class=\"token operator\">|</span>-y<span class=\"token operator\">|</span>--scope<span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> init <span class=\"token operator\">&lt;</span>@scope<span class=\"token operator\">></span> <span class=\"token punctuation\">(</span>same as <span class=\"token variable\"><span class=\"token variable\">`</span>npx <span class=\"token operator\">&lt;</span>@scope<span class=\"token operator\">></span>/create<span class=\"token variable\">`</span></span><span class=\"token punctuation\">)</span>\n<span class=\"token function\">npm</span> init <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>@scope<span class=\"token operator\">></span>/<span class=\"token punctuation\">]</span><span class=\"token operator\">&lt;</span>name<span class=\"token operator\">></span> <span class=\"token punctuation\">(</span>same as <span class=\"token variable\"><span class=\"token variable\">`</span>npx <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>@scope<span class=\"token operator\">></span>/<span class=\"token punctuation\">]</span>create-<span class=\"token operator\">&lt;</span>name<span class=\"token operator\">></span><span class=\"token variable\">`</span></span><span class=\"token punctuation\">)</span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 61 },
+          "end": { "line": 12, "column": 4, "offset": 229 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#examples",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "examples permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Examples",
+            "position": {
+              "start": { "line": 14, "column": 5, "offset": 235 },
+              "end": { "line": 14, "column": 13, "offset": 243 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 231 },
+          "end": { "line": 14, "column": 13, "offset": 243 },
+          "indent": []
+        },
+        "data": {
+          "id": "examples",
+          "htmlAttributes": { "id": "examples" },
+          "hProperties": { "id": "examples", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Create a new React-based project using ",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 245 },
+              "end": { "line": 16, "column": 40, "offset": 284 },
+              "indent": []
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "https://npm.im/create-react-app",
+            "children": [
+              {
+                "type": "html",
+                "value": "<code class=\"language-text\">create-react-app</code>",
+                "position": {
+                  "start": { "line": 16, "column": 41, "offset": 285 },
+                  "end": { "line": 16, "column": 59, "offset": 303 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 16, "column": 40, "offset": 284 },
+              "end": { "line": 16, "column": 93, "offset": 337 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ":",
+            "position": {
+              "start": { "line": 16, "column": 93, "offset": 337 },
+              "end": { "line": 16, "column": 94, "offset": 338 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 245 },
+          "end": { "line": 16, "column": 94, "offset": 338 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> init react-app ./my-react-app</code></pre></div>",
+        "position": {
+          "start": { "line": 18, "column": 1, "offset": 340 },
+          "end": { "line": 20, "column": 4, "offset": 387 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Create a new ",
+            "position": {
+              "start": { "line": 22, "column": 1, "offset": 389 },
+              "end": { "line": 22, "column": 14, "offset": 402 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">esm</code>",
+            "position": {
+              "start": { "line": 22, "column": 14, "offset": 402 },
+              "end": { "line": 22, "column": 19, "offset": 407 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": "-compatible package using ",
+            "position": {
+              "start": { "line": 22, "column": 19, "offset": 407 },
+              "end": { "line": 22, "column": 45, "offset": 433 },
+              "indent": []
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "https://npm.im/create-esm",
+            "children": [
+              {
+                "type": "html",
+                "value": "<code class=\"language-text\">create-esm</code>",
+                "position": {
+                  "start": { "line": 22, "column": 46, "offset": 434 },
+                  "end": { "line": 22, "column": 58, "offset": 446 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 22, "column": 45, "offset": 433 },
+              "end": { "line": 22, "column": 86, "offset": 474 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ":",
+            "position": {
+              "start": { "line": 22, "column": 86, "offset": 474 },
+              "end": { "line": 22, "column": 87, "offset": 475 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 22, "column": 1, "offset": 389 },
+          "end": { "line": 22, "column": 87, "offset": 475 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">mkdir</span> my-esm-lib <span class=\"token operator\">&amp;&amp;</span> <span class=\"token builtin class-name\">cd</span> my-esm-lib\n$ <span class=\"token function\">npm</span> init esm --yes</code></pre></div>",
+        "position": {
+          "start": { "line": 24, "column": 1, "offset": 477 },
+          "end": { "line": 27, "column": 4, "offset": 545 },
+          "indent": [1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Generate a plain old package.json using legacy init:",
+            "position": {
+              "start": { "line": 29, "column": 1, "offset": 547 },
+              "end": { "line": 29, "column": 53, "offset": 599 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 29, "column": 1, "offset": 547 },
+          "end": { "line": 29, "column": 53, "offset": 599 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">mkdir</span> my-npm-pkg <span class=\"token operator\">&amp;&amp;</span> <span class=\"token builtin class-name\">cd</span> my-npm-pkg\n$ <span class=\"token function\">git</span> init\n$ <span class=\"token function\">npm</span> init</code></pre></div>",
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 601 },
+          "end": { "line": 35, "column": 4, "offset": 670 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Generate it without having it ask any questions:",
+            "position": {
+              "start": { "line": 37, "column": 1, "offset": 672 },
+              "end": { "line": 37, "column": 49, "offset": 720 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 37, "column": 1, "offset": 672 },
+          "end": { "line": 37, "column": 49, "offset": 720 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> init -y</code></pre></div>",
+        "position": {
+          "start": { "line": 39, "column": 1, "offset": 722 },
+          "end": { "line": 41, "column": 4, "offset": 747 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 43, "column": 5, "offset": 753 },
+              "end": { "line": 43, "column": 16, "offset": 764 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 43, "column": 1, "offset": 749 },
+          "end": { "line": 43, "column": 16, "offset": 764 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm init &lt;initializer&gt;</code>",
+            "position": {
+              "start": { "line": 45, "column": 1, "offset": 766 },
+              "end": { "line": 45, "column": 25, "offset": 790 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " can be used to set up a new or existing npm package.",
+            "position": {
+              "start": { "line": 45, "column": 25, "offset": 790 },
+              "end": { "line": 45, "column": 78, "offset": 843 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 45, "column": 1, "offset": 766 },
+          "end": { "line": 45, "column": 78, "offset": 843 },
+          "indent": []
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">initializer</code>",
+            "position": {
+              "start": { "line": 47, "column": 1, "offset": 845 },
+              "end": { "line": 47, "column": 14, "offset": 858 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " in this case is an npm package named ",
+            "position": {
+              "start": { "line": 47, "column": 14, "offset": 858 },
+              "end": { "line": 47, "column": 52, "offset": 896 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">create-&lt;initializer&gt;</code>",
+            "position": {
+              "start": { "line": 47, "column": 52, "offset": 896 },
+              "end": { "line": 47, "column": 74, "offset": 918 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ", which\nwill be installed by ",
+            "position": {
+              "start": { "line": 47, "column": 74, "offset": 918 },
+              "end": { "line": 48, "column": 22, "offset": 947 },
+              "indent": [1]
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "https://npm.im/npx",
+            "children": [
+              {
+                "type": "html",
+                "value": "<code class=\"language-text\">npx</code>",
+                "position": {
+                  "start": { "line": 48, "column": 23, "offset": 948 },
+                  "end": { "line": 48, "column": 28, "offset": 953 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 48, "column": 22, "offset": 947 },
+              "end": { "line": 48, "column": 49, "offset": 974 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ", and then have its main bin\nexecuted -- presumably creating or updating ",
+            "position": {
+              "start": { "line": 48, "column": 49, "offset": 974 },
+              "end": { "line": 49, "column": 45, "offset": 1047 },
+              "indent": [1]
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">package.json</code>",
+            "position": {
+              "start": { "line": 49, "column": 45, "offset": 1047 },
+              "end": { "line": 49, "column": 59, "offset": 1061 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " and running any other\ninitialization-related operations.",
+            "position": {
+              "start": { "line": 49, "column": 59, "offset": 1061 },
+              "end": { "line": 50, "column": 35, "offset": 1118 },
+              "indent": [1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 47, "column": 1, "offset": 845 },
+          "end": { "line": 50, "column": 35, "offset": 1118 },
+          "indent": [1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "The init command is transformed to a corresponding ",
+            "position": {
+              "start": { "line": 52, "column": 1, "offset": 1120 },
+              "end": { "line": 52, "column": 52, "offset": 1171 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npx</code>",
+            "position": {
+              "start": { "line": 52, "column": 52, "offset": 1171 },
+              "end": { "line": 52, "column": 57, "offset": 1176 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " operation as follows:",
+            "position": {
+              "start": { "line": 52, "column": 57, "offset": 1176 },
+              "end": { "line": 52, "column": 79, "offset": 1198 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 52, "column": 1, "offset": 1120 },
+          "end": { "line": 52, "column": 79, "offset": 1198 },
+          "indent": []
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm init foo</code>",
+                    "position": {
+                      "start": { "line": 54, "column": 3, "offset": 1202 },
+                      "end": { "line": 54, "column": 17, "offset": 1216 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " -> ",
+                    "position": {
+                      "start": { "line": 54, "column": 17, "offset": 1216 },
+                      "end": { "line": 54, "column": 21, "offset": 1220 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npx create-foo</code>",
+                    "position": {
+                      "start": { "line": 54, "column": 21, "offset": 1220 },
+                      "end": { "line": 54, "column": 37, "offset": 1236 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 54, "column": 3, "offset": 1202 },
+                  "end": { "line": 54, "column": 37, "offset": 1236 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 54, "column": 1, "offset": 1200 },
+              "end": { "line": 54, "column": 37, "offset": 1236 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm init @usr/foo</code>",
+                    "position": {
+                      "start": { "line": 55, "column": 3, "offset": 1239 },
+                      "end": { "line": 55, "column": 22, "offset": 1258 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " -> ",
+                    "position": {
+                      "start": { "line": 55, "column": 22, "offset": 1258 },
+                      "end": { "line": 55, "column": 26, "offset": 1262 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npx @usr/create-foo</code>",
+                    "position": {
+                      "start": { "line": 55, "column": 26, "offset": 1262 },
+                      "end": { "line": 55, "column": 47, "offset": 1283 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 55, "column": 3, "offset": 1239 },
+                  "end": { "line": 55, "column": 47, "offset": 1283 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 55, "column": 1, "offset": 1237 },
+              "end": { "line": 55, "column": 47, "offset": 1283 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm init @usr</code>",
+                    "position": {
+                      "start": { "line": 56, "column": 3, "offset": 1286 },
+                      "end": { "line": 56, "column": 18, "offset": 1301 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " -> ",
+                    "position": {
+                      "start": { "line": 56, "column": 18, "offset": 1301 },
+                      "end": { "line": 56, "column": 22, "offset": 1305 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npx @usr/create</code>",
+                    "position": {
+                      "start": { "line": 56, "column": 22, "offset": 1305 },
+                      "end": { "line": 56, "column": 39, "offset": 1322 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 56, "column": 3, "offset": 1286 },
+                  "end": { "line": 56, "column": 39, "offset": 1322 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 56, "column": 1, "offset": 1284 },
+              "end": { "line": 56, "column": 39, "offset": 1322 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 54, "column": 1, "offset": 1200 },
+          "end": { "line": 56, "column": 39, "offset": 1322 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Any additional options will be passed directly to the command, so ",
+            "position": {
+              "start": { "line": 58, "column": 1, "offset": 1324 },
+              "end": { "line": 58, "column": 67, "offset": 1390 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm init foo --hello</code>",
+            "position": {
+              "start": { "line": 58, "column": 67, "offset": 1390 },
+              "end": { "line": 58, "column": 89, "offset": 1412 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " will map to ",
+            "position": {
+              "start": { "line": 58, "column": 89, "offset": 1412 },
+              "end": { "line": 58, "column": 102, "offset": 1425 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npx create-foo --hello</code>",
+            "position": {
+              "start": { "line": 58, "column": 102, "offset": 1425 },
+              "end": { "line": 58, "column": 126, "offset": 1449 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 58, "column": 126, "offset": 1449 },
+              "end": { "line": 58, "column": 127, "offset": 1450 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 58, "column": 1, "offset": 1324 },
+          "end": { "line": 58, "column": 127, "offset": 1450 },
+          "indent": []
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "If the initializer is omitted (by just calling ",
+            "position": {
+              "start": { "line": 60, "column": 1, "offset": 1452 },
+              "end": { "line": 60, "column": 48, "offset": 1499 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm init</code>",
+            "position": {
+              "start": { "line": 60, "column": 48, "offset": 1499 },
+              "end": { "line": 60, "column": 58, "offset": 1509 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": "), init will fall back\nto legacy init behavior. It will ask you a bunch of questions, and then write a\npackage.json for you. It will attempt to make reasonable guesses based on\nexisting fields, dependencies, and options selected. It is strictly additive, so\nit will keep any fields and values that were already set. You can also use\n",
+            "position": {
+              "start": { "line": 60, "column": 58, "offset": 1509 },
+              "end": { "line": 65, "column": 1, "offset": 1842 },
+              "indent": [1, 1, 1, 1, 1]
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">-y</code>",
+            "position": {
+              "start": { "line": 65, "column": 1, "offset": 1842 },
+              "end": { "line": 65, "column": 5, "offset": 1846 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": "/",
+            "position": {
+              "start": { "line": 65, "column": 5, "offset": 1846 },
+              "end": { "line": 65, "column": 6, "offset": 1847 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">--yes</code>",
+            "position": {
+              "start": { "line": 65, "column": 6, "offset": 1847 },
+              "end": { "line": 65, "column": 13, "offset": 1854 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " to skip the questionnaire altogether. If you pass ",
+            "position": {
+              "start": { "line": 65, "column": 13, "offset": 1854 },
+              "end": { "line": 65, "column": 64, "offset": 1905 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">--scope</code>",
+            "position": {
+              "start": { "line": 65, "column": 64, "offset": 1905 },
+              "end": { "line": 65, "column": 73, "offset": 1914 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ", it\nwill create a scoped package.",
+            "position": {
+              "start": { "line": 65, "column": 73, "offset": 1914 },
+              "end": { "line": 66, "column": 30, "offset": 1948 },
+              "indent": [1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 1452 },
+          "end": { "line": 66, "column": 30, "offset": 1948 },
+          "indent": [1, 1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#see-also",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "see also permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 68, "column": 5, "offset": 1954 },
+              "end": { "line": 68, "column": 13, "offset": 1962 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 68, "column": 1, "offset": 1950 },
+          "end": { "line": 68, "column": 13, "offset": 1962 },
+          "indent": []
+        },
+        "data": {
+          "id": "see-also",
+          "htmlAttributes": { "id": "see-also" },
+          "hProperties": { "id": "see-also", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/isaacs/init-package-json",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "https://github.com/isaacs/init-package-json",
+                        "position": {
+                          "start": { "line": 70, "column": 4, "offset": 1967 },
+                          "end": { "line": 70, "column": 47, "offset": 2010 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 70, "column": 3, "offset": 1966 },
+                      "end": { "line": 70, "column": 48, "offset": 2011 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 70, "column": 3, "offset": 1966 },
+                  "end": { "line": 70, "column": 48, "offset": 2011 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 70, "column": 1, "offset": 1964 },
+              "end": { "line": 70, "column": 48, "offset": 2011 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/configuring-npm/package-json",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "package.json",
+                        "position": {
+                          "start": { "line": 71, "column": 4, "offset": 2015 },
+                          "end": { "line": 71, "column": 16, "offset": 2027 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 71, "column": 3, "offset": 2014 },
+                      "end": { "line": 71, "column": 48, "offset": 2059 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 71, "column": 3, "offset": 2014 },
+                  "end": { "line": 71, "column": 48, "offset": 2059 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 71, "column": 1, "offset": 2012 },
+              "end": { "line": 71, "column": 48, "offset": 2059 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-version",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm version",
+                        "position": {
+                          "start": { "line": 72, "column": 4, "offset": 2063 },
+                          "end": { "line": 72, "column": 15, "offset": 2074 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 72, "column": 3, "offset": 2062 },
+                      "end": { "line": 72, "column": 43, "offset": 2102 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 72, "column": 3, "offset": 2062 },
+                  "end": { "line": 72, "column": 43, "offset": 2102 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 72, "column": 1, "offset": 2060 },
+              "end": { "line": 72, "column": 43, "offset": 2102 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/using-npm/scope",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm scope",
+                        "position": {
+                          "start": { "line": 73, "column": 4, "offset": 2106 },
+                          "end": { "line": 73, "column": 13, "offset": 2115 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 73, "column": 3, "offset": 2105 },
+                      "end": { "line": 73, "column": 32, "offset": 2134 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 73, "column": 3, "offset": 2105 },
+                  "end": { "line": 73, "column": 32, "offset": 2134 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 73, "column": 1, "offset": 2103 },
+              "end": { "line": 73, "column": 32, "offset": 2134 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 70, "column": 1, "offset": 1964 },
+          "end": { "line": 73, "column": 32, "offset": 2134 },
+          "indent": [1, 1, 1]
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 74, "column": 1, "offset": 2135 }
+    }
+  }
+}
