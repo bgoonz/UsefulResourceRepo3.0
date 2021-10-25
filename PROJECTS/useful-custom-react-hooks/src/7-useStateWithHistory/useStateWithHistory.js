@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
 export default function useStateWithHistory(
   defaultValue,
@@ -10,7 +10,7 @@ export default function useStateWithHistory(
 
   const set = useCallback(
     (v) => {
-      const resolvedValue = typeof v === "function" ? v(value) : v;
+      const resolvedValue = typeof v === 'function' ? v(value) : v;
       if (historyRef.current[pointerRef.current] !== resolvedValue) {
         if (pointerRef.current < historyRef.current.length - 1) {
           historyRef.current.splice(pointerRef.current + 1);

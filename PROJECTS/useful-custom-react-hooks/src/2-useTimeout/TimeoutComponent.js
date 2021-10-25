@@ -1,5 +1,5 @@
-import { useState } from "react";
-import useTimeout from "./useTimeout";
+import { useState } from 'react';
+import useTimeout from './useTimeout';
 
 export default function TimeoutComponent() {
   const [count, setCount] = useState(10);

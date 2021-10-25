@@ -1,9 +1,9 @@
-import useStateWithValidation from "./useStateWithValidation";
+import useStateWithValidation from './useStateWithValidation';
 
 export default function StateWithValidationComponent() {
   const [username, setUsername, isValid] = useStateWithValidation(
     (name) => name.length > 5,
-    ""
+    ''
   );
 
   return (

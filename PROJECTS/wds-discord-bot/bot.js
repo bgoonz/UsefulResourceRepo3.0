@@ -1,11 +1,11 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
-const courseCommands = require("./courseCommands.js");
-const BOT_PREFIX = "!wds-";
+const courseCommands = require('./courseCommands.js');
+const BOT_PREFIX = '!wds-';
 
-client.on("message", (msg) => {
+client.on('message', (msg) => {
   if (!msg.content.startsWith(BOT_PREFIX)) return;
 
   handleCourseCommands(msg);

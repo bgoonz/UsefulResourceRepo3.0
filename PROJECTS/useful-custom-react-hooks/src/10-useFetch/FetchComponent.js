@@ -1,5 +1,5 @@
-import { useState } from "react";
-import useFetch from "./useFetch";
+import { useState } from 'react';
+import useFetch from './useFetch';
 
 export default function FetchComponent() {
   const [id, setId] = useState(1);

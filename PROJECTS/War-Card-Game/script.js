@@ -1,4 +1,4 @@
-import Deck from "./deck.js";
+import Deck from './deck.js';
 
 const CARD_VALUE_MAP = {
   2: 2,
@@ -16,15 +16,15 @@ const CARD_VALUE_MAP = {
   A: 14,
 };
 
-const computerCardSlot = document.querySelector(".computer-card-slot");
-const playerCardSlot = document.querySelector(".player-card-slot");
-const computerDeckElement = document.querySelector(".computer-deck");
-const playerDeckElement = document.querySelector(".player-deck");
-const text = document.querySelector(".text");
+const computerCardSlot = document.querySelector('.computer-card-slot');
+const playerCardSlot = document.querySelector('.player-card-slot');
+const computerDeckElement = document.querySelector('.computer-deck');
+const playerDeckElement = document.querySelector('.player-deck');
+const text = document.querySelector('.text');
 
 let playerDeck, computerDeck, inRound, stop;
 
-document.addEventListener("click", () => {
+document.addEventListener('click', () => {
   if (stop) {
     startGame();
     return;
@@ -53,9 +53,9 @@ function startGame() {
 
 function cleanBeforeRound() {
   inRound = false;
-  computerCardSlot.innerHTML = "";
-  playerCardSlot.innerHTML = "";
-  text.innerText = "";
+  computerCardSlot.innerHTML = '';
+  playerCardSlot.innerHTML = '';
+  text.innerText = '';
 
   updateDeckCount();
 }
@@ -72,24 +72,24 @@ function flipCards() {
   updateDeckCount();
 
   if (isRoundWinner(playerCard, computerCard)) {
-    text.innerText = "Win";
+    text.innerText = 'Win';
     playerDeck.push(playerCard);
     playerDeck.push(computerCard);
   } else if (isRoundWinner(computerCard, playerCard)) {
-    text.innerText = "Lose";
+    text.innerText = 'Lose';
     computerDeck.push(playerCard);
     computerDeck.push(computerCard);
   } else {
-    text.innerText = "Draw";
+    text.innerText = 'Draw';
     playerDeck.push(playerCard);
     computerDeck.push(computerCard);
   }
 
   if (isGameOver(playerDeck)) {
-    text.innerText = "You Lose!!";
+    text.innerText = 'You Lose!!';
     stop = true;
   } else if (isGameOver(computerDeck)) {
-    text.innerText = "You Win!!";
+    text.innerText = 'You Win!!';
     stop = true;
   }
 }

@@ -1,19 +1,19 @@
 // UMD format: https://github.com/umdjs/umd/blob/master/templates/returnExports.js#L17
 (function (root, factory) {
-  if (typeof define === "function" && define.amd) {
+  if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module
-    define(["html2canvas"], factory);
-  } else if (typeof module === "object" && module.exports) {
+    define(['html2canvas'], factory);
+  } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
-    module.exports = factory(require("html2canvas"));
+    module.exports = factory(require('html2canvas'));
   } else {
     // Browser globals
     root.disintegrate = factory(root.html2canvas);
   }
-})(typeof self !== "undefined" ? self : this, function (html2canvas) {
-  "use strict";
+})(typeof self !== 'undefined' ? self : this, function (html2canvas) {
+  'use strict';
 
   /********************/
   /* Helper functions */
@@ -47,7 +47,7 @@
     let matches;
     do {
       matches = re.exec(string);
-      if (matches) array.push(matches[1].split(",").map(Number));
+      if (matches) array.push(matches[1].split(',').map(Number));
     } while (matches);
 
     return array;
@@ -68,7 +68,7 @@
       ignoreColors = getNumberArraysFromString(el.dataset.disIgnoreColors);
     }
 
-    let particleType = "Particle";
+    let particleType = 'Particle';
     if (el.dataset.disParticleType) {
       particleType = el.dataset.disParticleType;
     }
@@ -107,19 +107,19 @@
     };
 
     let container;
-    if (disObj.type === "self-contained") {
+    if (disObj.type === 'self-contained') {
       let parent = el.parentNode;
-      let wrapper = document.createElement("div");
-      wrapper.dataset.disContainer = "";
+      let wrapper = document.createElement('div');
+      wrapper.dataset.disContainer = '';
       wrapper.style.width = disObj.lastWidth;
       wrapper.style.height = disObj.lastHeight;
-      wrapper.style.overflow = "hidden";
+      wrapper.style.overflow = 'hidden';
       let elemStyles = window.getComputedStyle(el);
-      wrapper.style.position = elemStyles.getPropertyValue("position");
-      wrapper.style.margin = elemStyles.getPropertyValue("margin");
-      wrapper.style.top = elemStyles.getPropertyValue("top");
-      wrapper.style.left = elemStyles.getPropertyValue("left");
-      wrapper.style.display = elemStyles.getPropertyValue("display");
+      wrapper.style.position = elemStyles.getPropertyValue('position');
+      wrapper.style.margin = elemStyles.getPropertyValue('margin');
+      wrapper.style.top = elemStyles.getPropertyValue('top');
+      wrapper.style.left = elemStyles.getPropertyValue('left');
+      wrapper.style.display = elemStyles.getPropertyValue('display');
       el.style.margin = 0;
       el.style.top = 0;
       el.style.left = 0;
@@ -130,7 +130,7 @@
       wrapper.appendChild(el);
 
       disObj.container = wrapper;
-    } else if (disObj.type === "contained") {
+    } else if (disObj.type === 'contained') {
       // Try to use the given container if a container Id is provided
       if (
         el.dataset.disContainerId &&
@@ -139,11 +139,11 @@
         )
       ) {
         disObj.container = document.querySelector(
-          "data-dis-container-id = " + el.dataset.disContainerId
+          'data-dis-container-id = ' + el.dataset.disContainerId
         );
       } else {
         // Default to using the nearest Disintegrate container or the parent node
-        disObj.container = findParentWithAttr(el, "data-dis-container");
+        disObj.container = findParentWithAttr(el, 'data-dis-container');
       }
     }
 
@@ -208,10 +208,10 @@
 
     if (!disObj.isOutOfBounds && (visibleWidth <= 0 || visibleHeight <= 0)) {
       disObj.isOutOfBounds = true;
-      disObj.elem.dispatchEvent(new Event("disOutOfBounds"));
+      disObj.elem.dispatchEvent(new Event('disOutOfBounds'));
     } else if (disObj.isOutOfBounds && visibleWidth > 0 && visibleHeight > 0) {
       disObj.isOutOfBounds = false;
-      disObj.elem.dispatchEvent(new Event("disInBounds"));
+      disObj.elem.dispatchEvent(new Event('disInBounds'));
     }
 
     disObj.actualWidth = disObj.elem.offsetWidth;
@@ -537,30 +537,30 @@
   function getScreenshot(disObj) {
     html2canvas(disObj.elem, { scale: 1 }).then((canvas) => {
       numCanvasesLoaded++;
-      if (typeof disObj.scrnCanvas === "undefined") {
+      if (typeof disObj.scrnCanvas === 'undefined') {
         disObj.scrnCanvas = canvas;
-        disObj.scrnCtx = canvas.getContext("2d");
+        disObj.scrnCtx = canvas.getContext('2d');
       }
 
       // Create a canvas to draw particles on the size of the
       // given container element
-      if (typeof disObj.canvas === "undefined") {
-        disObj.canvas = document.createElement("canvas");
+      if (typeof disObj.canvas === 'undefined') {
+        disObj.canvas = document.createElement('canvas');
         disObj.canvas.width = document.documentElement.scrollWidth;
         disObj.canvas.height = document.documentElement.scrollHeight;
-        disObj.canvas.style.position = "absolute";
+        disObj.canvas.style.position = 'absolute';
         disObj.canvas.style.top = 0;
         disObj.canvas.style.left = 0;
-        disObj.canvas.style.userSelect = "none";
-        disObj.canvas.style.pointerEvents = "none";
-        disObj.canvas.style.zIndex = "1001";
-        disObj.canvas.class = "disParticleCanvas";
-        disObj.ctx = disObj.canvas.getContext("2d");
+        disObj.canvas.style.userSelect = 'none';
+        disObj.canvas.style.pointerEvents = 'none';
+        disObj.canvas.style.zIndex = '1001';
+        disObj.canvas.class = 'disParticleCanvas';
+        disObj.ctx = disObj.canvas.getContext('2d');
         document.body.appendChild(disObj.canvas);
       }
 
       if (numCanvasesLoaded === dises.length) {
-        window.dispatchEvent(new Event("particlesReady"));
+        window.dispatchEvent(new Event('particlesReady'));
       }
     });
   }
@@ -580,7 +580,7 @@
     // Don't render the particle if the color is in the ignored list
     if (disObj.ignoreColors.length > 0) {
       disObj.ignoreColors.some((colorArr) => {
-        if (colorArr.join(",") === rgbArr.slice(0, 3).join(",")) {
+        if (colorArr.join(',') === rgbArr.slice(0, 3).join(',')) {
           dontCreate = true;
           return;
         }
@@ -653,7 +653,7 @@
   // Animate all existing particles of the given Disintegrate element
   // using their built in draw function
   function animateParticles(disObj) {
-    if (typeof disObj.ctx !== "undefined") {
+    if (typeof disObj.ctx !== 'undefined') {
       disObj.ctx.clearRect(
         0,
         0,
@@ -679,7 +679,7 @@
         // Garbage collect
         disObj.particleArr = [];
         // Mark complete
-        disObj.elem.dispatchEvent(new Event("disComplete"));
+        disObj.elem.dispatchEvent(new Event('disComplete'));
         disObj.isAnimating = false;
       }
     }
@@ -689,9 +689,9 @@
   var raf;
   function checkAllLoaded() {
     if (disElems.length === dises.length) {
-      window.dispatchEvent(new Event("disesLoaded"));
+      window.dispatchEvent(new Event('disesLoaded'));
 
-      if (typeof raf === "undefined")
+      if (typeof raf === 'undefined')
         raf = window.requestAnimationFrame(disUpdate);
     }
   }
@@ -726,7 +726,7 @@
   // What actually checks the bounds and animates the existing particles
   function disUpdate() {
     dises.forEach((disObj) => {
-      if (disObj.type !== "simultaneous") {
+      if (disObj.type !== 'simultaneous') {
         checkOutOfBounds(disObj);
       }
 
@@ -743,20 +743,20 @@
   // Assure the initial capture is done
   let firstTime = true;
   function init() {
-    disElems = document.querySelectorAll("[data-dis-type]");
+    disElems = document.querySelectorAll('[data-dis-type]');
     dises = [];
     numCanvasesLoaded = 0;
 
     if (firstTime) {
       firstTime = false;
 
-      window.addEventListener("load", () => {
+      window.addEventListener('load', () => {
         // Setup
         disElems.forEach((el) => {
-          if (el.tagName !== "IMG" || el.complete) {
+          if (el.tagName !== 'IMG' || el.complete) {
             processDisElement(el);
           } else {
-            el.addEventListener("load", (e) => {
+            el.addEventListener('load', (e) => {
               processDisElement(el);
             });
           }
@@ -765,7 +765,7 @@
 
       // Update the screenshot and canvas sizes when the window changes size
       var resizeTimer;
-      window.addEventListener("resize", (e) => {
+      window.addEventListener('resize', (e) => {
         // Wait for resize to "finish"
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
@@ -779,10 +779,10 @@
       });
     } else {
       disElems.forEach((el) => {
-        if (el.tagName !== "IMG" || el.complete) {
+        if (el.tagName !== 'IMG' || el.complete) {
           processDisElement(el);
         } else {
-          el.addEventListener("load", (e) => {
+          el.addEventListener('load', (e) => {
             processDisElement(el);
           });
         }
@@ -815,7 +815,7 @@
     EaseInOut = (power) => (t) =>
       t < 0.5 ? EaseIn(power)(t * 2) / 2 : EaseOut(power)(t * 2 - 1) / 2 + 0.5;
   var Particle = function () {
-    this.name = "Particle";
+    this.name = 'Particle';
     this.animationDuration = 1000; // in ms
 
     this.widthScaler = Math.round(50 * genNormalizedVal()); // Normalized val between -50 and 50
@@ -848,15 +848,15 @@
       let currOpacity = this.opacityFunc(percent);
 
       ctx.fillStyle =
-        "rgba(" +
+        'rgba(' +
         this.rgbArray[0] +
-        "," +
+        ',' +
         this.rgbArray[1] +
-        "," +
+        ',' +
         this.rgbArray[2] +
-        "," +
+        ',' +
         currOpacity +
-        ")";
+        ')';
       ctx.fillRect(
         currX - currSize / 2,
         currY - currSize / 2,
@@ -869,7 +869,7 @@
 
   /* An "exploding" particle effect that uses circles */
   var ExplodingParticle = function () {
-    this.name = "ExplodingParticle";
+    this.name = 'ExplodingParticle';
     this.animationDuration = 1000; // in ms
 
     this.speed = {
@@ -884,13 +884,13 @@
         ctx.beginPath();
         ctx.arc(this.startX, this.startY, this.radius, 0, Math.PI * 2);
         ctx.fillStyle =
-          "rgba(" +
+          'rgba(' +
           this.rgbArray[0] +
-          "," +
+          ',' +
           this.rgbArray[1] +
-          "," +
+          ',' +
           this.rgbArray[2] +
-          ", 1)";
+          ', 1)';
         ctx.fill();
         this.remainingLife--;
         this.radius -= 0.25;

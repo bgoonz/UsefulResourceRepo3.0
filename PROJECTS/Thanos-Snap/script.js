@@ -1,13 +1,13 @@
 disintegrate.init();
 
-document.getElementById("img").addEventListener("click", (e) => {
+document.getElementById('img').addEventListener('click', (e) => {
   const disObj = disintegrate.getDisObj(e.target);
   disintegrate.createSimultaneousParticles(disObj);
   e.target.remove();
 });
 
 const thanosSnap = function () {
-  this.name = "ThanosSnap";
+  this.name = 'ThanosSnap';
   this.animationDuration = 1500;
   this.size = 3;
   this.speedX = Math.random();

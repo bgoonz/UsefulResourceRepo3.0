@@ -1,4 +1,4 @@
-import { workspace, QuickPickItem } from "vscode";
+import { workspace, QuickPickItem } from 'vscode';
 import {
   State,
   MultiStepInput,
@@ -6,15 +6,15 @@ import {
   InputStep,
   DeepPartial,
   collectInputs,
-} from "./MultiStepInput";
-import dominos from "dominos";
-import { InputFlowAction } from "./MultiStepInput";
+} from './MultiStepInput';
+import dominos from 'dominos';
+import { InputFlowAction } from './MultiStepInput';
 
 export default function executeSteps(): Promise<State> {
   const customer: Partial<Customer> = {};
-  const config = workspace.getConfiguration("pizza");
+  const config = workspace.getConfiguration('pizza');
   const steps: [InputStep?] = [];
-  const address = config.get("address") as string;
+  const address = config.get('address') as string;
   if (address) {
     customer.address = address;
   } else {
@@ -22,25 +22,25 @@ export default function executeSteps(): Promise<State> {
   }
   steps.push(getProduct);
   steps.push(getVariant);
-  const firstName = config.get("firstName") as string;
+  const firstName = config.get('firstName') as string;
   if (firstName) {
     customer.firstName = firstName;
   } else {
     steps.push(getFirstName);
   }
-  const lastName = config.get("lastName") as string;
+  const lastName = config.get('lastName') as string;
   if (lastName) {
     customer.lastName = lastName;
   } else {
     steps.push(getLastName);
   }
-  const email = config.get("email") as string;
+  const email = config.get('email') as string;
   if (email) {
     customer.email = email;
   } else {
     steps.push(getEmail);
   }
-  const phoneNumber = config.get("phoneNumber") as string;
+  const phoneNumber = config.get('phoneNumber') as string;
   if (phoneNumber) {
     customer.phone = phoneNumber;
   } else {
@@ -57,9 +57,9 @@ async function getAddress(
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
   const answer = await input.showInputBox(
-    "Enter Your Address with proper commas. EX: Street, City, State, Zip"
+    'Enter Your Address with proper commas. EX: Street, City, State, Zip'
   );
-  if (answer === "") throw InputFlowAction.resume("Cannot be blank");
+  if (answer === '') throw InputFlowAction.resume('Cannot be blank');
   return { ...state, customer: { ...state.customer, address: answer } };
 }
 
@@ -67,8 +67,8 @@ async function getFirstName(
   input: MultiStepInput,
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
-  const answer = await input.showInputBox("Enter Your First Name");
-  if (answer === "") throw InputFlowAction.resume("Cannot be blank");
+  const answer = await input.showInputBox('Enter Your First Name');
+  if (answer === '') throw InputFlowAction.resume('Cannot be blank');
   return { ...state, customer: { ...state.customer, firstName: answer } };
 }
 
@@ -76,8 +76,8 @@ async function getLastName(
   input: MultiStepInput,
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
-  const answer = await input.showInputBox("Enter Your Last Name");
-  if (answer === "") throw InputFlowAction.resume("Cannot be blank");
+  const answer = await input.showInputBox('Enter Your Last Name');
+  if (answer === '') throw InputFlowAction.resume('Cannot be blank');
   return { ...state, customer: { ...state.customer, lastName: answer } };
 }
 
@@ -85,8 +85,8 @@ async function getEmail(
   input: MultiStepInput,
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
-  const answer = await input.showInputBox("Enter Your Email");
-  if (answer === "") throw InputFlowAction.resume("Cannot be blank");
+  const answer = await input.showInputBox('Enter Your Email');
+  if (answer === '') throw InputFlowAction.resume('Cannot be blank');
   return { ...state, customer: { ...state.customer, email: answer } };
 }
 
@@ -94,8 +94,8 @@ async function getPhoneNumber(
   input: MultiStepInput,
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
-  const answer = await input.showInputBox("Enter Your Phone Number");
-  if (answer === "") throw InputFlowAction.resume("Cannot be blank");
+  const answer = await input.showInputBox('Enter Your Phone Number');
+  if (answer === '') throw InputFlowAction.resume('Cannot be blank');
   return { ...state, customer: { ...state.customer, phone: answer } };
 }
 
@@ -132,7 +132,7 @@ class CashPayment {
   Amount: number;
   constructor(amount: number) {
     this.Amount = amount;
-    this.Type = "Cash";
+    this.Type = 'Cash';
     // this.CardType = ""
     // this.Expiration = ""
     // this.Number = ""
@@ -159,7 +159,7 @@ async function getProduct(
 ): Promise<DeepPartial<State>> {
   const store = await getNearbyStore(state.customer?.address);
   if (store.StoreID == null)
-    throw InputFlowAction.back("No nearby open stores");
+    throw InputFlowAction.back('No nearby open stores');
   const menu = await new dominos.Menu(store.StoreID);
   const products =
     menu.menu.categories.food.pizza.subCategories.specialty.products
@@ -190,13 +190,13 @@ async function getVariant(
   state: DeepPartial<State>
 ): Promise<DeepPartial<State>> {
   if (state?.helper?.product == null)
-    throw InputFlowAction.back("Pick a product");
+    throw InputFlowAction.back('Pick a product');
   const variants = (state as State).helper.product.variants
     .map((variantCode: string) => {
       const variant = (state as State).helper.menu.menu.variants[variantCode];
       if (variant == null) return;
       return {
-        label: variant.name.replace((state as State).helper.product.name, ""),
+        label: variant.name.replace((state as State).helper.product.name, ''),
         description: variant.price,
         variant,
       };

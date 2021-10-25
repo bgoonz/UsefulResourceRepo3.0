@@ -4,7 +4,7 @@ import {
   Disposable,
   QuickInput,
   QuickInputButtons,
-} from "vscode";
+} from 'vscode';
 
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
@@ -42,7 +42,7 @@ export async function collectInputs(
   steps: [InputStep],
   startingState: DeepPartial<State> = {}
 ): Promise<State> {
-  const input = new MultiStepInput(steps.length, "Order Pizza");
+  const input = new MultiStepInput(steps.length, 'Order Pizza');
   return (await input.stepThrough(steps, startingState)) as State;
 }
 
@@ -56,15 +56,15 @@ export class InputFlowAction {
   }
 
   static back(message: string | void) {
-    return new InputFlowAction("back", message);
+    return new InputFlowAction('back', message);
   }
 
   static cancel(message: string | void) {
-    return new InputFlowAction("cancel", message);
+    return new InputFlowAction('cancel', message);
   }
 
   static resume(message: string | void) {
-    return new InputFlowAction("resume", message);
+    return new InputFlowAction('resume', message);
   }
 }
 
@@ -105,13 +105,13 @@ export class MultiStepInput {
           if (e.message) window.showErrorMessage(e.message);
 
           switch (e.type) {
-            case "back":
+            case 'back':
               this.currentStepNumber -= 2;
               break;
-            case "resume":
+            case 'resume':
               this.currentStepNumber--;
               break;
-            case "cancel":
+            case 'cancel':
               this.currentStepNumber = Number.POSITIVE_INFINITY;
               break;
           }

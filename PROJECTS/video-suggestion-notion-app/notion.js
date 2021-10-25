@@ -1,5 +1,5 @@
-const { Client } = require("@notionhq/client");
-const Filter = require("bad-words");
+const { Client } = require('@notionhq/client');
+const Filter = require('bad-words');
 const filter = new Filter();
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
@@ -18,7 +18,7 @@ async function getSuggestions(startCursor) {
     sorts: [
       {
         property: process.env.NOTION_VOTES_ID,
-        direction: "descending",
+        direction: 'descending',
       },
     ],
     filter: {
@@ -143,7 +143,7 @@ function fromNotionObject(notionPage) {
 
   return {
     id: notionPage.id,
-    title: filter.clean(`a ${title}`).replace(/^a /, ""),
+    title: filter.clean(`a ${title}`).replace(/^a /, ''),
     votes: propertiesById[process.env.NOTION_VOTES_ID].number,
     reports: propertiesById[process.env.NOTION_REPORTS_ID].number,
     tags: propertiesById[process.env.NOTION_TAGS_SELECT_ID].multi_select.map(
@@ -152,7 +152,7 @@ function fromNotionObject(notionPage) {
       }
     ),
     isProject: propertiesById[process.env.NOTION_PROJECT_CHECKBOX_ID].checkbox,
-    description: filter.clean(`a ${description}`).replace(/^a /, ""),
+    description: filter.clean(`a ${description}`).replace(/^a /, ''),
   };
 }
 

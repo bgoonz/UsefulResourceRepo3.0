@@ -1,10 +1,10 @@
-import { useState } from "react";
-import useEffectOnce from "./useEffectOnce";
+import { useState } from 'react';
+import useEffectOnce from './useEffectOnce';
 
 export default function EffectOnceComponent() {
   const [count, setCount] = useState(0);
 
-  useEffectOnce(() => alert("Hi"));
+  useEffectOnce(() => alert('Hi'));
 
   return (
     <>

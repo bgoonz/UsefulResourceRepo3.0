@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import useOnScreen from "./useOnScreen";
+import { useRef } from 'react';
+import useOnScreen from './useOnScreen';
 
 export default function OnScreenComponentComponent() {
   const headerTwoRef = useRef();
-  const visible = useOnScreen(headerTwoRef, "-100px");
+  const visible = useOnScreen(headerTwoRef, '-100px');
 
   return (
     <div>
@@ -36,7 +36,7 @@ export default function OnScreenComponentComponent() {
         nostrum iusto eveniet illo corrupti dicta. Non fuga exercitationem sit
         dignissimos voluptatibus cumque nobis iste asperiores illum fugit
       </div>
-      <h1 ref={headerTwoRef}>Header 2 {visible && "(Visible)"}</h1>
+      <h1 ref={headerTwoRef}>Header 2 {visible && '(Visible)'}</h1>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde incidunt,
         nam id itaque error dicta? Numquam earum iusto optio officia, molestias

@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import useDeepCompareEffect from "./useDeepCompareEffect";
+import { useEffect, useState, useRef } from 'react';
+import useDeepCompareEffect from './useDeepCompareEffect';
 
 export default function DeepCompareEffectComponent() {
   const [age, setAge] = useState(0);
@@ -7,7 +7,7 @@ export default function DeepCompareEffectComponent() {
   const useEffectCountRef = useRef();
   const useDeepCompareEffectCountRef = useRef();
 
-  const person = { age: age, name: "Kyle" };
+  const person = { age: age, name: 'Kyle' };
 
   useEffect(() => {
     useEffectCountRef.current.textContent =

@@ -1,7 +1,7 @@
-import useAsync from "../9-useAsync/useAsync";
+import useAsync from '../9-useAsync/useAsync';
 
 const DEFAULT_OPTIONS = {
-  headers: { "Content-Type": "application/json" },
+  headers: { 'Content-Type': 'application/json' },
 };
 
 export default function useFetch(url, options = {}, dependencies = []) {

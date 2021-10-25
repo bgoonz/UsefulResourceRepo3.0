@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const shortId = require("shortid");
+const mongoose = require('mongoose');
+const shortId = require('shortid');
 
 const shortUrlSchema = new mongoose.Schema({
   full: {
@@ -18,4 +18,4 @@ const shortUrlSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("ShortUrl", shortUrlSchema);
+module.exports = mongoose.model('ShortUrl', shortUrlSchema);
