@@ -1,8 +1,8 @@
-let fs = require("fs");
-let path = require("path");
+let fs = require('fs');
+let path = require('path');
 
 function read(root, filter, files, prefix) {
-  prefix = prefix || "";
+  prefix = prefix || '';
   files = files || [];
 
   let dir = path.join(root, prefix);
@@ -18,16 +18,16 @@ function read(root, filter, files, prefix) {
 
 //-------------------(testing)------------------------
 
-let files = read(path.join(__dirname, "../.."), function (name) {
+let files = read(path.join(__dirname, '../..'), function (name) {
   return (
-    name[0] !== "." && name !== "node_modules" && name !== "package-lock.json"
+    name[0] !== '.' && name !== 'node_modules' && name !== 'package-lock.json'
   );
 });
-console.log("files: ", files);
+console.log('files: ', files);
 
 let data = files.join();
 
-fs.writeFile("output.txt", data, (err) => {
+fs.writeFile('output.txt', data, (err) => {
   // In case of a error throw err.
   if (err) throw err;
 });

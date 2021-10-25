@@ -3,7 +3,7 @@ setTimeout(function () {
   // I have previously run sessions as long as three days
   // the most live code updates performed during one session is 455
   // for this special occassion I am going to cheat
-  require("cheatcode");
+  require('cheatcode');
   synth.connect(master.destination);
   // that is not the only cheat
   // really, that isn't a cheat at all
@@ -35,7 +35,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -69,7 +69,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -93,7 +93,7 @@ setTimeout(function () {
 
       fleek = fq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -124,7 +124,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -163,9 +163,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -186,7 +186,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -220,7 +220,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -243,7 +243,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -274,7 +274,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -313,9 +313,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 4, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -336,7 +336,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -370,7 +370,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -393,7 +393,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -424,7 +424,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -463,9 +463,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 8, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -486,7 +486,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -520,7 +520,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -543,7 +543,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -574,7 +574,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -613,9 +613,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -636,7 +636,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -670,7 +670,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -693,7 +693,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -724,7 +724,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -763,9 +763,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -786,7 +786,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "triangle";
+    opts.wave = 'triangle';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -820,7 +820,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54; //
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -843,7 +843,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -874,7 +874,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -913,9 +913,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -936,7 +936,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -979,7 +979,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1002,7 +1002,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1034,7 +1034,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1073,9 +1073,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1096,7 +1096,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1139,7 +1139,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1162,7 +1162,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1194,7 +1194,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1233,9 +1233,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1256,7 +1256,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1299,7 +1299,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1322,7 +1322,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1354,7 +1354,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1393,9 +1393,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1416,7 +1416,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1459,7 +1459,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1482,7 +1482,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1514,7 +1514,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1553,9 +1553,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1576,7 +1576,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1619,7 +1619,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1642,7 +1642,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1674,7 +1674,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1713,9 +1713,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1736,7 +1736,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1779,7 +1779,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1802,7 +1802,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1834,7 +1834,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1873,9 +1873,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -1896,7 +1896,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1939,7 +1939,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -1962,7 +1962,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -1994,7 +1994,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2033,9 +2033,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2056,7 +2056,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2099,7 +2099,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2122,7 +2122,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2154,7 +2154,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2193,9 +2193,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2216,7 +2216,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2259,7 +2259,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2282,7 +2282,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2314,7 +2314,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2353,9 +2353,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2376,7 +2376,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2419,7 +2419,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2442,7 +2442,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2474,7 +2474,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2513,9 +2513,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2536,7 +2536,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2579,7 +2579,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2602,7 +2602,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2634,7 +2634,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2673,9 +2673,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2696,7 +2696,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2739,7 +2739,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2762,7 +2762,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2794,7 +2794,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2833,9 +2833,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2856,7 +2856,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2899,7 +2899,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2922,7 +2922,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2954,7 +2954,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2993,9 +2993,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3016,7 +3016,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3059,7 +3059,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3082,7 +3082,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3115,7 +3115,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3154,9 +3154,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3177,7 +3177,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3220,7 +3220,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3243,7 +3243,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3276,7 +3276,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3315,9 +3315,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3338,7 +3338,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3381,7 +3381,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3404,7 +3404,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3437,7 +3437,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3476,9 +3476,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3499,7 +3499,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3542,7 +3542,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3565,7 +3565,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3598,7 +3598,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3637,9 +3637,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3660,7 +3660,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3703,7 +3703,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3726,7 +3726,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3759,7 +3759,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3798,9 +3798,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3821,7 +3821,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3864,7 +3864,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3887,7 +3887,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3920,7 +3920,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3959,9 +3959,9 @@ setTimeout(function () {
   bpm = 74 / 2;
   //timer=sync(bpm, master.sampleRate)
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3982,7 +3982,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 1200; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4025,7 +4025,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54; //
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4048,7 +4048,7 @@ setTimeout(function () {
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
 
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4081,7 +4081,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI; // Math.sqrt(Math.PI) / Math.sqrt(2);
     opts.f = 442 / 16 / 2; //notes[b % 6].fq()//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];

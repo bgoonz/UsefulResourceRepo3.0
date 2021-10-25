@@ -12,14 +12,14 @@ const renameKeys = (keysMap, obj) =>
 //--------------------------------
 
 const obj = {
-  name: "Bobo",
-  job: "Front-End Master",
+  name: 'Bobo',
+  job: 'Front-End Master',
   shoeSize: 100,
 };
 renameKeys(
   {
-    name: "firstName",
-    job: "passion",
+    name: 'firstName',
+    job: 'passion',
   },
   obj
 );

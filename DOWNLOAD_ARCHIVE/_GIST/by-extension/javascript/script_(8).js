@@ -1,13 +1,13 @@
 (function () {
   for (
-    var d = 0, a = ["webkit", "moz"], b = 0;
+    var d = 0, a = ['webkit', 'moz'], b = 0;
     b < a.length && !window.requestAnimationFrame;
     ++b
   )
-    (window.requestAnimationFrame = window[a[b] + "RequestAnimationFrame"]),
+    (window.requestAnimationFrame = window[a[b] + 'RequestAnimationFrame']),
       (window.cancelAnimationFrame =
-        window[a[b] + "CancelAnimationFrame"] ||
-        window[a[b] + "CancelRequestAnimationFrame"]);
+        window[a[b] + 'CancelAnimationFrame'] ||
+        window[a[b] + 'CancelRequestAnimationFrame']);
   window.requestAnimationFrame ||
     (window.requestAnimationFrame = function (b) {
       var a = new Date().getTime(),
@@ -24,16 +24,16 @@
     });
 })();
 
-var $elems = $("nav a");
+var $elems = $('nav a');
 
 function Border(opt) {
   this.elem = opt.elem;
   this.active = false;
-  this.canvas = document.createElement("canvas");
-  this.ctx = this.canvas.getContext("2d");
+  this.canvas = document.createElement('canvas');
+  this.ctx = this.canvas.getContext('2d');
   this.width = this.canvas.width = this.elem.outerWidth();
   this.height = this.canvas.height = this.elem.outerHeight();
-  this.borderSize = parseInt(this.elem.css("border-left-width"), 10);
+  this.borderSize = parseInt(this.elem.css('border-left-width'), 10);
   this.waypoints = [
     [0, 0],
     [this.width - this.borderSize, 0],
@@ -47,18 +47,18 @@ function Border(opt) {
     speed: opt.speed,
     waypoint: 0,
   };
-  this.canvas.style.top = -this.borderSize + "px";
-  this.canvas.style.left = -this.borderSize + "px";
+  this.canvas.style.top = -this.borderSize + 'px';
+  this.canvas.style.left = -this.borderSize + 'px';
   this.elem.append($(this.canvas));
 }
 
 Border.prototype.loop = function () {
   if (this.active) {
     requestAnimationFrame($.proxy(this.loop, this));
-    this.ctx.globalCompositeOperation = "destination-out";
-    this.ctx.fillStyle = "rgba(0, 0, 0, .05)";
+    this.ctx.globalCompositeOperation = 'destination-out';
+    this.ctx.fillStyle = 'rgba(0, 0, 0, .05)';
     this.ctx.fillRect(0, 0, this.width, this.height);
-    this.ctx.globalCompositeOperation = "source-over";
+    this.ctx.globalCompositeOperation = 'source-over';
     this.ctx.fillStyle = this.tracer.color;
     this.ctx.fillRect(
       this.tracer.x,
@@ -103,18 +103,18 @@ Border.prototype.loop = function () {
 $elems.each(function () {
   var $this = $(this);
   var border = $this.data(
-    "border",
+    'border',
     new Border({
       elem: $this,
-      color: $this.data("color"),
-      speed: $this.data("speed"),
+      color: $this.data('color'),
+      speed: $this.data('speed'),
     })
   );
-  $this.data("border").loop();
+  $this.data('border').loop();
 });
 
-$elems.on("mouseenter", function () {
-  var border = $(this).data("border");
+$elems.on('mouseenter', function () {
+  var border = $(this).data('border');
   $(border.canvas).stop(true).animate({ opacity: 1 }, 400);
   if (!border.active) {
     border.active = true;
@@ -122,8 +122,8 @@ $elems.on("mouseenter", function () {
   }
 });
 
-$elems.on("mouseleave", function () {
-  var border = $(this).data("border");
+$elems.on('mouseleave', function () {
+  var border = $(this).data('border');
   $(border.canvas)
     .stop(true)
     .animate({ opacity: 0 }, 400, function () {

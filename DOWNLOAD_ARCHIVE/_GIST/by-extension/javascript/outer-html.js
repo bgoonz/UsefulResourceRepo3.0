@@ -15,7 +15,7 @@ jQuery.fn.extend({
      * Once you have the anonymous div, you can get the innerHtml,
      * which includes the original tag.
      */
-    var tmp_node = $("<div></div>").append($(this).clone());
+    var tmp_node = $('<div></div>').append($(this).clone());
     var markup = tmp_node.html();
 
     // Don't forget to clean up or we will leak memory.

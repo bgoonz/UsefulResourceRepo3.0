@@ -20,7 +20,7 @@ function polygon(c, n, x, y, r, angle = 0, counterclockwise = false) {
 }
 
 // Assume there is just one canvas, and get its context object to draw with.
-let c = document.querySelector("canvas").getContext("2d");
+let c = document.querySelector('canvas').getContext('2d');
 
 // Start a new path and add polygon subpaths
 c.beginPath();
@@ -31,8 +31,8 @@ polygon(c, 6, 365, 53, 50, Math.PI / 6); // Hexagon
 polygon(c, 4, 365, 53, 20, Math.PI / 4, true); // Small square inside the hexagon
 
 // Set some properties that control how the graphics will look
-c.fillStyle = "#ccc"; // Light gray interiors
-c.strokeStyle = "#008"; // outlined with dark blue lines
+c.fillStyle = '#ccc'; // Light gray interiors
+c.strokeStyle = '#008'; // outlined with dark blue lines
 c.lineWidth = 5; // five pixels wide.
 
 // Now draw all the polygons (each in its own subpath) with these calls

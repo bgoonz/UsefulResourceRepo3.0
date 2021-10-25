@@ -1,10 +1,10 @@
-const tiny = require("tiny-json-http");
-const schedule = require("node-schedule");
+const tiny = require('tiny-json-http');
+const schedule = require('node-schedule');
 
 const { error, log } = console;
 
 function main() {
-  schedule.scheduleJob("* * * * *", async () => {
+  schedule.scheduleJob('* * * * *', async () => {
     const urls = [`https://XXX.now.sh/`, `https://YYY.now.sh/`];
     for (let url of urls) {
       try {

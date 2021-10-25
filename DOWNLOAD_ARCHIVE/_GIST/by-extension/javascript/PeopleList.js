@@ -10,8 +10,8 @@ function PeopleList(props) {
     </ul>
   );
 }
-const peopleListElement = document.querySelector("#people-list");
-fetch("https://example.com/api/people")
+const peopleListElement = document.querySelector('#people-list');
+fetch('https://example.com/api/people')
   .then((response) => response.json())
   .then((people) => {
     const props = { people };

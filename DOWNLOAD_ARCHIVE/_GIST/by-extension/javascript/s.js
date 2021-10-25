@@ -18,9 +18,9 @@ Only supports `%s` and `%d`. Escape `%` as `%%`.
     var i = 1,
       args = arguments;
     return String(str).replace(/%?%(d|s)/g, function (symbol, type) {
-      if ("%" == symbol[1]) return symbol;
+      if ('%' == symbol[1]) return symbol;
       var arg = args[i++];
-      return "d" == type ? Number(arg) : String(arg);
+      return 'd' == type ? Number(arg) : String(arg);
     });
   }
 

@@ -12,12 +12,12 @@
  * If everything succeeds, don't print anything.
  */
 
-const fs = require("fs");
+const fs = require('fs');
 
 const filesToRemove = process.argv.slice(2);
 
 if (filesToRemove.length === 0) {
-  console.log("USAGE: ./rm.js path[, path[, path...]]");
+  console.log('USAGE: ./rm.js path[, path[, path...]]');
   process.exit();
 }
 

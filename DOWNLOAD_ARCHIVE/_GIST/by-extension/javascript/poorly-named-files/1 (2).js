@@ -1,6 +1,6 @@
 // NOTE: ag(..) is defined in 2.js below
 
-for await (let v of ag("hello")) {
+for await (let v of ag('hello')) {
   console.log(`v: ${v}`);
 }
 // a: hello
@@ -15,9 +15,9 @@ for await (let v of ag("hello")) {
 
 // ********************************************************
 
-for await (let v of ag("hello")) {
+for await (let v of ag('hello')) {
   console.log(`v: ${v}`);
-  if (v == "some data: 50") {
+  if (v == 'some data: 50') {
     break;
   }
 }
@@ -31,10 +31,10 @@ for await (let v of ag("hello")) {
 
 // ********************************************************
 
-var it = ag("hello");
+var it = ag('hello');
 for await (let v of it) {
   console.log(`v: ${v}`);
-  if (v == "some data: 50") {
+  if (v == 'some data: 50') {
     setTimeout(function () {
       it.return();
     }, 10);

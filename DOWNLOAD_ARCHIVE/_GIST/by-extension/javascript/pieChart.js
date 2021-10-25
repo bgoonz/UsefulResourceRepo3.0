@@ -16,18 +16,18 @@ function pieChart(options) {
   let { width, height, cx, cy, r, lx, ly, data } = options;
 
   // This is the XML namespace for svg elements
-  let svg = "http://www.w3.org/2000/svg";
+  let svg = 'http://www.w3.org/2000/svg';
 
   // Create the <svg> element, and specify pixel size and user coordinates
-  let chart = document.createElementNS(svg, "svg");
-  chart.setAttribute("width", width);
-  chart.setAttribute("height", height);
-  chart.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  let chart = document.createElementNS(svg, 'svg');
+  chart.setAttribute('width', width);
+  chart.setAttribute('height', height);
+  chart.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
   // Define the text styles we'll use for the chart. If we leave these
   // values unset here, they can be set with CSS instead.
-  chart.setAttribute("font-family", "sans-serif");
-  chart.setAttribute("font-size", "18");
+  chart.setAttribute('font-family', 'sans-serif');
+  chart.setAttribute('font-size', '18');
 
   // Get labels and values as arrays and add up the values so we know how
   // big the pie is.
@@ -60,37 +60,37 @@ function pieChart(options) {
       `L${x1},${y1}` + // Draw line to (x1,y1).
       `A${r},${r} 0 ${big} 1` + // Draw an arc of radius r...
       `${x2},${y2}` + // ...ending at to (x2,y2).
-      "Z"; // Close path back to (cx,cy).
+      'Z'; // Close path back to (cx,cy).
 
     // Compute the CSS color for this slice. This formula works for only
     // about 15 colors. So don't include more than 15 slices in a chart.
     let color = `hsl(${(i * 40) % 360},${90 - 3 * i}%,${50 + 2 * i}%)`;
 
     // We describe a slice with a <path> element. Note createElementNS().
-    let slice = document.createElementNS(svg, "path");
+    let slice = document.createElementNS(svg, 'path');
 
     // Now set attributes on the <path> element
-    slice.setAttribute("d", path); // Set the path for this slice
-    slice.setAttribute("fill", color); // Set slice color
-    slice.setAttribute("stroke", "black"); // Outline slice in black
-    slice.setAttribute("stroke-width", "1"); // 1 CSS pixel thick
+    slice.setAttribute('d', path); // Set the path for this slice
+    slice.setAttribute('fill', color); // Set slice color
+    slice.setAttribute('stroke', 'black'); // Outline slice in black
+    slice.setAttribute('stroke-width', '1'); // 1 CSS pixel thick
     chart.append(slice); // Add slice to chart
 
     // Now draw a little matching square for the key
-    let icon = document.createElementNS(svg, "rect");
-    icon.setAttribute("x", lx); // Position the square
-    icon.setAttribute("y", ly + 30 * i);
-    icon.setAttribute("width", 20); // Size the square
-    icon.setAttribute("height", 20);
-    icon.setAttribute("fill", color); // Same fill color as slice
-    icon.setAttribute("stroke", "black"); // Same outline, too.
-    icon.setAttribute("stroke-width", "1");
+    let icon = document.createElementNS(svg, 'rect');
+    icon.setAttribute('x', lx); // Position the square
+    icon.setAttribute('y', ly + 30 * i);
+    icon.setAttribute('width', 20); // Size the square
+    icon.setAttribute('height', 20);
+    icon.setAttribute('fill', color); // Same fill color as slice
+    icon.setAttribute('stroke', 'black'); // Same outline, too.
+    icon.setAttribute('stroke-width', '1');
     chart.append(icon); // Add to the chart
 
     // And add a label to the right of the rectangle
-    let label = document.createElementNS(svg, "text");
-    label.setAttribute("x", lx + 30); // Position the text
-    label.setAttribute("y", ly + 30 * i + 16);
+    let label = document.createElementNS(svg, 'text');
+    label.setAttribute('x', lx + 30); // Position the text
+    label.setAttribute('y', ly + 30 * i + 16);
     label.append(`${labels[i]} ${value}`); // Add text to label
     chart.append(label); // Add label to the chart
   });

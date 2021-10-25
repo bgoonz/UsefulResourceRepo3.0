@@ -2,13 +2,13 @@
  * @fileoverview Common helpers for operations on filenames and paths
  * @author Ian VanSchooten
  */
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const path = require("path");
+const path = require('path');
 
 //------------------------------------------------------------------------------
 // Private
@@ -22,7 +22,7 @@ const path = require("path");
  */
 function convertPathToPosix(filepath) {
   const normalizedFilepath = path.normalize(filepath);
-  const posixFilepath = normalizedFilepath.replace(/\\/g, "/");
+  const posixFilepath = normalizedFilepath.replace(/\\/g, '/');
 
   return posixFilepath;
 }
@@ -55,11 +55,11 @@ function getRelativePath(filepath, baseDir) {
   }
   if (baseDir) {
     if (!path.isAbsolute(baseDir)) {
-      throw new Error("baseDir should be an absolute path");
+      throw new Error('baseDir should be an absolute path');
     }
     relativePath = path.relative(baseDir, filepath);
   } else {
-    relativePath = filepath.replace(/^\//, "");
+    relativePath = filepath.replace(/^\//, '');
   }
   return relativePath;
 }

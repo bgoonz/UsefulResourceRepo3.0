@@ -1,7 +1,7 @@
 // GFX Artwork by Gabriel Uribe
 // https://www.gabrieluribe.com/portfolio/astral-city-parallax/
 !(function () {
-  "use strict";
+  'use strict';
   var Xi = 0,
     Yi = 0,
     Zi = 0,
@@ -16,11 +16,11 @@
   var pspd = new ge1doot.Ease(0.1, 1);
   // ==== particles constructor ====
   function Particle(img, x, y, z, life) {
-    this.img = document.createElement("img");
-    this.img.className = "particle";
+    this.img = document.createElement('img');
+    this.img.className = 'particle';
     this.img.src = img.src;
-    document.getElementById("scene").appendChild(this.img);
-    this.img.style.visibility = "visible";
+    document.getElementById('scene').appendChild(this.img);
+    this.img.style.visibility = 'visible';
     this.maxLife = life;
     this.life = Math.random() * life;
     this.pos = { x: x, y: y, z: z };
@@ -46,9 +46,9 @@
   };
 
   // ==== init script ====
-  screen.init("screen", function () {}, true);
+  screen.init('screen', function () {}, true);
   drag.init(screen);
-  faces = document.getElementById("scene").getElementsByTagName("img");
+  faces = document.getElementById('scene').getElementsByTagName('img');
   localTransform = [];
   rotation = {
     ex: 0,
@@ -65,14 +65,14 @@
   // ==== init faces ====
   for (var i = 0, n = faces.length; i < n; i++) {
     var elem = faces[i];
-    var s = elem.getAttribute("data-transform");
+    var s = elem.getAttribute('data-transform');
     elem.style.transform = s;
     elem.style.webkitTransform = s;
-    elem.style.visibility = "visible";
+    elem.style.visibility = 'visible';
     localTransform.push(s);
   }
   // ==== create particles ====
-  var particle = document.getElementById("particle");
+  var particle = document.getElementById('particle');
   for (var i = 0; i < nParticles; i++) {
     particles.push(new Particle(particle, -5, -20, 80, 200));
   }
@@ -84,14 +84,14 @@
     pspd.ease(drag.active ? 0.05 : 1);
     rotation.ease(drag.x, drag.y);
     var globalRotation =
-      "perspective(" +
+      'perspective(' +
       perp.value +
-      "px) scale(0.7) rotateX(" +
+      'px) scale(0.7) rotateX(' +
       rotation.x +
-      "deg) " +
-      "rotateY(" +
+      'deg) ' +
+      'rotateY(' +
       rotation.y +
-      "deg) ";
+      'deg) ';
     // ==== anim faces ====
     for (var i = 0, n = faces.length; i < n; i++) {
       var elem = faces[i];
@@ -105,17 +105,17 @@
       part.anim();
       var s =
         globalRotation +
-        "translate3d(" +
+        'translate3d(' +
         part.pos.x +
-        "px," +
+        'px,' +
         part.pos.y +
-        "px," +
+        'px,' +
         part.pos.z +
-        "px) rotateY(" +
+        'px) rotateY(' +
         -rotation.y +
-        "deg) rotateX(" +
+        'deg) rotateX(' +
         -rotation.x +
-        "deg)";
+        'deg)';
       part.img.style.transform = s;
       part.img.style.webkitTransform = s;
     }

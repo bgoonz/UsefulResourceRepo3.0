@@ -15,8 +15,8 @@ var other = new Promise(function c(res) {
   }; // ONLY THIS LINE WAS CHANGED!
 });
 
-resolve1("hare"); // winner should be "hare"
-resolve2({ value: "tortoise" }); // but winner is "tortoise" :/
+resolve1('hare'); // winner should be "hare"
+resolve2({ value: 'tortoise' }); // but winner is "tortoise" :/
 
 Promise.race([main().next(), other]).then(function t({ value: winner }) {
   console.log(`The winner is: ${winner}`); // The winner is: tortoise

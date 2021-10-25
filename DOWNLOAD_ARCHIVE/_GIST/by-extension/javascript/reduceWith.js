@@ -8,15 +8,15 @@ reduceWhich([1, 3, 2], (a, b) => b - a); // 3
 reduceWhich(
   [
     {
-      name: "Tom",
+      name: 'Tom',
       age: 12,
     },
     {
-      name: "Jack",
+      name: 'Jack',
       age: 18,
     },
     {
-      name: "Lucy",
+      name: 'Lucy',
       age: 9,
     },
   ],

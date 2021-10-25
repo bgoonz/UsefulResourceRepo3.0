@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles.css";
+import React from 'react';
+import './styles.css';
 
 function FirstComponent({ children }) {
   return (
@@ -31,7 +31,7 @@ function ComponentNeedingProps({ content }) {
 }
 
 export default function App() {
-  const content = "Who needs me?";
+  const content = 'Who needs me?';
   return (
     <div className="App">
       <FirstComponent>

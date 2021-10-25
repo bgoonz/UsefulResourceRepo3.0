@@ -35,10 +35,10 @@ const operators = {
 // in the object, and then invokes it on the supplied operands. Note
 // the syntax used to invoke the operator function.
 function operate2(operation, operand1, operand2) {
-  if (typeof operators[operation] === "function") {
+  if (typeof operators[operation] === 'function') {
     return operators[operation](operand1, operand2);
-  } else throw "unknown operator";
+  } else throw 'unknown operator';
 }
 
-operate2("add", "hello", operate2("add", " ", "world")); // => "hello world"
-operate2("pow", 10, 2); // => 100
+operate2('add', 'hello', operate2('add', ' ', 'world')); // => "hello world"
+operate2('pow', 10, 2); // => 100

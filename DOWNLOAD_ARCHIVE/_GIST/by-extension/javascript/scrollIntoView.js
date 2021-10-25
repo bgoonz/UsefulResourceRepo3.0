@@ -12,8 +12,8 @@
  * @param {jQuery} $parent
  */
 function scrollIntoView($item, $parent) {
-  var borderTop = parseFloat($.css($parent[0], "borderTopWidth")) || 0,
-    paddingTop = parseFloat($.css($parent[0], "paddingTop")) || 0,
+  var borderTop = parseFloat($.css($parent[0], 'borderTopWidth')) || 0,
+    paddingTop = parseFloat($.css($parent[0], 'paddingTop')) || 0,
     offset = $item.offset().top - $parent.offset().top - borderTop - paddingTop,
     scroll = $parent.scrollTop(),
     elementHeight = $parent.height(),

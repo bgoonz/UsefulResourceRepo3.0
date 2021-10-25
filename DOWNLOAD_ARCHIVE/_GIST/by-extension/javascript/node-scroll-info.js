@@ -1,5 +1,5 @@
 YUI.add(
-  "node-scroll-info",
+  'node-scroll-info',
   function (Y) {
     /**
 Provides the ScrollInfo Node plugin, which exposes convenient events and methods
@@ -61,7 +61,7 @@ mixes in the following additional properties.
 @see scrollDelay
 @see scrollMargin
 **/
-    var EVT_SCROLL = "scroll",
+    var EVT_SCROLL = 'scroll',
       /**
 Fired when the user scrolls down within the host node.
 
@@ -71,7 +71,7 @@ for details.
 @event scrollDown
 @see scroll
 **/
-      EVT_SCROLL_DOWN = "scrollDown",
+      EVT_SCROLL_DOWN = 'scrollDown',
       /**
 Fired when the user scrolls left within the host node.
 
@@ -81,7 +81,7 @@ for details.
 @event scrollLeft
 @see scroll
 **/
-      EVT_SCROLL_LEFT = "scrollLeft",
+      EVT_SCROLL_LEFT = 'scrollLeft',
       /**
 Fired when the user scrolls right within the host node.
 
@@ -91,7 +91,7 @@ for details.
 @event scrollDown
 @see scroll
 **/
-      EVT_SCROLL_RIGHT = "scrollRight",
+      EVT_SCROLL_RIGHT = 'scrollRight',
       /**
 Fired when the user scrolls up within the host node.
 
@@ -101,7 +101,7 @@ for details.
 @event scrollUp
 @see scroll
 **/
-      EVT_SCROLL_UP = "scrollUp",
+      EVT_SCROLL_UP = 'scrollUp',
       /**
 Fired when the user scrolls to the bottom of the scrollable region within the
 host node.
@@ -112,7 +112,7 @@ for details.
 @event scrollToBottom
 @see scroll
 **/
-      EVT_SCROLL_TO_BOTTOM = "scrollToBottom",
+      EVT_SCROLL_TO_BOTTOM = 'scrollToBottom',
       /**
 Fired when the user scrolls to the extreme left of the scrollable region within
 the host node.
@@ -123,7 +123,7 @@ for details.
 @event scrollToLeft
 @see scroll
 **/
-      EVT_SCROLL_TO_LEFT = "scrollToLeft",
+      EVT_SCROLL_TO_LEFT = 'scrollToLeft',
       /**
 Fired when the user scrolls to the extreme right of the scrollable region within
 the host node.
@@ -134,7 +134,7 @@ for details.
 @event scrollToRight
 @see scroll
 **/
-      EVT_SCROLL_TO_RIGHT = "scrollToRight",
+      EVT_SCROLL_TO_RIGHT = 'scrollToRight',
       /**
 Fired when the user scrolls to the top of the scrollable region within the host
 node.
@@ -145,10 +145,10 @@ for details.
 @event scrollToTop
 @see scroll
 **/
-      EVT_SCROLL_TO_TOP = "scrollToTop";
+      EVT_SCROLL_TO_TOP = 'scrollToTop';
 
     Y.Plugin.ScrollInfo = Y.Base.create(
-      "scrollInfoPlugin",
+      'scrollInfoPlugin',
       Y.Plugin.Base,
       [],
       {
@@ -157,9 +157,9 @@ for details.
           // Cache for quicker lookups in the critical path.
           this._host = config.host;
           this._hostIsBody =
-            this._host.get("nodeName").toLowerCase() === "body";
-          this._scrollDelay = this.get("scrollDelay");
-          this._scrollMargin = this.get("scrollMargin");
+            this._host.get('nodeName').toLowerCase() === 'body';
+          this._scrollDelay = this.get('scrollDelay');
+          this._scrollMargin = this.get('scrollMargin');
           this._scrollNode = this._getScrollNode();
 
           this.refreshDimensions();
@@ -385,12 +385,12 @@ for details.
               scrollMarginChange: this._afterScrollMarginChange,
             }),
 
-            Y.one("win").on("windowresize", this._afterResize, this),
+            Y.one('win').on('windowresize', this._afterResize, this),
 
             // If we're attached to the body, listen for the scroll event on the
             // window, since <body> doesn't have a scroll event.
-            (this._hostIsBody ? Y.one("win") : this._host).after(
-              "scroll",
+            (this._hostIsBody ? Y.one('win') : this._host).after(
+              'scroll',
               this._afterScroll,
               this
             ),
@@ -523,7 +523,7 @@ for details.
         },
       },
       {
-        NS: "scrollInfo",
+        NS: 'scrollInfo',
 
         ATTRS: {
           /**
@@ -563,14 +563,14 @@ for details.
       }
     );
   },
-  "@VERSION@",
+  '@VERSION@',
   {
     requires: [
-      "base-build",
-      "dom-screen",
-      "event-resize",
-      "node-pluginhost",
-      "plugin",
+      'base-build',
+      'dom-screen',
+      'event-resize',
+      'node-pluginhost',
+      'plugin',
     ],
   }
 );

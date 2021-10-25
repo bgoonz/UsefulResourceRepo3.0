@@ -19,11 +19,11 @@ function sendMIDISequence(MIDIAccess) {
       output.sendMIDIMessage(msg);
 
       logMessage(
-        "timestamp: " +
+        'timestamp: ' +
           msg.timestamp +
-          ", domhrtTime: " +
+          ', domhrtTime: ' +
           domhrtRelativeTime +
-          ", deviation: " +
+          ', deviation: ' +
           (domhrtRelativeTime - msg.timestamp)
       );
 

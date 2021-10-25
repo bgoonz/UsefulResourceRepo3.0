@@ -75,10 +75,10 @@ class SinglyLinkedList {
   }
 
   print() {
-    let string = "";
+    let string = '';
     let current = this.head;
     while (current) {
-      string += current.data + " ";
+      string += current.data + ' ';
       current = current.next;
     }
     console.log(string.trim());
@@ -92,7 +92,7 @@ singlyLinkedList.add(2);
 singlyLinkedList.add(3);
 singlyLinkedList.add(4);
 singlyLinkedList.print(); // => 1 2 3 4
-console.log("length is 4:", singlyLinkedList.length()); // => 4
+console.log('length is 4:', singlyLinkedList.length()); // => 4
 singlyLinkedList.remove(3); // remove value
 singlyLinkedList.print(); // => 1 2 4
 singlyLinkedList.remove(9); // remove non existing value
@@ -101,7 +101,7 @@ singlyLinkedList.remove(1); // remove head
 singlyLinkedList.print(); // => 2 4
 singlyLinkedList.remove(4); // remove tail
 singlyLinkedList.print(); // => 2
-console.log("length is 1:", singlyLinkedList.length()); // => 1
+console.log('length is 1:', singlyLinkedList.length()); // => 1
 singlyLinkedList.add(6);
 singlyLinkedList.print(); // => 2 6
 singlyLinkedList.insertAfter(3, 2);
@@ -115,7 +115,7 @@ singlyLinkedList.insertAfter(7, 6); // insertAfter the tail
 singlyLinkedList.print(); // => 2 3 4 5 6 7
 singlyLinkedList.add(8); // add node with normal method
 singlyLinkedList.print(); // => 2 3 4 5 6 7 8
-console.log("length is 7:", singlyLinkedList.length()); // => 7
+console.log('length is 7:', singlyLinkedList.length()); // => 7
 singlyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
@@ -123,4 +123,4 @@ singlyLinkedList.print(); // => 12 13 14 15 16 17 18
 singlyLinkedList.traverse((node) => {
   console.log(node.data);
 }); // => 12 13 14 15 16 17 18
-console.log("length is 7:", singlyLinkedList.length()); // => 7
+console.log('length is 7:', singlyLinkedList.length()); // => 7

@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 /**
  * @fileoverview
  * A shim for ES6 maps and support for custom hash functions via toString().
  */
 
-import Map from "./Map";
-import toIterator from "./toIterator";
+import Map from './Map';
+import toIterator from './toIterator';
 
 export default class Set {
   /**

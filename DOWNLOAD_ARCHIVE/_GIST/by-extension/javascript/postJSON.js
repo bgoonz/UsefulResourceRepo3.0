@@ -1,4 +1,4 @@
-const https = require("https");
+const https = require('https');
 
 /*
  * Convert the body object to a JSON string then HTTPS POST it to the
@@ -15,13 +15,13 @@ function postJSON(host, endpoint, body, port, username, password) {
 
     // Configure the HTTPS request
     let requestOptions = {
-      method: "POST", // Or "GET", "PUT", "DELETE", etc.
+      method: 'POST', // Or "GET", "PUT", "DELETE", etc.
       host: host, // The host to connect to
       path: endpoint, // The URL path
       headers: {
         // HTTP headers for the request
-        "Content-Type": "application/json",
-        "Content-Length": Buffer.byteLength(bodyText),
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(bodyText),
       },
     };
 
@@ -42,10 +42,10 @@ function postJSON(host, endpoint, body, port, username, password) {
     request.end();
 
     // Fail on request errors (such as no network connection)
-    request.on("error", (e) => reject(e));
+    request.on('error', (e) => reject(e));
 
     // Handle the response when it starts to arrive.
-    request.on("response", (response) => {
+    request.on('response', (response) => {
       if (response.statusCode !== 200) {
         reject(new Error(`HTTP status ${response.statusCode}`));
         // We don't care about the response body in this case, but
@@ -59,17 +59,17 @@ function postJSON(host, endpoint, body, port, username, password) {
       // We want text, not bytes. We're assuming the text will be
       // JSON-formatted but aren't bothering to check the
       // Content-Type header.
-      response.setEncoding("utf8");
+      response.setEncoding('utf8');
 
       // Node doesn't have a streaming JSON parser, so we read the
       // entire response body into a string.
-      let body = "";
-      response.on("data", (chunk) => {
+      let body = '';
+      response.on('data', (chunk) => {
         body += chunk;
       });
 
       // And now handle the response when it is complete.
-      response.on("end", () => {
+      response.on('end', () => {
         // When the response is done,
         try {
           // try to parse it as JSON

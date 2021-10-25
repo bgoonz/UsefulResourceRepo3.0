@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React from "react";
-import Fieldset from "part:@sanity/components/fieldsets/default";
-import { setIfMissing } from "part:@sanity/form-builder/patch-event";
-import { FormBuilderInput } from "part:@sanity/form-builder";
-import filterFieldFn$ from "part:@sanity/desk-tool/filter-fields-fn?";
+import PropTypes from 'prop-types';
+import React from 'react';
+import Fieldset from 'part:@sanity/components/fieldsets/default';
+import { setIfMissing } from 'part:@sanity/form-builder/patch-event';
+import { FormBuilderInput } from 'part:@sanity/form-builder';
+import filterFieldFn$ from 'part:@sanity/desk-tool/filter-fields-fn?';
 
 export default class CustomObjectInput extends React.PureComponent {
   static propTypes = {

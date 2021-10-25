@@ -349,7 +349,7 @@ Bird.Tri = Bird.def(
       var _r = Math.floor(x1.x * 255);
       var _g = Math.floor(x1.y * 255);
       var _b = Math.floor(x1.z * 255);
-      return "rgb(" + _r + "," + _g + "," + _b + ")";
+      return 'rgb(' + _r + ',' + _g + ',' + _b + ')';
     },
     norm: function () {
       var v1 = this.Vtxs[0];
@@ -523,8 +523,8 @@ Bird.Matrix = {
 };
 
 function draw() {
-  var c = document.getElementById("canv");
-  Bird.$ = c.getContext("2d");
+  var c = document.getElementById('canv');
+  Bird.$ = c.getContext('2d');
   Bird.canv = {
     w: (c.width = window.innerWidth),
     h: (c.height = window.innerHeight),
@@ -589,7 +589,7 @@ function draw() {
   }
 }
 draw();
-window.addEventListener("resize", function () {
+window.addEventListener('resize', function () {
   if (c.width !== window.innerWidth && c.height !== window.innerHeight) {
     Bird.canv = {
       w: (c.width = window.innerWidth),

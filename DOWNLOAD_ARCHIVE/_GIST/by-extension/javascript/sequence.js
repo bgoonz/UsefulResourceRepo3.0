@@ -4,4 +4,4 @@ function* sequence(...iterables) {
   }
 }
 
-[...sequence("abc", oneDigitPrimes())]; // => ["a","b","c",2,3,5,7]
+[...sequence('abc', oneDigitPrimes())]; // => ["a","b","c",2,3,5,7]

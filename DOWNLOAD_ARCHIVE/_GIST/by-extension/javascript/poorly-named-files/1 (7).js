@@ -11,7 +11,7 @@ async function* getStuff(urls) {
 }
 
 var it = getStuff(contentURLs);
-cancelBtn.addEventListener("click", () => it.return(), false);
+cancelBtn.addEventListener('click', () => it.return(), false);
 
 for await (let stuff of it) {
   render(stuff);

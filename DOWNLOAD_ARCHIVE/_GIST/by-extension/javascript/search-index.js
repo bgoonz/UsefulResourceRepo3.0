@@ -1,14 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const fm = require("front-matter");
+const fm = require('front-matter');
 
 const {
   CONTENT_ROOT,
   CONTENT_TRANSLATED_ROOT,
   VALID_LOCALES,
-} = require("../content");
-const { SearchIndex } = require("../build");
+} = require('../content');
+const { SearchIndex } = require('../build');
 
 function* walker(root) {
   const dirents = fs.readdirSync(root, { withFileTypes: true });
@@ -25,16 +25,16 @@ function* walker(root) {
 
 function populateSearchIndex(searchIndex, localeLC) {
   const root = path.join(
-    localeLC === "en-us" ? CONTENT_ROOT : CONTENT_TRANSLATED_ROOT,
+    localeLC === 'en-us' ? CONTENT_ROOT : CONTENT_TRANSLATED_ROOT,
     localeLC
   );
   const locale = VALID_LOCALES.get(localeLC);
   for (const filePath of walker(root)) {
     const basename = path.basename(filePath);
-    if (!(basename === "index.html" || basename === "index.md")) {
+    if (!(basename === 'index.html' || basename === 'index.md')) {
       continue;
     }
-    const rawContent = fs.readFileSync(filePath, "utf-8");
+    const rawContent = fs.readFileSync(filePath, 'utf-8');
     const { attributes: metadata } = fm(rawContent);
     metadata.locale = locale;
 
@@ -48,8 +48,8 @@ async function searchIndexRoute(req, res) {
   // Remember, this is always in lowercase because of a middleware
   // that lowercases all incoming requests' pathname.
   const locale = req.params.locale;
-  if (locale !== "en-us" && !CONTENT_TRANSLATED_ROOT) {
-    res.status(500).send("CONTENT_TRANSLATE_ROOT not set\n");
+  if (locale !== 'en-us' && !CONTENT_TRANSLATED_ROOT) {
+    res.status(500).send('CONTENT_TRANSLATE_ROOT not set\n');
     return;
   }
   if (!VALID_LOCALES.has(locale)) {
@@ -70,7 +70,7 @@ async function searchIndexRoute(req, res) {
 
   const searchIndex = new SearchIndex();
 
-  const label = "Populate search-index";
+  const label = 'Populate search-index';
   console.time(label);
   populateSearchIndex(searchIndex, locale);
   searchIndex.sort();

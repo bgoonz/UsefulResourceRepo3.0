@@ -11,21 +11,21 @@ const omit = (object, key) => {
 const justins = {
   1: {
     id: 1,
-    name: "Justin Bieber",
+    name: 'Justin Bieber',
   },
   2: {
     id: 2,
-    name: "Justin Timberlake",
+    name: 'Justin Timberlake',
   },
   3: {
     id: 3,
-    name: "Justin Time",
+    name: 'Justin Time',
   },
 };
 
-const lessJustins = omit(justins, "1");
+const lessJustins = omit(justins, '1');
 // {
 // '2': {id: 2, name: 'Justin Timberlake'},
 // '3': {id: 3, name: 'Justin Time'}
 // }
-const oneJustin = omit(lessJustins, "2"); // { '3': {id: 3, name: 'Justin Time'} }
+const oneJustin = omit(lessJustins, '2'); // { '3': {id: 3, name: 'Justin Time'} }

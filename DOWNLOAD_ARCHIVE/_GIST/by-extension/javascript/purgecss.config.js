@@ -22,12 +22,12 @@ module.exports = {
 
     If not, then they will be purged.
   */
-  content: ["!(node_modules)**/*.{html,js,php}"],
+  content: ['!(node_modules)**/*.{html,js,php}'],
 
   /*
     Path to CSS output.
   */
-  css: ["./build/static/*.css"],
+  css: ['./build/static/*.css'],
 
   /*
     Remove unused CSS animation `keyframes`.

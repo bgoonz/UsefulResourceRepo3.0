@@ -11,10 +11,10 @@
 // and we'd like to keep the fact that they are implemented with Redux an implementation detail.
 // Each component instance will have its own store, so they won't "know" about each other.
 
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import reducer from "./reducers";
-import App from "./App";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
+import App from './App';
 
 class Root extends Component {
   constructor(props) {

@@ -8,8 +8,8 @@ function pipe(readable, writable, callback) {
 
   // Next define the pipe and handle the normal termination case
   readable
-    .on("error", handleError)
+    .on('error', handleError)
     .pipe(writable)
-    .on("error", handleError)
-    .on("finish", callback);
+    .on('error', handleError)
+    .on('finish', callback);
 }

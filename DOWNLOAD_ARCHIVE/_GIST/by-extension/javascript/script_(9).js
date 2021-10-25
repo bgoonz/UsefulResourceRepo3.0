@@ -6,11 +6,11 @@ function _(e, all = false) {
   return divs[0];
 }
 
-_("input", true).forEach((element) => {
-  element.addEventListener("input", drawBordr);
+_('input', true).forEach((element) => {
+  element.addEventListener('input', drawBordr);
 });
 
-const resultDiv = _(".result");
+const resultDiv = _('.result');
 
 drawBordr();
 function drawBordr() {
@@ -23,7 +23,7 @@ function drawBordr() {
   let diraction = _('[name="diraction"]').checked;
   let animation = Number(_('[name="animation"]').value);
 
-  let color2 = "transparent";
+  let color2 = 'transparent';
 
   const backgroundImage = `
         repeating-linear-gradient(${
@@ -62,7 +62,7 @@ function drawBordr() {
         100
     ) / 100;
   const borderLength =
-    animation > 0 ? `calc(100% + ${borderLengthPx}px)` : "100%";
+    animation > 0 ? `calc(100% + ${borderLengthPx}px)` : '100%';
   const backgroundSize = `${borderWidth}px ${borderLength}, ${borderLength} ${borderWidth}px, ${borderWidth}px ${borderLength} , ${borderLength} ${borderWidth}px`;
   const backgroundPosition = `0 0, 0 0, 100% 0, 0 100%`;
 
@@ -74,14 +74,14 @@ function drawBordr() {
     animation > 0
       ? `borderAnimation ${
           Math.round((1.1 - animation) * 10) / 10
-        }s infinite linear${diraction ? " reverse" : ""}`
-      : "unset";
+        }s infinite linear${diraction ? ' reverse' : ''}`
+      : 'unset';
   resultDiv.style.animation = animationPropery;
 
-  let animationTxt = "";
+  let animationTxt = '';
   if (animation > 0) {
     document.documentElement.style.setProperty(
-      "--AnimationLength",
+      '--AnimationLength',
       `-${borderLengthPx}px`
     );
 

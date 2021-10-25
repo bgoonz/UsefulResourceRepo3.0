@@ -12,7 +12,7 @@ const serialnum = {
   // Set a new value of n, but only if it is larger than current
   set next(n) {
     if (n > this._n) this._n = n;
-    else throw new Error("serial number can only be set to a larger value");
+    else throw new Error('serial number can only be set to a larger value');
   },
 };
 serialnum.next = 10; // Set the starting serial number

@@ -48,7 +48,7 @@ singlyLinkedList.prototype.remove = function (position) {
 
   //If position not present
   if (position < 0 || position > list.length) {
-    throw new Error("Invalid position");
+    throw new Error('Invalid position');
   }
 
   //If position is head's position
@@ -80,7 +80,7 @@ singlyLinkedList.prototype.search = function (position) {
 
   //If list is empty or position invalid or position not present
   if (this.length < 0 || position > this.length || position < 0) {
-    throw new Error("Invalid position");
+    throw new Error('Invalid position');
   }
 
   //If position present, return its node

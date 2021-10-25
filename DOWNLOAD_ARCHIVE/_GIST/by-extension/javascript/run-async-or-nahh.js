@@ -1,8 +1,8 @@
 function isPromise(obj) {
   return (
     !!obj &&
-    (typeof obj === "object" || typeof obj === "function") &&
-    typeof obj.then === "function"
+    (typeof obj === 'object' || typeof obj === 'function') &&
+    typeof obj.then === 'function'
   );
 }
 
@@ -28,7 +28,7 @@ const runAsync = (module.exports = (func, cb) => {
       let resolved = false;
       const wrappedResolve = (value) => {
         if (resolved) {
-          console.warn("Run-async promise already resolved.");
+          console.warn('Run-async promise already resolved.');
         }
         resolved = true;
         resolve(value);
@@ -37,7 +37,7 @@ const runAsync = (module.exports = (func, cb) => {
       let rejected = false;
       const wrappedReject = (value) => {
         if (rejected) {
-          console.warn("Run-async promise already rejected.");
+          console.warn('Run-async promise already rejected.');
         }
         rejected = true;
         reject(value);
@@ -52,13 +52,13 @@ const runAsync = (module.exports = (func, cb) => {
           async() {
             if (contextEnded) {
               console.warn(
-                "Run-async async() called outside a valid run-async context, callback will be ignored."
+                'Run-async async() called outside a valid run-async context, callback will be ignored.'
               );
               return () => {};
             }
             if (callbackConflict) {
               console.warn(
-                "Run-async wrapped function (async) returned a promise.\nCalls to async() callback can have unexpected results."
+                'Run-async wrapped function (async) returned a promise.\nCalls to async() callback can have unexpected results.'
               );
             }
             usingCallback = true;
@@ -77,7 +77,7 @@ const runAsync = (module.exports = (func, cb) => {
       if (usingCallback) {
         if (isPromise(answer)) {
           console.warn(
-            "Run-async wrapped function (sync) returned a promise but async() callback must be executed to resolve."
+            'Run-async wrapped function (sync) returned a promise but async() callback must be executed to resolve.'
           );
         }
       } else {

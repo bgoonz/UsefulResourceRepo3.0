@@ -1,5 +1,5 @@
 // @flow
-import * as React from "react";
+import * as React from 'react';
 
 type Dimensions = { width: number, height: number, ref: ?HTMLElement };
 type Props = {
@@ -32,8 +32,8 @@ export default class ResizeSensor extends React.Component<Props, {}> {
     contract.scrollTop = contract.scrollHeight;
     // $FlowIgnore we know it has a firstChild
     const firstChildStyle = expand.firstChild.style;
-    firstChildStyle.width = expand.offsetWidth + 1 + "px";
-    firstChildStyle.height = expand.offsetHeight + 1 + "px";
+    firstChildStyle.width = expand.offsetWidth + 1 + 'px';
+    firstChildStyle.height = expand.offsetHeight + 1 + 'px';
     expand.scrollLeft = expand.scrollWidth;
     expand.scrollTop = expand.scrollHeight;
   }
@@ -72,7 +72,7 @@ export default class ResizeSensor extends React.Component<Props, {}> {
   render() {
     // eslint-disable-next-line no-unused-vars
     const { onResize, ...rest } = this.props;
-    const className = `${this.props.className || ""} resizesensor-wrapper`;
+    const className = `${this.props.className || ''} resizesensor-wrapper`;
     return (
       <div {...rest} ref={(el) => (this.wrapper = el)} className={className}>
         {this.props.children}
@@ -85,7 +85,7 @@ export default class ResizeSensor extends React.Component<Props, {}> {
             ref={(el) => (this.contract = el)}
             onScroll={this.onScroll}
           >
-            <div style={{ width: "200%", height: "200%" }} />
+            <div style={{ width: '200%', height: '200%' }} />
           </div>
         </div>
       </div>

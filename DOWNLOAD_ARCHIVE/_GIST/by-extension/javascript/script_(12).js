@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  $(".iframe").responsiveIframes({
-    openMessage: "Full screen",
-    closeMessage: "Close full screen",
+  $('.iframe').responsiveIframes({
+    openMessage: 'Full screen',
+    closeMessage: 'Close full screen',
   });
 });
 
@@ -21,16 +21,16 @@ $(document).ready(function () {
     self.el = el;
 
     // Add a reverse reference to the DOM object
-    self.$el.data("responsiveIframes", self);
+    self.$el.data('responsiveIframes', self);
 
     self.init = function () {
       self.options = $.extend({}, $.responsiveIframes.defaultOptions, options);
 
       // wrap iframe
       var iframeSrc = self.$el
-        .find("iframe")
+        .find('iframe')
         .wrap('<div class="iframe-content" />')
-        .attr("src");
+        .attr('src');
 
       //generate header
       var header =
@@ -39,18 +39,18 @@ $(document).ready(function () {
         iframeSrc +
         '" class="iframe-trigger">' +
         self.options.openMessage +
-        "</a>" +
-        "</div>";
+        '</a>' +
+        '</div>';
 
-      var trigger = self.$el.prepend(header).find(".iframe-trigger");
+      var trigger = self.$el.prepend(header).find('.iframe-trigger');
 
       // click event
       $(trigger).click(function (e) {
         e.preventDefault();
 
         var $this = $(this),
-          $html = $("html"),
-          isFullScreen = $html.hasClass("iframe-full-screen"),
+          $html = $('html'),
+          isFullScreen = $html.hasClass('iframe-full-screen'),
           message = isFullScreen
             ? self.options.openMessage
             : self.options.closeMessage;
@@ -58,15 +58,15 @@ $(document).ready(function () {
         $this.text(message);
 
         if (isFullScreen) {
-          self.$el.removeClass("iframe-active");
-          $html.removeClass("iframe-full-screen");
+          self.$el.removeClass('iframe-active');
+          $html.removeClass('iframe-full-screen');
           setTimeout(function () {
-            $(window).scrollTop($this.data("iframe-scroll-position"));
+            $(window).scrollTop($this.data('iframe-scroll-position'));
           }, 1);
         } else {
-          $this.data("iframe-scroll-position", $(window).scrollTop());
-          self.$el.addClass("iframe-active");
-          $html.addClass("iframe-full-screen");
+          $this.data('iframe-scroll-position', $(window).scrollTop());
+          self.$el.addClass('iframe-active');
+          $html.addClass('iframe-full-screen');
         }
       });
     };
@@ -76,8 +76,8 @@ $(document).ready(function () {
   };
 
   $.responsiveIframes.defaultOptions = {
-    openMessage: "Full screen",
-    closeMessage: "Close",
+    openMessage: 'Full screen',
+    closeMessage: 'Close',
   };
 
   $.fn.responsiveIframes = function (options) {

@@ -8,7 +8,7 @@ var overloaded = function () {
 
       functionToInvoke.apply(this, arguments);
     } catch (error) {
-      throw new Error("no appropriate overload found");
+      throw new Error('no appropriate overload found');
     }
   };
 };

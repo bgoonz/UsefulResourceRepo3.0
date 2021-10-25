@@ -73,21 +73,21 @@ const store = new Vuex.Store({
   },
 });
 
-Vue.component("sort-card", {
-  template: "#sort-card-template",
-  props: ["value", "sortIndex", "isActive", "isLocked"],
+Vue.component('sort-card', {
+  template: '#sort-card-template',
+  props: ['value', 'sortIndex', 'isActive', 'isLocked'],
   computed: {
     cardClassObject() {
       return {
-        "card-active": this.isActive,
-        "card-locked": this.isLocked,
+        'card-active': this.isActive,
+        'card-locked': this.isLocked,
       };
     },
   },
 });
 
 new Vue({
-  el: "#app",
+  el: '#app',
   store,
 
   created() {
@@ -106,7 +106,7 @@ new Vue({
         values.push(pool[index] + 1); // add 1 to make range 1 to n
         pool.splice(index, 1); // remove from pool of candidates
       }
-      store.commit({ type: "reset", values: values });
+      store.commit({ type: 'reset', values: values });
 
       // sort executes immediately, but events are replayed slowly
       let sequence = this.bubbleSort(values.slice());
@@ -125,23 +125,23 @@ new Vue({
       do {
         swapped = false;
         for (var i = 0; i < indexLastUnsorted; i++) {
-          sequence.push({ type: "activate", indexes: [i, i + 1] });
+          sequence.push({ type: 'activate', indexes: [i, i + 1] });
           if (values[i] > values[i + 1]) {
             let temp = values[i];
             values[i] = values[i + 1];
             values[i + 1] = temp;
             swapped = true;
-            sequence.push({ type: "swap", indexes: [i, i + 1] });
+            sequence.push({ type: 'swap', indexes: [i, i + 1] });
           }
-          sequence.push({ type: "deactivate", indexes: [i, i + 1] });
+          sequence.push({ type: 'deactivate', indexes: [i, i + 1] });
         }
-        sequence.push({ type: "lock", indexes: [indexLastUnsorted] });
+        sequence.push({ type: 'lock', indexes: [indexLastUnsorted] });
         indexLastUnsorted--;
       } while (swapped);
 
       let skipped = Array.from(Array(indexLastUnsorted + 1).keys());
-      sequence.push({ type: "lock", indexes: skipped });
-      sequence.push({ type: "done" });
+      sequence.push({ type: 'lock', indexes: skipped });
+      sequence.push({ type: 'done' });
 
       return sequence;
     },

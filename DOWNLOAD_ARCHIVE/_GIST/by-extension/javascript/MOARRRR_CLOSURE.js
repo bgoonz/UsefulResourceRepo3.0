@@ -55,9 +55,9 @@ let sandwich2 = sandwichMaker(); // => returns a function
 sandwich2("pb") // => "One sandwich with tomato and pb"
 ***********************************************************************/
 function sandwichMaker() {
-  let order = "One sandwich with tomato";
+  let order = 'One sandwich with tomato';
   return (food) => {
-    order = order.slice(0, order.length) + " and " + food;
+    order = order.slice(0, order.length) + ' and ' + food;
     return order;
   };
 }
@@ -71,10 +71,10 @@ it has access to its own scope — variables defined between its curly brack
 it has access to the outer function's variables
 it has access to the global variables
  */
-var text = "outside";
+var text = 'outside';
 function logText() {
   console.log(text); // ans: 'undefined'
-  var text = "inside";
+  var text = 'inside';
   console.log(text); // ans:'inside'
 }
 logText();

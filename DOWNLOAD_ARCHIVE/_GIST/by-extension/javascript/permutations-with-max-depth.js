@@ -20,8 +20,8 @@ const permutations = (value, max = value.length) => {
   return results;
 };
 
-console.log(permutations(["a", "b", "c", "d", "e"]).length); // 3125
-console.log(permutations(["a", "b", "c", "d", "e"], 4).length); // 625
-console.log(permutations(["a", "b", "c", "d", "e"], 3).length); // 125
-console.log(permutations(["a", "b", "c", "d", "e"], 2).length); // 25
-console.log(permutations(["a", "b", "c", "d", "e"], 1).length); // 5
+console.log(permutations(['a', 'b', 'c', 'd', 'e']).length); // 3125
+console.log(permutations(['a', 'b', 'c', 'd', 'e'], 4).length); // 625
+console.log(permutations(['a', 'b', 'c', 'd', 'e'], 3).length); // 125
+console.log(permutations(['a', 'b', 'c', 'd', 'e'], 2).length); // 25
+console.log(permutations(['a', 'b', 'c', 'd', 'e'], 1).length); // 5

@@ -38,14 +38,14 @@ class SearchBox extends HTMLElement {
 
     // Create a shadow DOM tree and attach it to this element, setting
     // the value of this.shadowRoot.
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
 
     // Clone the template that defines the descendants and stylesheet for
     // this custom component, and append that content to the shadow root.
     this.shadowRoot.append(SearchBox.template.content.cloneNode(true));
 
     // Get references to the important elements in the shadow DOM
-    this.input = this.shadowRoot.querySelector("#input");
+    this.input = this.shadowRoot.querySelector('#input');
     let leftSlot = this.shadowRoot.querySelector('slot[name="left"]');
     let rightSlot = this.shadowRoot.querySelector('slot[name="right"]');
 
@@ -55,10 +55,10 @@ class SearchBox extends HTMLElement {
     // that the "blur" and "focus" events bubble and appear to originate
     // from the <search-box>.
     this.input.onfocus = () => {
-      this.setAttribute("focused", "");
+      this.setAttribute('focused', '');
     };
     this.input.onblur = () => {
-      this.removeAttribute("focused");
+      this.removeAttribute('focused');
     };
 
     // If the user clicks on the magnifying glass, trigger a "search"
@@ -68,7 +68,7 @@ class SearchBox extends HTMLElement {
       event.stopPropagation(); // Prevent click events from bubbling
       if (this.disabled) return; // Do nothing when disabled
       this.dispatchEvent(
-        new CustomEvent("search", {
+        new CustomEvent('search', {
           detail: this.input.value,
         })
       );
@@ -79,11 +79,11 @@ class SearchBox extends HTMLElement {
     rightSlot.onclick = (event) => {
       event.stopPropagation(); // Don't let the click bubble up
       if (this.disabled) return; // Don't do anything if disabled
-      let e = new CustomEvent("clear", { cancelable: true });
+      let e = new CustomEvent('clear', { cancelable: true });
       this.dispatchEvent(e);
       if (!e.defaultPrevented) {
         // If the event was not "cancelled"
-        this.input.value = ""; // then clear the input field
+        this.input.value = ''; // then clear the input field
       }
     };
   }
@@ -93,13 +93,13 @@ class SearchBox extends HTMLElement {
   // method, together with the static observedAttributes property below,
   // takes care of that.
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === "disabled") {
+    if (name === 'disabled') {
       this.input.disabled = newValue !== null;
-    } else if (name === "placeholder") {
+    } else if (name === 'placeholder') {
       this.input.placeholder = newValue;
-    } else if (name === "size") {
+    } else if (name === 'size') {
       this.input.size = newValue;
-    } else if (name === "value") {
+    } else if (name === 'value') {
       this.input.value = newValue;
     }
   }
@@ -112,47 +112,47 @@ class SearchBox extends HTMLElement {
   // attributeChangedCallback above.
 
   get placeholder() {
-    return this.getAttribute("placeholder");
+    return this.getAttribute('placeholder');
   }
   get size() {
-    return this.getAttribute("size");
+    return this.getAttribute('size');
   }
   get value() {
-    return this.getAttribute("value");
+    return this.getAttribute('value');
   }
   get disabled() {
-    return this.hasAttribute("disabled");
+    return this.hasAttribute('disabled');
   }
   get hidden() {
-    return this.hasAttribute("hidden");
+    return this.hasAttribute('hidden');
   }
 
   set placeholder(value) {
-    this.setAttribute("placeholder", value);
+    this.setAttribute('placeholder', value);
   }
   set size(value) {
-    this.setAttribute("size", value);
+    this.setAttribute('size', value);
   }
   set value(text) {
-    this.setAttribute("value", text);
+    this.setAttribute('value', text);
   }
   set disabled(value) {
-    if (value) this.setAttribute("disabled", "");
-    else this.removeAttribute("disabled");
+    if (value) this.setAttribute('disabled', '');
+    else this.removeAttribute('disabled');
   }
   set hidden(value) {
-    if (value) this.setAttribute("hidden", "");
-    else this.removeAttribute("hidden");
+    if (value) this.setAttribute('hidden', '');
+    else this.removeAttribute('hidden');
   }
 }
 
 // This static field is required for the attributeChangedCallback method.
 // Only attributes named in this array will trigger calls to that method.
-SearchBox.observedAttributes = ["disabled", "placeholder", "size", "value"];
+SearchBox.observedAttributes = ['disabled', 'placeholder', 'size', 'value'];
 
 // Create a <template> element to hold the stylesheet and the tree of
 // elements that we'll use for each instance of the SearchBox element.
-SearchBox.template = document.createElement("template");
+SearchBox.template = document.createElement('template');
 
 // We initialize the template by parsing this string of HTML. Note, however,
 // that when we instantiate a SearchBox, we are able to just clone the nodes
@@ -202,4 +202,4 @@ slot {
 // Finally, we call customElement.define() to register the SearchBox element
 // as the implementation of the <search-box> tag. Custom elements are required
 // to have a tag name that contains a hyphen.
-customElements.define("search-box", SearchBox);
+customElements.define('search-box', SearchBox);

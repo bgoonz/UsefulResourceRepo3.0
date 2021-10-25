@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const childProcess = require("child_process");
-const fs = require("fs");
-const path = require("path");
+const childProcess = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 function getFiles(cppDir) {
   return fs
@@ -16,7 +16,7 @@ function getFiles(cppDir) {
       return fs
         .readdirSync(fullPath)
         .filter(function (item) {
-          return item.endsWith(".cpp");
+          return item.endsWith('.cpp');
         })
         .map(function (filename) {
           return path.join(cppDir, dirname, filename);
@@ -30,8 +30,8 @@ function getFiles(cppDir) {
 function execute(command, printOutput = false) {
   const execFileMatch = command.match(/\/c\+\+\/([\w-_/.]+)$/);
   const execFile =
-    execFileMatch && execFileMatch.length > 1 ? execFileMatch[1] : "";
-  const printFile = execFile.replace(/\.out$/, ".cpp");
+    execFileMatch && execFileMatch.length > 1 ? execFileMatch[1] : '';
+  const printFile = execFile.replace(/\.out$/, '.cpp');
   return new Promise(function (resolve, reject) {
     return childProcess.exec(command, function (err, stdout, stderr) {
       if (err) {
@@ -46,7 +46,7 @@ function execute(command, printOutput = false) {
 }
 
 function runTest(filename) {
-  const outputFile = filename.replace(/\.cpp$/, ".out");
+  const outputFile = filename.replace(/\.cpp$/, '.out');
   const compileCommand = `g++ --std=c++11 --output ${outputFile} ${filename}`;
   const executeCommand = outputFile;
   return execute(compileCommand).then(execute.bind(null, executeCommand, true));
@@ -60,7 +60,7 @@ function clearOutputFiles() {
 if (!module.parent) {
   const args = process.argv;
   const userRequestedFiles = args.slice(2);
-  const cppDir = path.join(__dirname, "c++");
+  const cppDir = path.join(__dirname, 'c++');
   const files = userRequestedFiles.length
     ? userRequestedFiles
     : getFiles(cppDir);

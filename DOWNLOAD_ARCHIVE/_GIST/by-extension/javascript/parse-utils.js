@@ -1,21 +1,21 @@
-"use strict";
+'use strict';
 
-const fs = require("fs");
+const fs = require('fs');
 
-const _ = require("lodash");
+const _ = require('lodash');
 
-const acorn = require("acorn");
+const acorn = require('acorn');
 
-const walk = require("acorn-walk");
+const walk = require('acorn-walk');
 
 module.exports = {
   parseBundle,
 };
 
 function parseBundle(bundlePath) {
-  const content = fs.readFileSync(bundlePath, "utf8");
+  const content = fs.readFileSync(bundlePath, 'utf8');
   const ast = acorn.parse(content, {
-    sourceType: "script",
+    sourceType: 'script',
     // I believe in a bright future of ECMAScript!
     // Actually, it's set to `2050` to support the latest ECMAScript version that currently exists.
     // Seems like `acorn` supports such weird option value.
@@ -32,7 +32,7 @@ function parseBundle(bundlePath) {
       // (function (...) {...})(<modules>)
 
       if (
-        node.callee.type === "FunctionExpression" &&
+        node.callee.type === 'FunctionExpression' &&
         !node.callee.id &&
         args.length === 1 &&
         isSimpleModulesList(args[0])
@@ -44,7 +44,7 @@ function parseBundle(bundlePath) {
       // As function name may be changed with `output.jsonpFunction` option we can't rely on it's default name.
 
       if (
-        node.callee.type === "Identifier" &&
+        node.callee.type === 'Identifier' &&
         mayBeAsyncChunkArguments(args) &&
         isModulesList(args[1])
       ) {
@@ -96,14 +96,14 @@ function isSimpleModulesList(node) {
 
 function isModulesHash(node) {
   return (
-    node.type === "ObjectExpression" &&
-    _(node.properties).map("value").every(isModuleWrapper)
+    node.type === 'ObjectExpression' &&
+    _(node.properties).map('value').every(isModuleWrapper)
   );
 }
 
 function isModulesArray(node) {
   return (
-    node.type === "ArrayExpression" &&
+    node.type === 'ArrayExpression' &&
     _.every(
       node.elements,
       (
@@ -118,15 +118,15 @@ function isOptimizedModulesArray(node) {
   // https://github.com/webpack/webpack/blob/v1.14.0/lib/Template.js#L91
   // The `<minimum ID>` + array indexes are module ids
   return (
-    node.type === "CallExpression" &&
-    node.callee.type === "MemberExpression" && // Make sure the object called is `Array(<some number>)`
-    node.callee.object.type === "CallExpression" &&
-    node.callee.object.callee.type === "Identifier" &&
-    node.callee.object.callee.name === "Array" &&
+    node.type === 'CallExpression' &&
+    node.callee.type === 'MemberExpression' && // Make sure the object called is `Array(<some number>)`
+    node.callee.object.type === 'CallExpression' &&
+    node.callee.object.callee.type === 'Identifier' &&
+    node.callee.object.callee.name === 'Array' &&
     node.callee.object.arguments.length === 1 &&
     isNumericId(node.callee.object.arguments[0]) && // Make sure the property X called for `Array(<some number>).X` is `concat`
-    node.callee.property.type === "Identifier" &&
-    node.callee.property.name === "concat" && // Make sure exactly one array is passed in to `concat`
+    node.callee.property.type === 'Identifier' &&
+    node.callee.property.name === 'concat' && // Make sure exactly one array is passed in to `concat`
     node.arguments.length === 1 &&
     isModulesArray(node.arguments[0])
   );
@@ -135,11 +135,11 @@ function isOptimizedModulesArray(node) {
 function isModuleWrapper(node) {
   return (
     // It's an anonymous function expression that wraps module
-    ((node.type === "FunctionExpression" ||
-      node.type === "ArrowFunctionExpression") &&
+    ((node.type === 'FunctionExpression' ||
+      node.type === 'ArrowFunctionExpression') &&
       !node.id) || // If `DedupePlugin` is used it can be an ID of duplicated module...
     isModuleId(node) || // or an array of shape [<module_id>, ...args]
-    (node.type === "ArrayExpression" &&
+    (node.type === 'ArrayExpression' &&
       node.elements.length > 1 &&
       isModuleId(node.elements[0]))
   );
@@ -147,34 +147,34 @@ function isModuleWrapper(node) {
 
 function isModuleId(node) {
   return (
-    node.type === "Literal" &&
-    (isNumericId(node) || typeof node.value === "string")
+    node.type === 'Literal' &&
+    (isNumericId(node) || typeof node.value === 'string')
   );
 }
 
 function isNumericId(node) {
   return (
-    node.type === "Literal" && Number.isInteger(node.value) && node.value >= 0
+    node.type === 'Literal' && Number.isInteger(node.value) && node.value >= 0
   );
 }
 
 function isChunkIds(node) {
   // Array of numeric or string ids. Chunk IDs are strings when NamedChunksPlugin is used
-  return node.type === "ArrayExpression" && _.every(node.elements, isModuleId);
+  return node.type === 'ArrayExpression' && _.every(node.elements, isModuleId);
 }
 
 function isAsyncChunkPushExpression(node) {
   const { callee, arguments: args } = node;
   return (
-    callee.type === "MemberExpression" &&
-    callee.property.name === "push" &&
-    callee.object.type === "AssignmentExpression" &&
+    callee.type === 'MemberExpression' &&
+    callee.property.name === 'push' &&
+    callee.object.type === 'AssignmentExpression' &&
     callee.object.left.object &&
-    (callee.object.left.object.name === "window" || // `self` is a common output.globalObject value used to support both workers and browsers
-      callee.object.left.object.name === "self" || // Webpack 4 uses `this` instead of `window`
-      callee.object.left.object.type === "ThisExpression") &&
+    (callee.object.left.object.name === 'window' || // `self` is a common output.globalObject value used to support both workers and browsers
+      callee.object.left.object.name === 'self' || // Webpack 4 uses `this` instead of `window`
+      callee.object.left.object.type === 'ThisExpression') &&
     args.length === 1 &&
-    args[0].type === "ArrayExpression" &&
+    args[0].type === 'ArrayExpression' &&
     mayBeAsyncChunkArguments(args[0].elements) &&
     isModulesList(args[0].elements[1])
   );
@@ -185,7 +185,7 @@ function mayBeAsyncChunkArguments(args) {
 }
 
 function getModulesLocations(node) {
-  if (node.type === "ObjectExpression") {
+  if (node.type === 'ObjectExpression') {
     // Modules hash
     const modulesNodes = node.properties;
     return _.transform(
@@ -198,9 +198,9 @@ function getModulesLocations(node) {
     );
   }
 
-  const isOptimizedArray = node.type === "CallExpression";
+  const isOptimizedArray = node.type === 'CallExpression';
 
-  if (node.type === "ArrayExpression" || isOptimizedArray) {
+  if (node.type === 'ArrayExpression' || isOptimizedArray) {
     // Modules array or optimized array
     const minId = isOptimizedArray // Get the [minId] value from the Array() call first argument literal value
       ? node.callee.object.arguments[0].value // `0` for simple array

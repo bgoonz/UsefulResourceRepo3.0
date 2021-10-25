@@ -1,5 +1,5 @@
-import { Route, Switch } from "react";
-import Home from "./components/Home";
+import { Route, Switch } from 'react';
+import Home from './components/Home';
 <Switch>
   <Route exact path="/">
     <Home />

@@ -1,7 +1,7 @@
-const fs = require("fs");
+const fs = require('fs');
 
 function replaceContents(file, oldStr, newStr) {
-  fs.readFile(file, "utf8", (err, data) => {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.log(err);
     }
@@ -11,12 +11,12 @@ function replaceContents(file, oldStr, newStr) {
 }
 
 function writeContents(file, data) {
-  fs.writeFile(file, data, "utf8", (err) => {
+  fs.writeFile(file, data, 'utf8', (err) => {
     if (err) {
       console.log(err);
     }
-    console.log("done!");
+    console.log('done!');
   });
 }
 
-replaceContents("poetry.txt", "do not", "should");
+replaceContents('poetry.txt', 'do not', 'should');

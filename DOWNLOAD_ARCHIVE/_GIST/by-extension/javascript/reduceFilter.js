@@ -11,16 +11,16 @@ const reducedFilter = (data, keys, fn) =>
 const data = [
   {
     id: 1,
-    name: "john",
+    name: 'john',
     age: 24,
   },
   {
     id: 2,
-    name: "mike",
+    name: 'mike',
     age: 50,
   },
 ];
-reducedFilter(data, ["id", "name"], (item) => item.age > 24);
+reducedFilter(data, ['id', 'name'], (item) => item.age > 24);
 // [{ id: 2, name: 'mike'}]
 
 //--------------------------------

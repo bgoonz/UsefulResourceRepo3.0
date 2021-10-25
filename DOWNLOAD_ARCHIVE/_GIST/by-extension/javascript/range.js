@@ -11,7 +11,7 @@ class Range {
 
   // Make a Range act like a Set of numbers
   has(x) {
-    return typeof x === "number" && this.from <= x && x <= this.to;
+    return typeof x === 'number' && this.from <= x && x <= this.to;
   }
 
   // Return string representation of the range using set notation

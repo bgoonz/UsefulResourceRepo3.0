@@ -13,7 +13,7 @@ Point.fromString = function (x) {
   x = this.parse(x);
   x.forEach(
     function (values) {
-      if (typeof values === "object") {
+      if (typeof values === 'object') {
         this.x += values.x;
         this.y += values.y;
       }
@@ -23,13 +23,13 @@ Point.fromString = function (x) {
 
 Point.fromString.prototype = Point.prototype = {
   parse: function (value) {
-    return JSON.parse("[" + value + "0]");
+    return JSON.parse('[' + value + '0]');
   },
   valueOf: function () {
-    return JSON.stringify(this) + ",";
+    return JSON.stringify(this) + ',';
   },
   toString: function () {
-    return "{" + this.x + "," + this.y + "}";
+    return '{' + this.x + ',' + this.y + '}';
   },
 };
 

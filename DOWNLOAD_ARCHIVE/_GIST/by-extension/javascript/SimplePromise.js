@@ -62,5 +62,5 @@ Promise.prototype._fulfill = function () {
 };
 
 Promise.prototype.toString = function () {
-  return "[object Promise]";
+  return '[object Promise]';
 };

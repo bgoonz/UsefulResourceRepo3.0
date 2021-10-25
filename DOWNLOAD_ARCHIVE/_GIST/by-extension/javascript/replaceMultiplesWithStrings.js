@@ -22,11 +22,11 @@
 function getNumber(number) {
   //your code here
   if (number % 5 == 0 && number % 3 == 0) {
-    return "BOTH";
+    return 'BOTH';
   } else if (number % 3 == 0) {
-    return "THREE";
+    return 'THREE';
   } else if (number % 5 == 0) {
-    return "FIVE";
+    return 'FIVE';
   } else {
     return number;
   }

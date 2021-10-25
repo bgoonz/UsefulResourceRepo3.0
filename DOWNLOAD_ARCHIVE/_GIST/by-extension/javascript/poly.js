@@ -17,7 +17,7 @@ var p = {};
 p.m = st.pi;
 p.c = st.c;
 p.f = st.fq * st.tmod;
-p.wave = "sine";
+p.wave = 'sine';
 
 var bell = $.meffisto(p);
 

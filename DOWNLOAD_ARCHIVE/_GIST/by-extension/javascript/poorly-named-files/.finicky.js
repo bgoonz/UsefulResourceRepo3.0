@@ -1,20 +1,20 @@
 module.exports = {
-  defaultBrowser: "Safari",
+  defaultBrowser: 'Safari',
   handlers: [
     // Anything localhost should open in Edge
     {
-      match: finicky.matchHostnames(["localhost"]),
-      browser: "Microsoft Edge",
+      match: finicky.matchHostnames(['localhost']),
+      browser: 'Microsoft Edge',
     },
 
     // Launch Google Meet on my third user account
     {
-      match: finicky.matchHostnames(["meet.google.com"]),
-      browser: "Google Chrome",
+      match: finicky.matchHostnames(['meet.google.com']),
+      browser: 'Google Chrome',
       url: ({ url }) => {
         return {
           ...url,
-          search: "authuser=2",
+          search: 'authuser=2',
         };
       },
     },
@@ -22,34 +22,34 @@ module.exports = {
     // Zoom.us
     {
       match: /zoom.us\/j\//,
-      browser: "us.zoom.xos",
+      browser: 'us.zoom.xos',
     },
 
     // Microsoft Teams
     {
-      match: finicky.matchHostnames(["teams.microsoft.com"]),
-      browser: "com.microsoft.teams",
+      match: finicky.matchHostnames(['teams.microsoft.com']),
+      browser: 'com.microsoft.teams',
       url: ({ url }) => {
         return {
           ...url,
-          protocol: "msteams",
+          protocol: 'msteams',
         };
       },
     },
 
     // Screens.so
     {
-      match: finicky.matchHostnames(["screen.so"]),
-      browser: "so.screen.screen.app",
+      match: finicky.matchHostnames(['screen.so']),
+      browser: 'so.screen.screen.app',
       url: ({ url }) => {
         return {
-          hash: "",
-          host: "join",
-          password: "",
-          pathname: "",
-          protocol: "screen",
-          search: "roomId=" + url.hash.match(/\d{3}-\d{3}-\d{3}/),
-          username: "",
+          hash: '',
+          host: 'join',
+          password: '',
+          pathname: '',
+          protocol: 'screen',
+          search: 'roomId=' + url.hash.match(/\d{3}-\d{3}-\d{3}/),
+          username: '',
         };
       },
     },
@@ -57,28 +57,28 @@ module.exports = {
     // VSCode Liveshare
     {
       match: ({ url }) => {
-        if (url.pathname !== "/join") {
+        if (url.pathname !== '/join') {
           return false;
         }
 
         return finicky.matchHostnames([
-          "prod.liveshare.vsengsaas.visualstudio.com",
+          'prod.liveshare.vsengsaas.visualstudio.com',
         ])({ url });
       },
-      browser: "com.microsoft.VSCode",
+      browser: 'com.microsoft.VSCode',
       url: ({ url, urlString }) => {
-        if (url.pathname === "/join") {
+        if (url.pathname === '/join') {
           return {
-            hash: "",
-            host: "ms-vsliveshare.vsliveshare",
-            password: "",
-            pathname: "join",
-            protocol: "vscode",
+            hash: '',
+            host: 'ms-vsliveshare.vsliveshare',
+            password: '',
+            pathname: 'join',
+            protocol: 'vscode',
             search:
-              "vslsLink=" +
+              'vslsLink=' +
               encodeURIComponent(urlString) +
-              "&correlationId=null",
-            username: "",
+              '&correlationId=null',
+            username: '',
           };
         }
 

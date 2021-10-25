@@ -49,7 +49,7 @@ var parameters = {
   truncThickness: 4,
   truncColor: Colors.grey_d,
   truncNoise: 0.5,
-  foliageColor: "pinks",
+  foliageColor: 'pinks',
   foliageDensity: 5,
   foliageNoise: 0.05,
   foliageSize: 10,
@@ -60,53 +60,53 @@ function initGUI() {
   var gui = new dat.GUI();
   gui.width = 250;
   gui
-    .add(parameters, "truncHeight")
+    .add(parameters, 'truncHeight')
     .min(60)
     .max(110)
     .step(10)
-    .name("Trunc Height");
+    .name('Trunc Height');
   gui
-    .add(parameters, "truncThickness")
+    .add(parameters, 'truncThickness')
     .min(2)
     .max(6)
     .step(1)
-    .name("Trunc Thickness");
-  gui.add(parameters, "truncNoise").min(0).max(5).step(0.5).name("Trunc Disp.");
+    .name('Trunc Thickness');
+  gui.add(parameters, 'truncNoise').min(0).max(5).step(0.5).name('Trunc Disp.');
   gui
-    .add(parameters, "truncColor", {
-      "Light White": Colors.white_l,
-      "Dark White": Colors.white_d,
-      "Light Grey": Colors.grey_l,
-      "Dark Grey": Colors.grey_d,
+    .add(parameters, 'truncColor', {
+      'Light White': Colors.white_l,
+      'Dark White': Colors.white_d,
+      'Light Grey': Colors.grey_l,
+      'Dark Grey': Colors.grey_d,
     })
-    .name("Trunc Color");
+    .name('Trunc Color');
   gui
-    .add(parameters, "foliageColor", {
-      White: "whites",
-      Grey: "greys",
-      Pink: "pinks",
-      Yellow: "yellows",
-      Purple: "purples",
+    .add(parameters, 'foliageColor', {
+      White: 'whites',
+      Grey: 'greys',
+      Pink: 'pinks',
+      Yellow: 'yellows',
+      Purple: 'purples',
     })
-    .name("Foliage Color");
+    .name('Foliage Color');
   gui
-    .add(parameters, "foliageDensity")
+    .add(parameters, 'foliageDensity')
     .min(3)
     .max(8)
     .step(1)
-    .name("Foliage Density");
+    .name('Foliage Density');
   gui
-    .add(parameters, "foliageNoise")
+    .add(parameters, 'foliageNoise')
     .min(0)
     .max(0.2)
     .step(0.01)
-    .name("Foliage Disp.");
+    .name('Foliage Disp.');
   gui
-    .add(parameters, "foliageSize")
+    .add(parameters, 'foliageSize')
     .min(5)
     .max(30)
     .step(1)
-    .name("Foliage Size.");
+    .name('Foliage Size.');
   //gui.add(parameters, 'animationSpeed').min(1).max(4).step(.5).name('Anim. Speed');
 
   gui
@@ -116,9 +116,9 @@ function initGUI() {
           createTree();
         },
       },
-      "generate"
+      'generate'
     )
-    .name(">GENERATE");
+    .name('>GENERATE');
 }
 
 ////////////////////////////////////////////////
@@ -152,15 +152,15 @@ function initCore() {
   renderer.setSize(WIDTH, HEIGHT);
   renderer.shadowMap.enabled = true;
 
-  container = document.getElementById("world");
+  container = document.getElementById('world');
   container.appendChild(renderer.domElement);
 
-  window.addEventListener("resize", handleWindowResize, false);
-  document.addEventListener("mousemove", handleMouseMove, false);
-  document.addEventListener("touchmove", handleTouchMove, false);
-  document.addEventListener("touchmove", handleTouchMove, false);
-  document.addEventListener("mousedown", mouseDownHandler, false);
-  document.addEventListener("mouseup", mouseUpHandler, false);
+  window.addEventListener('resize', handleWindowResize, false);
+  document.addEventListener('mousemove', handleMouseMove, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+  document.addEventListener('mousedown', mouseDownHandler, false);
+  document.addEventListener('mouseup', mouseUpHandler, false);
 
   //*
   controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -349,7 +349,7 @@ Tree.prototype.fly = function (callback) {
 // TRUNC
 
 Trunc = function (complex) {
-  this.type = "trunc";
+  this.type = 'trunc';
   this.pointsTrunc = [];
   this.hierarchy = 1;
 
@@ -424,7 +424,7 @@ Trunc = function (complex) {
   if (complex) {
     defAttachs = [
       {
-        type: "elbowBranch",
+        type: 'elbowBranch',
         count: this.foliageDensity,
         minH: this.truncHeight * 0.75,
         maxH: this.truncHeight * 0.95,
@@ -451,7 +451,7 @@ Trunc = function (complex) {
       },
 			*/
       {
-        type: "branch",
+        type: 'branch',
         count: 1,
         minH: this.truncHeight * 0.45,
         maxH: this.truncHeight * 0.75,
@@ -459,7 +459,7 @@ Trunc = function (complex) {
         maxAngle: 0,
       },
       {
-        type: "branch",
+        type: 'branch',
         count: 1,
         minH: this.truncHeight * 0.35,
         maxH: this.truncHeight * 0.5,
@@ -467,7 +467,7 @@ Trunc = function (complex) {
         maxAngle: (Math.PI * 3) / 4,
       },
       {
-        type: "leaf",
+        type: 'leaf',
         count: 5,
         minH: this.truncHeight * 0.3,
         maxH: this.truncHeight * 0.9,
@@ -475,7 +475,7 @@ Trunc = function (complex) {
         maxAngle: 0,
       },
       {
-        type: "fruit",
+        type: 'fruit',
         count: 4,
         minH: this.truncHeight * 0.3,
         maxH: this.truncHeight * 0.8,
@@ -483,7 +483,7 @@ Trunc = function (complex) {
         maxAngle: 0,
       },
       {
-        type: "spike",
+        type: 'spike',
         count: 6,
         minH: this.truncHeight * 0.1,
         maxH: this.truncHeight * 0.9,
@@ -491,7 +491,7 @@ Trunc = function (complex) {
         maxAngle: 0,
       },
       {
-        type: "moss",
+        type: 'moss',
         count: 6,
         minH: this.truncHeight * 0.1,
         maxH: this.truncHeight * 0.9,
@@ -502,7 +502,7 @@ Trunc = function (complex) {
   } else {
     defAttachs = [
       {
-        type: "elbowBranch",
+        type: 'elbowBranch',
         count: 1,
         minH: this.truncHeight * 0.75,
         maxH: this.truncHeight * 0.9,
@@ -511,7 +511,7 @@ Trunc = function (complex) {
       },
 
       {
-        type: "elbowBranch",
+        type: 'elbowBranch',
         count: 1,
         minH: this.truncHeight * 0.45,
         maxH: this.truncHeight * 0.7,
@@ -520,7 +520,7 @@ Trunc = function (complex) {
       },
 
       {
-        type: "branch",
+        type: 'branch',
         count: 1,
         minH: this.truncHeight * 0.45,
         maxH: this.truncHeight * 0.75,
@@ -528,7 +528,7 @@ Trunc = function (complex) {
         maxAngle: 0,
       },
       {
-        type: "branch",
+        type: 'branch',
         count: 1,
         minH: this.truncHeight * 0.15,
         maxH: this.truncHeight * 0.45,
@@ -537,7 +537,7 @@ Trunc = function (complex) {
       },
 
       {
-        type: "fruit",
+        type: 'fruit',
         count: 2,
         minH: this.truncHeight * 0.3,
         maxH: this.truncHeight * 0.8,
@@ -554,12 +554,12 @@ Trunc = function (complex) {
   CustomMesh.flatshadeGeometry(geom);
 
   var cols = [];
-  cols["leaf"] = Colors.green_d;
-  cols["branch"] = this.truncColor;
-  cols["elbowBranch"] = this.truncColor;
-  cols["moss"] = Colors.white_l;
-  cols["spike"] = Colors.red_l;
-  cols["fruit"] = Colors.red_d;
+  cols['leaf'] = Colors.green_d;
+  cols['branch'] = this.truncColor;
+  cols['elbowBranch'] = this.truncColor;
+  cols['moss'] = Colors.white_l;
+  cols['spike'] = Colors.red_l;
+  cols['fruit'] = Colors.red_d;
 
   var colorFoliagePalette = complex
     ? Colors[parameters.foliageColor]
@@ -577,7 +577,7 @@ Trunc = function (complex) {
     var col = cols[type];
     var attach, s, r, th;
 
-    if (type == "moss") {
+    if (type == 'moss') {
       s = Math2.rangeRandom(1, 2);
       attach = new CustomMesh.SphereMesh(s, 5, 3, col, true);
       attach.geometry.applyMatrix(new THREE.Matrix4().makeScale(0.6, 1, 0.3));
@@ -585,7 +585,7 @@ Trunc = function (complex) {
         new THREE.Vector3(0, 0, 1),
         this.verticesNormals[attDef.index]
       );
-    } else if (type == "spike") {
+    } else if (type == 'spike') {
       s = Math2.rangeRandom(1, 3);
       attach = new CustomMesh.SphereMesh(s, 2, 2, col, true);
       attach.geometry.applyMatrix(new THREE.Matrix4().makeScale(0.1, 1, 0.1));
@@ -593,7 +593,7 @@ Trunc = function (complex) {
         new THREE.Vector3(0, 1, 0),
         this.verticesNormals[attDef.index]
       );
-    } else if (type == "fruit") {
+    } else if (type == 'fruit') {
       s = Math2.rangeRandom(2, 4);
       attach = new Tomatoe(
         s,
@@ -605,7 +605,7 @@ Trunc = function (complex) {
         this.verticesNormals[attDef.index]
       );
       //attach.rotation.z += Math.PI/4 + Math.random()*Math.PI/4;
-    } else if (type == "leaf") {
+    } else if (type == 'leaf') {
       s = Math2.rangeRandom(1, 2);
       attach = new Leaf(s, col).mesh;
       attach.quaternion.setFromUnitVectors(
@@ -613,7 +613,7 @@ Trunc = function (complex) {
         this.verticesNormals[attDef.index]
       );
       //attach.rotation.z += Math.PI/4 + Math.random()*Math.PI/4;
-    } else if (type == "elbowBranch") {
+    } else if (type == 'elbowBranch') {
       r = Math2.rangeRandom(this.truncHeight * 0.05, this.truncHeight * 0.15);
       th = Math2.rangeRandom(
         (this.truncStartRadius * 40) / (1 + v.y),
@@ -631,7 +631,7 @@ Trunc = function (complex) {
         new THREE.Vector3(-1, 0, 0),
         new THREE.Vector3(v.x, 0, v.z).normalize()
       );
-    } else if (type == "branch") {
+    } else if (type == 'branch') {
       s = Math2.rangeRandom(this.truncHeight * 0.03, this.truncHeight * 0.06);
       th = Math2.rangeRandom(
         this.truncStartRadius * 0.2,
@@ -736,7 +736,7 @@ ElbowBranch = function (
   hierarchy,
   complex
 ) {
-  this.type = "elbowBranch";
+  this.type = 'elbowBranch';
   var radSegs = complex ? 5 : 3;
   var tubSegs = complex ? 10 : 4;
 
@@ -777,7 +777,7 @@ Branch = function (
   hierarchy,
   complex
 ) {
-  this.type = "branch";
+  this.type = 'branch';
   var radSegs = complex ? 5 : 3;
 
   this.mesh = new CustomMesh.CylinderMesh(
@@ -807,7 +807,7 @@ Branch = function (
 // FRUIT
 
 Tomatoe = function (scale, colorFruit, colorLeaves, complex) {
-  this.type = "fruit";
+  this.type = 'fruit';
   this.mesh = new THREE.Object3D();
   this.mesh.userData.refClass = this;
   this.core = new THREE.Object3D();
@@ -854,7 +854,7 @@ Tomatoe = function (scale, colorFruit, colorLeaves, complex) {
 
 // LEAF
 Leaf = function (scale, color) {
-  this.type = "leaf";
+  this.type = 'leaf';
   this.mesh = new THREE.Object3D();
   this.mesh.userData.refClass = this;
   this.core = new CustomMesh.DiamondMesh(
@@ -879,7 +879,7 @@ Leaf = function (scale, color) {
 
 // STEM
 Stem = function (scale, color, complex) {
-  this.type = "stem";
+  this.type = 'stem';
   this.lastDirection = new THREE.Vector3();
   this.endPoint = new THREE.Vector3();
   var linePoints = [];
@@ -919,7 +919,7 @@ Stem = function (scale, color, complex) {
 // FOLIAGE
 
 Foliage = function (scale, colorPalette, hierarchy, complex) {
-  this.type = "foliage";
+  this.type = 'foliage';
   var sw = complex ? Math2.rangeRandomInt(3, 10) : Math2.rangeRandomInt(3, 5);
   var sh = Math2.rangeRandomInt(3, 6);
   var noise = complex
@@ -940,7 +940,7 @@ Foliage = function (scale, colorPalette, hierarchy, complex) {
   if (complex) {
     defAttachs = [
       {
-        type: "subFol",
+        type: 'subFol',
         count: 6,
         minH: h * 0.2,
         maxH: h * 0.9,
@@ -974,7 +974,7 @@ Foliage = function (scale, colorPalette, hierarchy, complex) {
 };
 
 SubFoliage = function (scale, hierarchy) {
-  this.type = "subfoliage";
+  this.type = 'subfoliage';
   var sw = Math2.rangeRandomInt(2, 4);
   var sh = Math2.rangeRandomInt(2, 4);
   this.mesh = new CustomMesh.SphereMesh(
@@ -1011,7 +1011,7 @@ Foliage.prototype.launchParticle = function () {
 };
 
 Foliage.prototype.grow = function () {
-  console.log("grow foliage");
+  console.log('grow foliage');
   var scope = this;
   var geom = this.mesh.geometry;
   var l = geom.vertices.length;
@@ -1051,7 +1051,7 @@ FlyingParticle = function (color) {
   var segs2 = Math2.rangeRandomInt(2, 5);
 
   if (Math.random() < 0.25) {
-    mesh = new CustomMesh.TriMesh(s, s, 0.2, color, "top");
+    mesh = new CustomMesh.TriMesh(s, s, 0.2, color, 'top');
   } else if (Math.random() < 0.5) {
     mesh = new CustomMesh.RegPolyMesh(s, segs, 1, color, false);
   } else if (Math.random() < 0.75) {
@@ -1066,7 +1066,7 @@ function grow(mesh) {
   //console.log("new grow");
   for (var i = 0; i < mesh.children.length; i++) {
     var child = mesh.children[i];
-    if (child.userData.refClass && child.userData.refClass.type == "foliage") {
+    if (child.userData.refClass && child.userData.refClass.type == 'foliage') {
       child.userData.refClass.grow();
     } else {
       var d = child.position.y / 200 + child.userData.hierarchy;
@@ -1091,7 +1091,7 @@ function grow(mesh) {
   }
 }
 
-window.addEventListener("load", init, false);
+window.addEventListener('load', init, false);
 
 function init(event) {
   createStats();
@@ -1118,16 +1118,16 @@ function createStats() {
   stats = new Stats();
   stats.setMode(0); // 0: fps, 1: ms, 2: mb
   // align top-left
-  stats.domElement.style.position = "absolute";
-  stats.domElement.style.left = "0px";
-  stats.domElement.style.top = "0px";
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
   document.body.appendChild(stats.domElement);
 }
 
 function loop() {
   stats.begin();
 
-  console.log("waiting", waitingParticles.length);
+  console.log('waiting', waitingParticles.length);
 
   var frustum = new THREE.Frustum();
   frustum.setFromMatrix(

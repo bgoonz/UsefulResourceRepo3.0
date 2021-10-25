@@ -1,53 +1,53 @@
 module.exports = {
   root: true,
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  extends: "airbnb-base",
+  extends: 'airbnb-base',
   env: {
     node: true,
   },
   rules: {
-    "no-comma-dangle": "off",
-    "comma-dangle": ["error", "always-multiline"],
+    'no-comma-dangle': 'off',
+    'comma-dangle': ['error', 'always-multiline'],
     indent: [
-      "warn",
-      "tab",
+      'warn',
+      'tab',
       {
         SwitchCase: 1,
       },
     ],
-    "object-curly-spacing": ["error", "always"],
-    "import/no-unresolved": "off", // does not work with the ember resolver
-    "max-len": [
-      "error",
+    'object-curly-spacing': ['error', 'always'],
+    'import/no-unresolved': 'off', // does not work with the ember resolver
+    'max-len': [
+      'error',
       120,
       {
-        ignorePattern: "Logger\\.|computed\\(|observer\\(",
+        ignorePattern: 'Logger\\.|computed\\(|observer\\(',
       },
     ],
-    "no-param-reassign": "off", // tbd
-    "func-names": "off", //tbd
-    "prefer-arrow-callback": "off", // tbd
-    "prefer-rest-params": "off", //tbd
-    "new-cap": [
-      "error",
+    'no-param-reassign': 'off', // tbd
+    'func-names': 'off', //tbd
+    'prefer-arrow-callback': 'off', // tbd
+    'prefer-rest-params': 'off', //tbd
+    'new-cap': [
+      'error',
       {
         properties: false,
         capIsNewExceptions: [
-          "A", // Ember.A()
+          'A', // Ember.A()
         ],
       },
     ],
-    "no-underscore-dangle": "off",
-    "consistent-this": ["error", "that"],
-    "no-alert": "off", //tbd
-    "newline-after-var": "error",
-    "newline-before-return": "error",
-    "no-multiple-empty-lines": [
-      "error",
+    'no-underscore-dangle': 'off',
+    'consistent-this': ['error', 'that'],
+    'no-alert': 'off', //tbd
+    'newline-after-var': 'error',
+    'newline-before-return': 'error',
+    'no-multiple-empty-lines': [
+      'error',
       {
         max: 1,
       },

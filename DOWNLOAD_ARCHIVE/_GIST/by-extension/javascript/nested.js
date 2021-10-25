@@ -1,6 +1,6 @@
 function run() {
   console.log(foo); // undefined
-  var foo = "Foo";
+  var foo = 'Foo';
   console.log(foo); // Foo
 }
 run();

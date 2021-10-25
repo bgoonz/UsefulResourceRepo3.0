@@ -2,7 +2,7 @@
 // The function is the event handler: it is invoked when the document loads.
 window.onload = function () {
   // Look up a <form> element
-  let form = document.querySelector("form#shipping");
+  let form = document.querySelector('form#shipping');
   // Register an event handler function on the form that will be invoked
   // before the form is submitted. Assume isFormValid() is defined elsewhere.
   form.onsubmit = function (event) {

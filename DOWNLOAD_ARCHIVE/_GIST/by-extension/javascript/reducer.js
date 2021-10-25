@@ -7,10 +7,10 @@ const posts = (state = { data: [], selected: [] }, action) => {
       return posts;
     case SEARCH_POST:
       Object.assign(posts.data, state.data);
-      let search = new JsSearch.Search("date-added");
-      search.addIndex("title");
-      search.addIndex("tags");
-      search.addIndex("author");
+      let search = new JsSearch.Search('date-added');
+      search.addIndex('title');
+      search.addIndex('tags');
+      search.addIndex('author');
       search.addDocuments(posts.data);
       posts.selected = search
         .search(action.query)

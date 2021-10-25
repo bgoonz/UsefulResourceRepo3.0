@@ -5,7 +5,7 @@ class AbstractSet {
   // Throw an error here so that subclasses are forced
   // to define their own working version of this method.
   has(x) {
-    throw new Error("Abstract method");
+    throw new Error('Abstract method');
   }
 }
 
@@ -64,17 +64,17 @@ class RangeSet extends AbstractSet {
  */
 class AbstractEnumerableSet extends AbstractSet {
   get size() {
-    throw new Error("Abstract method");
+    throw new Error('Abstract method');
   }
   [Symbol.iterator]() {
-    throw new Error("Abstract method");
+    throw new Error('Abstract method');
   }
 
   isEmpty() {
     return this.size === 0;
   }
   toString() {
-    return `{${Array.from(this).join(", ")}}`;
+    return `{${Array.from(this).join(', ')}}`;
   }
   equals(set) {
     // If the other set is not also Enumerable, it isn't equal to this one
@@ -126,10 +126,10 @@ class SingletonSet extends AbstractEnumerableSet {
  */
 class AbstractWritableSet extends AbstractEnumerableSet {
   insert(x) {
-    throw new Error("Abstract method");
+    throw new Error('Abstract method');
   }
   remove(x) {
-    throw new Error("Abstract method");
+    throw new Error('Abstract method');
   }
 
   add(set) {
@@ -201,7 +201,7 @@ class BitSet extends AbstractWritableSet {
         this.n++; // and increment set size
       }
     } else {
-      throw new TypeError("Invalid set element: " + x);
+      throw new TypeError('Invalid set element: ' + x);
     }
   }
 
@@ -216,7 +216,7 @@ class BitSet extends AbstractWritableSet {
         this.n--; // and decrement size
       }
     } else {
-      throw new TypeError("Invalid set element: " + x);
+      throw new TypeError('Invalid set element: ' + x);
     }
   }
 

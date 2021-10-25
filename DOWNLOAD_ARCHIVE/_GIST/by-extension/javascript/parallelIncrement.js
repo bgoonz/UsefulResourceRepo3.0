@@ -1,4 +1,4 @@
-const threads = require("worker_threads");
+const threads = require('worker_threads');
 
 if (threads.isMainThread) {
   // In the main thread, we create a shared typed array with
@@ -14,12 +14,12 @@ if (threads.isMainThread) {
 
   // Wait for the worker to start running and then increment the
   // shared integer 10 million times.
-  worker.on("online", () => {
+  worker.on('online', () => {
     for (let i = 0; i < 10_000_000; i++) sharedArray[0]++;
 
     // Once we're done with our increments, we start listening for
     // message events so we know when the worker is done.
-    worker.on("message", () => {
+    worker.on('message', () => {
       // Although the shared integer has been incremented
       // 20 million times, its value will generally be much less.
       // On my computer the final value is typically under 12 million.
@@ -32,5 +32,5 @@ if (threads.isMainThread) {
   let sharedArray = threads.workerData;
   for (let i = 0; i < 10_000_000; i++) sharedArray[0]++;
   // When we're done incrementing, let the main thread know
-  threads.parentPort.postMessage("done");
+  threads.parentPort.postMessage('done');
 }

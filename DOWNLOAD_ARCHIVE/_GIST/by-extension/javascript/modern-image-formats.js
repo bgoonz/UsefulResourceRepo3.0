@@ -6,20 +6,20 @@
 /*
  * @fileoverview This audit determines if the images could be smaller when compressed with WebP.
  */
-"use strict";
+'use strict';
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const URL = require("../../lib/url-shim.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const URL = require('../../lib/url-shim.js');
+const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to serve images in newer and more efficient image formats in order to enhance the performance of a page. A non-modern image format was designed 20+ years ago. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Serve images in next-gen formats",
+  title: 'Serve images in next-gen formats',
   /** Description of a Lighthouse audit that tells the user *why* they should use newer and more efficient image formats. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Image formats like WebP and AVIF often provide better " +
-    "compression than PNG or JPEG, which means faster downloads and less data consumption. " +
-    "[Learn more](https://web.dev/uses-webp-images/).",
+    'Image formats like WebP and AVIF often provide better ' +
+    'compression than PNG or JPEG, which means faster downloads and less data consumption. ' +
+    '[Learn more](https://web.dev/uses-webp-images/).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -32,17 +32,17 @@ class ModernImageFormats extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "modern-image-formats",
+      id: 'modern-image-formats',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: [
-        "OptimizedImages",
-        "devtoolsLogs",
-        "traces",
-        "URL",
-        "GatherContext",
-        "ImageElements",
+        'OptimizedImages',
+        'devtoolsLogs',
+        'traces',
+        'URL',
+        'GatherContext',
+        'ImageElements',
       ],
     };
   }
@@ -117,7 +117,7 @@ class ModernImageFormats extends ByteEfficiencyAudit {
       }
 
       // Skip if the image was already using a modern format.
-      if (image.mimeType === "image/webp" || image.mimeType === "image/avif")
+      if (image.mimeType === 'image/webp' || image.mimeType === 'image/avif')
         continue;
 
       const jpegSize = image.jpegSize;
@@ -129,7 +129,7 @@ class ModernImageFormats extends ByteEfficiencyAudit {
         });
       let fromProtocol = true;
 
-      if (typeof webpSize === "undefined") {
+      if (typeof webpSize === 'undefined') {
         const imageElement = imageElementsByURL.get(image.url);
         if (!imageElement) {
           warnings.push(
@@ -178,16 +178,16 @@ class ModernImageFormats extends ByteEfficiencyAudit {
 
     /** @type {LH.Audit.Details.Opportunity['headings']} */
     const headings = [
-      { key: "url", valueType: "thumbnail", label: "" },
-      { key: "url", valueType: "url", label: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', valueType: 'thumbnail', label: '' },
+      { key: 'url', valueType: 'url', label: str_(i18n.UIStrings.columnURL) },
       {
-        key: "totalBytes",
-        valueType: "bytes",
+        key: 'totalBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnResourceSize),
       },
       {
-        key: "wastedBytes",
-        valueType: "bytes",
+        key: 'wastedBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnWastedBytes),
       },
     ];

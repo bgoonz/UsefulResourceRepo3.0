@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-"use strict";
+'use strict';
 
-const path = require("path");
-const fs = require("fs-extra");
-const { getPackages } = require("@lerna/project");
-const PackageGraph = require("@lerna/package-graph");
+const path = require('path');
+const fs = require('fs-extra');
+const { getPackages } = require('@lerna/project');
+const PackageGraph = require('@lerna/package-graph');
 
 (async () => {
   const pkgs = await getPackages(__dirname);
-  const graph = new PackageGraph(pkgs, "allDependencies", true);
+  const graph = new PackageGraph(pkgs, 'allDependencies', true);
   const writes = [];
 
   for (const node of graph.values()) {
@@ -22,7 +22,7 @@ const PackageGraph = require("@lerna/package-graph");
     }
 
     if (references.length) {
-      const tsconfigPath = path.join(node.location, "tsconfig.json");
+      const tsconfigPath = path.join(node.location, 'tsconfig.json');
 
       writes.push(
         Promise.resolve()

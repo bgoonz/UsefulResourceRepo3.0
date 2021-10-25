@@ -1,9 +1,9 @@
-import React from "react";
-import _ from "lodash";
-import { graphql } from "gatsby";
+import React from 'react';
+import _ from 'lodash';
+import { graphql } from 'gatsby';
 
-import { Layout } from "../components/index";
-import { toStyleObj, withPrefix, htmlToReact } from "../utils";
+import { Layout } from '../components/index';
+import { toStyleObj, withPrefix, htmlToReact } from '../utils';
 
 // this minimal GraphQL query ensures that when 'gatsby develop' is running,
 // any changes to content files are reflected in browser
@@ -21,13 +21,13 @@ export default class Page extends React.Component {
       <Layout {...this.props}>
         <article className="post post-full">
           <header className="post-header has-gradient outer">
-            {_.get(this.props, "pageContext.frontmatter.image", null) && (
+            {_.get(this.props, 'pageContext.frontmatter.image', null) && (
               <div
                 className="bg-img"
                 style={toStyleObj(
                   "background-image: url('" +
                     withPrefix(
-                      _.get(this.props, "pageContext.frontmatter.image", null)
+                      _.get(this.props, 'pageContext.frontmatter.image', null)
                     ) +
                     "')"
                 )}
@@ -35,12 +35,12 @@ export default class Page extends React.Component {
             )}
             <div className="inner-sm">
               <h1 className="post-title">
-                {_.get(this.props, "pageContext.frontmatter.title", null)}
+                {_.get(this.props, 'pageContext.frontmatter.title', null)}
               </h1>
-              {_.get(this.props, "pageContext.frontmatter.subtitle", null) && (
+              {_.get(this.props, 'pageContext.frontmatter.subtitle', null) && (
                 <div className="post-subtitle">
                   {htmlToReact(
-                    _.get(this.props, "pageContext.frontmatter.subtitle", null)
+                    _.get(this.props, 'pageContext.frontmatter.subtitle', null)
                   )}
                 </div>
               )}
@@ -48,7 +48,7 @@ export default class Page extends React.Component {
           </header>
           <div className="inner-md outer">
             <div className="post-content">
-              {htmlToReact(_.get(this.props, "pageContext.html", null))}
+              {htmlToReact(_.get(this.props, 'pageContext.html', null))}
             </div>
           </div>
         </article>

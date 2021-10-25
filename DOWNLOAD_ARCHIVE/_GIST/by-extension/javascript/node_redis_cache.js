@@ -1,6 +1,6 @@
-const express = require("express");
-const fetch = require("node-fetch");
-const redis = require("redis");
+const express = require('express');
+const fetch = require('node-fetch');
+const redis = require('redis');
 
 const PORT = process.env.PORT || 5000;
 const REDIS_PORT = process.env.PORT || 6379;
@@ -17,7 +17,7 @@ function setResponse(username, repos) {
 // Make request to Github for data
 async function getRepos(req, res, next) {
   try {
-    console.log("Fetching Data...");
+    console.log('Fetching Data...');
 
     const { username } = req.params;
 
@@ -52,7 +52,7 @@ function cache(req, res, next) {
   });
 }
 
-app.get("/repos/:username", cache, getRepos);
+app.get('/repos/:username', cache, getRepos);
 
 app.listen(5000, () => {
   console.log(`App listening on port ${PORT}`);

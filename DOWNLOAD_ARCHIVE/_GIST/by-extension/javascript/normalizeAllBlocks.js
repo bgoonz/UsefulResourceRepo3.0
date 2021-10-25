@@ -2,29 +2,29 @@
 // Put on the studio root folder and run with SANITY_TOKEN=XXX npx node ./normalizeBlocks.js
 // Could be used as an inspiration to migrate some type in your dataset, not just blocks.
 
-const sanityClient = require("@sanity/client");
-const { normalizeBlock } = require("@sanity/block-tools");
-const { extractWithPath } = require("@sanity/mutator");
-const config = require("./sanity.json");
+const sanityClient = require('@sanity/client');
+const { normalizeBlock } = require('@sanity/block-tools');
+const { extractWithPath } = require('@sanity/mutator');
+const config = require('./sanity.json');
 
 const sanityToken = process.env.SANITY_TOKEN;
 
 if (!sanityToken) {
-  throw new Error("No Sanity token found. Set with env var SANITY_TOKEN=xxxx");
+  throw new Error('No Sanity token found. Set with env var SANITY_TOKEN=xxxx');
 }
 
 // Act on all documents
-const query = "*[]";
+const query = '*[]';
 
 // Adjust the decorators to the set you want to allow
 const allowedDecaorators = [
-  "strong",
-  "em",
-  "code",
-  "underline",
-  "strike-through",
-  "sub",
-  "sup",
+  'strong',
+  'em',
+  'code',
+  'underline',
+  'strike-through',
+  'sub',
+  'sup',
 ];
 
 const client = sanityClient({
@@ -42,7 +42,7 @@ function convertPath(pathArr) {
       }
       return `.${part}`;
     })
-    .join("")
+    .join('')
     .substring(1);
 }
 

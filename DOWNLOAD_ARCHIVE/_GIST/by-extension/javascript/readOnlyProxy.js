@@ -1,6 +1,6 @@
 function readOnlyProxy(o) {
   function readonly() {
-    throw new TypeError("Readonly");
+    throw new TypeError('Readonly');
   }
   return new Proxy(o, {
     set: readonly,

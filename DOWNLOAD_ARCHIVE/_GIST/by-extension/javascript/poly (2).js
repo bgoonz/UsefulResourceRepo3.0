@@ -11,7 +11,7 @@ var st = $ui({
   sn: 4,
 });
 
-var scales = ["dorian", "phrygian", "phrygian"];
+var scales = ['dorian', 'phrygian', 'phrygian'];
 var scale = scales[Math.floor(st.c % scales.length)];
 console.log(scale);
 var v = [
@@ -30,7 +30,7 @@ var p = {};
 p.m = st.pi;
 p.c = st.c;
 p.f = st.fq * st.tmod; // st.tempo
-p.wave = "sine";
+p.wave = 'sine';
 
 var bell = $.meffisto(p);
 (teoria = $.teoria),
@@ -39,11 +39,11 @@ var bell = $.meffisto(p);
   (oz = $.oz),
   (amod = $.amod),
   (generator = new $.chrono());
-notes = teoria.note("db3").scale("dorian").notes();
+notes = teoria.note('db3').scale('dorian').notes();
 bpm = 36;
 timer = $.jsync(bpm, sampleRate);
 
-if (typeof t0 === "undefined") {
+if (typeof t0 === 'undefined') {
   //t0.emit('stop')
   t0 = timer.on(1 / st.beat, function (ti, b, off, swing) {
     if (b % 2 === 0) {
@@ -51,9 +51,9 @@ if (typeof t0 === "undefined") {
     } else if (b % 2 === 1) {
       swing(((st.swing * st.tempo) / 60) * st.swing * Math.random() * st.swing);
     } else swing(0);
-    if (b === 12 * 4) notes = teoria.note("db3").scale(scale).notes();
-    if (b === 12 * 8) notes = teoria.note("db4").scale(scale).notes();
-    if (b === 12 * 16) notes = teoria.note("db5").scale(scale).notes();
+    if (b === 12 * 4) notes = teoria.note('db3').scale(scale).notes();
+    if (b === 12 * 8) notes = teoria.note('db4').scale(scale).notes();
+    if (b === 12 * 16) notes = teoria.note('db5').scale(scale).notes();
     var attack = [
       [0, 0],
       [0, 0.667],
@@ -75,7 +75,7 @@ if (typeof t0 === "undefined") {
     opts.m = st.c; // Math.sqrt(Math.PI) / Math.sqrt(2);
     var ch = [0, 2, 0, 4, 0, 6, 1, 3, 5, 0, 2, 4];
     opts.f = notes[ch[b % 12]].fq() / 1; // 4//   (bf)// * Math.pow(2, 3/12))
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];

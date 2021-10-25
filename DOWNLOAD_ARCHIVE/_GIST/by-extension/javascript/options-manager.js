@@ -1,41 +1,41 @@
-"use strict";
-const os = require("os");
-const path = require("path");
-const arrify = require("arrify");
-const mergeWith = require("lodash.mergewith");
-const multimatch = require("multimatch");
-const pathExists = require("path-exists");
-const pkgConf = require("pkg-conf");
-const resolveFrom = require("resolve-from");
-const prettier = require("prettier");
-const semver = require("semver");
+'use strict';
+const os = require('os');
+const path = require('path');
+const arrify = require('arrify');
+const mergeWith = require('lodash.mergewith');
+const multimatch = require('multimatch');
+const pathExists = require('path-exists');
+const pkgConf = require('pkg-conf');
+const resolveFrom = require('resolve-from');
+const prettier = require('prettier');
+const semver = require('semver');
 
 const DEFAULT_IGNORE = [
-  "**/node_modules/**",
-  "**/bower_components/**",
-  "flow-typed/**",
-  "coverage/**",
-  "{tmp,temp}/**",
-  "**/*.min.js",
-  "**/bundle.js",
-  "fixture{-*,}.{js,jsx}",
-  "fixture{s,}/**",
-  "{test,tests,spec,__tests__}/fixture{s,}/**",
-  "vendor/**",
-  "dist/**",
+  '**/node_modules/**',
+  '**/bower_components/**',
+  'flow-typed/**',
+  'coverage/**',
+  '{tmp,temp}/**',
+  '**/*.min.js',
+  '**/bundle.js',
+  'fixture{-*,}.{js,jsx}',
+  'fixture{s,}/**',
+  '{test,tests,spec,__tests__}/fixture{s,}/**',
+  'vendor/**',
+  'dist/**',
 ];
 
-const DEFAULT_EXTENSION = ["js", "jsx"];
+const DEFAULT_EXTENSION = ['js', 'jsx'];
 
 const DEFAULT_CONFIG = {
   useEslintrc: false,
   cache: true,
-  cacheLocation: path.join(os.homedir() || os.tmpdir(), ".xo-cache/"),
+  cacheLocation: path.join(os.homedir() || os.tmpdir(), '.xo-cache/'),
   baseConfig: {
     extends: [
-      "xo",
-      path.join(__dirname, "../config/overrides.js"),
-      path.join(__dirname, "../config/plugins.js"),
+      'xo',
+      path.join(__dirname, '../config/overrides.js'),
+      path.join(__dirname, '../config/plugins.js'),
     ],
   },
 };
@@ -63,8 +63,8 @@ const DEFAULT_CONFIG = {
  * With `engines.node` set to `>=8` the rule `plugin/rule` will be used with the config `{prop: 'node-8-conf'}`.
  */
 const ENGINE_RULES = {
-  "promise/prefer-await-to-then": {
-    "7.6.0": "error",
+  'promise/prefer-await-to-then': {
+    '7.6.0': 'error',
   },
 };
 
@@ -80,18 +80,18 @@ const normalizeOpts = (opts) => {
 
   // Aliases for humans
   const aliases = [
-    "env",
-    "global",
-    "ignore",
-    "plugin",
-    "rule",
-    "setting",
-    "extend",
-    "extension",
+    'env',
+    'global',
+    'ignore',
+    'plugin',
+    'rule',
+    'setting',
+    'extend',
+    'extension',
   ];
 
   for (const singular of aliases) {
-    const plural = singular + "s";
+    const plural = singular + 's';
     let value = opts[plural] || opts[singular];
 
     delete opts[singular];
@@ -100,7 +100,7 @@ const normalizeOpts = (opts) => {
       continue;
     }
 
-    if (singular !== "rule" && singular !== "setting") {
+    if (singular !== 'rule' && singular !== 'setting') {
       value = arrify(value);
     }
 
@@ -113,9 +113,9 @@ const normalizeOpts = (opts) => {
 const mergeWithPkgConf = (opts) => {
   opts = Object.assign({ cwd: process.cwd() }, opts);
   opts.cwd = path.resolve(opts.cwd);
-  const conf = pkgConf.sync("xo", { cwd: opts.cwd, skipOnFalse: true });
+  const conf = pkgConf.sync('xo', { cwd: opts.cwd, skipOnFalse: true });
   const pkgPath = pkgConf.filepath(conf);
-  const engines = pkgConf.sync("engines", { cwd: opts.cwd });
+  const engines = pkgConf.sync('engines', { cwd: opts.cwd });
   const overridesRoot = pkgPath ? path.dirname(pkgPath) : undefined;
   const overridesPrefix = pkgPath
     ? path.relative(overridesRoot, opts.cwd)
@@ -134,7 +134,7 @@ const mergeWithPkgConf = (opts) => {
 };
 
 const normalizeSpaces = (opts) =>
-  typeof opts.space === "number" ? opts.space : 2;
+  typeof opts.space === 'number' ? opts.space : 2;
 
 const mergeWithPrettierConf = (opts, prettierOpts) => {
   if (
@@ -147,9 +147,9 @@ const mergeWithPrettierConf = (opts, prettierOpts) => {
   }
 
   if (
-    ((opts.space === true || typeof opts.space === "number") &&
+    ((opts.space === true || typeof opts.space === 'number') &&
       prettierOpts.useTabs === false) ||
-    ((opts.space === false || typeof opts.space === "number") &&
+    ((opts.space === false || typeof opts.space === 'number') &&
       prettierOpts.useTabs === true)
   ) {
     throw new Error(
@@ -158,8 +158,8 @@ const mergeWithPrettierConf = (opts, prettierOpts) => {
   }
 
   if (
-    typeof opts.space === "number" &&
-    typeof prettierOpts.tabWidth === "number" &&
+    typeof opts.space === 'number' &&
+    typeof prettierOpts.tabWidth === 'number' &&
     opts.space !== prettierOpts.tabWidth
   ) {
     throw new Error(
@@ -173,7 +173,7 @@ const mergeWithPrettierConf = (opts, prettierOpts) => {
       singleQuote: true,
       bracketSpacing: false,
       jsxBracketSameLine: false,
-      trailingComma: "none",
+      trailingComma: 'none',
       tabWidth: normalizeSpaces(opts),
       useTabs: !opts.space,
       semi: opts.semicolon !== false,
@@ -215,20 +215,20 @@ const buildConfig = (opts) => {
   }
 
   if (opts.space && !opts.prettier) {
-    config.rules.indent = ["error", spaces, { SwitchCase: 1 }];
+    config.rules.indent = ['error', spaces, { SwitchCase: 1 }];
 
     // Only apply if the user has the React plugin
-    if (opts.cwd && resolveFrom.silent(opts.cwd, "eslint-plugin-react")) {
-      config.plugins = config.plugins.concat("react");
-      config.rules["react/jsx-indent-props"] = ["error", spaces];
-      config.rules["react/jsx-indent"] = ["error", spaces];
+    if (opts.cwd && resolveFrom.silent(opts.cwd, 'eslint-plugin-react')) {
+      config.plugins = config.plugins.concat('react');
+      config.rules['react/jsx-indent-props'] = ['error', spaces];
+      config.rules['react/jsx-indent'] = ['error', spaces];
     }
   }
 
   if (opts.semicolon === false && !opts.prettier) {
-    config.rules.semi = ["error", "never"];
-    config.rules["semi-spacing"] = [
-      "error",
+    config.rules.semi = ['error', 'never'];
+    config.rules['semi-spacing'] = [
+      'error',
       {
         before: false,
         after: true,
@@ -238,8 +238,8 @@ const buildConfig = (opts) => {
 
   if (opts.esnext !== false) {
     config.baseConfig.extends = [
-      "xo/esnext",
-      path.join(__dirname, "../config/plugins.js"),
+      'xo/esnext',
+      path.join(__dirname, '../config/plugins.js'),
     ];
   }
 
@@ -265,11 +265,11 @@ const buildConfig = (opts) => {
       }
 
       // Don't do anything if it's a config from a plugin
-      if (name.startsWith("plugin:")) {
+      if (name.startsWith('plugin:')) {
         return name;
       }
 
-      if (!name.includes("eslint-config-")) {
+      if (!name.includes('eslint-config-')) {
         name = `eslint-config-${name}`;
       }
 
@@ -288,14 +288,14 @@ const buildConfig = (opts) => {
   // If the user sets the `prettier` options then add the `prettier` plugin and config
   if (opts.prettier) {
     // Disable formatting rules conflicting with Prettier
-    config.rules["unicorn/number-literal-case"] = "off";
+    config.rules['unicorn/number-literal-case'] = 'off';
     // The prettier plugin uses Prettier to format the code with `--fix`
-    config.plugins = config.plugins.concat("prettier");
+    config.plugins = config.plugins.concat('prettier');
     // The prettier config overrides ESLint stylistic rules that are handled by Prettier
-    config.baseConfig.extends = config.baseConfig.extends.concat("prettier");
+    config.baseConfig.extends = config.baseConfig.extends.concat('prettier');
     // The `prettier/prettier` rule reports errors if the code is not formatted in accordance to Prettier
-    config.rules["prettier/prettier"] = [
-      "error",
+    config.rules['prettier/prettier'] = [
+      'error',
       mergeWithPrettierConf(
         opts,
         prettier.resolveConfig.sync(opts.cwd || process.cwd()) || {}
@@ -303,7 +303,7 @@ const buildConfig = (opts) => {
     ];
     // If the user has the React, Flowtype or Standard plugin, add the corresponding Prettier rule overrides
     // See https://github.com/prettier/eslint-config-prettier for the list of plugins overrrides
-    for (const override of ["react", "flowtype", "standard"]) {
+    for (const override of ['react', 'flowtype', 'standard']) {
       if (
         opts.cwd &&
         resolveFrom.silent(opts.cwd, `eslint-plugin-${override}`)

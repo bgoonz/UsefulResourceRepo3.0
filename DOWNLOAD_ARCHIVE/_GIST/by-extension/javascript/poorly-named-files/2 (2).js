@@ -7,18 +7,18 @@ var ag = asyncGenerator(function* main(pwait, a) {
   try {
     console.log(`a: ${a}`);
     yield pwait(delay(500)); // <---- fake `await`
-    console.log("b");
+    console.log('b');
     yield 42;
     var c = yield pwait(getData(10)); // <---- fake `await`
     console.log(`c: ${c}`);
     yield pwait(delay(500)); // <---- fake `await`
-    console.log("d");
+    console.log('d');
     yield getData(50); // but THIS one is just yielding a promise out through the async generator machinery, which is where the "v: some data: 50" log message comes from
     yield pwait(delay(5000)); // <---- fake `await`
-    console.log("e");
+    console.log('e');
     yield pwait(delay(500)); // <---- fake `await`
     return 250;
   } finally {
-    console.log("finally!");
+    console.log('finally!');
   }
 });

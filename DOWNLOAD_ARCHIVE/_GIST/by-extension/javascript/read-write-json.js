@@ -1,8 +1,8 @@
 var _fs;
 try {
-  _fs = require("graceful-fs");
+  _fs = require('graceful-fs');
 } catch (_) {
-  _fs = require("fs");
+  _fs = require('fs');
 }
 
 function readFile(file, options, callback) {
@@ -11,7 +11,7 @@ function readFile(file, options, callback) {
     options = {};
   }
 
-  if (typeof options === "string") {
+  if (typeof options === 'string') {
     options = { encoding: options };
   }
 
@@ -19,7 +19,7 @@ function readFile(file, options, callback) {
   var fs = options.fs || _fs;
 
   var shouldThrow = true;
-  if ("throws" in options) {
+  if ('throws' in options) {
     shouldThrow = options.throws;
   }
 
@@ -33,7 +33,7 @@ function readFile(file, options, callback) {
       obj = JSON.parse(data, options ? options.reviver : null);
     } catch (err2) {
       if (shouldThrow) {
-        err2.message = file + ": " + err2.message;
+        err2.message = file + ': ' + err2.message;
         return callback(err2);
       } else {
         return callback(null, null);
@@ -46,14 +46,14 @@ function readFile(file, options, callback) {
 
 function readFileSync(file, options) {
   options = options || {};
-  if (typeof options === "string") {
+  if (typeof options === 'string') {
     options = { encoding: options };
   }
 
   var fs = options.fs || _fs;
 
   var shouldThrow = true;
-  if ("throws" in options) {
+  if ('throws' in options) {
     shouldThrow = options.throws;
   }
 
@@ -63,7 +63,7 @@ function readFileSync(file, options) {
     return JSON.parse(content, options.reviver);
   } catch (err) {
     if (shouldThrow) {
-      err.message = file + ": " + err.message;
+      err.message = file + ': ' + err.message;
       throw err;
     } else {
       return null;
@@ -73,8 +73,8 @@ function readFileSync(file, options) {
 
 function stringify(obj, options) {
   var spaces;
-  var EOL = "\n";
-  if (typeof options === "object" && options !== null) {
+  var EOL = '\n';
+  if (typeof options === 'object' && options !== null) {
     if (options.spaces) {
       spaces = options.spaces;
     }
@@ -96,7 +96,7 @@ function writeFile(file, obj, options, callback) {
   options = options || {};
   var fs = options.fs || _fs;
 
-  var str = "";
+  var str = '';
   try {
     str = stringify(obj, options);
   } catch (err) {
@@ -119,8 +119,8 @@ function writeFileSync(file, obj, options) {
 
 function stripBom(content) {
   // we do this because JSON.parse would convert it to a utf8 string if encoding wasn't specified
-  if (Buffer.isBuffer(content)) content = content.toString("utf8");
-  content = content.replace(/^\uFEFF/, "");
+  if (Buffer.isBuffer(content)) content = content.toString('utf8');
+  content = content.replace(/^\uFEFF/, '');
   return content;
 }
 

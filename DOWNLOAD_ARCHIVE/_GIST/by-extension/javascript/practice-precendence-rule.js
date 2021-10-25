@@ -60,23 +60,23 @@ function recordLetter(count, letter1, letter2) {
   return count;
 }
 
-findWord(["P>E", "E>R", "R>U"]); // PERU
-findWord(["I>N", "A>I", "P>A", "S>P"]); // SPAIN
-findWord(["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]); // HUNGARY
-findWord(["I>F", "W>I", "S>W", "F>T"]); // SWIFT
-findWord(["R>T", "A>L", "P>O", "O>R", "G>A", "T>U", "U>G"]); // PORTUGAL
-findWord(["U>N", "G>A", "R>Y", "H>U", "N>G", "A>R"]); // HUNGARY
-findWord(["I>F", "W>I", "S>W", "F>T"]); // SWIFT
-findWord(["R>T", "A>L", "P>O", "O>R", "G>A", "T>U", "U>G"]); // PORTUGAL
+findWord(['P>E', 'E>R', 'R>U']); // PERU
+findWord(['I>N', 'A>I', 'P>A', 'S>P']); // SPAIN
+findWord(['U>N', 'G>A', 'R>Y', 'H>U', 'N>G', 'A>R']); // HUNGARY
+findWord(['I>F', 'W>I', 'S>W', 'F>T']); // SWIFT
+findWord(['R>T', 'A>L', 'P>O', 'O>R', 'G>A', 'T>U', 'U>G']); // PORTUGAL
+findWord(['U>N', 'G>A', 'R>Y', 'H>U', 'N>G', 'A>R']); // HUNGARY
+findWord(['I>F', 'W>I', 'S>W', 'F>T']); // SWIFT
+findWord(['R>T', 'A>L', 'P>O', 'O>R', 'G>A', 'T>U', 'U>G']); // PORTUGAL
 findWord([
-  "W>I",
-  "R>L",
-  "T>Z",
-  "Z>E",
-  "S>W",
-  "E>R",
-  "L>A",
-  "A>N",
-  "N>D",
-  "I>T",
+  'W>I',
+  'R>L',
+  'T>Z',
+  'Z>E',
+  'S>W',
+  'E>R',
+  'L>A',
+  'A>N',
+  'N>D',
+  'I>T',
 ]); // SWITZERLAND

@@ -31,6 +31,6 @@ range.methods = {
 
   // Return a string representation of the range
   toString() {
-    return "(" + this.from + "..." + this.to + ")";
+    return '(' + this.from + '...' + this.to + ')';
   },
 };

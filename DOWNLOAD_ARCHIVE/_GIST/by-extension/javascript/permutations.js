@@ -21,4 +21,4 @@ const permutations = (array = []) => {
   return results;
 };
 
-console.log(permutations(["a", "b", "c", "d", "e"]).length); // 3125
+console.log(permutations(['a', 'b', 'c', 'd', 'e']).length); // 3125

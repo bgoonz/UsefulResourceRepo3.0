@@ -1,24 +1,24 @@
 // This belongs in %SDK%/compat/scripts/
 (function () {
   var defaultJsb3Object = {
-    projectName: "Project Name",
-    licenseText: "Copyright(c) 2012 Company Name",
+    projectName: 'Project Name',
+    licenseText: 'Copyright(c) 2012 Company Name',
     builds: [
       {
-        name: "All Classes",
-        target: "all-classes.js",
+        name: 'All Classes',
+        target: 'all-classes.js',
         options: {
           debug: true,
         },
         files: [],
       },
       {
-        name: "Application - Production",
-        target: "app-all.js",
+        name: 'Application - Production',
+        target: 'app-all.js',
         compress: true,
         files: [
-          { path: "", name: "all-classes.js" },
-          { path: "", name: "app.js" },
+          { path: '', name: 'all-classes.js' },
+          { path: '', name: 'app.js' },
         ],
       },
     ],
@@ -26,7 +26,7 @@
   };
 
   function cleanPath(path) {
-    return path.replace(/\/\.\.\//g, "/");
+    return path.replace(/\/\.\.\//g, '/');
   }
 
   function parseArguments() {
@@ -56,7 +56,7 @@
       } else if ((match = arg.match(/^--([^=]+)=(.*)$/i))) {
         args[match[1]] = match[2];
       } else if ((match = arg.match(/^-([\w]+)$/i))) {
-        match[1].split("").forEach(function (a) {
+        match[1].split('').forEach(function (a) {
           args[a] = true;
         });
       } else {
@@ -72,8 +72,8 @@
   }
 
   function getRelativePath(from, to) {
-    var fromParts = from.split("/"),
-      toParts = to.split("/"),
+    var fromParts = from.split('/'),
+      toParts = to.split('/'),
       index = null,
       i,
       ln;
@@ -89,10 +89,10 @@
       return from;
     }
 
-    from = fromParts.slice(index).join("/");
+    from = fromParts.slice(index).join('/');
 
     for (i = 0; i < ln - index - 1; i++) {
-      from = "../" + from;
+      from = '../' + from;
     }
 
     return from;
@@ -102,7 +102,7 @@
     var ret = object,
       originalTarget = target,
       expect = function (expected) {
-        if (typeof expected === "string") {
+        if (typeof expected === 'string') {
           var ln = expected.length;
 
           if (target.substring(0, ln) === expected) {
@@ -125,7 +125,7 @@
       },
       push = function (property) {
         if (!ret.hasOwnProperty(property)) {
-          throw new Error("Invalid target property name " + property);
+          throw new Error('Invalid target property name ' + property);
         }
 
         ret = ret[property];
@@ -148,7 +148,7 @@
           quote = expect(/^'|"/);
 
           push(
-            expect(new RegExp("^[^\\]" + (quote ? quote[0] : "") + "]+", "i"))
+            expect(new RegExp('^[^\\]' + (quote ? quote[0] : '') + ']+', 'i'))
           );
 
           if (quote !== null) {
@@ -182,11 +182,11 @@
   }
 
   var args = parseArguments(),
-    writeTarget = args.target || "builds[0].files",
+    writeTarget = args.target || 'builds[0].files',
     verbose = !!args.verbose,
-    appLocation = args["app-entry"],
-    jsb3Path = args["project"],
-    fs = require("fs"),
+    appLocation = args['app-entry'],
+    jsb3Path = args['project'],
+    fs = require('fs'),
     jsb3Content,
     jsb3Object,
     targetObject,
@@ -210,9 +210,9 @@
       jsb3Object = JSON.parse(jsb3Content);
     } catch (e) {
       throw new Error(
-        "Failed parsing JSB file: " +
+        'Failed parsing JSB file: ' +
           jsb3Path +
-          ". Please make sure its content is of valid JSON format"
+          '. Please make sure its content is of valid JSON format'
       );
     }
   } else {
@@ -234,24 +234,24 @@
 
   page.onConsoleMessage = function (message, url, lineNumber) {
     console.log(
-      (url ? url + " " : "") + (lineNumber ? lineNumber + ": " : "") + message
+      (url ? url + ' ' : '') + (lineNumber ? lineNumber + ': ' : '') + message
     );
   };
 
   page.onError = function (msg, trace) {
     console.log(msg);
     trace.forEach(function (item) {
-      console.log("  ", item.file, ":", item.line);
+      console.log('  ', item.file, ':', item.line);
     });
     phantom.exit(1);
   };
 
   if (!/^file:\/\/|http(s?):\/\//.test(appLocation)) {
-    appLocation = "file:///" + fs.absolute(appLocation).replace(/\\/g, "/");
+    appLocation = 'file:///' + fs.absolute(appLocation).replace(/\\/g, '/');
   }
 
   page.open(appLocation, function (status) {
-    if (status !== "success") {
+    if (status !== 'success') {
       error(
         "Failed opening: '" +
           appLocation +
@@ -262,8 +262,8 @@
     page.evaluate(function () {
       window.onerror = function (message, url, lineNumber) {
         console.log(
-          (url ? url + " " : "") +
-            (lineNumber ? lineNumber + ": " : "") +
+          (url ? url + ' ' : '') +
+            (lineNumber ? lineNumber + ': ' : '') +
             message
         );
       };
@@ -278,8 +278,8 @@
           path;
 
         function getRelativePath(from, to) {
-          var fromParts = from.split("/"),
-            toParts = to.split("/"),
+          var fromParts = from.split('/'),
+            toParts = to.split('/'),
             index = null,
             i,
             ln;
@@ -298,18 +298,18 @@
           fromParts = fromParts.slice(index);
 
           for (i = 0; i < ln - index - 1; i++) {
-            fromParts.unshift("..");
+            fromParts.unshift('..');
           }
 
           for (i = 0, ln = fromParts.length; i < ln; i++) {
-            if (fromParts[i] !== ".." && fromParts[i + 1] === "..") {
+            if (fromParts[i] !== '..' && fromParts[i + 1] === '..') {
               fromParts.splice(i, 2);
               i -= 2;
               ln -= 2;
             }
           }
 
-          return fromParts.join("/");
+          return fromParts.join('/');
         }
 
         // Wait for Ext.Loader to finish everything.
@@ -320,12 +320,12 @@
             path = Ext.Loader.getPath(item);
             path = getRelativePath(path, currentLocation);
 
-            pathParts = path.split("/");
+            pathParts = path.split('/');
             fileName = pathParts.pop();
-            path = pathParts.join("/");
+            path = pathParts.join('/');
 
-            if (path !== "") {
-              path += "/";
+            if (path !== '') {
+              path += '/';
             }
 
             dependencies.push({
@@ -349,7 +349,7 @@
         clearInterval(timer);
         targetObject.push.apply(targetObject, dependencies);
         jsb3Content = JSON.stringify(jsb3Object, null, 4);
-        fs.write(jsb3Path, jsb3Content, "w");
+        fs.write(jsb3Path, jsb3Content, 'w');
         if (verbose) {
           console.log(jsb3Content);
         }
@@ -361,7 +361,7 @@
       if (elapse > 10000) {
         clearInterval(timer);
         error(
-          "Timeout waiting for Ext.onReady to fire. Try using ext-dev.js to pinpoint this issue."
+          'Timeout waiting for Ext.onReady to fire. Try using ext-dev.js to pinpoint this issue.'
         );
       }
     }, 100);

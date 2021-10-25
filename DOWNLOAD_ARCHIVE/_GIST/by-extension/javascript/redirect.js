@@ -3,4 +3,4 @@ const redirect = (url, asLink = true) =>
 
 //--------------------------------
 
-redirect("https://google.com");
+redirect('https://google.com');

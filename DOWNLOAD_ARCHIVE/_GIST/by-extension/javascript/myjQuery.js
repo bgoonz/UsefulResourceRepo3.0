@@ -1,11 +1,11 @@
 // myjQuery.js
-var jQuery = require("_jQuery"),
+var jQuery = require('_jQuery'),
   myjQuery = jQuery.noConflict(true);
 
 // Пробрасываем для Bacon на время инициализации
 window.jQuery = myjQuery;
 
-require("_Bacon");
+require('_Bacon');
 
 // Убиваем ()
 try {

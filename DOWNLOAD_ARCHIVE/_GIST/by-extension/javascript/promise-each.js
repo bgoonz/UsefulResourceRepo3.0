@@ -1,12 +1,12 @@
 YUI.add(
-  "promise-each",
+  'promise-each',
   function (Y) {
     function isArray(obj) {
-      return Object.prototype.toString.call(obj) === "[object Array]";
+      return Object.prototype.toString.call(obj) === '[object Array]';
     }
 
     function isFunction(obj) {
-      return obj && typeof obj === "function";
+      return obj && typeof obj === 'function';
     }
 
     Y.Promise.each = function (values, fn, context) {
@@ -15,13 +15,13 @@ YUI.add(
       return new Promise(function (resolve, reject) {
         if (!isArray(values)) {
           reject(
-            new TypeError("Promise.each expects an array of values or promises")
+            new TypeError('Promise.each expects an array of values or promises')
           );
           return;
         }
 
         if (!isFunction(fn)) {
-          reject(new TypeError("Promise.each expects an iterator function"));
+          reject(new TypeError('Promise.each expects an iterator function'));
           return;
         }
 
@@ -61,6 +61,6 @@ YUI.add(
       });
     };
   },
-  "",
-  { requires: ["promise"] }
+  '',
+  { requires: ['promise'] }
 );

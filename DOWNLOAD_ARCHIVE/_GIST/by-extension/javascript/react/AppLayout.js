@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cx from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 // UI.
-import SkipLink from "../components/SkipLink";
+import SkipLink from '../components/SkipLink';
 
 // Layout.
-import AppLayoutFooter from "./AppLayoutFooter";
-import AppLayoutHeader from "./AppLayoutHeader";
-import AppLayoutMain from "./AppLayoutMain";
+import AppLayoutFooter from './AppLayoutFooter';
+import AppLayoutHeader from './AppLayoutHeader';
+import AppLayoutMain from './AppLayoutMain';
 
 // ==========
 // Constants.
@@ -36,7 +36,7 @@ const AppLayout = ({
   // =================
 
   const classList = cx({
-    "app-layout": true,
+    'app-layout': true,
     [String(className)]: className,
   });
 

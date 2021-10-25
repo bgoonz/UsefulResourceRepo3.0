@@ -7,18 +7,18 @@
 /**
  * @fileoverview Audit a page to see if it does have resources that are blocking first paint
  */
-"use strict";
+'use strict';
 
-const Audit = require("../audit.js");
-const i18n = require("../../lib/i18n/i18n.js");
-const BaseNode = require("../../lib/dependency-graph/base-node.js");
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const UnusedCSS = require("../../computed/unused-css.js");
-const NetworkRequest = require("../../lib/network-request.js");
-const ProcessedTrace = require("../../computed/processed-trace.js");
-const ProcessedNavigation = require("../../computed/processed-navigation.js");
-const LoadSimulator = require("../../computed/load-simulator.js");
-const FirstContentfulPaint = require("../../computed/metrics/first-contentful-paint.js");
+const Audit = require('../audit.js');
+const i18n = require('../../lib/i18n/i18n.js');
+const BaseNode = require('../../lib/dependency-graph/base-node.js');
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const UnusedCSS = require('../../computed/unused-css.js');
+const NetworkRequest = require('../../lib/network-request.js');
+const ProcessedTrace = require('../../computed/processed-trace.js');
+const ProcessedNavigation = require('../../computed/processed-navigation.js');
+const LoadSimulator = require('../../computed/load-simulator.js');
+const FirstContentfulPaint = require('../../computed/metrics/first-contentful-paint.js');
 
 /** @typedef {import('../../lib/dependency-graph/simulator/simulator')} Simulator */
 /** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
@@ -32,12 +32,12 @@ const MINIMUM_WASTED_MS = 50;
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to reduce or remove network resources that block the initial render of the page. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Eliminate render-blocking resources",
+  title: 'Eliminate render-blocking resources',
   /** Description of a Lighthouse audit that tells the user *why* they should reduce or remove network resources that block the initial render of the page. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Resources are blocking the first paint of your page. Consider " +
-    "delivering critical JS/CSS inline and deferring all non-critical " +
-    "JS/styles. [Learn more](https://web.dev/render-blocking-resources/).",
+    'Resources are blocking the first paint of your page. Consider ' +
+    'delivering critical JS/CSS inline and deferring all non-critical ' +
+    'JS/styles. [Learn more](https://web.dev/render-blocking-resources/).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -52,7 +52,7 @@ function getNodesAndTimingByUrl(nodeTimings) {
   const urlMap = {};
   const nodes = Array.from(nodeTimings.keys());
   nodes.forEach((node) => {
-    if (node.type !== "network") return;
+    if (node.type !== 'network') return;
     const nodeTiming = nodeTimings.get(node);
     if (!nodeTiming) return;
 
@@ -96,7 +96,7 @@ function adjustNodeTimings(adjustedNodeTimings, node, Stacks) {
  */
 function computeStackSpecificTiming(node, nodeTiming, Stacks) {
   const stackSpecificTiming = { ...nodeTiming };
-  if (Stacks.some((stack) => stack.id === "amp")) {
+  if (Stacks.some((stack) => stack.id === 'amp')) {
     // AMP will load a linked stylesheet asynchronously if it has not been loaded after 2.1 seconds:
     // https://github.com/ampproject/amphtml/blob/8e03ac2f315774070651584a7e046ff24212c9b1/src/font-stylesheet-timeout.js#L54-L59
     // Any potential savings must only include time spent on AMP stylesheet nodes before 2.1 seconds.
@@ -119,21 +119,21 @@ class RenderBlockingResources extends Audit {
    */
   static get meta() {
     return {
-      id: "render-blocking-resources",
+      id: 'render-blocking-resources',
       title: str_(UIStrings.title),
-      supportedModes: ["navigation"],
+      supportedModes: ['navigation'],
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       description: str_(UIStrings.description),
       // TODO: look into adding an `optionalArtifacts` property that captures the non-required nature
       // of CSSUsage
       requiredArtifacts: [
-        "URL",
-        "TagsBlockingFirstPaint",
-        "traces",
-        "devtoolsLogs",
-        "CSSUsage",
-        "GatherContext",
-        "Stacks",
+        'URL',
+        'TagsBlockingFirstPaint',
+        'traces',
+        'devtoolsLogs',
+        'CSSUsage',
+        'GatherContext',
+        'Stacks',
       ],
     };
   }
@@ -162,7 +162,7 @@ class RenderBlockingResources extends Audit {
     /** @type {Immutable<LH.Config.Settings>} */
     const metricSettings = {
       ...context.settings,
-      throttlingMethod: "simulate",
+      throttlingMethod: 'simulate',
     };
 
     const metricComputationData = {
@@ -274,8 +274,8 @@ class RenderBlockingResources extends Audit {
       return !canDeferRequest;
     });
 
-    if (minimalFCPGraph.type !== "network") {
-      throw new Error("minimalFCPGraph not a NetworkNode");
+    if (minimalFCPGraph.type !== 'network') {
+      throw new Error('minimalFCPGraph not a NetworkNode');
     }
 
     // Recalculate the "before" time based on our adjusted node timings.
@@ -337,15 +337,15 @@ class RenderBlockingResources extends Audit {
 
     /** @type {LH.Audit.Details.Opportunity['headings']} */
     const headings = [
-      { key: "url", valueType: "url", label: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', valueType: 'url', label: str_(i18n.UIStrings.columnURL) },
       {
-        key: "totalBytes",
-        valueType: "bytes",
+        key: 'totalBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnTransferSize),
       },
       {
-        key: "wastedMs",
-        valueType: "timespanMs",
+        key: 'wastedMs',
+        valueType: 'timespanMs',
         label: str_(i18n.UIStrings.columnWastedMs),
       },
     ];
@@ -356,7 +356,7 @@ class RenderBlockingResources extends Audit {
       displayValue,
       score: ByteEfficiencyAudit.scoreForWastedMs(wastedMs),
       numericValue: wastedMs,
-      numericUnit: "millisecond",
+      numericUnit: 'millisecond',
       details,
     };
   }

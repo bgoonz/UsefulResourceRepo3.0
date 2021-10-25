@@ -3,11 +3,11 @@
 //  soundcloud.com/folkstack
 
 master = new webkitAudioContext();
-jsynth = require("jsynth");
-nvelope = require("jmod");
-sync = require("jsynth-sync");
-oz = require("oscillators");
-jdelay = require("jdelay");
+jsynth = require('jsynth');
+nvelope = require('jmod');
+sync = require('jsynth-sync');
+oz = require('oscillators');
+jdelay = require('jdelay');
 sine = oz.sine;
 saw = oz.saw;
 sr = master.sampleRate;

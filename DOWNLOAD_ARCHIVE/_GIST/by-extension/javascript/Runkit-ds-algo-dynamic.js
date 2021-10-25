@@ -10,7 +10,7 @@ let countChange = function (money, coins) {
   return countChangeSub(money, coins, 0);
 };
 
-console.log("countChange(23,[1,2,5]): ", countChange(23, [1, 2, 5])); //countChange(23,[1,2,5]):  36
+console.log('countChange(23,[1,2,5]): ', countChange(23, [1, 2, 5])); //countChange(23,[1,2,5]):  36
 function waysToReturnChange(denominations, numOfCoins, amount) {
   if (amount === 0) return 1; // Perfect!
   if (amount < 0) return 0; // No solution exists for negative amount
@@ -50,14 +50,14 @@ function waysToReturnMemoize(amount, denominations) {
 }
 var denominations = [1, 2, 3];
 var amount = 4;
-console.time("answer time");
+console.time('answer time');
 console.log(
   waysToReturnChange(denominations, denominations.length - 1, amount)
 );
-console.timeEnd("answer time");
-console.time("answer time1");
+console.timeEnd('answer time');
+console.time('answer time1');
 console.log(waysToReturnMemoize(amount, denominations));
-console.timeEnd("answer time1");
+console.timeEnd('answer time1');
 
 let makeChange = function (total) {
   let coins = [1, 2, 5, 10, 20, 50, 100, 200];
@@ -81,7 +81,7 @@ let makeChange = function (total) {
   return count;
 };
 
-console.log("makeChange(200): ", makeChange(200)); //makeChange(200):  73682;
+console.log('makeChange(200): ', makeChange(200)); //makeChange(200):  73682;
 
 function binarySearch(array, target) {
   if (!array.length) return false;
@@ -111,13 +111,13 @@ console.log(
 );
 binarySearch([5, 10, 12, 15, 20, 30, 70], 12);
 console.log(
-  "binarySearch( [ 5, 10, 12, 15, 20, 30, 70 ], 12 ): ",
+  'binarySearch( [ 5, 10, 12, 15, 20, 30, 70 ], 12 ): ',
   binarySearch([5, 10, 12, 15, 20, 30, 70], 12)
 );
 
 binarySearch([1, 2, 2, 3], 1);
 console.log(
-  "binarySearch( [ 1, 2, 2, 3 ], 1 ): ",
+  'binarySearch( [ 1, 2, 2, 3 ], 1 ): ',
   binarySearch([1, 2, 2, 3], 1)
 );
 
@@ -127,28 +127,28 @@ console.log(
 
 binarySearch([5, 10, 12, 15, 20, 30, 70], 24);
 console.log(
-  "binarySearch( [ 5, 10, 12, 15, 20, 30, 70 ], 24 ): ",
+  'binarySearch( [ 5, 10, 12, 15, 20, 30, 70 ], 24 ): ',
   binarySearch([5, 10, 12, 15, 20, 30, 70], 24)
 );
 binarySearch([], 3);
-console.log("  ( binarySearch( [], 3 ) ): ", binarySearch([], 3));
+console.log('  ( binarySearch( [], 3 ) ): ', binarySearch([], 3));
 console.log(
-  "----------------it should accept an sorted array of unique numbers and a target as an arg--------------------------------"
+  '----------------it should accept an sorted array of unique numbers and a target as an arg--------------------------------'
 );
 
 binarySearchIndex([5, 10, 12, 15, 20, 30, 70], 12);
 console.log(
-  "binarySearchIndex( [ 5, 10, 12, 15, 20, 30, 70 ], 12 ): ",
+  'binarySearchIndex( [ 5, 10, 12, 15, 20, 30, 70 ], 12 ): ',
   binarySearchIndex([5, 10, 12, 15, 20, 30, 70], 12)
 );
 binarySearchIndex([1, 2, 3], 1);
 console.log(
-  "binarySearchIndex( [ 1, 2, 3 ], 1 ): ",
+  'binarySearchIndex( [ 1, 2, 3 ], 1 ): ',
   binarySearchIndex([1, 2, 3], 1)
 );
 binarySearchIndex([1, 2, 3], 2);
 console.log(
-  "binarySearchIndex( [ 1, 2, 3 ], 2 ): ",
+  'binarySearchIndex( [ 1, 2, 3 ], 2 ): ',
   binarySearchIndex([1, 2, 3], 2)
 );
 
@@ -157,8 +157,8 @@ console.log(
 );
 binarySearchIndex([5, 10, 12, 15, 20, 30, 70], 24);
 console.log(
-  "binarySearchIndex( [ 5, 10, 12, 15, 20, 30, 70 ], 24 ): ",
+  'binarySearchIndex( [ 5, 10, 12, 15, 20, 30, 70 ], 24 ): ',
   binarySearchIndex([5, 10, 12, 15, 20, 30, 70], 24)
 );
 binarySearchIndex([], 3);
-console.log("binarySearchIndex( [], 3 ): ", binarySearchIndex([], 3));
+console.log('binarySearchIndex( [], 3 ): ', binarySearchIndex([], 3));

@@ -1,12 +1,12 @@
-const raw = require("raw-socket");
-const ip = require("ip");
+const raw = require('raw-socket');
+const ip = require('ip');
 
 var options = {
   protocol: raw.Protocol.ICMP,
 };
 
-const sourceIp = "127.0.0.1";
-const targetIp = "127.0.0.1";
+const sourceIp = '127.0.0.1';
+const targetIp = '127.0.0.1';
 
 var socket = raw.createSocket(options);
 
@@ -17,21 +17,21 @@ socket.setOption(
   4
 );
 
-socket.on("close", function onClose() {
-  console.log("socket closed");
+socket.on('close', function onClose() {
+  console.log('socket closed');
   // eslint-disable-next-line unicorn/no-process-exit
   process.exit(-1);
 });
 
-socket.on("error", function onError(error) {
-  console.log("error: " + error.toString());
+socket.on('error', function onError(error) {
+  console.log('error: ' + error.toString());
   // eslint-disable-next-line unicorn/no-process-exit
   process.exit(-1);
 });
 
-socket.on("message", function onMessage(buffer, source) {
-  console.log("received " + buffer.length + " bytes from " + source);
-  console.log("data: " + buffer.toString("hex"));
+socket.on('message', function onMessage(buffer, source) {
+  console.log('received ' + buffer.length + ' bytes from ' + source);
+  console.log('data: ' + buffer.toString('hex'));
 });
 
 // ICMP echo (ping) request (the source IP address used may not match yours)
@@ -59,7 +59,7 @@ function ping() {
       if (error) {
         console.log(error.toString());
       } else {
-        console.log("sent " + bytes + " bytes to " + targetIp);
+        console.log('sent ' + bytes + ' bytes to ' + targetIp);
       }
     }
   );

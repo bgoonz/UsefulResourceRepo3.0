@@ -4,9 +4,9 @@ const wait = (value) =>
     setTimeout(() => resolve(value), 3000);
   });
 
-const fetchFoo = () => wait("foo");
-const fetchBar = () => wait("bar");
-const fetchBaz = () => wait("baz");
+const fetchFoo = () => wait('foo');
+const fetchBar = () => wait('bar');
+const fetchBaz = () => wait('baz');
 
 const fetchDataSlowly = async (time) => {
   // Bad. Requests run in serial waterfall.
@@ -17,7 +17,7 @@ const fetchDataSlowly = async (time) => {
 };
 
 fetchDataSlowly(Date.now()).then(({ foo, bar, baz, time }) => {
-  console.log("fetched slowly:", foo, bar, baz, time);
+  console.log('fetched slowly:', foo, bar, baz, time);
 });
 
 const fetchDataQuickly = async (time) => {
@@ -31,7 +31,7 @@ const fetchDataQuickly = async (time) => {
 };
 
 fetchDataQuickly(Date.now()).then(({ foo, bar, baz, time }) => {
-  console.log("fetched quickly:", foo, bar, baz, time);
+  console.log('fetched quickly:', foo, bar, baz, time);
 });
 
 const fetchDataQuickly2 = async (time) => {
@@ -47,5 +47,5 @@ const fetchDataQuickly2 = async (time) => {
 };
 
 fetchDataQuickly2(Date.now()).then(({ foo, bar, baz, time }) => {
-  console.log("fetched quickly:", foo, bar, baz, time);
+  console.log('fetched quickly:', foo, bar, baz, time);
 });

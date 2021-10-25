@@ -24,6 +24,6 @@ Range.prototype = {
 
   // Return a string representation of the range
   toString: function () {
-    return "(" + this.from + "..." + this.to + ")";
+    return '(' + this.from + '...' + this.to + ')';
   },
 };

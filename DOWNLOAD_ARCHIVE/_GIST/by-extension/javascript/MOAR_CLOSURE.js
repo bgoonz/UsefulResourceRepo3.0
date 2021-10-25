@@ -13,7 +13,7 @@ function dinerBreakfast(food) {
 function dinerBreakfast2(food) {
   let order = "I'd like a(n) " + food;
   function withEggs() {
-    order = order + " and cheesy scrambled eggs, please!";
+    order = order + ' and cheesy scrambled eggs, please!';
   }
   withEggs();
   return order;
@@ -23,11 +23,11 @@ function dinerBreakfast2(food) {
 function dinerBreakfast3() {
   let order = "I'd like cheesy scrambled eggs";
   return (food) => {
-    order = order + " and " + food;
+    order = order + ' and ' + food;
     return order;
   };
 }
 let breakfastOrder = dinerBreakfast3();
 console.log(breakfastOrder);
-console.log(breakfastOrder("cappuccino"));
-console.log(breakfastOrder("pancakes"));
+console.log(breakfastOrder('cappuccino'));
+console.log(breakfastOrder('pancakes'));

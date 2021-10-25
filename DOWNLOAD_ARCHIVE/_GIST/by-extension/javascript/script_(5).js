@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 window.requestAnimFrame = (function () {
   return (
@@ -14,21 +14,21 @@ window.requestAnimFrame = (function () {
 })();
 
 $(document).ready(function () {
-  var $top = $(".demo__top");
-  var $body = $(".demo__body");
-  var $bg1 = $(".svgBg__bg1");
-  var $bg2 = $(".svgBg__bg2");
-  var $bg3 = $(".svgBg__bg3");
+  var $top = $('.demo__top');
+  var $body = $('.demo__body');
+  var $bg1 = $('.svgBg__bg1');
+  var $bg2 = $('.svgBg__bg2');
+  var $bg3 = $('.svgBg__bg3');
   // jQuery have problems with getting svg elements attrs, so I'm using vanillaJS
-  var $trees = [].slice.call(document.querySelectorAll(".svgBg__tree"));
+  var $trees = [].slice.call(document.querySelectorAll('.svgBg__tree'));
   var $treeParts = [].slice.call(
-    document.querySelectorAll(".svgBg__tree-part")
+    document.querySelectorAll('.svgBg__tree-part')
   );
-  var $leftTrees = $(".svgBg__tree.m--left");
-  var $rightTrees = $(".svgBg__tree.m--right");
-  var $planeRotater = $(".plane-rotater");
-  var $plane = $(".plane");
-  var isDesktop = window.matchMedia("(min-width: 769px)").matches;
+  var $leftTrees = $('.svgBg__tree.m--left');
+  var $rightTrees = $('.svgBg__tree.m--right');
+  var $planeRotater = $('.plane-rotater');
+  var $plane = $('.plane');
+  var isDesktop = window.matchMedia('(min-width: 769px)').matches;
   var topH = isDesktop ? 186 : 149;
   var bg1change, bg2change, bg3change;
   var bg1max = isDesktop ? 10 : 8;
@@ -77,11 +77,11 @@ $(document).ready(function () {
 
   /* store clones in object */
   var cloneCounter = 1;
-  var $items = $(".items");
+  var $items = $('.items');
   var clones = {
-    clone1: $(".item-1").clone(),
-    clone2: $(".item-2").clone(),
-    clone3: $(".item-3").clone(),
+    clone1: $('.item-1').clone(),
+    clone2: $('.item-2').clone(),
+    clone3: $('.item-3').clone(),
   };
 
   /* Applies class with padding transition, which shifts content down,
@@ -90,17 +90,17 @@ $(document).ready(function () {
   absolute position removed from inserted clone
   */
   function insertNewClone() {
-    var $clone = clones["clone" + cloneCounter];
-    $clone.addClass("absPos hidden");
-    $items.prepend($clone).addClass("padded");
-    $clone.css("top");
-    $clone.removeClass("hidden");
-    $clone.find(".item__icon").addClass("animated");
+    var $clone = clones['clone' + cloneCounter];
+    $clone.addClass('absPos hidden');
+    $items.prepend($clone).addClass('padded');
+    $clone.css('top');
+    $clone.removeClass('hidden');
+    $clone.find('.item__icon').addClass('animated');
     cloneCounter++;
     if (cloneCounter > 3) cloneCounter = 1;
     setTimeout(function () {
-      $items.removeClass("padded");
-      $clone.removeClass("absPos");
+      $items.removeClass('padded');
+      $clone.removeClass('absPos');
     }, 300);
   }
 
@@ -111,20 +111,20 @@ $(document).ready(function () {
     var treeId, treeObj, trunkTop, leafsTop;
 
     $trees.forEach(function ($tree) {
-      treeId = $tree.getAttribute("data-id");
-      treesData["tree" + treeId] = {};
-      treeObj = treesData["tree" + treeId];
-      treeObj.isRight = $tree.classList.contains("m--right");
-      treeObj.$treeTrunk = $tree.querySelector(".svgBg__tree-trunk");
-      treeObj.$treeLeafs = $tree.querySelector(".svgBg__tree-leafs");
-      treeObj.trunkInitArrD = treeObj.$treeTrunk.getAttribute("d").split(" ");
-      treeObj.leafsInitArrD = treeObj.$treeLeafs.getAttribute("d").split(" ");
+      treeId = $tree.getAttribute('data-id');
+      treesData['tree' + treeId] = {};
+      treeObj = treesData['tree' + treeId];
+      treeObj.isRight = $tree.classList.contains('m--right');
+      treeObj.$treeTrunk = $tree.querySelector('.svgBg__tree-trunk');
+      treeObj.$treeLeafs = $tree.querySelector('.svgBg__tree-leafs');
+      treeObj.trunkInitArrD = treeObj.$treeTrunk.getAttribute('d').split(' ');
+      treeObj.leafsInitArrD = treeObj.$treeLeafs.getAttribute('d').split(' ');
       trunkTop = treeObj.trunkInitArrD[2];
       leafsTop = treeObj.leafsInitArrD[3];
-      treeObj.trunkInitX = +trunkTop.split(",")[0];
-      treeObj.leafsInitX = +leafsTop.split(",")[0];
-      treeObj.trunkInitY = +trunkTop.split(",")[1];
-      treeObj.leafsInitY = +leafsTop.split(",")[1];
+      treeObj.trunkInitX = +trunkTop.split(',')[0];
+      treeObj.leafsInitX = +leafsTop.split(',')[0];
+      treeObj.trunkInitY = +trunkTop.split(',')[1];
+      treeObj.leafsInitY = +leafsTop.split(',')[1];
     });
   }
 
@@ -141,17 +141,17 @@ $(document).ready(function () {
     var treeId, treeObj, trunkArr, leafsArr, changeX;
 
     $trees.forEach(function ($tree) {
-      treeId = $tree.getAttribute("data-id");
-      treeObj = treesData["tree" + treeId];
+      treeId = $tree.getAttribute('data-id');
+      treeObj = treesData['tree' + treeId];
       trunkArr = treeObj.trunkInitArrD.slice();
       leafsArr = treeObj.leafsInitArrD.slice();
       changeX = treeObj.isRight ? x : -x;
 
-      trunkArr[2] = treeObj.trunkInitX + changeX / 2 + "," + treeObj.trunkInitY;
-      leafsArr[3] = treeObj.leafsInitX + changeX + "," + treeObj.leafsInitY;
+      trunkArr[2] = treeObj.trunkInitX + changeX / 2 + ',' + treeObj.trunkInitY;
+      leafsArr[3] = treeObj.leafsInitX + changeX + ',' + treeObj.leafsInitY;
 
-      treeObj.$treeTrunk.setAttribute("d", trunkArr.join(" "));
-      treeObj.$treeLeafs.setAttribute("d", leafsArr.join(" "));
+      treeObj.$treeTrunk.setAttribute('d', trunkArr.join(' '));
+      treeObj.$treeLeafs.setAttribute('d', leafsArr.join(' '));
     });
   }
 
@@ -160,24 +160,24 @@ $(document).ready(function () {
   */
   function moveBgs() {
     $bg1.css({
-      "-webkit-transform": "translate3d(0," + bg1change + "px, 0)",
-      transform: "translate3d(0," + bg1change + "px, 0)",
+      '-webkit-transform': 'translate3d(0,' + bg1change + 'px, 0)',
+      transform: 'translate3d(0,' + bg1change + 'px, 0)',
     });
     $bg2.css({
-      "-webkit-transform": "translate3d(0," + bg2change + "px, 0)",
-      transform: "translate3d(0," + bg2change + "px, 0)",
+      '-webkit-transform': 'translate3d(0,' + bg2change + 'px, 0)',
+      transform: 'translate3d(0,' + bg2change + 'px, 0)',
     });
     $bg3.css({
-      "-webkit-transform": "translate3d(0," + bg3change + "px, 0)",
-      transform: "translate3d(0," + bg3change + "px, 0)",
+      '-webkit-transform': 'translate3d(0,' + bg3change + 'px, 0)',
+      transform: 'translate3d(0,' + bg3change + 'px, 0)',
     });
     $leftTrees.css({
-      "-webkit-transform": "translate3d(0," + bg2change + "px, 0)",
-      transform: "translate3d(0," + bg2change + "px, 0)",
+      '-webkit-transform': 'translate3d(0,' + bg2change + 'px, 0)',
+      transform: 'translate3d(0,' + bg2change + 'px, 0)',
     });
     $rightTrees.css({
-      "-webkit-transform": "translate3d(0," + bg3change + "px, 0)",
-      transform: "translate3d(0," + bg3change + "px, 0)",
+      '-webkit-transform': 'translate3d(0,' + bg3change + 'px, 0)',
+      transform: 'translate3d(0,' + bg3change + 'px, 0)',
     });
   }
 
@@ -189,12 +189,12 @@ $(document).ready(function () {
 
   // applies changes for all elements
   function applyChanges(topY) {
-    $top.css("height", topH + topY + "px");
+    $top.css('height', topH + topY + 'px');
     moveBgs();
     tiltTrees(treeChange);
     $planeRotater.css({
-      "-webkit-transform": "rotate(" + planeChange + "deg)",
-      transform: "rotate(" + planeChange + "deg)",
+      '-webkit-transform': 'rotate(' + planeChange + 'deg)',
+      transform: 'rotate(' + planeChange + 'deg)',
     });
   }
 
@@ -235,11 +235,11 @@ $(document).ready(function () {
     animating = true; // prevents from pull event during animation
     // if you pulled more than 1/2 of maxPullDeltaY - starts the plane flight animation
     if (releasePlane) {
-      $plane.addClass("fly"); // adds class to plane with keyframes animation
+      $plane.addClass('fly'); // adds class to plane with keyframes animation
       setTimeout(function () {
         // when animation is over, allow pull events, remove keyframes class and add new clone
         animating = false;
-        $plane.removeClass("fly");
+        $plane.removeClass('fly');
         insertNewClone();
       }, planeAnimTime);
     }
@@ -277,19 +277,19 @@ $(document).ready(function () {
   for dynamic pull change events. When mouseup/touchend event fired -
   runs release function and removes move/end events
   */
-  $(document).on("mousedown touchstart", ".demo__body", function (e) {
+  $(document).on('mousedown touchstart', '.demo__body', function (e) {
     if (animating) return; // prevents from pulling during the release animation
     var startY = e.pageY || e.originalEvent.touches[0].pageY;
 
-    $(document).on("mousemove touchmove", function (e) {
+    $(document).on('mousemove touchmove', function (e) {
       var y = e.pageY || e.originalEvent.touches[0].pageY;
       pullDeltaY = (y - startY) / 1.5; // slightly slow pull event for better experience
       if (!pullDeltaY) return; // prevents from rapid click events
       pullChange(pullDeltaY);
     });
 
-    $(document).on("mouseup touchend", function () {
-      $(document).off("mousemove touchmove mouseup touchend");
+    $(document).on('mouseup touchend', function () {
+      $(document).off('mousemove touchmove mouseup touchend');
       if (!pullDeltaY) return; // prevents from rapid click events
       release();
     });
@@ -316,7 +316,7 @@ $(document).ready(function () {
   all other things scales with rem units and viewBox
   */
   var resizeFn = debounce(function () {
-    isDesktop = window.matchMedia("(min-width: 769px)").matches;
+    isDesktop = window.matchMedia('(min-width: 769px)').matches;
     topH = isDesktop ? 186 : 149;
     bg1max = isDesktop ? 10 : 8;
     bg2max = isDesktop ? 22 : 18;
@@ -325,5 +325,5 @@ $(document).ready(function () {
     treeMaxX = isDesktop ? 18 : 14;
   }, 100);
 
-  $(window).on("resize", resizeFn);
+  $(window).on('resize', resizeFn);
 });

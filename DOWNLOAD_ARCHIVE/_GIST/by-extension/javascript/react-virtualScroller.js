@@ -22,21 +22,21 @@ React.useEffect(() => {
         const t = -1 * bottom;
         const b = window.scrollY + top - (window.scrollY + window.innerHeight);
         if (t > topOffset) {
-          target.style.visibility = "hidden";
+          target.style.visibility = 'hidden';
         } else if (b > bottomOffset) {
-          target.style.visibility = "hidden";
+          target.style.visibility = 'hidden';
           for (x++; x < len; x++) {
             target = targets[x];
-            target.style.visibility = "hidden";
+            target.style.visibility = 'hidden';
           }
           return;
         } else {
-          target.style.visibility = "";
+          target.style.visibility = '';
         }
       }
     });
   }
-  const targets = document.getElementsByClassName("searchResultsBtn");
+  const targets = document.getElementsByClassName('searchResultsBtn');
   function handleScroll(e) {
     virtualScroller(targets, {
       offset: 2 * window.innerHeight,
@@ -45,6 +45,6 @@ React.useEffect(() => {
   virtualScroller(targets, {
     offset: 2 * window.innerHeight,
   });
-  document.addEventListener("scroll", handleScroll, false);
-  return () => document.removeEventListener("scroll", handleScroll, false);
+  document.addEventListener('scroll', handleScroll, false);
+  return () => document.removeEventListener('scroll', handleScroll, false);
 }, []);

@@ -1,5 +1,5 @@
 // Select the database to use.
-use("mongodbVSCodePlaygroundDB");
+use('mongodbVSCodePlaygroundDB');
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
@@ -9,78 +9,78 @@ db.sales.drop();
 db.sales.insertMany([
   {
     _id: 1,
-    item: "abc",
+    item: 'abc',
     price: 10,
     quantity: 2,
-    date: new Date("2014-03-01T08:00:00Z"),
+    date: new Date('2014-03-01T08:00:00Z'),
   },
   {
     _id: 2,
-    item: "jkl",
+    item: 'jkl',
     price: 20,
     quantity: 1,
-    date: new Date("2014-03-01T09:00:00Z"),
+    date: new Date('2014-03-01T09:00:00Z'),
   },
   {
     _id: 3,
-    item: "xyz",
+    item: 'xyz',
     price: 5,
     quantity: 10,
-    date: new Date("2014-03-15T09:00:00Z"),
+    date: new Date('2014-03-15T09:00:00Z'),
   },
   {
     _id: 4,
-    item: "xyz",
+    item: 'xyz',
     price: 5,
     quantity: 20,
-    date: new Date("2014-04-04T11:21:39.736Z"),
+    date: new Date('2014-04-04T11:21:39.736Z'),
   },
   {
     _id: 5,
-    item: "abc",
+    item: 'abc',
     price: 10,
     quantity: 10,
-    date: new Date("2014-04-04T21:23:13.331Z"),
+    date: new Date('2014-04-04T21:23:13.331Z'),
   },
   {
     _id: 6,
-    item: "def",
+    item: 'def',
     price: 7.5,
     quantity: 5,
-    date: new Date("2015-06-04T05:08:13Z"),
+    date: new Date('2015-06-04T05:08:13Z'),
   },
   {
     _id: 7,
-    item: "def",
+    item: 'def',
     price: 7.5,
     quantity: 10,
-    date: new Date("2015-09-10T08:43:00Z"),
+    date: new Date('2015-09-10T08:43:00Z'),
   },
   {
     _id: 8,
-    item: "abc",
+    item: 'abc',
     price: 10,
     quantity: 5,
-    date: new Date("2016-02-06T20:20:13Z"),
+    date: new Date('2016-02-06T20:20:13Z'),
   },
 ]);
 
 // Run a find command to view items sold on April 4th, 2014.
 db.sales.find({
-  date: { $gte: new Date("2014-04-04"), $lt: new Date("2014-04-05") },
+  date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') },
 });
 
 // Run an aggregation to view total sales for each product in 2014.
 const aggregation = [
   {
     $match: {
-      date: { $gte: new Date("2014-01-01"), $lt: new Date("2015-01-01") },
+      date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') },
     },
   },
   {
     $group: {
-      _id: "$item",
-      totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } },
+      _id: '$item',
+      totalSaleAmount: { $sum: { $multiply: ['$price', '$quantity'] } },
     },
   },
 ];

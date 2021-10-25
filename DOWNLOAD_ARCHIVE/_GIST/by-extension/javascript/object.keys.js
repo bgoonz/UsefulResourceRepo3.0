@@ -6,13 +6,13 @@ function printValues(object) {
 }
 console.log(
   printKeys({
-    dog: "Strelka",
-    dog2: "Belka",
+    dog: 'Strelka',
+    dog2: 'Belka',
   })
 );
 console.log(
   printValues({
-    dog: "Strelka",
-    dog2: "Belka",
+    dog: 'Strelka',
+    dog2: 'Belka',
   })
 );

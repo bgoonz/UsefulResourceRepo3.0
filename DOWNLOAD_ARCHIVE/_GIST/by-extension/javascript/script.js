@@ -1,6 +1,6 @@
-var svg = document.querySelector("svg");
+var svg = document.querySelector('svg');
 var cursor = svg.createSVGPoint();
-var arrows = document.querySelector(".arrows");
+var arrows = document.querySelector('.arrows');
 var randomAngle = 0;
 
 // center of target
@@ -28,16 +28,16 @@ aim({
 });
 
 // set up start drag event
-window.addEventListener("mousedown", draw);
+window.addEventListener('mousedown', draw);
 
 function draw(e) {
   // pull back arrow
   randomAngle = Math.random() * Math.PI * 0.03 - 0.015;
-  TweenMax.to(".arrow-angle use", 0.3, {
+  TweenMax.to('.arrow-angle use', 0.3, {
     opacity: 1,
   });
-  window.addEventListener("mousemove", aim);
-  window.addEventListener("mouseup", loose);
+  window.addEventListener('mousemove', aim);
+  window.addEventListener('mouseup', loose);
   aim(e);
 }
 
@@ -53,25 +53,25 @@ function aim(e) {
   var bowAngle = angle - Math.PI;
   var distance = Math.min(Math.sqrt(dx * dx + dy * dy), 50);
   var scale = Math.min(Math.max(distance / 30, 1), 2);
-  TweenMax.to("#bow", 0.3, {
+  TweenMax.to('#bow', 0.3, {
     scaleX: scale,
-    rotation: bowAngle + "rad",
-    transformOrigin: "right center",
+    rotation: bowAngle + 'rad',
+    transformOrigin: 'right center',
   });
   var arrowX = Math.min(pivot.x - (1 / scale) * distance, 88);
-  TweenMax.to(".arrow-angle", 0.3, {
-    rotation: bowAngle + "rad",
-    svgOrigin: "100 250",
+  TweenMax.to('.arrow-angle', 0.3, {
+    rotation: bowAngle + 'rad',
+    svgOrigin: '100 250',
   });
-  TweenMax.to(".arrow-angle use", 0.3, {
+  TweenMax.to('.arrow-angle use', 0.3, {
     x: -distance,
   });
-  TweenMax.to("#bow polyline", 0.3, {
+  TweenMax.to('#bow polyline', 0.3, {
     attr: {
       points:
-        "88,200 " +
+        '88,200 ' +
         Math.min(pivot.x - (1 / scale) * distance, 88) +
-        ",250 88,300",
+        ',250 88,300',
     },
   });
 
@@ -82,20 +82,20 @@ function aim(e) {
   };
   var arcWidth = offset.x * 3;
 
-  TweenMax.to("#arc", 0.3, {
+  TweenMax.to('#arc', 0.3, {
     attr: {
       d:
-        "M100,250c" +
+        'M100,250c' +
         offset.x +
-        "," +
+        ',' +
         offset.y +
-        "," +
+        ',' +
         (arcWidth - offset.x) +
-        "," +
+        ',' +
         (offset.y + 50) +
-        "," +
+        ',' +
         arcWidth +
-        ",50",
+        ',50',
     },
     autoAlpha: distance / 60,
   });
@@ -103,44 +103,44 @@ function aim(e) {
 
 function loose() {
   // release arrow
-  window.removeEventListener("mousemove", aim);
-  window.removeEventListener("mouseup", loose);
+  window.removeEventListener('mousemove', aim);
+  window.removeEventListener('mouseup', loose);
 
-  TweenMax.to("#bow", 0.4, {
+  TweenMax.to('#bow', 0.4, {
     scaleX: 1,
-    transformOrigin: "right center",
+    transformOrigin: 'right center',
     ease: Elastic.easeOut,
   });
-  TweenMax.to("#bow polyline", 0.4, {
+  TweenMax.to('#bow polyline', 0.4, {
     attr: {
-      points: "88,200 88,250 88,300",
+      points: '88,200 88,250 88,300',
     },
     ease: Elastic.easeOut,
   });
   // duplicate arrow
-  var newArrow = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  newArrow.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#arrow");
+  var newArrow = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  newArrow.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#arrow');
   arrows.appendChild(newArrow);
 
   // animate arrow along path
-  var path = MorphSVGPlugin.pathDataToBezier("#arc");
+  var path = MorphSVGPlugin.pathDataToBezier('#arc');
   TweenMax.to([newArrow], 0.5, {
     force3D: true,
     bezier: {
-      type: "cubic",
+      type: 'cubic',
       values: path,
-      autoRotate: ["x", "y", "rotation"],
+      autoRotate: ['x', 'y', 'rotation'],
     },
     onUpdate: hitTest,
-    onUpdateParams: ["{self}"],
+    onUpdateParams: ['{self}'],
     onComplete: onMiss,
     ease: Linear.easeNone,
   });
-  TweenMax.to("#arc", 0.3, {
+  TweenMax.to('#arc', 0.3, {
     opacity: 0,
   });
   //hide previous arrow
-  TweenMax.set(".arrow-angle use", {
+  TweenMax.set('.arrow-angle use', {
     opacity: 0,
   });
 }
@@ -163,9 +163,9 @@ function hitTest(tween) {
     var dx = intersection.x - target.x;
     var dy = intersection.y - target.y;
     var distance = Math.sqrt(dx * dx + dy * dy);
-    var selector = ".hit";
+    var selector = '.hit';
     if (distance < 7) {
-      selector = ".bullseye";
+      selector = '.bullseye';
     }
     showMessage(selector);
   }
@@ -173,7 +173,7 @@ function hitTest(tween) {
 
 function onMiss() {
   // Damn!
-  showMessage(".miss");
+  showMessage('.miss');
 }
 
 function showMessage(selector) {
@@ -184,12 +184,12 @@ function showMessage(selector) {
     autoAlpha: 1,
   });
   TweenMax.staggerFromTo(
-    selector + " path",
+    selector + ' path',
     0.5,
     {
       rotation: -5,
       scale: 0,
-      transformOrigin: "center",
+      transformOrigin: 'center',
     },
     {
       scale: 1,
@@ -198,7 +198,7 @@ function showMessage(selector) {
     0.05
   );
   TweenMax.staggerTo(
-    selector + " path",
+    selector + ' path',
     0.3,
     {
       delay: 2,

@@ -65,7 +65,7 @@ class Set {
   }
 
   print() {
-    console.log(this.values.join(" "));
+    console.log(this.values.join(' '));
   }
 }
 
@@ -77,9 +77,9 @@ set.add(4);
 set.print(); // => 1 2 3 4
 set.remove(3);
 set.print(); // => 1 2 4
-console.log("contains 4 is true:", set.contains(4)); // => true
-console.log("contains 3 is false:", set.contains(3)); // => false
-console.log("---");
+console.log('contains 4 is true:', set.contains(4)); // => true
+console.log('contains 3 is false:', set.contains(3)); // => false
+console.log('---');
 let set1 = new Set();
 set1.add(1);
 set1.add(2);
@@ -94,7 +94,7 @@ let set5 = set.difference(set3); // 1 2 4 diff 1 2 3
 set5.print(); // => 4
 let set6 = set3.difference(set); // 1 2 3 diff 1 2 4
 set6.print(); // => 3
-console.log("set1 subset of set is true:", set.isSubset(set1)); // => true
-console.log("set2 subset of set is false:", set.isSubset(set2)); // => false
-console.log("set1 length gives 2:", set1.length()); // => 2
-console.log("set3 length gives 3:", set3.length()); // => 3
+console.log('set1 subset of set is true:', set.isSubset(set1)); // => true
+console.log('set2 subset of set is false:', set.isSubset(set2)); // => false
+console.log('set1 length gives 2:', set1.length()); // => 2
+console.log('set3 length gives 3:', set3.length()); // => 3

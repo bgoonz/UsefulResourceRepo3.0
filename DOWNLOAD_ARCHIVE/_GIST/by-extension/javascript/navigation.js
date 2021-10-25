@@ -1,12 +1,12 @@
-import { createFocusTrap } from "./focustrap";
+import { createFocusTrap } from './focustrap';
 
 const SELECTORS = {
-  nav: ".js-nav",
-  toggleBtn: ".js-nav-toggle",
+  nav: '.js-nav',
+  toggleBtn: '.js-nav-toggle',
 };
 
 const CLASSES = {
-  open: "nav--open",
+  open: 'nav--open',
 };
 
 export default class Navigation {
@@ -16,7 +16,7 @@ export default class Navigation {
     this.nav = el;
     this.toggleBtn = this.nav.querySelector(SELECTORS.toggleBtn);
 
-    this.toggleBtn.addEventListener("click", () => this.toggleMenu());
+    this.toggleBtn.addEventListener('click', () => this.toggleMenu());
     this.focusTrap = createFocusTrap(this.nav, {
       toggleElement: this.toggleBtn,
       onEscape: () => this.toggleMenu(),
@@ -33,7 +33,7 @@ export default class Navigation {
       this.nav.classList.remove(CLASSES.open);
       this.focusTrap.deactivate();
     }
-    this.toggleBtn.setAttribute("aria-expanded", String(this.isOpen));
+    this.toggleBtn.setAttribute('aria-expanded', String(this.isOpen));
   }
 }
 

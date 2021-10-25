@@ -1,5 +1,5 @@
 const mask = (1 << 6) - 1;
-const crypto = require("crypto");
+const crypto = require('crypto');
 function randString(l) {
   // let randomFills = 0
   // let moves = 0
@@ -45,5 +45,5 @@ function randString(l) {
   }
   // console.log('randomFills', randomFills)
   // console.log('moves', moves)
-  return b.toString("ascii", 0, l);
+  return b.toString('ascii', 0, l);
 }

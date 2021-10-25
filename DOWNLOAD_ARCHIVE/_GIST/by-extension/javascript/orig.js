@@ -1,4 +1,4 @@
-import { grad, linspace, plot } from "propel";
+import { grad, linspace, plot } from 'propel';
 
 f = (x) => x.tanh();
 x = linspace(-4, 4, 200);

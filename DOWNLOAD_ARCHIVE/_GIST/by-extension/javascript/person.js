@@ -13,7 +13,7 @@ class Person {
     return otherPerson.visit(this);
   }
   update(obj) {
-    if (typeof obj !== "object") {
+    if (typeof obj !== 'object') {
       throw new TypeError(`${typeof obj} must be an object.`);
     }
     if (!obj.name || !obj.age) {
