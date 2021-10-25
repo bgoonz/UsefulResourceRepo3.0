@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://master--bgoonz-blog.netlify.app/sitemap.xml
