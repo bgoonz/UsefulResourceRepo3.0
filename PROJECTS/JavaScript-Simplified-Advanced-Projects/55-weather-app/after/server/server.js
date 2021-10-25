@@ -1,21 +1,21 @@
-const express = require("express");
-const cors = require("cors");
-const axios = require("axios");
-require("dotenv").config();
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/weather", (req, res) => {
+app.get('/weather', (req, res) => {
   const { lat, lon } = req.query;
   axios
-    .get("https://api.openweathermap.org/data/2.5/onecall", {
+    .get('https://api.openweathermap.org/data/2.5/onecall', {
       params: {
         lat,
         lon,
         appid: process.env.API_KEY,
-        units: "imperial",
-        exclude: "minutely,alerts",
+        units: 'imperial',
+        exclude: 'minutely,alerts',
       },
     })
     .then(({ data }) => {

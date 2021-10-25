@@ -1,6 +1,6 @@
-import { isSameDay, parseISO } from "date-fns";
+import { isSameDay, parseISO } from 'date-fns';
 
-const EVENTS_KEY = "CALENDAR.events";
+const EVENTS_KEY = 'CALENDAR.events';
 
 let events = (JSON.parse(localStorage.getItem(EVENTS_KEY)) || []).map(
   (event) => {
@@ -47,7 +47,7 @@ function compareEvents(eventA, eventB) {
 }
 
 function eventTimeToNumber(time) {
-  return parseFloat(time.replace(":", "."));
+  return parseFloat(time.replace(':', '.'));
 }
 
 function save() {

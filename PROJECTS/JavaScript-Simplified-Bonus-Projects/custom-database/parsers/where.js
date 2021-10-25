@@ -1,7 +1,7 @@
-const WhereCommand = require("../commands/WhereCommand");
-const safeParseJSON = require("../utils/safeParseJSON");
+const WhereCommand = require('../commands/WhereCommand');
+const safeParseJSON = require('../utils/safeParseJSON');
 
-const WHERE_COMMAND = "WHERE";
+const WHERE_COMMAND = 'WHERE';
 const REGEX = new RegExp(`${WHERE_COMMAND}\\s+(?<conditions>{.*})`);
 
 function parseWhereCommand(commandString) {

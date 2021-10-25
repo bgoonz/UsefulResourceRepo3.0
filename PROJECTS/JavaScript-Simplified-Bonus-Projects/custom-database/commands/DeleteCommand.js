@@ -1,4 +1,4 @@
-const Table = require("../Table");
+const Table = require('../Table');
 
 module.exports = class DeleteCommand {
   constructor({ tableName }) {

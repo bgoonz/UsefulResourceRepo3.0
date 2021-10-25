@@ -1,18 +1,18 @@
-const DeleteCommand = require("./DeleteCommand");
+const DeleteCommand = require('./DeleteCommand');
 
-describe("With a valid command", () => {
+describe('With a valid command', () => {
   const deleteCommand = new DeleteCommand({});
   const data = [
     { _id: 1, a: 3 },
     { _id: 2, a: 4 },
   ];
 
-  test("It deletes all records", async () => {
+  test('It deletes all records', async () => {
     const readSpy = jest
-      .spyOn(deleteCommand.table, "readData")
+      .spyOn(deleteCommand.table, 'readData')
       .mockResolvedValue(data);
     const writeSpy = jest
-      .spyOn(deleteCommand.table, "overwriteTable")
+      .spyOn(deleteCommand.table, 'overwriteTable')
       .mockResolvedValue();
 
     expect(await deleteCommand.perform()).toIncludeSameMembers([1, 2]);
@@ -24,7 +24,7 @@ describe("With a valid command", () => {
   });
 });
 
-describe("With a where command", () => {
+describe('With a where command', () => {
   const deleteCommand = new DeleteCommand({});
   const whereCommand = { perform: (data) => [data[0]] };
   const data = [
@@ -32,12 +32,12 @@ describe("With a where command", () => {
     { _id: 2, a: 4 },
   ];
 
-  test("It deletes all matching records", async () => {
+  test('It deletes all matching records', async () => {
     const readSpy = jest
-      .spyOn(deleteCommand.table, "readData")
+      .spyOn(deleteCommand.table, 'readData')
       .mockResolvedValue(data);
     const writeSpy = jest
-      .spyOn(deleteCommand.table, "overwriteTable")
+      .spyOn(deleteCommand.table, 'overwriteTable')
       .mockResolvedValue();
 
     expect(await deleteCommand.perform(whereCommand)).toIncludeSameMembers([1]);

@@ -7,10 +7,10 @@ import {
   checkWin,
   checkLose,
   positionMatch,
-} from "./minesweeper";
+} from './minesweeper';
 
-describe("#createBoard", () => {
-  test("it creates a valid board", () => {
+describe('#createBoard', () => {
+  test('it creates a valid board', () => {
     const boardSize = 2;
     const minePositions = [{ x: 0, y: 1 }];
     const expectedBoard = [
@@ -28,8 +28,8 @@ describe("#createBoard", () => {
   });
 });
 
-describe("#markedTilesCount", () => {
-  test("with some tiles marked", () => {
+describe('#markedTilesCount', () => {
+  test('with some tiles marked', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: false },
@@ -43,7 +43,7 @@ describe("#markedTilesCount", () => {
     expect(markedTilesCount(board)).toEqual(2);
   });
 
-  test("with no tiles marked", () => {
+  test('with no tiles marked', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false },
@@ -57,7 +57,7 @@ describe("#markedTilesCount", () => {
     expect(markedTilesCount(board)).toEqual(0);
   });
 
-  test("with all tiles marked", () => {
+  test('with all tiles marked', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: false },
@@ -72,8 +72,8 @@ describe("#markedTilesCount", () => {
   });
 });
 
-describe("#markTile", () => {
-  test("with a hidden tile it marks it", () => {
+describe('#markTile', () => {
+  test('with a hidden tile it marks it', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false },
@@ -97,7 +97,7 @@ describe("#markTile", () => {
     expect(markTile(board, { x: 0, y: 0 })).toEqual(expectedBoard);
   });
 
-  test("with a marked tile it un-marks it", () => {
+  test('with a marked tile it un-marks it', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: false },
@@ -121,7 +121,7 @@ describe("#markTile", () => {
     expect(markTile(board, { x: 0, y: 0 })).toEqual(expectedBoard);
   });
 
-  test("with a mine tile it does nothing", () => {
+  test('with a mine tile it does nothing', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MINE, mine: false },
@@ -136,7 +136,7 @@ describe("#markTile", () => {
     expect(markTile(board, { x: 0, y: 0 })).toEqual(board);
   });
 
-  test("with a number tile it does nothing", () => {
+  test('with a number tile it does nothing', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.NUMBER, mine: false },
@@ -152,8 +152,8 @@ describe("#markTile", () => {
   });
 });
 
-describe("#revealTile", () => {
-  describe("with a hidden tile", () => {
+describe('#revealTile', () => {
+  describe('with a hidden tile', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false },
@@ -165,7 +165,7 @@ describe("#revealTile", () => {
       ],
     ];
 
-    test("when the tile is a mine it sets its status to mine", () => {
+    test('when the tile is a mine it sets its status to mine', () => {
       const expectedBoard = [
         [
           { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false },
@@ -179,8 +179,8 @@ describe("#revealTile", () => {
       expect(revealTile(board, { x: 0, y: 1 })).toEqual(expectedBoard);
     });
 
-    describe("when the tile is not a mine", () => {
-      test("when the tile is adjacent to a mine it counts the number of nearby mines", () => {
+    describe('when the tile is not a mine', () => {
+      test('when the tile is adjacent to a mine it counts the number of nearby mines', () => {
         const expectedBoard = [
           [
             {
@@ -200,7 +200,7 @@ describe("#revealTile", () => {
         expect(revealTile(board, { x: 0, y: 0 })).toEqual(expectedBoard);
       });
 
-      test("when the tile is not adjacent to a mine it reveals nearby tiles", () => {
+      test('when the tile is not adjacent to a mine it reveals nearby tiles', () => {
         const board = [
           [
             { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: true },
@@ -290,7 +290,7 @@ describe("#revealTile", () => {
     });
   });
 
-  test("with a marked tile it does nothing", () => {
+  test('with a marked tile it does nothing', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: false },
@@ -304,7 +304,7 @@ describe("#revealTile", () => {
     expect(revealTile(board, { x: 0, y: 0 })).toEqual(board);
   });
 
-  test("with a mine tile it does nothing", () => {
+  test('with a mine tile it does nothing', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MINE, mine: false },
@@ -319,7 +319,7 @@ describe("#revealTile", () => {
     expect(revealTile(board, { x: 0, y: 0 })).toEqual(board);
   });
 
-  test("with a number tile it does nothing", () => {
+  test('with a number tile it does nothing', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.NUMBER, mine: false },
@@ -335,8 +335,8 @@ describe("#revealTile", () => {
   });
 });
 
-describe("#checkWin", () => {
-  test("with only hidden and marked mine tiles it returns true", () => {
+describe('#checkWin', () => {
+  test('with only hidden and marked mine tiles it returns true', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: true },
@@ -350,7 +350,7 @@ describe("#checkWin", () => {
     expect(checkWin(board)).toBeTruthy();
   });
 
-  test("with some hidden non-mine tiles it returns false", () => {
+  test('with some hidden non-mine tiles it returns false', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: true },
@@ -365,8 +365,8 @@ describe("#checkWin", () => {
   });
 });
 
-describe("#checkLose", () => {
-  test("with no mines revealed it returns false", () => {
+describe('#checkLose', () => {
+  test('with no mines revealed it returns false', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MARKED, mine: true },
@@ -380,7 +380,7 @@ describe("#checkLose", () => {
     expect(checkLose(board)).toBeFalsy();
   });
 
-  test("with a mine revealed it returns true", () => {
+  test('with a mine revealed it returns true', () => {
     const board = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.MINE, mine: true },
@@ -395,14 +395,14 @@ describe("#checkLose", () => {
   });
 });
 
-describe("#positionMatch", () => {
-  test("it returns true when the x and y properties are the same", () => {
+describe('#positionMatch', () => {
+  test('it returns true when the x and y properties are the same', () => {
     const posA = { x: 1, y: 2 };
     const posB = { x: 1, y: 2 };
     expect(positionMatch(posA, posB)).toBeTruthy();
   });
 
-  test("it returns false when the x or y properties are not the same", () => {
+  test('it returns false when the x or y properties are not the same', () => {
     const posA = { x: 1, y: 2 };
     const posB = { x: 1, y: 1 };
     expect(positionMatch(posA, posB)).toBeFalsy();

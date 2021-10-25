@@ -26,7 +26,9 @@ stale: false
 - Customer testimonials
 
 ### Super flexible template
+
 You can create various sections for your landing page like testimonials, clients logotypes grid, pricing, team section, etc.
 
 ### Comes with predefined colors and styles
+
 You can pick from preselected colors and styles. Template styles include minimal, clasicc and bold. Pick what works best for your brand.

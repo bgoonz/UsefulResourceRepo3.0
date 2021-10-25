@@ -1,5 +1,5 @@
-const Table = require("../Table");
-const pick = require("lodash/pick");
+const Table = require('../Table');
+const pick = require('lodash/pick');
 
 module.exports = class SelectCommand {
   constructor({ tableName, columns, allColumns }) {

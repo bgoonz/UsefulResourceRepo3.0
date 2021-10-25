@@ -33,15 +33,15 @@ function handleMath({ operand1, operand2, operation }) {
   const number2 = parseFloat(operand2);
 
   switch (operation) {
-    case "*":
+    case '*':
       return number1 * number2;
-    case "/":
+    case '/':
       return number1 / number2;
-    case "+":
+    case '+':
       return number1 + number2;
-    case "-":
+    case '-':
       return number1 - number2;
-    case "^":
+    case '^':
       return number1 ** number2;
   }
 }

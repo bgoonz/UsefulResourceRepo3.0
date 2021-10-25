@@ -9,8 +9,7 @@ cms:
   - No Cms
 date: 2018-04-14T23:17:41.000Z
 description: >-
-  Beautiful responsive Hugo blog theme focused on simplicity and elegance, with
-  many extra features including presentations, math typesetting, music notation,
-  and search.
+  Beautiful responsive Hugo blog theme focused on simplicity and elegance, with many extra features including presentations, math typesetting, music notation, and search.
+
 stale: true
 ---

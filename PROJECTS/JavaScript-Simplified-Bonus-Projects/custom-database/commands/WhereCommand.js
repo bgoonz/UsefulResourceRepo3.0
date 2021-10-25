@@ -1,4 +1,4 @@
-const isMatch = require("lodash/isMatch");
+const isMatch = require('lodash/isMatch');
 
 module.exports = class WhereCommand {
   constructor(conditions) {

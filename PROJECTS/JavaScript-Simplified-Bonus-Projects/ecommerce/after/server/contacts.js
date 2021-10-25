@@ -1,5 +1,5 @@
-const apiInstance = require("./sendInBlueApiInstance");
-const items = require("./items.json");
+const apiInstance = require('./sendInBlueApiInstance');
+const items = require('./items.json');
 
 async function linkContactAndItem(email, { listId }) {
   const contact = await getContact(email);
@@ -18,7 +18,7 @@ async function getContactPurchasedItems(email) {
 }
 
 function createContact(email, listId) {
-  return apiInstance.post("/contacts", {
+  return apiInstance.post('/contacts', {
     email,
     listIds: [listId],
   });

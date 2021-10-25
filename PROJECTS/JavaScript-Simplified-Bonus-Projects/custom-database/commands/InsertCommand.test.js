@@ -1,11 +1,11 @@
-const InsertCommand = require("./InsertCommand");
+const InsertCommand = require('./InsertCommand');
 
-describe("With a record", () => {
+describe('With a record', () => {
   const insertCommand = new InsertCommand({ record: { a: 1, b: 2 } });
 
-  test("It inserts the record", async () => {
+  test('It inserts the record', async () => {
     const spy = jest
-      .spyOn(insertCommand.table, "insertRecord")
+      .spyOn(insertCommand.table, 'insertRecord')
       .mockResolvedValue();
 
     await insertCommand.perform();

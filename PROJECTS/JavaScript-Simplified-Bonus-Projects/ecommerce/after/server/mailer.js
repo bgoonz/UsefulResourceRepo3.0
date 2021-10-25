@@ -1,4 +1,4 @@
-const apiInstance = require("./sendInBlueApiInstance");
+const apiInstance = require('./sendInBlueApiInstance');
 
 function sendDownloadLink(email, downloadLinkCode, item) {
   const downloadLink = `${process.env.SERVER_URL}/download/${downloadLinkCode}`;
@@ -21,27 +21,27 @@ function sendAllDownloadLinks(email, downloadableItems) {
 
   return sendEmail({
     email,
-    subject: "Download Your Files",
+    subject: 'Download Your Files',
     htmlContent: downloadableItems
       .map(({ item, code }) => {
         return `<a href="${process.env.SERVER_URL}/download/${code}">Download ${item.name}</a>`;
       })
-      .join("<br>"),
+      .join('<br>'),
     textContent: downloadableItems
       .map(({ item, code }) => {
         return `Download ${item.name} ${process.env.SERVER_URL}/download/${code}`;
       })
-      .join("\n"),
+      .join('\n'),
   });
 }
 
 function sendEmail({ email, ...options }) {
   const sender = {
-    name: "Kyle From Web Dev Simplified",
-    email: "kyle@webdevsimplified.com",
+    name: 'Kyle From Web Dev Simplified',
+    email: 'kyle@webdevsimplified.com',
   };
 
-  return apiInstance.post("/smtp/email", {
+  return apiInstance.post('/smtp/email', {
     sender,
     replyTo: sender,
     to: [{ email }],

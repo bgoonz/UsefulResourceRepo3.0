@@ -1,8 +1,8 @@
-const SelectCommand = require("../commands/SelectCommand");
+const SelectCommand = require('../commands/SelectCommand');
 
-const SELECT_COMMAND = "SELECT";
-const BEFORE_TABLE_COMMAND = "FROM";
-const EVERYTHING_SELECTOR = "*";
+const SELECT_COMMAND = 'SELECT';
+const BEFORE_TABLE_COMMAND = 'FROM';
+const EVERYTHING_SELECTOR = '*';
 const REGEX = new RegExp(
   `${SELECT_COMMAND}\\s+(?<columns>.*)\\s+${BEFORE_TABLE_COMMAND}\\s+(?<tableName>\\S+)`
 );
@@ -12,9 +12,9 @@ function parseSelectCommand(commandString) {
   if (regexMatch == null) return;
 
   const columns = regexMatch.groups.columns
-    .replace(/\s/, "")
-    .split(",")
-    .filter((column) => column !== "");
+    .replace(/\s/, '')
+    .split(',')
+    .filter((column) => column !== '');
   if (columns.length === 0) return;
 
   const tableName = regexMatch.groups.tableName;

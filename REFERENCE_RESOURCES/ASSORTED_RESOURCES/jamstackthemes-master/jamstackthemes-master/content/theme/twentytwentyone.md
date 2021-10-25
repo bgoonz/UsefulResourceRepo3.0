@@ -22,7 +22,7 @@ This is a simple theme for blogging that can be deployed on Netlify with a click
 
 ## Features
 
-* Support for Hyvor Talk
-* Mathjax for writing math
-* Tags   
-* Uses semantic HTML, is accessible and responsive. Built with TailwindCSS.
+- Support for Hyvor Talk
+- Mathjax for writing math
+- Tags
+- Uses semantic HTML, is accessible and responsive. Built with TailwindCSS.

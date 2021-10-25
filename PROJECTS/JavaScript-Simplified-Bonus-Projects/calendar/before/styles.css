@@ -385,7 +385,7 @@ body {
 }
 
 .color-radio + label::before {
-  content: "";
+  content: '';
   display: block;
   width: 1.75rem;
   height: 1.75rem;
@@ -402,15 +402,15 @@ body {
   outline: 1px solid black;
 }
 
-.color-radio[value="blue"] + label::before {
+.color-radio[value='blue'] + label::before {
   background-color: var(--blue-background);
 }
 
-.color-radio[value="red"] + label::before {
+.color-radio[value='red'] + label::before {
   background-color: var(--red-background);
 }
 
-.color-radio[value="green"] + label::before {
+.color-radio[value='green'] + label::before {
   background-color: var(--green-background);
 }
 

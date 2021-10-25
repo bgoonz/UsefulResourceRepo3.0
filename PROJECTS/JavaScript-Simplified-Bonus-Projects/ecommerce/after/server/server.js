@@ -1,13 +1,13 @@
-require("dotenv").config();
-const express = require("express");
-const cookieParser = require("cookie-parser");
+require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
-const cors = require("cors");
-const items = require("./items.json");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
-const { v4: uuidV4 } = require("uuid");
-const { sendDownloadLink, sendAllDownloadLinks } = require("./mailer");
-const { linkContactAndItem, getContactPurchasedItems } = require("./contacts");
+const cors = require('cors');
+const items = require('./items.json');
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const { v4: uuidV4 } = require('uuid');
+const { sendDownloadLink, sendAllDownloadLinks } = require('./mailer');
+const { linkContactAndItem, getContactPurchasedItems } = require('./contacts');
 
 const downloadLinkMap = new Map();
 const DOWNLOAD_LINK_EXPIRATION = 10 * 60 * 1000; // 10 Minutes
@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-app.get("/items", async (req, res) => {
+app.get('/items', async (req, res) => {
   const email = req.cookies.email;
   const purchasedItemIds = (await getContactPurchasedItems(email)).map(
     (item) => item.id
@@ -40,7 +40,7 @@ app.get("/items", async (req, res) => {
   );
 });
 
-app.post("/download-email", (req, res) => {
+app.post('/download-email', (req, res) => {
   const email = req.cookies.email;
   const itemId = req.body.itemId;
   const code = createDownloadCode(itemId);
@@ -50,14 +50,14 @@ app.post("/download-email", (req, res) => {
     items.find((i) => i.id === parseInt(itemId))
   )
     .then(() => {
-      res.json({ message: "Check your email" });
+      res.json({ message: 'Check your email' });
     })
     .catch(() => {
-      res.status(500).json({ message: "Error: Please try again" });
+      res.status(500).json({ message: 'Error: Please try again' });
     });
 });
 
-app.post("/download-all", async (req, res) => {
+app.post('/download-all', async (req, res) => {
   const email = req.body.email;
   const items = await getContactPurchasedItems(email);
   setEmailCookie(res, email);
@@ -68,34 +68,34 @@ app.post("/download-all", async (req, res) => {
     })
   );
 
-  return res.json({ message: "Check your email for a download link" });
+  return res.json({ message: 'Check your email for a download link' });
 });
 
-app.post("/create-checkout-session", async (req, res) => {
+app.post('/create-checkout-session', async (req, res) => {
   const item = items.find((i) => i.id === parseInt(req.body.itemId));
   if (item == null) {
-    return res.status(400).json({ message: "Invalid Item" });
+    return res.status(400).json({ message: 'Invalid Item' });
   }
   const session = await createCheckoutSession(item);
   res.json({ id: session.id });
 });
 
-app.get("/download/:code", (req, res) => {
+app.get('/download/:code', (req, res) => {
   const itemId = downloadLinkMap.get(req.params.code);
   if (itemId == null) {
-    return res.send("This link has either expired or is invalid");
+    return res.send('This link has either expired or is invalid');
   }
 
   const item = items.find((i) => i.id === itemId);
   if (item == null) {
-    return res.send("This item could not be found");
+    return res.send('This item could not be found');
   }
 
   downloadLinkMap.delete(req.params.code);
   res.download(`downloads/${item.file}`);
 });
 
-app.get("/purchase-success", async (req, res) => {
+app.get('/purchase-success', async (req, res) => {
   const item = items.find((i) => i.id === parseInt(req.query.itemId));
   const {
     customer_details: { email },
@@ -109,21 +109,21 @@ app.get("/purchase-success", async (req, res) => {
 });
 
 function setEmailCookie(res, email) {
-  res.cookie("email", email, {
+  res.cookie('email', email, {
     httpOnly: true,
     secure: true,
     maxAge: COOKIE_EXPIRATION,
-    sameSite: "None",
+    sameSite: 'None',
   });
 }
 
 function createCheckoutSession(item) {
   return stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
+    payment_method_types: ['card'],
     line_items: [
       {
         price_data: {
-          currency: "usd",
+          currency: 'usd',
           product_data: {
             name: item.name,
           },
@@ -132,7 +132,7 @@ function createCheckoutSession(item) {
         quantity: 1,
       },
     ],
-    mode: "payment",
+    mode: 'payment',
     success_url: `${process.env.SERVER_URL}/purchase-success?itemId=${item.id}&sessionId={CHECKOUT_SESSION_ID}`,
     cancel_url: process.env.CLIENT_URL,
   });

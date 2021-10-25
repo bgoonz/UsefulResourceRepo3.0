@@ -1,7 +1,7 @@
-const { v4: uuidV4 } = require("uuid");
-const fs = require("fs");
-const TableDoesNotExistError = require("./errors/TableDoesNotExistError");
-const { reject } = require("rsvp");
+const { v4: uuidV4 } = require('uuid');
+const fs = require('fs');
+const TableDoesNotExistError = require('./errors/TableDoesNotExistError');
+const { reject } = require('rsvp');
 
 module.exports = class Table {
   constructor(tableName) {

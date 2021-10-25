@@ -1,10 +1,10 @@
-import { times, range } from "lodash/fp";
+import { times, range } from 'lodash/fp';
 
 export const TILE_STATUSES = {
-  HIDDEN: "hidden",
-  MINE: "mine",
-  NUMBER: "number",
-  MARKED: "marked",
+  HIDDEN: 'hidden',
+  MINE: 'mine',
+  NUMBER: 'number',
+  MARKED: 'marked',
 };
 
 export function createBoard(boardSize, minePositions) {

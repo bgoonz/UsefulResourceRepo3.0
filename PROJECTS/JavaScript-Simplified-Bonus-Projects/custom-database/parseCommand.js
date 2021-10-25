@@ -1,9 +1,9 @@
-const InvalidCommandError = require("./errors/InvalidCommandError");
-const parseDeleteCommand = require("./parsers/delete");
-const parseInsertCommand = require("./parsers/insert");
-const parseSelectCommand = require("./parsers/select");
-const parseUpdateCommand = require("./parsers/update");
-const parseWhereCommand = require("./parsers/where");
+const InvalidCommandError = require('./errors/InvalidCommandError');
+const parseDeleteCommand = require('./parsers/delete');
+const parseInsertCommand = require('./parsers/insert');
+const parseSelectCommand = require('./parsers/select');
+const parseUpdateCommand = require('./parsers/update');
+const parseWhereCommand = require('./parsers/where');
 
 const parsers = [
   parseInsertCommand,

@@ -1,7 +1,7 @@
-const DeleteCommand = require("../commands/DeleteCommand");
+const DeleteCommand = require('../commands/DeleteCommand');
 
-const DELETE_COMMAND = "DELETE";
-const BEFORE_TABLE_COMMAND = "FROM";
+const DELETE_COMMAND = 'DELETE';
+const BEFORE_TABLE_COMMAND = 'FROM';
 const REGEX = new RegExp(
   `${DELETE_COMMAND}\\s+${BEFORE_TABLE_COMMAND}\\s+(?<tableName>\\S+)`
 );
