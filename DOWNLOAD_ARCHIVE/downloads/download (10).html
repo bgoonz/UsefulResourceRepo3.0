@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicon/safari-pinned-tab.svg"
+      color="#000000"
+    />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#000" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <meta name="description" content="Bryan Guner Content Blog" />
+    <meta
+      property="og:image"
+      content="https://og-image.now.sh/Next.js%20Blog%20Example%20with%20**Sanity**.png?theme=light&amp;md=1&amp;fontSize=75px&amp;images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&amp;images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB2aWV3Qm94PSIwIDAgMTA1IDIyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIj48dGl0bGU%2BU2FuaXR5PC90aXRsZT48cGF0aCBvcGFjaXR5PSIwLjciIGQ9Ik03OC4xNzkzIDcuOTkyNjFWMjEuMDAyOEg3My45MDMxVjEwLjIxMzhMNzguMTc5MyA3Ljk5MjYxWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggb3BhY2l0eT0iMC43IiBkPSJNMjAuOTUxMSAyMS4zM0wzMC45NDQgMTYuMTA1MUwyOS43MTIxIDEyLjkxNDFMMjMuMTMzMiAxNS45ODIxTDIwLjk1MTEgMjEuMzNaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik03My45MDMxIDEwLjIwMjdMODQuNzQ0MyA0LjY1NDc3TDgyLjkxMjYgMS41NTcxTDczLjkwMzEgNS45NTk5N1YxMC4yMDI3WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggb3BhY2l0eT0iMC43IiBkPSJNNDMuMzcwNSA2Ljk2MjMzVjIxLjAwMjhIMzkuMjkyN1YxLjAwNzE0TDQzLjM3MDUgNi45NjIzM1oiIGZpbGw9ImN1cnJlbnRDb2xvciI%2BPC9wYXRoPjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTI3LjEyOTkgNi4xODYxN0wyMC45NTExIDIxLjMzTDE3Ljc3MzEgMTguNTk0M0wyNS4xMzUzIDEuMDA3MTRMMjcuMTI5OSA2LjE4NjE3WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggZD0iTTI1LjEzNTMgMS4wMDcxNEgyOS4zNDc3TDM3LjEzODYgMjEuMDAyOEgzMi44MjY5TDI1LjEzNTMgMS4wMDcxNFoiIGZpbGw9ImN1cnJlbnRDb2xvciI%2BPC9wYXRoPjxwYXRoIGQ9Ik00NC4wMDEyIDEuMDA3MTRMNTIuOTgyNCAxNC42NjgyVjIxLjAwMjhMMzkuMjkyNyAxLjAwNzE0SDQ0LjAwMTJaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48cGF0aCBkPSJNNjQuOTE4MyAxLjAwNzE0SDYwLjY3MzlWMjEuMDA2M0g2NC45MTgzVjEuMDA3MTRaIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48cGF0aCBkPSJNNzMuOTAzMSA0LjY1NDc0SDY3LjM3VjEuMDA3MTRIODIuNTg2N0w4NC43NDQzIDQuNjU0NzRINzguMTc5M0g3My45MDMxWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNOTcuMjc1NCAxMy40MTUzVjIxLjAwMjhIOTMuMDYyOVYxMy40MTUzIiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48cGF0aCBkPSJNOTMuMDYyOSAxMy40MTUyTDEwMC4xOTEgMS4wMDcxNEgxMDQuNjY2TDk3LjI3NTQgMTMuNDE1Mkg5My4wNjI5WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggb3BhY2l0eT0iMC43IiBkPSJNOTMuMDYzIDEzLjQxNTJMODUuNzM2MyAxLjAwNzE0SDkwLjM0NTZMOTUuMzA5MiA5LjUxMDA4TDkzLjA2MyAxMy40MTUyWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggZD0iTTEuOTYxMjYgMy4zMTQ3OUMxLjk2MTI2IDYuMDk5MjEgMy43MTE0NSA3Ljc1NTk1IDcuMjE1MzYgOC42Mjk1NkwxMC45MjgzIDkuNDc1MzNDMTQuMjQ0NCAxMC4yMjM2IDE2LjI2MzkgMTIuMDgyMiAxNi4yNjM5IDE1LjExMDNDMTYuMjg5NyAxNi40Mjk1IDE1Ljg1MzEgMTcuNzE3MyAxNS4wMjc0IDE4Ljc1NzlDMTUuMDI3NCAxNS43MzY4IDEzLjQzNjcgMTQuMTA0NCA5LjU5OTcyIDEzLjEyMjlMNS45NTQwOSAxMi4zMDg1QzMuMDM0NzUgMTEuNjU0MSAwLjc4MTQ3OCAxMC4xMjYyIDAuNzgxNDc4IDYuODM3MDlDMC43NjYxMjMgNS41NjY5MyAxLjE4MTE2IDQuMzI3ODEgMS45NjEyNiAzLjMxNDc5IiBmaWxsPSJjdXJyZW50Q29sb3IiPjwvcGF0aD48cGF0aCBvcGFjaXR5PSIwLjciIGQ9Ik01Mi45ODI0IDEzLjY0MTVWMS4wMDcxNEg1Ny4wNjAyVjIxLjAwMjhINTIuOTgyNFYxMy42NDE1WiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPHBhdGggb3BhY2l0eT0iMC43IiBkPSJNMTIuNzQ1OCAxNC4zNjg5QzE0LjMyOTQgMTUuMzY0MyAxNS4wMjM4IDE2Ljc1NjUgMTUuMDIzOCAxOC43NTQ0QzEzLjcxMyAyMC40MDQxIDExLjQxMDEgMjEuMzMgOC43MDMzMyAyMS4zM0M0LjE0NzE4IDIxLjMzIDAuOTU4NTc3IDE5LjEyNjggMC4yNSAxNS4yOTgySDQuNjI1NDdDNS4xODg3OCAxNy4wNTU5IDYuNjgwMzQgMTcuODcwMyA4LjY3MTQ0IDE3Ljg3MDNDMTEuMTAxOSAxNy44NzAzIDEyLjcxNzQgMTYuNTk2NCAxMi43NDkzIDE0LjM2MTkiIGZpbGw9ImN1cnJlbnRDb2xvciI%2BPC9wYXRoPjxwYXRoIG9wYWNpdHk9IjAuNyIgZD0iTTQuMjM1NjcgNy40NDI2N0MzLjUxMjUgNy4wMjA0NSAyLjkxOTIgNi40MTM3NSAyLjUxODczIDUuNjg2OTdDMi4xMTgyNyA0Ljk2MDE5IDEuOTI1NTggNC4xNDA0NSAxLjk2MTEzIDMuMzE0NzZDMy4yMjU5NCAxLjY3ODkxIDUuNDI2MDggMC42Nzk5OTMgOC4xMDgwNCAwLjY3OTk5M0MxMi43NDkyIDAuNjc5OTkzIDE1LjQzNDcgMy4wODg1MiAxNi4wOTcyIDYuNDc4NTZIMTEuODg4M0MxMS40MjQyIDUuMTQyMDMgMTAuMjYyMSA0LjEwMTM2IDguMTQzNDcgNC4xMDEzNkM1Ljg3OTU3IDQuMTAxMzYgNC4zMzQ4NyA1LjM5NjExIDQuMjQ2MjkgNy40NDI2NyIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg%2BPC9zdmc%2B&amp;widths=undefined&amp;widths=auto&amp;heights=250&amp;heights=150"
+    />
+    <title>Bryan Guner Blog Using CMS: Sanity</title>
+    <meta name="next-head-count" content="15" />
+    <link
+      rel="preload"
+      href="/_next/static/css/efed46f39e79838168cb.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/efed46f39e79838168cb.css"
+      data-n-g=""
+    />
+    <noscript data-n-css=""></noscript>
+    <link
+      rel="preload"
+      href="/_next/static/chunks/webpack-23ca4bfe5d65438f1a8e.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/framework-817a3670c0554bb19913.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/commons-e54cd7863b480009ecd4.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/main-af02262448c4acb45e77.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/pages/_app-4abead0c257366cc0975.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/247-1e5532220cec18da62db.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/chunks/pages/index-d916b8db1abed1b2c585.js"
+      as="script"
+    />
+  </head>
+
+  <body>
+    <div id="__next">
+      <div class="min-h-screen">
+        <main>
+          <div class="container mx-auto px-5">
+            <section
+              class="
+                flex-col
+                md:flex-row
+                flex
+                items-center
+                md:justify-between
+                mt-16
+                mb-16
+                md:mb-12
+              "
+            >
+              <h1
+                class="
+                  text-6xl
+                  md:text-8xl
+                  font-bold
+                  tracking-tighter
+                  leading-tight
+                  md:pr-8
+                "
+              >
+                Blog.
+              </h1>
+              <h4 class="text-center md:text-left text-lg mt-5 md:pl-8">
+                Bryan Guner Content Posting Blog
+                <!-- -->
+                <a
+                  href="https://blog-w-comments.vercel.app/"
+                  class="
+                    underline
+                    hover:text-success
+                    duration-200
+                    transition-colors
+                  "
+                  >Next.js</a
+                >
+                <!-- -->and
+                <!-- -->
+                <a
+                  href="https://sanity.io/"
+                  class="
+                    underline
+                    hover:text-success
+                    duration-200
+                    transition-colors
+                  "
+                  >Sanity.io</a
+                >.
+              </h4>
+            </section>
+            <section>
+              <div class="mb-8 md:mb-16">
+                <div class="-mx-5 sm:mx-0">
+                  <a
+                    aria-label="JavaScript Basics"
+                    href="/posts/javascript-basics"
+                    ><img
+                      width="1240"
+                      height="540"
+                      alt="Cover Image for JavaScript Basics"
+                      class="
+                        shadow-small
+                        hover:shadow-medium
+                        transition-shadow
+                        duration-200
+                      "
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/f21d846ca3907d458ea34cbbb01703a02aa4d62e-1280x720.png?rect=0,81,1280,557&amp;w=1240&amp;h=540"
+                  /></a>
+                </div>
+              </div>
+              <div
+                class="
+                  md:grid md:grid-cols-2 md:col-gap-16
+                  lg:col-gap-8
+                  mb-20
+                  md:mb-28
+                "
+              >
+                <div>
+                  <h3 class="mb-4 text-4xl lg:text-6xl leading-tight">
+                    <a class="hover:underline" href="/posts/javascript-basics"
+                      >JavaScript Basics</a
+                    >
+                  </h3>
+                  <div class="mb-4 md:mb-0 text-lg">
+                    <time datetime="2021-09-01T08:33:28.541Z"
+                      >September 1, 2021</time
+                    >
+                  </div>
+                </div>
+                <div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2
+                class="
+                  mb-8
+                  text-6xl
+                  md:text-7xl
+                  font-bold
+                  tracking-tighter
+                  leading-tight
+                "
+              >
+                More Stories
+              </h2>
+              <div
+                class="
+                  grid grid-cols-1
+                  md:grid-cols-2 md:col-gap-16
+                  lg:col-gap-32
+                  row-gap-20
+                  md:row-gap-32
+                  mb-32
+                "
+              >
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="A Step-by-Step Guide: Deploying on Netlify"
+                        href="/posts/a-step-by-step-guide-deploying-on-netlify"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for A Step-by-Step Guide: Deploying on Netlify"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/d4102c8de72870532428c14f3eae155b473cf4b8-318x159.jpg?rect=0,10,318,138&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/a-step-by-step-guide-deploying-on-netlify"
+                      >A Step-by-Step Guide: Deploying on Netlify</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-09-01T05:32:59.819Z"
+                      >September 1, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Recursion &amp; The Stack"
+                        href="/posts/recursion-and-the-stack"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Recursion &amp; The Stack"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/93832ddb50cf2ed9d50aef1211f2c801e7af06d3-480x316.gif?rect=0,53,480,209&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/recursion-and-the-stack"
+                      >Recursion &amp; The Stack</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-08-13T02:04:44.329Z"
+                      >August 13, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="React in Depth: A Comprehensive Guide"
+                        href="/posts/react-in-depth-a-comprehensive-guide"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for React in Depth: A Comprehensive Guide"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/5800583054cbba2a3bdbe516358224e61d728ca0-1400x933.jpg?rect=0,161,1400,610&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/react-in-depth-a-comprehensive-guide"
+                      >React in Depth: A Comprehensive Guide</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-08-02T11:17:22.111Z"
+                      >August 2, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Backend Python Part 2"
+                        href="/posts/backend-python-part-2"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Backend Python Part 2"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/91b5d63fdcb90a4d2bc978fb40a490ae7da5088f-600x337.gif?rect=0,37,600,261&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/backend-python-part-2"
+                      >Backend Python Part 2</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-07-27T14:21:20.703Z"
+                      >July 27, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Add Folder To Path In Linux"
+                        href="/posts/add-folder-to-path-in-linux"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Add Folder To Path In Linux"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/209113bd1e6afe574c97db3f6e6a3e3d96c8c632-1223x596.jpg?rect=0,31,1223,533&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/add-folder-to-path-in-linux"
+                      >Add Folder To Path In Linux</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-07-13T23:11:00.000Z"
+                      >July 13, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Typescript For Javascript Developers"
+                        href="/posts/typescript-for-javascript-developers"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Typescript For Javascript Developers"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/956eeacb59d4fa4e31b71321e8f380ac67389369-1203x1080.jpg?rect=0,278,1203,524&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/typescript-for-javascript-developers"
+                      >Typescript For Javascript Developers</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-30T20:19:16.792Z"
+                      >June 30, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="What is a Redux Reducer?"
+                        href="/posts/what-is-a-redux-reducer"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for What is a Redux Reducer?"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/429a9ab7b3bfa8b336e4b9d3f6a6e5cce6846ca8-1600x1080.gif?rect=0,191,1600,697&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/what-is-a-redux-reducer"
+                      >What is a Redux Reducer?</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-22T19:05:49.672Z"
+                      >June 22, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Jamstack Foundational Concepts"
+                        href="/posts/jamstack-foundational-concepts"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Jamstack Foundational Concepts"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/f776b2f35588e0ab71789925ce9564924154c4cf-400x300.png?rect=0,62,400,174&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/jamstack-foundational-concepts"
+                      >Jamstack Foundational Concepts</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-22T08:42:35.329Z"
+                      >June 22, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Emerging Web Technologies"
+                        href="/posts/emerging-web-technologies"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Emerging Web Technologies"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/02ac00bad39e5053a926674778026b92445db7b5-500x334.jpg?rect=72,86,264,115&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/emerging-web-technologies"
+                      >Emerging Web Technologies</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-22T06:24:55.473Z"
+                      >June 22, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Browser Based Integrated Development Environments &amp; Playgrounds"
+                        href="/posts/browser-based-integrated-development-environments-and-playgrounds"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Browser Based Integrated Development Environments &amp; Playgrounds"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/39a82ff071f7c578df1cf5a93e5de0e29e67e032-1017x562.png?rect=0,59,1017,443&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/browser-based-integrated-development-environments-and-playgrounds"
+                      >Browser Based Integrated Development Environments &amp;
+                      Playgrounds</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-22T00:49:03.397Z"
+                      >June 22, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Github Repositories That Will Teach You How To Code For Free"
+                        href="/posts/github-repositories-that-will-teach-you-how-to-code-for-free"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Github Repositories That Will Teach You How To Code For Free"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/a875edbfbe4d3bb15e846c82eca8df5620a92a6a-1080x592.gif?rect=2,122,1078,469&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/github-repositories-that-will-teach-you-how-to-code-for-free"
+                      >Github Repositories That Will Teach You How To Code For
+                      Free</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-21T04:00:00.000Z"
+                      >June 21, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="The Harmonic Series &amp; Fourier Transform"
+                        href="/posts/the-harmonic-series-and-fourier-transform"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for The Harmonic Series &amp; Fourier Transform"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/74cfc69f1333eed153fd7c6fd3f06eb57141aeb3-320x180.gif?rect=17,48,301,131&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/the-harmonic-series-and-fourier-transform"
+                      >The Harmonic Series &amp; Fourier Transform</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2021-06-10T10:11:00.000Z"
+                      >June 10, 2021</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Object Methods"
+                        href="/posts/object-methods"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Object Methods"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/07ffd1416a9acc6b37da288ed9971be159668585-1374x766.png?rect=0,83,1374,598&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/object-methods"
+                      >Object Methods</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2020-10-23T04:00:00.000Z"
+                      >October 23, 2020</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a aria-label="Useful Tools" href="/posts/Tools"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Useful Tools"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/2b9f3284b8ee4795b07a6dab0ac32f89632da2a3-800x600.png?rect=0,125,800,348&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/Tools"
+                      >Useful Tools</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2020-09-01T04:00:00.000Z"
+                      >September 1, 2020</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Data Structures"
+                        href="/posts/my-sanity-blog"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Data Structures"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/ed23c4266286aff53a936f793d52c5854b0be100-500x281.gif?rect=0,31,500,218&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/my-sanity-blog"
+                      >Data Structures</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">
+                    <time datetime="2020-08-01T04:00:00.000Z"
+                      >August 1, 2020</time
+                    >
+                  </div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a aria-label="WebDevSetup" href="/posts/webdevsetup"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for WebDevSetup"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/403c93fadd629e995689686409e63c2e9bc6fad5-512x561.png?rect=0,169,512,223&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/webdevsetup"
+                      >WebDevSetup</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <img
+                        width="1240"
+                        height="540"
+                        alt="Cover Image for React Forms"
+                        class="shadow-small"
+                        src="https://cdn.sanity.io/images/ke5fae8i/production/e681c99924d057f8017dc5a136909720a8f9e6d6-800x600.png?rect=0,125,800,348&amp;w=1240&amp;h=540"
+                      />
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/undefined"
+                      >React Forms</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img class="w-12 h-12 rounded-full mr-4" />
+                    <div class="text-xl font-bold"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Understand how structured data works"
+                        href="/posts/understand-how-structured-data-works"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Understand how structured data works"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/3cf10f27304014d1099f9433ad57a1ac1d4b5e79-1950x1300.png?rect=0,225,1950,849&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/understand-how-structured-data-works"
+                      >Understand how structured data works</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="My Favorite VSCode Themes"
+                        href="/posts/my-favorite-vscode-themes"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for My Favorite VSCode Themes"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/b47c35e8ce236fc3c894cabff907fbaeb6eabc6b-576x347.png?rect=0,48,576,251&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/my-favorite-vscode-themes"
+                      >My Favorite VSCode Themes</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Reducing Big O Complexity In Javascript"
+                        href="/posts/reducing-big-o-complexity-in-javascript"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Reducing Big O Complexity In Javascript"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/c154916ea39cb3b0eb8faff800c0b08411e19b7b-4671x6769.jpg?rect=0,2367,4671,2034&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/reducing-big-o-complexity-in-javascript"
+                      >Reducing Big O Complexity In Javascript</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Backend Python Part 1"
+                        href="/posts/backend-python-part-1"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Backend Python Part 1"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/28137af6b1d2aeaf9246d748a42e89d90e6861a6-225x225.png?rect=0,63,225,98&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/backend-python-part-1"
+                      >Backend Python Part 1</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Building Up To React"
+                        href="/posts/building-up-to-react"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Building Up To React"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/a37b8bc089cdd775711785baf935f9b1c4e732b0-575x323.gif?rect=0,36,575,250&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/building-up-to-react"
+                      >Building Up To React</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="List of things you can embed in your website"
+                        href="/posts/list-of-things-you-can-embed-in-your-website"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for List of things you can embed in your website"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/7283067481ec408b1a5e28083a07596aacbff496-1863x732.gif?rect=91,0,1681,732&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/list-of-things-you-can-embed-in-your-website"
+                      >List of things you can embed in your website</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="How to use Google Sheets As Your Website Database"
+                        href="/posts/how-to-use-google-sheets-as-your-website-database"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for How to use Google Sheets As Your Website Database"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/b6f9824844d659c81d1f099c30e1ccd7b81ea6ba-630x383.png?rect=0,54,630,274&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/how-to-use-google-sheets-as-your-website-database"
+                      >How to use Google Sheets As Your Website Database</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a aria-label="Intro React" href="/posts/intro-react"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Intro React"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/413f5ad90a0ccc788132b897ff6694e2e71f183c-1422x858.png?rect=0,119,1422,619&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a class="hover:underline" href="/posts/intro-react"
+                      >Intro React</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-5">
+                    <div class="-mx-5 sm:mx-0">
+                      <a
+                        aria-label="Getting started with SEO for beginners"
+                        href="/posts/getting-started-with-seo-for-beginners"
+                        ><img
+                          width="1240"
+                          height="540"
+                          alt="Cover Image for Getting started with SEO for beginners"
+                          class="
+                            shadow-small
+                            hover:shadow-medium
+                            transition-shadow
+                            duration-200
+                          "
+                          src="https://cdn.sanity.io/images/ke5fae8i/production/a74eea9966ea566a885f684c37914a8ac8254443-283x250.png?rect=0,63,283,123&amp;w=1240&amp;h=540"
+                      /></a>
+                    </div>
+                  </div>
+                  <h3 class="text-3xl mb-3 leading-snug">
+                    <a
+                      class="hover:underline"
+                      href="/posts/getting-started-with-seo-for-beginners"
+                      >Getting started with SEO for beginners</a
+                    >
+                  </h3>
+                  <div class="text-lg mb-4">No date</div>
+                  <p class="text-lg leading-relaxed mb-4"></p>
+                  <div class="flex items-center">
+                    <img
+                      src="https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                      class="w-12 h-12 rounded-full mr-4"
+                      alt="Bryan Guner"
+                    />
+                    <div class="text-xl font-bold">Bryan Guner</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+      <footer class="bg-accent-1 border-t border-accent-2">
+        <div class="container mx-auto px-5">
+          <div class="py-28 flex flex-col lg:flex-row items-center">
+            <h3
+              class="
+                text-4xl
+                lg:text-5xl
+                font-bold
+                tracking-tighter
+                leading-tight
+                text-center
+                lg:text-left
+                mb-10
+                lg:mb-0 lg:pr-4 lg:w-1/2
+              "
+            >
+              Blog Home
+            </h3>
+            <div
+              class="
+                flex flex-col
+                lg:flex-row
+                justify-center
+                items-center
+                lg:pl-4 lg:w-1/2
+              "
+            >
+              <a
+                href="https://bgoonz-blog.netlify.app/"
+                class="
+                  mx-3
+                  bg-black
+                  hover:bg-white hover:text-black
+                  border border-black
+                  text-white
+                  font-bold
+                  py-3
+                  px-12
+                  lg:px-8
+                  duration-200
+                  transition-colors
+                  mb-6
+                  lg:mb-0
+                "
+                >Blog Home</a
+              ><a
+                href="https://github.com/bgoonz/blog-w-comments"
+                class="mx-3 font-bold hover:underline"
+                >View on GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": {
+          "pageProps": {
+            "allPosts": [
+              {
+                "_id": "64cf5d0e-b634-431d-9246-cd87f2bc8104",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-f21d846ca3907d458ea34cbbb01703a02aa4d62e-1280x720-png",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-09-01T08:33:28.541Z",
+                "slug": "javascript-basics",
+                "title": "JavaScript Basics"
+              },
+              {
+                "_id": "491c15f2-9ec9-4f01-9b73-e5bfb753fd32",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-d4102c8de72870532428c14f3eae155b473cf4b8-318x159-jpg",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-09-01T05:32:59.819Z",
+                "slug": "a-step-by-step-guide-deploying-on-netlify",
+                "title": "A Step-by-Step Guide: Deploying on Netlify"
+              },
+              {
+                "_id": "775f3656-f947-424c-805a-2dc948671bac",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-93832ddb50cf2ed9d50aef1211f2c801e7af06d3-480x316-gif",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-08-13T02:04:44.329Z",
+                "slug": "recursion-and-the-stack",
+                "title": "Recursion \u0026 The Stack"
+              },
+              {
+                "_id": "9e1075da-b36c-405f-80d3-e810d8acf205",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-5800583054cbba2a3bdbe516358224e61d728ca0-1400x933-jpg",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-08-02T11:17:22.111Z",
+                "slug": "react-in-depth-a-comprehensive-guide",
+                "title": "React in Depth: A Comprehensive Guide"
+              },
+              {
+                "_id": "85938365-b5a7-4749-9d6d-2fdfa9fe2a2c",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-91b5d63fdcb90a4d2bc978fb40a490ae7da5088f-600x337-gif",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-07-27T14:21:20.703Z",
+                "slug": "backend-python-part-2",
+                "title": "Backend Python Part 2"
+              },
+              {
+                "_id": "165619a4-c00e-4cf3-b115-11c4bbb5eedf",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-209113bd1e6afe574c97db3f6e6a3e3d96c8c632-1223x596-jpg",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-07-13T23:11:00.000Z",
+                "slug": "add-folder-to-path-in-linux",
+                "title": "Add Folder To Path In Linux"
+              },
+              {
+                "_id": "2ecded19-b220-4f4b-8b7d-270e55fa0eaf",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-956eeacb59d4fa4e31b71321e8f380ac67389369-1203x1080-jpg",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-06-30T20:19:16.792Z",
+                "slug": "typescript-for-javascript-developers",
+                "title": "Typescript For Javascript Developers"
+              },
+              {
+                "_id": "a8a845ec-faac-48f8-9d4b-04d9f66974ed",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-429a9ab7b3bfa8b336e4b9d3f6a6e5cce6846ca8-1600x1080-gif",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-06-22T19:05:49.672Z",
+                "slug": "what-is-a-redux-reducer",
+                "title": "What is a Redux Reducer?"
+              },
+              {
+                "_id": "ef8d8c55-ac9a-48be-ad63-849d9c7d3e13",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-f776b2f35588e0ab71789925ce9564924154c4cf-400x300-png",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-06-22T08:42:35.329Z",
+                "slug": "jamstack-foundational-concepts",
+                "title": "Jamstack Foundational Concepts"
+              },
+              {
+                "_id": "43a3d8c3-c640-45a9-ad45-14bfe4ae2141",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-02ac00bad39e5053a926674778026b92445db7b5-500x334-jpg",
+                    "_type": "reference"
+                  },
+                  "crop": {
+                    "_type": "sanity.imageCrop",
+                    "bottom": 0.09314703925482369,
+                    "left": 0.14444444444444446,
+                    "right": 0.32888888888888895,
+                    "top": 0.08649367930805056
+                  },
+                  "hotspot": {
+                    "_type": "sanity.imageHotspot",
+                    "height": 1,
+                    "width": 1,
+                    "x": 0.3733333333333334,
+                    "y": 0.4301397205588822
+                  }
+                },
+                "date": "2021-06-22T06:24:55.473Z",
+                "slug": "emerging-web-technologies",
+                "title": "Emerging Web Technologies"
+              },
+              {
+                "_id": "c15fe121-68d6-4dfc-b1db-cd096e8d9a42",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-39a82ff071f7c578df1cf5a93e5de0e29e67e032-1017x562-png",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2021-06-22T00:49:03.397Z",
+                "slug": "browser-based-integrated-development-environments-and-playgrounds",
+                "title": "Browser Based Integrated Development Environments \u0026 Playgrounds"
+              },
+              {
+                "_id": "dba11ebe-73fb-45a7-832c-db76de5c9d85",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-a875edbfbe4d3bb15e846c82eca8df5620a92a6a-1080x592-gif",
+                    "_type": "reference"
+                  },
+                  "crop": {
+                    "_type": "sanity.imageCrop",
+                    "bottom": 0,
+                    "left": 0.0014164305949008272,
+                    "right": 0,
+                    "top": 0.0051694547259155035
+                  },
+                  "hotspot": {
+                    "_type": "sanity.imageHotspot",
+                    "height": 1,
+                    "width": 1,
+                    "x": 0.32861189801699714,
+                    "y": 0.8489381939992968
+                  }
+                },
+                "date": "2021-06-21T04:00:00.000Z",
+                "slug": "github-repositories-that-will-teach-you-how-to-code-for-free",
+                "title": "Github Repositories That Will Teach You How To Code For Free"
+              },
+              {
+                "_id": "b64a80f2-43c5-4eba-a1ee-fbb82f24c524",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-74cfc69f1333eed153fd7c6fd3f06eb57141aeb3-320x180-gif",
+                    "_type": "reference"
+                  },
+                  "crop": {
+                    "_type": "sanity.imageCrop",
+                    "bottom": 0,
+                    "left": 0.051903114186851215,
+                    "right": 0.006920415224913495,
+                    "top": 0
+                  },
+                  "hotspot": {
+                    "_type": "sanity.imageHotspot",
+                    "height": 0.9507881584006153,
+                    "width": 0.7231833910034602,
+                    "x": 0.39965397923875395,
+                    "y": 0.8383314109957706
+                  }
+                },
+                "date": "2021-06-10T10:11:00.000Z",
+                "slug": "the-harmonic-series-and-fourier-transform",
+                "title": "The Harmonic Series \u0026 Fourier Transform"
+              },
+              {
+                "_id": "54641b0b-cfb1-46b6-b609-921ccdcf06f4",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-07ffd1416a9acc6b37da288ed9971be159668585-1374x766-png",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2020-10-23T04:00:00.000Z",
+                "slug": "object-methods",
+                "title": "Object Methods"
+              },
+              {
+                "_id": "efbda291-deb0-4ca6-9d80-9d29dbd5e9a0",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-2b9f3284b8ee4795b07a6dab0ac32f89632da2a3-800x600-png",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2020-09-01T04:00:00.000Z",
+                "slug": "Tools",
+                "title": "Useful Tools"
+              },
+              {
+                "_id": "4def8db5-9be8-4def-816d-21bd1782a4de",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-ed23c4266286aff53a936f793d52c5854b0be100-500x281-gif",
+                    "_type": "reference"
+                  }
+                },
+                "date": "2020-08-01T04:00:00.000Z",
+                "slug": "my-sanity-blog",
+                "title": "Data Structures"
+              },
+              {
+                "_id": "09ae901e-ffa6-42f8-a813-5651f051d17b",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-403c93fadd629e995689686409e63c2e9bc6fad5-512x561-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "webdevsetup",
+                "title": "WebDevSetup"
+              },
+              {
+                "_id": "217b4b8a-968a-47a4-a0d8-02a90fa64ab6",
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-e681c99924d057f8017dc5a136909720a8f9e6d6-800x600-png",
+                    "_type": "reference"
+                  }
+                },
+                "title": "React Forms"
+              },
+              {
+                "_id": "28ae5f79-077a-429c-b7fb-d568e46f0bff",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-3cf10f27304014d1099f9433ad57a1ac1d4b5e79-1950x1300-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "understand-how-structured-data-works",
+                "title": "Understand how structured data works"
+              },
+              {
+                "_id": "352850c6-c9c5-4a8a-adb0-5041f41144db",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-b47c35e8ce236fc3c894cabff907fbaeb6eabc6b-576x347-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "my-favorite-vscode-themes",
+                "title": "My Favorite VSCode Themes"
+              },
+              {
+                "_id": "7aa6fcf0-e9e0-4ada-87e7-b2b332a4371a",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-c154916ea39cb3b0eb8faff800c0b08411e19b7b-4671x6769-jpg",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "reducing-big-o-complexity-in-javascript",
+                "title": "Reducing Big O Complexity In Javascript"
+              },
+              {
+                "_id": "8f5a03d1-0e20-4522-8807-1e6ab753c998",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-28137af6b1d2aeaf9246d748a42e89d90e6861a6-225x225-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "backend-python-part-1",
+                "title": "Backend Python Part 1"
+              },
+              {
+                "_id": "a330055e-4243-4122-894f-2e314df82d20",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-a37b8bc089cdd775711785baf935f9b1c4e732b0-575x323-gif",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "building-up-to-react",
+                "title": "Building Up To React"
+              },
+              {
+                "_id": "afb2b041-dc76-4a35-91b3-f026ca75939d",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-7283067481ec408b1a5e28083a07596aacbff496-1863x732-gif",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "list-of-things-you-can-embed-in-your-website",
+                "title": "List of things you can embed in your website"
+              },
+              {
+                "_id": "b5fde617-ab63-45d4-b18f-79ca8a1e2f8b",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-b6f9824844d659c81d1f099c30e1ccd7b81ea6ba-630x383-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "how-to-use-google-sheets-as-your-website-database",
+                "title": "How to use Google Sheets As Your Website Database"
+              },
+              {
+                "_id": "bfe7a40c-e070-4f60-9091-e0d344483cf5",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-413f5ad90a0ccc788132b897ff6694e2e71f183c-1422x858-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "intro-react",
+                "title": "Intro React"
+              },
+              {
+                "_id": "eab4f187-32a6-4b2e-84aa-36212415eab2",
+                "author": {
+                  "name": "Bryan Guner",
+                  "picture": "https://cdn.sanity.io/images/ke5fae8i/production/597fe477b99bf1be37e450ab8e199e8802c37a98-483x483.png"
+                },
+                "coverImage": {
+                  "_type": "image",
+                  "asset": {
+                    "_ref": "image-a74eea9966ea566a885f684c37914a8ac8254443-283x250-png",
+                    "_type": "reference"
+                  }
+                },
+                "slug": "getting-started-with-seo-for-beginners",
+                "title": "Getting started with SEO for beginners"
+              }
+            ],
+            "preview": false
+          },
+          "__N_SSG": true
+        },
+        "page": "/",
+        "query": {},
+        "buildId": "1NsWvkQCgW88sdMcdKLjO",
+        "isFallback": false,
+        "gsp": true
+      }
+    </script>
+    <script
+      nomodule=""
+      src="/_next/static/chunks/polyfills-8683bd742a84c1edd48c.js"
+    ></script>
+    <script
+      src="/_next/static/chunks/webpack-23ca4bfe5d65438f1a8e.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/framework-817a3670c0554bb19913.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/commons-e54cd7863b480009ecd4.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/main-af02262448c4acb45e77.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/_app-4abead0c257366cc0975.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/247-1e5532220cec18da62db.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/index-d916b8db1abed1b2c585.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/1NsWvkQCgW88sdMcdKLjO/_buildManifest.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/1NsWvkQCgW88sdMcdKLjO/_ssgManifest.js"
+      async=""
+    ></script>
+  </body>
+</html>
