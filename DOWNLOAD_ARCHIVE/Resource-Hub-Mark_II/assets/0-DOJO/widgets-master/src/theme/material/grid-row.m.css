@@ -1,0 +1,12 @@
+.root {
+	box-sizing: border-box;
+	height: calc(var(--mdc-theme-grid-base) * 5);
+}
+
+.selected {
+	background-color: var(--mdc-theme-on-surface);
+}
+
+.selectable:hover {
+	background-color: var(--mdc-theme-on-surface-hover);
+}

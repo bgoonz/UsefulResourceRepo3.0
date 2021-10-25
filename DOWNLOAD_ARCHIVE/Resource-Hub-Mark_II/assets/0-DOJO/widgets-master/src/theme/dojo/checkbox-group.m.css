@@ -1,0 +1,11 @@
+.root {
+	font-family: var(--font-family);
+	border: 0;
+	margin: 0;
+	padding: var(--spacing-regular) 0;
+}
+
+.legend {
+	composes: root from './label.m.css';
+	padding: 0;
+}

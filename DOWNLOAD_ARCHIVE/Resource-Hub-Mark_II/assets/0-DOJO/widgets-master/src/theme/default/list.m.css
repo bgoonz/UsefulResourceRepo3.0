@@ -1,0 +1,14 @@
+/* Root class of the menu */
+.root {
+	overflow: auto;
+	position: relative;
+	background: var(--component-background);
+}
+
+/* wrapper around the menu items */
+.items {
+}
+
+/* Class for dividers between menu options */
+.divider {
+}

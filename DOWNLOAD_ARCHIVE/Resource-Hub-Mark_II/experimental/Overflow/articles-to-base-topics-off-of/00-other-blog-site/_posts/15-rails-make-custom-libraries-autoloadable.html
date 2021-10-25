@@ -1,0 +1,47 @@
+<!--
+
+---
+ "Rails : make custom libraries autoloadable"
+date: 2013-04-15 18:42:27 UTC
+updated: 2013-04-15 18:42:27 UTC
+2008/kind#post ruby-on-rails
+---
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>basic-git-workflow</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/bootstrap.grid.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.css.map">
+  <link rel="stylesheet" href="./css/blog-home.css">
+  <link rel="stylesheet" href="./css/prism.css">
+  <script async defer src="./css/prism.js"></script>
+</head>
+
+<body>
+
+  <div dir="ltr" style="text-align: left;" trbidi="on"><br />By default Rails won't autoreload our custom libraries or
+    classes which we keep in lib folder. Restart server each time when you do some changes to those libraries is a
+    tedious task. To make those classes autoloadable add the below line of code to configure block in your
+    <b>config/environments/development.rb </b><br /><br /><br />
+    <script src="https://gist.github.com/revathskumar/5390247.js?file=development.rb"></script><noscript>
+      <blockquote class="tr_bq"># Add to configure block in config/environments/development.rb<br /><br /># Custom
+        directories with classes and modules you want to be autoloadable.<br />config.autoload_paths +=
+        %W(#{config.root}/lib)</blockquote>
+    </noscript>Happy coding.
+  </div>
+</body>
+
+</html>
+$

@@ -1,0 +1,1977 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="theme-color" content="#5581b5">
+  <title>Rotate Text - </title>
+  <meta name="description"
+    content="Super simple, free and fast browser-based utility for rotating text. Just paste your text and it&#039;ll instantly get rotated. Textabulous!">
+
+  <meta property="og:title" content="Rotate Text - ">
+  <meta property="og:description"
+    content="Super simple, free and fast browser-based utility for rotating text. Just paste your text and it&#039;ll instantly get rotated. Textabulous!">
+  <meta property="og:url" content="rotate-text.html">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="twitter:title" content="Rotate Text - ">
+  <meta name="twitter:description"
+    content="Super simple, free and fast browser-based utility for rotating text. Just paste your text and it&#039;ll instantly get rotated. Textabulous!">
+
+  <meta name="twitter:image:src" content="images/preview-image-onlinetexttools.png">
+
+  <link href="rotate-text.html" rel="canonical">
+
+  <!--[if IE]>
+    <script src="/js/ie-polyfill.js"></script>
+    <![endif]-->
+
+  <script src="js/save-as.js"></script>
+  <script src="js/textarea-autosize.js"></script>
+  <script src="js/zenscroll.js"></script>
+
+  <script src="js/siteab53.js?v=f28f2c"></script>
+  <script src="js/converterab53.js?v=f28f2c"></script>
+
+
+  <script class="unique-resource" src="js/bridges/rotate-textab53.js?v=f28f2c"></script>
+  <script class="unique-resource" src="js/libs/grapheme-splitter.minab53.js?v=f28f2c"></script>
+
+
+  <meta data-marker="resources">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/stylesheetab53.css?v=f28f2c">
+</head>
+
+<body>
+  <div class="page-content">
+    <div class="page container">
+      <div class="header">
+        <a href="index.html"><img alt="onlinetexttools logo" src="images/logo-onlinetexttools.png"></a>
+        <div class="fb-like" data-href="https://facebook.com/broowserools" data-layout="button_count" data-action="like"
+          data-size="small" data-show-faces="true" data-share="false"></div>
+        <div class="network">
+          <select>
+            <optgroup label="Tools">
+              <option data-location="aHR0cHM6Ly9vbmxpbmVjc3Z0b29scy5jb20=">Online CSV Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV0c3Z0b29scy5jb20=">Online TSV Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVqc29udG9vbHMuY29t">Online JSON Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV5YW1sdG9vbHMuY29t">Online YAML Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV4bWx0b29scy5jb20=">Online XML Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVtYXRodG9vbHMuY29t">Online MATH Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVmcmFjdGFsdG9vbHMuY29t">Online FRACTAL Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVudW1iZXJ0b29scy5jb20=">Online NUMBER Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVpbnRlZ2VydG9vbHMuY29t">Online INTEGER Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV1bmljb2RldG9vbHMuY29t">Online UNICODE Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVhc2NpaXRvb2xzLmNvbQ==">Online ASCII Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV1dGY4dG9vbHMuY29t">Online UTF8 Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmViaW5hcnl0b29scy5jb20=">Online BINARY Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVoZXh0b29scy5jb20=">Online HEX Tools</option>
+              <option selected data-location="aHR0cHM6Ly9vbmxpbmV0ZXh0dG9vbHMuY29t"></option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVzdHJpbmd0b29scy5jb20=">Online STRING Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVyYW5kb210b29scy5jb20=">Online RANDOM Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVpbWFnZXRvb2xzLmNvbQ==">Online IMAGE Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVqcGd0b29scy5jb20=">Online JPG Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVwbmd0b29scy5jb20=">Online PNG Tools</option>
+
+            </optgroup>
+            <optgroup label="In Progress">
+              <option data-location="aHR0cHM6Ly9vbmxpbmVmaWxldG9vbHMuY29t">Online FILE Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVoYXNodG9vbHMuY29t">Online HASH Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVjcnlwdG90b29scy5jb20=">Online CRYPTO Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmViaXRtYXB0b29scy5jb20=">Online BITMAP Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVnaWZ0b29scy5jb20=">Online GIF Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVsaW51eHRvb2xzLmNvbQ==">Online LINUX Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV0aW1ldG9vbHMuY29t">Online TIME Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmViYXNlNjR0b29scy5jb20=">Online BASE64 Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVsaXN0dG9vbHMuY29t">Online LIST Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVzZXR0b29scy5jb20=">Online SET Tools</option>
+
+            </optgroup>
+            <optgroup label="Planned" disabled>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVwZGZ0b29scy5jb20=">Online PDF Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVhdWRpb3Rvb2xzLmNvbQ==">Online AUDIO Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVicm93c2VydG9vbHMuY29t">Online BROWSER Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVjc3N0b29scy5jb20=">Online CSS Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmVqc3Rvb2xzLmNvbQ==">Online JS Tools</option>
+              <option data-location="aHR0cHM6Ly9vbmxpbmV0YWJsZXRvb2xzLmNvbQ==">Online TABLE Tools</option>
+
+            </optgroup>
+            <optgroup disabled label="And 10 more!"></optgroup>
+          </select>
+        </div>
+
+      </div>
+      <div class="content">
+
+
+        <div class="section">
+          <i class="icon icon_build"></i>
+          <div class="body">
+            <div class="body-title">
+              <h1 class="primary">Text rotator</h1>
+              <h2 class="secondary">World's simplest text tool</h2>
+            </div>
+            <div class="body-content">
+              World's simplest browser-based utility for cyclically rotating text. Load your text in the input form on
+              the left and you'll instantly get text with rotated characters in the output area. Powerful, free, and
+              fast. Load text – get rotated text. Created by developers from team broowserools.
+            </div>
+          </div>
+        </div>
+        <div class="section announcement">
+          <i class="icon icon_announcement"></i>
+          <div class="body">
+            <div class="body-title">
+              <span class="primary">we wrote the curl cookbook!</span>
+              <span class="secondary"></span>
+            </div>
+            <div class="body-content">
+              Super exciting news – we just wrote the <a href="https://catonmat.net/cookbooks/curl">Curl Cookbook</a>
+              full of organic, nutritious, and completely irresistible curl recipes. Check it out!
+            </div>
+          </div>
+        </div>
+
+        <div class="all-tools-container">
+          <div class="section sides tool tool-primary" data-override-options="" data-accepts="text" data-returns="text"
+            data-tool-url="rotate-text">
+            <div class="chain-link"></div>
+            <i class="icon icon_settings"></i>
+            <div class="tool-inline">
+              <div title="Swap tools" class="tool-swap" data-swap-to="">
+                <i class="icon icon_swap_horiz"></i>
+              </div>
+              <div title="Mark as favorite" class="tool-favorite">
+                <i class="icon icon_star"></i>
+              </div>
+              <div title="Share this tool" class="tool-create-link">
+                <i class="icon icon_link"></i>
+                <div class="tool-link">
+                  <div class="tool-link-text">
+                    A link to this tool, including input, options and all chained tools.
+                  </div>
+                  <input type="text">
+                </div>
+              </div>
+              <div title="Tweet this tool" class="tool-tweet">
+                <div class="tweet-link-button"
+                  data-tweet-url="https://twitter.com/intent/tweet?text=Rotate+Text+%E2%80%93+Online+Text+Tools+https%3A%2F%2Fonlinetexttools.com%2Frotate-text">
+
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <div class="sides-wrapper clearfix">
+                <div class="side input" data-theme="">
+                  <label>
+                    <span class="data-type">input text</span>
+                    <span class="status"></span>
+                  </label>
+                  <div class="side-box ">
+                    <div class="
+                            side-wrapper
+                                                                                    ">
+                      <div class="badge">
+                        <div class="badge-icon"></div>
+                        <div class="badge-body">
+                          <div class="badge-title"></div>
+                          <div class="badge-message"></div>
+                        </div>
+                      </div>
+                      <div class="data-wrapper">
+                        <textarea data-autosave class="data"></textarea>
+                      </div>
+                    </div>
+                    <div class="side-widgets">
+                      <div class="side-widgets-wrapper">
+                        <div class="widget widget-load">
+                          Import from file
+                          <input type="file">
+                        </div>
+                        <div data-toggle="toggle-save-as" class="widget">
+                          Save as...
+                        </div>
+                        <div class="widget widget-copy">
+                          Copy to clipboard
+                        </div>
+                      </div>
+                      <div class="side-widgets-toggle">
+                        <div class="toggle-wrapper">
+                          <div class="widget-toggle toggle-save-as">
+                            <div data-hides-toggle class="widget widget-save-as">
+                              Download
+                            </div>
+                            <div class="widget widget-pastebin is-disabled" title="In Progress!">
+                              Export to Pastebin
+                            </div>
+                          </div>
+                          <div class="toggle-hide">
+                            <i class="icon icon_close"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="side output" data-theme="">
+                  <label>
+                    <span class="data-type">rotated text</span>
+                    <span class="status"></span>
+                  </label>
+                  <div class="side-box">
+                    <div class="
+                            side-wrapper
+                                                                                    ">
+                      <div class="tool-combinator">
+                        <div class="combinator-list">
+                          <div class="combinator-tools"></div>
+                        </div>
+                      </div>
+                      <div class="badge">
+                        <div class="badge-icon"></div>
+                        <div class="badge-body">
+                          <div class="badge-title">Can't convert.</div>
+                          <div class="badge-message">An error has occured.</div>
+                        </div>
+                      </div>
+                      <div class="data-wrapper">
+                        <textarea readonly class="data"></textarea>
+                      </div>
+                    </div>
+                    <div class="side-widgets">
+                      <div class="side-widgets-wrapper">
+                        <div data-toggle="toggle-chain" class="widget widget-chain">
+                          Chain with...
+                        </div>
+                        <div data-toggle="toggle-remove-chain" class="widget widget-remove-chain">
+                          Remove chain
+                        </div>
+                        <div data-toggle="toggle-save-as" class="widget">
+                          Save as...
+                        </div>
+                        <div class="widget widget-copy">
+                          Copy to clipboard
+                        </div>
+                      </div>
+                      <div class="side-widgets-toggle">
+                        <div class="toggle-wrapper">
+                          <div class="widget-toggle toggle-save-as">
+                            <div data-hides-toggle class="widget widget-save-as">
+                              Download
+                            </div>
+                            <div class="widget widget-pastebin is-disabled" title="In Progress!">
+                              Export to Pastebin
+                            </div>
+                          </div>
+                          <div class="widget-toggle toggle-remove-chain">
+                            <div class="widget widget-remove-chain-wrap">
+                              <span class="remove-chain-text">
+                                Remove <span class="remove-how-many">no tools</span>?
+                              </span>
+                              <div class="remove-chain-yes">
+                                <i class="icon icon_check"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="widget-toggle toggle-unchainable">
+                            <div class="widget">
+                              This tool cannot be chained.
+                            </div>
+                          </div>
+                          <div class="widget-toggle toggle-chain">
+                            <div class="widget widget-chain-search">
+                              <i class="icon icon_wait"></i>
+                              <i class="icon icon_search"></i>
+                              <i class="icon icon_error"></i>
+                              <div class="chain-search-wrapper">
+                                <input disabled placeholder="Chaining unavailable" class="chain-search">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="toggle-hide">
+                            <i class="icon icon_close"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sides-primary-button">
+                <button>Rotate text again</button>
+              </div>
+              <div class="sides-options-wrapper">
+                <label class="caption">Text rotator options</label>
+                <div data-autosave class="converter-options">
+
+                  <div class="option-group">
+                    <span class="option-group-legend">Rotation Direction</span>
+
+
+
+
+
+                    <div class="option-row" title="Option code: rotate-left">
+
+
+
+                      <input id="option-rotate-left-ef676812" required name="option-group-ef676812-0"
+                        data-index="rotate-left" class="input-option" checked type="radio">
+                      <label for="option-rotate-left-ef676812">Left-Side Rotation</label>
+                      <span class="option-details">Shift text to the left side.</span>
+
+                    </div>
+
+
+
+                    <div class="option-row" title="Option code: rotate-right">
+
+
+
+                      <input id="option-rotate-right-ef676812" required name="option-group-ef676812-0"
+                        data-index="rotate-right" class="input-option" type="radio">
+                      <label for="option-rotate-right-ef676812">Right-Side Rotation</label>
+                      <span class="option-details">Shift text to the right side.</span>
+
+                    </div>
+
+
+
+                    <div class="option-row" title="Option code: count">
+
+
+
+                      <input id="option-count-ef676812" required name="option-group-ef676812-0" data-index="count"
+                        class="input-option" type="text" placeholder="Rotation Count" value="1">
+                      <label for="option-count-ef676812">Rotation Count</label>
+                      <span class="option-details">Number of characters you
+                        want to rotate.</span>
+
+                    </div>
+
+                  </div>
+                  <div class="option-group">
+                    <span class="option-group-legend">Multiline Rotation Mode</span>
+
+
+
+
+
+                    <div class="option-row" title="Option code: multi-line">
+
+
+
+                      <input id="option-multi-line-ef676812" required name="option-group-ef676812-1"
+                        data-index="multi-line" class="input-option" type="checkbox">
+                      <label for="option-multi-line-ef676812">Line-by-Line Rotation</label>
+                      <span class="option-details">If your text contains several lines,
+                        each line will rotate individually.</span>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="section this-tool">
+          <i class="icon icon_help"></i>
+          <div class="body">
+            <div class="body-title">
+              <span class="primary">Text rotator tool</span>
+              <span class="secondary">What is a text rotator?</span>
+            </div>
+            <div class="body-content">
+              With this tool, you can rotate letters in the given text to the left or right. If you choose the left
+              direction, then the whole text will be shifted to the left by the number of characters you specify. In
+              this case, letters that were in front of the text will appear at the end. If you choose the right
+              direction, then the opposite happens. The text will move to the right side, and letters from the end will
+              transfer to the front. The number of characters to move on the other side can be specified in the
+              settings. If your text contains several lines, then by activating line-by-line mode, each line will rotate
+              individually. Textabulous!
+            </div>
+          </div>
+        </div>
+        <div class="section tool-examples">
+          <i class="icon icon_books"></i>
+          <div class="body">
+
+            <div class="body-title">
+              <span class="primary">Text rotator examples</span>
+              <span class="secondary">Click to use</span>
+            </div>
+            <div class="examples cards examples-primary">
+
+
+              <div class="card">
+                <div class="block">
+                  <div class="title">Left-Side Rotation</div>
+                  <div class="body">
+                    <div class="description">In this example, we rotate a short text about a fox to the left side by 12
+                      positions. The first 12 characters, with the content: "the fox was ", are shifted from the
+                      beginning of the text to the end of the text.</div>
+
+
+                    <div class="wrapper">
+                      <div class="sample big">
+                        <div class="text-sample input-sample">
+                          <span>the fox was faster than the wind </span>
+                        </div>
+
+                        <div class="text-sample output-sample">
+                          <span>faster than the wind the fox was </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="option-group">
+                      <b>Required options</b>
+                      <div class="example-required-options-text">These options will be used automatically if you select
+                        this example.</div>
+
+
+
+
+
+
+
+                      <div class="option-row" title="Option code: rotate-left">
+
+
+                        <input required disabled data-index="rotate-left" class="input-option" checked type="radio">
+                        <label>Left-Side Rotation</label>
+                        <span class="option-details">Shift text to the left side.</span>
+
+                      </div>
+
+
+
+
+                      <div class="option-row" title="Option code: count">
+
+
+                        <input required disabled data-index="count" placeholder="Rotation Count" class="input-option"
+                          type="text" value="12">
+                        <label>Rotation Count</label>
+                        <span class="option-details">Number of characters you
+                          want to rotate.</span>
+
+                      </div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <div class="block">
+                  <div class="title">Right-Side Rotation</div>
+                  <div class="body">
+                    <div class="description">This example takes the last two characters at the end of the text and
+                      places them at the beginning of the text, thus rotating the entire text to the right by two units.
+                    </div>
+
+
+                    <div class="wrapper">
+                      <div class="sample big">
+                        <div class="text-sample input-sample">
+                          <span>You are about 1 centimeter taller in the morning than in the evening!</span>
+                        </div>
+
+                        <div class="text-sample output-sample">
+                          <span>g!You are about 1 centimeter taller in the morning than in the evenin</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="option-group">
+                      <b>Required options</b>
+                      <div class="example-required-options-text">These options will be used automatically if you select
+                        this example.</div>
+
+
+
+
+
+
+
+                      <div class="option-row" title="Option code: rotate-right">
+
+
+                        <input required disabled data-index="rotate-right" class="input-option" checked type="radio">
+                        <label>Right-Side Rotation</label>
+                        <span class="option-details">Shift text to the right side.</span>
+
+                      </div>
+
+
+
+
+                      <div class="option-row" title="Option code: count">
+
+
+                        <input required disabled data-index="count" placeholder="Rotation Count" class="input-option"
+                          type="text" value="2">
+                        <label>Rotation Count</label>
+                        <span class="option-details">Number of characters you
+                          want to rotate.</span>
+
+                      </div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <div class="block">
+                  <div class="title">Multiline Text Rotation</div>
+                  <div class="body">
+                    <div class="description">In this example, we've got several text lines and we activate the
+                      line-by-line rotation mode. We shift each text line by five letters to the left, and we get the
+                      word "Hello" placed at the end of each sentence.</div>
+
+
+                    <div class="wrapper">
+                      <div class="sample big">
+                        <div class="text-sample input-sample">
+                          <span>Hello my friend!
+                            Hello my baby!
+                            Hello my darling!
+                            Hello my honey!
+                            Hello my pal!</span>
+                        </div>
+
+                        <div class="text-sample output-sample">
+                          <span> my friend!Hello
+                            my baby!Hello
+                            my darling!Hello
+                            my honey!Hello
+                            my pal!Hello</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="option-group">
+                      <b>Required options</b>
+                      <div class="example-required-options-text">These options will be used automatically if you select
+                        this example.</div>
+
+
+
+
+
+
+
+                      <div class="option-row" title="Option code: rotate-left">
+
+
+                        <input required disabled data-index="rotate-left" class="input-option" checked type="radio">
+                        <label>Left-Side Rotation</label>
+                        <span class="option-details">Shift text to the left side.</span>
+
+                      </div>
+
+
+
+
+                      <div class="option-row" title="Option code: count">
+
+
+                        <input required disabled data-index="count" placeholder="Rotation Count" class="input-option"
+                          type="text" value="5">
+                        <label>Rotation Count</label>
+                        <span class="option-details">Number of characters you
+                          want to rotate.</span>
+
+                      </div>
+
+
+
+
+
+                      <div class="option-row" title="Option code: multi-line">
+
+
+                        <input required disabled data-index="multi-line" class="input-option" checked type="checkbox">
+                        <label>Line-by-Line Rotation</label>
+                        <span class="option-details">If your text contains several lines,
+                          each line will rotate individually.</span>
+
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section pro-tips">
+          <i class="icon icon_info"></i>
+          <div class="body">
+            <div class="body-title">
+              <span class="primary">Pro tips</span>
+              <span class="secondary">Master </span>
+            </div>
+            <div class="body-content">
+              <div class="pro-tips-list">
+                <div class="pro-tip">
+
+
+
+
+
+                  You can pass input to this tool via <u>?input</u> query argument and it will automatically compute
+                  output. Here's how to type it in your browser's address bar. Click to try!
+                  <div class="omnibox"
+                    data-location="/rotate-text?input=the%20fox%20was%20faster%20than%20the%20wind%20">
+                    <div class="url">
+                      <span class="muted"><span
+                          class="green">https://</span>onlinetexttools.com/rotate-text</span><u>?input</u>=the%20fox%20was%20faster%20than%20the%20wind%20&rotate-left=true&count=12
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section all-tools">
+          <i class="icon icon_dashboard"></i>
+          <span class="tool-matches-amount"></span>
+          <div class="body">
+            <div class="body-title">
+              <span class="primary">All text tools</span>
+              <span class="secondary"><input type="text" class="search" required placeholder="type to search!"><span
+                  class="cursor"></span></span>
+            </div>
+            <div class="tools cards equal-height">
+              <div class="tool-none-matches">
+                <div class="message">
+                  Didn't find the tool you were looking for? <span class="request-tool">Let us know</span> what tool we
+                  are missing and we'll build it!
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="split-text.html">Split Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly split text into chunks.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="join-text.html">Join Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly merge lines of text together.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="repeat-text.html">Repeat Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly repeat text many times.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="reverse-text.html">Reverse Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly write text backwards.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="truncate-text.html">Truncate Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly cut text to the given length.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="trim-text.html">Trim Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly trim left or right side of text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="left-pad-text.html">Left-pad Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly pad the left side of text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="right-pad-text.html">Right-pad Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly pad the right side of text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="right-align-text.html">Right-align Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly align text to the right side.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="center-text.html">Center Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly center text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="add-text-prefix.html">Add a Prefix to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly prepend a prefix to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="add-text-suffix.html">Add a Suffix to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly append a suffix to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="remove-empty-text-lines.html">Remove All Empty Lines</a></div>
+                  <div class="body">
+                    <div class="description">Quickly delete all blank lines from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="remove-duplicate-text-lines.html">Remove All Duplicate Lines</a></div>
+                  <div class="body">
+                    <div class="description">Quickly delete all repeated lines from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="filter-text.html">Filter Text Lines</a></div>
+                  <div class="body">
+                    <div class="description">Quickly return text lines that match a string or a regex.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-text-fragment.html">Extract a Text Fragment</a></div>
+                  <div class="body">
+                    <div class="description">Quickly extract a text snippet of the given length.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="replace-text.html">Find and Replace Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly find and replace text patterns.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="find-text-length.html">Find the Length of Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly count the number of characters in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="count-text-lines.html">Count Text Lines</a></div>
+                  <div class="body">
+                    <div class="description">Quickly find the number of lines in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="add-line-numbers.html">Add Line Numbers</a></div>
+                  <div class="body">
+                    <div class="description">Quickly add a number before every text line.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-image.html">Create an Image from Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly create an image from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="generate-zalgo-text.html">Generate Zalgo Text</a></div>
+                  <div class="body">
+                    <div class="description">Apply the Zalgo effect to the input text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="create-text-palindrome.html">Create a Palindrome</a></div>
+                  <div class="body">
+                    <div class="description">Quickly construct a palindrome from plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="check-text-palindrome.html">Check if Text is a Palindrome</a></div>
+                  <div class="body">
+                    <div class="description">Quickly test if text is a palindrome.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="change-text-case.html">Change Text Case</a></div>
+                  <div class="body">
+                    <div class="description">Quickly switch between various letter cases in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-uppercase.html">Convert Text to Uppercase</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert text letters to uppercase.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-lowercase.html">Convert Text to Lowercase</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert text letters to lowercase.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="randomize-text-case.html">Randomize Text Case</a></div>
+                  <div class="body">
+                    <div class="description">Quickly randomize character case in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="invert-text-case.html">Invert Text Case</a></div>
+                  <div class="body">
+                    <div class="description">Quickly invert character case in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-spaces-to-newlines.html">Convert Spaces to Newlines</a></div>
+                  <div class="body">
+                    <div class="description">Quickly replace spaces with newlines in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-newlines-to-spaces.html">Convert Newlines to Spaces</a></div>
+                  <div class="body">
+                    <div class="description">Quickly replace newlines with spaces in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-spaces-to-tabs.html">Convert Spaces to Tabs</a></div>
+                  <div class="body">
+                    <div class="description">Quickly get tabs instead of spaces in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-tabs-to-spaces.html">Convert Tabs to Spaces</a></div>
+                  <div class="body">
+                    <div class="description">Quickly get spaces instead of tabs in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="remove-all-whitespace-from-text.html">Remove All Whitespace</a></div>
+                  <div class="body">
+                    <div class="description">Quickly clear text from spaces, tabs, and newlines.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="remove-text-punctuation.html">Remove All Punctuation</a></div>
+                  <div class="body">
+                    <div class="description">Quickly clear text from dots, commas, and similar characters.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-text-from-html.html">Extract Text from HTML</a></div>
+                  <div class="body">
+                    <div class="description">Quickly extract tag content from HTML code.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-text-from-xml.html">Extract Text from XML</a></div>
+                  <div class="body">
+                    <div class="description">Quickly extract tag content from an XML document.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-text-from-bbcode.html">Extract Text from BBCode</a></div>
+                  <div class="body">
+                    <div class="description">Quickly extract all textual data from BBCode markup.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-text-from-json.html">Extract Text from JSON</a></div>
+                  <div class="body">
+                    <div class="description">Quickly extract keys and values from a JSON data structure.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="json-stringify-text.html">JSON Stringify Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert text to a JSON string.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="json-parse-text.html">JSON Unstringify Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert previously JSON stringified text to plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="escape-text.html">Slash-escape Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly escape special symbols in text with slashes.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="unescape-text.html">Slash-unescape Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly remove slashes from previously slash-escaped text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="rot13-text.html">ROT13 Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly encode or decode text using ROT13 cipher algorithm.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="rot47-text.html">ROT47 Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly encode and decode text with ROT47 cipher algorithm.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="generate-text-from-regex.html">Generate Text from a RegExp</a></div>
+                  <div class="body">
+                    <div class="description">Quickly create text that matches the given regexp.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="extract-regex-matches-from-text.html">Extract RegExp Matches from Text</a>
+                  </div>
+                  <div class="body">
+                    <div class="description">Quickly find and return all regexp matches.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="regexp-test-text.html">Test Text with a RegExp</a></div>
+                  <div class="body">
+                    <div class="description">Quickly check whether text matches a regular expression.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="printf-text.html">Printf Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly format text using the printf or sprintf function.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="rotate-text.html">Rotate Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly cyclically rotate text letters to the right or left.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="flip-text-vertically.html">Flip Text Vertically</a></div>
+                  <div class="body">
+                    <div class="description">Quickly rewrite text to vertical position.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-nice-columns.html">Convert Text to Nice Columns</a></div>
+                  <div class="body">
+                    <div class="description">Quickly format text so that all words are in neat columns.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-nice-columns-to-text.html">Convert Nice Columns to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert data aligned in columns to linear text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="generate-text-unigrams.html">Generate Text Unigrams</a></div>
+                  <div class="body">
+                    <div class="description">Quickly create a list of all monograms from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="generate-text-bigrams.html">Generate Text Bigrams</a></div>
+                  <div class="body">
+                    <div class="description">Quickly create a list of all digrams from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="generate-text-n-grams.html">Generate Text N-grams</a></div>
+                  <div class="body">
+                    <div class="description">Quickly create a list of all ngrams from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-morse.html">Convert Text to Morse Code</a></div>
+                  <div class="body">
+                    <div class="description">Quickly write the text in Morse code.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-morse-to-text.html">Convert Morse Code to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly decode Morse code to plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="url-encode-text.html">URL-encode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly URL-escape text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="url-decode-text.html">URL-decode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly URL-unescape text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="html-encode-text.html">HTML-encode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert all plain text characters to HTML entities.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="html-decode-text.html">HTML-decode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert HTML entities to plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-base64.html">Base64-encode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly encode text to base64.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-base64-to-text.html">Base64-decode Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly decode base64-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-binary.html">Convert Text to Binary</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert plain text to binary text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-binary-to-text.html">Convert Binary to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert binary text to plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-octal.html">Convert Text to Octal</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert plain text to octal text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-octal-to-text.html">Convert Octal to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert octal text to plain text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-decimal.html">Convert Text to Decimal</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert text to decimal values.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-decimal-to-text.html">Convert Decimal to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert decimal values to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-text-to-hexadecimal.html">Convert Text to Hex</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert plain text to hexadecimal values.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title"><a href="convert-hexadecimal-to-text.html">Convert Hex to Text</a></div>
+                  <div class="body">
+                    <div class="description">Quickly convert hexadecimal to readable text.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="section coming-soon">
+          <i class="icon icon_airport_shuttle"></i>
+          <div class="body">
+            <div class="body-title">
+              <span class="primary">In Progress</span>
+              <span class="secondary">These text tools are on the way</span>
+            </div>
+            <div class="coming-soon-list cards equal-height">
+              <div class="card">
+                <div class="block">
+                  <div class="title">Calculate Levenstein Distance</div>
+                  <div class="body">
+                    <div class="description">Find Levenstein distance of two text fragments.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Tokenize Text</div>
+                  <div class="body">
+                    <div class="description">Create a list of all words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Lemmatize Text</div>
+                  <div class="body">
+                    <div class="description">Lemmatize all words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Generate Glitch Text</div>
+                  <div class="body">
+                    <div class="description">Mess up characters in your text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Generate Random Text</div>
+                  <div class="body">
+                    <div class="description">Generate text using random words.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Code Points</div>
+                  <div class="body">
+                    <div class="description">Convert text characters to their corresponding code points.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Code Points to Text</div>
+                  <div class="body">
+                    <div class="description">Convert numeric character code points to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert CSV to Text Columns</div>
+                  <div class="body">
+                    <div class="description">Convert CSV data to plain text columns.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text Columns to CSV</div>
+                  <div class="body">
+                    <div class="description">Convert plain text columns to a CSV file.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Generate Text Trigrams</div>
+                  <div class="body">
+                    <div class="description">Create a list of all 3-grams.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Generate Text Skip-grams</div>
+                  <div class="body">
+                    <div class="description">Create a list of all n-skip-m-grams.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Stem Words in Text</div>
+                  <div class="body">
+                    <div class="description">Apply stemming to all words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Title Case</div>
+                  <div class="body">
+                    <div class="description">Convert words in text to have title case.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Proper Case</div>
+                  <div class="body">
+                    <div class="description">Capitalize the first letter of every word in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Justify Text</div>
+                  <div class="body">
+                    <div class="description">Stretch spaces between words in text to make all lines equal length.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Chunkify Text</div>
+                  <div class="body">
+                    <div class="description">Divide text into chunks of certain size.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Slice Text</div>
+                  <div class="body">
+                    <div class="description">Extract a slice from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Format Text</div>
+                  <div class="body">
+                    <div class="description">Apply formatting and modification functions to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find the Number of Letters in Text</div>
+                  <div class="body">
+                    <div class="description">Count the number of letters in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find the Number of Words in Text</div>
+                  <div class="body">
+                    <div class="description">Count the number of words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find the Number of Paragraphs in Text</div>
+                  <div class="body">
+                    <div class="description">Count the number of paragraphs in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Sort Letters in Text</div>
+                  <div class="body">
+                    <div class="description">Sort all characters in text alphabetically.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Sort Words in Text</div>
+                  <div class="body">
+                    <div class="description">Sort all words in text alphabetically.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Sort Sentences in Text</div>
+                  <div class="body">
+                    <div class="description">Sort all sentences in text alphabetically.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Sort Paragraphs in Text</div>
+                  <div class="body">
+                    <div class="description">Sort all paragraphs in text alphabetically.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Statistical Text Analysis</div>
+                  <div class="body">
+                    <div class="description">Analyze text for most frequent letters, words, phrases, sentences and
+                      paragraphs.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Enumerate Characters</div>
+                  <div class="body">
+                    <div class="description">Add a number before every character in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Wrap Text</div>
+                  <div class="body">
+                    <div class="description">Wrap words in text to a specified length.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Shuffle Letters in Text</div>
+                  <div class="body">
+                    <div class="description">Randomize the order of letters in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Shuffle Words in Text</div>
+                  <div class="body">
+                    <div class="description">Randomize the order of all words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Shuffle Sentences in Text</div>
+                  <div class="body">
+                    <div class="description">Randomize the order of all sentences in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Shuffle Paragraphs in Text</div>
+                  <div class="body">
+                    <div class="description">Randomize the order of all paragraphs in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find All Email Addresses in Text</div>
+                  <div class="body">
+                    <div class="description">Extract all emails from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find All Web Addresses in Text</div>
+                  <div class="body">
+                    <div class="description">Extract all URLs from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Find All Numbers in Text</div>
+                  <div class="body">
+                    <div class="description">Extract all numbers from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Encode Text to Punycode</div>
+                  <div class="body">
+                    <div class="description">Convert text to punycode.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Decode Punycode to Text</div>
+                  <div class="body">
+                    <div class="description">Convert punycode to text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Base32</div>
+                  <div class="body">
+                    <div class="description">Encode text to base32 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Base32 to Text</div>
+                  <div class="body">
+                    <div class="description">Decode base32-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Base58</div>
+                  <div class="body">
+                    <div class="description">Encode text to base58 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Base58 to Text</div>
+                  <div class="body">
+                    <div class="description">Decode base58-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Base85</div>
+                  <div class="body">
+                    <div class="description">Encode text to Ascii85 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Base85 to Text</div>
+                  <div class="body">
+                    <div class="description">Decode Ascii85-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Nettext</div>
+                  <div class="body">
+                    <div class="description">Encode text to nettext encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Nettext to Text</div>
+                  <div class="body">
+                    <div class="description">Decode nettext-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF8-encode Text</div>
+                  <div class="body">
+                    <div class="description">Encode text to UTF8 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF8-decode Text</div>
+                  <div class="body">
+                    <div class="description">Decode UTF8-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF16-encode Text</div>
+                  <div class="body">
+                    <div class="description">Encode text to UTF16 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF16-decode Text</div>
+                  <div class="body">
+                    <div class="description">Decode UTF8-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF32-encode Text</div>
+                  <div class="body">
+                    <div class="description">Encode text to UTF32 encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">UTF32-decode Text</div>
+                  <div class="body">
+                    <div class="description">Decode UTF32-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">IDN-encode Text</div>
+                  <div class="body">
+                    <div class="description">Encode text to IDN.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">IDN-decode Text</div>
+                  <div class="body">
+                    <div class="description">Decode IDN-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Uuencode Text</div>
+                  <div class="body">
+                    <div class="description">Convert text to Unix-to-Unix encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Uudecode Text</div>
+                  <div class="body">
+                    <div class="description">Decode Unix-to-Unix-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Xxencode Text</div>
+                  <div class="body">
+                    <div class="description">Convert text to Xxencoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Xxdecode Text</div>
+                  <div class="body">
+                    <div class="description">Decode Xxencoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Text to Quoted Printable</div>
+                  <div class="body">
+                    <div class="description">Encode text to QP encoding.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Convert Quoted Printable to Text</div>
+                  <div class="body">
+                    <div class="description">Decode QP-encoded text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Strip HTML Tags from Text</div>
+                  <div class="body">
+                    <div class="description">Remove all HTML tags from Text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Strip XML Tags from Text</div>
+                  <div class="body">
+                    <div class="description">Remove all XML tags from Text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Remove Diacritics from Text</div>
+                  <div class="body">
+                    <div class="description">Remove all accent marks from all characters in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Normalize Text Spacing</div>
+                  <div class="body">
+                    <div class="description">Remove duplicate spaces from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Remove Carriage Returns from Text</div>
+                  <div class="body">
+                    <div class="description">Remove new line symbols from the end of each text line.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Compare Text</div>
+                  <div class="body">
+                    <div class="description">Find diff between two text fragments.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Create Text Typos</div>
+                  <div class="body">
+                    <div class="description">Generate various text typos.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Create a Mirror Copy of Text</div>
+                  <div class="body">
+                    <div class="description">Generate a mirror reflection of text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Grep Text</div>
+                  <div class="body">
+                    <div class="description">Grep text for regular expression matches.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Head Text</div>
+                  <div class="body">
+                    <div class="description">Extract first lines from text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Tail Text</div>
+                  <div class="body">
+                    <div class="description">Extract last lines from text</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Rewrite Text</div>
+                  <div class="body">
+                    <div class="description">Rewrite text using transformation rules.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Generate Text Mnemonic</div>
+                  <div class="body">
+                    <div class="description">Return the first letter of each word in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Reverse Words in Text</div>
+                  <div class="body">
+                    <div class="description">Reverse every word in the given text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Reverse Sentences in Text</div>
+                  <div class="body">
+                    <div class="description">Reverse every sentence in the given text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Create a Word Cloud</div>
+                  <div class="body">
+                    <div class="description">Create an image from all words in text.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Split Words into Syllables</div>
+                  <div class="body">
+                    <div class="description">Split the input text into syllables.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Draw a Box Around Text</div>
+                  <div class="body">
+                    <div class="description">Surround text in a box.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Create ZigZag Text</div>
+                  <div class="body">
+                    <div class="description">Make letters in text go in a zigzag.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="block">
+                  <div class="title">Remove Zalgo from Text</div>
+                  <div class="body">
+                    <div class="description">Undo Zalgo effect from text.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="fullwidth-wrapper">
+
+
+
+
+      <div class="section secret">
+        <i class="icon icon_cake"></i>
+        <div class="body">
+          <div class="body-title">
+            <span class="primary">Secret message</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section privacy-policy">
+        <i class="icon icon_privacy"></i>
+        <div class="body">
+          <div class="body-content">
+            All conversions and calculations are done in your browser using JavaScript. We don't send a single bit about
+            your input data to our servers. There is no server-side processing at all. We use Google Analytics and
+            StatCounter for site usage analytics. Your IP address is saved on our web server, but it's not associated
+            with any personally identifiable information. We don't use cookies and don't store session information in
+            cookies. We use your browser's local storage to save tools' input. It stays on your computer.
+          </div>
+        </div>
+      </div>
+
+      <div class="section tos">
+        <i class="icon icon_tos"></i>
+        <div class="body">
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- StatCounter -->
+  <script type="text/javascript">
+    var sc_project = 11855616;
+    var sc_invisible = 1;
+    var sc_security = "aa66c698";
+  </script>
+  <script src="../secure.statcounter.com/counter/counter.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107985729-17"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+function gtag() {
+dataLayer.push( arguments )
+};
+    gtag( 'js', new Date() );
+    gtag( 'config', 'UA-107985729-17' );
+  </script>
+
+  <div id="fb-root"></div>
+  </div>
+</body>
+
+</html>

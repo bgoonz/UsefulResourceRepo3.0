@@ -1,0 +1,7 @@
+/* The root class of the grid's Body */
+.root {
+	background: var(--component-background);
+	border-bottom: 1px solid var(--component-color);
+	border-spacing: 0px;
+	color: var(--component-color);
+}

@@ -1,0 +1,12 @@
+.root {
+	box-shadow: var(--mdc-theme-elevation-1);
+	border-radius: var(--mdc-theme-border-radius);
+	background-color: var(--mdc-raised-surface-background);
+}
+
+.header {
+	border: none;
+}
+
+.filterGroup {
+}

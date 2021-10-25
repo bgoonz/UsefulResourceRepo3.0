@@ -1,0 +1,173 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>Part 1 of this post is available at <a href="/2020/03/reactjs-designing-better-component-api.html">designing
+        better component api - UI</a></p>
+    <h1 id="part-2-for-functional-large-ui-components">Part 2 : For Functional / Large UI components</h1>
+    <p>In part 1 we discussed the API for primitive UI components. In this we will discuss about Functional (not
+      stateless) components or some large UI components composed using primitive UI components.</p>
+    <h1 id="derive-value-from-existing-data"><a class="anchor" name="derive-value-from-existing-data"
+        href="#derive-value-from-existing-data"><i class="anchor-icon"></i></a>Derive value from existing data</h1>
+    <p>Refrain yourself from passing unwanted props, where its values can be derived from the other props which we are
+      already passing to the component. Consider the example below. We are passing an array of players and total count
+      of them as props</p>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">const</span> PlayerList <span class="op">=</span> (<span class="op">{</span> players<span class="op">,</span> totalPlayerCount <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">   <span class="cf">if</span> (totalPlayerCount <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">       <span class="co">// render empty message</span></a>
+<a class="sourceLine" id="cb1-5" title="5">   <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6">   <span class="co">// render player list</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>In this we can derive the <code>totalPlayerCount</code> from the array of players itself using the
+      <code>.length</code> property. Thus we can reduce the number of props we are passing into.</p>
+    <div class="sourceCode" id="cb2">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// better</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> PlayerList <span class="op">=</span> (<span class="op">{</span> players <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">   <span class="cf">if</span> (<span class="va">players</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">       <span class="co">// render empty message</span></a>
+<a class="sourceLine" id="cb2-5" title="5">   <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6">   <span class="co">// render player list</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="op">}</span></a></code></pre>
+    </div>
+    <h1 id="pass-minimal-data-required-for-the-component-to-render"><a class="anchor" name="minimum-data"
+        href="#minimum-data"><i class="anchor-icon"></i></a>Pass minimal data required for the component to render</h1>
+    <p>I have seen many beginners passing the whole object to the component and use only one or two properties inside
+      the component. This will make the component difficult to optimize and test.</p>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> player <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb3-4" title="4">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">name</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">score</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"> )</a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>In the above example player can have 20 or 30 properties which are not used in the <code>Player</code> component.
+      So instead of passing the player object, if pass the only properties needed for this component like
+      <code>name</code> &amp; <code>score</code> will make this component simpler and easy to optimize.</p>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> name<span class="op">,</span> score <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb4-3" title="3">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>name<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>score<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-7" title="7"> )</a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">}</span></a></code></pre>
+    </div>
+    <h1 id="function.bind-instead-of-calling-from-inside."><a class="anchor" name="use-bind" href="#use-bind"><i
+          class="anchor-icon"></i></a> function.bind instead of calling from inside.</h1>
+    <p>Sometimes passing minimum data into components won’t work because we might need to pass the whole data into an
+      action. Considering the code below, we can’t avoid passing the <code>player</code> object because it is required
+      as the parameter for <code>onSelect</code> method.</p>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> player<span class="op">,</span> onSelect <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb5-4" title="4">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">name</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">score</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-7" title="7">     <span class="op">&lt;</span>div<span class="op">&gt;&lt;</span>button onClick<span class="op">={</span>() <span class="kw">=&gt;</span> <span class="at">onSelect</span>(player)<span class="op">}&gt;</span>Select&lt;/button<span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-8" title="8">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-9" title="9"> )</a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>In such a case, bind the <code>onSelect</code> method with the <code>player</code> object and pass it to the
+      component.</p>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// better</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> name<span class="op">,</span> score<span class="op">,</span> onSelect <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb6-4" title="4">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>name<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-6" title="6">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>score<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-7" title="7">     <span class="op">&lt;</span>div<span class="op">&gt;&lt;</span>button onSelect<span class="op">={</span>onSelect<span class="op">}&gt;</span>Select&lt;/button<span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-8" title="8">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-9" title="9"> )</a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-11" title="11"> </a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="co">// usage</span></a>
+<a class="sourceLine" id="cb6-13" title="13"> </a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="op">&lt;</span>Player</a>
+<a class="sourceLine" id="cb6-15" title="15"> name<span class="op">={</span><span class="va">player</span>.<span class="at">name</span><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-16" title="16"> score<span class="op">={</span><span class="va">player</span>.<span class="at">score</span><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-17" title="17"> onSelect<span class="op">={</span><span class="va">handleSelect</span>.<span class="at">bind</span>(<span class="kw">this</span><span class="op">,</span> player)<span class="op">}</span></a>
+<a class="sourceLine" id="cb6-18" title="18">/&gt;</a></code></pre>
+    </div>
+    <p>Now the <code>&lt;Player /&gt;</code> component is no more depended on whole <code>player</code> object and we
+      can pass only the <code>name</code> &amp; <code>score</code> to it.</p>
+    <h1 id="remove-unwanted-arrow-functions-wrapping"><a class="anchor" name="remove-unwanted-arrow-functions"
+        href="#remove-unwanted-arrow-functions"><i class="anchor-icon"></i></a> remove unwanted arrow functions wrapping
+    </h1>
+    <p>This is a common pattern I have seen in many codebase that instead of just passing the function to event
+      listeners, they will be wrapped inside unnecessary arrow functions.</p>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// bad</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> player<span class="op">,</span> onSelect <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb7-4" title="4">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">name</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">     <span class="op">&lt;</span>div<span class="op">&gt;{</span><span class="va">player</span>.<span class="at">score</span><span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-7" title="7">     <span class="op">&lt;</span>div<span class="op">&gt;&lt;</span>button onClick<span class="op">={</span>(evt) <span class="kw">=&gt;</span> <span class="at">onSelect</span>(evt)<span class="op">}&gt;</span>Select&lt;/button<span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-8" title="8">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"> )</a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>This mistake is mostly done by newbies who got confused between these two usages, <code>onClick={onSelect}</code>
+      and <code>onClick={onSelect()}</code>. The later will cause function invocation on each re-render and to fix this
+      they wrap in an arrow function.</p>
+    <div class="sourceCode" id="cb8">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// better</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">const</span> Player <span class="op">=</span> (<span class="op">{</span> name<span class="op">,</span> score<span class="op">,</span> onSelect <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3"> <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb8-4" title="4">   <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-5" title="5">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>name<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-6" title="6">     <span class="op">&lt;</span>div<span class="op">&gt;{</span>score<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-7" title="7">     <span class="op">&lt;</span>div<span class="op">&gt;&lt;</span>button onclick<span class="op">={</span>onSelect<span class="op">}&gt;</span>Select&lt;/button<span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-8" title="8">   &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"> )</a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>Adding an arrow function does not necessarily add any performance overhead, but it can cause logical errors in
+      case we decide to add a new param or remove a param later. In such cases we have to make changes in all the
+      instances of this unnecessary wrapping along the way from top most to the child component.</p>
+    <p>In case of <code>onClick={onSelect}</code> the changes required are only in 2 places, in function definition and
+      at where it invokes.</p>
+
+  </body>
+
+  
+</html>

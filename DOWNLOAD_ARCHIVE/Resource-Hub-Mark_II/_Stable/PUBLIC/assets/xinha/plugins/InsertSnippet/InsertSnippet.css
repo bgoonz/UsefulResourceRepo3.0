@@ -1,0 +1,89 @@
+.navi_links {
+  width: 177px;
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  border: none;
+}
+
+.navi_links li {
+  margin: 0 0 3px 0;
+}
+
+.navi_links li a {
+  font-size: 13px;
+  line-height: 16px;
+  height: 16px;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #fff;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.Link1 {
+  background-color: #df1d1f !important;
+}
+
+.Link2 {
+  background-color: #f9a413 !important;
+}
+
+.Link3 {
+  background-color: #167730 !important;
+}
+
+.Link4 {
+  background-color: #233350 !important;
+}
+
+.Link5 {
+  background-color: #70685b !important;
+}
+
+a.Link1:hover span {
+  background-color: #df1d1f !important;
+}
+
+a.Link2:hover span {
+  background-color: #f9a413 !important;
+}
+
+.Link3:hover span {
+  background-color: #167730 !important;
+  color: white;
+}
+
+.Link4:hover span {
+  background-color: #233350 !important;
+  color: white;
+}
+
+.Link5:hover span {
+  background-color: #70685b !important;
+  color: white;
+}
+
+.navi_links li a span {
+  height: 16px;
+  text-indent: 4px;
+  display: block;
+  margin-left: 15px;
+  background-color: #fff;
+}
+
+div.message_box {
+  border: dotted 1px black;
+  margin: 1em;
+  padding: 1em;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}

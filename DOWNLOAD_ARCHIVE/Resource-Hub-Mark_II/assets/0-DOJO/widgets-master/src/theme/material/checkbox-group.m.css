@@ -1,0 +1,14 @@
+.root {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.legend {
+	composes: root from './label.m.css';
+	padding: 0;
+}
+
+.root .legend {
+	position: relative;
+}

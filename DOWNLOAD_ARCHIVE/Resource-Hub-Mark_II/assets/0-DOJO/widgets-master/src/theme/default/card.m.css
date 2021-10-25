@@ -1,0 +1,73 @@
+/* The root class for the card */
+.root {
+}
+
+/* Contains the Card's actions */
+.actions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/* May be added to action buttons supplied by the actionsRenderer */
+.actionButtons {
+}
+
+/* May be added to action icons supplied by the actionsRenderer */
+.actionIcons {
+}
+
+/* May be added to an action to indiciate the desired CTA */
+.primary {
+}
+
+/* The wrapper around the main content section */
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Wrapper around the content child */
+.contentWrapper {
+}
+
+/* The wrapper around the header content area */
+.header {
+}
+
+/* May contain media content */
+.media {
+}
+
+.mediaSquare::before {
+	margin-top: 100%;
+}
+
+.media16by9::before {
+	margin-top: 56.25%;
+}
+
+.media::before {
+	display: block;
+	content: '';
+}
+
+/* May be added to square media */
+.mediaSquare {
+}
+
+/* May be added to 16:9 media */
+.media16by9 {
+}
+
+/* Wrapper around the title and subtitle area */
+.titleWrapper {
+}
+
+/* Applied to the title */
+.title {
+}
+
+/* Applied to the subtitle */
+.subtitle {
+}

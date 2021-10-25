@@ -1,0 +1,75 @@
+/* The root style of SlidePane */
+.root {
+}
+
+/* Animation for sliding the SlidePane in */
+.slideIn,
+/* Animation for sliding the SlidePane out */
+.slideOut {
+	transition: transform ease-in-out var(--short-animation-duration);
+}
+
+/* Added when a visible underlay is used */
+.underlayVisible {
+	background: var(--underlay-background);
+}
+
+/* Contains the children of the SlidePane */
+.content {
+}
+
+/* Contains the pane */
+.pane {
+	background-color: var(--component-background);
+}
+
+/* Added to the title */
+.title {
+	position: relative;
+}
+
+/* The text content of the title */
+.titleContent {
+}
+
+/* Added to the close button */
+.close {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 35px;
+	cursor: pointer;
+	font-size: 0;
+	border: none;
+	background: none;
+}
+
+/* Added to the close icon */
+.closeIcon {
+	font-size: 14px;
+}
+
+/* Added to a left-aligned pane */
+.left {
+	transform: translateX(-100%);
+}
+
+/* Added to a right-aligned pane */
+.right {
+	transform: translateX(100%);
+}
+
+/* Added to a top-aligned pane */
+.top {
+	transform: translateY(-100%);
+}
+
+/* Added to a bottom-aligned pane */
+.bottom {
+	transform: translateY(100%);
+}
+
+/* Added to an open slide pane */
+.open {
+	transform: translate(0, 0);
+}

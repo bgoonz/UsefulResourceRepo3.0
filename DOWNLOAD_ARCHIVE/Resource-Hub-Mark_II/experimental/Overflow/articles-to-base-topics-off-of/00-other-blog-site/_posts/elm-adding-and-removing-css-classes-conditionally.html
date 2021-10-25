@@ -1,0 +1,79 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>In the react ecosystem, <a href="https://www.npmjs.com/package/classnames">classnames</a> modules is everyones
+      favorite to conditionally add and remove css classes.</p>
+    <p>ELM, provide built in support for the same by <a
+        href="http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html-Attributes#classList">classList</a> in
+      <code>Html.Attributes</code>
+    </p>
+    <h2 id="using-classlist">Using <code>classList</code></h2>
+    <p><code>classList</code> function will accept a list of <code>Tuples</code>. The type annotation of argument is
+      <code>List (String, Bool)</code>. Each tuple should be paired with a css classname and a boolean value. The second
+      value in <code>Tuple</code> can be expression which yeilds a Boolean value.
+    </p>
+    <pre class="elm"><code>import Html exposing (..)
+import Html.Attributes exposing (classList)
+
+navbar : model -&gt; Html Action
+navbar model =
+  nav [] [
+      a [ classList [
+            (&quot;nav-item&quot;, True),
+            (&quot;active&quot;, model.selectedTab == Home)
+          ]
+        ] [text &quot;Home&quot;],
+      a [ classList [
+            (&quot;nav-item&quot;, True),
+            (&quot;active&quot;, model.selectedTab == About)
+          ]
+        ] [text &quot;About&quot;],
+      a [ classList [
+            (&quot;nav-item&quot;, True),
+            (&quot;active&quot;, model.selectedTab == Talks)
+          ]
+        ] [text &quot;Talks&quot;],
+      a [ classList [
+            (&quot;nav-item&quot;, True),
+            (&quot;active&quot;, model.selectedTab == Feed)
+          ]
+        ] [text &quot;Feed&quot;]
+  ]</code></pre>
+    <p>In the above snippet, the css class <code>nav-item</code> will be always present since it always
+      <code>True</code> but the <code>active</code> class will be added when the associated expression returns true.
+    </p>
+    <p>Hope that helped. Thanks for reading.</p>
+
+  </body>
+
+  
+</html>

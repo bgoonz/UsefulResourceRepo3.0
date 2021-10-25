@@ -1,0 +1,142 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>A good api has a huge impact on the productivity of the team and stability of the product.</p>
+    <p>The secret to designing a good component api is the mix of</p>
+    <ul>
+      <li>splitting the components to smaller components</li>
+      <li>passing minimal data to the components</li>
+      <li>deduce the data from existing data instead of having a separate state.</li>
+      <li>have similar api for similar components</li>
+      <li>Keep it futuristic and extendable</li>
+    </ul>
+    <p>For this post, we will group the components mainly into two categories.</p>
+    <ol type="1">
+      <li>UI Primitive components</li>
+      <li>Functional / Large UI components (Part 2)</li>
+    </ol>
+    <h1 id="ui-primitive-components">UI Primitive components</h1>
+    <p>These are the components usually we put into a component library. To make the best out of the primitive UI
+      components, the api for these components should focus on being generic and extendable. These components are going
+      to be used throughout the whole project in different use cases and to compose larger components.</p>
+    <p>To illustrate the good and bad, we take an example of <code>Button</code> component which is a wrapper to the
+      HTML element button but with some of our product specific customisations.</p>
+    <h1 id="accept-children"><a class="anchor" name="accept-children" href="#accept-children"><i
+          class="anchor-icon"></i></a> Accept <code>children</code></h1>
+    <p>Consider the <code>Button</code> component which has only <code>text</code> prop which can accept a string. And
+      suddenly an new scenario came up to show the text in bold or a new icon for the text. Now this requires changes to
+      our <code>Button</code> api. we need to accept new parameters to make this possible. First thought process for a
+      newbie will add a new prop which can say whether to render the text in bold or add a new prop to accept icon url.
+    </p>
+    <pre class="jsx"><code>// bad
+const Button = ({ text, bold, iconUrl }) =&gt; {
+ const t = bold ? &lt;strong&gt;{text}&lt;/strong&gt; : text;
+ const icon = iconUrl ? &lt;image src={iconUrl} /&gt; : null;
+ return &lt;button&gt;{icon} {t}&lt;/button&gt;;
+}</code></pre>
+    <p>But if we use this approach we keep on adding new props for any new formatting changes in future and end up with
+      lots of props. This will get worse when more customisations like icon placement or other props for the icon.</p>
+    <p>The better solution will be accepting <code>children</code>. By this <code>Button</code> component doesn’t need
+      to make any more changes to add icons or any style changes to the text.</p>
+    <pre class="jsx"><code>// better
+const Button = ({ children }) =&gt; {
+ return &lt;button&gt;{children}&lt;/button&gt;;
+}</code></pre>
+    <p>In this case the developer who uses the button has more control on what and how to render the content/text. if he
+      needs icon</p>
+    <pre class="jsx"><code>&lt;Button&gt;
+   &lt;image src={iconUrl} /&gt;
+   &lt;strong&gt;Hello World&lt;/strong&gt;
+&lt;/Button&gt;</code></pre>
+    <p>In case we have too much usage of Button with Icon we can use <code>Button</code> to compose and create new
+      component <code>ButtomWithIcon</code> for the specific usage.</p>
+    <h1 id="use-the-same-api-as-the-base-component"><a class="anchor" name="same-api-as-base"
+        href="#same-api-as-base"><i class="anchor-icon"></i></a> use the same api as the base component</h1>
+    <p>To make it easy to use our custom component, we can reuse the same api of the base component for our custom
+      component as well. This will help our team to get used to the custom component easily since they don’t want to
+      learn about new props. The custom component will look more familiar to them.</p>
+    <pre class="jsx"><code>// bad
+const Button = ({ children, handleSubmit, enabled }) =&gt; {
+ return &lt;button disabled={!enabled} onClick={handleSubmit}&gt;{children}&lt;/button&gt;;
+}</code></pre>
+    <p>In the above case, the team has to go and check the documentation or the component to figure out which prop to be
+      used. The above api can make the team more confused and difficult to use the component.</p>
+    <p>The better approach will be</p>
+    <pre class="jsx"><code>// better
+const Button = ({children, disabled, onClick}) =&gt; {
+ return (
+   &lt;button disabled={disabled} onClick={onClick}&gt;
+     {children}
+   &lt;/button&gt;
+ );
+}</code></pre>
+    <p>Once we start following the above approach we can extend that into next tip.</p>
+    <h1 id="accept-valid-base-component-props"><a class="anchor" name="accept-valid-base-props"
+        href="#accept-valid-base-props"><i class="anchor-icon"></i></a> Accept valid base component props</h1>
+    <p>Accepting the props which are required only for basic scenarios won’t be enough. We can avoid frequent addition
+      of props when the new requirement arises. using the <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Rest/Spread</a>.
+    </p>
+    <pre class="jsx"><code>// bad
+const Button = ({ children }) =&gt; {
+ return &lt;button&gt;{children}&lt;/button&gt;;
+}</code></pre>
+    <p>The new api using <code>rest</code> will look like</p>
+    <pre class="jsx"><code>// good
+const Button = ({ children, ...rest }) =&gt; {
+ return &lt;button {...rest}&gt;{children}&lt;/button&gt;;
+}</code></pre>
+    <!-- ### Instead of computing inside the component, compute and pass -->
+    <h1 id="avoid-unnecessary-computation"><a class="anchor" name="avoid-unnecessary-computation"
+        href="#avoid-unnecessary-computation"><i class="anchor-icon"></i></a> Avoid unnecessary computation</h1>
+    <p>The primitive UI components should not contain any kind of business logic. Including business logic makes it
+      difficult to use them as generic components.</p>
+    <pre class="jsx"><code>// bad
+const Button = ({ children, name }) =&gt; {
+ const disabled = name === &quot;&quot;;
+ return &lt;button disabled={disabled}&gt;{children}&lt;/button&gt;;
+}</code></pre>
+    <p>The above one has a condition to disable the button when the name is empty. But this won’t be the requirement
+      always. <code>Button</code> component doesn’t need to know on what basis it should render <code>disabled</code>.
+      The condition can be different for each requirement.</p>
+    <pre class="jsx"><code>// better
+const Button = ({ children, disabled, onClick }) =&gt; {
+return &lt;button disabled={disabled} onClick={onClick}&gt;{children}&lt;/button&gt;;
+}
+
+&lt;Button disabled={name === &quot;&quot;} /&gt;</code></pre>
+    <p>We will cover the <code>Functional / Large UI components</code> in the next post.</p>
+
+  </body>
+
+  
+</html>

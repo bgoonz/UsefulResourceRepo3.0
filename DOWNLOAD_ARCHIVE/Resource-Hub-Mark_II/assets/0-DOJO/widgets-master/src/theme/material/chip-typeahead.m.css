@@ -1,0 +1,76 @@
+.root {
+	composes: mdc-text-field from '@material/textfield/dist/mdc.textfield.css';
+	background-color: var(--mdc-theme-on-surface) !important;
+	height: auto !important;
+	display: block !important;
+}
+
+.focused {
+	composes: mdc-text-field--focused from '@material/textfield/dist/mdc.textfield.css';
+}
+
+.root:hover:not(.disabled) {
+	background-color: var(--mdc-theme-on-surface-hover) !important;
+}
+
+.value {
+	margin-bottom: 2px;
+	margin-right: 2px;
+	/* nasty !important needed to override the material 32px */
+	height: 28px !important;
+}
+
+.root.hasLabel .wrapper .inputWrapper .input {
+	padding: 0px 16px 6px;
+}
+
+.selectedIcon {
+	margin-right: 8px;
+}
+
+.root .input {
+	flex-grow: 1;
+	min-width: 100px;
+	width: 100px;
+}
+
+.root .inputWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.values .value {
+	margin: 4px 4px 4px 0;
+}
+
+.root .label {
+	z-index: 1;
+}
+
+.root.hasValue {
+	height: auto;
+}
+
+.root.hasValue .inputWrapper {
+	height: auto;
+	padding-left: 16px;
+}
+
+.root .wrapper {
+	height: auto;
+}
+
+.root .input {
+	height: 36px;
+	padding-left: 16px;
+}
+
+.root.hasValue .label {
+	top: 26px;
+}
+
+.values {
+	padding-left: 16px;
+}

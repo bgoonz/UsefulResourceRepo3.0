@@ -1,0 +1,161 @@
+.root {
+	position: relative;
+	width: calc(var(--mdc-theme-grid-base) * 32);
+	font-family: var(--mdc-theme-font-family);
+	font-size: var(--mdc-font-size-small);
+	color: var(--mdc-text-color);
+	padding: calc(var(--mdc-theme-grid-base) * 2);
+	user-select: none;
+	background: var(--mdc-raised-surface-background);
+}
+
+.monthTrigger,
+.yearTrigger,
+.previous,
+.next {
+	background: none;
+	border: 0;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	padding: 0;
+	cursor: pointer;
+}
+
+.monthTrigger,
+.yearTrigger {
+	padding-right: calc(var(--mdc-theme-grid-base) * 0.75);
+	padding-left: calc(var(--mdc-theme-grid-base) * 1);
+}
+
+.topMatter {
+	padding-bottom: var(--mdc-theme-grid-base);
+}
+
+.weekday,
+.date {
+	width: calc(var(--mdc-theme-grid-base) * 4);
+	height: calc(var(--mdc-theme-grid-base) * 4);
+	text-align: center;
+	position: relative;
+	z-index: 0;
+	cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.monthFields,
+.yearFields {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.inactiveDate {
+	color: var(--mdc-secondary-text-color);
+}
+
+.weekday .abbr {
+	font-weight: 300;
+	text-decoration: none;
+	color: var(--mdc-secondary-text-color);
+}
+
+.selectedDate {
+	color: var(--mdc-theme-on-primary);
+}
+
+.todayDate:before,
+.selectedDate:before,
+.date:not(.inactiveDate):hover:before {
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	width: calc(var(--mdc-theme-grid-base) * 3.5);
+	height: calc(var(--mdc-theme-grid-base) * 3.5);
+	border-radius: 50%;
+	content: '';
+	z-index: -1;
+}
+
+.todayDate:before {
+	border: 1px solid var(--mdc-theme-on-surface);
+}
+
+.selectedDate:before {
+	background-color: var(--mdc-theme-primary);
+}
+
+.date:not(.selectedDate):not(.inactiveDate):hover:before {
+	background-color: var(--mdc-theme-primary);
+	opacity: 0.15;
+}
+
+.controls {
+	height: 0;
+}
+
+.previous,
+.next {
+	position: absolute;
+	top: calc(var(--mdc-theme-grid-base) * 2);
+}
+
+.next {
+	right: var(--mdc-theme-grid-base);
+	right: calc(var(--mdc-theme-grid-base) * 3);
+}
+
+.previous {
+	right: calc(var(--mdc-theme-grid-base) * 9);
+}
+
+.yearRadio,
+.monthRadio {
+	height: calc(var(--mdc-theme-grid-base) * 4);
+	width: calc(var(--mdc-theme-grid-base) * 7);
+	display: inline-flex;
+	margin-left: calc(var(--mdc-theme-grid-base) * -0.5);
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.yearRadioChecked,
+.monthRadioChecked {
+	position: relative;
+	z-index: 0;
+}
+.yearRadioChecked:before,
+.monthRadioChecked:before {
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	width: calc(var(--mdc-theme-grid-base) * 6.5);
+	height: calc(var(--mdc-theme-grid-base) * 3.5);
+	border-radius: calc(var(--mdc-theme-grid-base) * 2);
+	content: '';
+	z-index: -1;
+	background-color: var(--mdc-theme-primary);
+}
+
+.calendarPagingIcon {
+	composes: icon from './icon.m.css';
+}
+
+.yearRadioChecked .yearRadioLabel,
+.monthRadioChecked .monthRadioLabel {
+	color: var(--mdc-theme-on-primary);
+}
+
+.monthRadio,
+.monthRadioLabel[title] {
+	text-decoration: none;
+}
+
+.yearRadioInput,
+.monthRadioInput {
+	display: none;
+}

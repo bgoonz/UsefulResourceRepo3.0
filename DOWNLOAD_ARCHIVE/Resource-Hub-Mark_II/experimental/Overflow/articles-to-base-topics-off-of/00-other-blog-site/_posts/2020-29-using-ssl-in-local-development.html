@@ -1,0 +1,129 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>The first step to using SSL on local development is to generate a self-signed certificate on our development
+      machine. If you are familiar with <code>openssl</code>, you can use it to generate the certificate. But it’s kinda
+      tricky to get valid certificates. The easiest way is to use <a
+        href="https://github.com/FiloSottile/mkcert">mkcert</a> to generate self-signed certificates</p>
+    <h2 id="install-setup-mkcert">Install &amp; setup <code>mkcert</code></h2>
+    <p>On the mac, we can use Homebrew to install it.</p>
+    <pre><code>brew install mkcert
+brew install nss # for firefox</code></pre>
+    <p><code>nss</code> is only required if you are using Firefox</p>
+    <p>If you are on Ubuntu, first install the <code>certutil</code></p>
+    <pre><code>sudo apt install libnss3-tools</code></pre>
+    <p>Then using <a href="https://docs.brew.sh/Homebrew-on-Linux">Linuxbrew</a>, install mkcert</p>
+    <pre><code>brew install mkcert</code></pre>
+    <p>Once the installation is successful, we need to install the <code>rootCA</code> by running</p>
+    <pre><code>mkcert -install</code></pre>
+    <p>Next, we can generate certificates for our projects</p>
+    <pre><code>mkdir ssl/
+mkcert -key-file ssl/key.pem -cert-file ssl/cert.pem &quot;myapp.local&quot;</code></pre>
+    <p>{: style=“text-align: center”} <img src="/assets/images/ssl_in_development/mkcert.png" alt="mkcert" /></p>
+    <p>Now we have the certificate and the key generated in the <code>ssl/</code> folder. Also make sure to add the
+      domain into <code>/etc/hosts</code>, in our case <code>myapp.local</code></p>
+    <pre><code># /etc/hosts
+
+127.0.0.1  myapp.local</code></pre>
+    <p>In the following sections, we will look into how we can use the generate certificate with our different
+      applications.</p>
+    <h2 id="create-react-app-cra">Create React App (CRA)</h2>
+    <p>For <a href="https://create-react-app.dev/">CRA</a>, we can specify the certificate and key in the
+      <code>.env</code> file. Add following into <code>.env.local</code> or <code>.env.development</code></p>
+    <pre class="env"><code>SSL_CRT_FILE=ssl/cert.pem
+SSL_KEY_FILE=ssl/key.pem
+HTTPS=true</code></pre>
+    <p>and restart your server.</p>
+    <h2 id="jekyll">Jekyll</h2>
+    <p>For Jekyll, we can specify the certificates using <code>--ssl-key</code> &amp; <code>--ssl-cert</code> options
+    </p>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">jekyll</span> serve -D --future --ssl-key ssl/key.pem --ssl-cert ssl/cert.pem</a></code></pre>
+    </div>
+    <h2 id="rails">Rails</h2>
+    <p>For rails, we have to do some config changes</p>
+    <p>In <code>webpacker.yml</code>, toggle <code>https</code> to <code>true</code> under <code>development -&gt;
+        dev_server</code>.</p>
+    <div class="sourceCode" id="cb9">
+      <pre
+        class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># config/webpacker.yml</span></a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="fu">development:</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="fu">&lt;&lt;:</span><span class="at"> </span><span class="dt">*default</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="co"># ...</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="co"># ...</span></a>
+<a class="sourceLine" id="cb9-7" title="7">  </a>
+<a class="sourceLine" id="cb9-8" title="8"></a>
+<a class="sourceLine" id="cb9-9" title="9">  <span class="co"># Reference: https://webpack.js.org/configuration/dev-server/</span></a>
+<a class="sourceLine" id="cb9-10" title="10">  <span class="fu">dev_server:</span></a>
+<a class="sourceLine" id="cb9-11" title="11">    <span class="fu">https:</span><span class="at"> </span><span class="ch">true</span></a></code></pre>
+    </div>
+    <p>If you are using a custom local domain like, <code>myapp.local</code> make sure to add that into
+      <code>config.hosts</code> in <code>config/environments/development.rb</code></p>
+    <div class="sourceCode" id="cb10">
+      <pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># config/enviroments/development.rb</span></a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="dt">Rails</span>.application.configure <span class="kw">do</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="co">#...</span></a>
+<a class="sourceLine" id="cb10-5" title="5">  <span class="co">#...</span></a>
+<a class="sourceLine" id="cb10-6" title="6"></a>
+<a class="sourceLine" id="cb10-7" title="7">  config.hosts &lt;&lt; <span class="st">&quot;myapp.local&quot;</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>The local domain might be different for teammates, it’s better to accept the custom domain using
+      <code>ENV</code>. Add <code>HOST</code> to <code>.env.local</code></p>
+    <pre class="env"><code># .env.local
+
+HOST=myapp.local</code></pre>
+    <p>and use the <code>HOST</code> env in the config like below</p>
+    <div class="sourceCode" id="cb12">
+      <pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># config/environments/development.rb</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="dt">Rails</span>.application.configure <span class="kw">do</span></a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="co">#...</span></a>
+<a class="sourceLine" id="cb12-5" title="5">  <span class="co">#...</span></a>
+<a class="sourceLine" id="cb12-6" title="6"></a>
+<a class="sourceLine" id="cb12-7" title="7">  config.hosts &lt;&lt; <span class="dt">ENV</span>.fetch(<span class="st">&quot;HOST&quot;</span>)</a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>Next, we can start the <code>rails server</code> using the <code>-b</code> option.</p>
+    <pre
+      class="shell"><code>rails s -b &quot;ssl://127.0.0.1:3000?key=ssl/key.pem&amp;cert=ssl/cert.pem&quot;</code></pre>
+    <p>{: style=“text-align: center”} <img src="/assets/images/ssl_in_development/myapp-local.png" alt="myapp.local" />
+    </p>
+    <p>Hope that helped.</p>
+
+  </body>
+
+  
+</html>

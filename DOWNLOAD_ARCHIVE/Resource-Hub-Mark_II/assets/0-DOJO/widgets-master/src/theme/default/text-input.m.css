@@ -1,0 +1,67 @@
+/* Added to the input */
+.input {
+}
+/* The root class of TextInput */
+.root {
+}
+
+/* The wrapper around the text input, label, leading, and trailing (not helper text) */
+.wrapper {
+}
+
+/* Contains the input element */
+.inputWrapper {
+}
+
+.inputWrapperFocused {
+}
+/* Added to a disabled TextInput */
+.disabled {
+}
+/* Added to a focused input */
+.focused {
+}
+/* Added to a read-only input */
+.readonly {
+}
+/* Added to a required input */
+.required {
+}
+/* Added when the contents of the TextInput are invalid */
+.invalid {
+}
+/* Root of the addon widget*/
+.addonRoot {
+}
+/* Optional class to render addon filled */
+.addonFilled {
+}
+/* Added to the wrapper when there is leading content */
+.hasLeading {
+}
+/* Added to the wrapper when there is trailing content */
+.hasTrailing {
+}
+
+/* Added to the wrapper if no label is provided */
+.noLabel {
+}
+
+/* passed to the text-input's Label's root component */
+.label {
+}
+
+/* Styles the helper text when the input is invalid */
+.invalid .helperText {
+	color: var(--error-color);
+}
+
+/* Styles the input when the input is invalid */
+.invalid .input {
+	border-color: var(--error-color);
+}
+
+/* Styles the input when the input is valid */
+.valid .input {
+	border-color: var(--success-color);
+}

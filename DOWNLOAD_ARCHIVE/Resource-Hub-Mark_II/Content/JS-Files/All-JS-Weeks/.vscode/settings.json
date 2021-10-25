@@ -1,0 +1,8 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#282b3c",
+    "titleBar.activeForeground": "#eeefff",
+    "workbench.fontAliasing": "antialiased",
+    "explorer.confirmDragAndDrop": false
+  }
+}

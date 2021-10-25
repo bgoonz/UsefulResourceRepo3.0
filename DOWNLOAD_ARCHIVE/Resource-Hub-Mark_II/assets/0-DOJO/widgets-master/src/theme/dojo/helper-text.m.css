@@ -1,0 +1,14 @@
+.root {
+	font-family: var(--font-family);
+}
+
+.text {
+	margin: 0;
+	color: var(--color-text-faded);
+}
+.valid .text {
+	color: var(--color-success);
+}
+.invalid .text {
+	color: var(--color-error);
+}
