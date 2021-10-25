@@ -1,0 +1,2 @@
+var cake = true;
+if (cake) console.log(cake,'This is a cake');

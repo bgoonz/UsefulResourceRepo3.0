@@ -1,0 +1,17 @@
+var stevenTestScores = [10,10,10,10,10,10];
+
+function averageTestScore(testScores){
+  
+var testScoreSum = 0;
+var numberOfTests = testScores.length;
+var average = (testScoreSum / numberOfTests);
+  
+  for (var i = 0; i < testScores.length; i++) {
+     testScoreSum += testScores[i];
+   }
+  console.log('Sum of Test Scores: ' + testScoreSum);
+  console.log('Total Number of Tests: ' + numberOfTests);
+  console.log('Average: ' + average);
+}
+
+console.log(averageTestScore(stevenTestScores));

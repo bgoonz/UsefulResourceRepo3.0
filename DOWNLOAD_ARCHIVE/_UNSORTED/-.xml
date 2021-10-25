@@ -1,0 +1,5 @@
+Add rooms to your database
+
+./manage.py shell
+Copy/paste the contents of util/create_world.py into the Python interpreter
+Exit the interpreter

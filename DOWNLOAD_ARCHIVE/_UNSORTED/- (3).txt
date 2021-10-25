@@ -1,0 +1,6 @@
+const flatten = (elements) => {
+  const myNewArray = elements.reduce((prev, curr) => {
+    return prev.concat(curr);
+  });
+  return myNewArray;
+};

@@ -1,0 +1,4 @@
+const counter = (cb) => {
+  let counter = 0;
+  return cb(counter);   
+};

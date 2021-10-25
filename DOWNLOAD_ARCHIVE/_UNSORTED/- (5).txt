@@ -1,0 +1,42 @@
+//----------Version that works-----------------//
+const counter = () => {
+  let counter = 0;
+  return () => {
+    counter++;
+    return counter;
+  };
+};
+
+const newCounter = counter();
+console.log(newCounter()); // 1
+console.log(newCounter()); // 2
+
+//-----------Version 2, does not work--------------//
+const counter = (cb) => {
+  let counter = 0;
+  return cb(counter);   
+};
+
+const incrementOne = (input) => {
+  input++;
+  return input;  
+};
+
+const newCounter = counter(incrementOne);
+console.log(newCounter()); // TypeError: newCounter is not a function
+console.log(newCounter()); // TypeError: newCounter is not a function
+
+//------------Version 3, does not work--------------//
+const counter = (cb) => {
+  let counter = 0;
+  return cb(counter);   
+};
+
+const incrementOne = (input) => {
+  input++;
+  return input;  
+};
+
+const newCounter = counter(incrementOne);
+console.log(newCounter); // 1
+console.log(newCounter); // 1
