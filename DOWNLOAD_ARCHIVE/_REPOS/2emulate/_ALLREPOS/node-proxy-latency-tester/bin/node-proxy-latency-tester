@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const cli = require('cli');
+const proxy = require('../lib/node-proxy-latency-tester');
+
+const options = cli.parse({
+  target: ['t', 'target port (service port)', 'int', 8080],
+  forward: ['f', 'forward port (new port through proxy)', 'int', 7070],
+  latency: ['l', 'latency in ms', 'int', 0]
+});
+
+// cli.debug(JSON.stringify(options));
+
+proxy(options, cli);

@@ -1,0 +1,35 @@
+{
+  "name": "node-proxy-latency-tester",
+  "version": "1.0.0",
+  "description": "Node proxy for simulating webserver latencies on localhost or testing enviroments (CI)",
+  "main": "./lib/node-proxy-latency-tester",
+  "bin": {
+    "node-proxy-latency-tester": "./bin/node-proxy-latency-tester",
+    "np": "./bin/node-proxy-latency-tester"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian Mejia <me@adrianmejia.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amejiarosario/node-proxy-latency-tester.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amejiarosario/node-proxy-latency-tester/issues"
+  },
+  "keywords": [
+    "cli",
+    "http",
+    "proxy",
+    "tester",
+    "latency"
+  ],
+  "dependencies": {
+    "cli": "1.0.1"
+  },
+  "engines": {
+    "node": ">=4.2.4"
+  }
+}
