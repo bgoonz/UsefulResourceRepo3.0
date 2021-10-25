@@ -1,0 +1,110 @@
+{
+  "__stdlib__": {},
+  "_from": "@stdlib/utils-global@^0.0.x",
+  "_id": "@stdlib/utils-global@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-I40vkISJ+TFak8HYIhtNMx2ILj9NGkYuey0YqGC+fBo1/cNm4GET4DbTlFKc6N4jEzZDRQyDxQjAK+9iBC75yw==",
+  "_location": "/@stdlib/utils-global",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/utils-global@^0.0.x",
+    "name": "@stdlib/utils-global",
+    "escapedName": "@stdlib%2futils-global",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/utils-type-of"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/utils-global/-/utils-global-0.0.6.tgz",
+  "_shasum": "7cb809ab0399b966dd976b69d2e3e0346a0be6fa",
+  "_spec": "@stdlib/utils-global@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/utils-type-of",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-is-boolean": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Return the global object.",
+  "devDependencies": {
+    "@stdlib/bench": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "proxyquire": "^2.0.0",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdutils",
+    "stdutil",
+    "utilities",
+    "utility",
+    "utils",
+    "util",
+    "global",
+    "system",
+    "environment",
+    "window",
+    "self",
+    "context"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/utils-global",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/utils-global.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

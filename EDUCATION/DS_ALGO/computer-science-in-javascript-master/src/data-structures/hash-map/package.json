@@ -1,0 +1,32 @@
+{
+  "name": "@humanwhocodes/hash-map",
+  "version": "2.0.0",
+  "description": "A hash map implementation in JavaScript",
+  "main": "hash-map.js",
+  "scripts": {
+    "test": "npx mocha ../../../tests/data-structures/hash-map/hash-map.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanwhocodes/computer-science-in-javascript.git"
+  },
+  "keywords": [
+    "hash",
+    "hash table",
+    "hash map",
+    "data structure",
+    "iterable"
+  ],
+  "author": "Nicholas C. Zakas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/humanwhocodes/computer-science-in-javascript/issues"
+  },
+  "homepage": "https://github.com/humanwhocodes/computer-science-in-javascript#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "@humanwhocodes/doubly-linked-list": "^2.2.0"
+  }
+}
