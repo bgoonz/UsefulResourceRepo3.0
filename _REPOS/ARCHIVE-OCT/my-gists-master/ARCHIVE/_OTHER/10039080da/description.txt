@@ -1,1 +1,0 @@
-for..of iteration semantics with data structures and generators

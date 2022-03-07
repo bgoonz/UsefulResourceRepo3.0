@@ -1,1 +1,0 @@
-Easy problem, do what the problem asks you to do.

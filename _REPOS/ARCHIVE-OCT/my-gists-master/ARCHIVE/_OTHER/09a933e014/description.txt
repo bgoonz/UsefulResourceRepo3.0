@@ -1,1 +1,0 @@
-Popular package manager manifest files on open source github repositories

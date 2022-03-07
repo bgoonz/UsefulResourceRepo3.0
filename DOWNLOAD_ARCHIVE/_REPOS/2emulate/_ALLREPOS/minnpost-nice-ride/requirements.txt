@@ -1,4 +1,0 @@
-fabric
-psycopg2
-dateutils
-ppygis

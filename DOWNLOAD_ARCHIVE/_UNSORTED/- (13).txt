@@ -1,5 +1,0 @@
-<p>This is a practice paragraph</p>
-        <ul class="item">
-            <li class = "item">
-                <img src="lambdawhite.png">
-            </li>

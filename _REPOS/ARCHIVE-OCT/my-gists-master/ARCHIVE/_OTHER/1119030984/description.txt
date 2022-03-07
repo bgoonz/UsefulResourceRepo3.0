@@ -1,1 +1,0 @@
-Downloading and Configuring PyPy under virtualenv

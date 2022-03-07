@@ -1,6 +1,0 @@
-{
-  "plugins": ["transform-computed-properties"],
-  "assumptions": {
-    "setComputedProperties": true
-  }
-}

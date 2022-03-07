@@ -1,4 +1,0 @@
-{
-  "args": ["--expose_gc", "payload.js"],
-  "stdout": "function true\nfunction false"
-}

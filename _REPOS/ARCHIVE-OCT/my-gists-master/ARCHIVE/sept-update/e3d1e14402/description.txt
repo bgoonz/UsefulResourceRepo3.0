@@ -1,1 +1,0 @@
-automating development workflow with bash

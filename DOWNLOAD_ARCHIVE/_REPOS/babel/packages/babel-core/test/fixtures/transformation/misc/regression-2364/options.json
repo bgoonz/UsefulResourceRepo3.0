@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    "transform-parameters",
-    "transform-arrow-functions",
-    "transform-block-scoping"
-  ]
-}

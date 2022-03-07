@@ -1,1 +1,0 @@
-const deepAssign = (...args) => args = [];

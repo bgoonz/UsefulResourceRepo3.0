@@ -1,6 +1,0 @@
-{
-  "plugins": [
-    "transform-block-scoping",
-    ["proposal-object-rest-spread", { "loose": true }]
-  ]
-}

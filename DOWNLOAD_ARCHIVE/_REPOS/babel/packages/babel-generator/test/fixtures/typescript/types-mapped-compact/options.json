@@ -1,5 +1,0 @@
-{
-  "compact": true,
-  "sourceType": "module",
-  "plugins": ["typescript"]
-}

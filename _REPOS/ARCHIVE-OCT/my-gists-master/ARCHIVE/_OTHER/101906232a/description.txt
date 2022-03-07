@@ -1,1 +1,0 @@
-This is a example of Dependency Injection and Unit Tests with Delphi-Mocks (https://github.com/VSoftTechnologies/Delphi-Mocks) and Spring4D (https://bitbucket.org/sglienke/spring4d)

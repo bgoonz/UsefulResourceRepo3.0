@@ -1,4 +1,0 @@
-= Article
-:stem: asciimath
-
-Inline stem: stem:[y=x^2 sqrt(4)]

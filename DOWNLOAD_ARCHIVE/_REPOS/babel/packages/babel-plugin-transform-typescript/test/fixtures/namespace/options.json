@@ -1,4 +1,0 @@
-{
-  "plugins": [["transform-typescript", { "allowNamespaces": true }]],
-  "sourceType": "module"
-}

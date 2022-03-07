@@ -1,2 +1,0 @@
-# knochenmark.github.io
-portfolio

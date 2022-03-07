@@ -1,1 +1,0 @@
-It seems that the input data is so large that you cannot use `parseInt` & `toString`, so you should do it with the most stupid way..

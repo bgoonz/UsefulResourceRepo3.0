@@ -1,2 +1,0 @@
-babel:
-  --out-file and --out-dir cannot be used together

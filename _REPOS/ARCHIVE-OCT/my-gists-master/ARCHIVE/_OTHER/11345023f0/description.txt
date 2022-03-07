@@ -1,1 +1,0 @@
-ilustrating the diff in hoisting behavior that surprises me

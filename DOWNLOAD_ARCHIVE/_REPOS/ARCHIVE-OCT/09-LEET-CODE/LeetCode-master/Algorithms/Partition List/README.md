@@ -1,1 +1,0 @@
-I just use the most stupid way, cut the list into nodes, do something, and make a new list from nodes.

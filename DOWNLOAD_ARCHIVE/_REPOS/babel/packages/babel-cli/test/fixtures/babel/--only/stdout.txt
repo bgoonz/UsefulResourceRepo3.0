@@ -1,2 +1,0 @@
-src/bar/index.js -> lib/bar/index.js
-Successfully compiled 1 file with Babel (123ms).

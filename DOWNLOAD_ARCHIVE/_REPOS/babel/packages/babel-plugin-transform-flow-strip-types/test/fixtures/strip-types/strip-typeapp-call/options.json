@@ -1,6 +1,0 @@
-{
-  "plugins": [
-    "syntax-jsx",
-    "transform-flow-strip-types"
-  ]
-}

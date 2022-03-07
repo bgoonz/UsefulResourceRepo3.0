@@ -1,9 +1,0 @@
-{
-    "extends": "dtslint/dt.json",
-    "rules": {
-        // TODOs
-        "no-unnecessary-qualifier": false,
-        "no-boolean-literal-compare": false,
-        "no-unnecessary-generics": false
-    }
-}

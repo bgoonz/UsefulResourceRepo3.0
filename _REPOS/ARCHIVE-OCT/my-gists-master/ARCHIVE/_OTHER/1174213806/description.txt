@@ -1,1 +1,0 @@
-how to use LABjs to load nested resources serially, with callbacks

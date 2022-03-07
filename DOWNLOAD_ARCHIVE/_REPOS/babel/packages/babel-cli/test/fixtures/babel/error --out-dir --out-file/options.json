@@ -1,4 +1,0 @@
-{
-  "args": ["--out-dir", "lib"],
-  "stderrContains": true
-}

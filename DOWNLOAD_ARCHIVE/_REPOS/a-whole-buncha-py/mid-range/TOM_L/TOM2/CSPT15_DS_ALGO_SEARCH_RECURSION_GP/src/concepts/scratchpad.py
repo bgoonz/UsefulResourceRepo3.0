@@ -1,1 +1,0 @@
-# somewhere for general ideas

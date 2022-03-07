@@ -1,1 +1,0 @@
-An easy problem, and be careful! You should think it over from two directions!(a to b, and also b to a)

@@ -1,3 +1,0 @@
-import collections
-d = collections.defaultdict
-dl = d(list)

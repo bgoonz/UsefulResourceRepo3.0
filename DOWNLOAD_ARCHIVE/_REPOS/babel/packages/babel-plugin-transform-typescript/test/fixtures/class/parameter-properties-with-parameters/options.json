@@ -1,4 +1,0 @@
-{
-  "plugins": ["transform-typescript", "transform-parameters"],
-  "sourceType": "module"
-}

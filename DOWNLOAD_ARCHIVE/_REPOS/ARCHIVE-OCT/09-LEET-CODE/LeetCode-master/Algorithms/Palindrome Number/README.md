@@ -1,1 +1,0 @@
-Use `toString`, `split`, `reverse` and `join`, it's easy.

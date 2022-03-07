@@ -1,1 +1,0 @@
-If you're not a billing manager for the organization, ask your client to have an _owner_ of the organization [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization).

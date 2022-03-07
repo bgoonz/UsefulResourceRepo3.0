@@ -1,3 +1,0 @@
-= Subchapter B
-
-[[anchor,label]]Anchors rock!

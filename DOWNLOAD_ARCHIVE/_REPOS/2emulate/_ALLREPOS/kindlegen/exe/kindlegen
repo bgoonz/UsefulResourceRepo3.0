@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-require 'kindlegen'
-system(Kindlegen.command.to_s, *ARGV)

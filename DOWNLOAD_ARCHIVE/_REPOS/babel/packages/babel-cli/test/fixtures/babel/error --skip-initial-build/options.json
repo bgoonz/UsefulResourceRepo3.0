@@ -1,4 +1,0 @@
-{
-  "args": ["--skip-initial-build"],
-  "stderrContains": true
-}

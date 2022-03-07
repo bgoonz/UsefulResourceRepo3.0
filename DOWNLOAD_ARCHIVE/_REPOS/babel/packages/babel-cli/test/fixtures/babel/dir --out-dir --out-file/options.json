@@ -1,3 +1,0 @@
-{
-  "args": ["src", "--out-dir", "lib", "--out-file", "compiled.js"]
-}

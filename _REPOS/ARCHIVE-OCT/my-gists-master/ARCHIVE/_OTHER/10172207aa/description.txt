@@ -1,1 +1,0 @@
-using asynquence's `runner(..)` plugin to do async CSP-style (message-passing) generator co-routines

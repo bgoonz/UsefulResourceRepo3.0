@@ -1,1 +1,0 @@
-Use `Array.reduce` and `Array.every` to make it easier.

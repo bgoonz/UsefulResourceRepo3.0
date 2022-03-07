@@ -1,7 +1,0 @@
-{
-  "dependencies": {},
-  "description": "TypeScript definitions for test-console 1.1.0",
-  "name": "@types/test-console",
-  "typings": "index.d.ts",
-  "version": "1.1.0"
-}

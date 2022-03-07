@@ -1,3 +1,0 @@
-{
-  "args": ["--watch", "--out-file", "out.js", "--no-babelrc"]
-}

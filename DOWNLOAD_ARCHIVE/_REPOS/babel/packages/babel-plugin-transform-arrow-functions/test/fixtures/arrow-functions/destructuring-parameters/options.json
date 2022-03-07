@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    "transform-destructuring",
-    "transform-parameters",
-    "transform-arrow-functions"
-  ]
-}

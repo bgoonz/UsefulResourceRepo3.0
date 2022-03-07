@@ -1,3 +1,0 @@
-= Title
-
-<<nonexistent,xref to nowhere>>

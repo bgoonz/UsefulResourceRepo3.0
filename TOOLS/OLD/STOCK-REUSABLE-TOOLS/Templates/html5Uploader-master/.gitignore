@@ -1,4 +1,0 @@
-public_html/server/php/files/[^.]*
-mysql-credentials.php
-delete_old_files_html5uploader.sh
-logs

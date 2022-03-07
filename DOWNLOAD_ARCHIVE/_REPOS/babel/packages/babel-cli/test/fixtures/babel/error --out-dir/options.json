@@ -1,4 +1,0 @@
-{
-  "args": ["--out-dir", "lib", "--out-file", "foo.js"],
-  "stderrContains": true
-}

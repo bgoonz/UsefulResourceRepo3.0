@@ -1,1 +1,0 @@
-A example of Pattern Strategy (GoF). context is IText, strategy is IFormatter and client is Application.

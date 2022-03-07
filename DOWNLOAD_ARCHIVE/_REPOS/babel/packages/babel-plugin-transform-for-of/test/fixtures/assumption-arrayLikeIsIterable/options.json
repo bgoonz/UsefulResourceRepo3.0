@@ -1,6 +1,0 @@
-{
-  "plugins": ["transform-for-of"],
-  "assumptions": {
-    "arrayLikeIsIterable": true
-  }
-}

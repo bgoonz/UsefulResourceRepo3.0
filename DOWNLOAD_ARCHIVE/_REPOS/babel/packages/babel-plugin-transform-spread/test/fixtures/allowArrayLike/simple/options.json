@@ -1,3 +1,0 @@
-{
-  "plugins": [["transform-spread", { "allowArrayLike": true }]]
-}

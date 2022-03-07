@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.build.json",
-  "include": ["src/**/*", "test/**/*"],
-  "exclude": ["dist"],
-  "compilerOptions": {
-    "rootDir": ".",
-    "types": ["node", "mocha", "chai", "sinon"]
-  }
-}

@@ -1,3 +1,0 @@
-{
-  "args": ["src", "--out-file", "test.js"]
-}

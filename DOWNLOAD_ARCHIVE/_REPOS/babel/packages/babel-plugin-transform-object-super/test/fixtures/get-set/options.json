@@ -1,4 +1,0 @@
-{
-  "minNodeVersion": "6.0.0",
-  "plugins": ["transform-object-super"]
-}

@@ -1,3 +1,0 @@
-# I used to be an art director...
-
-I know what does the aesthetics mean and I know how important the details are.

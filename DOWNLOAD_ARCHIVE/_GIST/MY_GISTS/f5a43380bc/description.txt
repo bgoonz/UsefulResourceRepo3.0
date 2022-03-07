@@ -1,1 +1,0 @@
-jquerry-strip-html-tag.js

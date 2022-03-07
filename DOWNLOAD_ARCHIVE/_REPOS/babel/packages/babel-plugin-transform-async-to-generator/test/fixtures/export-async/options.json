@@ -1,3 +1,0 @@
-{
-  "plugins": ["transform-modules-commonjs", "transform-async-to-generator"]
-}

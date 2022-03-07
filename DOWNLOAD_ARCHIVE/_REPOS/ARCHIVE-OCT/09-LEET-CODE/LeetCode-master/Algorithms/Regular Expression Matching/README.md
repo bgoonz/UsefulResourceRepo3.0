@@ -1,1 +1,0 @@
-It is easy using JavaScript, just use raw regular expression, the basic usage.

@@ -1,2 +1,0 @@
-Preset was loaded, so --presets was used.
-foo

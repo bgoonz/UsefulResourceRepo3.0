@@ -1,5 +1,0 @@
-.cache
-public
-node_modules
-./*.js
-./.*.js

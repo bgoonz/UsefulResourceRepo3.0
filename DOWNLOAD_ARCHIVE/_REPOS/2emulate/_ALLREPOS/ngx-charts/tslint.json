@@ -1,9 +1,0 @@
-{
-  "rulesDirectory": ["codelyzer"],
-  "extends": ["codelyzer", "tslint-config-swimlane/base", "tslint-config-prettier"],
-  "rules": {
-    "no-implicit-dependencies": [false, "dev"],
-    "directive-selector": [false],
-    "component-selector": [false]
-  }
-}

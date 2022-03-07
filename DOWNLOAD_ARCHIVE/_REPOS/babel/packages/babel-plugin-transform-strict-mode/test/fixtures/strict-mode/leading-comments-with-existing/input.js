@@ -1,2 +1,0 @@
-// comments
-module.exports = {};

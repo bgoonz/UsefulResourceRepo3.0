@@ -1,4 +1,0 @@
-{
-  "minified": true,
-  "plugins": ["classStaticBlock"]
-}

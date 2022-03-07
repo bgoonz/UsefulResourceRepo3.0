@@ -1,3 +1,0 @@
-- [ ] Logging
-- [ ] Clean up responses
-- [ ] Rate limiting

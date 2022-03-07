@@ -1,8 +1,0 @@
-export { useTheme } from './context'
-export { TypeStyle } from './TypeStyle'
-export { TypeScale } from './TypeScale'
-export { HeadingStyle } from './HeadingStyle'
-export { FontFamily } from './FontFamily'
-export { ColorSwatch } from './ColorSwatch'
-export { ColorPalette } from './ColorPalette'
-// export { SpaceScale } from './SpaceScale'

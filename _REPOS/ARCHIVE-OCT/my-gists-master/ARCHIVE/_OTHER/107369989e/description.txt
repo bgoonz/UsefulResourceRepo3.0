@@ -1,1 +1,0 @@
-Show hidden files and hidden folders (except .git) in your TextMate project drawer

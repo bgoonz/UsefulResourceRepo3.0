@@ -1,3 +1,0 @@
-Carloss-MacBook-Pro:my-test-app carlosmontoya$ ls
-README.md	node_modules	package.json	public		src
-Carloss-MacBook-Pro:my-test-app carlosmontoya$ 

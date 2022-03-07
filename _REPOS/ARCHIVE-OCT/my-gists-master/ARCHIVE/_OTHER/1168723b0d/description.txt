@@ -1,1 +1,0 @@
-maybe one way to serve images only to non-js browsers

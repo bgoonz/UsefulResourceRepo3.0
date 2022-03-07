@@ -1,1 +1,0 @@
-Simple dynamic programming problem.

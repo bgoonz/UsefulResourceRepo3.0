@@ -1,4 +1,0 @@
-{
-  "retainLines": true,
-  "plugins": [["decorators", { "decoratorsBeforeExport": true }]]
-}

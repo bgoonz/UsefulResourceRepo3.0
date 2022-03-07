@@ -1,1 +1,0 @@
-I just solve it with the most stupid way, step by step as the question tells us to do. Maybe it can be solved with regular expression.

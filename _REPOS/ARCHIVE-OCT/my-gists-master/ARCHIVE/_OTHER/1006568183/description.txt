@@ -1,1 +1,0 @@
-asynquence iterable-sequences are now `for..of` iterable!

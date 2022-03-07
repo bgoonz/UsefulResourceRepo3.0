@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    "transform-parameters",
-    "transform-classes",
-    "transform-modules-commonjs",
-    "transform-block-scoping"
-  ]
-}

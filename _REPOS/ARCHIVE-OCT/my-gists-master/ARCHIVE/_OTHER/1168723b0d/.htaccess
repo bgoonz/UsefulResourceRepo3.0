@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^kitty.jpg /nothing [R=204,L]

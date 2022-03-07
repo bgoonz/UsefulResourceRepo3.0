@@ -1,1 +1,0 @@
-javascript operators.md

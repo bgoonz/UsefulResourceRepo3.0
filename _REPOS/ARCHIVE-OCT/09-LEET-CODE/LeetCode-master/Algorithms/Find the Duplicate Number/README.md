@@ -1,1 +1,0 @@
-I don't follow the requirement of this problem,  that use only O(1) extra space. I use O(n), but still pass it.

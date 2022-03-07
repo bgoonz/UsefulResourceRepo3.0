@@ -1,6 +1,0 @@
-{
-  "plugins": ["transform-destructuring"],
-  "assumptions": {
-    "arrayLikeIsIterable": true
-  }
-}

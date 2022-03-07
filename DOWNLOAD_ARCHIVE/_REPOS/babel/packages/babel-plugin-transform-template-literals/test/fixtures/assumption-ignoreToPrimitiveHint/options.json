@@ -1,6 +1,0 @@
-{
-  "plugins": ["transform-template-literals"],
-  "assumptions": {
-    "ignoreToPrimitiveHint": true
-  }
-}

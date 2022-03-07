@@ -1,1 +1,0 @@
-Use `split` and `sort`, easy solution.

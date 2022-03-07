@@ -1,7 +1,0 @@
-{
-  "caller": {
-    "name": "test-fixture",
-    "supportsStaticESM": false
-  },
-  "presets": [["env", { "targets": { "browsers": "ie 6" } }]]
-}

@@ -1,4 +1,0 @@
-{
-  "plugins": ["jsx"],
-  "throws": "Unexpected token (1:13)"
-}

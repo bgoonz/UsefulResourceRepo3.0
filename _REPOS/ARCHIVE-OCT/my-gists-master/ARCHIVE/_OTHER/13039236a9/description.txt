@@ -1,1 +1,0 @@
-possible API for asyncGate.js... what do you think?

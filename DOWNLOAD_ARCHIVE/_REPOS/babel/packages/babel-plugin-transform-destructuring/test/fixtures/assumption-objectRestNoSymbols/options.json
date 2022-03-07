@@ -1,6 +1,0 @@
-{
-  "plugins": ["transform-destructuring"],
-  "assumptions": {
-    "objectRestNoSymbols": true
-  }
-}
