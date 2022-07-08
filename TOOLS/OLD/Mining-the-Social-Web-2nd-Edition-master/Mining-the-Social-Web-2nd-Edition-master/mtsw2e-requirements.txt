@@ -18,7 +18,7 @@ networkx==1.7
 nltk==2.0.4
 oauthlib==0.4.1
 prettytable==0.7.1
-pymongo==2.5.1
+pymongo==2.5.2
 python-dateutil==2.1
 python-gflags==2.0
 python-linkedin
